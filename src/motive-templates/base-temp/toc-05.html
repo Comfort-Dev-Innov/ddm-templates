@@ -1,0 +1,400 @@
+<html>
+  <head>
+    <style>
+      .tocWrapper {
+        width: 100%;
+        background: #00095b;
+      }
+
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #cfd1d4;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 24px !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      .toc-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 45px 100px;
+        margin: 0 0 40px 0;
+      }
+
+      .toc-list-desktop {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        columns: 2;
+        column-gap: 15px;
+        margin-top: 30px;
+      }
+
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .toc-list-desktop li {
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 15px;
+      }
+
+      /* Force earlier column break so left side is better utilized */
+      .toc-list-desktop li:nth-child(6) {
+        -webkit-column-break-before: always;
+        break-before: column;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: #0f3079;
+        font-size: 12px;
+        line-height: 1.6;
+        transition: left 0.2s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        left: 5px;
+      }
+
+      .toc-list-desktop li p,
+      .toc-list-mobile li p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #0f3079;
+        text-decoration: underline;
+      }
+
+      .toc-list-mobile {
+        display: none;
+        grid-template-columns: 1fr;
+      }
+
+      /* Sub-bullets styling */
+      .sub-bullets {
+        display: block !important;
+        margin-top: 10px;
+      }
+
+      .sub-bullets p {
+        position: relative !important;
+        padding-left: 20px !important;
+        margin-bottom: 8px !important;
+        margin-top: 0 !important;
+      }
+
+      .sub-bullets p::before {
+        content: "➥";
+        position: absolute !important;
+        left: 0;
+        top: 2px;
+        color: #0f3079 !important;
+        font-size: 12px;
+        line-height: 1.6;
+        transition: left 0.2s ease;
+      }
+
+      .sub-bullets p:hover::before {
+        left: 5px;
+      }
+
+      .sub-bullets a {
+        font-size: 14px !important;
+        color: #666 !important;
+        font-weight: 400 !important;
+      }
+
+      .sub-bullets a:hover {
+        color: #0f3079 !important;
+        text-decoration: underline !important;
+      }
+
+      @media (max-width: 1024px) {
+        .tocContainer {
+          margin: 0;
+        }
+
+        .toc-section {
+          padding: 45px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .tocContainer {
+          padding: 0 15px 40px 15px !important;
+        }
+
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tocWrapper">
+      <div class="tocContainer">
+        <section class="toc-section">
+          <h3 class="section-title toc-title">Table of Contents</h3>
+          <!-- TOC on Desktop -->
+          <ul class="toc-list-desktop">
+            <li>
+              <p>
+                <a href="#comprehensive-overview"
+                  >Comprehensive Overview: Ford Escape vs. Subaru Forester
+                </a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#contenders"
+                  >Introducing the Contenders: The Escape and the Forester</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#performance-and-driving-dynamics"
+                  >Performance and Driving Dynamics: Commanding the Road</a
+                >
+              </p>
+              <span class="sub-bullets">
+                <p>
+                  <a href="#powertrain"
+                    >Powertrain Innovations</a
+                  >
+                </p>
+                <p>
+                  <a href="#ride-quality"
+                    >Handling and Ride Quality</a
+                  >
+                </p>
+              </span>
+            </li>
+            <li>
+              <p>
+                <a href="#exterior-design"
+                  >Exterior Design: Boldness Meets Utility</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#interior-space"
+                  >Interior Space and Comfort: Room for Everyone</a
+                >
+              </p>
+              <span class="sub-bullets">
+                <p>
+                  <a href="#seating-ergonomics"
+                    >Seating Ergonomics and Materials</a
+                  >
+                </p>
+                <p>
+                  <a href="#cargo"
+                    >Cargo Capacity and Practicality</a
+                  >
+                </p>
+              </span>
+            </li>
+            <li>
+              <p>
+                <a href="#technology-section"
+                  >Technology and Connectivity: Staying Connected Effortlessly</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#safety-section"
+                  >Safety and Driver Assistance: Comprehensive Peace of Mind</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#fuel-efficiency-section"
+                  >Fuel Efficiency: Saving More At The Pump</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#value-proposition-section"
+                  >Value Proposition and Ownership Costs: Smart Investment</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#final-verdict-section"
+                  >Final Verdict: Why the Ford Escape Reigns Supreme</a
+                >
+              </p>
+            </li>
+          </ul>
+
+          <!-- TOC on Mobile -->
+          <ul class="toc-list-mobile">
+            <li>
+              <p>
+                <a href="#comprehensive-overview"
+                  >Comprehensive Overview: Ford Escape vs. Subaru Forester
+                </a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#contenders"
+                  >Introducing the Contenders: The Escape and the Forester</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#performance-and-driving-dynamics"
+                  >Performance and Driving Dynamics: Commanding the Road</a
+                >
+              </p>
+              <span class="sub-bullets">
+                <p>
+                  <a href="#powertrain"
+                    >Powertrain Innovations</a
+                  >
+                </p>
+                <p>
+                  <a href="#ride-quality"
+                    >Handling and Ride Quality</a
+                  >
+                </p>
+              </span>
+            </li>
+            <li>
+              <p>
+                <a href="#exterior-design"
+                  >Exterior Design: Boldness Meets Utility</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#interior-space"
+                  >Interior Space and Comfort: Room for Everyone</a
+                >
+              </p>
+              <span class="sub-bullets">
+                <p>
+                  <a href="#seating-ergonomics"
+                    >Seating Ergonomics and Materials</a
+                  >
+                </p>
+                <p>
+                  <a href="#cargo"
+                    >Cargo Capacity and Practicality</a
+                  >
+                </p>
+              </span>
+            </li>
+            <li>
+              <p>
+                <a href="#technology-section"
+                  >Technology and Connectivity: Staying Connected Effortlessly</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#safety-section"
+                  >Safety and Driver Assistance: Comprehensive Peace of Mind</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#fuel-efficiency-section"
+                  >Fuel Efficiency: Saving More At The Pump</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#value-proposition-section"
+                  >Value Proposition and Ownership Costs: Smart Investment</a
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#final-verdict-section"
+                  >Final Verdict: Why the Ford Escape Reigns Supreme</a
+                >
+              </p>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Paragraph Text Start - Variant 03 */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-indent: 1rem;
+        text-align: justify;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-03 {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        /* background: linear-gradient(180deg, #fbfdff 0%, #ffffff 100%); */
+        /* border: 1px solid #e5e7eb; */
+        /* border-radius: 14px; */
+        padding: 1.25rem 1.5rem 1.5rem;
+        /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); */
+      }
+
+      /* .paragraph-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+        background: linear-gradient(90deg, #0f3079 0%, #3b82f6 100%);
+      } */
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-indent: 1.5rem;
+          text-align: justify;
+        }
+      }
+
+      /* Paragraph Style End */
+    </style>
+  </head>
+  <body>
+    <div class="paragraph-container-03">
+      <h1>Paragraph Variant 03</h1>
+      <p class="paragraph-text">
+        <strong>
+          This variant uses a soft card background with a gradient accent bar on
+          top, while keeping typography and spacing consistent with other
+          paragraph templates.</strong
+        >
+      </p>
+      <p class="paragraph-text">
+        It is designed to be dropped into sections where you want a slightly
+        more prominent visual treatment than a plain paragraph, without being as
+        bold as a full highlighted panel.
+      </p>
+      <p class="paragraph-text">
+        You can include links like
+        <a class="paragraph-hyperlink" href="#">this example link</a> which
+        retains the brand accent color.
+      </p>
+    </div>
+    <hr class="hr-1" />
+  </body>
+</html>

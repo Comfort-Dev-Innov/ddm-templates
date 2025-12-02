@@ -1,0 +1,129 @@
+<html lang="en">
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      
+      /* Motive Container Default Styles */
+      .headingContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .headingContainer h1 {
+        width: fit-content !important;
+      }
+
+      .headingContainer h3,
+      .headingContainer h1,
+      .headingContainer h2,
+      .headingContainer p,
+      .headingContainer ol,
+      .headingContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading with Image */
+      .heading-with-image {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        padding: 80px 0px;
+        margin: 0;
+        text-align: center;
+      }
+
+      .first-image {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://www.ford.com/is/image/content/dam/na/ford/en_us/images/f-150/2025/dm/25_F150_90A9117_fade_v5.tif?croppathe=1_21x9&wid=3840&originN=0,0&layer=1&fmt=webp&src=/content/dam/na/ford/en_us/images/f-150/2025/dm/Ford_48Year_White_Stencil_Hz_v1.png&size=1000,1000&posN=-0.32,-0.28&scale=0.4")
+            center/cover;
+      }
+
+      .heading-with-image h2 {
+        font-size: 42px;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .heading-with-image span {
+        font-weight: 300;
+        margin: 0;
+      }
+
+      .subsection-intro {
+        margin: 30px 0 !important;
+        padding: 0 20px;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .table-intro {
+        font-size: 18px;
+        font-weight: 400;
+        color: gray !important;
+        margin-top: 90px !important;
+        padding: 0 20px !important;
+      }
+
+      .subsection-intro br {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .subsection-intro {
+          margin: 30px 0px !important;
+          font-size: 16px;
+          padding: 0 40px;
+        }
+
+        .subsection-intro br {
+          display: block;
+        }
+
+        .table-intro {
+          margin-top: 50px;
+          font-size: 16px;
+          padding: 0 40px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .heading-with-image h2 {
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="heading-with-image first-image"
+      id="family-of-predators-section"
+    >
+      <h2>A Family of Predators: <br /><span>Head-to-Head</span></h2>
+    </div>
+    <div class="headingContainer">
+      <p class="subsection-intro">
+        While all three trucks share the Raptor DNA of high-speed off-road
+        capability, their specifications reveal their specialized roles.
+        <br /><br />
+        <strong>The F-150 Raptor</strong> sets the benchmark for full-size
+        performance, the <strong>Raptor R</strong> elevates it to super-truck
+        status, and the <strong>Ranger Raptor</strong> brings the formula to the
+        nimble midsize class.
+      </p>
+      <p class="table-intro">
+        The table below highlights their key differentiators.
+      </p>
+    </div>
+  </body>
+</html>

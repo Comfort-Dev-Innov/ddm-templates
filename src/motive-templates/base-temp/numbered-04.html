@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .trims-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .trims-container h1 {
+        width: fit-content !important;
+        color: #012b5d;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .trims-container h1:hover {
+        color: #002c5f;
+      }
+
+      .trims-container h3,
+      .trims-container h1,
+      .trims-container h2,
+      .trims-container p,
+      .trims-container ol,
+      .trims-container ul {
+        max-width: 1300px !important;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 2rem 0 3rem 0;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid #012b5d;
+        position: relative;
+      }
+
+      .section-header::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: #002c5f;
+        transition: width 0.4s ease;
+      }
+
+      .section-header:hover::after {
+        width: 120px;
+      }
+
+      .section-icon {
+        width: 28px;
+        height: 28px;
+        color: #012b5d;
+        transition: all 0.3s ease;
+      }
+
+      .section-header:hover .section-icon {
+        color: #002c5f;
+        transform: rotate(360deg);
+      }
+
+      .section-header h2 {
+        color: #012b5d;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+        transition: color 0.3s ease;
+      }
+
+      .section-header:hover h2 {
+        color: #002c5f;
+      }
+
+       .trim-section2 {
+         display: grid;
+         grid-template-columns: 300px 1fr;
+         gap: 2.5rem;
+         margin-bottom: 3rem;
+         align-items: start;
+         transition: all 0.3s ease;
+       }
+
+       .trim-section2:hover {
+         transform: translateY(-2px);
+       }
+
+       .trim-image-container2 {
+         position: relative;
+         overflow: hidden;
+         border-radius: 12px;
+         box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+         transition: all 0.3s ease;
+       }
+
+       .trim-section2:hover .trim-image-container2 {
+         box-shadow: 0 8px 25px rgba(1, 43, 93, 0.2);
+         transform: scale(1.02);
+       }
+
+       .trim-number-overlay2 {
+         position: absolute;
+         top: 15px;
+         left: 15px;
+         background: linear-gradient(135deg, #012b5d, #002c5f);
+         color: white;
+         width: 45px;
+         height: 45px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         font-size: 1.3rem;
+         z-index: 2;
+         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease;
+       }
+
+       .trim-section2:hover .trim-number-overlay2 {
+         transform: scale(1.1);
+       }
+
+      .image-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-style: italic;
+        outline: 2px dashed #8f9dac;
+        outline-offset: -2px;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        padding: 0 !important;
+      }
+
+      .image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+       .trim-image2 {
+         width: 100%;
+         height: 220px;
+         object-fit: cover;
+         transition: transform 0.3s ease;
+       }
+
+       .trim-content2 {
+         padding-top: 0.5rem;
+       }
+
+       .trim-title2 {
+         color: #012b5d;
+         font-weight: 700;
+         font-size: 1.8rem;
+         margin-bottom: 1rem;
+         transition: color 0.3s ease;
+         text-transform: uppercase;
+         letter-spacing: 0.5px;
+       }
+
+       .trim-section2:hover .trim-title2 {
+         color: #002c5f;
+       }
+
+       .trim-subtitle2 {
+         color: #666;
+         font-size: 0.9rem;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         font-weight: 500;
+       }
+
+       .trim-description2 {
+         color: #444;
+         line-height: 1.7;
+         font-size: 1rem;
+         transition: color 0.3s ease;
+       }
+
+       .trim-section2:hover .trim-description2 {
+         color: #333;
+       }
+
+      .subsection2 {
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.03) 0%,
+          rgba(0, 44, 95, 0.01) 100%
+        );
+        border-radius: 8px;
+        border-left: 3px solid #002c5f;
+      }
+
+      .subsection2 h4 {
+        color: #002c5f;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .subsection2 p {
+        margin-bottom: 1.2rem;
+        color: #555;
+        line-height: 1.7;
+      }
+
+       .feature-list2 {
+         margin: 0;
+         padding-left: 1.2rem;
+         list-style-type: disc;
+       }
+
+       .feature-category2 {
+         margin-bottom: 1rem;
+         color: #555;
+         line-height: 1.7;
+       }
+
+       .feature-category2 strong {
+         color: #012b5d;
+         font-weight: 600;
+         transition: color 0.3s ease;
+       }
+
+       .trim-section2:hover .feature-category2 strong {
+         color: #002c5f;
+       }
+
+       .trim-section2 strong {
+         color: #002c5f;
+       }
+
+       .trim-section2 a {
+         color: #196ac6;
+         text-decoration: underline;
+         transition: color 0.3s ease;
+       }
+       
+       .trim-section2 a:hover {
+         color: #083d7b;
+       }
+
+      @media (max-width: 768px) {
+        .trims-container {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .trims-container h1 {
+          font-size: 2rem;
+        }
+
+         .trim-section2 {
+           grid-template-columns: 1fr;
+           gap: 1.5rem;
+           margin-bottom: 2.5rem;
+         }
+
+         .trim-image-container2 {
+           order: -1;
+         }
+
+         .image-placeholder,
+         .trim-image2 {
+           height: 200px;
+         }
+
+         .section-header h2 {
+           font-size: 1.5rem;
+         }
+
+         .trim-title2 {
+           font-size: 1.5rem;
+         }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="trims-container">
+      <div class="section-header">
+        <svg
+          class="section-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <h2>Trim-by-Trim Breakdown</h2>
+      </div>
+
+       <div class="trim-section2">
+         <div class="trim-image-container2">
+           <div class="trim-number-overlay2">1</div>
+           <div class="image-placeholder"><img src="https://i.ibb.co/pBGJnwVB/image6.png" alt="image6" border="0"></div>
+         </div>
+         <div class="trim-content2">
+           <div class="trim-subtitle2">FOUNDATION OF INNOVATION</div>
+           <div class="trim-title2">SE (Gas)</div>
+           <div class="trim-description2">
+            <a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-SE-5NMJA3DE8SH503299"
+              >The SE</a
+            >
+            defies the "base model" stereotype by offering an incredible array
+            of standard features. <br />It comes with the 187-hp engine, the
+            large 12.3-inch infotainment touchscreen, wireless Apple CarPlay and
+            Android Auto, and a robust suite of Hyundai SmartSense safety
+            technologies, including Blind-Spot Collision Warning and Smart
+            Cruise Control with Stop & Go—features that are often optional on
+            competitors' base trims.
+          </div>
+        </div>
+      </div>
+
+       <div class="trim-section2">
+         <div class="trim-image-container2">
+           <div class="trim-number-overlay2">2</div>
+           <div class="image-placeholder"><img src="https://i.ibb.co/kVymjLMF/image2.png" alt="image2" border="0"></div>
+         </div>
+         <div class="trim-content2">
+           <div class="trim-subtitle2">ENHANCED CONVENIENCE</div>
+           <div class="trim-title2">SEL (Gas)</div>
+           <div class="trim-description2">
+            <a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-SEL_Convenience-5NMJCCDEXSH574823"
+              >The SEL</a
+            >
+            trim adds a host of desirable features that enhance daily
+            convenience. <br />These include an 8-way power-adjustable driver's
+            seat with lumbar support, heated front seats, a hands-free smart
+            liftgate that opens automatically when the key is near, a wireless
+            device charging pad, and the highly convenient Hyundai Digital Key
+            2, which allows you to use your smartphone as a key.
+          </div>
+        </div>
+      </div>
+
+       <div class="trim-section2">
+         <div class="trim-image-container2">
+           <div class="trim-number-overlay2">3</div>
+           <div class="image-placeholder"><img src="https://i.ibb.co/Kcr342qP/image5.png" alt="image5" border="0"></div>
+         </div>
+         <div class="trim-content2">
+           <div class="trim-subtitle2">ADVENTURE READY</div>
+           <div class="trim-title2">XRT (Gas)</div>
+           <div class="trim-description2">
+            <a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-XRT-5NMJF3DE3SH502689"
+              >The XRT</a
+            >
+            is for those who love an adventurous look. <br />Built upon the
+            SEL's feature set, the XRT adds a commanding presence with exclusive
+            18-inch black alloy wheels, rugged side cladding and lower fascias,
+            blacked-out exterior trim, and functional bridge-type roof rails for
+            mounting gear.
+          </div>
+        </div>
+      </div>
+
+       <div class="trim-section2">
+         <div class="trim-image-container2">
+           <div class="trim-number-overlay2">4</div>
+           <div class="image-placeholder"><img src="https://i.ibb.co/M5ZxgRgL/image3.png" alt="image3" border="0"></div>
+         </div>
+         <div class="trim-content2">
+           <div class="trim-subtitle2">LUXURY REDEFINED</div>
+           <div class="trim-title2">Limited (Gas)</div>
+           <div class="trim-description2">
+            <a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-Limited-5NMJECDE8SH572093"
+              >The Limited trim</a
+            >
+            transforms the Tucson into a legitimate rival for entry-level luxury
+            SUVs. It is packed with premium amenities, including a large
+            panoramic sunroof, supple leather-trimmed seats, ventilated front
+            seats for cooling comfort in Oklahoma summers, heated rear seats, a
+            rich-sounding Bose premium audio system, the 12.3-inch fully digital
+            instrument cluster, a Surround View Monitor for 360-degree parking
+            visibility, the innovative Blind-Spot View Monitor, and a 12-inch
+            color Head-Up Display.
+          </div>
+        </div>
+      </div>
+      <div class="subsection2">
+        <h4>What's Included in the 2025 Tucson Limited Trim?</h4>
+        <p>
+          The Limited trim is a showcase of everything Hyundai can pack into a
+          compact SUV. It's designed for the buyer who wants it all. The list of
+          exclusive features is extensive and includes:
+        </p>
+
+         <ul class="feature-list2">
+           <li class="feature-category2">
+             <strong>Premium Comfort:</strong> Leather-trimmed seating,
+             ventilated front seats, heated rear seats, and a heated steering
+             wheel.
+           </li>
+
+           <li class="feature-category2">
+             <strong>Ambiance and Sound:</strong> A massive panoramic sunroof and
+             a Bose® premium audio system.
+           </li>
+
+           <li class="feature-category2">
+             <strong>Advanced Technology:</strong> The 12.3-inch digital
+             instrument cluster, a 12-inch color Head-Up Display (HUD), and an
+             Integrated Memory System for the driver's seat.
+           </li>
+
+           <li class="feature-category2">
+             <strong>Ultimate Convenience and Safety:</strong> Remote Smart
+             Parking Assist (RSPA), which allows you to park the vehicle remotely
+             using the key fob; a Surround View Monitor (SVM) for a 360-degree
+             bird's-eye view; the Blind-Spot View Monitor (BVM); and rain-sensing
+             windshield wipers.
+           </li>
+         </ul>
+      </div>
+
+       <div class="trim-section2">
+         <div class="trim-image-container2">
+           <div class="trim-number-overlay2">5</div>
+           <div class="image-placeholder"><img src="https://i.ibb.co/QFwF471G/2d59c0d6-6930-4868-8f5f-1363a2f8ea0e.webp" alt="2d59c0d6-6930-4868-8f5f-1363a2f8ea0e" border="0"></div>
+         </div>
+         <div class="trim-content2">
+           <div class="trim-subtitle2">EFFICIENCY MEETS PERFORMANCE</div>
+           <div class="trim-title2">
+            Hybrid Trims (<a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-SEL_Convenience-KM8JCDD13SU274841"
+              >SEL Convenience</a
+            >,
+            <a
+              target="_blank"
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-Limited-KM8JEDD15SU366365"
+              >Limited</a
+            >)
+          </div>
+           <div class="trim-description2">
+            The Hybrid models largely mirror the equipment levels of their
+            gasoline counterparts but come standard with the powerful and
+            efficient 231-hp hybrid powertrain and HTRAC All-Wheel Drive. The
+            <strong>Blue</strong> trim is the efficiency champion, while the
+            <strong>SEL Convenience</strong> adds the panoramic display and
+            sunroof. The <strong>N Line</strong> offers a unique, aggressive
+            appearance package with exclusive wheels, bumpers, and interior
+            accents for a sport-inspired look, and the
+            <strong>Limited Hybrid</strong> combines the best powertrain with
+            all the premium features of the gas Limited.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

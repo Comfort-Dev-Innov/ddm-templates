@@ -1,0 +1,185 @@
+<html lang="en">
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Timeline Styles */
+      .timeline-container {
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 20px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        top: 40px;
+        bottom: 60px;
+        width: 3px;
+        background: linear-gradient(180deg, #2356c4 0%, #0f3079 100%);
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 40px;
+        padding-left: 80px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 17px;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+        background: #0f3079;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        z-index: 2;
+      }
+
+      .timeline-content {
+        padding: 0;
+      }
+
+      .timeline-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding-top: 5px;
+        margin: 0;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .timeline-description {
+        margin: 0;
+        color: #64748b;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 640px) {
+        .timeline-container {
+          margin: 0 10px;
+        }
+
+        .timeline-item {
+          padding-left: 60px;
+        }
+
+        .timeline-dot {
+          left: 15px;
+          width: 16px;
+          height: 16px;
+        }
+
+        .timeline::before {
+          left: 23px;
+        }
+
+        .timeline-content {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="depreciation-section" id="depreciation-section">
+        <h2 class="section-title">
+          <span style="color: #0f3079">Decoding Depreciation:</span> How It
+          Affects Your Wallet
+        </h2>
+        <p>
+          <i>Depreciation</i> is the difference between what you pay for a truck
+          and what it's worth when you sell it. While Ford trucks, especially
+          the F-150, hold their value exceptionally well compared to cars, they
+          are not immune to this effect.
+        </p>
+        <p style="color: #64748b; margin-top: 20px">
+          Imagine a new 2025 Ford F-150 with a sticker price of $55,000.
+        </p>
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">After 1 Year:</h3>
+                <p class="timeline-description">
+                  It could lose around 15%−20% of its value, making it worth
+                  approximately $44,000 - $46,750.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">After 3 Years:</h3>
+                <p class="timeline-description">
+                  It might be worth around $35,750 (a 35% loss from new).
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">After 5 Years:</h3>
+                <p class="timeline-description">
+                  It might be worth around $29,700 (a 46% loss from new).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          By purchasing a 2- or 3-year-old F-150, you avoid that initial
+          $10,000+ drop in value. The vehicle's value will continue to decline,
+          but at a much flatter, more predictable rate.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

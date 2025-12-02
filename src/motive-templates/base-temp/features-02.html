@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2025 Ford Lineup</title>
+    <style>
+      /* Container Default Styles */
+      .featuresContainer2 {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer2 h3,
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 p,
+      .featuresContainer2 ol,
+      .featuresContainer2 ul,
+      .featuresContainer2 table {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title Section - Same as reference */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        text-align: center;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      /* Description */
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 50px !important;
+        color: #4a5568;
+      }
+
+      /* Category Sections */
+      .category-section {
+        margin-bottom: 50px;
+      }
+
+      .category-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 30px !important;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+
+      /* Vehicle Cards */
+      .vehicle-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-bottom: 20px;
+      }
+
+      .vehicle-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+      }
+
+      .vehicle-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .vehicle-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .vehicle-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .vehicle-content {
+        padding: 20px;
+      }
+
+      .vehicle-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0f3079;
+        margin-bottom: 12px !important;
+      }
+
+      .vehicle-description {
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* Bullet List Styling */
+      .vehicle-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .vehicle-list li {
+        margin-bottom: 20px;
+        padding-left: 0;
+      }
+
+      .vehicle-list strong {
+        color: #1a202c;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .vehicle-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .category-title {
+          font-size: 24px;
+        }
+
+        .feat-desc {
+          font-size: 16px;
+          margin-bottom: 30px !important;
+        }
+
+        .category-section {
+          margin-bottom: 40px;
+        }
+
+        .vehicle-image {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .vehicle-content {
+          padding: 16px;
+        }
+
+        .vehicle-name {
+          font-size: 18px;
+        }
+
+        .vehicle-description {
+          font-size: 14px;
+        }
+
+        .vehicle-image {
+          height: 160px;
+        }
+      }
+
+      /* Color accents for different categories */
+      .trucks-section .category-title {
+        color: #2d3748;
+        border-bottom-color: #cbd5e0;
+      }
+
+      .suvs-section .category-title {
+        color: #0f3079;
+        border-bottom-color: #3971b5;
+      }
+
+      .commercial-section .category-title {
+        color: #2c5282;
+        border-bottom-color: #4299e1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2">
+        The 2025 <span style="color: #0f3079">Ford Lineup</span>: What's New at Joe Cooper Ford of Yukon?
+      </h2>
+      
+      <p class="feat-desc">
+        The 2025 Ford model year brings exciting updates and new options that enhance performance, comfort, and sustainability.
+      </p>
+
+      <!-- Trucks and Pickups Section -->
+      <div class="category-section trucks-section">
+        <h3 class="category-title">Trucks and Pickups</h3>
+        <div class="vehicle-grid">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://api.mss.ford.com/dbi-kb/api/knowledge/v1/search/get-drupal-file/sites/default/files/styles/cke_media_resize_xl/public/2025-03/F-150%20Lightning%20Charging%20at%20Home.png?itok=Sftw5M4k" alt="F-150 Lightning" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">F-150 and F-150 Lightning</div>
+              <p class="vehicle-description">
+                The F-150 remains a top choice with traditional and hybrid models. The Lightning introduces a powerful all-electric option with fast charging and impressive range.
+              </p>
+            </div>
+          </div>
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:6130ad89-6316-46ee-af3e-db0c73d21f2d/as/FRDNBRDT0033_FORD_RSF_Construction_Shot2_0047_04_S_RGB_Desktop_flat_v3.webp?max-quality=75&crop-names=1_16x7&width=3840" alt="Super Duty" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">Super Duty Series</div>
+              <p class="vehicle-description">
+                Updated with advanced towing technologies and luxurious interiors, ideal for commercial and heavy-duty needs.
+              </p>
+            </div>
+          </div>
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://www.heraldnet.com/wp-content/uploads/2023/02/31961087_web1_M-2023-Ford-Maverick-ST.jpg" alt="Maverick" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">Maverick and Ranger</div>
+              <p class="vehicle-description">
+                The Maverick offers a compact hybrid pickup experience, while the Ranger delivers a solid mid-size truck option.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUVs and Crossovers Section -->
+      <div class="category-section suvs-section">
+        <h3 class="category-title">SUVs and Crossovers</h3>
+        <div class="vehicle-grid">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/escape/2024/collections/3_2/Escape_VHP_Billboard_2160x1215.jpg/_jcr_content/renditions/cq5dam.web.1440.1440.jpeg" alt="Explorer" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">Escape, Explorer, Bronco & Expedition</div>
+              <p class="vehicle-description">
+                The 2025 lineup continues to feature the Escape, Explorer, Bronco, and Expedition with updated infotainment systems, enhanced driver assistance, and hybrid variants.
+              </p>
+            </div>
+          </div>
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/overview/billboards/ph-mustang-mach-e-feature03.webp" alt="Mustang Mach-E" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">Mustang Mach-E</div>
+              <p class="vehicle-description">
+                Leads Ford's electric SUV charge with extended range and performance upgrades.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Vehicles Section -->
+      <div class="category-section commercial-section">
+        <h3 class="category-title">Commercial Vehicles</h3>
+        <div class="vehicle-grid">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="https://www.ford.com/cmslibs/content/dam/vdm_ford/live/en_us/ford/nameplate/transit/2023/collections/equipment/CC/23_frd_tcc_350_148_wb_32.jpg" alt="Transit" />
+            </div>
+            <div class="vehicle-content">
+              <div class="vehicle-name">Transit and E-Transit</div>
+              <p class="vehicle-description">
+                Continue to support businesses with customizable configurations and electric powertrain options, helping fleets in Yukon and Mustang reduce emissions and operating costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
