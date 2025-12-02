@@ -8,18 +8,12 @@ interface TemplatePreviewProps {
 export function TemplatePreview({ template }: TemplatePreviewProps) {
   const [htmlContent, setHtmlContent] = useState<string>('');
   const [loading, setLoading] = useState(true);
-  const resolveTemplateUrl = (path: string) => {
-    if (path.startsWith("/src/content")) {
-      return path.replace("/src/content", "/content");
-    }
-    return path;
-  };
 
   useEffect(() => {
     const loadTemplate = async () => {
       setLoading(true);
       try {
-        const response = await fetch(resolveTemplateUrl(template.path));
+        const response = await fetch(template.path);
         if (response.ok) {
           const html = await response.text();
           setHtmlContent(html);
@@ -49,7 +43,7 @@ export function TemplatePreview({ template }: TemplatePreviewProps) {
           srcDoc={htmlContent}
           className="border-0"
           title={`Preview of ${template.name}`}
-          sandbox="allow-same-origin"
+          sandbox="allow-same-origin allow-scripts"
           style={{
             height: '800px',
             transform: 'scale(0.75)',

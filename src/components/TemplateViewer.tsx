@@ -111,7 +111,7 @@ export function TemplateViewer() {
           srcDoc={htmlContent}
           className="w-full h-full border-0"
           title="Template Preview"
-          sandbox="allow-same-origin"
+          sandbox="allow-same-origin allow-scripts"
         />
       </TabsContent>
 
