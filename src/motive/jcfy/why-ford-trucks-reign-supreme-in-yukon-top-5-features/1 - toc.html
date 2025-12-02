@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          #0f3079 0%,
+          #2d5aa0 50%,
+          #4a7bc8 100%
+        );
+        color: white;
+        padding: 80px 0;
+        margin-bottom: 40px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        width: 400px;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 15px;
+        margin: 0 auto;
+        width: 100% !important;
+        /* margin-bottom: 35px; */
+        border-bottom: 3px solid #0f3079;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 28px !important;
+        letter-spacing: 0.1em !important;
+        color: #0f3079;
+        position: relative;
+      }
+
+      .toc-title::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .toc-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 50px;
+        margin: 40px 0;
+        box-shadow: 0 8px 25px rgba(15, 48, 121, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .toc-list-desktop {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .introduction-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .introduction-image {
+        display: flex;
+        align-content: start;
+        justify-items: center;
+      }
+
+      .introduction-image img {
+            width: 380px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+          }
+
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+        display: none;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding: 20px 25px;
+        background: white;
+        border-radius: 10px;
+        border-left: 5px solid #0f3079;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .toc-list-desktop li:hover,
+      .toc-list-mobile li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-left-color: #ff6b35;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: '🚛';
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        transform: scale(1.2);
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #ff6b35;
+      }
+
+      .toc-list-desktop-description,
+      .toc-list-mobile-description {
+        font-size: 14px;
+        color: #666;
+        text-align: justify;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 1024px) {
+        .toc-list-desktop {
+          display: none;
+        }
+        .toc-list-mobile {
+          display: grid;
+        }
+        .toc-section {
+          padding: 40px 30px;
+        }
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .cta-button {
+          width: 200px;
+        }
+        .introduction-container{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .introduction-image{
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          
+        }
+
+        .introduction-image img {
+            width: 80%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+          }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.2rem;
+        }
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+        .toc-section {
+          padding: 30px 20px;
+        }
+        .toc-list-desktop li,
+        .toc-list-mobile li {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tocContainer">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1 class="hero-title">Why Ford Trucks Reign Supreme in Yukon</h1>
+        <p class="hero-subtitle">
+          Discover the Top 5 Features That Make Ford Truck Owners So Loyal
+        </p>
+        <a href="tel:+4053541111" class="cta-button">Call (405) 354-1111</a>
+      </div>
+
+      <!-- Introduction -->
+       <div class="introduction-container">
+
+          <section style="margin-bottom: 40px; text-align: center; padding: 0 20px">
+            <p
+              style="
+                font-size: 18px;
+                color: #4a5568;
+                line-height: 1.7;
+                max-width: 900px;
+                margin: 0 auto;
+                text-align: justify;
+                text-indent: 1rem;
+              "
+            >
+              For drivers across Yukon, Edmond, and Oklahoma City, a truck isn't
+              just a vehicle—it's an essential tool for work, family, and adventure.
+              When it comes to choosing a truck that excels in every category,
+              <strong>Ford trucks</strong> consistently prove to be the premier
+              choice. For decades, Ford has built a legacy on rugged durability,
+              relentless innovation, and uncompromising performance. This has made
+              the Ford F-Series the best-selling truck in America for over 45
+              consecutive years. Whether you're hauling equipment to a job site in
+              Moore, commuting through Mustang, or seeking off-road thrills near
+              Warr Acres, a Ford truck is built to deliver.
+            </p>
+
+            <p style="font-size: 18px;
+            color: #4a5568;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 12px auto;text-align: justify; text-indent: 1rem;">
+              But what is it, exactly, that makes owners so loyal? We’ve broken down
+              the top five features that put Ford in a class of its own.
+            </p>
+
+            <p style="font-size: 18px;
+            color: #4a5568;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 12px auto;text-align: justify; text-indent: 1rem;">
+              Ready to experience the Ford difference? <a href="https://joecooperfordyukon.com/trade" target="_blank" class="paragraph-hyperlink">Value your trade-in vehicle</a>
+              or schedule your next maintenance appointment with our expert technicians using our <a href="https://joecooperfordyukon.com/service" target="_blank" paragraph-hyperlink"> Service Scheduler</a>. Visit us at Joe Cooper Ford of Yukon or call our team at (405) 354-1111 to find your perfect Ford truck today.
+            </p>
+          </section>
+          <div class="introduction-image">
+            <img style="object-fit: cover; border-radius: 15px;" src="https://i.ibb.co/bj7xGVrs/26-frd-esp-stln-stwh-ps34.jpg" />
+        </div>
+    </div>
+
+
+
+      <!-- Table of Contents -->
+      <section class="toc-section">
+        <h3 class="toc-title">Table of Contents</h3>
+
+        <!-- TOC on Desktop -->
+        <ul class="toc-list-desktop">
+          <li>
+            <a href="#top-5"
+              >The Top 5 Features Ford Truck Owners Love</a
+            >
+            <p class="toc-list-desktop-description">
+              Discover the five key areas that consistently rise to the top as
+              the most valued features among loyal Ford truck drivers.
+            </p>
+          </li>
+          <li style="opacity: 0;"></li>
+          <li style="margin-left: 20px; border-left-color: #ff6b35">
+            <a href="#towing-capability"
+              >1. Unmatched Towing and Hauling Capability</a
+            >
+            <p class="toc-list-desktop-description">
+              Discover why Ford's F-Series trucks lead the pack with
+              best-in-class towing capacity up to 40,000 pounds and the advanced
+              engines that make it possible.
+            </p>
+          </li>
+          <li style="margin-left: 20px; border-left-color: #ff6b35">
+            <a href="#pro-power-onboard"
+              >2. Groundbreaking Innovation: Pro Power Onboard™</a
+            >
+            <p class="toc-list-desktop-description">
+              Learn about the game-changing feature that transforms your Ford
+              into a mobile generator, providing up to 7.2 kilowatts of power
+              anywhere you go.
+            </p>
+          </li>
+          <li style="margin-left: 20px; border-left-color: #ff6b35">
+            <a href="#built-ford-tough"
+              >3. Legendary "Built Ford Tough" Durability              </a
+            >
+            <p class="toc-list-desktop-description">
+              Explore the superior engineering behind Ford's high-strength steel
+              frame and military-grade aluminum body that ensures lasting
+              reliability.
+            </p>
+          </li>
+          <li style="margin-left: 20px; border-left-color: #ff6b35">
+            <a href="#smart-technology"
+              >4. Smart Technology That Works for You</a
+            >
+            <p class="toc-list-desktop-description">
+              Experience Ford Co-Pilot360™, SYNC® 4 infotainment, and the
+              FordPass™ app that keep you connected and safe on Oklahoma
+              highways.
+            </p>
+          </li>
+          <li style="margin-left: 20px; border-left-color: #ff6b35">
+            <a href="#unrivaled-versatility-and-customization"
+              >5. Unrivaled Versatility and Customization</a
+            >
+            <p class="toc-list-desktop-description">
+              From the compact Maverick to the powerhouse Super Duty series,
+              find out how Ford offers the perfect truck for every lifestyle and
+              budget.
+            </p>
+          </li>
+          <li style="opacity: 0;"></li>
+          <li>
+            <a href="#finding-the-perfect-ford-truck-for-your-oklahoma-lifestyle"
+              >Finding the Perfect Ford Truck for Your Oklahoma Lifestyle</a
+            >
+            <p class="toc-list-desktop-description">
+              Get expert guidance on choosing between the F-150, Super Duty,
+              Ranger, and Maverick to match your specific needs in Yukon and
+              surrounding areas.
+            </p>
+          </li>
+          <li>
+            <a href="#competition-comparison"
+              >How Ford Stands Out from the Competition</a
+            >
+            <p class="toc-list-desktop-description">
+              See how Ford trucks consistently outperform competitors like
+              Chevrolet Silverado, Ram 1500, and Toyota Tundra in key
+              performance areas.
+            </p>
+          </li>
+          <li>
+            <a href="#maintenance-performance"
+              >Maintaining Your Ford's Peak Performance in Yukon</a
+            >
+            <p class="toc-list-desktop-description">
+              Learn about comprehensive maintenance services and genuine OEM
+              parts that keep your Ford truck running at its best for years to
+              come.
+            </p>
+          </li>
+          <li>
+            <a href="#experience-ford-legacy"
+              >Experience the Ford Legacy at Joe Cooper Ford of Yukon</a
+            >
+            <p class="toc-list-desktop-description">
+              Your destination for Ford trucks that last, perform, and stand out
+              in Yukon and surrounding communities.
+            </p>
+          </li>
+        </ul>
+
+        <!-- TOC on Mobile -->
+        <ul class="toc-list-mobile">
+          <li>
+            <a href="#top-5"
+              >The Top 5 Features Ford Truck Owners Love</a
+            >
+            <p class="toc-list-mobile-description">
+              The five key areas that consistently rise to the top as the most
+              valued features among loyal Ford truck drivers.
+            </p>
+          </li>
+          <li style="margin-left: 15px; border-left-color: #ff6b35">
+            <a href="#towing-capability"
+              >1. Unmatched Towing and Hauling Capability</a
+            >
+            <p class="toc-list-mobile-description">
+              Discover why Ford's F-Series trucks lead the pack with
+              best-in-class towing capacity and advanced engines.
+            </p>
+          </li>
+          <li style="margin-left: 15px; border-left-color: #ff6b35">
+            <a href="#pro-power-onboard">2. Groundbreaking Innovation: Pro Power Onboard™</a>
+            <p class="toc-list-mobile-description">
+              The game-changing feature that transforms your Ford into a mobile
+              generator with up to 7.2 kilowatts of power.
+            </p>
+          </li>
+          <li style="margin-left: 15px; border-left-color: #ff6b35">
+            <a href="#built-ford-tough">3. Legendary "Built Ford Tough" Durability</a>
+            <p class="toc-list-mobile-description">
+              Superior engineering with high-strength steel frame and
+              military-grade aluminum body for lasting reliability.
+            </p>
+          </li>
+          <li style="margin-left: 15px; border-left-color: #ff6b35">
+            <a href="#smart-technology">4. Smart Technology That Works for You</a>
+            <p class="toc-list-mobile-description">
+              Ford Co-Pilot360™, SYNC® 4, and FordPass™ app keep you connected
+              and safe on the road.
+            </p>
+          </li>
+          <li style="margin-left: 15px; border-left-color: #ff6b35">
+            <a href="#unrivaled-versatility-and-customization"
+              >5. Unrivaled Versatility and Customization</a
+            >
+            <p class="toc-list-mobile-description">
+              From compact Maverick to powerhouse Super Duty, find the perfect
+              truck for your lifestyle.
+            </p>
+          </li>
+          <li>
+            <a href="#finding-the-perfect-ford-truck-for-your-oklahoma-lifestyle">Finding the Perfect Ford Truck for Your Oklahoma Lifestyle</a>
+            <p class="toc-list-mobile-description">
+              Expert guidance on choosing the right Ford truck for your Oklahoma
+              lifestyle and needs.
+            </p>
+          </li>
+          <li>
+            <a href="#competition-comparison">How Ford Stands Out from the Competition</a>
+            <p class="toc-list-mobile-description">
+              How Ford consistently outperforms Chevrolet, Ram, and Toyota in
+              key performance areas.
+            </p>
+          </li>
+          <li>
+            <a href="#maintenance-performance">Maintaining Your Ford's Peak Performance in Yukon</a>
+            <p class="toc-list-mobile-description">
+              Comprehensive services and genuine parts that keep your Ford
+              running at peak performance.
+            </p>
+          </li>
+          <li>
+            <a href="#experience-ford-legacy">Experience the Ford Legacy at Joe Cooper Ford of Yukon</a>
+            <p class="toc-list-mobile-description">
+              Your destination for Ford trucks that last, perform, and stand out
+              in Yukon and surrounding communities.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Call to Action -->
+      <section
+        style="
+          text-align: center;
+          margin: 50px 0;
+          padding: 40px;
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          border-radius: 15px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <h3 style="color: #0f3079; margin-bottom: 20px">
+          Ready to Experience the Ford Difference?
+        </h3>
+        <p style="font-size: 16px; margin-bottom: 25px; color: #4a5568">
+          Visit Joe Cooper Ford of Yukon or call our team to find your perfect
+          Ford truck today.
+        </p>
+        <a
+          href="tel:+4053541111"
+          class="cta-button"
+          style="margin-right: 15px; margin-bottom: 15px"
+          >Call (405) 354-1111</a
+        >
+        <a
+          href="https://joecooperfordyukon.com/trade"
+          class="cta-button"
+          style="background: linear-gradient(45deg, #0f3079, #2d5aa0)"
+          >Value Your Trade</a
+        >
+      </section>
+    </div>
+  </body>
+</html>

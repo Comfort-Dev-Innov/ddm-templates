@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .buyer-comparison-showcase-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .buyer-comparison-showcase-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+        }
+
+        .buyer-comparison-showcase-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .buyer-comparison-showcase-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .buyer-comparison-showcase-container h1:hover::after {
+            width: 100%;
+        }
+
+        .buyer-comparison-showcase-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .buyer-comparison-showcase-container h2:hover {
+            color: #012b5d;
+        }
+
+        .buyer-comparison-showcase-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .buyer-comparison-showcase-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .buyer-comparison-showcase-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .buyer-comparison-showcase-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .buyer-comparison-showcase-container ol,
+        .buyer-comparison-showcase-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .buyer-comparison-showcase-container li {
+            margin-bottom: 0.8rem;
+            color: #444;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .buyer-comparison-showcase-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .buyer-intro-section {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02), rgba(0, 44, 95, 0.04));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .buyer-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .buyer-intro-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .buyer-intro-section:hover::before {
+            left: 100%;
+        }
+
+        .buyer-intro-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .team-section {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.85));
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 25px rgba(1, 43, 93, 0.1);
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .team-section:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(1, 43, 93, 0.15);
+        }
+
+        .team-section:hover::before {
+            left: 100%;
+        }
+
+        .team-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-tucson {
+            border: 3px solid #28a745;
+            background: linear-gradient(145deg, rgba(40, 167, 69, 0.03), rgba(32, 201, 151, 0.02));
+        }
+
+        .team-santa-fe {
+            border: 3px solid #007bff;
+            background: linear-gradient(145deg, rgba(0, 123, 255, 0.03), rgba(0, 44, 95, 0.02));
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-tucson .team-badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .team-santa-fe .team-badge {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .team-section:hover .team-badge {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+        }
+
+        .team-section:hover .team-image {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.2);
+        }
+
+        .team-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .team-description {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .buyer-profiles {
+            margin-top: 2rem;
+        }
+
+        .profile-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.04), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .team-tucson .profile-item {
+            border-left-color: #28a745;
+        }
+
+        .team-santa-fe .profile-item {
+            border-left-color: #007bff;
+        }
+
+        .profile-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .profile-item:hover::before {
+            left: 100%;
+        }
+
+        .profile-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-title {
+            font-weight: 700;
+            color: #012b5d;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .buyer-comparison-showcase-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .buyer-comparison-showcase-container h1 {
+                font-size: 2rem;
+            }
+
+            .buyer-comparison-showcase-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .buyer-comparison-showcase-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .buyer-comparison-showcase-container p {
+                font-size: 1rem;
+            }
+
+            .buyer-intro-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .comparison-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+
+            .team-section {
+                padding: 2rem;
+            }
+
+            .team-image {
+                height: 180px;
+                margin-bottom: 1.5rem;
+            }
+
+            .team-title {
+                font-size: 1.5rem;
+            }
+
+            .team-description {
+                font-size: 1rem;
+            }
+
+            .profile-item {
+                padding: 1.2rem;
+            }
+
+            .profile-title {
+                font-size: 1rem;
+            }
+
+            .profile-description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="buyer-comparison-showcase-container">
+        <h1>Ideal Buyer: Who Should Choose the Santa Fe — and Who Should Go for the Tucson?</h1>
+        
+        <div class="buyer-intro-section">
+            <p>After breaking down all the details, the choice comes down to you and your lifestyle. Let's create some profiles of Oklahoma drivers to see who fits best behind the wheel of each SUV.</p>
+        </div>
+
+        <div class="comparison-layout">
+            <div class="team-section team-tucson">
+                <div class="team-header">
+                    <div class="team-badge">Team Tucson</div>
+                </div>
+                
+                <img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/newsroom/news-image/2024/03/0328-2/detail-kv-230328.jpg" alt="Tucson Lifestyle" class="team-image" />
+                
+                <h2 class="team-title">Team Tucson</h2>
+                <p class="team-description">The Tucson is for those who need flexibility, style, and efficiency.</p>
+                
+                <div class="buyer-profiles">
+                    <div class="profile-item">
+                        <div class="profile-title">Long daily commutes:</div>
+                        <div class="profile-description">The Tucson Hybrid Blue delivers an incredible 38 MPG combined, saving significant money at the pump, while standard HTRAC AWD provides confidence during unexpected spring storms.</div>
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div class="profile-title">Urban driving and tight parking:</div>
+                        <div class="profile-description">The Tucson Limited's sleek design stands out in the city, with Remote Smart Parking Assist for tight spots. Ventilated seats are essential for hot summer days.</div>
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div class="profile-title">Weekend adventures with weekday practicality:</div>
+                        <div class="profile-description">The Tucson with HTRAC AWD offers nimble city driving during the week, then fold the seats down for massive cargo space—perfect for loading camping gear for state park trips.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-section team-santa-fe">
+                <div class="team-header">
+                    <div class="team-badge">Team Santa Fe</div>
+                </div>
+                
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2024-hyundai-santa-fe-155-65fb0b128f413.jpg?crop=0.708xw:0.531xh;0.136xw,0.274xh&resize=1200:*" alt="Santa Fe Lifestyle" class="team-image" />
+                
+                <h2 class="team-title">Team Santa Fe</h2>
+                <p class="team-description">The Santa Fe is the command center for busy families.</p>
+                
+                <div class="buyer-profiles">
+                    <div class="profile-item">
+                        <div class="profile-title">School runs and carpooling:</div>
+                        <div class="profile-description">The Santa Fe SEL's standard seven-passenger seating handles daily school runs and sports practice carpools. The hands-free smart liftgate is invaluable when juggling sports bags and groceries.</div>
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div class="profile-title">Tournament travel and sports families:</div>
+                        <div class="profile-description">The Santa Fe XRT's rugged looks, all-terrain tires, and standard HTRAC AWD provide confidence on any road, in any weather. Ample cargo space accommodates coolers, chairs, and team equipment.</div>
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div class="profile-title">Long drives with comfort priorities:</div>
+                        <div class="profile-description">The Santa Fe Calligraphy's powerful 2.5T engine handles everything with ease, while premium Nappa leather interior and second-row captain's chairs make every trip feel first-class.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

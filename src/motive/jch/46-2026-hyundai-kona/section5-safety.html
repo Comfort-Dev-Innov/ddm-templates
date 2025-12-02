@@ -1,0 +1,489 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section5 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Safety Features Grid */
+        .safety-features-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          margin: 40px 0;
+          padding: 30px;
+          background: linear-gradient(
+            135deg,
+            rgba(15, 48, 121, 0.03) 0%,
+            rgba(45, 90, 160, 0.03) 100%
+          );
+          border-radius: 15px;
+          border: 2px solid #e9ecef;
+        }
+
+        .safety-feature-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          padding: 20px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+        }
+
+        .safety-feature-item:hover {
+          transform: translateX(5px);
+          box-shadow: 0 5px 20px rgba(15, 48, 121, 0.15);
+          border-left: 4px solid #0f3079;
+        }
+
+        .safety-icon {
+          font-size: 2rem;
+          flex-shrink: 0;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          border-radius: 50%;
+          color: white;
+        }
+
+        .safety-feature-text {
+          flex: 1;
+          font-size: 15px;
+          color: #333;
+          line-height: 1.6;
+          font-weight: 500;
+        }
+
+        /* Optional Features Box */
+        .optional-features-box {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+          padding: 30px;
+          border-radius: 15px;
+          margin: 30px 0;
+          box-shadow: 0 8px 25px rgba(15, 48, 121, 0.2);
+        }
+
+        .optional-features-box h4 {
+          font-size: 1.4rem;
+          font-weight: 700;
+          margin: 0 0 15px 0;
+          text-align: center;
+        }
+
+        .optional-features-box p {
+          text-align: justify;
+          font-size: 15px;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        /* Kia Niro Comparison Box */
+        .niro-comparison-box {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          border-left: 5px solid #6c757d;
+          padding: 25px;
+          border-radius: 10px;
+          margin: 30px 0;
+        }
+
+        .niro-comparison-box p {
+          font-size: 15px;
+          color: #333;
+          text-align: justify;
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        /* Table Heading */
+        .table-heading {
+          color: #0f3079;
+          font-size: 1.8rem;
+          font-weight: 700;
+          text-align: center;
+          margin: 40px 0 25px 0;
+        }
+
+        .safety-table {
+          width: 100%;
+          border-collapse: collapse;
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+
+        .safety-table thead {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+        }
+
+        .safety-table th {
+          padding: 18px 20px;
+          text-align: left;
+          font-size: 15px;
+          font-weight: 700;
+          min-width: 300px;
+          border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .safety-table th:first-child {
+          border-radius: 12px 0 0 0;
+        }
+
+        .safety-table th:last-child {
+          border-right: none;
+          border-radius: 0 12px 0 0;
+        }
+
+        .safety-table tbody tr {
+          border-bottom: 1px solid #e9ecef;
+          transition: background-color 0.2s ease;
+        }
+
+        .safety-table tbody tr:hover {
+          background-color: #f8f9fa;
+        }
+
+        .safety-table tbody tr:last-child {
+          border-bottom: none;
+        }
+
+        .safety-table td {
+          padding: 18px 20px;
+          font-size: 14px;
+          color: #495057;
+          border-right: 1px solid #e9ecef;
+        }
+
+        .safety-table td:last-child {
+          border-right: none;
+        }
+
+        .safety-table td:first-child {
+          font-weight: 600;
+          color: #0f3079;
+          background-color: #f8f9fa;
+        }
+
+        /* Feature Badge */
+        .feature-badge {
+          display: inline-block;
+          padding: 5px 12px;
+          border-radius: 20px;
+          font-size: 13px;
+          font-weight: 600;
+        }
+
+        .badge-standard {
+          background-color: #d4edda;
+          color: #155724;
+        }
+
+        .badge-available {
+          background-color: #cfe2ff;
+          color: #084298;
+        }
+
+        .badge-optional {
+          background-color: #fff3cd;
+          color: #856404;
+        }
+
+        .badge-not-available {
+          background-color: #f8d7da;
+          color: #721c24;
+        }
+
+        /* Checkmark and Cross */
+        .check-icon {
+          color: #28a745;
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        .cross-icon {
+          color: #dc3545;
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .safety-features-grid {
+            grid-template-columns: 1fr;
+            padding: 20px;
+          }
+
+          .safety-table th,
+          .safety-table td {
+            padding: 12px 15px;
+            font-size: 13px;
+          }
+
+          .table-heading {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section5">
+      <h2 class="section-heading">
+        Safety Systems: The 2026 Kona vs The 2026 Niro
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text" style="text-align: center">
+          Across all trims, the Kona comes with a comprehensive standard safety
+          suite:
+        </p>
+      </div>
+
+      <!-- Standard Safety Features Grid -->
+      <div class="safety-features-grid">
+        <div class="safety-feature-item">
+          <div class="safety-icon">🚗</div>
+          <div class="safety-feature-text">
+            Automatic emergency braking featuring intersection and oncoming
+            vehicle detection
+          </div>
+        </div>
+
+        <div class="safety-feature-item">
+          <div class="safety-icon">🎯</div>
+          <div class="safety-feature-text">
+            Adaptive cruise control with stop-and-go functionality
+          </div>
+        </div>
+
+        <div class="safety-feature-item">
+          <div class="safety-icon">👁️</div>
+          <div class="safety-feature-text">
+            Blind-spot collision warning and rear cross-traffic alert
+          </div>
+        </div>
+
+        <div class="safety-feature-item">
+          <div class="safety-icon">🛣️</div>
+          <div class="safety-feature-text">
+            Lane keep assist and driver attention monitoring
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional Features Box -->
+      <div class="optional-features-box">
+        <h4>🏆 Exclusive Optional Upgrades</h4>
+        <p>
+          Optional upgrades exclusive to the Kona include a 360-degree
+          surround-view camera system, highway driving assist, and remote smart
+          parking assist, providing confidence and reducing driver stress in
+          dense downtown Oklahoma City parking lots.
+        </p>
+      </div>
+
+      <!-- Kia Niro Comparison -->
+      <div class="niro-comparison-box">
+        <p>
+          The Kia Niro offers solid safety technology via its Drive Wise system,
+          including blind-spot monitoring and forward collision avoidance.
+          However, its driver assistance package is more limited and does not
+          include adaptive cruise control with stop-and-go on all trims.
+        </p>
+      </div>
+
+      <!-- Safety Features Comparison Table -->
+      <h3 class="table-heading">Safety Features Comparison</h3>
+
+      <table class="safety-table">
+        <thead>
+          <tr>
+            <th>Safety Feature</th>
+            <th>2026 Hyundai Kona</th>
+            <th>2026 Kia Niro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Automatic Emergency Braking</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span><br />
+              <small style="color: #6c757d"
+                >with Intersection and Oncoming Detection</small
+              >
+            </td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Adaptive Cruise Control with Stop & Go</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+            <td>
+              <span class="feature-badge badge-optional">Optional</span><br />
+              <small style="color: #6c757d">Not Standard</small>
+            </td>
+          </tr>
+          <tr>
+            <td>Blind-Spot Monitoring</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Rear Cross-Traffic Alert</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-standard">Standard</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Surround View Monitor</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-available"
+                >Available on Limited Trim</span
+              >
+            </td>
+            <td>
+              <span class="cross-icon">✗</span>
+              <span class="feature-badge badge-not-available"
+                >Not Available</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Highway Driving Assist</td>
+            <td>
+              <span class="check-icon">✓</span>
+              <span class="feature-badge badge-available"
+                >Available on Limited Trim</span
+              >
+            </td>
+            <td>
+              <span class="cross-icon">✗</span>
+              <span class="feature-badge badge-not-available">Not Offered</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="fuel-economy" />
+    </div>
+  </body>
+</html>

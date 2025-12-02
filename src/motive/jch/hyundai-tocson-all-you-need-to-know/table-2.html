@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Container */
+      .table-container-01 {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .table-container-01 h1 {
+        width: fit-content !important;
+      }
+
+      .table-container-01 h3,
+      .table-container-01 h1,
+      .table-container-01 h2,
+      .table-container-01 p,
+      .table-container-01 ol,
+      .table-container-01 ul {
+        max-width: 1300px !important;
+      }
+
+      .table-container-01 p {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Heading Section */
+      .section-title-02 {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        padding-top: 0;
+      }
+
+      /* Table Styles */
+      .performance-table-01 {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 1300px !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Card Container Styles */
+      .card-container-01 {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        padding: 1.5rem 2rem 2rem 2rem;
+        margin: 0.2rem auto 2rem auto;
+        max-width: 1400px;
+        transition: box-shadow 0.3s;
+        border: 1px solid #e9ecef;
+        position: relative;
+      }
+      .card-container-01:hover {
+        box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.22);
+      }
+
+      /* Header cells */
+      .performance-table-01 thead th {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        font-size: 0.95rem;
+      }
+
+      /* Top-left "Feature" cell */
+      .performance-table-01 thead th:first-child {
+        background-color: #0f3079; 
+        color: #fff;
+        border-top-left-radius: 16px;
+      }
+
+      /* Other header cells */
+      .performance-table-01 thead th:not(:first-child) {
+        background-color: #f8f9fa; 
+        color: #0f3079; 
+      }
+
+      /* Rounded corner on last header */
+      .performance-table-01 thead th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      /* Table body cells */
+      .performance-table-01 td {
+        padding: 1rem;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        background-color: white;
+        transition: all 0.3s ease;
+      }
+
+      /* First column labels */
+      .performance-table-01 tbody td:first-child {
+        background-color: #f8f9fa;
+        color: #0f3079; 
+        font-weight: 600;
+      }
+
+      .performance-table-01 tbody tr {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .performance-table-01 tbody tr:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .performance-table-01 tbody tr:hover td {
+        padding: 1.1rem;
+      }
+
+      .engine-type,
+      .horsepower,
+      .transmission {
+        color: #1e293b;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 16px;
+      }
+
+      .table-note {
+        max-width: 1300px !important;
+        margin: 0 auto !important;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .table-note p {
+        max-width: 1300px !important;
+      }
+
+      .table-section {
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-section">
+      <div class="card-container-01">
+        <!-- Header Section -->
+        <div class="table-container-01">
+          <section class="depreciation-section" id="depreciation-section">
+            <h2 class="section-title-02">
+              <span style="color: #0f3079">2025 Tucson </span>Key Features by Trim Level
+            </h2>
+          </section>
+        </div>
+        <!-- Table Section -->
+        <div class="table-wrapper">
+          <table class="performance-table-01">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>SE (Gas)</th>
+                <th>SEL (Gas)</th>
+                <th>XRT (Gas)</th>
+                <th>Limited (Gas)</th>
+                <th>Blue (Hybrid)</th>
+                <th>SEL Conv. (Hybrid)</th>
+                <th>N Line (Hybrid)</th>
+                <th>Limited (Hybrid)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Powertrain</td>
+                <td>2.5L Gas</td>
+                <td>2.5L Gas</td>
+                <td>2.5L Gas</td>
+                <td>2.5L Gas</td>
+                <td>1.6T Hybrid</td>
+                <td>1.6T Hybrid</td>
+                <td>1.6T Hybrid</td>
+                <td>1.6T Hybrid</td>
+              </tr>
+              <tr>
+                <td>Drivetrain</td>
+                <td>FWD/AWD</td>
+                <td>FWD/AWD</td>
+                <td>FWD/AWD</td>
+                <td>FWD/AWD</td>
+                <td>AWD</td>
+                <td>AWD</td>
+                <td>AWD</td>
+                <td>AWD</td>
+              </tr>
+              <tr>
+                <td>Wheel Size</td>
+                <td>17-inch</td>
+                <td>18-inch</td>
+                <td>18-inch XRT</td>
+                <td>19-inch</td>
+                <td>17-inch</td>
+                <td>18-inch</td>
+                <td>19-inch N Line</td>
+                <td>19-inch</td>
+              </tr>
+              <tr>
+                <td>Seating Surface</td>
+                <td>Cloth</td>
+                <td>Cloth</td>
+                <td>H-Tex (XRT)</td>
+                <td>Leather</td>
+                <td>Cloth</td>
+                <td>H-Tex</td>
+                <td>Sport Leather/Cloth</td>
+                <td>Leather</td>
+              </tr>
+              <tr>
+                <td>Heated Front Seats</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Ventilated Front Seats</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Sunroof</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Panoramic</td>
+                <td>No</td>
+                <td>Panoramic</td>
+                <td>Panoramic</td>
+                <td>Panoramic</td>
+              </tr>
+              <tr>
+                <td>Infotainment Screen</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+              </tr>
+              <tr>
+                <td>Digital Cluster</td>
+                <td>4.2-inch</td>
+                <td>4.2-inch</td>
+                <td>4.2-inch</td>
+                <td>12.3-inch</td>
+                <td>4.2-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+                <td>12.3-inch</td>
+              </tr>
+              <tr>
+                <td>Audio System</td>
+                <td>Standard</td>
+                <td>Standard</td>
+                <td>Standard</td>
+                <td>Bose</td>
+                <td>Standard</td>
+                <td>Standard</td>
+                <td>Bose</td>
+                <td>Bose</td>
+              </tr>
+              <tr>
+                <td>Hands-Free Liftgate</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Highway Driving Assist</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Surround View Monitor</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Blind-Spot View Monitor</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

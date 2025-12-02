@@ -1,0 +1,442 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section4 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Tech Feature Cards Grid */
+        .tech-features-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 25px;
+          margin: 40px 0;
+        }
+
+        .tech-card {
+          background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+          border-radius: 15px;
+          padding: 30px 25px;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+          border-top: 4px solid #0f3079;
+          transition: all 0.3s ease;
+          text-align: center;
+        }
+
+        .tech-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 30px rgba(15, 48, 121, 0.2);
+          border-top-color: #ff6b35;
+        }
+
+        .tech-icon {
+          font-size: 3rem;
+          margin-bottom: 15px;
+          display: block;
+        }
+
+        .tech-card-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #0f3079;
+          margin-bottom: 10px;
+        }
+
+        .tech-card-description {
+          font-size: 14px;
+          color: #495057;
+          line-height: 1.5;
+        }
+
+        /* Audio System Comparison */
+        .audio-comparison {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin: 40px 0;
+        }
+
+        .audio-card {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+          color: white;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .audio-card.winner {
+          border: 3px solid #ff6b35;
+          background: linear-gradient(135deg, #0f3079 0%, #1a4a8f 100%);
+        }
+
+        .audio-card::before {
+          content: "🏆";
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 2rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .audio-card.winner::before {
+          opacity: 1;
+        }
+
+        .audio-card.niro-audio {
+          background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+
+        .audio-brand {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .audio-details {
+          list-style: none;
+          padding: 0;
+          margin: 20px 0 0 0;
+        }
+
+        .audio-details li {
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .audio-details li:last-child {
+          border-bottom: none;
+        }
+
+        .audio-label {
+          font-size: 14px;
+          opacity: 0.9;
+        }
+
+        .audio-value {
+          font-size: 15px;
+          font-weight: 700;
+        }
+
+        /* Connectivity Highlight Box */
+        .connectivity-box {
+          background: linear-gradient(
+            135deg,
+            rgba(15, 48, 121, 0.05) 0%,
+            rgba(45, 90, 160, 0.05) 100%
+          );
+          border-left: 5px solid #0f3079;
+          border-radius: 10px;
+          padding: 25px 30px;
+          margin: 30px 0;
+        }
+
+        .connectivity-box h4 {
+          color: #0f3079;
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin: 0 0 15px 0;
+        }
+
+        .connectivity-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          margin-top: 15px;
+        }
+
+        .connectivity-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .connectivity-item::before {
+          content: "✓";
+          color: #0f3079;
+          font-weight: bold;
+          font-size: 1.2rem;
+          flex-shrink: 0;
+        }
+
+        .connectivity-item span {
+          font-size: 14px;
+          color: #333;
+          font-weight: 500;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .tech-features-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .tech-features-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .audio-comparison {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .connectivity-list {
+            grid-template-columns: 1fr;
+          }
+
+          .tech-icon {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section4">
+      <h2 class="section-heading">
+        Technology Features That Enhance Every Drive
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          The 2026 Kona is packed with technology to suit modern lifestyles.
+          Standard across all trims is a vibrant 12.3-inch touchscreen that
+          supports wireless Apple CarPlay and Android Auto, enabling seamless
+          smartphone integration without cluttering cabin space.
+        </p>
+        <p class="paragraph-text">
+          Higher trims introduce a fully digital 12.3-inch gauge cluster,
+          ambient 64-color lighting, and an available Bose premium audio system
+          that beats the Kia Niro's standard six-speaker setup and optional
+          seven-speaker Harman/Kardon system in both clarity and immersive sound
+          depth.
+        </p>
+        <p class="paragraph-text">
+          Additional conveniences such as NFC-based Hyundai Digital Key 2 Touch,
+          wireless charging, and dual USB ports front and rear enable
+          connectivity and power solutions tailored for busy commuters in
+          Oklahoma City and surrounding metro areas.
+        </p>
+      </div>
+
+      <!-- Technology Feature Cards -->
+      <div class="tech-features-grid">
+        <div class="tech-card">
+          <span class="tech-icon">📱</span>
+          <h4 class="tech-card-title">12.3" Touchscreen</h4>
+          <p class="tech-card-description">
+            Vibrant display with wireless Apple CarPlay & Android Auto standard
+            across all trims
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-icon">🎨</span>
+          <h4 class="tech-card-title">Digital Gauge Cluster</h4>
+          <p class="tech-card-description">
+            Fully digital 12.3-inch display with customizable layouts on higher
+            trims
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-icon">💡</span>
+          <h4 class="tech-card-title">64-Color Ambient Lighting</h4>
+          <p class="tech-card-description">
+            Customizable cabin atmosphere to match your mood and driving style
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-icon">🔑</span>
+          <h4 class="tech-card-title">Digital Key 2 Touch</h4>
+          <p class="tech-card-description">
+            NFC-based smartphone key technology for keyless entry and start
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-icon">⚡</span>
+          <h4 class="tech-card-title">Wireless Charging</h4>
+          <p class="tech-card-description">
+            Convenient wireless phone charging pad keeps devices powered
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-icon">🔌</span>
+          <h4 class="tech-card-title">Dual USB Ports</h4>
+          <p class="tech-card-description">
+            Front and rear USB ports for all passengers' connectivity needs
+          </p>
+        </div>
+      </div>
+
+      <!-- Audio System Comparison -->
+      <h3
+        style="
+          text-align: center;
+          color: #0f3079;
+          font-size: 1.8rem;
+          margin: 40px 0 30px 0;
+        "
+      >
+        Premium Audio System Comparison
+      </h3>
+
+      <div class="audio-comparison">
+        <div class="audio-card winner">
+          <div class="audio-brand">Bose® Premium Audio</div>
+          <p style="text-align: center; font-size: 14px; margin: 0">
+            2026 Hyundai Kona
+          </p>
+          <ul class="audio-details">
+            <li>
+              <span class="audio-label">System</span>
+              <span class="audio-value">8-Speaker Bose®</span>
+            </li>
+            <li>
+              <span class="audio-label">Sound Quality</span>
+              <span class="audio-value">Superior Clarity</span>
+            </li>
+            <li>
+              <span class="audio-label">Immersive Depth</span>
+              <span class="audio-value">Exceptional</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="audio-card niro-audio">
+          <div class="audio-brand">Harman/Kardon®</div>
+          <p style="text-align: center; font-size: 14px; margin: 0">
+            2026 Kia Niro
+          </p>
+          <ul class="audio-details">
+            <li>
+              <span class="audio-label">System</span>
+              <span class="audio-value">7-Speaker Optional</span>
+            </li>
+            <li>
+              <span class="audio-label">Standard System</span>
+              <span class="audio-value" id="safety-systems"
+                >6-Speaker Basic</span
+              >
+            </li>
+            <li>
+              <span class="audio-label">Sound Quality</span>
+              <span class="audio-value">Good</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

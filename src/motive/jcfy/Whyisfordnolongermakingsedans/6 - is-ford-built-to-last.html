@@ -1,0 +1,417 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Is Ford Built to Last? The Enduring Strength of "Built Ford Tough" - Joe
+      Cooper Ford of Yukon
+    </title>
+    <style>
+      /* Motive Container Default Styles */
+      .built-tough-container {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .built-tough-container h1 {
+        width: fit-content !important;
+      }
+
+      .built-tough-container h3,
+      .built-tough-container h1,
+      .built-tough-container h2,
+      .built-tough-container p,
+      .built-tough-container ol,
+      .built-tough-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Article Styles */
+      .article-title {
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1.5em;
+        border-bottom: 3px solid #0f3079;
+        padding-bottom: 15px;
+        width: 100%;
+        position: relative;
+      }
+
+      .article-title::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .article-title h2 {
+        margin: 0;
+        width: 100% !important;
+        font-size: 2.2em;
+      }
+
+      /* Hero Introduction */
+      .hero-intro {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-intro::before {
+        content: '🛡️';
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        opacity: 0.3;
+      }
+
+      .hero-intro p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* Feature Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #ff6b35;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 32px;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .feature-title {
+        color: #0f3079;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ff6b35;
+        padding-bottom: 8px;
+      }
+
+      .feature-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+      }
+
+      /* Lightning Showcase */
+      .lightning-showcase {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 35px;
+        margin: 30px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lightning-showcase::before {
+        content: '⚡';
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 35px;
+        color: #ff6b35;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .showcase-title {
+        color: #0f3079;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .showcase-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: justify;
+        text-indent: 1rem;
+      }
+
+      /* Service Section */
+      .service-section {
+        background: white;
+        border-radius: 15px;
+        padding: 35px;
+        margin: 30px 0;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e2e8f0;
+        position: relative;
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 15px;
+      }
+
+      .service-icon {
+        font-size: 28px;
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        padding: 12px;
+        border-radius: 50%;
+        color: white;
+      }
+
+      .service-title {
+        color: #0f3079;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .service-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: justify;
+        text-indent: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .service-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .service-button {
+        background: linear-gradient(45deg, #0f3079, #2d5aa0);
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(15, 48, 121, 0.3);
+      }
+
+      .service-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(15, 48, 121, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Commitment Section */
+      .commitment-section {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 30px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .commitment-section::before {
+        content: '🤝';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 40px;
+        opacity: 1;
+      }
+
+      .commitment-content {
+        font-size: 18px;
+        line-height: 1.7;
+        padding-inline: 30px;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .article-title h2 {
+          font-size: 1.8em;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .feature-card {
+          padding: 25px 20px;
+        }
+
+        .lightning-showcase,
+        .service-section {
+          padding: 25px 20px;
+        }
+
+        .service-header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .service-buttons {
+          justify-content: center;
+        }
+
+        .service-button {
+          flex: 1;
+          min-width: 140px;
+        }
+
+        .hero-intro,
+        .commitment-section {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="built-tough-container">
+      <div class="article-title">
+        <h2 custom-input="text">
+          Is Ford Built to Last? The Enduring Strength of "Built Ford Tough"
+        </h2>
+      </div>
+
+      <div class="hero-intro">
+        <p custom-input="text">
+          Ford's reputation for durability and toughness is more than a
+          marketing phrase—it embodies a philosophy that underscores the design
+          and engineering of every vehicle, especially trucks and SUVs. For
+          residents in Moore, Yukon, and Oklahoma City who rely on their
+          vehicles for demanding work or family adventures, "Built Ford Tough"
+          is a promise of reliability and strength.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌡️</div>
+          <div class="feature-title">Extreme Testing</div>
+          <div class="feature-content" custom-input="text">
+            Ford vehicles undergo rigorous testing in extreme conditions, from
+            the heat of Oklahoma summers to the cold winters of northern
+            climates.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏗️</div>
+          <div class="feature-title">Advanced Materials</div>
+          <div class="feature-content" custom-input="text">
+            The F-Series trucks, in particular, feature military-grade aluminum
+            bodies and fully boxed steel frames, offering a balance of strength
+            and reduced weight that enhances performance and fuel economy.
+          </div>
+        </div>
+      </div>
+
+      <div class="lightning-showcase">
+        <div class="showcase-title">Innovation Meets Toughness</div>
+        <div class="showcase-content" custom-input="text">
+          Innovation also plays a key role in Ford's toughness. The electric
+          F-150 Lightning, for example, combines traditional ruggedness with
+          modern electric powertrains, giving drivers a vehicle that can handle
+          heavy towing and off-road challenges while reducing emissions.
+        </div>
+      </div>
+
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-icon">🔧</div>
+          <div class="service-title">Expert Service & Support</div>
+        </div>
+        <div class="service-content" custom-input="text">
+          This durability is supported by Ford's extensive service network. At
+          Joe Cooper Ford of Yukon, our expert technicians use genuine Ford
+          parts available through our Parts Department to maintain and repair
+          your vehicle, ensuring it performs as intended for years to come.
+          Schedule your next maintenance using our Service Scheduler for oil
+          changes, tire rotations, and more.
+        </div>
+        <div class="service-buttons">
+          <a
+            href="https://joecooperfordyukon.com/service"
+            class="service-button"
+            custom-input="text"
+            >Schedule Service</a
+          >
+          <a
+            href="https://joecooperfordyukon.com/parts"
+            class="service-button"
+            custom-input="text"
+            >Parts Department</a
+          >
+          <a href="tel:+4053541111" class="service-button" custom-input="text"
+            >Call (405) 354-1111</a
+          >
+        </div>
+      </div>
+
+      <div class="commitment-section">
+        <p
+          class="commitment-content"
+          custom-input="text"
+          id="explore-ford-inventory"
+        >
+          Thanks to this commitment, Ford's toughness extends beyond the vehicle
+          itself, reflecting responsibility for safety, environmental impact,
+          and customer satisfaction. This holistic approach ensures Ford remains
+          a trusted brand for Oklahoma drivers seeking reliability and
+          innovation.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

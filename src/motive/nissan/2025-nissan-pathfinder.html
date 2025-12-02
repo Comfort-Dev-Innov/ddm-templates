@@ -1,0 +1,472 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    :is([class*="Section-module__"][class*="__section--blog"]) { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    :is([class*="Section-module__"][class*="__section--blog"]) * { max-width: 100% !important; box-sizing: border-box; }
+    /* Typography */
+    .blog-content p { margin: 1em 0; }
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .blog-content h2 { font-size: 1.6em; }
+    .blog-content h3 { font-size: 1.35em; }
+    /* Tables */
+    .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+    .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+    .blog-content table.e-rte-table td { color: #374151; }
+    .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+    .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-content table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-content table.e-rte-table th,
+      .blog-content table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    /* Links */
+    .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+    .blog-content a:hover { color: #15306e !important; }
+    /* TOC */
+    .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+    .blog-content h2 + ul li { margin: 6px 0; }
+    .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-content h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    /* offset for fixed navbars */
+    .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  
+    /* Images */
+    .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+    /* floating */
+    .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+    .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+    /* clear fix after floats */
+    .blog-content .clearfix::after { content:""; display:table; clear:both; }
+  
+    /* Image Wrapper Styles */
+    .blog-content .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .blog-content .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-content .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .blog-content .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .blog-content .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-content .image-float-left, .blog-content .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .blog-content .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .blog-content .image-float-left img, .blog-content .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .blog-content .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .blog-content .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-content .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-content .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-content .image-grid img {
+        border: none;
+      }
+  
+      .blog-content .image-float-left img,
+      .blog-content .image-float-right img {
+        border: none;
+      }
+    }
+  
+    </style><div class="blog-content"><p>Experience a midsize SUV that combines dependability with versatile family utility. At Jackie Cooper Nissan, located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>, we have proudly served Tulsa and neighboring Broken Arrow communities with integrity and care since 1946. The 2025 Nissan Pathfinder Base combines practical features and trusted performance, built to meet the needs of Oklahoma families seeking a reliable SUV.</p><p>Contact us today at <strong><a href="tel:+19189216531">(918) 921-6531</a></strong> to explore this capable vehicle in person and discover why Jackie Cooper Nissan remains a pillar of honesty and excellence in automotive service.</p><h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#introducing-the-2025-nissan-pathfinder-base">Introducing the 2025 Nissan Pathfinder Base</a></li>
+  <li><a href="#exterior-styling-practical-meets-rugged">Exterior Styling: Practical Meets Rugged</a></li>
+  <li><a href="#performance-and-driving-dynamics-explored">Performance and Driving Dynamics Explored</a></li>
+  <li><a href="#interior-space-and-comfort-for-family-life">Interior Space and Comfort for Family Life</a></li>
+  <li><a href="#technology-and-connectivity-that-keep-you-connected">Technology and Connectivity That Keep You Connected</a></li>
+  <li><a href="#safety-features-and-driver-assist-systems">Safety Features and Driver Assist Systems</a></li>
+  <li><a href="#trim-levels-and-available-packages">Trim Levels and Available Packages</a></li>
+  <li><a href="#warranty-and-maintenance-coverage">Warranty and Maintenance Coverage</a></li>
+  <li><a href="#final-thoughts-and-why-choose-jackie-cooper-nissan">Final Thoughts and Why Choose Jackie Cooper Nissan</a></li>
+  </ul><h2 id="introducing-the-2025-nissan-pathfinder-base">Introducing the 2025 Nissan Pathfinder Base</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/exterior/lightbox/2025-nissan-pathfinder-front-view-driving-down-city-boulevard.jpg" alt="2025 Nissan Pathfinder Front View">
+</div>
+</div>
+
+<p>Open the next chapter of your family's journey with the 2025 Nissan Pathfinder Base, a three-row SUV crafted for comfort on the roads of Tulsa, Broken Arrow, and beyond. Launched originally in 2022, this generation continues to impress with a well-rounded blend of space, family-oriented features, and trusted reliability.</p><p>Built to seat up to eight passengers, the Pathfinder Base creates a versatile environment for everyday commutes and weekend adventures. This model caters to those who value ample seating, ease of access, and a confident driving experience without the complexity or heft of overly specialized features. With a Manufacturer's Suggested Retail Price (MSRP) starting near $36,400, it remains an accessible option for families prioritizing quality and longevity.</p><p>The vehicle’s front-engine layout complements available front-wheel or all-wheel-drive configurations, allowing drivers to tailor traction and handling&nbsp;to Oklahoma’s varied road conditions—from urban streets in Tulsa to more challenging surfaces near Broken Arrow.</p><h3 id="balancing-family-needs-and-practicality">Balancing Family Needs and Practicality</h3><p>The Nissan Pathfinder Base targets families who need three-row seating while maintaining a manageable size for city driving. Spacious but not oversized, it offers thoughtful door design, with wide-opening rear doors that enhance entry and exit comfort, especially for accessing the third row, where legroom measures a respectful 28.0 inches.</p><p>Though competitors like the Toyota Grand Highlander and Subaru Ascent offer slightly more passenger and cargo room, the Pathfinder places a premium on user-friendly features and dependable performance, making it a dependable companion for area families. The inclusion of the Nissan Maintenance Care program for 2025 models adds peace of mind, with free oil changes scheduled for the first 24,000 miles or 2 years.</p><h2 id="exterior-styling-practical-meets-rugged">Exterior Styling: Practical Meets Rugged</h2><p>Though the Pathfinder Base opts for a clean, understated design, it retains purposeful styling elements that illustrate Nissan’s balance of modern utility and confident presence.</p><h3 id="simplicity-with-function-in-mind">Simplicity with Function in Mind</h3><p>The exterior dimensions reflect a well-proportioned midsize SUV, measuring 197.7 inches in length and 114.2 inches in wheelbase. Its nearly 78-inch width supports stable handling without compromising maneuverability in Tulsa’s neighborhoods. The moderate height of approximately 70.7 inches provides a commanding ride height, contributing to confident visibility without excessive bulk.</p><p>A wide track and sturdy stance are complemented by available alloy wheels designed to handle both everyday commutes and family road trips. While the Base trim forgoes the rugged accents of Rock Creek models, it maintains a durable presence, including integrated roof rails for added cargo-carrying versatility.</p><h3 id="features-that-make-life-easier">Features That Make Life Easier</h3><p>The rear cargo area features a generous opening and efficient load floor, allowing family gear or groceries to be stored with less hassle. Though the power-operated rear liftgate isn’t standard on the Base trim, it's available on higher trims, offering convenience for larger cargo items. Fuel tank placement and aerodynamic design help achieve respectable fuel economy, solidifying its status as a family-practicality-focused SUV.</p><p>2025 Nissan Pathfinder Base Exterior Dimensions</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Dimension</strong></th>
+  <th align="right"><strong>Measurement</strong></th>
+  <th align="right"><strong>Unit</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Overall Length</td>
+  <td align="right">197.7</td>
+  <td align="right">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Wheelbase</td>
+  <td align="right">114.2</td>
+  <td align="right">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Width (excluding mirrors)</td>
+  <td align="right">77.9</td>
+  <td align="right">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Height</td>
+  <td align="right">70.7</td>
+  <td align="right">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Ground Clearance</td>
+  <td align="right">7.8</td>
+  <td align="right">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Turning Radius</td>
+  <td align="right">39.3</td>
+  <td align="right">feet</td>
+  </tr>
+  </tbody></table>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/pfa/2025-nissan-pathfinder-view-from-above-turning-through-city-intersection-xl.jpg" alt="2025 Nissan Pathfinder Aerial View">
+</div>
+</div>
+
+<h2 id="performance-and-driving-dynamics-explored">Performance and Driving Dynamics Explored</h2><p>Under the hood, the 2025 Nissan Pathfinder Base is powered by a naturally aspirated 3.5-liter V6 engine generating 284 horsepower and 259 lb-ft of torque. This powertrain couples with a refined nine-speed automatic transmission to deliver a smooth, predictable ride that suits everyday driving in Oklahoma’s urban and rural settings.</p><h3 id="engine-and-transmission-details">Engine and Transmission Details</h3><p>The V6 engine is designed to prioritize strong top-end power, with peak output achieved at 6,400 rpm. While it is effective for highway passing and steady cruising, low-end torque is moderate, which may affect initial acceleration feel, especially when fully loaded or towing.</p><p>Front-wheel drive comes standard, with all-wheel drive available to improve traction in wet or challenging conditions frequently experienced during Oklahoma winters or off-pavement excursions near Broken Arrow. Acceleration from zero to 60 mph is accomplished in approximately 7.1 seconds with FWD and slightly faster with AWD.</p><h3 id="refined-ride-with-room-for-growth">Refined Ride with Room for Growth</h3><p>The Pathfinder’s handling leans toward comfort with a generally smooth suspension setup that absorbs road irregularities well. However, the steering is somewhat slower to respond than that of more dynamic midsize SUVs, which, along with a relatively large turning radius, may require some adjustment when maneuvering in tight spaces.</p><p>While off-road capability is limited, the Rock Creek trim notably improves ground clearance and features specialized tires for light rugged terrain. The Base trim, however, focuses on reliable on-road performance, making it a pragmatic choice for families mostly navigating paved roads.</p><p>2025 Nissan Pathfinder Base Performance Specifications</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Specification</strong></th>
+  <th align="right"><strong>Value</strong></th>
+  <th align="left"><strong>Notes</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Engine Type</td>
+  <td align="right">3.5-liter V6</td>
+  <td align="left">Naturally aspirated</td>
+  </tr>
+  <tr>
+  <td align="left">Horsepower</td>
+  <td align="right">284 hp</td>
+  <td align="left">Standard fuel rating</td>
+  </tr>
+  <tr>
+  <td align="left">Torque</td>
+  <td align="right">259 lb-ft</td>
+  <td align="left">Peak at 4,800 rpm</td>
+  </tr>
+  <tr>
+  <td align="left">Transmission</td>
+  <td align="right">9-speed automatic</td>
+  <td align="left">Replaced the previous CVT</td>
+  </tr>
+  <tr>
+  <td align="left">Drivetrain</td>
+  <td align="right">FWD standard; AWD optional</td>
+  <td align="left">Selectable terrain modes available</td>
+  </tr>
+  <tr>
+  <td align="left">0-60 mph Acceleration</td>
+  <td align="right">~7.1 seconds</td>
+  <td align="left">Varies slightly by drivetrain</td>
+  </tr>
+  <tr>
+  <td align="left">Towing Capacity</td>
+  <td align="right">Up to 3,500 lbs (base trim)</td>
+  <td align="left">Higher trims support 6,000 lbs</td>
+  </tr>
+  </tbody></table>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/exterior/lightbox/2025-nissan-pathfinder-rear-view-driving-down-dirt-mountain-road.jpg" alt="2025 Nissan Pathfinder Rear View">
+</div>
+</div>
+
+<h2 id="interior-space-and-comfort-for-family-life">Interior Space and Comfort for Family Life</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-view-front-cabin-illustrate-upscale-interior.jpg" alt="2025 Nissan Pathfinder Interior Cabin">
+</div>
+</div><p>Inside, the Pathfinder Base is designed to accommodate families with a focus on accessibility, flexibility, and moderate comfort. It provides three rows of seating for 7 to 8 passengers, depending on the configuration, making it a favorite among Tulsa families seeking versatility without sacrificing space.</p>
+<div class="image-grid">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-interior-view-2nd-row-captain-chairs.jpg" alt="2025 Nissan Pathfinder Second Row Captain Chairs">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-interior-view-backpack-camera-passenger-seat.jpg" alt="2025 Nissan Pathfinder Passenger Seat">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-dual-panel-moonroof.jpg" alt="2025 Nissan Pathfinder Dual Panel Moonroof">
+</div>
+
+<h3 id="ample-seating-and-thoughtful-layout">Ample Seating and Thoughtful Layout</h3><p>The front row offers 44.3 inches of legroom, while second-row passengers enjoy 35.5 inches. The third row, while not the most spacious in the segment, measures 28.0 inches, sufficient for children or occasional adult use. Rear doors open wide to help passengers, including families with child seats, move in and out with ease.</p><h3 id="flexible-cargo-areas">Flexible Cargo Areas</h3><p>Cargo space behind the third row accommodates 16.6 cubic feet of luggage, increasing to 45.0 cubic feet with the third row folded, and reaching a maximum of 80.5 cubic feet when both the second and third rows are folded flat. While these volumes trail slightly behind segment leaders, they remain practical for everyday family needs such as groceries, sports gear, or weekend camping supplies.</p><p>Throughout the cabin, Nissan includes well-placed storage compartments and cupholders to keep essentials organized and accessible during travel. Materials in the Base trim are functional and durable, meeting expectations for the segment with a sharp priority on reliability over luxury.</p><p>2025 Nissan Pathfinder Passenger and Cargo Space Dimensions</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Space</strong></th>
+  <th align="right"><strong>Measurement</strong></th>
+  <th align="left"><strong>Unit</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Front Legroom</td>
+  <td align="right">44.3</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Second-Row Legroom</td>
+  <td align="right">35.5</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Third-Row Legroom</td>
+  <td align="right">28.0</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Cargo Volume Behind Third Row</td>
+  <td align="right">16.6</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  <tr>
+  <td align="left">Cargo Volume Behind Second Row</td>
+  <td align="right">45.0</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  <tr>
+  <td align="left">Cargo Volume Behind First Row</td>
+  <td align="right">80.5</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  </tbody></table>
+
+<div class="image-grid">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-cargo-area-camping-gear-v2.jpg" alt="2025 Nissan Pathfinder Cargo Area">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-interior-view-pass-through-console.jpg" alt="2025 Nissan Pathfinder Pass-Through Console">
+</div>
+
+<h2 id="technology-and-connectivity-that-keep-you-connected">Technology and Connectivity That Keep You Connected</h2><p>The Pathfinder Base provides straightforward technology tailored for connectedness and convenience, helping families navigate Tulsa’s busy streets or head out on road trips.</p><h3 id="user-friendly-infotainment-system">User-Friendly Infotainment System</h3><p>An 8-inch touchscreen serves as the centerpiece of the infotainment setup, offering easy access to audio controls, vehicle settings, and smartphone integration. Apple CarPlay and Android Auto come standard, allowing seamless smartphone mirroring with intuitive voice commands or touch inputs. While wireless smartphone charging is reserved for upper trims, the Base trim’s wired connectivity maintains reliable charging and data link.</p><h3 id="convenient-digital-tools">Convenient Digital Tools</h3><p>The digital instrument cluster offers clear, customizable displays that keep drivers informed about essential trip details, while available features like NissanConnect Services grant remote vehicle controls and alerts via smartphone apps, ideal for busy parents managing schedules. Navigation and premium audio remain available as optional upgrades in higher trims.</p><p>2025 Nissan Pathfinder Base Technology Features Overview</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Feature</strong></th>
+  <th align="left"><strong>Description</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Touchscreen Display</td>
+  <td align="left">8.0-inch color display with intuitive menu</td>
+  </tr>
+  <tr>
+  <td align="left">Smartphone Integration</td>
+  <td align="left">Apple CarPlay and Android Auto are standard</td>
+  </tr>
+  <tr>
+  <td align="left">Wireless Charging</td>
+  <td align="left">Available in higher trims only</td>
+  </tr>
+  <tr>
+  <td align="left">NissanConnect® Services</td>
+  <td align="left">Remote start/lock/unlock and vehicle alerts via app</td>
+  </tr>
+  <tr>
+  <td align="left">Audio System</td>
+  <td align="left">Standard six-speaker system</td>
+  </tr>
+  </tbody></table>
+
+<div class="image-grid">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-center-console.jpg" alt="2025 Nissan Pathfinder Center Console">
+  <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/interior/lightbox/2025-nissan-pathfinder-head-up-display-touch-screen-map.jpg" alt="2025 Nissan Pathfinder Head-Up Display">
+</div>
+
+<h2 id="safety-features-and-driver-assist-systems">Safety Features and Driver Assist Systems</h2><p>Safety remains a cornerstone of the 2025 Nissan Pathfinder’s appeal, reflecting Nissan’s longstanding commitment to community protection with advanced technologies tailored for families around Broken Arrow and Tulsa.</p><h3 id="comprehensive-standard-safety-suite">Comprehensive Standard Safety Suite</h3><p>The Base trim comes equipped with robust active safety systems, including:</p><ul>
+  <li>Automatic emergency braking with pedestrian detection, promoting collision avoidance in city and highway traffic</li>
+  <li>Blind-spot monitoring and rear cross-traffic alert to enhance situational awareness</li>
+  <li>Lane-keep assist supporting safer lane management on highways and busy roads</li>
+  <li>Automatic high-beam control adjusts lighting intensity based on traffic conditions</li>
+  </ul><h3 id="available-advanced-assistance-technologies">Available Advanced Assistance Technologies</h3><p>On higher trims such as SV, SL, and Platinum, Nissan’s ProPILOT Assist system introduces semi-autonomous driving features, including adaptive cruise control and lane-centering support—perfect for long Oklahoma drives or heavy traffic.</p><p>Nissan’s safety engineering is recognized by industry authorities: the 2025 Pathfinder received a five-star overall rating from NHTSA and continues the IIHS TOP SAFETY PICK+ legacy for models built after late 2023. These distinctions affirm the SUV’s ability to protect families with well-integrated passive and active safety measures.</p><p>2025 Nissan Pathfinder Base Safety Features</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Safety Feature</strong></th>
+  <th align="left"><strong>Description</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Automatic Emergency Braking</td>
+  <td align="left">Includes pedestrian detection</td>
+  </tr>
+  <tr>
+  <td align="left">Blind-Spot Monitoring</td>
+  <td align="left">Alerts on vehicles in adjacent lanes</td>
+  </tr>
+  <tr>
+  <td align="left">Rear Cross-Traffic Alert</td>
+  <td align="left">Detects approaching vehicles when reversing</td>
+  </tr>
+  <tr>
+  <td align="left">Lane-Keep Assist</td>
+  <td align="left">Helps maintain lane position</td>
+  </tr>
+  <tr>
+  <td align="left">ProPILOT Assist (Available)</td>
+  <td align="left">Semi-autonomous cruise and steering aid (higher trims)</td>
+  </tr>
+  </tbody></table>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2025/gallery/exterior/lightbox/2025-nissan-pathfinder-mountain-summit.jpg" alt="2025 Nissan Pathfinder Mountain Summit">
+</div>
+</div>
+
+<h2 id="trim-levels-and-available-packages">Trim Levels and Available Packages</h2><p>The 2025 Nissan Pathfinder is available in multiple configurations, allowing buyers to balance budget and feature choices based on their lifestyle. The Base trim represents the entry-level offering, presenting key essentials with the ability to upgrade as needs evolve.</p><h3 id="base-trim-essentials-for-everyday-families">Base Trim: Essentials for Everyday Families</h3><p>As the foundation of the lineup, the Base model includes:</p><ul>
+  <li>3.5-liter V6 engine with 284 hp</li>
+  <li>Nine-speed automatic transmission</li>
+  <li>Front-wheel drive standard, AWD option available</li>
+  <li>Three-row seating for up to eight occupants</li>
+  <li>Standard safety and infotainment features detailed above</li>
+  <li>Capacity to tow up to 3,500 pounds</li>
+  </ul><h3 id="beyond-the-base-what-comes-next">Beyond the Base: What Comes Next</h3><p>Moving up to SV, SL, Rock Creek, and Platinum trims unlocks:</p><ul>
+  <li>Advanced audio and connectivity options, including larger touchscreens and Bose premium sound</li>
+  <li>ProPILOT Assist semi-autonomous features starting at SV trim</li>
+  <li>Rock Creek trim with off-road styling, lifted suspension, and all-terrain tires for limited rugged driving</li>
+  <li>Increased towing capacity up to 6,000 pounds on select trims and packages</li>
+  <li>Premium interior materials, panoramic sunroof, and heated/ventilated seating</li>
+  </ul><p>This flexibility allows Tulsa buyers to tailor the Pathfinder to their preferred balance of comfort, utility, and adventure readiness.</p><h2 id="warranty-and-maintenance-coverage">Warranty and Maintenance Coverage</h2><p>At Jackie Cooper Nissan, we recognize that peace of mind extends beyond the showroom. The 2025 Nissan Pathfinder Base is backed by Nissan’s comprehensive warranty and maintenance offerings designed to support your vehicle’s longevity and reliability.</p><p>2025 Nissan Pathfinder Warranty and Maintenance Coverage</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Coverage</strong></th>
+  <th align="left"><strong>Details</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Basic Limited Warranty</td>
+  <td align="left">3 years / 36,000 miles</td>
+  </tr>
+  <tr>
+  <td align="left">Powertrain Warranty</td>
+  <td align="left">5 years / 60,000 miles</td>
+  </tr>
+  <tr>
+  <td align="left">Roadside Assistance</td>
+  <td align="left">Includes 24/7 Nissan Roadside Assistance <a href="tel:+18006692677">1-800-366-2677</a></td>
+  </tr>
+  <tr>
+  <td align="left">Scheduled Maintenance</td>
+  <td align="left">Nissan Maintenance Care program covers three oil changes in the first 24,000 miles or 2 years.</td>
+  </tr>
+  </tbody></table><p>For routine care or repair, the <strong><a href="https://jackiecoopernissan.com/service">Service Department</a></strong> at Jackie Cooper Nissan provides expert attention, ensuring your Pathfinder maintains optimal performance throughout its life.</p><p>If replacement parts are ever needed, our <strong><a href="https://jackiecoopernissan.com/parts">Parts Department</a></strong> stocks genuine Nissan components backed by manufacturer standards.</p><h2 id="final-thoughts-and-why-choose-jackie-cooper-nissan">Final Thoughts and Why Choose Jackie Cooper Nissan</h2><p>The 2025 Nissan Pathfinder Base stands as a trustworthy, family-tested midsize SUV that blends durability, spaciousness, and user-friendly technology, well-suited for the Oklahoma lifestyle. While it may not lead every segment, its proven V6, generous seating, and strong safety credentials provide a solid foundation for families and active individuals alike.</p><p>When you choose Jackie Cooper Nissan, you're choosing a partner deeply rooted in Tulsa history—proudly serving local families with integrity and transparency for nearly 80 years. Our team offers professional guidance, comprehensive knowledge, and genuine care from the first visit through years of vehicle ownership.</p><p>We invite you to explore our selection, including the latest 2025 Nissan Pathfinder Base and other models, by visiting us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>. Schedule your test drive online today.</p><p>Additionally, if you're considering a vehicle upgrade, let us help you understand your current vehicle's worth via our <strong><a href="https://jackiecoopernissan.com/trade">Trade Valuation</a></strong> tool. For those exploring quality pre-owned options, browse our inventory of <strong><a href="https://jackiecoopernissan.com/cars/used-inventory">All Used Vehicles</a></strong> or specifically curated selections like <strong><a href="https://jackiecoopernissan.com/cars/used-inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22price%22%3A%7B%22value%22%3A%5B0%2C25000%5D%7D%7D%7D">All Used Vehicles Under $25k</a></strong>.</p><p>At Jackie Cooper Nissan, our commitment to Tulsa and Broken Arrow families extends beyond vehicle sales—experience transparency, care, and expertise that truly make a difference.</p><hr><p>© 2025 Jackie Cooper Nissan</p></div>

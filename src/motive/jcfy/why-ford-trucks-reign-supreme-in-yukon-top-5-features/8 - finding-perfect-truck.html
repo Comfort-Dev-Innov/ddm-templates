@@ -1,0 +1,472 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding the Perfect Ford Truck for Your Oklahoma Lifestyle</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer h3,
+      .featuresContainer h1,
+      .featuresContainer h2,
+      .featuresContainer p,
+      .featuresContainer ol,
+      .featuresContainer ul,
+      .featuresContainer table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title {
+        font-size: 42px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        color: #0f3079;
+        text-align: center;
+      }
+
+      .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        border: 2px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-color: #0f3079;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 240px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 2px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .card:hover .card-image img {
+        transform: scale(1.1);
+      }
+
+      .card-content {
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.8rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+        color: #0f3079;
+        font-weight: 600;
+        margin-bottom: 1.2rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .card-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      .card-description strong {
+        color: #0f3079;
+        font-weight: 700;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Individual card themes */
+      .f150-card .card-title {
+        color: #0f3079;
+      }
+
+      .f150-card .card-image {
+        background: linear-gradient(135deg, #ebf4ff 0%, #4299e1 100%);
+        color: #3182ce;
+      }
+
+      .superduty-card .card-title {
+        color: #c53030;
+      }
+
+      .superduty-card .card-image {
+        background: linear-gradient(135deg, #fed7d7 0%, #e53e3e 100%);
+        color: #e53e3e;
+      }
+
+      .ranger-card .card-title {
+        color: #2d5aa0;
+      }
+
+      .ranger-card .card-image {
+        background: linear-gradient(135deg, #e6fffa 0%, #319795 100%);
+        color: #2d3748;
+      }
+
+      .maverick-card .card-title {
+        color: #38a169;
+      }
+
+      .maverick-card .card-image {
+        background: linear-gradient(135deg, #f0fff4 0%, #9ae6b4 100%);
+        color: #38a169;
+      }
+
+      /* Specs list */
+      .specs-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+      }
+
+      .specs-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 8px;
+        color: #4a5568;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .specs-list li::before {
+        content: '▶';
+        position: absolute;
+        left: 0;
+        color: #0f3079;
+        font-size: 12px;
+      }
+
+      /* CTA button in cards */
+      .card-cta {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+      }
+
+      .card-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+      }
+
+      /* Inventory showcase section */
+      .inventory-showcase {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 50px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+      }
+
+      .inventory-showcase h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .inventory-showcase p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        margin-bottom: 30px;
+      }
+
+      .inventory-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .inventory-btn {
+        background: white;
+        color: #0f3079;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .inventory-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: #f8f9fa;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+
+        .card-image {
+          height: 200px;
+        }
+
+        .inventory-showcase {
+          padding: 30px 20px;
+        }
+
+        .inventory-showcase h3 {
+          font-size: 1.5rem;
+        }
+
+        .inventory-showcase p {
+          font-size: 1rem;
+        }
+
+        .inventory-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .inventory-btn {
+          width: 100%;
+          max-width: 250px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card-content {
+          padding: 1.25rem;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-description {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer">
+      <h2 class="main-title" custom-input="text">
+        Finding the Perfect Ford Truck for Your Oklahoma Lifestyle
+      </h2>
+      <p class="subtitle" custom-input="text">
+        At Joe Cooper Ford of Yukon, our extensive inventory includes a Ford
+        truck designed for every driver. Here's a quick guide:
+      </p>
+
+      <!-- Inventory Showcase -->
+      <div class="inventory-showcase">
+        <h3 custom-input="text">Explore Our Complete Ford Truck Lineup</h3>
+        <p custom-input="text">
+          From work-ready powerhouses to family-friendly haulers, we have the
+          perfect Ford truck waiting for you in Yukon, Oklahoma.
+        </p>
+        <div class="inventory-buttons">
+          <a
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Image%20Count%22%2C%22value%22%3A%22image_count%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22category%22%3A%7B%22value%22%3A%7B%22Truck%22%3Atrue%7D%7D%7D%7D"
+            class="inventory-btn"
+            custom-input="text"
+            >New Trucks Inventory</a
+          >
+          <a
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Image%20Count%22%2C%22value%22%3A%22image_count%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22Used%22%3Atrue%7D%7D%2C%22category%22%3A%7B%22value%22%3A%7B%22Truck%22%3Atrue%7D%7D%7D%7D"
+            class="inventory-btn"
+            custom-input="text"
+            >Used Trucks Inventory</a
+          >
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card f150-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/5gJk4gXm/25-frd-f15l-xlt-oxwh-ps34.jpg"
+              alt="Ford F-150 - America's Best-Selling Truck"
+              custom-input="image"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title" custom-input="text">Ford F-150</h2>
+            <p class="card-subtitle" custom-input="text">
+              America's Best-Seller
+            </p>
+            <p class="card-description" custom-input="text">
+              America's best-seller for a reason. Perfect for general
+              contracting, family trips, and daily driving, offering an ideal
+              balance of power, comfort, and technology.
+            </p>
+          </div>
+        </div>
+
+        <div class="card superduty-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/5dYqMTX/25-frd-fsd-f250-lar-sc6-srw-4x4-rcrd-ps34.jpg"
+              alt="Ford Super Duty - Maximum Heavy-Duty Performance"
+              custom-input="image"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title" custom-input="text">
+              Ford Super Duty (F-250, F-350)
+            </h2>
+            <p class="card-subtitle" custom-input="text">
+              Ultimate Heavy-Duty Power
+            </p>
+            <p class="card-description" custom-input="text">
+              The ultimate choice for heavy-duty commercial work, agriculture,
+              and towing the largest trailers and fifth wheels with ease.
+            </p>
+          </div>
+        </div>
+
+        <div class="card ranger-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/ksX0kk90/25-frd-rgr-xl-stx-scc5-4x2-oxwh-ps34.jpg"
+              alt="Ford Ranger - Versatile Mid-Size Adventure"
+              custom-input="image"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title" custom-input="text">Ford Ranger</h2>
+            <p class="card-subtitle" custom-input="text">
+              Versatile Mid-Size Adventure
+            </p>
+            <p class="card-description" custom-input="text">
+              A versatile mid-size truck that's perfect for both city life in
+              Warr Acres and off-road adventures, offering excellent
+              maneuverability and capability.
+            </p>
+          </div>
+        </div>
+
+        <div class="card maverick-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/5dYqMTX/25-frd-fsd-f250-lar-sc6-srw-4x4-rcrd-ps34.jpghttps://i.ibb.co/6qqPZ00/24-frd-mvk-xl-scc5-ps34-master.jpg"
+              custom-input="image"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title" custom-input="text">Ford Maverick</h2>
+            <p class="card-subtitle" custom-input="text">
+              Compact Hybrid Efficiency
+            </p>
+            <p class="card-description" custom-input="text" id="competition-comparison">
+              A compact hybrid truck that delivers incredible fuel efficiency,
+              making it ideal for commuters in Edmond and those with light-duty
+              hauling needs.
+            </p>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

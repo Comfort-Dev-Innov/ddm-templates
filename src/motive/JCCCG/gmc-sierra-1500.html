@@ -1,0 +1,431 @@
+<style>
+  /* ===== Base Blog Section Layout ===== */
+  :is([class*="Section-module__"][class*="__section--blog"]) { 
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #111827;
+    line-height: 1.7;
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+  :is([class*="Section-module__"][class*="__section--blog"]) * { max-width: 100% !important; box-sizing: border-box; }
+  /* Typography */
+  .gmc-sierra-content p { margin: 1em 0; }
+  .gmc-sierra-content h2,
+  .gmc-sierra-content h3,
+  .gmc-sierra-content h4 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #000000;
+  }
+  .gmc-sierra-content h2 { font-size: 1.6em; }
+  .gmc-sierra-content h3 { font-size: 1.35em; }
+  /* Tables */
+  .gmc-sierra-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+  .gmc-sierra-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+  .gmc-sierra-content table.e-rte-table th, .gmc-sierra-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+  .gmc-sierra-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+  .gmc-sierra-content table.e-rte-table td { color: #374151; }
+  .gmc-sierra-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+  .gmc-sierra-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+  .gmc-sierra-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+  /* Responsive Table */
+  @media (max-width: 700px) {
+    .gmc-sierra-content table.e-rte-table {
+      font-size: 14px;
+      overflow-x: auto;
+      display: block;
+    }
+    .gmc-sierra-content table.e-rte-table th,
+    .gmc-sierra-content table.e-rte-table td {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+  }
+  /* Links */
+  .gmc-sierra-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+  .gmc-sierra-content a:hover { color: #15306e !important; }
+  /* TOC */
+  .gmc-sierra-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+  .gmc-sierra-content h2 + ul li { margin: 6px 0; }
+  .gmc-sierra-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+  .gmc-sierra-content h2 + ul li a:hover { text-decoration: underline; }
+
+  /* Smooth scrolling globally */
+  html { scroll-behavior: smooth; }
+  /* offset for fixed navbars */
+  h2[id], h3[id], h4[id] { scroll-margin-top: 90px; }
+
+  /* highlight on jump */
+  :target { animation: highlightFlash 1.2s ease-out; }
+  @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+
+  /* Images */
+  .gmc-sierra-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+  .gmc-sierra-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+  /* floating */
+  .gmc-sierra-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+  .gmc-sierra-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+  /* clear fix after floats */
+  .gmc-sierra-content .clearfix::after { content:""; display:table; clear:both; }
+
+  /* Image Wrapper Styles */
+  .gmc-sierra-content .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 32px 0;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .gmc-sierra-content .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: 4px solid #1e3a8a;
+    outline: 3px dashed #1e3a8a;
+    outline-offset: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .gmc-sierra-content .image-wrapper img:hover {
+    transform: scale(1.02) translateY(-4px);
+    box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+    outline-offset: 12px;
+    border-color: #2563eb;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Image Grid Layouts */
+  .gmc-sierra-content .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+    padding: 32px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    border-radius: 12px;
+  }
+  .gmc-sierra-content .image-grid img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .gmc-sierra-content .image-grid img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+    border-color: #1e40af;
+  }
+
+  /* Floating Images */
+  .gmc-sierra-content .image-float-left, .gmc-sierra-content .image-float-right {
+    max-width: 48%;
+    margin: 16px;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .gmc-sierra-content .image-float-left {
+    float: left;
+    margin-right: 24px;
+  }
+  .gmc-sierra-content .image-float-right {
+    float: right;
+    margin-left: 24px;
+  }
+  .gmc-sierra-content .image-float-left img, .gmc-sierra-content .image-float-right img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid #60a5fa;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: all 0.35s ease-out;
+    cursor: pointer;
+  }
+  .gmc-sierra-content .image-float-left img:hover {
+    transform: translateX(-8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+    border-color: #2563eb;
+  }
+  .gmc-sierra-content .image-float-right img:hover {
+    transform: translateX(8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+    border-color: #2563eb;
+  }
+
+  /* Mobile: Remove decorative borders and outlines */
+  @media (max-width: 768px) {
+    .gmc-sierra-content .image-wrapper img {
+      border: none;
+      outline: none;
+      outline-offset: 0;
+      border-radius: 8px;
+    }
+
+    .gmc-sierra-content .image-grid {
+      background: transparent;
+      padding: 0;
+      gap: 16px;
+    }
+
+    .gmc-sierra-content .image-grid img {
+      border: none;
+    }
+
+    .gmc-sierra-content .image-float-left img,
+    .gmc-sierra-content .image-float-right img {
+      border: none;
+    }
+  }
+
+  </style>
+<div class="gmc-sierra-content">
+<p style="margin-top: 50px !important;">The 2026 GMC Sierra 1500 Base sets a solid foundation in full-size pickups with its blend of strength, versatility, and straightforward utility. Designed for drivers in communities like Shawnee, Norman, and Yukon, Oklahoma, this pickup exemplifies GMC's tradition of dependable performance paired with thoughtful features. Joe Cooper Chevrolet Cadillac GMC invites families and professionals in the Bethel Acres, Chandler, and Pink, OK, area to explore this capable truck, which balances rugged functionality with everyday usability.</p>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/exterior/my26-sierra-1500-mov-gallery-exterior-1-1920x960-26PGSRLD99227.jpg?imwidth=1920" alt="2026 GMC Sierra 1500">
+</div>
+</div>
+
+<h2 id="table-of-contents">Table of Contents</h2><ul>
+<li><a href="#into-the-heart-of-the-2026-sierra-1500-base">Into the Heart of the 2026 Sierra 1500 Base</a></li></li>
+<li><a href="#refined-exterior-with-practical-details">Refined Exterior with Practical Details</a></li></li>
+<li><a href="#power-and-drive-dynamics-explained">Power and Drive Dynamics Explained</a></li></li>
+<li><a href="#interior-comfort-and-functional-design">Interior Comfort and Functional Design</a></li></li>
+<li><a href="#technology-and-connectivity-features">Technology and Connectivity Features</a><ul>
+<li><a href="#infotainment">Infotainment Systems</a></li></li>
+<li><a href="#driver-assistance-technology">Driver Assistance Technology</a></li></li>
+</ul>
+</li>
+<li><a href="#safety-systems-that-inspire-confidence">Safety Systems that Inspire Confidence</a></li></li>
+<li><a href="#exploring-trims-and-available-packages">Exploring Trims and Available Packages</a></li></li>
+<li><a href="#warranty-coverage-and-maintenance-care">Warranty Coverage and Maintenance Care</a></li></li>
+<li><a href="#why-choose-joe-cooper-for-your-sierra-1500">Why Choose Joe Cooper for Your Sierra 1500</a></li></li>
+</ul><h3 id="into-the-heart-of-the-2026-sierra-1500-base">Into the Heart of the 2026 Sierra 1500 Base</h3><p>Situated firmly within GMC’s full-size pickup portfolio, the 2026 Sierra 1500 Base serves as a trustworthy partner for drivers throughout the heartland communities of Etowah, Mustang, and Harrah, Oklahoma. This Pro trim, which starts just above $38,000 MSRP, delivers essential utility with an emphasis on durability and proven engineering. The Sierra 1500’s chassis shares its foundational elements with the highly regarded Chevrolet Silverado 1500, providing a familiar and reliable structure elevated by GMC’s distinct styling and thoughtful design touches.</p><p>The Base trim prioritizes straightforward functionality for work and daily tasks while offering flexibility through multiple cab styles and bed lengths. Regular Cab, Double Cab, and Crew Cab configurations enable drivers to tailor their Sierra to suit the demands of small business owners in Edmond, Tuttle, and Moore, or families seeking a hard-working vehicle with ample&nbsp;room to spare. By focusing on essential amenities paired with efficient powertrain options, the Sierra 1500 Base aligns with customers’ practical needs across Oklahoma City and surrounding areas.</p><h3 id="refined-exterior-with-practical-details">Refined Exterior with Practical Details</h3>
+<div class="image-float-right">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/exterior/my26-sierra-1500-mov-gallery-exterior-3-1920x960-26PGSRLD99203.jpg?imwidth=1920" alt="GMC Sierra 1500 Exterior Design">
+</div>
+
+<p>The 2026 Sierra 1500 Base embraces purposeful styling that resonates with those in Pink and Seminole, OK, who cherish ruggedness without unnecessary extravagance. Newly introduced exterior colors, such as Glacier White Tricoat and Coastal Dune, provide fresh choices for buyers seeking a distinctive yet understated appearance. While classic options such as White Frost Tricoat have been retired, these replacements maintain the Sierra's strong visual presence.</p><h2 id="exterior-dimensions-overview">Exterior Dimensions Overview</h2><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Dimension</strong></th>
+<th><strong>Measurement (Crew Cab, Standard Bed)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Overall Length</td>
+<td>229.9 inches</td>
+</tr>
+<tr>
+<td>Width (excluding mirrors)</td>
+<td>81.0 inches</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>75.8 inches</td>
+</tr>
+<tr>
+<td>Wheelbase</td>
+<td>147.4 inches</td>
+</tr>
+<tr>
+<td>Ground Clearance</td>
+<td>8.9 inches</td>
+</tr>
+<tr>
+<td>Bed Length</td>
+<td>6.6 ft (standard bed)</td>
+</tr>
+</tbody></table><p>These proportions strike a careful balance between road presence and maneuverability, making the Sierra well-suited for both urban environs around Choctaw and broad rural stretches near Okemah. A robust frame, complemented by clean body lines and functional lighting, offers durability rooted in GMC’s legacy. Practical features such as 12 cargo tie-downs in the bed ensure tools and equipment remain secure during transport.</p><h2 id="exterior-features-and-options">Exterior Features and Options</h2><ul>
+<li>Distinct grille design signaling the GMC brand</li>
+<li>LED headlamps and daytime running lights are standard on many trims beyond Base</li>
+<li>Available 20-inch wheels enhance stance and road handling</li>
+<li>Practical bed features, including available composite bed options on higher trims (not Base)</li>
+</ul>
+
+<div class="image-grid">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/exterior/my26-sierra-1500-pro-exterior-carbon-pro-composite-bed-1920x960-26PGSRLD100877.jpg?imwidth=1920" alt="GMC Sierra 1500 CarbonPro Bed">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/safety/my26-sierra-1500-mov-safety-1920x960-26PGSRLD91254.jpg?imwidth=1920" alt="GMC Sierra 1500 Safety Features">
+</div>
+
+<p>By combining rugged form with everyday utility, the Sierra 1500 Base reflects thoughtful craftsmanship appreciated by drivers from Henryetta to Shawnee.</p>
+
+<div style="clear: both;"></div>
+
+<h3 id="power-and-drive-dynamics-explained">Power and Drive Dynamics Explained</h3><p>GMC’s commitment to robust and efficient powertrains is evident in the Sierra 1500’s diverse engine lineup. At Joe Cooper Chevrolet Cadillac GMC in Shawnee, drivers from Mustang and Yukon, Oklahoma, have access to power options tailored to meet various needs. At the same time, the Base trim emphasizes reliability and balanced performance.</p><h2 id="engine-and-transmission-specifications">Engine and Transmission Specifications</h2><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Engine Type</strong></th>
+<th><strong>Displacement</strong></th>
+<th><strong>Horsepower</strong></th>
+<th><strong>Torque</strong></th>
+<th><strong>Transmission</strong></th>
+<th><strong>Fuel Economy (City/Highway)</strong></th>
+<th><strong>0-60 mph Acceleration</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TurboMax Inline-4 (Turbocharged)</td>
+<td>2.7 liters</td>
+<td>310 hp</td>
+<td>420 lb-ft</td>
+<td>8-speed automatic</td>
+<td>16–18 / 17–21 mpg</td>
+<td>~7.1 seconds</td>
+</tr>
+<tr>
+<td>5.3L V8</td>
+<td>5.3 liters</td>
+<td>355 hp</td>
+<td>383 lb-ft</td>
+<td>10-speed automatic</td>
+<td>15–16 / 18–21 mpg</td>
+<td>~6.4 seconds (from Silverado)</td>
+</tr>
+</tbody></table><p>For the Base trim, the 2.7L TurboMax inline-4 engine provides ample torque and smooth acceleration, making it ideal for both daily driving and moderate hauling tasks common in Oklahoma City and Moore work sites. The 8-speed automatic transmission delivers refined shifting to enhance fuel efficiency without sacrificing responsiveness. Those requiring the additional muscle can opt for the 5.3L V8 on select trims, offering greater towing capacity and acceleration suited to hauling equipment or recreational trailers.</p><h2 id="drivetrain-and-handling">Drivetrain and Handling</h2><ul>
+<li>Rear-wheel drive (RWD) standard, delivering straightforward power delivery preferred by many drivers in surrounding areas like Edmond and Bethel Acres</li>
+<li>Four-wheel drive (4WD) offered on select configurations, boosting traction for rural work or inclement weather</li>
+<li>Suspension tuned to balance ride comfort and payload capability, with optional adaptive dampers on higher trims</li>
+</ul><h2 id="towing-and-payload-capacity">Towing and Payload Capacity</h2><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Capability</strong></th>
+<th><strong>Measurement</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Maximum Towing</td>
+<td>Up to 9,400 lbs (with TurboMax)</td>
+</tr>
+<tr>
+<td>Maximum Payload</td>
+<td>Up to 2,200 lbs (varies by config)</td>
+</tr>
+</tbody></table><p>This flexibility supports the diverse demands faced by drivers from Pink to Norman, whether they are moving heavy loads for business or recreational purposes.</p><h3 id="interior-comfort-and-functional-design">Interior Comfort and Functional Design</h3>
+<div class="image-float-right">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/interior/my26-sierra-1500-mov-gallery-interior-3-1920x960-26PGSRLD99161.jpg?imwidth=1920" alt="GMC Sierra 1500 Interior Dashboard">
+</div>
+
+<p>Inside the 2026 Sierra 1500 Base, practical design meets durable materials to provide a cabin that exceeds the expectations of hardworking locals from Seminole and Tuttle to Chandler, OK. While minimalist compared to premium trims, the Base interior focuses on usability, reliability, and precise ergonomics.</p><h2 id="cabin-space-and-seating">Cabin Space and Seating</h2><ul>
+<li>Seating for up to three passengers in Regular Cab or expanded configurations in Double and Crew Cab styles</li>
+<li>Vinyl seats designed for durability on job sites, with optional adjustments enhancing comfort on longer drives</li>
+<li>Cabin dimensions provide ample headroom and legroom, especially in Crew Cab variants favored by families in Yukon and Harrah, OK</li>
+</ul><h2 id="storage-and-practical-elements">Storage and Practical Elements</h2><ul>
+<li>Numerous cupholders and door pockets designed for everyday convenience</li>
+<li>Front row offers two USB ports for device charging and connectivity</li>
+<li>Available 12V outlets supplement power for tools or accessories on-site</li>
+<li>Bed storage features include tie-downs and optional spray-on liners (upgrade available)</li>
+</ul>
+
+<div class="image-grid">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/interior/my26-sierra-1500-mov-gallery-interior-4-1920x960-26PGSRLD99095.jpg?imwidth=1920" alt="GMC Sierra 1500 Interior Seating">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/interior/my26-sierra-1500-mov-gallery-interior-5-1920x960-26PGSRLD99143-v2.jpg?imwidth=1920" alt="GMC Sierra 1500 Cabin Features">
+</div>
+
+<p>By focusing on what matters most to a working truck driver or active household, the Sierra 1500 Base offers a cabin that is both inviting and pragmatic.</p>
+
+<div style="clear: both;"></div>
+
+<h3 id="technology-and-connectivity-features">Technology and Connectivity Features</h3>
+<div class="image-float-left">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/gallery/interior/my26-sierra-1500-at4-interior-infotainment-1920x960-26PGSRLD100730.jpg?imwidth=1920" alt="GMC Sierra 1500 Infotainment System">
+</div>
+
+<p>Connectivity is key for today's driver, whether commuting in Oklahoma City or navigating job sites near Okemah and Henryetta. The 2026 GMC Sierra 1500 Base accommodates these needs with dependable technology solutions.</p><h2 id="infotainment-systems">Infotainment Systems</h2><ul>
+<li>Standard 7.0-inch touchscreen providing intuitive media control</li>
+<li>Wireless Apple CarPlay and Android Auto compatibility included as standard equipment</li>
+<li>Basic 2-speaker audio system offering clear sound quality for everyday listening</li>
+<li>Two USB ports for front-row passengers help keep devices powered up and ready to go</li>
+<li>Optional upgrades in higher trims (not Base) include larger touchscreens, Bose premium audio, and wireless charging</li>
+</ul><p>Drivers in communities such as Moore, Choctaw, and Bethel Acres appreciate this balance of essential tech without complexity or distraction, ensuring focus remains safety-oriented.</p><h2 id="driver-assistance-technology">Driver Assistance Technology</h2><p>For safety and peace of mind while traveling through Shawnee, Edmond, or surrounding areas, the Sierra 1500 Base comes equipped with fundamental driver aids:</p><ul>
+<li>Forward Automatic Emergency Braking to help avoid frontal collisions</li>
+<li>Lane Departure Warning to alert if the vehicle veers unintentionally</li>
+<li>Cruise control for steady highway driving comfort</li>
+</ul>
+
+<div class="image-grid">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/technology/my26-sierra-1500-mov-technology-feature-1-1920x1440-26PGSRLD100716.jpg?imwidth=1920" alt="GMC Sierra 1500 Technology Features">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/technology/my26-sierra-1500-mov-technology-feature-4-1920x1440-26PGSRLD99155.jpg?imwidth=1920" alt="GMC Sierra 1500 Advanced Technology">
+<img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/sierra-ld/overview/technology/my26-sierra-1500-mov-technology-feature-2-1920x1440-26PGSRLD99041.jpg?imwidth=1920" alt="GMC Sierra 1500 Driver Assistance">
+</div>
+
+<p>Additional advanced features, such as blind-spot monitoring, rear cross-traffic alert, and adaptive cruise control, are available on higher trim levels, offering customizable safety enhancements.</p>
+
+<div style="clear: both;"></div>
+
+<h3 id="safety-systems-that-inspire-confidence">Safety Systems that Inspire Confidence</h3><p>With standard safety features reflecting GMC’s core commitment to driver protection, the 2026 Sierra 1500 is a top choice for truck owners in Oklahoma City, Bethel Acres, and Pink. The truck's sturdy frame, combined with active safety technology, fosters trust when on familiar streets or remote locations in Okemah and Henryetta.</p><h2 id="standard-safety-technologies">Standard Safety Technologies</h2><ul>
+<li>Front and side airbags, seat belt pre-tensioners, and a reinforced cabin structure</li>
+<li>Front Automatic Emergency Braking system that detects a potential collision and applies brakes if necessary</li>
+<li>Lane Departure Warning to reduce inadvertent lane drifting</li>
+<li>Stability and traction control systems to maintain grip on varied terrain</li>
+</ul><h2 id="available-enhanced-safety-features">Available Enhanced Safety Features</h2><ul>
+<li>Blind-spot Monitoring with trailer coverage for safer towing on regional highways</li>
+<li>Rear Cross-Traffic Alert assists with backing out in busy parking areas</li>
+<li>Rear Automatic Emergency Braking adds extra collision prevention support</li>
+</ul><p>This comprehensive approach to safety and comfort reassures solo drivers and families alike in communities such as Moore and Chandler, OK.</p><h3 id="exploring-trims-and-available-packages">Exploring Trims and Available Packages</h3><p>While the Base Pro trim emphasizes practical capability and a tried-and-true powertrain, GMC offers a tiered lineup appealing to various customer priorities across Shawnee, Edmond, and Mustang. From the SLE with its technology upgrades to the luxurious Denali Ultimate boasting advanced Super Cruise capabilities, the model range serves diverse lifestyles.</p><h2 id="trim-overview-table">Trim Overview Table</h2><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Trim</strong></th>
+<th><strong>Key Features</strong></th>
+<th><strong>Engine Options</strong></th>
+<th><strong>Notable Upgrades</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pro (Base)</td>
+<td>TurboMax engine, 7" touchscreen, basic interior</td>
+<td>2.7L Turbo Inline-4</td>
+<td>Standard safety tech, vinyl seats</td>
+</tr>
+<tr>
+<td>SLE</td>
+<td>Larger touchscreen (13.4"), heated seats</td>
+<td>2.7L Turbo, 5.3L V8</td>
+<td>Auto-locking rear differential, more USBs</td>
+</tr>
+<tr>
+<td>Elevation</td>
+<td>Gloss-black accents, LED fog lamps</td>
+<td>2.7L Turbo, 5.3L V8</td>
+<td>Optional leather seats, power sunroof</td>
+</tr>
+<tr>
+<td>SLT</td>
+<td>Chrome exterior details, ProGrade Trailering</td>
+<td>5.3L V8, Duramax Diesel</td>
+<td>10-way power seats, advanced tech</td>
+</tr>
+<tr>
+<td>AT4</td>
+<td>Off-road suspension, skid plates</td>
+<td>Duramax Diesel, 6.2L V8</td>
+<td>2" lift, Rancho shocks, locking diffs</td>
+</tr>
+<tr>
+<td>Denali &amp; Denali Ultimate</td>
+<td>Premium leather, 16-way seats, Super Cruise</td>
+<td>5.3L V8, 6.2L V8, Diesel</td>
+<td>Advanced driver systems, 22" wheels</td>
+</tr>
+</tbody></table><p>Potential buyers from Choctaw to Henryetta are encouraged to consider their needs carefully, selecting the trim that best aligns with their driving environment and comfort expectations.</p><h3 id="warranty-coverage-and-maintenance-care">Warranty Coverage and Maintenance Care</h3><p>Joe Cooper Chevrolet Cadillac GMC stands behind each Sierra 1500 with a robust warranty that underscores GMC’s commitment to faithful service, reliability, and customer assurance across Norman, Chandler, and surrounding Oklahoma communities.</p><h2 id="essential-warranty-details">Essential Warranty Details</h2><ul>
+<li>Powertrain Limited Warranty: 5 years or 100,000 miles — covering critical engine and transmission components</li>
+<li>Basic Limited Warranty: 3 years or 36,000 miles</li>
+<li>Corrosion Warranty: 6 years or 100,000 miles against perforation</li>
+</ul><h2 id="maintenance-and-service-support">Maintenance and Service Support</h2><p>Owners in Shawnee and further afield trust our expert technicians to maintain their Sierra with genuine GMC parts sourced through our <strong><a href="https://joecooperchevroletcadillacgmc.com/parts">Parts Department</a></strong>. Prompt service appointments can be arranged online through our <strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong> portal, ensuring your truck remains road-ready and dependable throughout the year.</p><p>Additionally, customers may find valuable trade opportunities through our <strong><a href="https://joecooperchevroletcadillacgmc.com/trade">Trade Valuation</a></strong> tool, facilitating seamless transitions to the 2026 Sierra 1500.</p><h3 id="why-choose-joe-cooper-for-your-2026-sierra-1500">Why Choose Joe Cooper for Your 2026 Sierra 1500</h3><p>At Joe Cooper Chevrolet Cadillac GMC, our legacy of serving the Shawnee region and neighboring Oklahoma communities, including Edmond, Pink, and Tuttle, is rooted in trust, integrity, and sincere relationships. Our team’s expertise and attentive care reflect the importance we place on our customers, many of whom are returning families and professionals who appreciate both quality vehicles and personal service.</p><p>Choosing the 2026 GMC Sierra 1500 Base through our dealership means accessing:</p><ul>
+<li>A comprehensive inventory of new models ready for immediate delivery — explore our selection at <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory">All New Vehicles</a></strong></li>
+<li>Certified and pre-owned options for varied budgets, with transparency and quality assurances found at <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/used-inventory">All Used Vehicles</a></strong></li>
+<li>Knowledgeable staff to guide you through every step, from vehicle selection to after-sales care</li>
+<li>Convenient service and genuine parts support at our facility located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong></li>
+<li>Customer-focused approach ensuring honest, respectful communication and long-term satisfaction</li>
+</ul><p>We welcome drivers from Oklahoma City, Bethel Acres, and beyond to schedule a personalized appointment or test drive by calling us directly at <strong><a href="tel:4057772603">(405) 777-2603</a></strong>. Experience the sturdy dependability and straightforward capability of the 2026 Sierra 1500 Base firsthand and discover why Joe Cooper Chevrolet Cadillac GMC remains a pillar of automotive trust in the community.</p><hr><p>© 2025 Joe Cooper Chevrolet Cadillac GMC</p>
+</div>

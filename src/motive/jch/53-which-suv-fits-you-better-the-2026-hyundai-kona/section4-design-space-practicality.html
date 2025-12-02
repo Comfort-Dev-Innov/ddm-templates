@@ -1,0 +1,346 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Interior and Exterior Design, Space, and Practicality
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        A compact SUV must be a master of practicality, blending stylish design
+        with a versatile and spacious interior. Both the Kona and Crosstrek are
+        five-seaters, but their design choices reveal different priorities that
+        directly impact their daily usability.
+      </p>
+      <br />
+      <h3 class="subsection-heading">
+        Exterior Styling: Future Forward vs. Rugged Utilitarian
+      </h3>
+
+      <p class="paragraph-text">
+        The 2026 Hyundai Kona makes a bold design statement. Its futuristic
+        aesthetic is defined by a clean, sculpted body and the distinctive
+        Seamless Horizon Lamp that stretches across the front fascia, creating
+        an unmistakable and modern presence. It's a design that looks perfectly
+        at home in the vibrant, evolving urban landscape of Oklahoma City.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Subaru Crosstrek, by contrast, employs a more evolutionary and
+        utilitarian design language. Its look is rugged and functional, with
+        aggressive body cladding and a familiar silhouette that clearly
+        communicates its off-road intentions. While handsome, it is a more
+        conservative approach that prioritizes function over form.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Interior Experience and Utility</h3>
+
+      <p class="paragraph-text">
+        Stepping inside the Kona reveals a driver-centric cockpit that feels a
+        class above. The undisputed centerpiece is the panoramic display that
+        houses a stunning 12.3-inch touchscreen, which is standard on every
+        single trim level. This immediately establishes a premium, high-tech
+        atmosphere, even for the most budget-conscious buyer.
+      </p>
+
+      <p class="paragraph-text">
+        The Crosstrek's interior is well-built and functional, but more
+        traditional in its execution. While it offers a large 11.6-inch screen
+        on higher trims, base models make do with a smaller, less immersive
+        setup.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        When it comes to practicality, the dimensions tell a crucial story. The
+        Crosstrek boasts superior ground clearance, with 8.7 inches on standard
+        models and an impressive 9.3 inches on the Wilderness trim. This is a
+        clear advantage for serious off-roading. However, this focus on
+        clearance comes with a trade-off in interior volume. The 2026 Kona
+        offers a significantly larger maximum cargo capacity, boasting up to
+        63.7 cubic feet with the rear seats folded down. The Crosstrek trails
+        considerably, with figures ranging from 50.6 to 55.3 cubic feet.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        For the typical Oklahoma family, this difference is profound. The Kona's
+        superior cargo space is the more valuable asset for 99% of driving
+        situations. The Kona is designed from the inside out, prioritizing the
+        space that people and their belongings occupy in the real world.
+      </p>
+
+      <!-- Dimensions Comparison Table -->
+      <br />
+      <h3 class="table-heading">Dimensions and Interior Space</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>2026 Hyundai Kona</th>
+            <th>2026 Subaru Crosstrek (Gas/Hybrid)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overall Length</td>
+            <td>171.3 in.</td>
+            <td>176.4 in.</td>
+          </tr>
+          <tr>
+            <td>Ground Clearance</td>
+            <td>6.7 - 8.3 in.</td>
+            <td class="winner-cell">8.7 - 9.3 in.</td>
+          </tr>
+          <tr>
+            <td>Passenger Volume</td>
+            <td class="winner-cell">126.7 cu. ft.</td>
+            <td>98.8 - 100.2 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Cargo Capacity (Seats Up)</td>
+            <td class="winner-cell">25.5 cu. ft.</td>
+            <td>18.6 - 19.9 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Max. Cargo Capacity (Seats Down)</td>
+            <td class="winner-cell">63.7 cu. ft.</td>
+            <td>50.6 - 55.3 cu. ft.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="technology-connectivity-safety" />
+    </div>
+  </body>
+</html>

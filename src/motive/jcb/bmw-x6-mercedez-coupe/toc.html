@@ -1,0 +1,294 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Unique container overriding motive defaults */
+      .evs-toc-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .evs-toc-container h1 {
+        width: fit-content !important;
+      }
+
+      .evs-toc-container h3,
+      .evs-toc-container h1,
+      .evs-toc-container h2,
+      .evs-toc-container p,
+      .evs-toc-container ol,
+      .evs-toc-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section styling */
+      .evs-toc-section {
+        width: 100% !important;
+        margin-bottom: 40px !important;
+        padding: 0 !important;
+        color: #000000;
+        font-weight: 400 !important;
+        background: #ffffff !important;
+      }
+
+      .evs-toc-title {
+        font-size: 25px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        margin: 0 0 40px 0 !important;
+        color: #000000 !important;
+      }
+
+      /* Two-column grid layout for desktop */
+      .evs-toc-grid-desktop {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 40px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+      }
+
+      /* Single column layout for mobile */
+      .evs-toc-grid-mobile {
+        display: none !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+      }
+
+      .evs-toc-item {
+        list-style: none !important;
+      }
+
+      /* Clickable link wrapping entire item */
+      .evs-toc-link {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 0 0 16px 0 !important;
+        margin: 0 !important;
+        border-bottom: 3px solid #000000 !important;
+        text-decoration: none !important;
+        transition: transform 200ms ease, border-color 200ms ease;
+        cursor: pointer !important;
+      }
+
+      .evs-toc-link:hover,
+      .evs-toc-link:focus {
+        transform: translateY(-2px);
+        border-bottom-color: #0366b0 !important;
+      }
+
+      /* Large number styling */
+      .evs-toc-number {
+        font-size: 40px !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        transition: color 200ms ease;
+      }
+
+      .evs-toc-link:hover .evs-toc-number,
+      .evs-toc-link:focus .evs-toc-number {
+        color: #0366b0 !important;
+      }
+
+      /* Text styling */
+      .evs-toc-text {
+        color: #000000 !important;
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        font-weight: 400 !important;
+        transition: color 200ms ease;
+      }
+
+      .evs-toc-link:hover .evs-toc-text,
+      .evs-toc-link:focus .evs-toc-text {
+        color: #0366b0 !important;
+      }
+
+      /* Responsive: switch to mobile layout */
+      @media (max-width: 768px) {
+        .evs-toc-grid-desktop {
+          display: none !important;
+        }
+
+        .evs-toc-grid-mobile {
+          display: flex !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="background: #ffffff">
+    <div class="evs-toc-container">
+      <section class="evs-toc-section">
+        <h2 class="evs-toc-title">Table of Contents</h2>
+
+        <!-- Desktop: Two-column layout -->
+        <ol class="evs-toc-grid-desktop">
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#overall-stature">
+              <span class="evs-toc-number" aria-hidden="true">01</span>
+              <span class="evs-toc-text"
+                >Overall Luxury and Market Standing</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#safety-systems">
+              <span class="evs-toc-number" aria-hidden="true">06</span>
+              <span class="evs-toc-text"
+                >Comprehensive Safety and Driver Assistance Features</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#power-drivetrain">
+              <span class="evs-toc-number" aria-hidden="true">02</span>
+              <span class="evs-toc-text"
+                >Powertrain Performance and Driving Dynamics</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#efficiency-usage">
+              <span class="evs-toc-number" aria-hidden="true">07</span>
+              <span class="evs-toc-text"
+                >Fuel Economy, Efficiency, and Practicality</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#design-analysis">
+              <span class="evs-toc-number" aria-hidden="true">03</span>
+              <span class="evs-toc-text"
+                >Exterior Styling and Design Language</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#value-ownership">
+              <span class="evs-toc-number" aria-hidden="true">08</span>
+              <span class="evs-toc-text"
+                >Ownership Value, Warranty, and Costs</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#interior-comfort">
+              <span class="evs-toc-number" aria-hidden="true">04</span>
+              <span class="evs-toc-text"
+                >Interior Space, Comfort, and Materials</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#final-recommendation">
+              <span class="evs-toc-number" aria-hidden="true">09</span>
+              <span class="evs-toc-text"
+                >Final Recommendation and Next Steps</span
+              >
+            </a>
+          </li>
+
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#technology-connectivity">
+              <span class="evs-toc-number" aria-hidden="true">05</span>
+              <span class="evs-toc-text"
+                >Advanced Technology and Connectivity Suite</span
+              >
+            </a>
+          </li>
+        </ol>
+
+        <!-- Mobile: Single column layout -->
+        <ol class="evs-toc-grid-mobile">
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#overall-stature">
+              <span class="evs-toc-number" aria-hidden="true">01</span>
+              <span class="evs-toc-text"
+                >Overall Luxury and Market Standing</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#power-drivetrain">
+              <span class="evs-toc-number" aria-hidden="true">02</span>
+              <span class="evs-toc-text"
+                >Powertrain Performance and Driving Dynamics</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#design-analysis">
+              <span class="evs-toc-number" aria-hidden="true">03</span>
+              <span class="evs-toc-text"
+                >Exterior Styling and Design Language</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#interior-comfort">
+              <span class="evs-toc-number" aria-hidden="true">04</span>
+              <span class="evs-toc-text"
+                >Interior Space, Comfort, and Materials</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#technology-connectivity">
+              <span class="evs-toc-number" aria-hidden="true">05</span>
+              <span class="evs-toc-text"
+                >Advanced Technology and Connectivity Suite</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#safety-systems">
+              <span class="evs-toc-number" aria-hidden="true">06</span>
+              <span class="evs-toc-text"
+                >Comprehensive Safety and Driver Assistance Features</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#efficiency-usage">
+              <span class="evs-toc-number" aria-hidden="true">07</span>
+              <span class="evs-toc-text"
+                >Fuel Economy, Efficiency, and Practicality</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#value-ownership">
+              <span class="evs-toc-number" aria-hidden="true">08</span>
+              <span class="evs-toc-text"
+                >Ownership Value, Warranty, and Costs</span
+              >
+            </a>
+          </li>
+          <li class="evs-toc-item">
+            <a class="evs-toc-link" href="#final-recommendation">
+              <span class="evs-toc-number" aria-hidden="true">09</span>
+              <span class="evs-toc-text"
+                >Final Recommendation and Next Steps</span
+              >
+            </a>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>

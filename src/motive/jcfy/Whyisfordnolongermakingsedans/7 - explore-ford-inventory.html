@@ -1,0 +1,487 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Explore Ford Inventory at Joe Cooper Ford of Yukon - New & Used Vehicles
+    </title>
+    <style>
+      /* Motive Container Default Styles */
+      .inventory-container {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .inventory-container h1 {
+        width: fit-content !important;
+      }
+
+      .inventory-container h3,
+      .inventory-container h1,
+      .inventory-container h2,
+      .inventory-container p,
+      .inventory-container ol,
+      .inventory-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Article Styles */
+      .article-title {
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1.5em;
+        border-bottom: 3px solid #0f3079;
+        padding-bottom: 15px;
+        width: 100%;
+        position: relative;
+      }
+
+      .article-title::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .article-title h2 {
+        margin: 0;
+        width: 100% !important;
+        font-size: 2.2em;
+      }
+
+      /* Intro Section */
+      .intro-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 35px;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 25px rgba(15, 48, 121, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .intro-section::before {
+        content: '🚗';
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        opacity: 0.3;
+      }
+
+      .intro-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: justify;
+        text-indent: 1rem;
+        margin: 0;
+      }
+
+      /* Inventory Grid */
+      .inventory-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .inventory-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #ff6b35;
+        transition: all 0.3s ease;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .inventory-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .inventory-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .inventory-card:nth-child(2) .inventory-icon {
+        animation-delay: 1.5s;
+      }
+
+      .inventory-title {
+        color: #0f3079;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .inventory-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .inventory-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .service-card:hover {
+        border-color: #ff6b35;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        gap: 12px;
+      }
+
+      .service-icon {
+        font-size: 24px;
+        background: linear-gradient(45deg, #0f3079, #2d5aa0);
+        padding: 10px;
+        border-radius: 50%;
+        color: white;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service-title {
+        color: #0f3079;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .service-content {
+        color: #4a5568;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      .service-button {
+        background: linear-gradient(45deg, #0f3079, #2d5aa0);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .service-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(15, 48, 121, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Guarantee Section */
+      .guarantee-section {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin: 30px 0;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .guarantee-section::before {
+        content: '💰';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 40px;
+        opacity: 0.3;
+      }
+
+      .guarantee-text {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .guarantee-subtext {
+        font-size: 16px;
+        opacity: 0.9;
+      }
+
+      /* Footer Section */
+      .footer-section {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 40px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+      }
+
+      .footer-content {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .copyright {
+        font-size: 14px;
+        opacity: 0.8;
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+      }
+
+      .contact-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        margin: 0 10px 10px 0;
+      }
+
+      .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        color: white;
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .article-title h2 {
+          font-size: 1.8em;
+        }
+
+        .inventory-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .inventory-card,
+        .service-card {
+          padding: 20px 15px;
+        }
+
+        .intro-section,
+        .guarantee-section,
+        .footer-section {
+          padding: 30px 20px;
+        }
+
+        .guarantee-text {
+          font-size: 20px;
+        }
+
+        .contact-button {
+          display: block;
+          width: 100%;
+          margin: 10px 0;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="inventory-container">
+      <div class="article-title">
+        <h2 custom-input="text">
+          Explore Ford Inventory at Joe Cooper Ford of Yukon
+        </h2>
+      </div>
+
+      <div class="intro-section">
+        <p class="intro-content" custom-input="text">
+          Whether you're in Yukon, Oklahoma City, or Mustang, Joe Cooper Ford of
+          Yukon offers a diverse range of vehicles that reflect Ford's evolving
+          lineup. From the powerful F-150 and rugged Bronco to family-friendly
+          SUVs like the Explorer and Escape, our inventory includes models
+          equipped with the latest hybrid and electric technologies.
+        </p>
+      </div>
+
+      <div class="inventory-grid">
+        <div class="inventory-card">
+          <div class="inventory-icon">🚚</div>
+          <div class="inventory-title">All New Vehicles</div>
+          <a
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D"
+            target="_blank"
+            class="inventory-button"
+            custom-input="text"
+            >Browse New Inventory</a
+          >
+        </div>
+
+        <div class="inventory-card">
+          <div class="inventory-icon">🚙</div>
+          <div class="inventory-title">All Used Vehicles</div>
+          <a
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22Used%22%3Atrue%7D%7D%7D%7D"
+            target="_blank"
+            class="inventory-button"
+            custom-input="text"
+            >Browse Used Inventory</a
+          >
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">💰</div>
+            <div class="service-title">Financing Solutions</div>
+          </div>
+          <div class="service-content" custom-input="text">
+            Our finance team is ready to assist you with flexible auto loan and
+            lease options, ensuring you find a plan that fits your financial
+            situation. Pre-qualify quickly with no impact on your credit score
+            through our easy online process.
+          </div>
+          <a
+            href="https://joecooperfordyukon.com/"
+            class="service-button"
+            custom-input="text"
+            >Apply for Financing</a
+          >
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">🔄</div>
+            <div class="service-title">Trade-In Services</div>
+          </div>
+          <div class="service-content" custom-input="text">
+            If you're considering trading in your current vehicle, check your
+            car's value now with our Trade Valuation tool. We also offer a
+            $1,000 Cooper Trade Bonus to help you get the most out of your
+            trade-in.
+          </div>
+          <a
+            href="https://joecooperfordyukon.com/trade"
+            class="service-button"
+            custom-input="text"
+            >Check Trade Value</a
+          >
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">🔧</div>
+            <div class="service-title">Service & Maintenance</div>
+          </div>
+          <div class="service-content" custom-input="text">
+            For any maintenance needs, trust our skilled service team to keep
+            your Ford running smoothly. Take advantage of our exclusive service
+            specials and schedule your next appointment through the Service
+            Scheduler.
+          </div>
+          <a
+            href="https://joecooperfordyukon.com/service"
+            class="service-button"
+            custom-input="text"
+            >Schedule Service</a
+          >
+        </div>
+      </div>
+
+      <div class="guarantee-section">
+        <div class="guarantee-text" custom-input="text">
+          We will beat any competitor's price on a new vehicle by $500!
+        </div>
+        <div class="guarantee-subtext" custom-input="text">
+          Who Loves Ya Oklahoma?
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <p class="footer-content" custom-input="text">
+          At Joe Cooper Ford of Yukon, we proudly serve Yukon, Oklahoma City,
+          Warr Acres, Mustang, and neighboring communities with integrity and
+          expertise honed over three generations. Visit us or contact our team
+          today to experience the evolution of Ford vehicles firsthand.
+        </p>
+        <a href="tel:+4053541111" class="contact-button" custom-input="text"
+          >Call (405) 354-1111</a
+        >
+        <div class="copyright" custom-input="text">
+          © 2025 Joe Cooper Ford of Yukon
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

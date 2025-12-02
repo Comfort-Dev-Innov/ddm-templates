@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .final-thoughts-showcase-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .final-thoughts-showcase-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+        }
+
+        .final-thoughts-showcase-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .final-thoughts-showcase-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .final-thoughts-showcase-container h1:hover::after {
+            width: 100%;
+        }
+
+        .final-thoughts-showcase-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .final-thoughts-showcase-container h2:hover {
+            color: #012b5d;
+        }
+
+        .final-thoughts-showcase-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .final-thoughts-showcase-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .final-thoughts-showcase-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .final-thoughts-showcase-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .final-thoughts-showcase-container ol,
+        .final-thoughts-showcase-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .final-thoughts-showcase-container li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .final-thoughts-showcase-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .final-thoughts-showcase-container a {
+            color: #012b5d;
+            text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .final-thoughts-showcase-container a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .final-thoughts-showcase-container a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+        }
+
+        .final-thoughts-showcase-container a:hover::before {
+            width: 100%;
+        }
+
+        .conclusion-hero-image {
+            width: 100%;
+            max-width: 1300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .conclusion-hero-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(1, 43, 93, 0.2);
+        }
+
+        .conclusion-intro-section {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02), rgba(0, 44, 95, 0.04));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .conclusion-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .conclusion-intro-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .conclusion-intro-section:hover::before {
+            left: 100%;
+        }
+
+        .conclusion-intro-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vehicles-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .vehicle-summary-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.85));
+            border: 1px solid rgba(1, 43, 93, 0.12);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(1, 43, 93, 0.1);
+        }
+
+        .vehicle-summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .vehicle-summary-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(1, 43, 93, 0.15);
+        }
+
+        .vehicle-summary-card:hover::before {
+            left: 100%;
+        }
+
+        .vehicle-summary-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tucson-card {
+            border-left: 5px solid #28a745;
+        }
+
+        .santa-fe-card {
+            border-left: 5px solid #007bff;
+        }
+
+        .vehicle-name-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .tucson-card .vehicle-name-badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .santa-fe-card .vehicle-name-badge {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .vehicle-summary-card:hover .vehicle-name-badge {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .vehicle-description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .conclusion-statement {
+            background: linear-gradient(135deg, rgba(0, 44, 95, 0.03), rgba(1, 43, 93, 0.05));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 2px solid rgba(1, 43, 93, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion-statement::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(1, 43, 93, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 44, 95, 0.05) 0%, transparent 50%);
+            animation: conclusionFloat 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .conclusion-statement:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(1, 43, 93, 0.12);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .conclusion-statement > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section {
+            background: linear-gradient(145deg, rgba(1, 43, 93, 0.05), rgba(0, 44, 95, 0.03));
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 3rem 0;
+            border: 2px solid rgba(1, 43, 93, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.08), transparent);
+            transition: left 1s ease;
+        }
+
+        .cta-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(1, 43, 93, 0.15);
+            border-color: rgba(1, 43, 93, 0.3);
+        }
+
+        .cta-section:hover::before {
+            left: 100%;
+        }
+
+        .cta-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 2rem;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white !important;
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none !important;
+        }
+
+        .final-cta:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.3);
+            color: white !important;
+            text-decoration: none !important;
+
+        }
+
+        .final-cta::before {
+            left: 0;
+            width: 0;
+            height: 0 !important;
+        }
+
+        @keyframes conclusionFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -10px) rotate(1deg); }
+            66% { transform: translate(-10px, 8px) rotate(-1deg); }
+        }
+
+        @media (max-width: 768px) {
+            .final-thoughts-showcase-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .final-thoughts-showcase-container h1 {
+                font-size: 2rem;
+            }
+
+            .final-thoughts-showcase-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .final-thoughts-showcase-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .final-thoughts-showcase-container p {
+                font-size: 1rem;
+            }
+
+            .conclusion-hero-image {
+                height: 250px;
+                margin: 1.5rem 0;
+            }
+
+            .conclusion-intro-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .vehicles-comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+
+            .vehicle-summary-card {
+                padding: 2rem;
+            }
+
+            .vehicle-name-badge {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
+
+            .vehicle-description {
+                font-size: 1rem;
+            }
+
+            .conclusion-statement {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .cta-section {
+                padding: 2.5rem;
+                margin: 2rem 0;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-description {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                padding: 1.5rem;
+            }
+
+            .final-cta {
+                font-size: 1rem;
+                padding: 0.8rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="final-thoughts-showcase-container">
+        <h1>Final Thoughts: Tucson or Santa Fe — Which Hyundai SUV Wins for You?</h1>
+        
+        <img src="https://www.topgear.com/sites/default/files/cars-car/image/2024/12/4%20Hyundai%20Santa%20Fe%20review%202024%20UK.jpg?w=1280&h=720" alt="Hyundai SUV Comparison Conclusion" class="conclusion-hero-image" />
+        
+        <div class="conclusion-intro-section">
+            <p>We've explored every angle, from powertrain performance and cargo dimensions to interior technology and long-term value. The choice between the 2025 Hyundai Santa Fe and the 2025 Hyundai Tucson isn't about which one is "better"—it's about which one is better <em>for you</em>.</p>
+        </div>
+
+        <div class="vehicles-comparison-grid">
+            <div class="vehicle-summary-card tucson-card">
+                <div class="vehicle-name-badge">The Tucson</div>
+                <div class="vehicle-description">
+                    <p>The Tucson is your stylish, efficient, and agile partner. It's a master of versatility, perfectly suited for navigating city streets, saving fuel on long commutes, and offering a surprising amount of space for your gear. It's the smart choice for individuals, couples, and small families who want cutting-edge design and technology in a right-sized package.</p>
+                </div>
+            </div>
+
+            <div class="vehicle-summary-card santa-fe-card">
+                <div class="vehicle-name-badge">The Santa Fe</div>
+                <div class="vehicle-description">
+                    <p>The Santa Fe is your spacious, powerful, and commanding hub for family life. It's built to carry more people, handle bigger tasks, and provide a premium, comfortable experience on grander journeys. With its standard three-row seating and potent turbo engine, it's the definitive choice for larger families or anyone who needs maximum space and capability.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion-statement">
+            <p>Ultimately, there is no single winner. The best SUV is the one that seamlessly integrates into your daily routines, supports your weekend adventures, and fits your unique lifestyle.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="cta-title">At Joe Cooper Hyundai of Midwest City</h2>
+            <p class="cta-description">Our team is ready to help you explore the full lineup, answer your questions, and arrange a test drive that lets you feel the difference firsthand.</p>
+            
+            <div class="contact-info">
+                <p>Visit our showroom at <a href="https://joecooperhyundai.com/directions">6601 SE 29th St, Midwest City</a>, call us at <a href="tel:4057331611">(405) 733-1611</a>, or browse our <a href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">new</a> and <a href="https://joecooperhyundai.com/cars/certified-pre-owned?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%7D%7D">used</a> inventory online. We're here to make your experience as straightforward and informative as possible, helping you find the trim and features that best serve your family's needs.</p>
+            </div>
+            
+            <a href="https://joecooperhyundai.com/contact" class="final-cta">Reach out to us today</a>
+        </div>
+    </div>
+</body>
+</html>

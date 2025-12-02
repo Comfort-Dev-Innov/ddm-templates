@@ -1,0 +1,381 @@
+<style>
+  /* Section 2 Scoped Styles - Note: Body styles handled by motive to avoid conflicts */
+
+  /* Section 2 Scoped Styles */
+  .section2 .container {
+    padding: 40px 0 !important;
+    line-height: 1.6 !important;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section2 .container h1 {
+    width: fit-content !important;
+  }
+
+  .section2 .container h3,
+  .section2 .container h1,
+  .section2 .container h2,
+  .section2 .container p,
+  .section2 .container ol,
+  .section2 .container ul {
+    max-width: 1300px !important;
+  }
+
+  /* Heading with Image */
+  .section2 .heading-with-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 50px 0px;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+
+  .section2 .powertrains-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('https://images.unsplash.com/photo-1566473179817-0ccd4c05cec1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')
+        center/cover;
+  }
+
+  .section2 .heading-with-image h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .section2 .heading-with-image span {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  /* Main Section Header */
+  .section2 .main-header {
+    background: linear-gradient(135deg, #0f3079 0%, #1e4a8c 100%);
+    color: white;
+    padding: 50px 40px;
+    margin: 0;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+  }
+
+  .section2 .main-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center !important;
+  }
+
+  .section2 .main-header span {
+    font-weight: 300;
+    margin: 0 auto;
+    font-size: 18px;
+    opacity: 0.9;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .section2 .subsection-intro {
+    text-align: center;
+    margin: 30px auto !important;
+    width: 100%;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+
+  /* Introduction Section Template */
+  .section2 .section-intro {
+    width: 100% !important;
+    font-size: 18px !important;
+    margin-bottom: 30px !important;
+    padding: 0 40px !important;
+    color: #2c3e50;
+    font-weight: 400 !important;
+  }
+
+  .section2 .section-intro span {
+    flex: 1 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Powertrain Section Headers */
+  .section2 .powertrain-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0f3079;
+    margin: 40px 40px 20px 40px;
+    text-align: left;
+  }
+
+  .section2 .powertrain-subheader {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 30px 40px 15px 40px;
+    text-align: left;
+  }
+
+  /* Paragraph Text Start */
+  .section2 .paragraph-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: black;
+    text-align: justify;
+    width: 100% !important;
+  }
+
+  .section2 .paragraph-container {
+    display: flex;
+    width: 100% !important;
+    flex-direction: column;
+    margin-top: 2rem;
+    justify-self: center;
+    align-self: center;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0f3079;
+    border-radius: 12px;
+    padding: 1.25rem 2rem;
+    max-width: calc(100% - 8rem);
+  }
+
+  .section2 .paragraph-hyperlink {
+    color: #0f3079;
+    text-decoration: none;
+    font-weight: 800;
+  }
+
+  .section2 .hr-1 {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+    margin: 50px 40px;
+  }
+
+  /* AWD Section Styling */
+  .section2 .awd-section {
+    margin-top: 50px;
+  }
+
+  .section2 .drive-mode {
+    margin-bottom: 15px;
+  }
+
+  .section2 .drive-mode strong {
+    color: #0f3079;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .section2 .main-header {
+      padding: 30px 20px;
+    }
+
+    .section2 .main-header h2 {
+      margin: 0 auto;
+      font-size: 28px;
+    }
+
+    .section2 .subsection-intro {
+      margin: 30px 20px !important;
+      font-size: 16px;
+    }
+
+    .section2 .subsection-intro br {
+      display: none;
+    }
+
+    .section2 .section-intro {
+      padding: 0 20px !important;
+    }
+
+    .section2 .section-intro h1 {
+      font-size: 48px !important;
+    }
+
+    .section2 .powertrain-header {
+      margin: 40px 20px 20px 20px;
+      font-size: 22px;
+    }
+
+    .section2 .powertrain-subheader {
+      margin: 30px 20px 15px 20px;
+      font-size: 18px;
+    }
+
+    .section2 .paragraph-text {
+      font-size: 15px;
+      text-align: justify;
+    }
+
+    .section2 .paragraph-container {
+      padding: 10px 20px;
+    }
+
+    .section2 .hr-1 {
+      margin: 50px 20px;
+    }
+  }
+
+  /* Paragraph Style End */
+</style>
+
+<div class="container section2">
+  <div class="main-header">
+    <h2>Powertrains of the Hyundai Tucson</h2>
+    <span>Hybrid vs. Gas</span>
+  </div>
+
+  <div>
+    <p class="subsection-intro">
+      Whether you prioritize proven simplicity or cutting-edge efficiency,
+      Hyundai has engineered a powertrain that aligns with your needs. This
+      choice will define your daily driving experience, from fuel station visits
+      to the feeling you get when you press the accelerator.
+    </p>
+  </div>
+
+  <h3 class="powertrain-subheader">
+    The 2.5L Smartstream Gasoline Engine: Proven, Powerful, and Ready for
+    Anything
+  </h3>
+
+  <div class="paragraph-container">
+    <p class="paragraph-text">
+      The standard powertrain in the 2025 Tucson is a testament to refined and
+      reliable engineering. It's a Smartstream 2.5-liter 4-cylinder engine that
+      utilizes both Gasoline Direct Injection (GDI) and Multi-Port Injection
+      (MPI) to optimize performance and efficiency. This impressive engine
+      produces a capable 187 horsepower and 178 lb-ft of torque, giving you the
+      confident power you need for every driving situation.
+    </p>
+    <br />
+    <p class="paragraph-text">
+      This power is managed by a sophisticated 8-speed automatic transmission
+      equipped with SHIFTRONIC®, which allows you to manually shift gears for a
+      more engaging drive when you desire it. On the road, this translates to a
+      smooth, predictable, and reassuring experience. It's the ideal companion
+      for those long, steady cruises down I-40 or the Turner Turnpike, where the
+      engine settles in comfortably, delivering power with quiet confidence. For
+      drivers who appreciate straightforward mechanics and a history of proven
+      reliability, the 2.5L engine is an outstanding choice. It's also a smart
+      choice for city driving, as every gas model comes standard with Idle Stop
+      & Go (ISG), a feature that automatically shuts off the engine when you're
+      stopped to conserve fuel and seamlessly restarts it the moment you're
+      ready to move.
+    </p>
+  </div>
+
+  <h3 class="powertrain-subheader">
+    The 1.6L Turbo Hybrid Powertrain: The Future of Efficiency
+  </h3>
+
+  <div class="paragraph-container">
+    <p class="paragraph-text">
+      Choosing the Tucson Hybrid means stepping into a new era of performance.
+      This advanced system pairs a spirited 1.6-liter turbocharged GDI
+      4-cylinder engine, which on its own produces 178 horsepower and a robust
+      195 lb-ft of torque, with a powerful 47.7 kW permanent magnet synchronous
+      electric motor. The result of this synergy is a thrilling combined system
+      output of 231 horsepower and an immense 271 lb-ft of torque. This power is
+      channeled through a quick-shifting 6-speed automatic transmission
+      specifically tuned for the hybrid system.
+    </p>
+    <br />
+    <p class="paragraph-text">
+      The hybrid's secret weapon is the instant torque delivered by the electric
+      motor. When you're the first in line at a stoplight or need to merge
+      decisively into the fast-moving traffic, that immediate response makes a
+      world of difference. There's no lag, just a smooth, silent, and assertive
+      surge of power. This characteristic makes the Tucson Hybrid exceptionally
+      well-suited for the stop-and-go traffic that can build up around the OKC
+      metro. The entire experience is quieter and more refined, giving the cabin
+      a serene, near-luxury feel, especially during city driving.
+    </p>
+  </div>
+
+  <div class="awd-section">
+    <h3 class="powertrain-subheader">
+      Conquering Oklahoma Weather with HTRAC® All-Wheel Drive
+    </h3>
+
+    <div class="paragraph-container">
+      <p class="paragraph-text">
+        Oklahoma weather is famously unpredictable. We're no strangers to
+        sudden, intense thunderstorms that can make roads dangerously slick in
+        an instant, or the treacherous black ice that can form on bridges and
+        overpasses during a winter cold snap. For this reason, having a capable
+        all-wheel-drive system is a crucial safety feature. While the
+        gas-powered Tucson offers HTRAC® All-Wheel Drive as an option, it comes
+        standard on every single Tucson Hybrid trim.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Hyundai's HTRAC® is far more than a basic AWD system. It's an
+        intelligent, proactive technology that acts as your co-pilot in
+        challenging conditions. The system's electronic brain monitors dozens of
+        vehicle inputs—like wheel speed, throttle position, and steering
+        angle—over 100 times per second. This allows it to anticipate a loss of
+        traction and pre-emptively send power to the wheels with the most grip
+        before you even feel a slip.
+      </p>
+      <br />
+
+      <p class="paragraph-text">
+        This is invaluable for maintaining stability during a sudden downpour or
+        while navigating a slushy street after a winter storm.
+      </p>
+    </div>
+    <div class="drive-modes">
+      <br /><br />
+      <p class="paragraph-text" style="margin-bottom: 20px">
+        The system adapts to your needs through Drive Mode Select, offering
+        settings tailored for specific Oklahoma driving scenarios:
+      </p>
+
+      <div class="drive-mode">
+        <p class="paragraph-text">
+          <strong>Normal, Smart, or Eco Mode:</strong> For your everyday commute
+          from Moore to downtown OKC on dry roads, the system intelligently
+          prioritizes sending power to the front wheels to maximize your fuel
+          efficiency.
+        </p>
+      </div>
+
+      <div class="drive-mode">
+        <p class="paragraph-text">
+          <strong>Sport Mode:</strong> Planning a scenic drive out to the
+          Talimena Scenic Byway? Engaging Sport Mode sends more torque to the
+          rear wheels (up to 50%), providing sharper handling and a more
+          dynamic, rear-drive feel for an exhilarating experience on winding
+          roads.
+        </p>
+      </div>
+
+      <div class="drive-mode">
+        <p class="paragraph-text">
+          <strong>Snow Mode:</strong> Think of this as your Oklahoma Winter
+          Confidence Plan. This mode is specifically engineered to give you
+          maximum control on slick surfaces. It optimizes power distribution and
+          adjusts throttle response to help you navigate icy bridges and
+          overpasses. This mode gives you the peace of mind you need to get home
+          safely.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hr-1" />
+</div>

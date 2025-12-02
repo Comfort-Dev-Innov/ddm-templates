@@ -1,0 +1,709 @@
+<div class="gle-article-section">
+  <style>
+      /* ===== Base Blog Section Layout ===== */
+      :is([class*="Section-module__"][class*="__section--blog"]) {
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #e5e7eb;
+        line-height: 1.7;
+        font-size: 17px;
+      }
+    
+      :is([class*="Section-module__"][class*="__section--blog"]) * {
+        max-width: 100% !important;
+        box-sizing: border-box;
+      }
+    /* ===== Typography Spacing ===== */
+    .gle-article-section p {
+      margin: 1em 0;
+    }
+  
+    .gle-article-section h2,
+    .gle-article-section h3,
+    .gle-article-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #ffffff; /* pure white headings */
+    }
+  
+    .gle-article-section h2 {
+      font-size: 1.6em;
+    }
+  
+    .gle-article-section h3 {
+      font-size: 1.35em;
+    }
+  
+    .gle-article-section ul,
+    .gle-article-section ol {
+      margin: 1em 0 1.5em 1.5em;
+      padding-left: 1em;
+      line-height: 1.6;
+    }
+  
+    .gle-article-section li {
+      margin-bottom: 0.5em;
+    }
+  
+    .gle-article-section strong {
+      font-weight: 600;
+      color: #f3f4f6; /* light gray instead of #111 */
+    }
+  
+    .gle-article-section hr {
+      margin: 2.5em 0;
+      border: none;
+      border-top: 1px solid #374151; /* dark gray divider */
+    }
+  
+    /* ===== Table Styling ===== */
+    .gle-article-section table.e-rte-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      background: #1f2937; /* dark background */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+  
+    .gle-article-section table.e-rte-table thead {
+      background: #1e40af; /* richer indigo */
+      color: #fff;
+    }
+  
+    .gle-article-section table.e-rte-table th,
+    .gle-article-section table.e-rte-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid #374151; /* darker border */
+    }
+  
+    .gle-article-section table.e-rte-table th {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 14px;
+    }
+  
+    .gle-article-section table.e-rte-table td {
+      color: #d1d5db; /* light gray text */
+    }
+  
+    .gle-article-section table.e-rte-table tbody tr:nth-child(even) {
+      background: #111827; /* dark zebra stripe */
+    }
+  
+    .gle-article-section table.e-rte-table tbody tr:hover {
+      background: #1e3a8a; /* dark hover indigo */
+      transition: background 0.2s ease-in-out;
+    }
+  
+    .gle-article-section table.e-rte-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+  
+    /* ===== Responsive Table ===== */
+    @media (max-width: 700px) {
+      .gle-article-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+
+      .gle-article-section table.e-rte-table th,
+      .gle-article-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+  
+    /* ===== Links ===== */
+    .gle-article-section a {
+      color: #60a5fa !important; /* bright blue for dark bg */
+      font-weight: 600 !important;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+    }
+  
+    .gle-article-section a:hover {
+      color: #3b82f6 !important;
+    }
+  
+    /* ===== Image Styling ===== */
+    .gle-article-section .article-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      margin: 1.2em 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 1px 8px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: block;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid rgba(96, 165, 250, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .gle-article-section .article-image:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(96, 165, 250, 0.3);
+      border-color: rgba(96, 165, 250, 0.5);
+    }
+  
+    .gle-article-section .article-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(96, 165, 250, 0.2),
+        transparent
+      );
+      transition: left 0.5s;
+    }
+  
+    .gle-article-section .article-image:hover::before {
+      left: 100%;
+    }
+  
+    .gle-article-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2em;
+      margin: 2.5em 0;
+      padding: 1em;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(30, 64, 175, 0.4) 100%
+      ) !important;
+      border-radius: 16px;
+      border: 1px solid rgba(96, 165, 250, 0.15);
+    }
+  
+    .gle-article-section .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1.5px solid rgba(96, 165, 250, 0.15);
+      position: relative;
+      filter: brightness(0.95) contrast(1.05);
+    }
+  
+    .gle-article-section .image-grid img:hover {
+      transform: translateY(-8px) scale(1.05) rotate(1deg);
+      box-shadow: 0 16px 40px rgba(59, 130, 246, 0.35),
+        0 8px 16px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(96, 165, 250, 0.3);
+      border-color: rgba(96, 165, 250, 0.4);
+      filter: brightness(1.05) contrast(1.1);
+      z-index: 10;
+    }
+  
+    /* ===== Image Container Variations ===== */
+    .gle-article-section .image-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .gle-article-section .content-with-image {
+      display: flex;
+      gap: 2.5em;
+      align-items: flex-start;
+      margin: 2em 0;
+    }
+  
+    .gle-article-section .content-with-image.image-right {
+      flex-direction: row-reverse;
+    }
+  
+    .gle-article-section .content-with-image .image-side {
+      flex: 0 0 45%;
+      max-width: 400px;
+    }
+  
+    .gle-article-section .content-with-image .text-side {
+      flex: 1;
+    }
+  
+    .gle-article-section .content-with-image .image-side img {
+      margin: 0;
+    }
+  
+    .gle-article-section .image-container-limited {
+      max-width: 1000px;
+      padding: 0 1em;
+    }
+  
+    .gle-article-section .image-container-limited img {
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .gle-article-section .image-container-medium {
+      margin: 2.5em auto;
+      padding: 0 1em;
+    }
+  
+    .gle-article-section .image-container-medium img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .gle-article-section .image-container-small {
+      max-width: 600px;
+      margin: 2.5em auto;
+      padding: 0 1em;
+    }
+  
+    .gle-article-section .image-container-small img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    @media (max-width: 700px) {
+      .gle-article-section .image-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 0.75em;
+      }
+  
+      .gle-article-section .article-image {
+        border-radius: 12px;
+      }
+  
+      .gle-article-section .image-container-limited,
+      .gle-article-section .image-container-medium,
+      .gle-article-section .image-container-small {
+        max-width: 100%;
+        padding: 0;
+      }
+  
+      .gle-article-section .image-container-limited img,
+      .gle-article-section .image-container-medium img,
+      .gle-article-section .image-container-small img {
+        max-height: none;
+      }
+  
+      .gle-article-section .content-with-image {
+        flex-direction: column;
+        gap: 1.5em;
+      }
+  
+      .gle-article-section .content-with-image .image-side {
+        flex: 1;
+        max-width: 100%;
+      }
+    }
+  
+    /* ===== Smooth scroll & target highlight ===== */
+    html { scroll-behavior: smooth; }
+    .gle-article-section h2[id], 
+    .gle-article-section h3[id], 
+    .gle-article-section h4[id] { scroll-margin-top: 90px; }
+    .gle-article-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  </style>
+  
+  
+  
+  <p>Discover the exceptional blend of sophistication, capability, and advanced innovation with the 2026 Mercedes-Benz GLE, now available at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJz_yQLwmOtocRMs3LAefeKnw">Jackie Cooper Mercedes-Benz (Jackie Cooper Imports)</a></strong>, located at <strong>9393 S Memorial Dr, Tulsa, OK 74133</strong>. Whether you're navigating the bustling streets of Tulsa or embarking on a weekend getaway beyond Broken Arrow, this luxury SUV delivers an elevated driving experience that honors Mercedes-Benz's prestigious heritage.</p>
+  <div class="image-flex">
+      <div class="image-container-limited">
+        <img
+          src="https://wieck-mbusa-production.s3.amazonaws.com/photos/990722082b01b9fc81fa3e5552120d2343af34e1/preview-928x522.jpg"
+          alt="2026 Mercedes-Benz GLE Luxury SUV"
+          class="article-image"
+        />
+      </div>
+      <div class="image-container-limited">
+        <img
+          src="https://wieck-mbusa-production.s3.amazonaws.com/photos/ea4081a776d3119a53ba6ff311bb6f289fd2a289/preview-928x522.jpg"
+          alt="Mercedes-Benz GLE Safety Features"
+          class="article-image"
+        />
+      </div>
+    </div>
+  <p>Please feel free to reach out to us with any questions or to schedule a personalized test drive by calling <strong><a href="tel:9183171514">(918) 317-1514</a></strong>. Our dedicated team combines decades of expertise with genuine care, ensuring your purchase journey reflects the trust and transparency Jackie Cooper Mercedes-Benz has cultivated for generations.</p>
+  
+  <h2 id="table-of-contents">Table of Contents</h2>
+  <ul>
+    <li><a href="#defining-excellence-the-2026-gle-overview">Defining Excellence: The 2026 GLE Overview</a></li>
+    <li><a href="#striking-exterior-architectural-insights">Striking Exterior: Architectural Insights</a></li>
+    <li><a href="#dynamic-performance-and-driving-discipline">Dynamic Performance and Driving Discipline</a></li>
+    <li><a href="#lavish-interior-crafted-for-comfort">Lavish Interior Crafted for Comfort</a></li>
+    <li><a href="#intuitive-technology-and-connectivity">Intuitive Technology and Connectivity</a></li>
+    <li><a href="#advanced-safety-and-driver-assistance">Advanced Safety and Driver Assistance</a></li>
+    <li><a href="#exclusive-trim-and-package-options">Exclusive Trim and Package Options</a></li>
+    <li><a href="#comprehensive-warranty-and-maintenance">Comprehensive Warranty and Maintenance</a></li>
+    <li><a href="#why-choose-jackie-cooper-m">Why Choose Jackie Cooper Mercedes-Benz</a></li>
+  </ul>
+  
+  <h3 id="defining-excellence-the-2026-gle-overview">Defining Excellence: The 2026 GLE Overview</h3>
+  
+  <p>The 2026 Mercedes-Benz GLE showcases a timeless balance between performance, precision, and refined luxury, deeply rooted in the brand's heritage. As you explore neighborhoods such as Jenks or cruise toward the Tulsa Hills area, the GLE reaffirms its place as a versatile vehicle tailored for those who demand more than just transportation—it embodies a lifestyle.</p>
+  
+  <p>Under the hood, the GLE Base edition features a powertrain thoughtfully engineered to deliver balanced responsiveness and smooth propulsion on both open roads and urban avenues. While specific powertrain figures are tightly held at this stage, Mercedes-Benz's legacy ensures that every GLE delivers a graceful yet commanding presence in its segment.</p>
+  
+  <p>From the meticulously designed suspension to its poised chassis, the GLE's architecture exemplifies the exacting standards that define Mercedes-Benz, promising a driving experience that is both intuitive and exhilarating. For residents of Okmulgee or Sand Springs, this SUV excels on local roads, blending agility with a composed ride quality.</p>
+  
+  <h2 id="legacy-and-community-connection">Legacy and Community Connection</h2>
+  
+  <p>For years, Jackie Cooper Mercedes-Benz has served eastern Oklahoma, built on a legacy of integrity and dedication. Our Tulsa showroom reflects generations of trusted service. As custodians of this prestigious marque, we are proud to present the 2026 GLE to a discerning clientele who values authenticity and detailed craftsmanship.</p>
+  
+  <h2 id="commitment-to-premium-experience">Commitment to Premium Experience</h2>
+  
+  <p>Every interaction from browsing our inventory to scheduling your visit at <strong><a href="https://jackiecoopermercedes.com/directions">our Tulsa location</a></strong> is carefully crafted with your comfort and convenience as a top priority. Expect expert guidance, transparent communications, and a polished environment that complements the sophistication of the GLE itself.</p>
+  
+  <h3 id="striking-exterior-architectural-insights">Striking Exterior: Architectural Insights</h3>
+  
+  <div class="image-grid">
+    <img
+      src="https://wieck-mbusa-production.s3.amazonaws.com/photos/c2661ef08ea80e311ff0606b2262fae9b7a50f3d/preview-928x522.jpg"
+      alt="Mercedes-Benz GLE Exterior Design"
+    />
+    <img
+      src="https://wieck-mbusa-production.s3.amazonaws.com/photos/67a93f1eab64826bc5b3553c0b6e3ca186409681/preview-928x522.jpg"
+      alt="Mercedes-Benz GLE Side Profile"
+    />
+  </div>
+  
+  <p>The 2026 GLE's exterior design represents a sophisticated synthesis of aerodynamic efficiency and bold aesthetics, refined to capture attention while optimizing performance. In Tulsa's vibrant environments or the serene edges of Bixby, this SUV stands out with its commanding silhouette and purposeful stance.</p>
+  
+  <h2 id="design-philosophy-and-proportions">Design Philosophy and Proportions</h2>
+  
+  <p>Every contour of the GLE's bodywork has been sculpted to marry function with elegance. The broad shoulders and sleek roofline contribute to a balanced profile that enhances both visual appeal and aerodynamic flow. This careful consideration enhances fuel efficiency while imparting a sense of agile readiness, making it suitable for diverse driving demands across metropolitan Tulsa and its surrounding regions.</p>
+  
+  <h2 id="lighting-and-wheel-options">Lighting and Wheel Options</h2>
+  
+  <p>Illumination technology integrates cutting-edge LED systems, ranging from distinctive headlamps that improve night visibility to accent lighting that underscores the model's refined character. Complementing the exterior, a variety of wheel designs and sizes provide options tailored to your style preference and driving conditions, ensuring both performance and visual harmony, regardless of your daily routes.</p>
+  
+  <p><strong>2026 GLE Exterior Dimensions and Key Measurements</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>Dimension</strong></th>
+    <th align="right"><strong>Measurement</strong></th>
+    <th align="left"><strong>Unit</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">Overall Length</td>
+    <td align="right">4,930</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Overall Width (without mirrors)</td>
+    <td align="right">2,000</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Height</td>
+    <td align="right">1,755</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Wheelbase</td>
+    <td align="right">2,935</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Ground Clearance</td>
+    <td align="right">208</td>
+    <td align="left">mm</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="dynamic-performance-and-driving-discipline">Dynamic Performance and Driving Discipline</h3>
+  
+  <div class="image-flex">
+    <div class="image-container-limited">
+      <img
+        src="https://wieck-mbusa-production.s3.amazonaws.com/photos/b13fd51de5a095f04d2f8788f89c62252392ff6c/preview-928x522.jpg"
+        alt="Mercedes-Benz GLE Performance"
+        class="article-image"
+      />
+    </div>
+  </div>
+  
+  <p>Driving the 2026 GLE represents an immersion into Mercedes-Benz's advanced engineering prowess. Though detailed specs remain forthcoming, the Base trim aligns with the brand's goal of delivering not only power but also finesse across varying Oklahoma roadway conditions—from the expressways around Owasso to the quiet suburbs near Broken Arrow.</p>
+  
+  <h2 id="engine-and-powertrain-configuration">Engine and Powertrain Configuration</h2>
+  
+  <p>The GLE Base is expected to feature a turbocharged inline engine paired with a responsive automatic transmission, fine-tuned for smooth acceleration and optimal efficiency. This powertrain setup is designed to harmonize strong torque delivery with fuel-conscious operation, balancing spirited driving with daily practicality.</p>
+  
+  <h2 id="handling-suspension-and-braking-systems">Handling, Suspension, and Braking Systems</h2>
+  
+  <p>A sophisticated suspension system with adaptive capabilities ensures remarkable ride comfort and sharp responsiveness to driver inputs. The chassis and brake assembly work together to provide confident stopping power and exceptional control, indispensable traits for navigating diverse terrains, including Tulsa's urban grid and surrounding winding country roads.</p>
+  
+  <p><strong>Estimated 2026 GLE Performance Specifications</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>Attribute</strong></th>
+    <th align="right"><strong>Specification</strong></th>
+    <th align="left"><strong>Unit</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">0-60 mph Acceleration</td>
+    <td align="right">Approx. 6.5</td>
+    <td align="left">seconds</td>
+    </tr>
+    <tr>
+    <td align="left">Top Speed</td>
+    <td align="right">210</td>
+    <td align="left">km/h</td>
+    </tr>
+    <tr>
+    <td align="left">Fuel System</td>
+    <td align="right">Direct Injection Turbocharged</td>
+    <td align="left">–</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="lavish-interior-crafted-for-comfort">Lavish Interior Crafted for Comfort</h3>
+  
+  <div class="image-grid">
+    <img
+      src="https://wieck-mbusa-production.s3.amazonaws.com/photos/e6ecf94b6eb7b014406f0af63058eb3f6d339fc4/preview-928x522.jpg"
+      alt="Mercedes-Benz GLE Interior Luxury"
+    />
+    <img
+      src="https://wieck-mbusa-production.s3.amazonaws.com/photos/b18ac5153c75bf71f39fb8378aadad9b92ab4801/preview-928x522.jpg"
+      alt="Mercedes-Benz GLE Cabin Details"
+    />
+  </div>
+  
+  <div class="image-flex">
+    <div class="image-container-limited">
+      <img
+        src="https://wieck-mbusa-production.s3.amazonaws.com/photos/3dae97a4651e939ba1d18b0c788cb569890845f7/preview-928x522.jpg"
+        alt="Mercedes-Benz GLE Interior Space"
+        class="article-image"
+      />
+    </div>
+  </div>
+  
+  <p>Inside the 2026 GLE, passengers find a sanctuary that combines sumptuous materials with intelligent design. Whether commuting through Tulsa's vibrant downtown or enjoying an excursion toward Claremore, the cabin fosters an environment of restful luxury and practical sophistication.</p>
+  
+  <h2 id="spaciousness-and-layout">Spaciousness and Layout</h2>
+  
+  <p>Designed to accommodate both families and professionals with equal grace, the GLE offers generous legroom, headroom, and cargo capacity. Its configurable seating enables versatile arrangements to support the diverse needs of daily life, from weekend adventures to routine errands.</p>
+  
+  <h2 id="material-quality-and-acoustic-ambience">Material Quality and Acoustic Ambience</h2>
+  
+  <p>High-grade leather upholstery, refined wood trims, and precision stitching reflect the vehicle's commitment to quality craftsmanship. Attention to soundproofing results in a serene cabin atmosphere, ideal for focused conversations or tranquil drives through scenic Sapulpa.</p>
+  
+  <p><strong>2026 GLE Interior Space Dimensions</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>Cabin Area</strong></th>
+    <th align="right"><strong>Measurement</strong></th>
+    <th align="left"><strong>Unit</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">Front Headroom</td>
+    <td align="right">1,045</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Rear Legroom</td>
+    <td align="right">1,024</td>
+    <td align="left">mm</td>
+    </tr>
+    <tr>
+    <td align="left">Cargo Volume (rear seats up)</td>
+    <td align="right">630</td>
+    <td align="left">liters</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="intuitive-technology-and-connectivity">Intuitive Technology and Connectivity</h3>
+  
+  <div class="content-with-image">
+    <div class="image-side">
+      <img
+        src="https://wieck-mbusa-production.s3.amazonaws.com/photos/258baefc23d72bdf805ced21230b7a51c82ac7b9/preview-928x522.jpg"
+        alt="Mercedes-Benz GLE Technology Features"
+        class="article-image"
+      />
+    </div>
+    <div class="text-side">
+      <p>Embracing modernity without sacrificing user-friendliness, the GLE's technological suite equips drivers and passengers with cutting-edge connectivity and entertainment options that elevate each and every journey. From Tulsa's business districts to the relaxed ambiance of Owasso, the vehicle's innovative systems keep you effortlessly linked.</p>
+    </div>
+  </div>
+  
+  <h2 id="infotainment-and-smartphone-integration">Infotainment and Smartphone Integration</h2>
+  
+  <p>A high-resolution touchscreen serves as the central interface, seamlessly integrating smartphone connectivity through Apple CarPlay and Android Auto. Accessing navigation, media, and communication is easy, thanks to responsive touch inputs and seamless voice control designed to minimize driver distraction.</p>
+  
+  <h2 id="advanced-climate-control-and-audio-systems">Advanced Climate Control and Audio Systems</h2>
+  
+  <p>Multi-zone automatic climate control adjusts to individual preferences, maintaining ideal cabin temperatures regardless of external conditions. The premium sound system envelops occupants in crystal-clear audio, tailored for enjoying both serene podcasts and vibrant music during Tulsa commutes.</p>
+  
+  <p><strong>2026 GLE Technology Feature Breakdown</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>Feature</strong></th>
+    <th align="left"><strong>Description</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">Central Touchscreen Display</td>
+    <td align="left">12.3-inch high-resolution interface</td>
+    </tr>
+    <tr>
+    <td align="left">Smartphone Connectivity</td>
+    <td align="left">Apple CarPlay and Android Auto</td>
+    </tr>
+    <tr>
+    <td align="left">Voice Recognition</td>
+    <td align="left">Natural language commands</td>
+    </tr>
+    <tr>
+    <td align="left">Audio System</td>
+    <td align="left">Premium branded multi-speaker setup</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="advanced-safety-and-driver-assistance">Advanced Safety and Driver Assistance</h3>
+  
+  <p>The 2026 GLE integrates a comprehensive suite of safety technologies designed to protect occupants and assist the driver. Its systems provide peace of mind whether you're navigating Tulsa's busy streets or embarking on a drive through the scenic Osage Hills.</p>
+  
+  <h2 id="active-safety-technologies">Active Safety Technologies</h2>
+  
+  <p>Features include adaptive cruise control, lane keeping assist, and automated emergency braking—each engineered to mitigate risks before they escalate. This proactive approach complements the inherent vehicle stability and robust construction of the GLE.</p>
+  
+  <h2 id="passive-safety-and-crash-protection">Passive Safety and Crash Protection</h2>
+  
+  <p>When unavoidable incidents occur, the GLE's robust frame, strategically placed airbags, and reinforced passenger cell work in unison to safeguard occupants. The comprehensive Mercedes-Benz Roadside Assistance program offers dedicated support throughout your ownership experience, reachable directly at <a href="tel:+1-800-367-6372">Mercedes-Benz Roadside Assistance: 800-367-6372</a>.</p>
+  
+  <p><strong>Safety and Driver Assistance Features in the 2026 GLE</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>System</strong></th>
+    <th align="left"><strong>Functionality</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">Blind Spot Assist</td>
+    <td align="left">Monitors adjacent lanes for safer lane changes</td>
+    </tr>
+    <tr>
+    <td align="left">Rear Cross-Traffic Alert</td>
+    <td align="left">Alerts the driver to crossing traffic when reversing</td>
+    </tr>
+    <tr>
+    <td align="left">Pre-Safe® System</td>
+    <td align="left">Prepares vehicle and occupants for imminent collision</td>
+    </tr>
+    <tr>
+    <td align="left">Automatic Emergency Braking</td>
+    <td align="left">Engages brakes to avoid or mitigate collisions</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="exclusive-trim-and-package-options">Exclusive Trim and Package Options</h3>
+  
+  <p>The Base model of the 2026 GLE sets a solid foundation of luxury and refinement, with the opportunity for customization via select package upgrades available at <strong><a href="https://jackiecoopermercedes.com/service">Jackie Cooper Mercedes-Benz's Service Department</a></strong>. Tailored to your lifestyle, these augmentations enhance your vehicle's performance, aesthetics, or technological capability, allowing you to choose based on your specific priorities.</p>
+  
+  <h2 id="customization-choices">Customization Choices</h2>
+  <ul>
+    <li>Advanced Driver Assistance package for enhanced safety</li>
+    <li>Ambient lighting and premium interior trim upgrades</li>
+    <li>Wheel and tire packages for varied terrains and appearances</li>
+  </ul>
+  
+  <p>We invite prospective owners to explore the full roster of options by visiting our showroom or browsing our online selection of <strong><a href="https://jackiecoopermercedes.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%22Image%20Count%22%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">All New Vehicles</a></strong>.</p>
+  
+  <h3 id="comprehensive-warranty-and-maintenance">Comprehensive Warranty and Maintenance</h3>
+  
+  <div class="image-flex">
+    <div class="image-container-limited">
+      <img
+        src="https://wieck-mbusa-production.s3.amazonaws.com/photos/a1458c9fa9df846f4b9997891b76ede567ef8648/preview-928x522.jpg"
+        alt="Mercedes-Benz GLE Ownership Experience"
+        class="article-image"
+      />
+    </div>
+  </div>
+  
+  <p>When entrusting your 2026 GLE to Jackie Cooper Mercedes-Benz, you receive more than just a vehicle—you inherit a commitment to ongoing protection for your investment. Our dealership proudly supports every owner with Mercedes-Benz's full warranty provisions, including extensive coverage periods and 24/7 roadside assistance throughout Oklahoma.</p>
+  
+  <p>Routine maintenance is simplified through our expert technicians, who use genuine parts accessible via our dedicated <strong><a href="https://jackiecoopermercedes.com/parts">Parts Department</a></strong>. Scheduling service is effortless at our <strong><a href="https://jackiecoopermercedes.com/service">Service Department</a></strong>, where we prioritize your convenience without compromising precision.</p>
+  
+  <p><strong>2026 Mercedes-Benz GLE Warranty &amp; Maintenance Overview</strong></p>
+  <table class="e-rte-table">
+    <thead>
+    <tr>
+    <th align="left"><strong>Coverage Aspect</strong></th>
+    <th align="right"><strong>Duration</strong></th>
+    <th align="left"><strong>Notes</strong></th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td align="left">Bumper-to-Bumper Warranty</td>
+    <td align="right">4 years / 50,000 miles</td>
+    <td align="left">Comprehensive defect coverage</td>
+    </tr>
+    <tr>
+    <td align="left">Powertrain Warranty</td>
+    <td align="right">4 years / 50,000 miles</td>
+    <td align="left">Engine and transmission coverage</td>
+    </tr>
+    <tr>
+    <td align="left">Roadside Assistance</td>
+    <td align="right">4 years / 50,000 miles</td>
+    <td align="left">Manufacturer-backed emergency support</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <h3 id="why-choose-jackie-cooper-mercedes-benz">Why Choose Jackie Cooper Mercedes-Benz</h3>
+  
+  <p>For luxury SUV buyers in Tulsa and greater northeastern Oklahoma, Jackie Cooper Mercedes-Benz stands apart by combining family heritage with excellent service integrity. Situated conveniently at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJz_yQLwmOtocRMs3LAefeKnw">9393 S Memorial Dr, Tulsa, OK 74133</a></strong>, our dealership offers an inviting atmosphere where sophistication meets expert knowledge.</p>
+  
+  <p>Choosing us means engaging with a people-first team eager to guide you through every stage of ownership—from helping you locate your ideal 2026 GLE in our expansive <strong><a href="https://jackiecoopermercedes.com/cars/pre-owned-inventory">All Used Vehicles</a></strong> and <strong><a href="https://jackiecoopermercedes.com/cars/certified-pre-owned">Certified Pre-Owned</a></strong> selections, to maintaining your vehicle with the highest standards at our service facilities.</p>
+  
+  <p>Maximize your investment potential by exploring our <strong><a href="https://jackiecoopermercedes.com/trade">Trade Valuation</a></strong> tool, or take advantage of our ongoing <strong><a href="https://jackiecoopermercedes.com/service-specials">Service Specials</a></strong> for routine care.</p>
+  
+  <p>Contact us today at <strong><a href="tel:9183171514">(918) 317-1514</a></strong> or visit us to experience firsthand the combination of luxury, technology, and trusted service that the 2026 Mercedes-Benz GLE and Jackie Cooper Mercedes-Benz together deliver.</p>
+  
+  <hr />
+  <p>© 2025 Jackie Cooper Mercedes-Benz (Jackie Cooper Imports)</p>
+  
+  </div>
+  

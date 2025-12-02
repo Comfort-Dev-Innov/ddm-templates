@@ -1,0 +1,353 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .section { 
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      box-sizing: border-box !important;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #111827 !important;
+      line-height: 1.7 !important;
+      font-size: 17px !important;
+      scroll-behavior: smooth !important;
+    }
+    .section * { max-width: 100% !important; box-sizing: border-box !important; }
+    
+    /* Typography */
+    .section p { margin: 1em 0 !important; }
+    .section h2,
+    .section h3,
+    .section h4 {
+      margin-top: 2em !important;
+      margin-bottom: 0.75em !important;
+      line-height: 1.3 !important;
+      font-weight: 700 !important;
+      color: #000000 !important;
+      animation: fadeInUp 0.6s ease-out !important;
+    }
+    .section h2 { 
+      font-size: 1.6em !important;
+      border-bottom: 3px solid #1e3a8a !important;
+      padding-bottom: 8px !important;
+    }
+    .section h3 { 
+      font-size: 1.35em !important;
+      border-left: 4px solid #1e3a8a !important;
+      padding-left: 12px !important;
+    }
+    
+    /* Tables */
+    .section table.e-rte-table { 
+      width: 100% !important; 
+      border-collapse: collapse !important; 
+      font-size: 16px !important; 
+      background: #fff !important; 
+      border-radius: 12px !important; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important; 
+      overflow: hidden !important; 
+      margin: 32px 0 !important;
+      animation: fadeIn 0.8s ease-in !important;
+      border: 2px solid #1e3a8a !important;
+    }
+    .section table.e-rte-table thead { background: #1e3a8a !important; color: #fff !important; }
+    .section table.e-rte-table th, 
+    .section table.e-rte-table td { 
+      padding: 16px 20px !important; 
+      text-align: left !important; 
+      border-bottom: 1px solid #e5e7eb !important; 
+    }
+    .section table.e-rte-table th { 
+      font-weight: 600 !important; 
+      text-transform: uppercase !important; 
+      letter-spacing: 0.05em !important; 
+      font-size: 14px !important; 
+    }
+    .section table.e-rte-table td { color: #374151 !important; }
+    .section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb !important; }
+    .section table.e-rte-table tbody tr:hover { 
+      background: #eef2ff !important; 
+      transition: background 0.2s ease-in-out !important;
+      transform: scale(1.01) !important;
+    }
+    .section table.e-rte-table tbody tr:last-child td { border-bottom: none !important; }
+    
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .section table.e-rte-table {
+        font-size: 14px !important;
+        overflow-x: auto !important;
+        display: block !important;
+      }
+      .section table.e-rte-table th,
+      .section table.e-rte-table td {
+        padding: 12px 8px !important;
+        font-size: 14px !important;
+      }
+    }
+    
+    /* Links */
+    .section a { 
+      color: #1e3a8a !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline !important; 
+      text-decoration-thickness: 1.5px !important;
+      transition: all 0.3s ease !important;
+    }
+    .section a:hover { 
+      color: #15306e !important;
+      text-decoration-thickness: 2px !important;
+    }
+    
+    /* TOC */
+    .section h2 + ul { 
+      border: 3px solid #1e3a8a !important; 
+      padding: 16px !important; 
+      margin: 24px 0 !important; 
+      background: linear-gradient(135deg, #f9fafb 0%, #eef2ff 100%) !important; 
+      border-radius: 12px !important; 
+      list-style: none !important;
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1) !important;
+      animation: slideIn 0.5s ease-out !important;
+    }
+    .section h2 + ul li { margin: 6px 0 !important; }
+    .section h2 + ul li a { 
+      text-decoration: none !important; 
+      color: #1e3a8a !important;
+      transition: all 0.3s ease !important;
+    }
+    .section h2 + ul li a:hover { 
+      text-decoration: underline !important;
+      padding-left: 8px !important;
+    }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth !important; }
+    
+    /* offset for fixed navbars */
+    .section h2[id], 
+    .section h3[id], 
+    .section h4[id] { scroll-margin-top: 90px !important; }
+  
+    /* highlight on jump */
+    .section :target { animation: highlightFlash 1.2s ease-out !important; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd !important; transform: scale(1.02) !important; } 
+      100% { background-color: transparent !important; transform: scale(1) !important; } 
+    }
+  
+    /* Images */
+    .section .article-image { 
+      margin: 24px 0 !important; 
+      text-align: center !important; 
+      max-width: 100% !important;
+      animation: fadeIn 0.8s ease-in !important;
+    }
+    .section .article-image img { 
+      max-width:100% !important; 
+      border-radius:12px !important; 
+      display:block !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease !important;
+      border: 3px solid #1e3a8a !important;
+      margin: 0 auto !important;
+    }
+    .section .article-image img:hover {
+      transform: scale(1.02) !important;
+      box-shadow: 
+        0 0 20px rgba(30, 58, 138, 0.4),
+        0 0 40px rgba(30, 58, 138, 0.3),
+        0 0 60px rgba(30, 58, 138, 0.2),
+        0 0 80px rgba(30, 58, 138, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    /* floating */
+    .section .article-image.float-right { 
+      float: right !important; 
+      margin-left: 16px !important; 
+      margin-bottom: 12px !important; 
+      max-width: 45% !important; 
+    }
+    .section .article-image.float-left { 
+      float: left !important; 
+      margin-right: 16px !important; 
+      margin-bottom: 12px !important; 
+      max-width: 45% !important; 
+    }
+    
+    /* clear fix after floats */
+    .section .clearfix::after { content:"" !important; display:table !important; clear:both !important; }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0 !important; }
+      to { opacity: 1 !important; }
+    }
+    
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0 !important; 
+        transform: translateY(20px) !important; 
+      }
+      to { 
+        opacity: 1 !important; 
+        transform: translateY(0) !important; 
+      }
+    }
+    
+    @keyframes slideIn {
+      from { 
+        opacity: 0 !important; 
+        transform: translateX(-20px) !important; 
+      }
+      to { 
+        opacity: 1 !important; 
+        transform: translateX(0) !important; 
+      }
+    }
+  
+    </style>
+
+<section class="section"><p>Experience a powerful blend of capability, durability, and modern innovation with the <strong>2026 RAM 2500 Pickup Base</strong>. Built to conquer demanding job sites around <strong>Shawnee, OK</strong>, <strong>Tecumseh</strong>, and <strong>Harrah</strong>, this heavy-duty workhorse stands ready with best-in-class torque and a suite of advanced features that balance toughness and comfort. At <strong>Joe Cooper Dodge Jeep Of Shawnee</strong>, located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJPagqO_rHs4cRAEt_NlUhmcA">4940 Automall Dr, Shawnee, OK 74804</a></strong>, we are proud to guide you in finding a truck that delivers uncompromising reliability for your work and family needs throughout the broader areas of <strong>Moore, OK</strong>, <strong>Jones</strong>, and beyond.</p>
+
+<div class="article-image">
+  <img src="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/libraryImages/RM026_020TFktu2p4mcmij0rn1li3t378sni7__mid.jpg" alt="2026 RAM 2500 Exterior Front View">
+</div><h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#introducing-the-2026-ram-2500-pickup">Introducing the 2026 RAM 2500 Pickup</a></li></li>
+  <li><a href="#robust-exterior-design-crafted-for-endurance">Robust Exterior Design Crafted for Endurance</a></li></li>
+  <li><a href="#performance-driven-power-and-handling">Performance-Driven Power and Handling</a><ul>
+  <li><a href="#engine-specs">Engine and Towing Specifications</a></li></li>
+  <li><a href="#drivetrain-and-suspension-details">Drivetrain and Suspension Details</a></li></li>
+  </ul>
+  </li>
+  <li><a href="#comfortable-interior-design-and-features">Comfortable Interior Design and Features</a></li></li>
+  <li><a href="#advanced-technology-and-seamless-connectivity">Advanced Technology and Seamless Connectivity</a></li></li>
+  <li><a href="#comprehensive-safety-and-driver-assistance-systems">Comprehensive Safety and Driver Assistance Systems</a></li></li>
+  <li><a href="#trim-choices-and-available-packages">Trim Choices and Available Packages</a></li></li>
+  <li><a href="#warranty-coverage-and-maintenance-support">Warranty Coverage and Maintenance Support</a></li></li>
+  <li><a href="#why-choose-joe-cooper-dodge-jeep-of-shawnee">Why Choose Joe Cooper Dodge Jeep Of Shawnee?</a></li></li>
+  </ul><h3 id="introducing-the-2026-ram-2500-pickup">Introducing the 2026 RAM 2500 Pickup</h3><p>The 2026 RAM 2500 Base model is a seriously capable addition for customers looking for a truck that combines robust performance with modern comforts. Especially suited to the challenging landscapes of <strong>Jones</strong> and <strong>McLoud</strong>, it serves not only as a reliable work companion but also as a refined daily driver with a commanding presence on the road.</p><p>This pickup is built around a rugged frame designed for heavy-duty tasks. It offers multiple cab and bed configurations, including an 8-foot box paired with a regular cab for those who need maximum cargo capacity. Whether you’re towing equipment around <strong>Norman</strong> or hauling materials near <strong>Newalla</strong>, the RAM 2500 stands ready to perform day in and day out.</p><p>At Joe Cooper Dodge Jeep Of Shawnee, you’ll find this model in our new inventory — explore the <strong><a href="https://joecooperdodgejeep.com/cars/new-inventory">All New Vehicles</a></strong> to view our current stock and find the RAM that fits your needs perfectly.</p><h3 id="robust-exterior-design-crafted-for-endurance">Robust Exterior Design Crafted for Endurance</h3>
+
+<div class="article-image">
+  <img src="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/libraryImages/RM026_026TF7g3fl7l7f0o1sd12agtqq2q240__mid.jpg" alt="2026 RAM 2500 Exterior Design">
+</div>
+
+<p>The exterior of the 2026 RAM 2500 Base trim is engineered for durability under the harshest conditions while maintaining a purposeful, commanding aesthetic. Around areas like <strong>Bethel Acres</strong> and <strong>Seminole</strong>, where rugged terrain and heavy loads are common, this design offers practical benefits coupled with visual strength.</p><h3 id="functional-dimensions-and-body-features">Functional Dimensions and Body Features</h3><p>The available configurations maximize utility and usability, including long-bed options that provide substantial cargo volume. Body-color bumpers, robust grille frames, and trailer tow mirrors with power convex glass exclusive in its class ensure the truck is ready for any demanding task, from commercial hauling in <strong>Prague</strong> to weekend adventures near <strong>Choctaw</strong>.</p><h2 id="wheel-and-tire-setup">Wheel and Tire Setup</h2><p>The Base trim offers durable steel wheels designed with capability in mind, compatible with tires that balance on-road stability and off-road tenacity, ideal for drivers around <strong>Oklahoma City</strong> who require a truck that adapts to various conditions.</p><h3 id="performance-driven-power-and-handling">Performance-Driven Power and Handling</h3>
+
+<div class="article-image">
+  <img src="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/libraryImages/RM026_007TF3em8j90jcd65623pv1oe7oj5sl__mid.jpg" alt="2026 RAM 2500 Engine Performance">
+</div>
+
+<h2 id="engine-and-towing-specifications">Engine and Towing Specifications</h2><p>At the heart of the RAM 2500 Base model is the robust 6.7-liter Cummins Turbo Diesel inline-six engine, delivering a remarkable <strong>430 horsepower</strong> and setting the benchmark with a best-in-class&nbsp;<strong>1,075 lb-ft</strong> of torque. This engine provides impressive muscle around <strong>Moore</strong> and other work-heavy regions.</p><p>The partnering TorqueFlite HD 8-speed automatic transmission delivers smooth power, optimized fuel efficiency, and responsive shifting. For fleets or contractors in <strong>Meeker</strong> and <strong>Seminole</strong>, this level of performance translates into more productive, less stressful workdays. The diesel setup offers a towing capacity of up to 20,000 pounds, making towing boats or heavy equipment around <strong>Tecumseh</strong> safe and manageable. Payload specifications further emphasize this truck’s rugged utility.</p><h2 id="drivetrain-and-suspension-details">Drivetrain and Suspension Details</h2><p>The Base trim is equipped with rear-wheel drive as standard, with four-wheel drive available for those who need additional traction in varied geographic conditions, such as those found in <strong>Harrah</strong> and <strong>Newalla</strong>. The truck’s suspension system is engineered to balance heavy load bearing with driver comfort, providing stability on pavement and controlled movement off the beaten path.</p><p>Braking systems incorporate advanced hardware designed to maintain confidence during heavy towing or steep descents, complemented by hill descent control technology on select configurations. This enhances safety during challenging operations near <strong>Choctaw</strong> and <strong>Jones</strong>.</p><p><strong>Technical Specifications of 2026 RAM 2500 Base</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Specification</strong></th>
+  <th align="right"><strong>Value</strong></th>
+  <th align="left"><strong>Notes</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Engine</td>
+  <td align="right">6.7 liters Inline-6 Turbo Diesel</td>
+  <td align="left">High-output Cummins Turbo Diesel</td>
+  </tr>
+  <tr>
+  <td align="left">Horsepower</td>
+  <td align="right">430 hp</td>
+  <td align="left">Best-in-class torque and power</td>
+  </tr>
+  <tr>
+  <td align="left">Torque</td>
+  <td align="right">1,075 lb-ft</td>
+  <td align="left">Maximum diesel torque available</td>
+  </tr>
+  <tr>
+  <td align="left">Transmission</td>
+  <td align="right">TorqueFlite 8-speed automatic</td>
+  <td align="left">HD tuned for heavy-duty use</td>
+  </tr>
+  <tr>
+  <td align="left">Towing Capacity</td>
+  <td align="right">20,000 lbs</td>
+  <td align="left">Max diesel towing rating</td>
+  </tr>
+  <tr>
+  <td align="left">Drive Configurations</td>
+  <td align="right">RWD (standard), 4WD (optional)</td>
+  <td align="left">For diverse terrain adaptability</td>
+  </tr>
+  </tbody></table><h3 id="comfortable-interior-design-and-features">Comfortable Interior Design and Features</h3>
+
+<div class="article-image">
+  <img src="https://i.ibb.co/Xrw4Sks5/RM026-027-TF3ffg6pm5p5i3tghbo1o6vil6e9.jpg" alt="2026 RAM 2500 Interior Cabin">
+</div>
+
+<p>The cab of the RAM 2500 Base balances comfort and functionality to ease the demands of work and daily life around <strong>Norman</strong> and <strong>Oklahoma City</strong>. The interior is designed for durability and ease of maintenance with easy-to-clean surfaces and innovative storage solutions.</p><p>The 40/20/40 split-bench seating offers space for three up front, supporting team trips to and from projects in <strong>McLoud</strong> or Lori’s place in <strong>Meeker</strong>. While higher trims offer leather and wood trim, the Base model focuses on rugged practicality with cloth upholstery and durable carpeting, tailored for trucks in hard-working environments across <strong>Prague</strong>.</p><p>Visibility and ergonomics are carefully calibrated for safety and ease, ensuring drivers maintain confidence as they navigate the busy streets of Choctaw or the&nbsp;</p><p>rural backroads near <strong>Tecumseh</strong>.</p><h3 id="advanced-technology-and-seamless-connectivity">Advanced Technology and Seamless Connectivity</h3>
+
+<div class="article-image">
+  <img src="https://i.ibb.co/9fg1xdy/RM026-035-TFmcng3psmbinuf5inhpu8g2v93l.jpg" alt="2026 RAM 2500 Technology Features">
+</div>
+
+<p>Staying connected and in control is effortless with the RAM 2500's industry-leading technology suite. Drivers and passengers in <strong>Shawnee</strong> and surrounding towns will appreciate the expansive <strong>14.5-inch infotainment touchscreen</strong>, delivering access to navigation, entertainment, and truck-specific apps.</p><p>A standout feature is the available <strong>10.25-inch front passenger interactive display</strong>, designed to keep your co-pilot engaged with real-time maps, media, or vehicle information. Dual wireless charging pads allow multiple devices to charge without clutter, a feature highly valued by busy users in Oklahoma City who need</p><p>uninterrupted communication.</p><p>Apple CarPlay and Android Auto are standard, supporting seamless smartphone integration and voice commands that enable safer, distraction-free operation while on the road near <strong>Bethel Acres</strong> and beyond.</p><h3 id="comprehensive-safety-and-driver-assistance-systems">Comprehensive Safety and Driver Assistance Systems</h3><p>safety has been front and center in the 2026 RAM 2500’s design, especially important for families and professionals in <strong>Moore</strong> and <strong>Harrah</strong> who rely on every mile being secure. Standard and available safety technologies include:</p><ul>
+  <li><strong>ParkSense® Front and Rear Park Assist</strong> to help with tight space maneuvers in urban or congested areas like downtown <strong>Norman</strong>.</li>
+  <li><strong>Hill Descent Control</strong> to maintain steady speeds on steep or slippery declines found near <strong>Meeker</strong>.</li>
+  <li><strong>Power Convex Trailer Tow Mirrors</strong> exclusive to the RAM 2500 that improve visibility when towing sizable trailers for jobs around <strong>Jones</strong>.</li>
+  <li>Advanced airbags and stability control systems for collision protection on road and highways near&nbsp;<strong>Choctaw</strong>.</li>
+  </ul><p>Furthermore, RAM owners benefit from a dedicated <a href="tel:+1-800-255-9877"><strong>Chrysler, Dodge, Jeep, RAM Roadside Assistance: 800-255-9877</strong></a> program, ensuring manufacturer-backed support for emergencies like roadside flat tires or breakdowns in and around <strong>Prague</strong> and <strong>Newalla</strong>.</p><h3 id="trim-choices-and-available-packages">Trim Choices and Available Packages</h3><p>The 2026 RAM 2500 is available in a range of trims, each crafted to meet different needs and preferences across <strong>Seminole</strong>, <strong>McLoud</strong>, and <strong>Meeker</strong>. Here’s a brief overview:</p><p><strong>Key RAM 2500 Trim Levels and Starting MSRPs</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Trim</strong></th>
+  <th align="right"><strong>Starting MSRP</strong></th>
+  <th align="left"><strong>Highlights</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Tradesman (Base)</td>
+  <td align="right">$45,995</td>
+  <td align="left">Rugged, no-nonsense work truck with standard diesel engine</td>
+  </tr>
+  <tr>
+  <td align="left">Big Horn</td>
+  <td align="right">$49,745</td>
+  <td align="left">Added comfort and style features for everyday usability</td>
+  </tr>
+  <tr>
+  <td align="left">Black Express</td>
+  <td align="right">$52,110</td>
+  <td align="left">Bold blacked-out styling and power trailer tow mirrors</td>
+  </tr>
+  <tr>
+  <td align="left">Warlock</td>
+  <td align="right">$55,540</td>
+  <td align="left">Off-road enhancements with Bilstein shocks and skid plates</td>
+  </tr>
+  <tr>
+  <td align="left">Laramie</td>
+  <td align="right">$61,750</td>
+  <td align="left">Premium leather with wood and aluminum trim, tech upgrades</td>
+  </tr>
+  <tr>
+  <td align="left">Rebel</td>
+  <td align="right">$68,895</td>
+  <td align="left">Performance suspension and an optional heavy-duty winch</td>
+  </tr>
+  <tr>
+  <td align="left">Power Wagon</td>
+  <td align="right">$72,390</td>
+  <td align="left">Extreme off-road capability and rugged styling</td>
+  </tr>
+  <tr>
+  <td align="left">Limited / Limited Longhorn</td>
+  <td align="right">$73,750</td>
+  <td align="left">Top-tier luxury and advanced features with Night Edition options</td>
+  </tr>
+  </tbody></table><h3 id="warranty-coverage-and-maintenance-support">Warranty Coverage and Maintenance Support</h3><p>Owning a RAM 2500 means you’re backed by comprehensive warranties and manufacturer services designed to keep your truck in optimal condition, whether you are working near <strong>Prague</strong> or in the community of <strong>Choctaw</strong>. Key benefits include:</p><ul>
+  <li><strong>Diesel and Gasoline Powertrain Limited Warranties</strong> providing coverage for critical components.</li>
+  <li><strong>Roadside Assistance</strong> specific to RAM trucks, delivering prompt service including flat tire changes and towing services.</li>
+  <li>Authorized service at our <strong><a href="https://joecooperdodgejeep.com/service">Service Department</a>,</strong> equipped with factory-trained technicians and genuine <strong><a href="https://joecooperdodgejeep.com/parts">OEM parts</a></strong>.<strong><a href="https://joecooperdodgejeep.com/parts">​</a></strong></li>
+  <li>Transparent communication and customer-first care aligned with our decades of service in <strong>Shawnee</strong> and neighboring towns.</li>
+  </ul><h3 id="why-choose-joe-cooper-dodge-jeep-of-shawnee">Why Choose Joe Cooper Dodge Jeep Of Shawnee?</h3><p>With roots firmly planted in family values and community tradition, Joe Cooper Dodge Jeep of Shawnee provides an experience focused on your total satisfaction and trust. Whether you’re traveling from <strong>Norman</strong>, <strong>Newalla</strong>, or <strong>Meeker</strong>, our friendly, knowledgeable staff at <strong><a href="https://joecooperdodgejeep.com/contact">Joe Cooper Dodge Jeep Of Shawnee</a></strong> offers personal guidance to help you select the ideal RAM 2500 for your needs.</p><p>Our commitment is reflected in our clean, inviting showroom at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJPagqO_rHs4cRAEt_NlUhmcA">4940 Automall Dr, Shawnee, OK 74804</a>,</strong> and skilled service teams who ensure your truck stays in peak condition. Explore our extensive new and used inventory:</p><ul>
+  <li><strong><a href="https://joecooperdodgejeep.com/cars/new-inventory">View New RAM 2500 Trucks</a></strong></li>
+  <li><strong><a href="https://joecooperdodgejeep.com/cars/used-inventory">Browse Used Trucks and SUVs</a></strong></li>
+  </ul><p>Thinking about trading in your current vehicle? Quickly check your vehicle’s value with our <strong><a href="https://joecooperdodgejeep.com/trade">Trade Valuation tool</a></strong>.</p><p>Maintain your truck’s excellent performance by scheduling service at our certified <strong><a href="https://joecooperdodgejeep.com/service">Service Department</a></strong>. Our team understands the specific needs of RAM owners and delivers exceptional care every time you visit.</p><p>We invite you to experience the trustworthiness and dedication that have made us a cornerstone of automotive service in Shawnee and the surrounding Oklahoma communities. Call us at <strong><a href="tel:4052751104">(405) 275-1104</a></strong> or stop by today to explore the 2026 RAM 2500 and discover how it can support your work, family, and lifestyle.</p><p>© 2025 Joe Cooper Dodge Jeep Of Shawnee</p>
+
+</section>

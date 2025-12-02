@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .nfactor-ultimate-performance-wrapper {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .nfactor-ultimate-performance-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(1, 43, 93, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: nfactor-float 8s ease-in-out infinite;
+        }
+
+        @keyframes nfactor-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .nfactor-ultimate-performance-wrapper h1 {
+            width: fit-content !important;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 40px !important;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(1, 43, 93, 0.1);
+        }
+
+        .nfactor-ultimate-performance-wrapper h1::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(1, 43, 93, 0.3);
+        }
+
+        .nfactor-ultimate-performance-wrapper h1:hover::after {
+            width: 180px;
+            transform: scaleY(1.2);
+        }
+
+        .nfactor-ultimate-performance-wrapper h3,
+        .nfactor-ultimate-performance-wrapper h1,
+        .nfactor-ultimate-performance-wrapper h2,
+        .nfactor-ultimate-performance-wrapper p,
+        .nfactor-ultimate-performance-wrapper ol,
+        .nfactor-ultimate-performance-wrapper ul {
+            max-width: 1300px !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nfactor-motorsport-heritage-showcase {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nfactor-narrative-content-block p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+            line-height: 1.8;
+        }
+
+        .nfactor-visual-placeholder-badge {
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border: 2px solid #eef1ff;
+            border-radius: 18px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #012b5d;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.08);
+        }
+
+        .nfactor-visual-placeholder-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            animation: nfactor-rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nfactor-visual-placeholder-badge img,
+        .nfactor-feature-accompanying-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nfactor-visual-placeholder-badge:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes nfactor-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .nfactor-visual-placeholder-badge:hover {
+            transform: scale(1.03) translateY(-3px);
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.18);
+            border-color: #012b5d;
+        }
+
+        .nfactor-dual-tier-performance-section {
+            margin: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nfactor-dual-tier-performance-section h3 {
+            font-size: 1.4rem;
+            color: #012b5d;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(1, 43, 93, 0.1);
+        }
+
+        .nfactor-performance-tier-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+
+        .nfactor-tier-specification-card {
+            background: linear-gradient(145deg, #fafbff 0%, #ffffff 100%);
+            border: 2px solid #eef1ff;
+            border-radius: 18px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(1, 43, 93, 0.06);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .nfactor-tier-specification-card.nfactor-full-n-model {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.92) 0%, rgba(255, 255, 255, 0.92) 70%),
+                url('https://di-uploads-pod27.dealerinspire.com/fairfaxhyundai/uploads/2024/10/6541eb3c-c068-43e7-93d0-2a188c9a614c-1-1024x682.jpg');
+        }
+
+        .nfactor-tier-specification-card.nfactor-nline-model {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.92) 0%, rgba(255, 255, 255, 0.92) 70%),
+                url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        .nfactor-tier-specification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.08), transparent);
+            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nfactor-tier-specification-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 18px 18px;
+        }
+
+        .nfactor-tier-specification-card:hover::before {
+            left: 100%;
+        }
+
+        .nfactor-tier-specification-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nfactor-tier-specification-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: #012b5d;
+            box-shadow: 0 20px 45px rgba(1, 43, 93, 0.15);
+        }
+
+        .nfactor-tier-specification-card.nfactor-full-n-model:hover {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.68) 0%, rgba(255, 255, 255, 0.68) 65%),
+                url('https://di-uploads-pod27.dealerinspire.com/fairfaxhyundai/uploads/2024/10/6541eb3c-c068-43e7-93d0-2a188c9a614c-1-1024x682.jpg');
+            background-size: 110%;
+        }
+
+        .nfactor-tier-specification-card.nfactor-nline-model:hover {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.68) 0%, rgba(255, 255, 255, 0.68) 65%),
+                url('https://ddztmb1ahc6o7.cloudfront.net/downtownhyundai/wp-content/uploads/2024/06/05094119/fca_desktop.jpg');
+            background-size: 210%;
+        }
+
+        .nfactor-tier-specification-card.nfactor-full-n-model {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.82) 0%, rgba(255, 255, 255, 0.82) 70%),
+                url('https://di-uploads-pod27.dealerinspire.com/fairfaxhyundai/uploads/2024/10/6541eb3c-c068-43e7-93d0-2a188c9a614c-1-1024x682.jpg');
+            background-size: 100%;
+        }
+
+        .nfactor-tier-specification-card.nfactor-nline-model {
+            background-image: 
+                linear-gradient(145deg, rgba(250, 251, 255, 0.82) 0%, rgba(255, 255, 255, 0.82) 70%),
+                url('https://ddztmb1ahc6o7.cloudfront.net/downtownhyundai/wp-content/uploads/2024/06/05094119/fca_desktop.jpg');
+                background-size: 200%;
+        }
+
+        .nfactor-tier-designation-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 18px;
+            text-shadow: 0 1px 2px rgba(1, 43, 93, 0.1);
+        }
+
+        .nfactor-tier-detailed-description {
+            color: #555;
+            line-height: 1.7;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .nfactor-gateway-performance-highlight {
+            background: linear-gradient(145deg, #f8f9ff 0%, #ffffff 50%, #f0f2ff 100%);
+            border-radius: 25px;
+            padding: 45px;
+            margin: 45px 0;
+            border: 2px solid #eef1ff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.08);
+        }
+
+        .nfactor-gateway-performance-highlight::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #012b5d, #002c5f, #012b5d);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nfactor-gateway-performance-highlight:hover::before {
+            opacity: 0.1;
+        }
+
+        .nfactor-gateway-performance-highlight p {
+            font-size: 1.2rem;
+            color: #012b5d;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(1, 43, 93, 0.1);
+            line-height: 1.8;
+        }
+
+        .nfactor-vehicle-showcase-examples {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 45px;
+            margin: 55px 0;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nfactor-model-description-content p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+            line-height: 1.8;
+        }
+
+        .nfactor-model-visual-placeholder {
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border: 2px solid #eef1ff;
+            border-radius: 18px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #012b5d;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.08);
+        }
+
+        .nfactor-model-visual-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent, rgba(1, 43, 93, 0.1), transparent);
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nfactor-model-visual-placeholder:hover::before {
+            opacity: 1;
+        }
+
+        .nfactor-model-visual-placeholder:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(1, 43, 93, 0.15);
+            border-color: #012b5d;
+        }
+
+        .nfactor-model-visual-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nfactor-detailed-features-showcase {
+            margin: 55px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nfactor-individual-feature-container {
+            background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
+            border: 2px solid #eef1ff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 35px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(1, 43, 93, 0.06);
+        }
+
+        .nfactor-individual-feature-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nfactor-individual-feature-container:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nfactor-individual-feature-container:hover {
+            transform: translateX(15px) translateY(-3px);
+            border-color: #012b5d;
+            box-shadow: 0 15px 35px rgba(1, 43, 93, 0.12);
+        }
+
+        .nfactor-feature-heading-designation {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            text-shadow: 0 1px 2px rgba(1, 43, 93, 0.1);
+        }
+
+        .nfactor-feature-symbolic-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(1, 43, 93, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nfactor-feature-symbolic-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 18px rgba(1, 43, 93, 0.4);
+        }
+
+        .nfactor-feature-detailed-content {
+            color: #555;
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .nfactor-feature-visual-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nfactor-feature-accompanying-image {
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border: 2px solid #eef1ff;
+            border-radius: 15px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #012b5d;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.08);
+        }
+
+        .nfactor-feature-accompanying-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nfactor-feature-accompanying-image:hover::before {
+            opacity: 1;
+        }
+
+        .nfactor-feature-accompanying-image:hover {
+            transform: scale(1.06) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(1, 43, 93, 0.12);
+            border-color: #012b5d;
+        }
+
+        .nfactor-ultimate-conclusion-statement {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            margin-top: 55px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(1, 43, 93, 0.3);
+        }
+
+        .nfactor-ultimate-conclusion-statement::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: nfactor-rotate 10s linear infinite;
+        }
+
+        .nfactor-ultimate-conclusion-statement p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nfactor-decorative-accent-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+            margin: 25px auto;
+            border-radius: 2px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .nfactor-ultimate-performance-wrapper a {
+            color: #012b5d;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nfactor-ultimate-performance-wrapper a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1px;
+        }
+
+        .nfactor-ultimate-performance-wrapper a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+            text-shadow: 0 2px 4px rgba(1, 43, 93, 0.2);
+        }
+
+        .nfactor-ultimate-performance-wrapper a:hover::before {
+            width: 100%;
+        }
+
+        .nfactor-ultimate-performance-wrapper a:active {
+            transform: translateY(0);
+            color: #001a3d;
+        }
+
+        .nfactor-ultimate-performance-wrapper a:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(1, 43, 93, 0.2);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .nfactor-ultimate-performance-wrapper {
+                padding: 40px 15px;
+            }
+
+            .nfactor-motorsport-heritage-showcase,
+            .nfactor-performance-tier-grid-layout,
+            .nfactor-vehicle-showcase-examples,
+            .nfactor-feature-visual-layout-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .nfactor-ultimate-performance-wrapper h1 {
+                font-size: 2.2rem;
+                margin-bottom: 30px !important;
+                text-align: center;
+            }
+
+            .nfactor-dual-tier-performance-section h3 {
+                font-size: 1.2rem;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            .nfactor-tier-specification-card {
+                padding: 25px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .nfactor-tier-designation-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .nfactor-tier-detailed-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .nfactor-visual-placeholder-badge,
+            .nfactor-model-visual-placeholder,
+            .nfactor-feature-accompanying-image {
+                height: 180px;
+            }
+
+            .nfactor-gateway-performance-highlight {
+                padding: 30px 20px;
+                margin: 35px 0;
+            }
+
+            .nfactor-gateway-performance-highlight p {
+                font-size: 1.1rem;
+            }
+
+            .nfactor-individual-feature-container {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+
+            .nfactor-individual-feature-container:hover {
+                transform: translateY(-5px);
+            }
+
+            .nfactor-feature-heading-designation {
+                font-size: 1.1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .nfactor-feature-symbolic-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .nfactor-feature-detailed-content {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+
+            .nfactor-ultimate-conclusion-statement {
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+
+            .nfactor-ultimate-conclusion-statement p {
+                font-size: 1rem;
+            }
+
+            /* Mobile-specific background adjustments */
+            .nfactor-tier-specification-card.nfactor-full-n-model,
+            .nfactor-tier-specification-card.nfactor-nline-model {
+                background-size: cover;
+                background-position: center;
+            }
+
+            .nfactor-tier-specification-card.nfactor-full-n-model:hover,
+            .nfactor-tier-specification-card.nfactor-nline-model:hover {
+                background-size: 105%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nfactor-ultimate-performance-wrapper">
+        <h1>The "N" Factor: What Does N-Line Mean for Your Drive?</h1>
+        
+        <div class="nfactor-motorsport-heritage-showcase">
+            <div class="nfactor-narrative-content-block">
+                <p>Before you explore the specific models, it helps to understand what that "N" badge really means. The letter represents two important places that shape every N and N-Line vehicle: Namyang, Hyundai's research center in South Korea where your car is designed, and the Nürburgring, the demanding German racetrack where it's tested. Even the N logo mimics the shape of a racetrack chicane, hinting at the handling precision you'll experience.</p>
+            </div>
+            <div class="nfactor-visual-placeholder-badge">
+                <img src="https://nstickers.com/cdn/shop/files/FullSizeRender_164d87fd-7975-499d-9529-ce128c02db49.heic?v=1701323291&width=1946" alt="N Badge & Racetrack Image"/>
+            </div>
+        </div>
+
+        <div class="nfactor-dual-tier-performance-section">
+            <h3>This heritage creates two performance tiers you can choose from:</h3>
+            
+            <div class="nfactor-performance-tier-grid-layout">
+                <div class="nfactor-tier-specification-card nfactor-full-n-model">
+                    <div class="nfactor-tier-designation-title">Full N Models:</div>
+                    <div class="nfactor-tier-detailed-description">These are Hyundai's track-focused performance cars. If you want maximum excitement and don't mind a firmer ride, these are your options.</div>
+                </div>
+                
+                <div class="nfactor-tier-specification-card nfactor-nline-model">
+                    <div class="nfactor-tier-designation-title">N-Line Models:</div>
+                    <div class="nfactor-tier-detailed-description">This is where things get interesting for most drivers. N-Line takes the visual appeal and driving excitement of the N series and adapts it for your daily life. You get the sporty looks, enhanced handling, and performance-inspired interior, but with the comfort and practicality you need for commuting, errands, and family duties.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nfactor-gateway-performance-highlight">
+            <p>Think of N-Line as your gateway to performance driving. You're not sacrificing comfort for speed—you're getting a car that's genuinely more fun to drive while still being perfectly suited for everything from your morning coffee run to weekend road trips.</p>
+            <div class="nfactor-decorative-accent-divider"></div>
+        </div>
+
+        <div class="nfactor-vehicle-showcase-examples">
+            <div class="nfactor-model-description-content">
+                <p>Whether you're looking at an 
+                    <a href="https://joecooperhyundai.com/cars/new-elantra">Elantra</a> 
+                    sedan for your daily commute or a 
+                    <a href="https://joecooperhyundai.com/cars/new-tucson">Tucson</a> 
+                    Hybrid SUV for family adventures, each N-Line model shares the same DNA: distinctive styling that turns heads, handling that makes every drive more engaging, and the reliability you expect from Hyundai.</p>
+            </div>
+            <div class="nfactor-model-visual-placeholder">
+                <img src="https://liftkit.imgix.net/blog/sk1005/images/featured-image-3916.png" alt="Elantra & Tucson N-Line Models"/>
+            </div>
+        </div>
+
+        <div class="nfactor-detailed-features-showcase">
+            <div class="nfactor-individual-feature-container">
+                <div class="nfactor-feature-visual-layout-grid">
+                    <div>
+                        <div class="nfactor-feature-heading-designation">
+                            <div class="nfactor-feature-symbolic-icon">🏎️</div>
+                            Motorsport-Inspired Exterior:
+                        </div>
+                        <div class="nfactor-feature-detailed-content">
+                            N-Line models are immediately identifiable by their aggressive and aerodynamic styling. This includes dynamically redesigned front and rear bumpers, often referred to as fascias, which give the vehicles a more planted and assertive stance. They feature unique N-Line grilles, exclusive alloy wheel designs that are often larger than their standard counterparts, and sporty exhaust outlets—typically dual or twin-tip designs—that hint at the enhanced performance within.
+                        </div>
+                    </div>
+                    <div class="nfactor-feature-accompanying-image">
+                        <img src="https://www.hyundaicanada.com/-/media/hyundai/showroom/2024/elantra-n/content_block/contentblock-d.jpg" alt="Motorsport-Inspired Exterior"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nfactor-individual-feature-container">
+                <div class="nfactor-feature-visual-layout-grid">
+                    <div>
+                        <div class="nfactor-feature-heading-designation">
+                            <div class="nfactor-feature-symbolic-icon" style="font-size: 32px;">✇</div>
+                            Driver-Focused Interior:
+                        </div>
+                        <div class="nfactor-feature-detailed-content">
+                            The cabin of an N-Line model is designed to be an upgraded, sportier cockpit. The experience begins with N-branded sport seats that feature more prominent bolstering to hold you securely and comfortably during spirited driving. These seats are often finished in premium materials like leather and luxurious suede or Alcantara®, and are accented with signature red contrast stitching. This red stitching often extends to the N-logo steering wheel, gear shifter, and armrest, creating a dynamic and cohesive interior theme. Sporty metal pedals with slip-resistant rubber pads complete the motorsport-inspired environment, enhancing the connection between the driver and the vehicle.
+                        </div>
+                    </div>
+                    <div class="nfactor-feature-accompanying-image">
+                        <img src="https://www.hyundai.com/content/dam/hyundai/au/en/models/sonata-n-line/2023/final/interior/Interior_Mobile.png" alt="Driver-Focused Interior"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nfactor-ultimate-conclusion-statement">
+            <p>By clearly establishing the N-Line's identity as a "motorsport-inspired" enhancement rather than a "motorsport-ready" machine, its unique value becomes clear. It is not a lesser version of a full N car; it is a distinct product line designed for a specific driver—one who values aesthetics, responsive performance, and everyday comfort in equal measure.</p>
+            <div class="nfactor-decorative-accent-divider"></div>
+            <p>This understanding allows customers to align their expectations with the product's true purpose, ensuring they find the perfect vehicle for their needs.</p>
+        </div>
+    </div>
+</body>
+</html>

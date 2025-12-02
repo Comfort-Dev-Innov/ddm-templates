@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .sonata-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .sonata-container h1 {
+        width: fit-content !important;
+        font-size: 3.2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin: 0 !important;
+        margin-bottom: 40px !important;
+        position: relative;
+      }
+
+      .sonata-container h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 140px;
+        height: 4px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+
+      .sonata-container h1:hover::after {
+        width: 200px;
+      }
+
+      .sonata-container h3,
+      .sonata-container h1,
+      .sonata-container h2,
+      .sonata-container p,
+      .sonata-container ol,
+      .sonata-container ul {
+        max-width: 1300px !important;
+      }
+
+      .flagship-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        padding: 8px 25px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+        align-items: center;
+      }
+
+      .hero-content {
+        background: linear-gradient(135deg, #f8f9ff, #ffffff);
+        border-radius: 25px;
+        padding: 50px;
+        border: 2px solid #eef1ff;
+        position: relative;
+      }
+
+      .hero-content::before {
+        content: "👑";
+        position: absolute;
+        top: -20px;
+        right: 30px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        color: #012b5d;
+        font-weight: 500;
+        line-height: 1.7;
+      }
+
+      .sonata-image {
+        width: 100%;
+        height: 350px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(1, 43, 93, 0.1);
+      }
+
+      .sonata-image:hover {
+        transform: scale(1.03);
+        box-shadow: 0 20px 50px rgba(1, 43, 93, 0.25);
+      }
+
+      .powertrain-section {
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        border-radius: 30px;
+        padding: 60px;
+        margin: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .powertrain-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .powertrain-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .engine-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .power-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .stat-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-10px);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        opacity: 0.9;
+        font-weight: 600;
+      }
+
+      .stat-detail {
+        font-size: 0.85rem;
+        opacity: 0.7;
+        margin-top: 5px;
+      }
+
+      .powertrain-description {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        text-align: center;
+        opacity: 0.95;
+        margin-top: 30px;
+      }
+
+      .features-section {
+        margin: 60px 0;
+      }
+
+      .features-title {
+        font-size: 2.3rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+      }
+
+      .features-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 2px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .feature-category {
+        background: #ffffff;
+        border: 2px solid #eef1ff;
+        border-radius: 25px;
+        padding: 40px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .feature-category:hover {
+        transform: translateY(-8px);
+        border-color: #012b5d;
+        box-shadow: 0 15px 40px rgba(1, 43, 93, 0.12);
+      }
+
+      .category-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .category-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .category-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #012b5d;
+      }
+
+      .category-content {
+        font-size: 1.1rem;
+        color: #444;
+        line-height: 1.7;
+      }
+
+      .feature-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .highlight-item {
+        background: linear-gradient(135deg, #f0f2ff, #ffffff);
+        border: 1px solid #dde2ff;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        color: #012b5d;
+        font-weight: 600;
+      }
+
+      .highlight-item:hover {
+        transform: scale(1.05);
+        border-color: #012b5d;
+      }
+
+      .technology-section {
+        background: linear-gradient(135deg, #f8f9ff, #ffffff);
+        border-radius: 25px;
+        padding: 50px;
+        margin: 50px 0;
+        border: 2px solid #eef1ff;
+        text-align: center;
+      }
+
+      .tech-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 30px;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .tech-card {
+        background: #ffffff;
+        border: 2px solid #dde2ff;
+        border-radius: 15px;
+        padding: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .tech-card:hover {
+        border-color: #012b5d;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(1, 43, 93, 0.1);
+      }
+
+      .tech-feature {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #012b5d;
+        margin-bottom: 8px;
+      }
+
+      .tech-description {
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section,
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .sonata-container h1 {
+          font-size: 2.3rem;
+        }
+
+        .sonata-image {
+          height: 250px;
+        }
+
+        .powertrain-section,
+        .hero-content,
+        .technology-section {
+          padding: 30px 20px;
+        }
+
+        .power-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .sonata-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 3px solid #012b5d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sonata-container">
+      <div class="flagship-badge">FLAGSHIP N-LINE</div>
+      <h1>The 2025 Hyundai Sonata N-Line</h1>
+
+      <div class="hero-section">
+        <div class="hero-content">
+          <p>
+            The 2025 Hyundai Sonata N-Line is the flagship of the N-Line series,
+            representing a dramatic leap in power, performance, and
+            sophistication. It is a genuine sport sedan engineered for the
+            discerning driver who demands exhilarating performance for the open
+            stretches of I-44 without sacrificing the premium comfort and
+            cutting-edge technology expected in a modern sedan.
+          </p>
+        </div>
+        <div class="sonata-image">
+          <img
+            src="https://media.ed.edmunds-media.com/hyundai/sonata/2025/oem/2025_hyundai_sonata_sedan_n-line_fq_oem_1_1600.jpg"
+            alt="2025 Hyundai Sonata N-Line"
+          />
+        </div>
+      </div>
+
+      <div class="powertrain-section">
+        <div class="powertrain-title">Defining Performance</div>
+        <div class="engine-badge">2.5L Turbo GDI 4-Cylinder</div>
+
+        <div class="power-stats">
+          <div class="stat-card">
+            <div class="stat-number">290</div>
+            <div class="stat-label">HORSEPOWER</div>
+            <div class="stat-detail">@ 5,800 RPM</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">311</div>
+            <div class="stat-label">LB-FT TORQUE</div>
+            <div class="stat-detail">from 1,650 RPM</div>
+          </div>
+        </div>
+
+        <div class="powertrain-description">
+          The Sonata N-Line's defining characteristic is its powertrain. It is
+          propelled by a potent 2.5L Turbo GDI 4-cylinder engine that produces a
+          massive 290 horsepower at 5,800 RPM and a staggering 311 lb.-ft. of
+          torque available from just 1,650 RPM. This immense power is channeled
+          through the high-performance
+        </div>
+      </div>
+
+      <div class="features-section">
+        <div class="features-title">Premium Performance & Luxury</div>
+
+        <div class="features-grid">
+          <div class="feature-category">
+            <div class="category-header">
+              <div class="category-icon">🎨</div>
+              <div class="category-title">Commanding Exterior</div>
+            </div>
+            <div class="category-content">
+              The Sonata N-Line is as much about premium features as it is about
+              performance. The exterior commands attention with N-Line's unique
+              front and rear fascias, a unique black mesh grille, gloss black
+              side mirrors and window trim, a powerful quad-tip exhaust system,
+              and bold 19-inch N-Line alloy wheels.
+            </div>
+            <div class="feature-highlights">
+              <div class="highlight-item">Unique Fascias</div>
+              <div class="highlight-item">Black Mesh Grille</div>
+              <div class="highlight-item">Quad-Tip Exhaust</div>
+              <div class="highlight-item">19" Alloy Wheels</div>
+            </div>
+          </div>
+
+          <div class="feature-category">
+            <div class="category-header">
+              <div class="category-icon">🏆</div>
+              <div class="category-title">Luxurious Interior</div>
+            </div>
+            <div class="category-content">
+              The interior is a luxurious and sporty sanctuary, featuring N
+              unique sports seats with microfiber inserts, a stunning panoramic
+              sunroof, and a concert-quality Bose premium audio system with 12
+              speakers.
+            </div>
+            <div class="feature-highlights">
+              <div class="highlight-item">N Sports Seats</div>
+              <div class="highlight-item">Microfiber Inserts</div>
+              <div class="highlight-item">Panoramic Sunroof</div>
+              <div class="highlight-item">12-Speaker Bose</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="technology-section">
+        <div class="tech-title">Advanced Technology & Safety</div>
+        <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px">
+          Technology is at the forefront, with a 12.3-inch digital instrument
+          cluster, a 12.3-inch navigation screen, and a full suite of Hyundai
+          SmartSense safety features, including the highly-regarded Highway
+          Driving Assist (HDA) for more comfortable long-distance cruising.
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-feature">12.3" Digital Cluster</div>
+            <div class="tech-description">Advanced instrument display</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-feature">12.3" Navigation Screen</div>
+            <div class="tech-description">Large touchscreen interface</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-feature">SmartSense Suite</div>
+            <div class="tech-description">Comprehensive safety features</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-feature">Highway Driving Assist</div>
+            <div class="tech-description">Long-distance comfort cruising</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

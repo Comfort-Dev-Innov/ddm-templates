@@ -1,0 +1,439 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Bullet List */
+      .bullet-list {
+        margin: 15px 0 20px 20px;
+        padding-left: 20px;
+      }
+
+      .bullet-list li {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 12px;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+        font-size: 0.85rem;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 1000px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.4rem;
+          font-size: 0.75rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+          min-width: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        2026 Kona vs 2026 Crosstrek: Technology, Connectivity, and Safety
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        In today's connected world, a vehicle's technology suite is as important
+        as its engine. This is where the 2026 Hyundai Kona establishes its most
+        dominant advantage, offering a level of standard technology and
+        available features that redefine value in the compact SUV class.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Infotainment Supremacy</h3>
+
+      <p class="paragraph-text">
+        Hyundai has democratized technology in the 2026 Kona. Every model, from
+        the entry-level SE to the fully-loaded Limited, comes standard with a
+        brilliant 12.3-inch high-resolution touchscreen featuring wireless Apple
+        CarPlay and Android Auto. This single feature transforms the daily
+        driving experience, providing a seamless, intuitive, and visually
+        stunning interface for navigation, communication, and entertainment.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The Subaru Crosstrek reserves its best technology for those who pay
+        more. Base models are equipped with a smaller 7-inch or dual 7-inch
+        screen setup, with the larger 11.6-inch screen only becoming available
+        on higher trims. A Kona buyer on a budget enjoys a premium digital
+        experience, while a Crosstrek buyer at a similar price point is met with
+        a cabin that looks and feels less advanced.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        This pattern continues across the feature list. The Kona Limited offers
+        near-luxury amenities like a Bose® Premium Audio system, ventilated
+        front seats, a hands-free smart liftgate, and Hyundai Digital Key 2
+        Touch, which allows your smartphone to function as your key. These
+        features showcase the Kona's ability to provide a truly premium
+        experience at a mainstream price point.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Safety Suites</h3>
+
+      <p class="paragraph-text">
+        Both Hyundai and Subaru are renowned for their commitment to safety, and
+        both vehicles come equipped with excellent suites of driver-assistance
+        technologies. The Crosstrek features its standard EyeSight® Driver
+        Assist Technology, while the Kona comes with Hyundai SmartSense. Both
+        systems include crucial features like:
+      </p>
+      <br />
+      <ul class="bullet-list">
+        <li>Forward Collision-Avoidance Assist / Pre-Collision Braking</li>
+        <li>Lane Keeping Assist</li>
+        <li>Smart / Adaptive Cruise Control</li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Both suites provide an essential layer of protection and confidence.
+        However, the Kona again pushes the technological envelope on its higher
+        trims. The Kona Limited offers a Blind-Spot View Monitor, which displays
+        a live video feed of your blind spot in the digital instrument cluster
+        when you activate your turn signal, and a Surround View Monitor, which
+        provides a 360-degree bird's-eye view around the vehicle for effortless
+        maneuvering in tight spaces. These advanced visual aids offer a level of
+        situational awareness that is invaluable in crowded parking lots and
+        complex urban environments.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The following table illustrates the Kona's clear advantage in feature
+        availability, consistently offering more desirable equipment at every
+        level of the model range.
+      </p>
+
+      <!-- Feature Availability Table -->
+      <br />
+      <h3 class="table-heading">Feature Availability Across Trims</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Kona SE</th>
+            <th>Kona SEL Sport</th>
+            <th>Kona SEL Premium</th>
+            <th>Kona Limited</th>
+            <th>Crosstrek Base/Premium</th>
+            <th>Crosstrek Sport</th>
+            <th>Crosstrek Limited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Infotainment Screen Size</td>
+            <td class="winner-cell">12.3-inch</td>
+            <td class="winner-cell">12.3-inch</td>
+            <td class="winner-cell">12.3-inch</td>
+            <td class="winner-cell">12.3-inch w/ Nav</td>
+            <td>7-inch or 11.6-inch</td>
+            <td>11.6-inch</td>
+            <td>11.6-inch</td>
+          </tr>
+          <tr>
+            <td>Wireless Apple CarPlay®/Android Auto™</td>
+            <td class="winner-cell">Standard</td>
+            <td class="winner-cell">Standard</td>
+            <td class="winner-cell">Standard</td>
+            <td class="winner-cell">Standard</td>
+            <td>Available</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Digital Instrument Cluster</td>
+            <td>4.2-inch</td>
+            <td>4.2-inch</td>
+            <td class="winner-cell">12.3-inch</td>
+            <td class="winner-cell">12.3-inch</td>
+            <td>4.2-inch</td>
+            <td>4.2-inch</td>
+            <td>Available 12.3-inch</td>
+          </tr>
+          <tr>
+            <td>Heated Front Seats</td>
+            <td>N/A</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Available</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Ventilated Front Seats</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td class="winner-cell">Standard</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Power Driver's Seat</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Available</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Premium Audio System</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td class="winner-cell">Bose®</td>
+            <td>N/A</td>
+            <td>Available</td>
+            <td>Harman Kardon®</td>
+          </tr>
+          <tr>
+            <td>Hands-Free/Power Liftgate</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td class="winner-cell">Standard</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Surround View Monitor</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td class="winner-cell">Standard</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Available</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="smarter-choice" />
+    </div>
+  </body>
+</html>

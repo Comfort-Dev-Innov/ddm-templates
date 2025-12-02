@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .kona-n-line-main-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      .kona-n-line-main-container h1 {
+        width: fit-content !important;
+        font-size: 3rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin: 0 !important;
+        margin-bottom: 40px !important;
+        position: relative;
+      }
+
+      .kona-n-line-main-container h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+
+      .kona-n-line-main-container h1:hover::after {
+        width: 180px;
+      }
+
+      .kona-n-line-main-container h3,
+      .kona-n-line-main-container h1,
+      .kona-n-line-main-container h2,
+      .kona-n-line-main-container p,
+      .kona-n-line-main-container ol,
+      .kona-n-line-main-container ul {
+        max-width: 1300px !important;
+      }
+
+      .kona-n-line-hero-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+        align-items: center;
+      }
+
+      .kona-n-line-hero-content {
+        background: linear-gradient(135deg, #f8f9ff, #ffffff);
+        border-radius: 20px;
+        padding: 40px;
+        border: 2px solid #eef1ff;
+      }
+
+      .kona-n-line-hero-content p {
+        font-size: 1.2rem;
+        color: #012b5d;
+        font-weight: 500;
+        line-height: 1.7;
+      }
+
+      .kona-n-line-main-image {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .kona-n-line-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 3px solid #012b5d;
+        border-radius: 20px;
+      }
+
+      .kona-n-line-main-image:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 40px rgba(1, 43, 93, 0.2);
+      }
+
+      .kona-n-line-design-features {
+        margin: 50px 0;
+      }
+
+      .kona-n-line-design-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .kona-n-line-design-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 2px;
+      }
+
+      .kona-n-line-exterior-section {
+        background: #ffffff;
+        border: 2px solid #eef1ff;
+        border-radius: 20px;
+        padding: 40px;
+        margin: 30px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kona-n-line-exterior-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(1, 43, 93, 0.03),
+          transparent
+        );
+        transition: left 0.4s ease;
+      }
+
+      .kona-n-line-exterior-section:hover::before {
+        left: 100%;
+      }
+
+      .kona-n-line-exterior-section:hover {
+        border-color: #012b5d;
+        box-shadow: 0 10px 30px rgba(1, 43, 93, 0.1);
+      }
+
+      .kona-n-line-section-badge {
+        width: fit-content;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .kona-n-line-section-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+
+      .kona-n-line-section-content {
+        font-size: 1.1rem;
+        color: #333;
+        line-height: 1.7;
+      }
+
+      .kona-n-line-features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .kona-n-line-feature-card {
+        background: linear-gradient(135deg, #f0f2ff, #ffffff);
+        border: 1px solid #dde2ff;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .kona-n-line-feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 15px 15px 0 0;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .kona-n-line-feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .kona-n-line-feature-card:hover {
+        transform: translateY(-8px);
+        border-color: #012b5d;
+        box-shadow: 0 12px 30px rgba(1, 43, 93, 0.15);
+      }
+
+      .kona-n-line-feature-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.4rem;
+        margin: 0 auto 15px;
+      }
+
+      .kona-n-line-feature-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #012b5d;
+        margin-bottom: 8px;
+      }
+
+      .kona-n-line-feature-desc {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      .kona-n-line-interior-section {
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin: 40px 0;
+        position: relative;
+      }
+
+      .kona-n-line-interior-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .kona-n-line-interior-content {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        text-align: center;
+        opacity: 0.95;
+      }
+
+      .kona-n-line-interior-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .kona-n-line-highlight-item {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .kona-n-line-highlight-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.05);
+      }
+
+      .kona-n-line-highlight-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .kona-n-line-highlight-desc {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .kona-n-line-lifestyle-callout {
+        background: #fafbff;
+        border: 2px solid #eef1ff;
+        border-radius: 20px;
+        padding: 35px;
+        margin: 40px 0;
+        text-align: center;
+        position: relative;
+      }
+
+      .kona-n-line-callout-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+      }
+
+      .kona-n-line-callout-icon:hover {
+        transform: rotate(360deg);
+      }
+
+      .kona-n-line-callout-text {
+        font-size: 1.3rem;
+        color: #012b5d;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .kona-n-line-hero-section {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .kona-n-line-main-container h1 {
+          font-size: 2.2rem;
+        }
+
+        .kona-n-line-main-image {
+          height: 250px;
+        }
+
+        .kona-n-line-exterior-section,
+        .kona-n-line-interior-section {
+          padding: 30px 20px;
+        }
+
+        .kona-n-line-features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .kona-n-line-section-badge {
+          left: 20px;
+        }
+      }
+
+      .kona-n-line-main-container a {
+        color: #012b5d;
+        text-decoration: underline;
+      }
+
+      .kona-n-line-main-container a:hover {
+        color: #002c5f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kona-n-line-main-container">
+      <h1>The 2025 Hyundai Kona N-Line</h1>
+
+      <div class="kona-n-line-hero-section">
+        <div class="kona-n-line-hero-content">
+          <p>
+            If you need the practicality of a compact SUV but refuse to blend in
+            with the crowd, <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Kona-N_Line-KM8HB3A34SU253773">the 2025 Hyundai Kona N-Line</a> offers the perfect
+            solution. It wraps a turbocharged powertrain and an
+            active-lifestyle-ready chassis in a bold, aggressive design. It's
+            the ideal vehicle for hauling gear for a weekend adventure or
+            navigating tight packing spaces.
+          </p>
+        </div>
+        <div class="kona-n-line-main-image">
+          <img
+            src="https://www.hyundai.com/eu/dam/sites/global/models/sx2/after-world-premiere/visualizer/eviz__hev-nline_jpg/HYU_SX2_HEV-NLine_EViz_Env_PM0-Meta_Blue_Pearl_Abyss_Black_Pearl_C02.jpg"
+            alt="2025 Hyundai Kona N-Line"
+            class="kona-n-line-main-image"
+          />
+        </div>
+      </div>
+
+      <div class="kona-n-line-design-features">
+        <div class="kona-n-line-design-title">
+          Striking Design & Premium Features
+        </div>
+
+        <div class="kona-n-line-exterior-section">
+          <div class="kona-n-line-section-badge">EXTERIOR</div>
+          <div class="kona-n-line-section-title">
+            Aggressive & Athletic Styling
+          </div>
+          <div class="kona-n-line-section-content">
+            The N-Line's exterior design is its most striking feature. It is
+            distinguished by N-Line-specific front and rear lower fascias,
+            aggressive wing-shaped bumpers, body-colored wheel arch cladding, a
+            sporty twin-tip exhaust, and exclusive 19-inch N-Line design alloy
+            wheels.
+          </div>
+
+          <div class="kona-n-line-features-grid">
+            <div class="kona-n-line-feature-card">
+              <div class="kona-n-line-feature-icon">🎯</div>
+              <div class="kona-n-line-feature-name">N-Line Fascias</div>
+              <div class="kona-n-line-feature-desc">
+                Distinctive front and rear lower styling
+              </div>
+            </div>
+            <div class="kona-n-line-feature-card">
+              <div class="kona-n-line-feature-icon">⚡</div>
+              <div class="kona-n-line-feature-name">Wing-Shaped Bumpers</div>
+              <div class="kona-n-line-feature-desc">
+                Aggressive aerodynamic design
+              </div>
+            </div>
+            <div class="kona-n-line-feature-card">
+              <div class="kona-n-line-feature-icon">🛞</div>
+              <div class="kona-n-line-feature-name">19" Alloy Wheels</div>
+              <div class="kona-n-line-feature-desc">
+                Exclusive N-Line design
+              </div>
+            </div>
+            <div class="kona-n-line-feature-card">
+              <div class="kona-n-line-feature-icon">🔥</div>
+              <div class="kona-n-line-feature-name">Twin-Tip Exhaust</div>
+              <div class="kona-n-line-feature-desc">
+                Sporty performance styling
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kona-n-line-interior-section">
+          <div class="kona-n-line-interior-title">Driver-Focused Cockpit</div>
+          <div class="kona-n-line-interior-content">
+            Inside, the driver-focused cockpit features exclusive N-Line
+            Alcantara Sport combination seating, which provides both luxurious
+            comfort and excellent support. The N-branded leather-wrapped
+            steering wheel and shifter, along with signature red interior
+            accents, complete the sporty and upscale atmosphere.
+          </div>
+
+          <div class="kona-n-line-interior-highlights">
+            <div class="kona-n-line-highlight-item">
+              <div class="kona-n-line-highlight-title">
+                Alcantara Sport Seats
+              </div>
+              <div class="kona-n-line-highlight-desc">
+                Luxury comfort with excellent support
+              </div>
+            </div>
+            <div class="kona-n-line-highlight-item">
+              <div class="kona-n-line-highlight-title">N-Branded Controls</div>
+              <div class="kona-n-line-highlight-desc">
+                Leather-wrapped steering wheel & shifter
+              </div>
+            </div>
+            <div class="kona-n-line-highlight-item">
+              <div class="kona-n-line-highlight-title">Red Accent Details</div>
+              <div class="kona-n-line-highlight-desc">
+                Signature sporty interior styling
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kona-n-line-lifestyle-callout">
+        <div class="kona-n-line-callout-icon">🏔️</div>
+        <div class="kona-n-line-callout-text">
+          Perfect for hauling gear for weekend adventures while navigating tight
+          parking spaces with style and confidence.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

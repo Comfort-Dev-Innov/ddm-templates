@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <style>
+      .cpo-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .cpo-container h1 {
+        width: fit-content !important;
+      }
+
+      .cpo-container h3,
+      .cpo-container h1,
+      .cpo-container h2,
+      .cpo-container p,
+      .cpo-container ol,
+      .cpo-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-right {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-left {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        margin: 12px 0;
+        border-radius: 12px;
+        list-style: none;
+      }
+
+      .bullet-list {
+        margin-top: 10px;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: "•";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin: 12px 0;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+
+      .cpo-container a {
+        color: #0f3079;
+        text-decoration: underline;
+        font-weight: 600;
+        line-height: 1.6;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #0f3079;
+          text-decoration: underline;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 1.6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cpo-container">
+      <section class="bullet-section" id="bullet-section">
+        <div class="content-layout">
+          <div class="image-left">
+            <img
+              src="https://di-uploads-pod47.dealerinspire.com/kendallhyundaiofcity/uploads/2025/02/2025-Hyundai-TUCSON-Plug-in-Hybrid-2.jpg"
+              alt="Calendar and truck representing the best time to buy a truck"
+            />
+          </div>
+          <div class="content-right">
+            <h2 class="section-title">
+                Why a
+              <span style="color: #0f3079">Manufacturer-Backed CPO Program</span>
+              Matters
+            </h2>
+            <p>
+              You might see other dealerships offer their own "certified" vehicles, but it's crucial to understand the difference. A manufacturer-backed program, like the one from Hyundai, offers a level of assurance that a simple dealer certification cannot.
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <p>
+                  <strong>The Authority is Hyundai Motor America:</strong> The 173-point inspection checklist, the warranty terms, and the quality standards are all set by the company that designed and built the vehicle. A dealer certification is based on standards set by that dealership alone.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Nationwide Service:</strong> A Hyundai CPO warranty is honored at any Hyundai dealership across the United States. If you move or have a problem while on a road trip, your coverage goes with you. A dealer-specific warranty is often only valid at the dealership where you bought the car.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Factory-Trained Technicians:</strong> The inspection and reconditioning are performed by technicians who specialize in Hyundai vehicles. They have the specific tools, training, and diagnostic equipment to properly service your car.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Genuine Hyundai Parts:</strong> As mentioned, only Genuine Hyundai Parts are used for repairs. This is a guarantee of quality that a non-Hyundai dealer cannot make, as they may use aftermarket parts to save on costs.
+                </p>
+              </li>
+            </ul>
+            <p>
+              When you choose a Hyundai CPO vehicle, you're not just getting a promise from the dealership; you're getting a promise from the manufacturer itself.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

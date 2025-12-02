@@ -1,0 +1,333 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section8 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Warranty List */
+        .warranty-list {
+          list-style: none;
+          padding: 0;
+          margin: 25px 0;
+          background: linear-gradient(
+            135deg,
+            rgba(15, 48, 121, 0.03) 0%,
+            rgba(45, 90, 160, 0.03) 100%
+          );
+          border-radius: 12px;
+          padding: 25px 30px;
+          border-left: 5px solid #0f3079;
+        }
+
+        .warranty-list li {
+          padding: 12px 0 12px 35px;
+          position: relative;
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          font-weight: 500;
+        }
+
+        .warranty-list li::before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          color: #0f3079;
+          font-weight: bold;
+          font-size: 1.3rem;
+        }
+
+        /* Table Heading */
+        .table-heading {
+          color: #0f3079;
+          font-size: 1.8rem;
+          font-weight: 700;
+          text-align: center;
+          margin: 40px 0 25px 0;
+        }
+
+        /* Ownership Comparison Table */
+
+        .ownership-table {
+          width: 100%;
+          border-collapse: collapse;
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+
+        .ownership-table thead {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+        }
+
+        .ownership-table th {
+          padding: 18px 20px;
+          text-align: left;
+          font-size: 15px;
+          font-weight: 700;
+          border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .ownership-table th:first-child {
+          border-radius: 12px 0 0 0;
+        }
+
+        .ownership-table th:last-child {
+          border-right: none;
+          border-radius: 0 12px 0 0;
+        }
+
+        .ownership-table tbody tr {
+          border-bottom: 1px solid #e9ecef;
+          transition: background-color 0.2s ease;
+        }
+
+        .ownership-table tbody tr:hover {
+          background-color: #f8f9fa;
+        }
+
+        .ownership-table tbody tr:last-child {
+          border-bottom: none;
+        }
+
+        .ownership-table td {
+          padding: 18px 20px;
+          font-size: 14px;
+          color: #495057;
+          border-right: 1px solid #e9ecef;
+        }
+
+        .ownership-table td:last-child {
+          border-right: none;
+        }
+
+        .ownership-table td:first-child {
+          font-weight: 600;
+          color: #0f3079;
+          background-color: #f8f9fa;
+        }
+
+        /* Highlight Value */
+        .highlight-value {
+          color: #28a745;
+          font-weight: 700;
+        }
+
+        .regular-value {
+          color: #495057;
+        }
+
+        /* Info Box */
+        .info-box {
+          background: #f8f9fa;
+          border-left: 5px solid #0f3079;
+          padding: 20px 25px;
+          border-radius: 8px;
+          margin: 30px 0;
+        }
+
+        .info-box p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+          margin: 0;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .ownership-table th,
+          .ownership-table td {
+            padding: 12px 15px;
+            font-size: 13px;
+          }
+
+          .table-heading {
+            font-size: 1.5rem;
+          }
+
+          .warranty-list {
+            padding: 20px;
+          }
+
+          .warranty-list li {
+            padding: 10px 0 10px 30px;
+            font-size: 14px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section8">
+      <h2 class="section-heading">Value Proposition and Ownership Costs</h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          Kona's industry-leading warranty coverage includes:
+        </p>
+      </div>
+
+      <ul class="warranty-list">
+        <li>New Vehicle Limited Warranty: 5 years / 60,000 miles</li>
+        <li>Powertrain Limited Warranty: 10 years / 100,000 miles</li>
+        <li>Complimentary scheduled maintenance for 3 years / 36,000 miles</li>
+        <li>
+          24/7 Hyundai Roadside Assistance is included for 5 years, ensuring
+          coverage in emergencies.
+        </li>
+      </ul>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          In contrast, the Kia Niro offers similar warranty protection but does
+          not include complimentary maintenance, which can increase ownership
+          costs over time.
+        </p>
+        <p class="paragraph-text">
+          The Kona's streamlined 2026 trim changes, consolidating four trims
+          into two, provide clear choices to match diverse budgets without
+          sacrificing features.
+        </p>
+      </div>
+
+      <h3 class="table-heading">Warranty and Ownership Comparison</h3>
+
+      <table class="ownership-table">
+        <thead>
+          <tr>
+            <th>Ownership Aspect</th>
+            <th>2026 Hyundai Kona</th>
+            <th>2026 Kia Niro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Limited Warranty</td>
+            <td class="regular-value">5 yrs / 60,000 miles</td>
+            <td class="regular-value">5 yrs / 60,000 miles</td>
+          </tr>
+          <tr>
+            <td>Powertrain Warranty</td>
+            <td class="regular-value">10 yrs / 100,000 miles</td>
+            <td class="regular-value">10 yrs / 100,000 miles</td>
+          </tr>
+          <tr>
+            <td>Complimentary Maintenance</td>
+            <td class="highlight-value">3 yrs / 36,000 miles</td>
+            <td class="regular-value">None</td>
+          </tr>
+          <tr>
+            <td>Roadside Assistance</td>
+            <td class="regular-value">5 yrs / unlimited miles</td>
+            <td class="regular-value">Included, 5 yrs / unlimited miles</td>
+          </tr>
+          <tr>
+            <td>Starting MSRP</td>
+            <td class="highlight-value">Approx. $27,000</td>
+            <td class="regular-value">Approx. $29,000 (Hybrid)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="final-recommendation" />
+    </div>
+  </body>
+</html>

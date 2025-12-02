@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hyundai-trim-features-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .hyundai-trim-features-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+        }
+
+        .hyundai-trim-features-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .hyundai-trim-features-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .hyundai-trim-features-container h1:hover::after {
+            width: 100%;
+        }
+
+        .hyundai-trim-features-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-trim-features-container h2:hover {
+            color: #012b5d;
+        }
+
+        .hyundai-trim-features-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-trim-features-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-trim-features-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .hyundai-trim-features-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .hyundai-trim-features-container ol,
+        .hyundai-trim-features-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-trim-features-container li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-trim-features-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-trim-features-container a {
+            color: #012b5d;
+            text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-trim-features-container a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .hyundai-trim-features-container a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+        }
+
+        .hyundai-trim-features-container a:hover::before {
+            width: 100%;
+        }
+
+        .tucson-experience-intro {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02), rgba(0, 44, 95, 0.04));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .tucson-experience-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .tucson-experience-intro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .tucson-experience-intro:hover::before {
+            left: 100%;
+        }
+
+        .tucson-experience-intro > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trim-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .trim-level-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.85));
+            border: 1px solid rgba(1, 43, 93, 0.12);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(1, 43, 93, 0.08);
+        }
+
+        .trim-level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .trim-level-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.15);
+            border-color: rgba(1, 43, 93, 0.25);
+        }
+
+        .trim-level-card:hover::before {
+            left: 100%;
+        }
+
+        .trim-level-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trim-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .trim-level-card:hover .trim-badge {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.3);
+        }
+
+        .trim-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .trim-level-card:hover .trim-title {
+            color: #002c5f;
+            transform: translateX(5px);
+        }
+
+        .trim-description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .feature-highlights {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(1, 43, 93, 0.1);
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.08), rgba(0, 44, 95, 0.06));
+            color: #012b5d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.15), rgba(0, 44, 95, 0.12));
+            transform: scale(1.05);
+            border-color: rgba(1, 43, 93, 0.3);
+        }
+
+        .se-card {
+            border-left: 4px solid #28a745;
+        }
+
+        .sel-card {
+            border-left: 4px solid #007bff;
+        }
+
+        .nline-card {
+            border-left: 4px solid #dc3545;
+        }
+
+        .limited-card {
+            border-left: 4px solid #6f42c1;
+        }
+
+        @media (max-width: 768px) {
+            .hyundai-trim-features-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .hyundai-trim-features-container h1 {
+                font-size: 2rem;
+            }
+
+            .hyundai-trim-features-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .hyundai-trim-features-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .hyundai-trim-features-container p {
+                font-size: 1rem;
+            }
+
+            .tucson-experience-intro {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .trim-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .trim-level-card {
+                padding: 2rem;
+            }
+
+            .trim-title {
+                font-size: 1.3rem;
+            }
+
+            .trim-description {
+                font-size: 0.95rem;
+            }
+
+            .feature-tag {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hyundai-trim-features-container">
+        <h1>Interior Comfort and Features: A Trim-by-Trim Breakdown</h1>
+        
+        <p>Now, let's step inside. Hyundai is renowned for packing its vehicles with incredible features and technology, and this is where you can truly tailor your SUV to your exact needs and desires. We'll take a virtual tour up the trim ladder for both the <a href="#">Tucson</a> and <a href="#">Santa Fe</a>, highlighting the value you get at every level.</p>
+
+        <div class="tucson-experience-intro">
+            <h2>The 2025 Tucson Experience: From Essential to Extravagant</h2>
+            <p>The Tucson offers a wide range of trims that let you choose between ultimate efficiency, sporty style, or full-blown luxury.</p>
+        </div>
+
+        <div class="trim-cards-grid">
+            <div class="trim-level-card se-card">
+                <div class="trim-badge">Entry Level</div>
+                <h3 class="trim-title">SE & Blue Hybrid</h3>
+                <div class="trim-description">
+                    <p>The <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-SE-5NMJA3DE9SH526333">SE</a> (gas) and <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-Blue-KM8JBDD16SU291622">Blue</a> (hybrid) trims prove that "base model" is anything but basic. From the moment you sit inside, you're greeted by a stunning 12.3-inch touchscreen infotainment system, complete with wireless Apple CarPlay® and Android Auto™. You also get the full Hyundai SmartSense suite of safety features, Proximity Key with push-button start, and Hyundai Digital Key 2, which lets you use your smartphone as a key. The SE is the smart, affordable entry point into the Tucson family, while the Hybrid Blue gives you all these features plus the powerful and efficient hybrid powertrain and its class-leading 38 MPG combined fuel economy. These trims represent a fantastic value for any budget-conscious buyer in the OKC area.</p>
+                </div>
+                <div class="feature-highlights">
+                    <span class="feature-tag">12.3" Touchscreen</span>
+                    <span class="feature-tag">Apple CarPlay®</span>
+                    <span class="feature-tag">SmartSense Safety</span>
+                    <span class="feature-tag">Digital Key 2</span>
+                    <span class="feature-tag">38 MPG (Blue)</span>
+                </div>
+            </div>
+
+            <div class="trim-level-card sel-card">
+                <div class="trim-badge">Smart Upgrade</div>
+                <h3 class="trim-title">SEL & SEL Convenience</h3>
+                <div class="trim-description">
+                    <p>Stepping up to the SEL trim adds popular features like heated front seats and rear A/C vents. The real sweet spot for many buyers, however, is <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-SEL_Convenience-KM8JCDD13SU274841">the SEL Convenience</a> trim. This package elevates the entire cabin experience by adding premium H-Tex® seating surfaces, a beautiful 12.3-inch fully digital instrument cluster that merges seamlessly with the infotainment screen, a large panoramic sunroof, and the advanced Highway Driving Assist system. This trim adds a significant touch of luxury and technology that you'll appreciate every single day.</p>
+                </div>
+                <div class="feature-highlights">
+                    <span class="feature-tag">Heated Front Seats</span>
+                    <span class="feature-tag">Digital Cluster</span>
+                    <span class="feature-tag">Panoramic Sunroof</span>
+                    <span class="feature-tag">Highway Driving Assist</span>
+                    <span class="feature-tag">H-Tex® Seating</span>
+                </div>
+            </div>
+
+            <div class="trim-level-card nline-card">
+                <div class="trim-badge">Sport Inspired</div>
+                <h3 class="trim-title">N Line</h3>
+                <div class="trim-description">
+                    <p>If you want your SUV to have a bold, athletic personality, the N Line trim is for you. This model is all about style. It features an aggressive and unique front and rear fascia, exclusive 19-inch alloy wheels, and a sporty twin-tip exhaust. The interior is just as special, with black sport seats that combine leather and cloth, a black headliner, alloy sport pedals, and vibrant red accent stitching throughout. To complete the experience, the N Line comes standard with a rich-sounding Bose® Premium Audio system, making it the perfect choice for the driver who wants to stand out from the crowd.</p>
+                </div>
+                <div class="feature-highlights">
+                    <span class="feature-tag">19" Alloy Wheels</span>
+                    <span class="feature-tag">Sport Seats</span>
+                    <span class="feature-tag">Twin-Tip Exhaust</span>
+                    <span class="feature-tag">Bose® Audio</span>
+                    <span class="feature-tag">Red Accent Stitching</span>
+                </div>
+            </div>
+
+            <div class="trim-level-card limited-card">
+                <div class="trim-badge">Luxury Flagship</div>
+                <h3 class="trim-title">Limited</h3>
+                <div class="trim-description">
+                    <p>At the top of the lineup, <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-Limited-5NMJE3DE3SH536019">the Tucson Limited</a> offers a true luxury experience. It builds on the SEL Convenience with supple leather-trimmed seats, cooling ventilation for the front seats, and heating for the rear seats and steering wheel. The technology is also top-tier, featuring the innovative Blind-Spot View Monitor, a Surround View Monitor for effortless parking, and the incredible Remote Smart Parking Assist, which allows you to pull the Tucson in or out of a tight parking space using just your key fob. The Limited is for the tech-savvy buyer who wants all the best features in a stylish and efficient package.</p>
+                </div>
+                <div class="feature-highlights">
+                    <span class="feature-tag">Leather Seats</span>
+                    <span class="feature-tag">Ventilated/Heated Seats</span>
+                    <span class="feature-tag">Blind-Spot View</span>
+                    <span class="feature-tag">Surround View</span>
+                    <span class="feature-tag">Remote Parking</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

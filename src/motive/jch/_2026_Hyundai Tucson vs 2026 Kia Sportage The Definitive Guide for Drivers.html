@@ -1,0 +1,1276 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: underline;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Comparison Images Section */
+      .comparison-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 40px 0;
+        align-items: start;
+      }
+
+      .vehicle-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 450;
+        max-width: 800px;
+        width: calc(100% - 400px);
+        margin: 0 auto;
+      }
+
+      .vehicle-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      .vehicle-image-label {
+        color: #0f3079;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .vehicle-image-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        border: 2px dashed #0f3079;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f3079;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      /* Single Image Container */
+      .single-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .single-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      /* TOC Styling */
+      .toc-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 4px solid #0f3079;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 40px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .toc-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toc-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(15, 48, 121, 0.1);
+      }
+
+      .toc-list li:last-child {
+        border-bottom: none;
+      }
+
+      .toc-list a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: block;
+      }
+
+      .toc-list a:hover {
+        color: #2d5aa0;
+        padding-left: 10px;
+      }
+
+      .vehicle-image-placeholder-2 {
+        width: 100%;
+        height: 500px;
+        border-radius: 20px;
+        object-fit: contain;
+      }
+
+      .vehicle-image-placeholder-3 {
+        width: 100%;
+        height: 500px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+
+        .vehicle-image-container {
+          max-width: 80%;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-images {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .vehicle-image-container {
+          max-width: 90%;
+          width: 100%;
+          max-height: 350px;
+        }
+
+        .vehicle-image-placeholder {
+          height: 250px;
+          font-size: 1rem;
+          object-fit: contain;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+
+        .vehicle-image-placeholder-2 {
+          height: 300px;
+          object-fit: contain;
+          border-radius: 20px;
+        }
+
+        .vehicle-image-placeholder-3 {
+          height: 300px;
+          object-fit: contain;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <hr class="hr-1" id="overview" />
+
+      <!-- Section 1: Overview -->
+      <h2 class="section-heading">
+        How the 2026 Tucson and Sportage Compare in Everyday Use
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Hyundai Tucson and 2026 Kia Sportage have similar platforms and
+        powertrains, a testament to their shared engineering excellence.
+        However, Tucson distinguishes itself through features that deliver
+        tangible, everyday benefits. Its design prioritizes practical
+        innovation, enhanced utility, and an ownership experience that provides
+        unparalleled long-term value, making it the superior choice for drivers
+        in and around Oklahoma City.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Tucson's advantages are functional and financial. They include a higher
+        maximum towing capacity, giving drivers more versatility for any
+        recreational pursuits. It offers exclusive, class-leading technologies
+        like Remote Smart Parking Assist, a feature that dramatically reduces
+        the stress of navigating crowded urban parking lots. Furthermore,
+        Tucson's interior is designed for maximum utility, offering greater
+        cargo capacity when it matters most.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Perhaps the most compelling argument for Tucson lies in its unmatched
+        ownership benefits. Hyundai's industry-leading warranty is bolstered by
+        a complimentary maintenance program that significantly lowers the total
+        cost of ownership for the first three years, a benefit its Kia
+        counterpart does not offer. This comprehensive approach demonstrates a
+        commitment to the owner that extends far beyond the initial sale. The
+        following table provides a clear, high-level summary of the key areas
+        where Tucson establishes its lead.
+      </p>
+
+      <!-- Key Feature Comparison Table -->
+      <br />
+      <h3 class="table-heading">Key Feature Comparison</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Kia Sportage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Max Towing Capacity (w/ trailer brakes)</td>
+            <td>2,750 lbs</td>
+            <td>2,500 lbs</td>
+          </tr>
+          <tr>
+            <td>Complimentary Scheduled Maintenance</td>
+            <td>3 years / 36,000 miles</td>
+            <td>Not Offered</td>
+          </tr>
+          <tr>
+            <td>Remote Smart Parking Assist</td>
+            <td>Available</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td>Blind-Spot View Monitor</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Max Cargo Volume (Seats Folded)</td>
+            <td>74.8 cu. ft.</td>
+            <td>74.1 cu. ft.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="performance" />
+
+      <!-- Section 2: Powertrain and Performance -->
+      <h2 class="section-heading">
+        Powertrain and Performance of the 2026 Hyundai Tucson and 2026 Kia
+        Sportage
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        At the heart of any vehicle is its powertrain, and in the case of the
+        2026 Hyundai Tucson and Kia Sportage, their shared foundation provides a
+        baseline of impressive and reliable performance. Both models come
+        standard with a capable Smartstream 2.5-liter direct-injected and
+        multi-port-injected inline-four-cylinder engine. This gasoline engine
+        produces an identical 187 horsepower at 6,100 rpm and 178 lb-ft of
+        torque at 4,000 rpm in both SUVs. This power is managed by a smooth and
+        efficient 8-speed automatic transmission, ensuring responsive
+        acceleration for merging onto a highway.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        If you want better efficiency and power, both manufacturers offer
+        advanced hybrid and plug-in hybrid (PHEV) options. These models feature
+        a sophisticated 1.6-liter turbocharged four-cylinder engine paired with
+        an electric motor. The standard hybrid configuration delivers a robust
+        combined output of 231 horsepower, providing spirited performance
+        alongside impressive fuel economy. The more powerful plug-in hybrid
+        variants elevate performance further, boasting a combined system output
+        of 268 horsepower, making them some of the most powerful options in the
+        compact SUV class. Both hybrid and PHEV models utilize a 6-speed
+        automatic transmission specifically tuned for electrified powertrains.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        While the core power figures are identical, a critical differentiator
+        emerges in how that power is applied for practical utility, a crucial
+        consideration for drivers in Oklahoma. The 2026 Hyundai Tucson boasts a
+        maximum towing capacity of 2,750 pounds when properly equipped with
+        trailer brakes. This represents a significant advantage over the 2026
+        Kia Sportage, which is rated for a maximum of 2,500 pounds. That extra
+        250 pounds of towing capability is a tangible benefit, providing the
+        necessary confidence and capacity to tow a small fishing boat or a
+        pop-up camper for a family adventure in the mountains. This elevates the
+        Tucson from a daily commuter to a more versatile weekend enabler.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both SUVs are built to deliver a comfortable and controlled ride,
+        featuring a proven suspension design with an independent MacPherson
+        strut setup in the front and an independent multi-link design in the
+        rear. However, the Tucson has been widely praised for its exceptionally
+        quiet and refined on-road demeanor. Its ride quality is tuned to absorb
+        the imperfections of city streets in Moore or Bethany while remaining
+        composed and stable during long stretches on the Turner Turnpike,
+        imbuing it with a sense of comfort and luxury that is rare in this
+        class.
+      </p>
+
+      <!-- Powertrain Table -->
+      <br />
+      <h3 class="table-heading">Powertrain and Performance Specifications</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Kia Sportage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Base Engine</td>
+            <td>2.5L GDI/MPI 4-Cylinder</td>
+            <td>2.5L GDI/MPI 4-Cylinder</td>
+          </tr>
+          <tr>
+            <td>Horsepower</td>
+            <td>187 hp @ 6,100 rpm</td>
+            <td>187 hp @ 6,100 rpm</td>
+          </tr>
+          <tr>
+            <td>Torque</td>
+            <td>178 lb-ft @ 4,000 rpm</td>
+            <td>178 lb-ft @ 4,000 rpm</td>
+          </tr>
+          <tr>
+            <td>Transmission (Gas)</td>
+            <td>8-speed Automatic</td>
+            <td>8-speed Automatic</td>
+          </tr>
+          <tr>
+            <td>Hybrid Powertrain</td>
+            <td>1.6L Turbo GDI Hybrid</td>
+            <td>1.6L Turbo GDI Hybrid</td>
+          </tr>
+          <tr>
+            <td>Hybrid Combined HP</td>
+            <td>231 hp</td>
+            <td>231 hp</td>
+          </tr>
+          <tr>
+            <td>PHEV Powertrain</td>
+            <td>1.6L Turbo GDI PHEV</td>
+            <td>1.6L Turbo GDI PHEV</td>
+          </tr>
+          <tr>
+            <td>PHEV Combined HP</td>
+            <td>268 hp</td>
+            <td>268 hp</td>
+          </tr>
+          <tr>
+            <td>Drivetrain Options</td>
+            <td>FWD / HTRAC AWD</td>
+            <td>FWD / AWD</td>
+          </tr>
+          <tr>
+            <td>Towing Capacity (w/ brakes)</td>
+            <td>2,750 lbs</td>
+            <td>2,500 lbs</td>
+          </tr>
+          <tr>
+            <td>Towing Capacity (w/o brakes)</td>
+            <td>1,650 lbs</td>
+            <td>1,650 lbs</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="fuel" />
+
+      <!-- Section 3: Fuel Efficiency -->
+      <h2 class="section-heading">
+        Fuel Efficiency and Range of the 2026 Hyundai Tucson and 2026 Kia
+        Sportage
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        In an era of fluctuating fuel prices, efficiency is a top priority for
+        drivers, whether they are navigating daily commutes or embarking on
+        cross-state road trips. Both the 2026 Hyundai Tucson and Kia Sportage
+        deliver impressive fuel economy across their range of powertrains, but a
+        closer look reveals strategic differences that favor the Tucson.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        For the standard 2.5-liter gasoline engine, the front-wheel-drive (FWD)
+        Tucson achieves an excellent EPA-estimated 25 MPG in the city and 33 MPG
+        on the highway. The FWD Sportage is nearly identical, with an estimated
+        25 MPG city and 32 MPG highway. That extra one MPG on the highway for
+        the Tucson provides a small but meaningful advantage for those who
+        regularly travel between Norman, Oklahoma City, and Edmond. When
+        equipped with all-wheel drive (AWD), the Tucson is rated at 24 MPG city
+        and 30 MPG highway, again demonstrating strong and competitive
+        efficiency.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        When examining the hybrid models, the numbers require more context. The
+        FWD version of the Kia Sportage Hybrid posts impressive figures,
+        estimated at 42 MPG city and 44 MPG highway. While these numbers give it
+        an edge, it is crucial to note that the comparable Hyundai Tucson Hybrid
+        models come standard with the advanced HTRAC All-Wheel-Drive system. The
+        AWD Tucson Hybrid achieves a balanced and highly efficient 38 MPG in the
+        city and 38 MPG on the highway on its Blue trim. For many Oklahoma
+        drivers, the trade-off of a few MPG for the year-round safety,
+        confidence, and superior traction that HTRAC AWD provides during
+        unpredictable weather, from sudden downpours to winter ice, is a clear
+        victory for the Tucson. It offers a more complete and secure package
+        without a significant compromise in fuel savings.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The plug-in hybrid (PHEV) variants of both models offer the best of both
+        worlds, combining gasoline and electric power for maximum efficiency.
+        The Tucson PHEV provides an all-electric range of approximately 33 miles
+        on a full charge, while the Sportage PHEV offers a nearly identical 34
+        miles. This range is more than sufficient for many drivers to complete
+        their entire daily round-trip commute on purely electric power,
+        effectively transforming their SUV into an electric vehicle for everyday
+        use and saving significantly on fuel costs.
+      </p>
+
+      <!-- Fuel Economy Table -->
+      <br />
+      <h3 class="table-heading">EPA Fuel Economy Ratings</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Powertrain</th>
+            <th>Drivetrain</th>
+            <th>2026 Hyundai Tucson (City/Hwy/Combined)</th>
+            <th>2026 Kia Sportage (City/Hwy/Combined)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2.5L Gas</td>
+            <td>FWD</td>
+            <td>25 / 33 / 28</td>
+            <td>25 / 32 / 28</td>
+          </tr>
+          <tr>
+            <td>2.5L Gas</td>
+            <td>AWD</td>
+            <td>24 / 30 / 26</td>
+            <td>23 / 27-30 / 25-26</td>
+          </tr>
+          <tr>
+            <td>1.6L Hybrid</td>
+            <td>FWD</td>
+            <td>N/A</td>
+            <td>42 / 44 / 43</td>
+          </tr>
+          <tr>
+            <td>1.6L Hybrid</td>
+            <td>AWD</td>
+            <td>38 / 38 / 38 (Blue trim)</td>
+            <td>38 / 38 / 38</td>
+          </tr>
+          <tr>
+            <td>1.6L PHEV (MPGe)</td>
+            <td>AWD</td>
+            <td>77 MPGe</td>
+            <td>83 MPGe</td>
+          </tr>
+          <tr>
+            <td>PHEV Electric-Only Range</td>
+            <td>AWD</td>
+            <td>~33 miles</td>
+            <td>~34 miles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="exterior" />
+
+      <!-- Section 4: Exterior Design -->
+      <h2 class="section-heading">
+        Exterior Design and Functionality of the 2026 Hyundai Tucson and 2026
+        Kia Sportage
+      </h2>
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">The 2026 Hyundai Tucson</div>
+        <img
+          src="https://i.ibb.co/VcHNGzgt/Large-67092-2026-Tucson-Plug-in-Hybrid.jpg"
+          alt="The 2026 Hyundai Tucson"
+          class="vehicle-image-placeholder-2"
+        />
+      </div>
+      <br />
+      <p class="paragraph-text">
+        The exterior design of a vehicle is its first impression, and both the
+        2026 Hyundai Tucson and Kia Sportage present bold, modern aesthetics.
+        The Hyundai Tucson is a rolling showcase of the brand's "Parametric
+        Dynamics" design language, characterized by intricate, jewel-like
+        surfaces and sharp, intersecting lines that create a sense of forward
+        motion even at a standstill. Its most defining feature is the front
+        grille, where the LED Daytime Running Lights are seamlessly integrated,
+        remaining hidden until illuminated. This creates a sophisticated and
+        high-tech appearance that is both unique and elegant. For 2026, the
+        design has been refined with stronger vertical grille elements and
+        simplified DRLs, giving the Tucson a more rugged and planted stance
+        without sacrificing its futuristic appeal.
+      </p>
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">The 2026 Kia Sportage</div>
+        <img
+          src="https://i.ibb.co/spvLx82K/kiasportage2026.png"
+          alt="The 2026 Kia Sportage"
+          class="vehicle-image-placeholder-2"
+        />
+      </div>
+      <br />
+      <p class="paragraph-text">
+        In contrast, the 2026 Kia Sportage employs a more aggressive and
+        unconventional design, particularly at the front. Its large "Tiger Nose"
+        grille is flanked by distinctive boomerang-shaped DRLs and low-mounted
+        headlights, creating a look that is undeniably bold and can be
+        polarizing. While style is subjective, Tucson's design is often
+        perceived as more cohesively modern and upscale, appealing to those who
+        appreciate sophisticated yet assertive styling.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Functionally, the two SUVs are closely matched. Both offer a range of
+        alloy wheel sizes, including 17, 18, and 19-inch options, allowing for a
+        customizable appearance. Advanced Bi-LED projector headlights are
+        available on both, providing excellent nighttime visibility, and both
+        come with standard High Beam Assist. For added utility, roof side rails
+        are available on upper trims of both models, perfect for mounting
+        carriers for bikes, kayaks, or extra cargo for a trip to the mountains.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        In terms of physical footprint, the Tucson and Sportage are nearly
+        identical. The Tucson measures 182.7 inches in length with a 108.5-inch
+        wheelbase, while the Sportage is slightly longer at 183.5 inches but
+        shares the same wheelbase. Critically for navigating Oklahoma's varied
+        terrain, both vehicles offer up to 8.3 inches of ground clearance when
+        equipped with AWD, providing ample capability to handle gravel roads,
+        snowy conditions, or steep driveways with confidence. This parity in
+        functional dimensions underscores that the truly meaningful differences
+        lie not in their size, but in their features and capabilities.
+      </p>
+
+      <!-- Vehicle Images -->
+      <br />
+
+      <hr class="hr-1" id="interior" />
+
+      <!-- Section 5: Interior Design -->
+      <h2 class="section-heading">
+        The Interior Design of the 2026 Hyundai Tucson and 2026 Kia Sportage
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The cabin of a compact SUV is its sanctuary, a space for daily commutes,
+        family road trips, and everything in between. Both the 2026 Hyundai
+        Tucson and Kia Sportage offer spacious, comfortable, and tech-forward
+        interiors, but the Tucson distinguishes itself with superior maximum
+        utility and a more driver-focused, ergonomic design.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        A detailed analysis of interior dimensions reveals that both vehicles
+        provide generous accommodations for up to five passengers. They offer
+        identical front legroom at 41.4 inches and rear legroom at 41.3 inches,
+        ensuring that even taller passengers in the back have ample space to
+        stretch out on long journeys. Headroom and shoulder room are also
+        comparable, with both SUVs providing a comfortable and airy cabin
+        environment.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        With the rear seats in their upright position, the Kia Sportage offers a
+        slight advantage, providing 39.6 cubic feet of space compared to the
+        Tucson's 38.7 cubic feet. This means the Sportage can hold a fraction
+        more during a routine grocery run. However, for a vehicle designed for
+        utility, the true measure of capability is its maximum cargo volume.
+        When the 60/40 split-folding rear seats are lowered, the 2026 Hyundai
+        Tucson takes the lead, opening up an expansive 74.8 cubic feet of cargo
+        space, surpassing the Sportage's 74.1 cubic feet. This larger maximum
+        capacity is what truly matters when hauling bulky items, whether it is
+        bringing home a new piece of furniture from a store in the city or
+        packing all the gear for a family camping trip. The Tucson's advantage
+        is further enhanced by thoughtful features like a dual-level cargo floor
+        for flexible storage and available remote-release levers that make
+        folding the rear seats effortless.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Inside the cabin, the Tucson's redesigned dashboard presents a clean,
+        horizontal layout that enhances the sense of space. For 2026, Hyundai
+        has been praised for reintroducing physical buttons and knobs for
+        essential climate and audio controls, a design choice that prioritizes
+        driver convenience and safety by allowing for quick, tactile adjustments
+        without taking one's eyes off the road. Both SUVs offer a range of
+        premium materials, from durable cloth on base models to sophisticated
+        H-Tex leatherette and genuine leather on higher trims. Desirable comfort
+        features such as heated and ventilated front seats, heated rear seats,
+        and a large panoramic sunroof are available on both, ensuring a
+        first-class experience for all occupants.
+      </p>
+
+      <!-- Interior Dimensions Table -->
+      <br />
+      <h3 class="table-heading">Interior Dimensions and Features</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension / Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Kia Sportage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Passenger Volume</td>
+            <td>108.2 cu. ft.</td>
+            <td>~108 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Front Legroom</td>
+            <td>41.4 inches</td>
+            <td>41.4 inches</td>
+          </tr>
+          <tr>
+            <td>Rear Legroom</td>
+            <td>41.3 inches</td>
+            <td>41.3 inches</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (Seats Up)</td>
+            <td>38.7 cu. ft.</td>
+            <td>39.6 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (Seats Folded)</td>
+            <td>74.8 cu. ft.</td>
+            <td>74.1 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Seating Material Options</td>
+            <td>Cloth, H-Tex, Leather</td>
+            <td>Cloth, SynTex, Leather</td>
+          </tr>
+          <tr>
+            <td>Heated/Ventilated Front Seats</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Heated Rear Seats</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Panoramic Sunroof</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="technology" />
+
+      <!-- Section 6: Technology and Connectivity -->
+      <h2 class="section-heading">
+        Technology and Connectivity of the 2026 Hyundai Tucson and 2026 Kia
+        Sportage
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        In today's connected world, a vehicle's technology suite is as important
+        as its engine. Both the 2026 Hyundai Tucson and Kia Sportage deliver a
+        cutting-edge digital experience, but the Tucson's ecosystem is designed
+        with a more thoughtful approach to user-friendliness and real-world
+        convenience, making it the smarter vehicle to live with every day.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The centerpiece of both cabins is the available dual panoramic display,
+        which seamlessly integrates a 12.3-inch digital instrument cluster and a
+        12.3-inch infotainment touchscreen into a single, curved panel. This
+        creates a stunning, high-tech command center. While the hardware is
+        similar, the user experience differs. The Tucson's infotainment system
+        is renowned for its intuitive layout and quick response times, and the
+        2026 model enhances this with the return of physical knobs for volume
+        and tuning. This seemingly small detail is a significant advantage,
+        allowing drivers to make common adjustments safely and easily without
+        diverting attention to the screen.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Seamless smartphone integration is a priority in both SUVs. Wireless
+        Apple CarPlay and Android Auto are now standard across all trims for
+        both the Tucson and Sportage, eliminating the need for cables and making
+        it effortless to access maps, music, and messages from your device.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Connected car services represent another area where Hyundai excels. The
+        Tucson features Bluelink+, a comprehensive suite of remote services
+        accessible via a smartphone app. This system allows owners to remotely
+        start their vehicle and set the climate control, an invaluable feature
+        for pre-cooling the car during a sweltering Oklahoma August or warming
+        it up on a frosty January morning. Bluelink+ also provides remote
+        lock/unlock functions, vehicle status checks, and automatic collision
+        notifications. While Kia offers a similar service called Kia Connect,
+        Hyundai's Bluelink+ is often praised for its robust feature set and
+        user-friendly interface.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both vehicles offer a host of premium technology amenities. The Tucson
+        can be equipped with a high-fidelity Bose® Premium Audio System, while
+        the Sportage offers a system from Harman Kardon. Both provide an
+        immersive listening experience. Hyundai Digital Key 2 allows you to use
+        your compatible smartphone or smartwatch as your vehicle key, a
+        convenience that adds a futuristic touch to daily life. Qi-compatible
+        wireless charging pads are also available in both models to keep your
+        devices powered up on the go. Ultimately, while the feature lists are
+        closely matched, Tucson's combination of a more intuitive interface with
+        physical controls and the powerful Bluelink+ ecosystem creates a
+        superior and more thoughtful overall technology experience.
+      </p>
+
+      <hr class="hr-1" id="safety" />
+
+      <!-- Section 7: Safety -->
+      <h2 class="section-heading">
+        Advanced Safety and Driver Assistance Features
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        For families in Oklahoma, safety is non-negotiable. Both the 2026
+        Hyundai Tucson and Kia Sportage are engineered to provide exceptional
+        protection, equipped with a comprehensive suite of standard and
+        available advanced driver-assistance systems (ADAS). However, Tucson
+        pushes the boundaries of innovation by offering exclusive, high-value
+        technologies that provide a tangible advantage in real-world driving and
+        parking scenarios.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both SUVs come standard with an impressive array of Hyundai SmartSense
+        and Kia Drive Wise features. This includes Forward Collision-Avoidance
+        Assist with Pedestrian, Cyclist, and Junction-Turning Detection, which
+        can warn the driver of an impending collision and automatically apply
+        the brakes if necessary. Other standard systems on both models include
+        Lane Keeping Assist (LKA), Lane Following Assist (LFA) to help the
+        vehicle stay centered in its lane, and Driver Attention Warning (DAW) to
+        combat drowsy or distracted driving.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        It is in the realm of available, cutting-edge technology that Tucson
+        truly distinguishes itself. The
+        <a
+          href="https://joecooperhyundai.com/cars/new-tucson"
+          class="paragraph-hyperlink"
+          ><strong>2026 Tucson</strong></a
+        >
+        offers Remote Smart Parking Assist (RSPA), a revolutionary feature not
+        available on the Sportage. This system allows the driver to stand
+        outside the vehicle and use the smart key to remotely guide the Tucson
+        into or out of a tight perpendicular parking space. This is a
+        game-changing solution for navigating the often-crowded parking lots at
+        destinations like Penn Square Mall or the Shoppes at Northpark,
+        eliminating the stress of tight spots and preventing door dings.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Another exclusive advantage of the Tucson is the available Blind-Spot
+        View Monitor (BVM). While both vehicles have blind-spot
+        collision-avoidance systems that provide audible and visual warnings,
+        BVM takes safety a step further. When the driver activates a turn
+        signal, a live video feed of the corresponding blind spot is displayed
+        directly in the Tucson's 12.3-inch digital instrument cluster. This
+        provides an unparalleled level of situational awareness, offering a
+        clear view of what's next to the vehicle, a significant safety
+        enhancement when changing lanes on busy highways like I-44 or I-235.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both models offer other high-end safety features, including Highway
+        Driving Assist (HDA), a semi-autonomous system that combines adaptive
+        cruise control with lane centering for less stressful highway driving,
+        and a Surround View Monitor that provides a 360-degree bird's-eye view
+        for parking. While these are excellent features, they serve to
+        complement Tucson's exclusive technologies that provide a clear and
+        demonstrable safety advantage.
+      </p>
+
+      <!-- Safety Features Table -->
+      <br />
+      <h3 class="table-heading">Safety and Driver-Assistance Features</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Safety/Driver-Assist Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Kia Sportage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Forward Collision-Avoidance Assist</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Blind-Spot Collision-Avoidance Assist</td>
+            <td>Standard</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Rear Cross-Traffic Collision-Avoidance Assist</td>
+            <td>Standard</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Lane Following Assist</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Highway Driving Assist</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Surround View Monitor</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Blind-Spot View Monitor</td>
+            <td>Available</td>
+            <td>Available on upper trims</td>
+          </tr>
+          <tr>
+            <td>Remote Smart Parking Assist</td>
+            <td>Available</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td>Safe Exit Warning</td>
+            <td>Standard</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Rear Occupant Alert</td>
+            <td>Standard</td>
+            <td>Not Available</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="ownership" />
+
+      <!-- Section 8: Ownership -->
+      <h2 class="section-heading">
+        What Differentiates the Tucson and Sportage in Long-Term Ownership
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        A vehicle purchase is a long-term investment, and the total cost of
+        ownership extends far beyond the initial sticker price. This is where
+        the 2026 Hyundai Tucson delivers its most decisive and financially
+        significant victory over the Kia Sportage, thanks to an ownership
+        package that provides unbeatable peace of mind and tangible savings.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both Hyundai and Kia are renowned for their excellent warranty coverage,
+        and on the surface, their programs appear identical. Both the Tucson and
+        the Sportage are backed by a 10-year/100,000-mile powertrain limited
+        warranty and a 5-year/60,000-mile new vehicle limited warranty. This
+        shared foundation of industry-leading protection ensures that owners of
+        either vehicle are well-covered against unforeseen defects in materials
+        or workmanship. Both brands also provide a 5-year roadside assistance
+        plan, offering help in case of a flat tire, dead battery, or other minor
+        mishaps.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        However, Hyundai adds a crucial and exclusive benefit that fundamentally
+        changes the value equation: Hyundai Complimentary Maintenance. Every new
+        2026 Hyundai Tucson comes standard with 3 years or 36,000 miles of
+        factory-scheduled maintenance, covering essential services like oil
+        changes, filter replacements, and tire rotations. This is a significant
+        advantage that Kia does not offer with the Sportage. Over the first
+        three years of ownership, this program can save a Tucson owner hundreds
+        of dollars in routine service costs, directly lowering the total cost of
+        ownership and making the Tucson the more financially prudent choice.
+      </p>
+
+      <!-- Warranty Table -->
+      <br />
+      <h3 class="table-heading">Warranty and Ownership Benefits</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Ownership Benefit</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Kia Sportage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Powertrain Warranty</td>
+            <td>10 years / 100,000 miles</td>
+            <td>10 years / 100,000 miles</td>
+          </tr>
+          <tr>
+            <td>Limited Warranty</td>
+            <td>5 years / 60,000 miles</td>
+            <td>5 years / 60,000 miles</td>
+          </tr>
+          <tr>
+            <td>Anti-Perforation Warranty</td>
+            <td>7 years / Unlimited miles</td>
+            <td>5 years / 100,000 miles</td>
+          </tr>
+          <tr>
+            <td>Roadside Assistance</td>
+            <td>5 years / Unlimited miles</td>
+            <td>5 years / 60,000 miles</td>
+          </tr>
+          <tr>
+            <td>Complimentary Scheduled Maintenance</td>
+            <td>3 years / 36,000 miles</td>
+            <td>Not Offered</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="verdict" />
+
+      <!-- Section 9: Final Thoughts -->
+      <h2 class="section-heading">Final Thoughts</h2>
+      <br />
+      <p class="paragraph-text">
+        While both are excellent compact SUVs born from the same engineering
+        DNA, the Tucson consistently delivers a superior and more thoughtful
+        package that is better suited to the demands of modern life in Oklahoma.
+        It distinguishes itself through tangible benefits that enhance
+        capability, practicality, safety, and long-term value.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Tucson's superiority is evident across several key areas:
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            <strong>More Capable:</strong> It offers a higher maximum towing
+            capacity, providing greater versatility for Oklahoma's rich
+            recreational and outdoor lifestyle.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>More Practical:</strong> It provides greater maximum cargo
+            utility, ensuring that families have the space they need for life's
+            biggest adventures and tasks.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>Smarter and Safer:</strong> It boasts exclusive,
+            stress-reducing technologies like Remote Smart Parking Assist and
+            the invaluable Blind-Spot View Monitor, which provide a level of
+            convenience and safety its rival cannot match.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>Unbeatable Value:</strong> It is the only vehicle in this
+            comparison to include complimentary scheduled maintenance. This
+            significantly lowers the cost of ownership and forges a valuable
+            service partnership with the expert team at Joe Cooper Hyundai.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Whether the priority is confident daily commuting, tech-savvy
+        connectivity for the entire family, or versatile cargo and towing
+        solutions for weekend escapes, the 2026 Hyundai Tucson embodies the
+        perfect balance of sophisticated design, practical innovation, and
+        intelligent value.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Ready to experience the 2026 Hyundai Tucson for yourself? Feel free to
+        browse our
+        <a
+          href="https://joecooperhyundai.com/cars/new-tucson"
+          class="paragraph-hyperlink"
+          ><strong>new inventory online</strong></a
+        >, get an instant trade-in estimate, and schedule your test drive today
+        at Joe Cooper Hyundai of Midwest City.
+        <a
+          href="https://joecooperhyundai.com/contact"
+          class="paragraph-hyperlink"
+          ><strong>Contact us</strong></a
+        >
+        today!
+      </p>
+
+      <!-- Final Image -->
+      <br />
+      <div class="single-image-container">
+        <img
+          src="https://i.ibb.co/zHXNzVLn/Large-67082-2026-Tucson-Plug-in-Hybrid.jpg"
+          alt="2026 Hyundai Tucson"
+          class="vehicle-image-placeholder-3"
+        />
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

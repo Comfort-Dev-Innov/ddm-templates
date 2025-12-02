@@ -7,7 +7,9 @@
       "Bash(node -e:*)",
       "Bash(node generate-wp-templates.js:*)",
       "Bash(node generate-wp-templates.cjs:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(node generate-motive-templates.cjs:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []

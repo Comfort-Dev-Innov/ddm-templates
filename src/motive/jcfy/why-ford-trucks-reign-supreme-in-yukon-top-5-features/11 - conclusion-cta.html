@@ -1,0 +1,446 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience the Ford Legacy at Joe Cooper Ford of Yukon</title>
+    <style>
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Hero Conclusion Section */
+      .hero-conclusion {
+        background: linear-gradient(
+          135deg,
+          #0f3079 0%,
+          #2d5aa0 50%,
+          #4a7bc8 100%
+        );
+        color: white;
+        padding: 60px 50px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(15, 48, 121, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-conclusion::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .hero-conclusion h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-conclusion p {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        margin-bottom: 35px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Key Benefits Summary */
+      .benefits-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 50px 0;
+      }
+
+      .benefit-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border-top: 5px solid #0f3079;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-top-color: #ff6b35;
+      }
+
+      .benefit-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .benefit-card h4 {
+        color: #0f3079;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .benefit-card p {
+        color: #4a5568;
+        line-height: 1.6;
+        font-size: 15px;
+        margin: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 50px;
+        border-radius: 20px;
+        border: 3px solid #0f3079;
+        text-align: center;
+        margin: 50px 0;
+        position: relative;
+      }
+
+      .cta-section h2 {
+        color: #0f3079;
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        font-weight: 800;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #4a5568;
+        margin-bottom: 35px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 18px 35px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+      }
+
+      .cta-button.secondary {
+        background: linear-gradient(45deg, #0f3079, #2d5aa0);
+        box-shadow: 0 6px 20px rgba(15, 48, 121, 0.4);
+      }
+
+      .cta-button.secondary:hover {
+        box-shadow: 0 10px 30px rgba(15, 48, 121, 0.6);
+      }
+
+      /* Contact Info */
+      .contact-info {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+        text-align: center;
+        border: 2px solid #e9ecef;
+      }
+
+      .contact-info h3 {
+        color: #0f3079;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .contact-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .contact-item {
+        text-align: center;
+      }
+
+      .contact-item h4 {
+        color: #0f3079;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .contact-item p {
+        color: #4a5568;
+        margin: 0;
+        font-size: 15px;
+      }
+
+      .contact-item a {
+        color: #ff6b35;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .contact-item a:hover {
+        text-decoration: underline;
+      }
+
+      /* Final Message */
+      .final-message {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 50px 0;
+      }
+
+      .final-message h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .final-message p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.3) 0%,
+          rgba(247, 147, 30, 0.3) 100%
+        );
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      /* Copyright */
+      .copyright {
+        text-align: center;
+        padding: 30px 0;
+        color: #666;
+        border-top: 2px solid #e9ecef;
+        margin-top: 50px;
+        font-size: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-conclusion {
+          padding: 40px 30px;
+        }
+
+        .hero-conclusion h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero-conclusion p {
+          font-size: 1.1rem;
+        }
+
+        .benefits-summary {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .cta-section {
+          padding: 30px 20px;
+        }
+
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .cta-button {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .contact-details {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .final-message {
+          padding: 30px 20px;
+        }
+
+        .final-message h3 {
+          font-size: 1.6rem;
+        }
+
+        .final-message p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .benefit-card {
+          padding: 20px;
+        }
+
+        .contact-info {
+          padding: 25px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Hero Conclusion -->
+      <div class="hero-conclusion">
+        <h1 custom-input="text">
+          Experience the Ford Legacy at Joe Cooper Ford of Yukon
+        </h1>
+        <p custom-input="text">
+          If you demand a truck that lasts, performs, and stands out in Yukon
+          and the surrounding communities, your destination is Joe Cooper Ford
+          of Yukon.
+        </p>
+      </div>
+
+      <!-- Main CTA Section -->
+      <div class="cta-section">
+        <h2 custom-input="text">Ready to Experience the Ford Difference?</h2>
+        <p custom-input="text">
+          Our finance experts are ready to find a flexible solution for your
+          budget, and
+          <span class="highlight" custom-input="text"
+            >we stand by our promise to beat any competitor's price on a new
+            vehicle by $500!</span
+          >
+        </p>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h3 custom-input="text">Visit Joe Cooper Ford of Yukon</h3>
+        <p
+          style="font-size: 1.1rem; color: #4a5568; margin-bottom: 0"
+          custom-input="text"
+        >
+          Come see why Ford is America's first choice for trucks. Visit our
+          showroom to test drive a legend today!
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <h4 custom-input="text">📍 Location</h4>
+            <p custom-input="text">
+              <a
+                href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88"
+                target="_blank"
+                custom-input="text"
+              >
+                1780 Garth Brooks Blvd<br />
+                Yukon, OK 73099
+              </a>
+            </p>
+          </div>
+          <div class="contact-item">
+            <h4 custom-input="text">📞 Phone</h4>
+            <p custom-input="text">
+              <a href="tel:+4053541111" custom-input="text">(405) 354-1111</a>
+            </p>
+          </div>
+          <div class="contact-item">
+            <h4 custom-input="text">🌐 Website</h4>
+            <p custom-input="text">
+              <a
+                href="https://joecooperfordyukon.com"
+                target="_blank"
+                custom-input="text"
+              >
+                joecooperfordyukon.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright">
+        <p custom-input="text">
+          <strong custom-input="text">© 2025 Joe Cooper Ford of Yukon</strong>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

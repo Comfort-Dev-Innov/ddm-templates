@@ -1,0 +1,486 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .xt5-blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    .xt5-blog-section * { max-width: 100% !important; box-sizing: border-box; }
+    
+    /* Typography */
+    .xt5-blog-section p { margin: 1em 0; }
+    .xt5-blog-section h2,
+    .xt5-blog-section h3,
+    .xt5-blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .xt5-blog-section h2 { font-size: 1.6em; }
+    .xt5-blog-section h3 { font-size: 1.35em; }
+    
+    /* Tables */
+    .xt5-blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+    .xt5-blog-section table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .xt5-blog-section table.e-rte-table th, 
+    .xt5-blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .xt5-blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .xt5-blog-section table.e-rte-table td { color: #374151; }
+    .xt5-blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .xt5-blog-section table.e-rte-table tbody tr:hover { 
+      background: #eef2ff; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .xt5-blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .xt5-blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .xt5-blog-section table.e-rte-table th,
+      .xt5-blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    
+    /* Links */
+    .xt5-blog-section a { 
+      color: #1e3a8a !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .xt5-blog-section a:hover { color: #15306e !important; }
+    
+    /* TOC */
+    .xt5-blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .xt5-blog-section h2 + ul li { margin: 6px 0; }
+    .xt5-blog-section h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .xt5-blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .xt5-blog-section h2[id], 
+    .xt5-blog-section h3[id], 
+    .xt5-blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .xt5-blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* Image Wrapper Styles */
+    .xt5-blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .xt5-blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .xt5-blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .xt5-blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .xt5-blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .xt5-blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .xt5-blog-section .image-float-left, 
+    .xt5-blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .xt5-blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .xt5-blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .xt5-blog-section .image-float-left img, 
+    .xt5-blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .xt5-blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .xt5-blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .xt5-blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .xt5-blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .xt5-blog-section .image-grid img {
+        border: none;
+      }
+  
+      .xt5-blog-section .image-float-left img,
+      .xt5-blog-section .image-float-right img {
+        border: none;
+      }
+      
+      .xt5-blog-section .image-float-left,
+      .xt5-blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  
+    /* Images */
+    .xt5-blog-section .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .xt5-blog-section .article-image img { max-width:100%; border-radius:8px; display:block; }
+    
+    /* floating */
+    .xt5-blog-section .article-image.float-right { 
+      float: right; 
+      margin-left: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    .xt5-blog-section .article-image.float-left { 
+      float: left; 
+      margin-right: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    
+    /* clear fix after floats */
+    .xt5-blog-section .clearfix::after { content:""; display:table; clear:both; }
+  </style>
+  
+  <section class="xt5-blog-section">
+    <p>Step into the refined world of the 2026 Cadillac XT5 Base, a compact luxury SUV designed to blend comfort, practicality, and the distinct Cadillac presence. Whether you are exploring the streets of Oklahoma City or cruising the scenic routes near Norman and Mustang, this SUV embodies a balance of sophistication and capable performance tailored for discerning drivers. At Joe Cooper Chevrolet Cadillac GMC, located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong>, we invite you to explore this thoughtfully engineered vehicle, supported by our dedicated team's enduring expertise and commitment to quality service. Reach us anytime at <strong><a href="tel:+14057772603">(405) 777-2603</a></strong> to discuss your new Cadillac journey.</p>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#embracing-the-cadillac-xt5-experience">Embracing the Cadillac XT5 Experience</a></li>
+      <li><a href="#timeless-exterior-design-and-styling">Timeless Exterior Design and Styling</a></li>
+      <li><a href="#dynamic-performance-and-drive-confidence">Dynamic Performance and Drive Confidence</a></li>
+      <li><a href="#refined-interior-comfort-and-convenience">Refined Interior Comfort and Convenience</a>
+        <ul>
+          <li><a href="#space-and-storage">Generous Space and Cargo Solutions</a></li>
+          <li><a href="#comfort-and-material-quality">Comfort and Material Quality</a></li>
+        </ul>
+      </li>
+      <li><a href="#modern-connectivity-and-infotainment">Modern Connectivity and Infotainment</a></li>
+      <li><a href="#comprehensive-safety-and-driver-assistance">Comprehensive Safety and Driver Assistance</a></li>
+      <li><a href="#trim-choices-and-exclusive-packages">Trim Choices and Exclusive Packages</a></li>
+      <li><a href="#supportive-warranty-and-maintenance-coverage">Supportive Warranty and Maintenance Coverage</a></li>
+      <li><a href="#why-choose-joe-cooper-chevrolet-cadillac-gmc">Why Choose Joe Cooper Chevrolet Cadillac GMC?</a></li>
+    </ul>
+  
+    <h2 id="embracing-the-cadillac-xt5-experience">Embracing the Cadillac XT5 Experience</h2>
+    <p>The 2026 Cadillac XT5 Base exemplifies Cadillac's dedication to delivering a luxury SUV that fits seamlessly into both vibrant city life and the quiet countryside surrounding cities like Chandler and Yukon. Despite being part of a model lineage that traces back nearly two decades, this iteration continues to offer a reliable, comfortable ride ideal for families, professionals, and anyone who values a trusted vehicle partner.</p>
+    <p>Built on a platform appreciated for its balance of ride comfort and composure, the XT5 Base pairs an efficient 2.0-liter turbocharged four-cylinder engine with a smooth 9-speed automatic transmission. This combination delivers approximately 235 horsepower and 258 lb-ft of torque, which brings confident acceleration around the neighborhoods of Bethel Acres and Harrah. While its powertrain may not race against sportier segment rivals, it performs admirably for daily driving and longer journeys, harmonizing power with respectable fuel economy.</p>
+    <p>The XT5 Base marks the foundation of Cadillac's SUV lineup, situating it below the richer appointments of its siblings while maintaining the marque's commitment to craftsmanship and performance. It fosters a driving environment that is welcoming without unnecessary complication, presenting a natural choice for Oklahoma drivers seeking luxury without excess.</p>
+  
+    <h2 id="timeless-exterior-design-and-styling">Timeless Exterior Design and Styling</h2>
+    
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/exterior/my26-xt5-gallery-modal-exterior-front-drivers-side-desert.jpg?imwidth=1920" alt="2026 Cadillac XT5 Exterior Front View">
+      </div>
+    </div>
+  
+    <p>While the 2026 XT5 carries forward an exterior aesthetic recognizable and admired since its debut, some may note its styling approaches the mature end of the compact luxury SUV spectrum. Showcasing Cadillac's iconic sharp lines and aerodynamic curves, this vehicle brings a dignified presence to Oklahoma roads, from Moore to Choctaw.</p>
+    <p>Key exterior elements of the base trim include bright silver 18-inch multi-spoke alloy wheels, sharp LED lighting, and subtle chrome accents that communicate elegance without flamboyance. For neighborhoods around Edmond and Seminole where functionality meets style, roof rails provide added practicality for cargo attachments or outdoor gear.</p>
+  
+    <div class="image-grid">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/exterior/my26-xt5-gallery-modal-exterior-family-shot-02.jpg?imwidth=1920" alt="Cadillac XT5 Family Shot">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/exterior/my26-xt5-gallery-modal-exterior-front-drivers-side-evening.jpg?imwidth=1920" alt="Cadillac XT5 Evening View">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/exterior/my26-xt5-gallery-modal-exterior-front-passenger-side-white.jpg?imwidth=1920" alt="Cadillac XT5 White Exterior">
+    </div>
+  
+    <p>The careful profile balance emphasizes both civic sophistication and tasteful ruggedness, rendering the XT5 suitable for everything from upscale urban errands to family adventures in surrounding areas like Pink and Tuttle.</p>
+  
+    <h2 id="dynamic-performance-and-drive-confidence">Dynamic Performance and Drive Confidence</h2>
+  
+    <h3 id="powertrain-and-drive-systems">Powertrain and Drive Systems</h3>
+    <p>The standard propulsion for the 2026 XT5 Base is the turbocharged 2.0-liter inline-4 engine calibrated for a smooth blend of responsive power and efficiency. Matched with a 9-speed automatic transmission and front-wheel drive configuration, this powertrain yields a 0-60 mph sprint in the vicinity of 7.6 seconds.</p>
+    <p>For drivers interested in more traction options, all-wheel drive becomes accessible in upper trims, providing greater composure and stability in varied driving conditions, a valuable asset for those venturing around Shawnee and Henryetta during Oklahoma's unpredictable weather.</p>
+  
+    <h3 id="ride-quality-and-handling-characteristics">Ride Quality and Handling Characteristics</h3>
+    <p>The XT5 Base glides with poise, utilizing a front strut and rear multi-link suspension to smooth out the journey. The chassis offers commendable body control without imposing a stiff ride, maintaining equilibrium between comfort and stiffness on routes common in areas like Pink and Norman. Steering precision is adequate, allowing confident lane placement, though it doesn't offer the heightened tactile feedback found in more aggressively tuned rivals.</p>
+    <p>This SUV handles the winding outskirts of Oklahoma City with ease, while its vented disc brakes provide the confident stopping power needed for daily driving.</p>
+  
+    <h3 id="fuel-economy-estimates">Fuel Economy Estimates</h3>
+    <p>Fuel efficiency remains an important consideration for daily commuters from Mustang or Yukon, with the XT5 Base offering EPA estimates near 22 mpg in the city and 29 mpg on highways. Real-world tests indicate similar figures, making it efficient enough for both intra-city travel and longer excursions across the broader Oklahoma region.</p>
+  
+    <p>2026 Cadillac XT5 Base Performance Specifications</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Specification</strong></th>
+          <th align="right"><strong>Value</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Horsepower</td>
+          <td align="right">235 hp @ 5000 rpm</td>
+        </tr>
+        <tr>
+          <td align="left">Torque</td>
+          <td align="right">258 lb-ft @ 1500 rpm</td>
+        </tr>
+        <tr>
+          <td align="left">Transmission</td>
+          <td align="right">9-speed automatic</td>
+        </tr>
+        <tr>
+          <td align="left">Drivetrain</td>
+          <td align="right">Front-wheel drive</td>
+        </tr>
+        <tr>
+          <td align="left">Acceleration 0-60 mph</td>
+          <td align="right">~7.6 seconds</td>
+        </tr>
+        <tr>
+          <td align="left">Max Towing Capacity</td>
+          <td align="right">1,000 pounds</td>
+        </tr>
+        <tr>
+          <td align="left">EPA Fuel Economy (City / Hwy)</td>
+          <td align="right">22 / 29 mpg</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="refined-interior-comfort-and-convenience">Refined Interior Comfort and Convenience</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-front-dash-v2.jpg?imwidth=1920" alt="2026 Cadillac XT5 Interior Dashboard">
+      </div>
+    </div>
+  
+    <h3 id="generous-space-and-cargo-solutions">Generous Space and Cargo Solutions</h3>
+    <p>The XT5 Base cabin prioritizes spacious seating and practical cargo arrangements. Rear passengers enjoy ample legroom to relax comfortably during drives through Bethel Acres and nearby surroundings, while headroom meets the needs of taller occupants with sensible proportions. The vehicle's thoughtful interior volume ensures a total passenger space nearing 104 cubic feet, accompanied by cargo capacity that expands from approximately 30 cubic feet behind the rear seats to a maximum of 63 cubic feet with folding seats—adequate for weekend trips or even grocery runs in places like Harrah or Choctaw.</p>
+  
+    <div class="image-grid">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-seats.jpg?imwidth=1920" alt="Cadillac XT5 Interior Seats">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-rear-seats-v2.jpg?imwidth=1920" alt="Cadillac XT5 Rear Seats">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-rear-seats.jpg?imwidth=1920" alt="Cadillac XT5 Rear Seating Area">
+    </div>
+  
+    <h3 id="comfort-and-material-quality">Comfort and Material Quality</h3>
+    <p>Although the XT5 Base offers a clean and ergonomic dashboard layout, note that some interior tactile surfaces and finishes fall short compared to the latest segment leaders. This reflects the SUV's mature production cycle but does not diminish the overall comfort expected in this class. Driving ergonomics are thoughtfully configured for intuitive control access and minimal fatigue, an important consideration for those regularly commuting between Moore and Chandler.</p>
+    <p>Dual-zone automatic climate control supports a comfortable environment for all occupants. While base materials do not reach the leather and wood accent levels found on higher trims, their durability and finish create a reassuring sense of quality aligned with Cadillac's reputation.</p>
+  
+    <div class="image-float-right" style="max-width: 400px !important;">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-steering-wheel.jpg?imwidth=1920" alt="Cadillac XT5 Steering Wheel">
+    </div>
+  
+    <h2 id="modern-connectivity-and-infotainment">Modern Connectivity and Infotainment</h2>
+    <p>Technology in the XT5 Base centers around an 8.0-inch touchscreen that hosts the standard infotainment interface. Connection is facilitated through wireless Apple CarPlay and Android Auto, aligning with today's expectations among Oklahoma drivers in Edmond and Seminole who rely on seamless smartphone integration.</p>
+    <p>Additional conveniences include a built-in voice assistant and available Wi-Fi hotspot functionality, ensuring that passengers remain connected regardless of travel distances. While navigation is reserved for more premium trims, the base system remains functional and user-friendly.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-user-experience-v2.jpg?imwidth=1920" alt="Cadillac XT5 User Experience">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-wireless-charging.jpg?imwidth=1920" alt="Cadillac XT5 Wireless Charging">
+      <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/interior/my26-xt5-gallery-modal-interior-shifter.jpg?imwidth=1920" alt="Cadillac XT5 Shifter">
+    </div>
+  
+    <p>The 8-speaker Bose stereo generates a pleasant audio experience that enriches daily drives, though audiophiles might seek higher-level options available in upper trims.</p>
+  
+    <h2 id="comprehensive-safety-and-driver-assistance">Comprehensive Safety and Driver Assistance</h2>
+    <p>Cadillac emphasizes occupant protection with a suite of safety technologies standard on the XT5 Base, enhancing driver confidence around zones such as Okemah and Tuttle. Key features include:</p>
+    <ul>
+      <li>Automated Emergency Braking to mitigate collision risks</li>
+      <li>Lane Keep Assist paired with Lane Departure Warning for attentive highway travel</li>
+      <li>Front and Rear Park Assist sensors supporting parking maneuvers</li>
+    </ul>
+    <p>Additional options accessible with available packages encompass adaptive cruise control, blind-spot monitoring, and a 360-degree camera system that offer elevated awareness and ease in tighter spaces.</p>
+  
+    <p>2026 Cadillac XT5 Base Safety and Driver Assistance Features</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Feature</strong></th>
+          <th align="left"><strong>Description</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Automatic Emergency Braking</td>
+          <td align="left">Automatically applies brakes to reduce collision impact</td>
+        </tr>
+        <tr>
+          <td align="left">Lane Keep Assist</td>
+          <td align="left">Maintains lane positioning with gentle steering input</td>
+        </tr>
+        <tr>
+          <td align="left">Blind-Spot Monitoring</td>
+          <td align="left">Warns of vehicles in adjacent lanes (available feature)</td>
+        </tr>
+        <tr>
+          <td align="left">360-Degree Camera</td>
+          <td align="left">Provides a comprehensive view around the vehicle (available feature)</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>These systems operate as driver aids to complement careful driving habits and do not replace caretaking vigilance.</p>
+  
+    <h2 id="trim-choices-and-exclusive-packages">Trim Choices and Exclusive Packages</h2>
+    <p>As the entry point for the 2026 XT5 lineup, the Base trim offers essential luxury SUV attributes suited for regional drivers around Oklahoma City and neighboring Moore. For customers seeking further refinement, the Premium Luxury and Sport trims enrich the experience with features such as:</p>
+    <ul>
+      <li>Leather upholstery enhancements and ventilated front seats</li>
+      <li>Hands-free power liftgate with programmable opening height</li>
+      <li>Advanced safety through Driver Assist Package, including adaptive cruise control and blind-spot alert</li>
+      <li>Different wheel finish options and accent lighting packages</li>
+      <li>Sport-oriented suspension and Brembo® brakes on Sport trim</li>
+    </ul>
+    <p>These options allow personalization, catering to drivers desiring a blend of style, performance, and technology.</p>
+  
+    <h2 id="supportive-warranty-and-maintenance-coverage">Supportive Warranty and Maintenance Coverage</h2>
+    <p>Purchasing a 2026 Cadillac XT5 Base through Joe Cooper Chevrolet Cadillac GMC situates customers within Cadillac's warranty framework, designed to ensure peace of mind:</p>
+  
+    <p>2026 Cadillac XT5 Warranty and Maintenance Highlights</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Coverage</strong></th>
+          <th align="right"><strong>Duration</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Limited Basic Warranty</td>
+          <td align="right">4 years / 50,000 miles</td>
+        </tr>
+        <tr>
+          <td align="left">Powertrain Warranty</td>
+          <td align="right">6 years / 70,000 miles</td>
+        </tr>
+        <tr>
+          <td align="left">Complimentary Scheduled Maintenance</td>
+          <td align="right">1 service visit included</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>Our service team showcases the stability and expertise our employees bring, reflecting our belief that diligent employee care fosters superior customer service. For maintenance or repair, residents of Tuttle, Pink, and Choctaw can easily <strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong>. Genuine parts are always available through our <strong><a href="https://joecooperchevroletcadillacgmc.com/parts">Parts Request</a></strong> portal, ensuring quality and fitment consistent with Cadillac standards, located conveniently at 4920 Automall Dr in Shawnee, OK.</p>
+  
+    <h2 id="why-choose-joe-cooper-chevrolet-cadillac-gmc">Why Choose Joe Cooper Chevrolet Cadillac GMC?</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.cadillac.com/content/dam/cadillac/na/us/english/index/vehicles/2026/suvs/xt5/gallery/exterior/modal/my26-xt5-gallery-modal-exterior-front-drivers-side-v3.jpg?imwidth=1920" alt="2026 Cadillac XT5 on the Road">
+      </div>
+    </div>
+  
+    <p>Our dealership is proud to be a cornerstone of the Shawnee and greater Oklahoma community, weaving a legacy that honors trust and transparent relationships. With a knowledgeable, stable staff committed to personal attention, we make your Cadillac experience warm, professional, and fulfilling.</p>
+    <p>Those coming from Edmond, Henryetta, or Seminole will find our selection featuring both new and used SUVs, including access to the complete range of <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory?filters=%7B%22appliedFilters%22%3A%7B%22model%22%3A%7B%22XT5%22%3Atrue%7D%7D%7D">All New XT5</a></strong> inventory and <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/used-inventory">All Used Vehicles</a></strong>. Trading in your current vehicle is simple via our <strong><a href="https://joecooperchevroletcadillacgmc.com/trade">Trade Valuation</a></strong> tool.</p>
+    <p>Our position in Shawnee makes for an accessible visit, whether you reside in the heart of Oklahoma City or the surrounding communities like Bethel Acres or Harrah. We invite you to schedule a personalized test drive of the 2026 Cadillac XT5 Base and witness firsthand how our employee expertise and dealership legacy provide unmatched value.</p>
+    <p>Experience the integration of trusted Cadillac craftsmanship and a dealership dedicated to integrity and customer care. Contact us directly at <strong><a href="tel:+14057772603">(405) 777-2603</a></strong> or visit <strong><a href="https://joecooperchevroletcadillacgmc.com/contact">Contact Us</a></strong> online to begin your journey toward owning the 2026 Cadillac XT5 Base today.</p>
+  
+    <p>© 2025 Joe Cooper Chevrolet Cadillac GMC</p>
+  </section>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notable Ford Models</title>
+    <style>
+      .featListContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .featListContainer h1 {
+        width: 100%;
+        color: #003478;
+        border-bottom: 3px solid #003478;
+        padding-bottom: 10px;
+      }
+
+      .featListContainer h3,
+      .featListContainer h1,
+      .featListContainer h2,
+      .featListContainer p,
+      .featListContainer ol,
+      .featListContainer ul {
+        max-width: 1300px !important;
+      }
+
+      .model-card {
+        background-color: white;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .model-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .model-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 999px;
+        flex-shrink: 0;
+        border: 2px dashed #003478;
+        overflow: hidden;
+      }
+
+      .model-info {
+        flex: 1;
+      }
+
+      .model-name {
+        color: #003478;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .model-description {
+        color: #333;
+        line-height: 1.6;
+      }
+
+      @media(max-width:400px) {
+        .model-image {
+            width: 100px;
+            height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featListContainer">
+      <h1>Other Budget-Friendly Options</h1>
+
+      <div class="model-card">
+        <img
+          src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/suvs-crossovers/ecosport/2022/3-2/22_FRD_ECO_000010_TNM_16x9.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg"
+          alt="Ford Transit"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">EcoSport</div>
+          <div class="model-description">
+            The EcoSport, though discontinued in some markets, remains a solid compact SUV option in used vehicle inventories.
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <img
+          src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/cars/fiesta/2019/retired/19_C8217117_FIES_SE_5Dr_78FrntPassMotn_mj_V1_16x9.jpg/jcr:content/renditions/cq5dam.web.1440.1440.jpeg"
+          alt="Ford Explorer"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Ford Fiesta and Focus</div>
+          <div class="model-description">
+            The Ford Fiesta and Focus offer economical and fun driving experiences, with many used options available through our 
+            <a href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22Used%22%3Atrue%7D%7D%7D%7D">Used Vehicle Inventory</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

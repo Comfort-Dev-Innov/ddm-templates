@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Fe Function & Features</title>
+    <style>
+        .santa-fe-container2 {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            font-family: 'Georgia', serif;
+        }
+        
+        .santa-fe-container h1 {
+            width: fit-content !important;
+        }
+        
+        .santa-fe-container2 h3,
+        .santa-fe-container2 h1,
+        .santa-fe-container2 h2,
+        .santa-fe-container2 p,
+        .santa-fe-container2 ol,
+        .santa-fe-container2 ul {
+            max-width: 1300px !important;
+        }
+
+        .cabin-intro-paragraph2 {
+            font-size: 1.1em;
+            color: #012b5d;
+            margin-bottom: 2.5em;
+            padding: 0 20px;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        .cabin-intro-paragraph2:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(1, 43, 93, 0.1);
+        }
+
+        .cabin-section-header2 {
+            color: #002c5f;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 2.5em 0 1.5em 0;
+            padding: 0 20px;
+            border-left: 4px solid #012b5d;
+            padding-left: 25px;
+            transition: border-left 0.3s ease;
+        }
+
+        .cabin-section-header2:hover {
+            border-left: 6px solid #002c5f;
+        }
+
+        .cabin-content-block2 {
+            margin-bottom: 2em;
+            padding: 5px 20px;
+            border-radius: 30px;
+            border: 1px dashed #ccc;
+        }
+
+        .content-block2 p {
+            color: #012b5d;
+            margin-bottom: 1.3em;
+            text-align: justify;
+            transition: color 0.3s ease;
+        }
+
+        .content-block2 p:hover {
+            color: #002c5f;
+        }
+
+        .cabin-highlight-text2 {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.1) 0%, rgba(0, 44, 95, 0.1) 100%);
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .cabin-highlight-text2:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.2) 0%, rgba(0, 44, 95, 0.2) 100%);
+        }
+
+        .cabin-dimensions-highlight2 {
+            font-weight: 600;
+            color: #002c5f;
+        }
+
+        .cabin-capacity-stats2 {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05) 0%, rgba(0, 44, 95, 0.05) 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 1.5em 20px;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cabin-capacity-stats2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(1, 43, 93, 0.15);
+            border-color: rgba(0, 44, 95, 0.2);
+        }
+
+        .cabin-capacity-stats2 p {
+            margin: 0.8em 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cabin-content-block2 {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .santa-fe-container2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d 0%, #002c5f 100%);
+            opacity: 0.3;
+        }
+
+        .content-with-image2 {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin: 2em 0;
+        }
+
+        .image-section2 {
+            flex: 0 0 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-section2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cabin-feature-image2 {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(1, 43, 93, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cabin-feature-image2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cabin-feature-image2:hover::before {
+            opacity: 1;
+        }
+
+        .cabin-feature-image2:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(1, 43, 93, 0.25);
+        }
+
+        .cabin-content-block2 {
+            margin-bottom: 0;
+            padding: 20px 25px;
+            border-radius: 15px;
+            border: 2px dashed #d1d5db;
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02) 0%, rgba(0, 44, 95, 0.02) 100%);
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cabin-content-block2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #012b5d 0%, #002c5f 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom;
+        }
+
+        .cabin-content-block2:hover::before {
+            transform: scaleY(1);
+        }
+
+        .cabin-content-block2:hover {
+            border-color: #012b5d;
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05) 0%, rgba(0, 44, 95, 0.05) 100%);
+            transform: translateX(5px);
+            box-shadow: -3px 0 15px rgba(1, 43, 93, 0.1);
+        }
+
+        .cabin-content-block2 p {
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .calligraphy-link2 {
+            color: #012b5d;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(1, 43, 93, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.1) 0%, rgba(0, 44, 95, 0.1) 100%);
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .calligraphy-link2:hover {
+            color: white;
+            background: linear-gradient(120deg, #012b5d 0%, #002c5f 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(1, 43, 93, 0.3);
+        }
+
+        .calligraphy-link2::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #012b5d 0%, #002c5f 100%);
+            transition: width 0.3s ease;
+        }
+
+        .calligraphy-link2:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .content-with-image2 {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .image-section2 {
+                flex: none;
+            }
+            
+            .cabin-feature-image2 {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="santa-fe-container2">
+        <div class="cabin-section-header2">Function in Every Line</div>
+
+        <div class="content-with-image2">
+            <div class="image-section2">
+                <img src="https://s7d1.scene7.com/is/image/hyundai/2024-santa-fe-mx5-sm-0148:16-9?wid=1440&hei=810&qlt=85,0&fmt=webp" alt="Hyundai Santa Fe rear exterior showing practical design features" class="cabin-feature-image2">
+            </div>
+
+            <div class="content-section2">
+                <div class="cabin-content-block2">
+                    <p>The Santa Fe's design isn't just about looking good; it's packed with functional and practical details. One of the most innovative features, found exclusively on the <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Santa_Fe-Calligraphy-5NMP5DGL1SH101929" class="calligraphy-link2">Calligraphy</a> trim, is the C-pillar assist handle. This cleverly integrated, hidden handle provides a secure and convenient handhold, making it much easier and safer to access the roof to load a cargo box or tie down gear.</p>
+                </div>
+
+                <div class="cabin-content-block2">
+                    <p>The hands-free smart liftgate, a feature that automatically opens the tailgate when you stand behind it for a few seconds with the key fob in your pocket, is standard on every single trim level—a massive convenience when your hands are full of shopping bags or sports equipment. Finally, roof rails, standard on the SEL trim and up, provide the essential foundation for all your adventures, allowing you to easily add racks for bikes, kayaks, or extra luggage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

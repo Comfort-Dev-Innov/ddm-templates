@@ -1,0 +1,430 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    :is([class*="Section-module__"][class*="__section--blog"]) { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    :is([class*="Section-module__"][class*="__section--blog"]) * { max-width: 100% !important; box-sizing: border-box; }
+    /* Typography */
+    .blog-content p { margin: 1em 0; }
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .blog-content h2 { font-size: 1.6em; }
+    .blog-content h3 { font-size: 1.35em; }
+    /* Tables */
+    .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+    .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+    .blog-content table.e-rte-table td { color: #374151; }
+    .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+    .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-content table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-content table.e-rte-table th,
+      .blog-content table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    /* Links */
+    .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+    .blog-content a:hover { color: #15306e !important; }
+    /* TOC */
+    .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+    .blog-content h2 + ul li { margin: 6px 0; }
+    .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-content h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    /* offset for fixed navbars */
+    .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  
+    /* Images */
+    .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+    /* floating */
+    .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+    .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+    /* clear fix after floats */
+    .blog-content .clearfix::after { content:""; display:table; clear:both; }
+  
+    /* Image Wrapper Styles */
+    .blog-content .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .blog-content .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-content .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .blog-content .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .blog-content .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-content .image-float-left, .blog-content .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .blog-content .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .blog-content .image-float-left img, .blog-content .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .blog-content .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .blog-content .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-content .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-content .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-content .image-grid img {
+        border: none;
+      }
+  
+      .blog-content .image-float-left img,
+      .blog-content .image-float-right img {
+        border: none;
+      }
+    }
+  
+    </style><div class="blog-content"><p>Welcome to Jackie Cooper Nissan, where we take pride in serving families across Tulsa and Broken Arrow with honesty and care since 1946. If you are seeking a vehicle that blends reliability, value, and modern capability, the 2026 Nissan Rogue Base offers a compelling choice. Here at our dealership at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>, we provide exceptional attention to detail and a welcoming environment, ensuring your car-buying experience is both comfortable and informed. Whether you live in Broken Arrow or Tulsa, our team is ready to assist you at <strong><a href="tel:+19189216531">(918) 921-6531</a></strong>.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/pfa/2026-nissan-rogue-exterior-gallery-xl.jpg" alt="2026 Nissan Rogue Exterior">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-crossover.jpg" alt="2026 Nissan Rogue Crossover">
+</div>
+
+<h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#an-introduction-to-the-2026-nissan-rogue-base">An Introduction to the 2026 Nissan Rogue Base</a></li>
+  <li><a href="#refined-exterior-design-that-commands-attention">Refined Exterior Design That Commands Attention</a></li>
+  <li><a href="#balanced-performance-and-confident-driving-experience">Balanced Performance and Confident Driving Experience</a></li>
+  <li><a href="#spacious-and-comfortable-interior-for-every-journey">Spacious and Comfortable Interior for Every Journey</a></li>
+  <li><a href="#modern-technology-and-seamless-connectivity-features">Modern Technology and Seamless Connectivity Features</a></li>
+  <li><a href="#advanced-safety-systems-for-peace-of-mind">Advanced Safety Systems for Peace of Mind</a></li>
+  <li><a href="#understanding-trim-levels-and-available-packages">Understanding Trim Levels and Available Packages</a></li>
+  <li><a href="#comprehensive-warranty-and-maintenance-support">Comprehensive Warranty and Maintenance Support</a></li>
+  <li><a href="#final-thoughts-and-the-exceptional-value-at-jackie-cooper-nissan">Final Thoughts and the Exceptional Value at Jackie Cooper Nissan</a></li>
+  </ul><h2 id="an-introduction-to-the-2026-nissan-rogue-base">An Introduction to the 2026 Nissan Rogue Base</h2><p>Taking its place in Nissan’s longstanding tradition of dependable SUVs, the 2026 Rogue Base trim is tailored to fit the daily demands of families and individuals alike in Tulsa and Broken Arrow. Graduating seamlessly from previous years, this model maintains a straightforward yet modern identity, providing a mix of practical features and essential comforts.</p><p>The 2026 Rogue Base seats five passengers comfortably, offering a versatile solution for both urban commutes and weekend adventures. Its availability in Front-Wheel Drive (FWD) and All-Wheel Drive (AWD) variants allows drivers to select a drivetrain suited to their specific needs, whether that’s efficient city travel or enhanced control in variable conditions common in Oklahoma’s seasons.</p><p>Jackie Cooper Nissan has been a pillar of our community since 1946, and our commitment extends beyond selling vehicles. We share your values of reliability and integrity. Every Nissan Rogue Base purchased here comes with the assurance of genuine support and transparent service, making your ownership experience as trusted as the vehicle itself.</p><h2 id="refined-exterior-design-that-commands-attention">Refined Exterior Design That Commands Attention</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-front-view.jpg" alt="2026 Nissan Rogue Front View">
+</div>
+</div>
+
+<p>The 2026 Nissan Rogue Base exudes a confident yet approachable presence on the streets of Tulsa and the roads around Broken Arrow. Its exterior is characterized by sleek, aerodynamic lines, thoughtfully crafted to improve fuel efficiency and offer a modern, family-friendly SUV silhouette.</p><h3 id="streamlined-profile-and-functional-details">Streamlined Profile and Functional Details</h3><p>From its aerodynamic roofline to its subtle side contours, the Rogue Base balances style and practicality. The carefully sculpted front fascia integrates a bold grille and LED headlights, providing excellent visibility without overwhelming the overall design.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-parked-driveway-front-view.jpg" alt="Nissan Rogue Parked Front">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-parked-driveway-rear-view.jpg" alt="Nissan Rogue Parked Rear">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2025/overview/rc-campaign/banner/nissan-rogue-rock-creek-desertscape-xl.jpg" alt="Nissan Rogue Rock Creek">
+</div><h3 id="wheel-and-tire-specifications">Wheel and Tire Specifications</h3><p>The Base trim rides on durable wheels designed to complement the vehicle’s poised stance while ensuring reliable traction for diverse road conditions:</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Feature</strong></th>
+  <th><strong>Specification</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Wheel Size</td>
+  <td>17 inches</td>
+  </tr>
+  <tr>
+  <td>Tire Type</td>
+  <td>All-season tires</td>
+  </tr>
+  <tr>
+  <td>Approach Angle</td>
+  <td>Measures near 17 degrees</td>
+  </tr>
+  <tr>
+  <td>Departure Angle</td>
+  <td>Approximately 21 degrees</td>
+  </tr>
+  <tr>
+  <td>Ground Clearance</td>
+  <td>7.8 inches</td>
+  </tr>
+  </tbody></table><p>These dimensions contribute to a balanced balance of handling and ride comfort while safeguarding underbody components, granting drivers peace of mind, particularly on rugged or unpredictable city roads.</p><h3 id="exterior-color-options">Exterior Color Options</h3><p>Available choices include classic solid and premium metallic finishes, allowing customers to personalize their Rogue with colors that reflect their style and personality. Jackie Cooper Nissan’s showroom offers an opportunity to explore these palettes firsthand.</p><h2 id="balanced-performance-and-confident-driving-experience">Balanced Performance and Confident Driving Experience</h2><p>The 2026 Nissan Rogue Base is engineered to offer a harmonious blend of efficiency and responsive driving dynamics well-suited to both Tulsa’s urban landscapes and Broken Arrow's sprawling avenues.</p><h3 id="powertrain-and-drivetrain">Powertrain and Drivetrain</h3><p>Regarding power, the Rogue comes standard with a potent 2.5-liter four-cylinder engine that pairs with a smooth Continuously Variable Transmission (CVT), delivering reliable power for your daily commute. This combination ensures a refined delivery of power that maximizes fuel economy without compromising performance.</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Performance Metric</strong></th>
+  <th><strong>Value</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Engine Type</td>
+  <td>2.5-liter 4-cylinder</td>
+  </tr>
+  <tr>
+  <td>Horsepower</td>
+  <td>Approximately 181 hp</td>
+  </tr>
+  <tr>
+  <td>Torque</td>
+  <td>181 lb-ft</td>
+  </tr>
+  <tr>
+  <td>Transmission</td>
+  <td>CVT (Continuously Variable)</td>
+  </tr>
+  <tr>
+  <td>Drivetrain Availability</td>
+  <td>Front-Wheel Drive / All-Wheel Drive</td>
+  </tr>
+  <tr>
+  <td>Fuel Economy (Estimated)</td>
+  <td>Near 30 MPG city / 37 MPG highway</td>
+  </tr>
+  </tbody></table><h3 id="handling-and-ride-quality">Handling and Ride Quality</h3><p>The Rogue Base’s suspension aligns with Nissan’s commitment to comfort and control. A front independent strut and rear multi-link setup softens impacts from rough pavement near Tulsa neighborhoods, while delivering stable cornering. The precise steering and calculated braking system bolster driver confidence during abrupt stops or tight maneuvers.</p><h2 id="spacious-and-comfortable-interior-for-every-journey">Spacious and Comfortable Interior for Every Journey</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-interior.jpg" alt="2026 Nissan Rogue Interior">
+</div>
+</div>
+
+<p>Inside, the 2026 Rogue Base welcomes occupants to a thoughtfully designed cabin that emphasizes usability and calm.</p><h3 id="seating-and-passenger-room">Seating and Passenger Room</h3><p>With comfortable seating for up to five, the Rogue Base delivers generous head- and legroom for both front- and rear-seat passengers, meeting the needs of family outings or daily commutes. The seats are upholstered in durable cloth, designed to withstand the active lifestyles of Broken Arrow families.</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Interior Dimension</strong></th>
+  <th><strong>Measurement</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Passenger Volume</td>
+  <td>Approximately 103 cubic feet</td>
+  </tr>
+  <tr>
+  <td>Front Headroom</td>
+  <td>41.3 inches</td>
+  </tr>
+  <tr>
+  <td>Rear Headroom</td>
+  <td>39.3 inches</td>
+  </tr>
+  <tr>
+  <td>Front Legroom</td>
+  <td>43.3 inches</td>
+  </tr>
+  <tr>
+  <td>Rear Legroom</td>
+  <td>38.5 inches</td>
+  </tr>
+  </tbody></table>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-seats.jpg" alt="Nissan Rogue Seats">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-floating-console.jpg" alt="Nissan Rogue Console">
+</div>
+
+<h3 id="cargo-flexibility">Cargo Flexibility</h3><p>The rear seats fold down in a 60/40 split to create an adaptable cargo space, valuable for transporting everything from groceries to sporting gear. The cargo capacity behind the rear seats is a generous 31.6 cubic feet, expanding significantly with the rear seats folded.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-cargo-system.jpg" alt="Nissan Rogue Cargo System">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/exterior/lightbox/2026-nissan-rogue-cargo-trunk-space.jpg" alt="Nissan Rogue Cargo Space">
+</div><h2 id="modern-technology-and-seamless-connectivity-features">Modern Technology and Seamless Connectivity Features</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-digital-dashboard-center-touchscreen.jpg" alt="Nissan Rogue Digital Dashboard">
+</div>
+</div>
+
+<p>The Rogue Base provides drivers in Tulsa and Broken Arrow with easy access to essential technology tailored for today's connected lifestyle.</p><h3 id="infotainment-system">Infotainment System</h3><p>With an easy-to-use touchscreen and full Bluetooth connectivity, the system simplifies communication allowing for a safer, distraction-free drive.</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Feature</strong></th>
+  <th><strong>Specification</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Screen Size</td>
+  <td>8-inch touchscreen display</td>
+  </tr>
+  <tr>
+  <td>Smartphone Integration</td>
+  <td>Apple CarPlay and Android Auto compatible</td>
+  </tr>
+  <tr>
+  <td>Audio System</td>
+  <td>Four-speaker audio setup</td>
+  </tr>
+  <tr>
+  <td>USB Ports</td>
+  <td>Multiple, front and rear, for device charging</td>
+  </tr>
+  <tr>
+  <td>Navigation</td>
+  <td>Available as an option in higher trims</td>
+  </tr>
+  </tbody></table>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-three-digital-displays.jpg" alt="Nissan Rogue Digital Displays">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-head-up-display.jpg" alt="Nissan Rogue Head Up Display">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/rogue/2026/gallery/interior/lightbox/2026-nissan-rogue-wireless-smartphone-charging-pad.jpg" alt="Nissan Rogue Wireless Charging">
+</div>
+
+<h3 id="connectivity-benefits">Connectivity Benefits</h3><p>Seamless smartphone integration allows drivers and passengers to access their favorite apps, music, and directions directly from their mobile devices. This functionality adds convenience, making commutes and road trips more enjoyable.</p><h2 id="advanced-safety-systems-for-peace-of-mind">Advanced Safety Systems for Peace of Mind</h2><p>Safety takes center stage in the 2026 Rogue Base, crafted to prioritize your well-being and that of your loved ones navigating Tulsa’s roads.</p><h3 id="key-driver-assistance-technologies">Key Driver Assistance Technologies</h3><p>The base model includes a range of standard safety features designed to reduce risk and assist in critical moments:</p><ul>
+  <li>Automatic Emergency Braking with Pedestrian Detection helps prevent or lessen collisions.</li>
+  <li>Blind Spot Warning alerts drivers of vehicles in adjacent lanes.</li>
+  <li>Rear Cross Traffic Alert provides warnings when backing out of parking spaces.</li>
+  <li>Lane Departure Warning assists drivers in maintaining proper lane positioning.</li>
+  <li>Backup Camera offers clear views when reversing.</li>
+  </ul><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Safety Feature</strong></th>
+  <th><strong>Description</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Automatic Emergency Braking (AEB)</td>
+  <td>Detects obstacles, applies brakes</td>
+  </tr>
+  <tr>
+  <td>Blind Spot Warning (BSW)</td>
+  <td>Alerts on vehicles in blind spots</td>
+  </tr>
+  <tr>
+  <td>Rear Cross Traffic Alert (RCTA)</td>
+  <td>Warns of traffic when reversing</td>
+  </tr>
+  <tr>
+  <td>Lane Departure Warning (LDW)</td>
+  <td>Signals unintentional lane drifting</td>
+  </tr>
+  <tr>
+  <td>Backup Camera</td>
+  <td>Provides rearward video display</td>
+  </tr>
+  </tbody></table><h3 id="regional-safety-considerations">Regional Safety Considerations</h3><p>Given Tulsa and Broken Arrow's varying weather and traffic conditions, these driver aids foster greater awareness and help navigate both congested streets and less predictable rural highways.</p><h2 id="understanding-trim-levels-and-available-packages">Understanding Trim Levels and Available Packages</h2><p>While this overview focuses on the 2026 Rogue Base, potential buyers should be aware that Nissan offers several trim levels and optional packages to customize their driving experience.</p><h3 id="base-trim-features-recap">Base Trim Features Recap</h3><p>The Base trim delivers the essentials expected from a modern SUV, including:</p><ul>
+  <li>17-inch wheels with dependable tires.</li>
+  <li>Basic cloth upholstery.</li>
+  <li>Standard infotainment with smartphone connectivity.</li>
+  <li>Core safety features noted above.</li>
+  <li>Choice between FWD and AWD drivetrains.</li>
+  </ul><h3 id="available-upgrades-at-jackie-cooper-nissan">Available Upgrades at Jackie Cooper Nissan</h3><p>For those considering enhancements, other trims feature additional options such as leather-trimmed seating, premium audio, advanced navigation, and enhanced driver-assist suites. Our experts in Broken Arrow and Tulsa are prepared to guide you through available configurations and find the perfect fit.</p><h2 id="comprehensive-warranty-and-maintenance-support">Comprehensive Warranty and Maintenance Support</h2><p>At Jackie Cooper Nissan, your confidence in the 2026 Rogue Base extends beyond the sale, supported by Nissan’s robust warranty and our commitment to ongoing care.</p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Coverage Type</strong></th>
+  <th><strong>Duration</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Basic Limited Warranty</td>
+  <td>3 years / 36,000 miles</td>
+  </tr>
+  <tr>
+  <td>Powertrain Warranty</td>
+  <td>5 years / 60,000 miles</td>
+  </tr>
+  <tr>
+  <td>Roadside Assistance (Nissan)</td>
+  <td>24/7, 3 years / 36,000 miles</td>
+  </tr>
+  </tbody></table><p>Our <strong><a href="https://jackiecoopernissan.com/service">Service Department</a></strong> in Tulsa offers scheduled maintenance, repairs, and genuine Nissan parts through our conveniently located <strong><a href="https://jackiecoopernissan.com/parts">Parts Department</a></strong>. This ensures your Rogue continues performing reliably over the years.</p><p>For Nissan roadside emergencies anywhere in Oklahoma, including Broken Arrow, you can rely on the dedicated Nissan roadside assistance at <a href="tel:+1-800-647-7261"><strong>Nissan Roadside Assistance: 1-800-647-7261</strong></a>, a program designed for swift, professional help backed by manufacturer expertise.</p><h2 id="final-thoughts-and-the-exceptional-value-at-jackie-cooper-nissan">Final Thoughts and the Exceptional Value at Jackie Cooper Nissan</h2><p>The 2026 Nissan Rogue Base stands as a trusted companion for drivers in Tulsa and Broken Arrow who value solid performance, essential modern comforts, and safety without unnecessary complexity. At Jackie Cooper Nissan, we take our heritage seriously, working daily to provide honest guidance and lasting relationships with each visitor.</p><p>We encourage you to explore our comprehensive selection of the latest Rogue models in our <strong><a href="https://jackiecoopernissan.com/cars/new-inventory">New Inventory</a></strong>, as well as finely maintained pre-owned options through our <strong><a href="https://jackiecoopernissan.com/cars/used-inventory">Used Vehicles</a></strong> and <strong><a href="https://jackiecoopernissan.com/cars/certified-pre-owned">Certified Pre-Owned Vehicles</a></strong> collections.</p><p>If you want to discover how much your current car may be worth towards a 2026 Rogue, please use our <strong><a href="https://jackiecoopernissan.com/trade">Trade Valuation</a></strong> tool. Our team warmly invites you to visit us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Drive, Tulsa, OK 74133</a></strong>, or contact <strong><a href="tel:+19189216531">(918) 921-6531</a></strong> to schedule a personalized test drive and experience the courteous, knowledgeable service that defines Jackie Cooper Nissan.</p><p>Your next journey deserves the foundation of trust, quality, and community that only a dealership with our heritage and dedication can provide. Come see us soon to find your perfect 2026 Nissan Rogue Base.</p></div>
+
+<footer>
+<p>© 2025 Jackie Cooper Nissan</p>
+</footer>

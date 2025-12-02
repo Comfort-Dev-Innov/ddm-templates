@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Raptor Series</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer2 {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer2 h3,
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 p,
+      .featuresContainer2 ol,
+      .featuresContainer2 ul,
+      .featuresContainer2 table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .card2 {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+      }
+
+      .card2:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-image2 {
+        width: 100%;
+        height: 240px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card-image2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-content2 {
+        padding: 1.75rem;
+      }
+
+      .card-title2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .card-subtitle2 {
+        font-size: 0.95rem;
+        color: #718096;
+        font-weight: 500;
+        margin-bottom: 1.25rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .card-description2 {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* Individual card themes with minimal colors */
+      .ranger-card2 .card-title2 {
+        color: #0f3079;
+      }
+
+      .ranger-card2 .card-image2 {
+        background: linear-gradient(135deg, #ebf4ff 0%, #3971b5 100%);
+        color: #3182ce;
+      }
+
+      .f150-card2 .card-title2 {
+        color: #2d3748;
+      }
+
+      .f150-card2 .card-image2 {
+        background: linear-gradient(135deg, #f7fafc 0%, #a5a8ac 100%);
+        color: #4a5568;
+      }
+
+      .raptor-r-card2 .card-title2 {
+        color: #c53030;
+      }
+
+      .raptor-r-card2 .card-image2 {
+        background: linear-gradient(135deg, #fed7d7 0%, #e14b4b 100%);
+        color: #e53e3e;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .feat-desc br {
+          display: block;
+        }
+
+        .cards-grid2 {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .main-title2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .card-content2 {
+          padding: 1.5rem;
+        }
+
+        .card-image2 {
+          height: 200px;
+        }
+
+        body {
+          padding: 1rem 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid2 {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .card-content2 {
+          padding: 1.25rem;
+        }
+
+        .card-title2 {
+          font-size: 1.25rem;
+        }
+
+        .card-description2 {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Subtle animations */
+      .card-title2 {
+        position: relative;
+      }
+
+      .card-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: currentColor;
+        opacity: 0.3;
+        transition: width 0.3s ease-out;
+      }
+
+      .card2:hover .card-title2::after {
+        width: 100px;
+      }
+
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 30px !important;
+      }
+
+      .feat-desc br {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2" style="text-align: center">
+        Discovering the Most
+        <span style="color: #0f3079">Sporty Ford Models</span>
+      </h2>
+      <p class="feat-desc">
+        For drivers in places like Bethany and Warr Acres craving performance
+        and style, Ford's sportiest models deliver.
+      </p>
+      <div class="cards-grid2">
+        <div class="card2 ranger-card2">
+          <div class="card-image2">
+            <img
+              src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/mustang/2025/jellybeans/Ford_Mustang_2025_200A_PJS_883_89W_13B_CON_64F_99H_44U_EBST_YZTAC_DEFAULT_EXT_1.png"
+              alt="Ford Ranger Raptor"
+            />
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford Mustang</h2>
+            <p class="card-description2">
+              Available with a standard 3.7L V6 or an optional V8 engine, the
+              Mustang offers up to 526 horsepower with a choice of manual or
+              automatic transmissions. Its aerodynamic design and performance
+              features make it a standout sporty car.
+            </p>
+          </div>
+        </div>
+
+        <div class="card2 f150-card2">
+          <div class="card-image2">
+            <img
+              src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/cars/taurus/sunset/C9702919_TAUR_LTD_34FrntPassMotnArtMuseum_mj_desktop.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg"
+              alt="25-frd-esp-actv-oxwh-ps34"
+              border="0"
+            />
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford Taurus SHO</h2>
+            <p class="card-description2">
+              Equipped with a 3.5L EcoBoost engine and all-wheel drive, the
+              Taurus SHO combines power with advanced handling technologies like
+              Torque Vectoring Control and Curve Control.
+            </p>
+          </div>
+        </div>
+
+        <div class="card2 raptor-r-card2">
+          <div class="card-image2">
+            <img
+              src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/cars/fusion/sunset/FL10383620_FUSI_Hyb_SE_34FrntPassStcVlctyBlueNight_mj_16x9.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg"
+              alt="25-frd-mst-dkhrp-rcrd-ps34"
+              border="0"
+            />
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford Fusion Sport</h2>
+            <p class="card-description2">
+              This model features a 2.7L EcoBoost engine, intelligent all-wheel
+              drive, and sport-tuned suspension, offering a sophisticated sporty
+              driving experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>        
+        .comparison-v2-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .comparison-v2-container h1 {
+            width: fit-content !important;
+            color: #012b5d;
+            text-align: center;
+            margin: 0 auto 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-v2-container h1:hover {
+            transform: translateY(-2px);
+        }
+        
+        .comparison-v2-container h3,
+        .comparison-v2-container h1,
+        .comparison-v2-container h2,
+        .comparison-v2-container p,
+        .comparison-v2-container ol,
+        .comparison-v2-container ul {
+            max-width: 1300px !important;
+        }
+        
+        .comparison-v2-section {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid #e9ecef;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .comparison-v2-section:last-child {
+            border-bottom: none;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .comparison-v2-header {
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 200px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            outline: 1px dashed #002c5f;
+            outline-offset: 5px;
+        }
+        
+        .comparison-v2-header:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.3);
+        }
+        
+        .comparison-v2-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .comparison-v2-header:hover::before {
+            left: 100%;
+        }
+        
+        .comparison-v2-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .comparison-v2-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .comparison-v2-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0 !important;
+        }
+        
+        .comparison-v2-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #bbbbbb;
+        }
+        
+        .comparison-v2-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #012b5d;
+        }
+        
+        .comparison-v2-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #6c757d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-v2-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comparison-v2-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%23f8f9fa"/%3E%3Cpath d="M20 50h60M30 40h40M25 60h50" stroke="%23dee2e6" stroke-width="2" fill="none"/%3E%3C/svg%3E');
+            opacity: 0.3;
+        }
+        
+        .comparison-v2-name {
+            padding: 20px;
+            background: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #012b5d;
+            text-align: center;
+        }
+        
+        .comparison-v2-text {
+            padding: 0 30px 10px 30px;
+            margin-bottom: 25px !important;
+        }
+        
+        .comparison-v2-text p {
+            margin-bottom: 20px !important;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .comparison-v2-section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 0 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .comparison-v2-section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #3e85ff, #012b5d);
+            border-radius: 2px;
+        }
+
+        .comparison-v2-intro-text {
+            padding-top: 18px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .comparison-v2-closing-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-top: 30px;
+        }
+        
+        .comparison-v2-verdict {
+            color: white;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-v2-verdict:hover {
+            transform: scale(1.02);
+        }
+        
+        .comparison-v2-verdict strong {
+            font-size: 1.2rem;
+            display: block;
+            background: #f8f9fa;
+            color: #012b5d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 10px 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-v2-verdict p {
+            padding: 25px;
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-v2-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-v2-container {
+                padding: 20px 15px !important;
+            }
+            
+            .comparison-v2-title {
+                font-size: 1.4rem;
+            }
+            
+            .comparison-v2-container h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .comparison-v2-container {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="comparison-v2-container">        
+        <div class="comparison-v2-section">
+            <h2 class="comparison-v2-section-title">The Difference between the Elantra N and Sonata N Line</h2>
+            
+            <p class="comparison-v2-intro-text">
+                For drivers who crave a more adrenaline-filled experience behind the wheel, Hyundai's performance-focused N and N Line models deliver two distinct personalities built around the same goal: pure driving excitement.
+            </p>
+            
+            <div class="comparison-v2-content">
+                <div class="comparison-v2-card">
+                    <div class="comparison-v2-image">
+                        <img src="https://www.hyundaicanada.com/-/media/hyundai/showroom/2024/elantra-n/exterior_gallery/expanded/desktop_xl/img_005.jpg" alt="2026 Hyundai Elantra N exterior view"/>
+                    </div>
+                    <div class="comparison-v2-name">2026 Hyundai Elantra N</div>
+                    <div class="comparison-v2-text">
+                        <p style="padding-top: 15px;">The 2026 Elantra N is the purist's choice. It's a purpose-built sport sedan engineered for enthusiasts. Under the hood sits a turbocharged 2.0-liter four-cylinder that puts out 276 horsepower and 289 lb-ft of torque, enough to launch from 0 to 60 mph in just 4.8 seconds. Press the N Grin Shift button on the Dual-Clutch Transmission model, and the output briefly jumps to 286 horsepower, adding an extra rush of acceleration. Everything about the Elantra N feels deliberate—from its electronically limited-slip differential and multi-link rear suspension to its high-performance brakes. The result is sharp, confident handling that rewards the driver every time the road starts to twist.</p>
+                    </div>
+                </div>
+                <div class="comparison-v2-card">
+                    <div class="comparison-v2-image">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2024-hyundai-sonata-n-line-105-66c617903739e.jpg?crop=0.611xw:0.515xh;0.162xw,0.372xh&resize=1200:*" alt="2026 Hyundai Sonata N Line exterior view"/>
+                    </div>
+                    <div class="comparison-v2-name">2026 Hyundai Sonata N Line</div>
+                    <div class="comparison-v2-text">
+                        <p style="padding-top: 15px;">The 2026 Sonata N Line takes a different approach. It channels its performance through refinement, blending high power with everyday comfort. Its 2.5-liter turbocharged engine delivers 290 horsepower and 311 lb-ft of torque, channeled through an advanced 8-speed Wet Dual-Clutch Transmission for quick, seamless shifts. On the open highway, it feels effortless and composed, more grand tourer than track machine. Its 0–60 mph time of 5.4 seconds is quick by any standard, but the focus here is on smooth, sustained power rather than the raw, aggressive personality of the Elantra N.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="comparison-v2-closing-text">
+                In short, both models deliver serious performance, but in very different ways. The Elantra N is the driver's car, precise, agile, and designed for those who want to feel every curve of the road. The Sonata N Line is the refined powerhouse, built for those who enjoy speed paired with a quiet, confident ride.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

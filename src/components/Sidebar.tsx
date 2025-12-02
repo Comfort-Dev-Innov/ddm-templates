@@ -36,6 +36,7 @@ import {
   combinedTemplates,
   wixBaseTemplates,
   wpTemplates,
+  motiveTemplates,
 } from "@/data/templates";
 import { TemplatePreview } from "./TemplatePreview";
 import {
@@ -56,9 +57,9 @@ export function AppSidebar() {
   const { state, toggleSidebar } = useSidebar();
   const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [templateType, setTemplateType] = useState<"motive" | "wix" | "wp">(
-    "motive"
-  );
+  const [templateType, setTemplateType] = useState<
+    "motive-templates" | "motive" | "wix" | "wp"
+  >("motive-templates");
 
   const isActive = (templateCategory: string, templateFileName: string) => {
     return category === templateCategory && fileName === templateFileName;
@@ -69,13 +70,15 @@ export function AppSidebar() {
   };
 
   const currentBaseTemplates =
-    templateType === "motive"
+    templateType === "motive-templates"
       ? baseTemplates
       : templateType === "wix"
       ? wixBaseTemplates
-      : wpTemplates;
+      : templateType === "wp"
+      ? wpTemplates
+      : []; // For "motive" we'll use special grouping
   const currentCombinedTemplates =
-    templateType === "motive" ? combinedTemplates : [];
+    templateType === "motive-templates" ? combinedTemplates : [];
 
   const filteredBaseTemplates = useMemo(() => {
     if (!searchQuery) return currentBaseTemplates;
@@ -109,6 +112,43 @@ export function AppSidebar() {
     return groups;
   }, [templateType, searchQuery, filteredBaseTemplates]);
 
+  // Group Motive templates by brand, then by project (two-level grouping)
+  const motiveBrandGroups = useMemo(() => {
+    if (templateType !== "motive") return {};
+
+    const templatesToGroup = searchQuery
+      ? motiveTemplates.filter((template) =>
+          template.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      : motiveTemplates;
+
+    const brands: Record<string, Record<string, typeof motiveTemplates>> = {};
+
+    templatesToGroup.forEach((template) => {
+      if (!template.brand) return;
+
+      if (!brands[template.brand]) {
+        brands[template.brand] = {};
+      }
+
+      if (template.project) {
+        // Has project folder - group under project
+        if (!brands[template.brand][template.project]) {
+          brands[template.brand][template.project] = [];
+        }
+        brands[template.brand][template.project].push(template);
+      } else {
+        // Direct file in brand folder - put in special "root" group
+        if (!brands[template.brand]["_root_"]) {
+          brands[template.brand]["_root_"] = [];
+        }
+        brands[template.brand]["_root_"].push(template);
+      }
+    });
+
+    return brands;
+  }, [templateType, searchQuery]);
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader style={{ padding: "20px" }}>
@@ -121,15 +161,18 @@ export function AppSidebar() {
               <div className="flex-1">
                 <Select
                   value={templateType}
-                  onValueChange={(value: "motive" | "wix" | "wp") =>
-                    setTemplateType(value)
-                  }
+                  onValueChange={(
+                    value: "motive-templates" | "motive" | "wix" | "wp"
+                  ) => setTemplateType(value)}
                 >
-                  <SelectTrigger className="h-auto py-1 border-0 shadow-none focus:ring-0">
+                  <SelectTrigger className="w-[180px] h-auto py-1 border-0 shadow-none focus:ring-0">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="motive">Motive Templates</SelectItem>
+                    <SelectItem value="motive-templates">
+                      Motive Templates
+                    </SelectItem>
+                    <SelectItem value="motive">Motive</SelectItem>
                     <SelectItem value="wix">Wix Templates</SelectItem>
                     <SelectItem value="wp">WP Templates</SelectItem>
                   </SelectContent>
@@ -155,21 +198,182 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent className="p-6" style={{ padding: "20px" }}>
-        {/* WP Templates - Grouped by Project */}
-        {templateType === "wp" ? (
+        {/* Motive Templates - Two-level grouping (Brand > Project) */}
+        {templateType === "motive" ? (
+          <>
+            {Object.entries(motiveBrandGroups).map(([brandName, projects]) => (
+              <Collapsible key={brandName} className="group/collapsible">
+                <SidebarGroup>
+                  <SidebarGroupLabel asChild>
+                    <CollapsibleTrigger className="w-full flex justify-between items-center gap-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                      <div className="flex items-center gap-2">
+                        <Layers className="size-4" />
+                        <span className="text-base font-extrabold">
+                          {brandName}
+                        </span>
+                      </div>
+
+                      <ChevronDown className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                    </CollapsibleTrigger>
+                  </SidebarGroupLabel>
+                  <CollapsibleContent>
+                    <SidebarGroupContent>
+                      {Object.entries(projects).map(
+                        ([projectName, templates]) => (
+                          <div key={projectName}>
+                            {projectName === "_root_" ? (
+                              // Direct files in brand folder - no nested collapsible
+                              <SidebarMenu>
+                                {templates.map((template) => (
+                                  <SidebarMenuItem key={template.path}>
+                                    <HoverCard
+                                      openDelay={300}
+                                      onOpenChange={(open) => {
+                                        setHoveredTemplate(
+                                          open ? template.fileName : null
+                                        );
+                                      }}
+                                    >
+                                      <HoverCardTrigger asChild>
+                                        <SidebarMenuButton
+                                          asChild
+                                          isActive={isActive(
+                                            template.category,
+                                            template.fileName
+                                          )}
+                                          tooltip={template.name}
+                                          className={cn(
+                                            isHovered(template.fileName) &&
+                                              "bg-accent text-accent-foreground ring-2 ring-primary/20"
+                                          )}
+                                          style={{ paddingLeft: "20px" }}
+                                        >
+                                          <Link
+                                            to={`/template/${template.category}/${template.fileName}`}
+                                          >
+                                            <FileCode2 className="mr-2 size-4" />
+                                            <span>
+                                              {template.name.split(" / ")[1]}
+                                            </span>
+                                          </Link>
+                                        </SidebarMenuButton>
+                                      </HoverCardTrigger>
+                                      <HoverCardContent
+                                        side="right"
+                                        align="start"
+                                        className="w-auto p-0"
+                                      >
+                                        <TemplatePreview template={template} />
+                                      </HoverCardContent>
+                                    </HoverCard>
+                                  </SidebarMenuItem>
+                                ))}
+                              </SidebarMenu>
+                            ) : (
+                              // Project folder - nested collapsible
+                              <Collapsible
+                                key={projectName}
+                                className="group/project-collapsible ml-4"
+                              >
+                                <CollapsibleTrigger
+                                  style={{
+                                    marginLeft: "15px",
+                                    padding: "5px 0",
+                                  }}
+                                  className="w-full gap-2  hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex items-center py-2 px-2 rounded-md"
+                                >
+                                  <Layers className="mr-2 size-4" />
+                                  <span className="text-sm font-medium">
+                                    {projectName.length > 20
+                                      ? projectName.substring(0, 18) + "..."
+                                      : projectName}
+                                  </span>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent>
+                                  <SidebarMenu>
+                                    {templates.map((template) => (
+                                      <SidebarMenuItem key={template.path}>
+                                        <HoverCard
+                                          openDelay={300}
+                                          onOpenChange={(open) => {
+                                            setHoveredTemplate(
+                                              open ? template.fileName : null
+                                            );
+                                          }}
+                                        >
+                                          <HoverCardTrigger asChild>
+                                            <SidebarMenuButton
+                                              asChild
+                                              isActive={isActive(
+                                                template.category,
+                                                template.fileName
+                                              )}
+                                              tooltip={template.name}
+                                              className={cn(
+                                                isHovered(template.fileName) &&
+                                                  "bg-accent text-accent-foreground ring-2 ring-primary/20"
+                                              )}
+                                              style={{ paddingLeft: "30px" }}
+                                            >
+                                              <Link
+                                                to={`/template/${template.category}/${template.fileName}`}
+                                              >
+                                                <FileCode2 className="mr-2 size-4" />
+                                                <span>
+                                                  {
+                                                    template.name.split(
+                                                      " / "
+                                                    )[2]
+                                                  }
+                                                </span>
+                                              </Link>
+                                            </SidebarMenuButton>
+                                          </HoverCardTrigger>
+                                          <HoverCardContent
+                                            side="right"
+                                            align="start"
+                                            className="w-auto p-0"
+                                          >
+                                            <TemplatePreview
+                                              template={template}
+                                            />
+                                          </HoverCardContent>
+                                        </HoverCard>
+                                      </SidebarMenuItem>
+                                    ))}
+                                  </SidebarMenu>
+                                </CollapsibleContent>
+                              </Collapsible>
+                            )}
+                          </div>
+                        )
+                      )}
+                    </SidebarGroupContent>
+                  </CollapsibleContent>
+                </SidebarGroup>
+              </Collapsible>
+            ))}
+          </>
+        ) : templateType === "wp" ? (
+          /* WP Templates - Grouped by Project */
           <>
             {Object.entries(wpProjectGroups).map(([projectName, templates]) => (
               <Collapsible key={projectName} className="group/collapsible">
                 <SidebarGroup>
                   <SidebarGroupLabel asChild>
-                    <CollapsibleTrigger className="w-full gap-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
-                      <Layers className="mr-2 size-4" />
-                      <span className="text-base font-extrabold">
-                        {projectName.length > 17
-                          ? projectName.substring(0, 15) + "..."
-                          : projectName}
-                      </span>
-                      <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                    <CollapsibleTrigger className="w-full flex justify-between items-center hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                      {/* Left group */}
+                      <div className="flex items-center gap-2">
+                        <Layers className="size-4" />
+                        <span className="text-base font-extrabold">
+                          {projectName.length > 17
+                            ? projectName.substring(0, 15) + "..."
+                            : projectName}
+                        </span>
+                      </div>
+
+                      {/* Chevron stays at the end */}
+                      <ChevronDown className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
                     </CollapsibleTrigger>
                   </SidebarGroupLabel>
                   <CollapsibleContent>
@@ -229,12 +433,17 @@ export function AppSidebar() {
           <Collapsible className="group/collapsible ">
             <SidebarGroup>
               <SidebarGroupLabel asChild>
-                <CollapsibleTrigger className="w-full gap-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground font-extrabold text-2xl">
-                  <Layers className="mr-2 size-4" />
-                  <span className="text-base font-extrabold">
-                    Base Templates
-                  </span>
-                  <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                <CollapsibleTrigger className="w-full flex justify-between items-center hover:bg-sidebar-accent hover:text-sidebar-accent-foreground font-extrabold text-2xl">
+                  {/* Left group */}
+                  <div className="flex items-center gap-2">
+                    <Layers className="size-4" />
+                    <span className="text-base font-extrabold">
+                      Base Templates
+                    </span>
+                  </div>
+
+                  {/* Chevron always at the end */}
+                  <ChevronDown className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
@@ -287,8 +496,8 @@ export function AppSidebar() {
           </Collapsible>
         )}
 
-        {/* Combined Templates Group - Only for Motive */}
-        {templateType === "motive" && (
+        {/* Combined Templates Group - Only for Motive Templates */}
+        {templateType === "motive-templates" && (
           <Collapsible className="group/collapsible">
             <SidebarGroup>
               <SidebarGroupLabel asChild>

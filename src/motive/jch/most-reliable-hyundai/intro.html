@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .first-time-driver-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .first-time-driver-container h1 {
+            width: fit-content !important;
+        }
+        
+        .first-time-driver-container h3,
+        .first-time-driver-container h1,
+        .first-time-driver-container h2,
+        .first-time-driver-container p,
+        .first-time-driver-container ol,
+        .first-time-driver-container ul {
+            max-width: 1300px !important;
+        }
+        
+        .blue-section {
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            color: white;
+            padding: 60px 40px;
+            margin: 0 -40px 0 -40px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blue-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .animated-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .bubble-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .bubble-2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .bubble-3 {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .bubble-4 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 30%;
+            animation-delay: 1s;
+        }
+        
+        .bubble-5 {
+            width: 40px;
+            height: 40px;
+            top: 10%;
+            right: 50%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+                opacity: 0.3;
+            }
+        }
+        
+        .blue-section .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .intro-paragraph {
+            font-size: 1.1em;
+            margin-bottom: 2em !important;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .intro-paragraph:first-child::first-letter {
+            font-size: 4em;
+            font-weight: 700;
+            line-height: 1;
+            float: left;
+            margin-right: 8px;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .intro-paragraph:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .intro-paragraph:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .white-section {
+            padding: 60px 40px;
+            color: #333;
+        }
+        
+        .white-section .content {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .guide-intro {
+            font-size: 1.1em;
+            margin-bottom: 3em !important;
+            color: #012b5d;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .key-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5em;
+            margin-bottom: 3em;
+        }
+        
+        .factor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 4px 20px rgba(1, 43, 93, 0.1);
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .factor-card:nth-child(1) { animation-delay: 0.8s; }
+        .factor-card:nth-child(2) { animation-delay: 1s; }
+        .factor-card:nth-child(3) { animation-delay: 1.2s; }
+        .factor-card:nth-child(4) { animation-delay: 1.4s; }
+        
+        .factor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.15);
+            border-color: #012b5d;
+        }
+        
+        .factor-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5em;
+            fill: #012b5d;
+            transition: transform 0.3s ease;
+        }
+        
+        .factor-card:hover .factor-icon {
+            transform: scale(1.1);
+        }
+        
+        .factor-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1em;
+        }
+        
+        .factor-description {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .closing-paragraph {
+            font-size: 1.1em;
+            color: #012b5d;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 1.6s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blue-section,
+            .white-section {
+                padding: 40px 20px;
+            }
+            
+            .blue-section {
+                margin: 0 -20px;
+            }
+            
+            .key-factors {
+                grid-template-columns: 1fr;
+                gap: 2em;
+            }
+            
+            .intro-paragraph,
+            .guide-intro,
+            .closing-paragraph {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="first-time-driver-container">
+        <div class="blue-section">
+            <div class="animated-bubble bubble-1"></div>
+            <div class="animated-bubble bubble-2"></div>
+            <div class="animated-bubble bubble-3"></div>
+            <div class="animated-bubble bubble-4"></div>
+            <div class="animated-bubble bubble-5"></div>
+            <div class="content">
+                <p class="intro-paragraph">Getting behind the wheel for the first time is a significant moment, whether you're 16 or 60. It represents freedom, responsibility, and the beginning of countless journeys ahead. For first-time drivers across Oklahoma—from the college students in Norman to the career changers in Edmond, from young adults in Moore to anyone finally taking that step toward independence—choosing the right vehicle sets the foundation for years of safe, reliable transportation.</p>
+                
+                <p class="intro-paragraph">The challenge is finding a car that balances practical needs with personal preferences. First-time drivers often want something that feels modern and connected, while those supporting them (family members, or the drivers themselves) prioritize safety, reliability, and smart financial decisions. The good news is these priorities don't have to compete.</p>
+                
+                <p class="intro-paragraph">Hyundai has built a reputation for delivering vehicles that excel across all these areas. Their lineup offers something for every first-time driver scenario: the recent graduate starting their first job, the parent returning to driving after years, the teenager earning their independence, or the adult who's finally ready to move beyond public transportation.</p>
+            </div>
+        </div>
+        
+        <div class="white-section">
+            <div class="content">
+                <p class="guide-intro">This guide examines Hyundai's most suitable models for new drivers, focusing on four key factors:</p>
+                
+                <div class="key-factors">
+                    <div class="factor-card">
+                        <svg class="factor-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A3,3 0 0,1 15,5V7H19A1,1 0 0,1 20,8V20A1,1 0 0,1 19,21H5A1,1 0 0,1 4,20V8A1,1 0 0,1 5,7H9V5A3,3 0 0,1 12,2M12,4A1,1 0 0,0 11,5V7H13V5A1,1 0 0,0 12,4M6,9V19H18V9H6M8,11H16V13H8V11M8,15H13V17H8V15Z"/>
+                        </svg>
+                        <h3 class="factor-title">Safety First</h3>
+                        <p class="factor-description">Advanced safety features that help prevent accidents and protect occupants when they occur, designed for real-world driving situations.</p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <svg class="factor-icon" viewBox="0 0 24 24">
+                            <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                        </svg>
+                        <h3 class="factor-title">Smart Value</h3>
+                        <p class="factor-description">Vehicles that make financial sense both at purchase and over the years of ownership, with strong resale value and low maintenance costs.</p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <svg class="factor-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,6H13V12.414L15.707,15.121L14.293,16.535L11,13.242V6Z"/>
+                        </svg>
+                        <h3 class="factor-title">Dependable Performance</h3>
+                        <p class="factor-description">The reliability and engineering quality that builds confidence on every drive, backed by industry-leading warranties.</p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <svg class="factor-icon" viewBox="0 0 24 24">
+                            <path d="M17,1H7A2,2 0 0,0 5,3V21L12,18L19,21V3A2,2 0 0,0 17,1M17,18L12,15.82L7,18V3H17V18Z"/>
+                        </svg>
+                        <h3 class="factor-title">Modern Connectivity</h3>
+                        <p class="factor-description">Intuitive technology that keeps drivers connected and informed without creating distractions.</p>
+                    </div>
+                </div>
+                
+                <p class="closing-paragraph">Whether you're shopping for yourself or helping someone else make this important decision, understanding which Hyundai models best serve first-time drivers will help you choose with confidence.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

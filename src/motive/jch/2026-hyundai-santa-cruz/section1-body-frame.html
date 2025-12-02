@@ -1,0 +1,185 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Landscape Image Section */
+      .landscape-image-section {
+        width: 100%;
+        margin: 40px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .landscape-image-section img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Body-on-Frame Overview: 2026 Santa Cruz vs 2026 Frontier
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          The most fundamental difference between the Santa Cruz and the
+          Frontier is in their very construction, a choice that dictates their
+          on-road manners and ultimate purpose.
+        </p>
+        <p class="paragraph-text">
+          The 2026 Hyundai Santa Cruz is built on a unibody platform, sharing
+          its sophisticated underpinnings with the acclaimed Tucson SUV. In this
+          modern design, the body and frame are a single, integrated structure.
+          This creates a lighter, more rigid chassis, which pays significant
+          dividends in daily driving. The on-road experience is remarkably
+          similar to a crossover, offering a composed, quiet, and comfortable
+          ride. A key component of this refinement is its four-wheel independent
+          suspension, featuring MacPherson struts up front and an advanced
+          multi-link design in the rear. This setup allows each rear wheel to
+          absorb bumps and imperfections independently, preventing the jarring,
+          side-to-side motions often felt in traditional trucks on uneven
+          Oklahoma county roads.
+        </p>
+        <p class="paragraph-text">
+          Conversely, the 2026 Nissan Frontier employs a classic body-on-frame
+          design, a separate, heavy-duty steel frame that serves as the
+          backbone, with the cab and bed mounted on top. This time-tested
+          construction is revered for its durability and its ability to isolate
+          the cabin from the stresses of heavy payloads and extreme off-road
+          articulation. The Frontier utilizes an independent double-wishbone
+          front suspension, but the rear features a solid axle with rugged leaf
+          springs. While this setup is exceptionally durable and ideal for
+          carrying heavy loads, it comes with a trade-off in ride comfort. On
+          less-than-perfect surfaces, the solid axle can transmit more bumps
+          into the cabin, leading to a bouncier, less settled ride that is
+          characteristic of traditional pickups.
+        </p>
+        <p class="paragraph-text">
+          This architectural divergence reveals the manufacturers' distinct
+          visions for the modern truck buyer. Hyundai is targeting the growing
+          number of consumers who desire the utility of an open bed but are
+          unwilling to sacrifice the daily driving comfort and superior handling
+          of an SUV. Nissan remains committed to the proven formula that has
+          long served the traditional truck market, prioritizing ultimate
+          toughness and work-ready capability. For the vast majority of driving
+          that occurs on paved roads, Santa Cruz's architecture offers a more
+          refined and pleasant experience. For those whose work or recreation
+          demands the utmost in rugged durability, the Frontier's design
+          provides both a practical and psychological advantage.
+        </p>
+      </div>
+
+      <!-- Landscape Image Section -->
+      <div class="landscape-image-section">
+        <img
+          src="https://i.ibb.co/M5gYZWDk/2026-santa-cruz-sel-fwd-sage-gray-vehicle-browse-hero-Browse.webp"
+        />
+      </div>
+
+      <hr class="hr-1" id="turbo-power-performance" />
+    </div>
+  </body>
+</html>

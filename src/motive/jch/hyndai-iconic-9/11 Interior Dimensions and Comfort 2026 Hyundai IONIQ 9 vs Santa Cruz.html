@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .section12 {
+        .comparison-container {
+          padding: 40px 0 !important;
+          line-height: 1.6 !important;
+          max-width: 1300px;
+          margin: 0 auto;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .comparison-container h1 {
+          width: fit-content !important;
+          color: #012b5d;
+          font-size: 1.8rem;
+          margin-bottom: 30px;
+          text-align: center;
+          width: 100% !important;
+          font-weight: 600;
+        }
+
+        .comparison-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 0 auto;
+          max-width: 1300px !important;
+          background: white;
+          position: relative;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table thead {
+          background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+          color: white;
+        }
+
+        .comparison-table th {
+          padding: 20px 16px;
+          text-align: left;
+          font-weight: 600;
+          font-size: 1.1rem;
+          border-right: 1px solid rgba(255, 255, 255, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .comparison-table th:last-child {
+          border-right: none;
+        }
+
+        .comparison-table th:first-child {
+          border-top-left-radius: 12px;
+          width: 25%;
+        }
+
+        .comparison-table th:last-child {
+          border-top-right-radius: 12px;
+        }
+
+        .comparison-table tbody tr {
+          transition: all 0.3s ease;
+          border-bottom: 1px solid #e8e8e8;
+        }
+
+        .comparison-table tbody tr:hover {
+          background: linear-gradient(
+            90deg,
+            rgba(1, 43, 93, 0.05) 0%,
+            rgba(0, 44, 95, 0.03) 100%
+          );
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(1, 43, 93, 0.1);
+        }
+
+        .comparison-table tbody tr:last-child {
+          border-bottom: none;
+        }
+
+        .comparison-table td {
+          padding: 18px 16px;
+          vertical-align: top;
+          border-right: 1px solid #f0f0f0;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .comparison-table td:last-child {
+          border-right: none;
+        }
+
+        .comparison-table td:first-child {
+          background: linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%);
+          font-weight: 600;
+          color: #012b5d;
+          font-size: 1rem;
+        }
+
+        .comparison-table tbody tr:hover td:first-child {
+          background: linear-gradient(
+            90deg,
+            rgba(1, 43, 93, 0.08) 0%,
+            rgba(1, 43, 93, 0.02) 100%
+          );
+        }
+
+        .comparison-table td:not(:first-child) {
+          font-size: 0.95rem;
+          color: #555;
+        }
+
+        .feature-highlight {
+          position: relative;
+          padding-left: 12px;
+        }
+
+        .feature-highlight::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, #012b5d 0%, #002c5f 100%);
+          border-radius: 2px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .comparison-table tbody tr:hover .feature-highlight::before {
+          opacity: 1;
+        }
+
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .comparison-table tbody tr {
+          animation: slideIn 0.5s ease forwards;
+        }
+
+        .comparison-table tbody tr:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        .comparison-table tbody tr:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .comparison-table tbody tr:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        .comparison-table tbody tr:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        .comparison-table tbody tr:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+        .comparison-table tbody tr:nth-child(6) {
+          animation-delay: 0.6s;
+        }
+        .comparison-table tbody tr:nth-child(7) {
+          animation-delay: 0.7s;
+        }
+        .comparison-table tbody tr:nth-child(8) {
+          animation-delay: 0.8s;
+        }
+
+        /* Enhanced hover effects */
+        .comparison-table tbody tr:hover td {
+          color: #012b5d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .comparison-container {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+
+          .comparison-container h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+          }
+
+          .comparison-table th,
+          .comparison-table td {
+            padding: 14px 12px;
+            font-size: 0.9rem;
+          }
+
+          .comparison-table th {
+            font-size: 1rem;
+          }
+
+          .comparison-table td:first-child {
+            font-size: 0.95rem;
+          }
+
+          .comparison-table th:first-child,
+          .comparison-table th:last-child {
+            border-radius: 0;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .comparison-table th,
+          .comparison-table td {
+            padding: 12px 10px;
+            font-size: 0.85rem;
+          }
+
+          .comparison-table th {
+            font-size: 0.95rem;
+          }
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .table-wrapper {
+          animation: fadeIn 0.8s ease;
+        }
+
+        .paragraphheading {
+          font-size: 32px !important;
+          font-weight: 700;
+          color: #012b5d;
+          margin-bottom: 25px;
+          text-align: center;
+          width: 100% !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section12 comparison-container">
+      <h2 class="paragraphheading">
+        <span style="font-weight: 300; color: black"
+          >Interior Dimensions and Comfort:</span
+        >
+        2026 Hyundai IONIQ 9 vs Santa Cruz
+      </h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>2026 Hyundai IONIQ 9</th>
+            <th>2026 Hyundai Santa Cruz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-highlight">Seating Capacity</td>
+            <td>6 or 7</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight">Passenger Volume</td>
+            <td>~163.5 cu. ft.</td>
+            <td>~104 cu. ft.</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight">2nd-Row Legroom</td>
+            <td>up to 42.8 in.</td>
+            <td>36.5 in.</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight">3rd-Row Legroom</td>
+            <td>32.0 in.</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight">Cargo Space</td>
+            <td>21.9 cu. ft. (behind 3rd row) / 86.9 cu. ft. (max)</td>
+            <td>27.0 cu. ft. (open bed)</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight">Key Upholstery</td>
+            <td>Stain-resistant cloth, H-Tex®, Leather</td>
+            <td>Stain-resistant cloth, Leatherette, Leather</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

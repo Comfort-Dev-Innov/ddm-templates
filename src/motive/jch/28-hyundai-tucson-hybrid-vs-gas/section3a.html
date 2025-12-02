@@ -1,0 +1,522 @@
+<style>
+  /* Section 3a Scoped Styles - Note: Body styles handled by motive to avoid conflicts */
+
+  /* Section 3a Scoped Styles */
+  .section3a .container {
+    padding: 40px 0 !important;
+    line-height: 1.6 !important;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section3a .container h1 {
+    width: fit-content !important;
+  }
+
+  .section3a .container h3,
+  .section3a .container h1,
+  .section3a .container h2,
+  .section3a .container p,
+  .section3a .container ol,
+  .section3a .container ul {
+    max-width: 1300px !important;
+  }
+
+  /* Main Section Header */
+  .section3a .main-header {
+    background: linear-gradient(135deg, #0f3079 0%, #1e4a8c 100%);
+    color: white;
+    padding: 50px 40px;
+    margin: 0;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+  }
+
+  .section3a .main-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center !important;
+  }
+
+  .section3a .main-header span {
+    font-weight: 300;
+    margin: 0 auto;
+    font-size: 18px;
+    opacity: 0.9;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .section3a .subsection-intro {
+    text-align: center;
+    margin: 30px auto !important;
+    width: 100%;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+
+  /* Trim Section Styling */
+  .section3a .trim-section {
+    margin: 50px 0;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .section3a .trim-header {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
+    padding: 25px 30px;
+    margin: 0;
+  }
+
+  .section3a .trim-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .section3a .trim-content {
+    padding: 30px;
+    background: white;
+  }
+
+  .section3a .trim-intro {
+    font-size: 16px;
+    color: #0f3079;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .section3a .trim-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2c3e50;
+    text-align: justify;
+    margin-bottom: 15px;
+  }
+
+  /* Table Styling */
+  .section3a .table-section {
+    margin: 60px 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .section3a .table-header {
+    background: linear-gradient(135deg, #0f3079 0%, #1e4a8c 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .section3a .table-header h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .section3a .table-header p {
+    font-size: 16px;
+    margin: 0 auto;
+    opacity: 0.9;
+    width: 100%;
+    text-align: center;
+  }
+
+  .section3a .table-container {
+    padding: 30px;
+    overflow-x: auto;
+  }
+
+  .section3a .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .section3a .comparison-table th {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 15px 12px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: 2px solid #1a252f;
+  }
+
+  .section3a .comparison-table th:first-child {
+    text-align: left;
+    background: linear-gradient(135deg, #0f3079, #1e4a8c);
+    min-width: 180px;
+  }
+
+  .section3a .comparison-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .section3a .comparison-table td:first-child {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: left;
+    border-right: 2px solid #dee2e6;
+  }
+
+  .section3a .comparison-table tr:nth-child(even) td:not(:first-child) {
+    background: #f8f9fa;
+  }
+
+  .section3a .comparison-table tr:hover td {
+    background: #e3f2fd;
+  }
+
+  .section3a .comparison-table tr:hover td:first-child {
+    background: #bbdefb;
+  }
+
+  /* Special styling for powertrain rows */
+  .section3a .powertrain-row td {
+    font-weight: 500;
+  }
+
+  .section3a .hr-1 {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+    margin: 50px 40px;
+  }
+
+  @media (max-width: 768px) {
+    .section3a .main-header {
+      padding: 30px 20px;
+    }
+
+    .section3a .main-header h2 {
+      margin: 0 auto;
+      font-size: 28px;
+    }
+
+    .section3a .subsection-intro {
+      margin: 30px 20px !important;
+      font-size: 16px;
+    }
+
+    .section3a .trim-header {
+      padding: 20px;
+    }
+
+    .section3a .trim-header h3 {
+      font-size: 20px;
+    }
+
+    .section3a .trim-content {
+      padding: 20px;
+    }
+
+    .section3a .table-header {
+      padding: 20px;
+    }
+
+    .section3a .table-header h3 {
+      font-size: 24px;
+    }
+
+    .section3a .table-container {
+      padding: 10px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    /* Mobile table styling - larger and scrollable */
+    .section3a .comparison-table {
+      font-size: 14px; /* Increased from 12px for better readability */
+      min-width: 800px; /* Ensure table maintains readable width */
+      white-space: nowrap; /* Prevent text wrapping in cells */
+    }
+
+    .section3a .comparison-table th,
+    .section3a .comparison-table td {
+      padding: 12px 10px; /* Increased padding for better touch targets */
+      min-width: 120px; /* Ensure minimum column width */
+    }
+
+    .section3a .comparison-table th:first-child,
+    .section3a .comparison-table td:first-child {
+      min-width: 180px; /* Larger width for feature column */
+      white-space: normal; /* Allow wrapping in first column if needed */
+    }
+
+    /* Add visual indicator for horizontal scroll */
+    .section3a .table-container::after {
+      content: '← Swipe to see more →';
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .section3a .hr-1 {
+      margin: 50px 20px;
+    }
+  }
+</style>
+
+<div class="container section3a">
+  <div class="main-header">
+    <h2>The 2025 Tucson Hybrid</h2>
+    <span>More Power, More Efficiency, More Capability</span>
+  </div>
+
+  <div>
+    <p class="subsection-intro">
+      The 2025 Tucson Hybrid lineup is designed for the driver who wants more:
+      more power, more efficiency, and more standard capability. Every hybrid
+      model comes standard with the formidable 231-horsepower turbocharged
+      hybrid powertrain and the confidence-inspiring HTRAC® All-Wheel Drive
+      system. The choice here isn't about whether to get the advanced
+      powertrain, but rather which collection of features best complements its
+      remarkable performance.
+    </p>
+  </div>
+
+  <!-- Blue Trim Section -->
+  <div class="trim-section">
+    <div class="trim-header">
+      <h3>Blue Trim: Maximum Efficiency Champion</h3>
+    </div>
+    <div class="trim-content">
+      <p class="trim-description">
+        The mission of the Tucson Hybrid Blue is clear: to deliver the absolute
+        maximum fuel efficiency possible without asking you to compromise on
+        essential technology or comfort.
+      </p>
+      <p class="trim-description">
+        This trim is the ultimate weapon against fluctuating gas prices in
+        Oklahoma City, achieving an incredible EPA-estimated 38 MPG combined (38
+        City/38 Highway). This is a remarkable feat for a spacious,
+        all-wheel-drive SUV. Even as the efficiency leader, the Blue trim is
+        generously equipped. You still get the large 12.3-inch touchscreen,
+        Proximity Key with push-button start, heated front seats, and a full
+        suite of Hyundai SmartSense safety features. It rides on stylish 17-inch
+        alloy wheels that are optimized for aerodynamic efficiency, helping it
+        achieve its stellar MPG figures.
+      </p>
+    </div>
+  </div>
+
+  <!-- SEL Convenience Trim Section -->
+  <div class="trim-section">
+    <div class="trim-header">
+      <h3>SEL Convenience Trim: The Hybrid Sweet Spot</h3>
+    </div>
+    <div class="trim-content">
+      <p class="trim-description">
+        For many buyers, the Tucson Hybrid SEL Convenience will be the perfect
+        sweet spot, masterfully blending impressive efficiency with a host of
+        premium features.
+      </p>
+      <p class="trim-description">
+        It offers a very strong EPA-estimated 35 MPG combined, ensuring you
+        still enjoy significant savings at the pump. Over the Blue trim, the SEL
+        Convenience adds transformative upgrades that elevate the entire driving
+        experience. The seating surfaces are upgraded to luxurious and durable
+        H-Tex®, the driver is treated to the full 12.3-inch digital instrument
+        cluster, and the cabin is opened up to the sky with a massive panoramic
+        sunroof. To set the mood, expanded 64-color ambient interior lighting is
+        added to the center console and door pockets. This is the ideal choice
+        for the driver who wants the long-term value of a hybrid without
+        forgoing the touches of luxury that make every drive special.
+      </p>
+    </div>
+  </div>
+
+  <!-- N Line Trim Section -->
+  <div class="trim-section">
+    <div class="trim-header">
+      <h3>N Line Trim: Sporty Performance Hybrid</h3>
+    </div>
+    <div class="trim-content">
+      <p class="trim-description">
+        There is a common question about Hyundai's N Line models: Are they
+        faster? In the case of the Tucson Hybrid, the powertrain is the same
+        potent 231-hp unit found in the other trims. The true purpose of the N
+        Line is to provide the ultimate expression of sporty, aggressive design.
+      </p>
+      <p class="trim-description">
+        This is the Tucson for the driver who values a bold aesthetic and wants
+        to turn heads, whether parked in Bricktown for dinner or arriving at a
+        tailgate party for the big game. The N Line's transformation is
+        comprehensive and striking. It features exclusive 19-inch N Line alloy
+        wheels, a more aggressive front and rear fascia design, a unique single
+        twin-tip exhaust, and numerous blacked-out exterior accents, including
+        the side mirrors and headlight bezels. The interior is just as dramatic,
+        with unique black sport seats that combine leather and cloth, vibrant
+        red accent stitching, alloy sport pedals, and a leather-wrapped steering
+        wheel bearing the N emblem. It's the perfect fusion of hybrid efficiency
+        and motorsport-inspired style.
+      </p>
+    </div>
+  </div>
+
+  <!-- Limited Trim Section -->
+  <div class="trim-section">
+    <div class="trim-header">
+      <h3>Limited Trim: The Ultimate Hybrid Experience</h3>
+    </div>
+    <div class="trim-content">
+      <p class="trim-description">
+        The Tucson Hybrid Limited combines the best of all worlds: the
+        efficiency and power of the hybrid powertrain, the confidence of
+        standard HTRAC® AWD, and the most advanced technology and luxury
+        features Hyundai has to offer.
+      </p>
+      <p class="trim-description">
+        It shares the excellent 35 MPG combined rating of the SEL Convenience
+        and N Line trims and builds upon their features to create a true
+        flagship experience. The interior is adorned with full leather-trimmed
+        seats, which are ventilated in the front and heated in both the front
+        and rear. The Bose® Premium Audio system provides an immersive sound
+        experience, while advanced tech like the Head-Up Display and Remote
+        Smart Parking Assist adds a layer of futuristic convenience. For an
+        extra measure of personalized security, the Limited features a
+        fingerprint scanner that can be tied to your driver profile. The cabin
+        is also exceptionally quiet, benefiting from acoustic-laminated glass on
+        both the windshield and the front side windows, making it a peaceful
+        sanctuary on the road.
+      </p>
+    </div>
+  </div>
+
+  <!-- Hybrid Comparison Table Section -->
+  <div class="table-section">
+    <div class="table-header">
+      <h3>Table 2: 2025 Hyundai Tucson Hybrid Feature Comparison</h3>
+      <p>
+        This table highlights the key features that differentiate the trims
+        within the advanced and efficient Hybrid lineup.
+      </p>
+    </div>
+    <div class="table-container">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Blue</th>
+            <th>SEL Convenience</th>
+            <th>N Line</th>
+            <th>Limited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="powertrain-row">
+            <td>Combined HP / Torque</td>
+            <td>231 hp / 271 lb-ft</td>
+            <td>231 hp / 271 lb-ft</td>
+            <td>231 hp / 271 lb-ft</td>
+            <td>231 hp / 271 lb-ft</td>
+          </tr>
+          <tr class="powertrain-row">
+            <td>Drivetrain</td>
+            <td>Standard HTRAC AWD</td>
+            <td>Standard HTRAC AWD</td>
+            <td>Standard HTRAC AWD</td>
+            <td>Standard HTRAC AWD</td>
+          </tr>
+          <tr class="powertrain-row">
+            <td>EPA-Est. MPG (Comb)</td>
+            <td>38 MPG</td>
+            <td>35 MPG</td>
+            <td>35 MPG</td>
+            <td>35 MPG</td>
+          </tr>
+          <tr>
+            <td>Wheels</td>
+            <td>17-inch Alloy</td>
+            <td>18-inch Alloy</td>
+            <td>19-inch N Line Unique Alloy</td>
+            <td>19-inch Alloy</td>
+          </tr>
+          <tr>
+            <td>Seating Material</td>
+            <td>Cloth</td>
+            <td>H-Tex® Seating Surfaces</td>
+            <td>Black Sport Leather/Cloth</td>
+            <td>Leather-Trimmed Seats</td>
+          </tr>
+          <tr>
+            <td>Heated/Ventilated Seats</td>
+            <td>Heated Front</td>
+            <td>Heated Front</td>
+            <td>Heated Front</td>
+            <td>Heated & Ventilated Front, Heated Rear</td>
+          </tr>
+          <tr>
+            <td>Infotainment & Gauge Cluster</td>
+            <td>12.3" Touch / 4.2" LCD</td>
+            <td>12.3" Touch w/Nav / 12.3" Digital</td>
+            <td>12.3" Touch w/Nav / 12.3" Digital</td>
+            <td>12.3" Touch w/Nav / 12.3" Digital</td>
+          </tr>
+          <tr>
+            <td>Audio System</td>
+            <td>Standard Audio</td>
+            <td>Standard Audio</td>
+            <td>Bose® Premium Audio</td>
+            <td>Bose® Premium Audio</td>
+          </tr>
+          <tr>
+            <td>Sunroof</td>
+            <td>Not Available</td>
+            <td>Standard Panoramic Sunroof</td>
+            <td>Standard Panoramic Sunroof</td>
+            <td>Standard Panoramic Sunroof</td>
+          </tr>
+          <tr>
+            <td>Key N Line Features</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>
+              Unique Fascias, Twin-Tip Exhaust, Black Accents, Sport Interior
+            </td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Key Limited Features</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>HUD, RSPA, Acoustic Glass, Fingerprint Scanner</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="hr-1" />
+</div>

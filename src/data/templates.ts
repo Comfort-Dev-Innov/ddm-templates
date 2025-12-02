@@ -3,6 +3,8 @@ export interface Template {
   fileName: string;
   category: 'base-temp' | 'combined-temp';
   path: string;
+  brand?: string;  // For motive templates
+  project?: string | null;  // For motive templates - null if file is directly in brand folder
 }
 
 export const baseTemplates: Template[] = [
@@ -82,5 +84,9 @@ export const allWixTemplates: Template[] = [...wixBaseTemplates];
 import { wpTemplates as wpTemplatesImport } from './wp-templates';
 export const wpTemplates = wpTemplatesImport;
 
-// Combined list of all templates from Motive, Wix, and WP
-export const allAvailableTemplates: Template[] = [...allTemplates, ...allWixTemplates, ...wpTemplates];
+// Motive Templates - Import from separate file
+import { motiveTemplates as motiveTemplatesImport } from './motive-templates';
+export const motiveTemplates = motiveTemplatesImport;
+
+// Combined list of all templates from Motive, Wix, WP, and Motive folder
+export const allAvailableTemplates: Template[] = [...allTemplates, ...allWixTemplates, ...wpTemplates, ...motiveTemplates];

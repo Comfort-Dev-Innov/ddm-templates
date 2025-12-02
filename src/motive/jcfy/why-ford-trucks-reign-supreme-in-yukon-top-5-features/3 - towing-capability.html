@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unmatched Towing and Hauling Capability - Ford Trucks</title>
+    <style>
+      /* Motive Container Default Styles */
+      .stn-rounded-img-container {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .stn-rounded-img-container h1 {
+        width: fit-content !important;
+      }
+
+      .stn-rounded-img-container h3,
+      .stn-rounded-img-container h1,
+      .stn-rounded-img-container h2,
+      .stn-rounded-img-container p,
+      .stn-rounded-img-container ol,
+      .stn-rounded-img-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Article Styles */
+      .article-2-title {
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 1.8em;
+        border-bottom: 4px solid #0f3079;
+        padding-bottom: 15px;
+        width: 100%;
+        position: relative;
+      }
+
+      .article-2-title::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .article-2-title h1 {
+        margin: 0;
+        width: 100% !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .circle-para-container {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        gap: 30px;
+        padding: 30px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .circle-para-container.left-image {
+        flex-direction: row;
+      }
+
+      .circle-para-container.right-image {
+        flex-direction: row-reverse;
+      }
+
+      .image-wrapper {
+        flex-shrink: 0;
+        width: 220px;
+      }
+
+      .circle-img {
+        width: 190px;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 200px;
+        border: 6px solid #0f3079;
+        outline: 4px solid white;
+        outline-offset: -2px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .circle-img:hover {
+        transform: scale(1.08);
+        animation-play-state: paused;
+        border-color: #ff6b35;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .circle-img.delay-1 {
+        animation-delay: 0s;
+      }
+
+      .circle-img.delay-2 {
+        animation-delay: 2s;
+      }
+
+      .circle-img.delay-3 {
+        animation-delay: 4s;
+      }
+
+      .circle-text-content {
+        flex: 1;
+        font-size: 17px;
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      .circle-text-content strong {
+        color: #0f3079;
+        font-weight: bold;
+      }
+
+      .circle-text-content .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Stats Section */
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 30px 25px;
+        border-radius: 12px;
+        text-align: center;
+        border-left: 5px solid #0f3079;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-left-color: #ff6b35;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #0f3079;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .stn-rounded-img-container br {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        .stn-rounded-img-container br {
+          display: block;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .article-2-title h1 {
+          font-size: 28px;
+        }
+        .circle-para-container {
+          flex-direction: column !important;
+          padding: 20px;
+        }
+
+        .image-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="stn-rounded-img-container">
+      <div class="article-2-title">
+        <h1>1. Unmatched Towing and Hauling Capability</h1>
+      </div>
+
+      <div class="circle-para-container left-image">
+        <div class="image-wrapper">
+          <img
+            src="https://i.ibb.co/5gJk4gXm/25-frd-f15l-xlt-oxwh-ps34.jpg"
+            alt="Ford F-150 Heavy Duty Towing"
+            class="circle-img delay-1"
+          />
+        </div>
+        <div class="circle-text-content">
+          <p>
+            When you need to get the job done, you need a truck that won’t back
+            down. Ford's F-Series trucks are engineered to lead the pack in raw
+            capability. The legendary <strong>Ford F-150</strong> boasts a
+            best-in-class available towing capacity of up to 14,000 pounds and a
+            maximum payload of 3,310 pounds. For the most demanding jobs in
+            Oklahoma, the <strong>Ford Super Duty®</strong> lineup takes
+            performance to the next level, with some configurations capable of
+            towing a staggering 40,000 pounds.
+          </p>
+          <br />
+          <p>
+            This immense power is delivered by a range of advanced engines, from
+            the versatile and efficient <strong>EcoBoost® V6</strong> to the
+            high-output <strong>PowerBoost™ Full Hybrid</strong> and the
+            torque-heavy <strong>Power Stroke® Turbo Diesel</strong>. It's this
+            commitment to best-in-class power that ensures you can haul, tow,
+            and work with absolute confidence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <span class="stat-number">14,000</span>
+          <span class="stat-label">Pounds Towing (F-150)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">40,000</span>
+          <span class="stat-label">Pounds Towing (Super Duty)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3,310</span>
+          <span class="stat-label">Pounds Max Payload</span>
+        </div>
+        <div class="stat-card" id="pro-power-onboard">
+          <span class="stat-number">45+</span>
+          <span class="stat-label">Years Best-Selling</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

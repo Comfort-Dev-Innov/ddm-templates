@@ -1,0 +1,1198 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: underline;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Comparison Images Section */
+      .comparison-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 40px 0;
+        align-items: start;
+      }
+
+      .vehicle-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 450;
+        max-width: 800px;
+        width: calc(100% - 400px);
+        margin: 0 auto;
+      }
+
+      .vehicle-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      .vehicle-image-label {
+        color: #0f3079;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .vehicle-image-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        border: 2px dashed #0f3079;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f3079;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      /* Single Image Container */
+      .single-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .single-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      /* TOC Styling */
+      .toc-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 4px solid #0f3079;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 40px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .toc-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toc-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(15, 48, 121, 0.1);
+      }
+
+      .toc-list li:last-child {
+        border-bottom: none;
+      }
+
+      .toc-list a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: block;
+      }
+
+      .toc-list a:hover {
+        color: #2d5aa0;
+        padding-left: 10px;
+      }
+
+      .vehicle-image-placeholder-2 {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+        object-fit: contain;
+      }
+
+      /* Bullet List Styling */
+      .bullet-list {
+        margin-left: 20px;
+        line-height: 1.8;
+      }
+
+      .bullet-list li {
+        margin-bottom: 10px;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+
+        .vehicle-image-container {
+          max-width: 80%;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-images {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .vehicle-image-container {
+          max-width: 90%;
+          width: 100%;
+          max-height: 350px;
+        }
+
+        .vehicle-image-placeholder {
+          height: 250px;
+          font-size: 1rem;
+          object-fit: contain;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+
+        .vehicle-image-placeholder-2 {
+          height: 300px;
+          object-fit: contain;
+          border-radius: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <hr class="hr-1" id="powertrain" />
+
+      <!-- Section 1: Powertrain and Capability -->
+      <h2 class="section-heading">
+        Powertrain and Capability of the 2026 Hyundai Tucson and the 2026 Honda
+        CR-V
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The heart of any vehicle is its powertrain, and in this category, the
+        2026 Hyundai Tucson offers a breadth of choice and capability that
+        provides tailored solutions that align with the diverse lifestyles of
+        buyers.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Hyundai's core strategy with the 2026 Tucson is built on the "Power of
+        Choice," a philosophy that acknowledges that no single engine is perfect
+        for every driver. The standard powertrain is a robust and refined
+        2.5-liter inline four-cylinder gasoline engine, producing a confident
+        187 horsepower and 178 lb-ft of torque. This engine provides ample power
+        for confident highway merging and responsive city driving.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Where Tucson truly separates itself is in its comprehensive electrified
+        offerings. Beyond the gasoline model, Hyundai offers both a powerful
+        Tucson Hybrid and an advanced Tucson Plug-in Hybrid (PHEV). This
+        three-pronged approach allows buyers to select a vehicle that precisely
+        fits their driving habits and priorities. For instance, a professor
+        commuting daily to the University of Oklahoma in Norman could leverage
+        the Tucson PHEV's all-electric range for weeks of gas-free driving,
+        while a family in Yukon gains the effortless torque and efficiency of
+        the traditional hybrid for mixed-use driving.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        In contrast, the 2026 Honda CR-V continues to offer a standard engine,
+        which is a 1.5-liter turbocharged inline-four that generates a
+        comparable 190 horsepower and 179 lb-ft of torque. Beyond this, Honda
+        offers a separate two-motor hybrid system with a total output of 204
+        horsepower. While both options are competent, the Honda lacks the
+        forward-thinking versatility of a plug-in hybrid. This omission means
+        the CR-V cannot cater to the growing number of consumers who want to
+        maximize electric-only driving for their daily routines, forcing them
+        into a one-size-fits-all hybrid solution that the Tucson's lineup
+        transcends.
+      </p>
+
+      <hr class="hr-1" id="performance" />
+
+      <!-- Section 2: Performance Levels -->
+      <h2 class="section-heading">
+        2026 Hyundai Tucson and the 2026 Honda CR-V's Performance Levels
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The driving experience is defined as much by how power is delivered as
+        by how much is available. The gasoline-powered
+        <a
+          href="https://joecooperhyundai.com/cars/new-tucson"
+          class="paragraph-hyperlink"
+          ><strong>2026 Tucson</strong></a
+        >
+        employs a sophisticated 8-speed automatic transmission equipped with
+        SHIFTRONIC® manual shifting capabilities. This traditional automatic
+        gearbox provides smooth, predictable, and quiet shifts, contributing to
+        a serene and premium-feeling ride. During acceleration, the transmission
+        moves through its gears linearly, avoiding the engine strain often
+        associated with other transmission types.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Honda CR-V, for its gasoline models, relies exclusively on a
+        Continuously Variable Transmission (CVT). While modern CVTs are
+        engineered for efficiency, they are often criticized for producing a
+        "droning" engine noise under moderate to heavy acceleration. This
+        disconnected feel between engine speed and vehicle speed can detract
+        from the overall refinement of the drive. For a driver merging onto a
+        busy stretch during rush hour or passing on a two-lane highway, Tucson's
+        8-speed automatic will deliver a quieter, more composed, and more
+        engaging experience, reinforcing the sense of quality and thoughtful
+        engineering.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Towing Capacity</h3>
+      <br />
+      <p class="paragraph-text">
+        A compact SUV must be more than just a commuter vehicle; it must be a
+        capable partner for the varied demands of an active life. Because of
+        this, the 2026 Hyundai Tucson is engineered with superior real-world
+        utility at its core. All gasoline models boast an impressive maximum
+        towing capacity of 2,750 pounds when equipped with trailer brakes. This
+        figure is a game-changer, transforming the Tucson into a versatile
+        workhorse capable of pulling a small utility trailer or a pair of
+        personal watercraft.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        On the other hand, the official specification sheets for the 2026 Honda
+        CR-V do not list a towing capacity figure. This omission may suggest
+        that towing is not a design priority or a competitive strength for the
+        CR-V, limiting its utility for owners who need more than just passenger
+        and cargo space.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Furthermore, the Tucson enhances its all-weather and rough-road
+        capability with the available HTRAC All-Wheel Drive system. The rugged
+        XRT trim takes this a step further by including a dedicated Terrain
+        Mode, which optimizes power delivery and traction control for
+        challenging surfaces. This provides an extra measure of confidence for
+        drivers navigating the gravel roads and unpaved paths common in the more
+        rural areas surrounding Oklahoma City. While the CR-V offers a capable
+        Real Time AWD™ system, it lacks the specialized, driver-selectable modes
+        that give the Tucson an edge in adaptability.
+      </p>
+
+      <!-- Powertrain Table -->
+      <br />
+      <h3 class="table-heading">Powertrain and Performance Comparison</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Honda CR-V</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard Gasoline Engine</td>
+            <td>2.5L Inline 4-Cylinder</td>
+            <td>1.5L Turbocharged Inline 4-Cylinder</td>
+          </tr>
+          <tr>
+            <td>Standard Horsepower / Torque</td>
+            <td>187 hp / 178 lb-ft</td>
+            <td>190 hp / 179 lb-ft</td>
+          </tr>
+          <tr>
+            <td>Available Hybrid Powertrain</td>
+            <td>Yes (Total System HP varies by model)</td>
+            <td>Yes (204 Total System HP)</td>
+          </tr>
+          <tr>
+            <td>Available Plug-in Hybrid Powertrain</td>
+            <td>Yes</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td>Standard Transmission (Gasoline)</td>
+            <td>8-Speed Automatic with SHIFTRONIC®</td>
+            <td>Continuously Variable Transmission (CVT)</td>
+          </tr>
+          <tr>
+            <td>Drivetrain Options</td>
+            <td>FWD or HTRAC AWD</td>
+            <td>FWD or Real Time AWD™</td>
+          </tr>
+          <tr>
+            <td>Maximum Towing Capacity (lbs)</td>
+            <td>2,750 (with trailer brakes)</td>
+            <td>Not Listed</td>
+          </tr>
+          <tr>
+            <td>Specialized Drive Modes</td>
+            <td>Normal, Sport, My Drive (Snow on AWD), Terrain (XRT)</td>
+            <td>Normal, Econ, Snow (Sport on Hybrid)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="design" />
+
+      <!-- Section 3: Design and Domain -->
+      <h2 class="section-heading">
+        Design and Domain of the 2026 Hyundai Tucson and the 2026 Honda CR-V
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The visual look of a vehicle is a critical component of the ownership
+        journey. Here, the 2026 Tucson and CR-V present a stark contrast in
+        design philosophy. Hyundai has embraced a bold, futuristic aesthetic
+        that makes a definitive statement, while Honda has opted for a more
+        conservative approach.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Exterior Styling</h3>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Hyundai Tucson is a rolling showcase of the brand's "Parametric
+        Dynamics" design language, characterized by sharp, intersecting lines
+        and jewel-like surface details. Its most striking feature is the front
+        grille, where the LED Daytime Running Lights are seamlessly integrated
+        into the geometric pattern, creating a signature look that is
+        unmistakable day or night. Complemented by available Bi-LED projector
+        headlights and distinctive trim packages like the rugged XRT with its
+        exclusive black cladding or the athletic N Line, the Tucson's exterior
+        is assertive and sophisticated. It is a design that stands out in a
+        crowded parking lot and projects an image of modernity and confidence.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Honda CR-V, while clean and visually appealing, adheres to a
+        much more traditional design ethos. Its styling prioritizes function and
+        familiarity over expressive form. The front end is clean, with standard
+        dual low-beam LED headlights, and the overall silhouette is a
+        conventional two-box SUV shape. While Honda has introduced a more rugged
+        TrailSport trim to add visual flair, the CR-V's overall presence is one
+        of understated restraint. For a driver in the Paseo Arts District or
+        Bricktown, the Tucson makes a contemporary style statement that the more
+        conventional CR-V cannot match.
+      </p>
+
+      <!-- Vehicle Images -->
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">2026 Hyundai Tucson</div>
+        <img
+          src="https://i.ibb.co/ZRG7GJ4Q/image2.jpg"
+          alt="2026 Hyundai Tucson"
+          class="vehicle-image-placeholder-2"
+        />
+      </div>
+
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">2026 Honda CR-V</div>
+        <img
+          src="https://i.ibb.co/Z185ZnZw/image3.png"
+          alt="2026 Honda CR-V"
+          class="vehicle-image-placeholder-2"
+        />
+      </div>
+
+      <h3 class="subsection-heading">The Cabins</h3>
+      <br />
+      <p class="paragraph-text">
+        Tucson offers a cabin experience that makes it feel like a full
+        generation ahead of its rival. The redesigned interior of the Tucson is
+        a masterclass in modern, driver-focused design. The centerpiece for most
+        trims is a stunning, available panoramic display that seamlessly
+        integrates a 12.3-inch digital instrument cluster and a 12.3-inch
+        navigation touchscreen. The adoption of a column-mounted, shift-by-wire
+        gear selector not only adds a high-tech touch but also liberates a
+        significant amount of valuable storage space in the center console.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Hyundai has also prioritized premium comfort, offering high-quality
+        materials like soft-touch surfaces, available H-Tex® leatherette, and
+        genuine leather seating. Crucially for Oklahoma's sweltering summers,
+        the Tucson is available with ventilated front seats, a luxury-grade
+        feature that provides immense comfort during the hottest months.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 CR-V's interior, while spacious and logically laid out, feels
+        far more utilitarian by comparison. The dashboard design is more
+        traditional, centered around a smaller 7-inch or 9-inch touchscreen.
+        While it offers amenities like heated front seats and leather trim on
+        higher models, it lacks the "wow factor" of the Tucson's expansive
+        digital displays and advanced features. The absence of an option for
+        ventilated seats is a notable omission for a vehicle in this class,
+        especially in a warm climate like Oklahoma's. These are not just minor
+        details; they are tangible differences that elevate the quality of every
+        single drive, making the Tucson's cabin a more comfortable, convenient,
+        and enjoyable place to be.
+      </p>
+
+      <!-- Interior Dimensions Table -->
+      <br />
+      <h3 class="table-heading">Design and Interior Dimensions</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension/Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Honda CR-V</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overall Length</td>
+            <td>182.7 inches</td>
+            <td>184.8 inches</td>
+          </tr>
+          <tr>
+            <td>Width</td>
+            <td>73.4 inches</td>
+            <td>73.5 inches</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td>65.6–66.3 inches</td>
+            <td>66.2–66.5 inches</td>
+          </tr>
+          <tr>
+            <td>Front / Rear Legroom</td>
+            <td>41.4 / 41.3 inches</td>
+            <td>41.3 / 41.0 inches</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (Seats Up)</td>
+            <td>38.7 cu ft</td>
+            <td>39.3 cu ft</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (Seats Folded)</td>
+            <td>74.8 cu ft</td>
+            <td>76.5 cu ft</td>
+          </tr>
+          <tr>
+            <td>Available Seating Surfaces</td>
+            <td>Cloth, H-Tex®, Leather</td>
+            <td>Cloth, Leather</td>
+          </tr>
+          <tr>
+            <td>Heated Front Seats</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Ventilated Front Seats</td>
+            <td>Available</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td>Maximum Infotainment Display Size</td>
+            <td>12.3 inches</td>
+            <td>9.0 inches</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="technology" />
+
+      <!-- Section 4: Technology and Connectivity -->
+      <h2 class="section-heading">
+        Technology and Connectivity of the 2026 Hyundai Tucson and the 2026
+        Honda CR-V
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        In today's world, a vehicle's technology suite is as important as its
+        engine. The
+        <a
+          href="https://joecooperhyundai.com/cars/new-tucson"
+          class="paragraph-hyperlink"
+          ><strong>2026 Hyundai Tucson</strong></a
+        >
+        offers a digital experience that is more advanced, more integrated, and
+        more convenient than the CR-V's, positioning it as the unequivocally
+        "smarter" SUV.
+      </p>
+      <br />
+      <h3 class="subsection-heading">The Digital Cockpit</h3>
+      <br />
+      <p class="paragraph-text">
+        The driver's primary interface with the vehicle is the infotainment
+        system, and the Tucson provides a command center that is vastly superior
+        to the CR-V's. Most Tucson trims feature a brilliant 12.3-inch
+        high-resolution touchscreen, which can be paired with an equally large
+        12.3-inch digital instrument cluster to create a sweeping, panoramic
+        glass cockpit. This expansive digital real estate is more than just a
+        cosmetic upgrade; it enhances safety and usability. Navigation maps are
+        larger and clearer, on-screen buttons are easier to press, and
+        split-screen functionality allows the driver to view multiple sources of
+        information at once without compromise.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The Honda CR-V, in contrast, makes do with a smaller 7-inch or 9-inch
+        central touchscreen on all trims. While a 10.2-inch digital instrument
+        cluster is available, it is reserved for the highest trim levels. By
+        making its largest, most advanced screen widely available across the
+        lineup, Hyundai treats cutting-edge technology as a core element of the
+        driving experience, not as an exclusive, high-cost option. For
+        navigating the complex interchanges of downtown Oklahoma City or finding
+        a new address in Edmond, Tucson's larger, more intuitive display
+        provides a demonstrably better and less distracting experience. Both
+        vehicles offer the convenience of standard wireless Apple CarPlay® and
+        Android Auto™, allowing for seamless smartphone integration.
+      </p>
+      <br />
+      <h3 class="subsection-heading">
+        The Connected Advantage: A Smarter SUV for a Smarter Life
+      </h3>
+      <br />
+      <p class="paragraph-text">
+        Tucson's technological superiority extends far beyond screen size. It is
+        fundamentally designed as an evolving digital platform, a concept that
+        fundamentally changes the long-term ownership experience. The 2026
+        Tucson features Over-the-Air (OTA) update capability, allowing its
+        software and infotainment systems to be updated and improved remotely,
+        without requiring a trip to the dealership. This crucial feature helps
+        prevent technological obsolescence, ensuring the vehicle's systems
+        remain current for years to come.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Furthermore, Hyundai offers the revolutionary Hyundai Digital Key 2.
+        This technology transforms a compatible smartphone into a fully
+        functional vehicle key, allowing the owner to lock, unlock, and start
+        the Tucson without a physical fob. It also enables secure and convenient
+        sharing of digital keys with family or friends. These are advanced,
+        practical features that are not mentioned in the official materials for
+        the 2026 Honda CR-V.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Imagine using a smartphone app to start the Tucson and pre-cool the
+        cabin to a comfortable temperature before leaving the office on a
+        100-degree August afternoon in Midwest City. Or consider the convenience
+        of granting temporary access to a teenager with their phone instead of
+        handing over a physical key. These are not gimmicks; they are
+        intelligent, real-world solutions to everyday challenges, and they are
+        available to Tucson owners. The CR-V, by comparison, remains a more
+        traditional piece of hardware, lacking the connected, future-proof
+        ecosystem that defines the Tucson.
+      </p>
+
+      <!-- Technology Table -->
+      <br />
+      <h3 class="table-heading">Technology and Connectivity Comparison</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Honda CR-V</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard Infotainment Display Size</td>
+            <td>12.3 inches (most trims)</td>
+            <td>7.0 or 9.0 inches</td>
+          </tr>
+          <tr>
+            <td>Maximum Infotainment Display Size</td>
+            <td>12.3 inches</td>
+            <td>9.0 inches</td>
+          </tr>
+          <tr>
+            <td>Maximum Digital Instrument Cluster Size</td>
+            <td>12.3 inches</td>
+            <td>10.2 inches</td>
+          </tr>
+          <tr>
+            <td>Wireless Apple CarPlay® / Android Auto™</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Over-the-Air (OTA) Software Updates</td>
+            <td>Available</td>
+            <td>Not Mentioned</td>
+          </tr>
+          <tr>
+            <td>Digital Key Functionality (Phone as Key)</td>
+            <td>Available (Digital Key 2)</td>
+            <td>Not Mentioned</td>
+          </tr>
+          <tr>
+            <td>Premium Audio System</td>
+            <td>Available Bose® Premium Audio</td>
+            <td>Available Bose® Premium Sound System</td>
+          </tr>
+          <tr>
+            <td>Wireless Device Charging</td>
+            <td>Standard (most trims)</td>
+            <td>Standard</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="trims" />
+
+      <!-- Section 5: Trim Levels -->
+      <h2 class="section-heading">
+        Trim Levels and Lineup Overview of the 2026 Hyundai Tucson and the 2026
+        Honda CR-V
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Every driver wants something a little different from their SUV, and
+        that's exactly what both the 2026 Hyundai Tucson and 2026 Honda CR-V
+        deliver. Whether you want a practical commuter, something rugged for
+        weekend trips, or a premium daily driver packed with tech, each lineup
+        offers its own flavor.
+      </p>
+      <br />
+      <h3 class="subsection-heading">2026 Hyundai Tucson Trims</h3>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Tucson lineup includes SE, SEL, XRT, N Line, and Limited trims,
+        plus available Hybrid and Plug-in Hybrid models for drivers who want to
+        go farther on less fuel.
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            <a
+              href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22model%22%3A%7B%22value%22%3A%7B%22Tucson%22%3Atrue%7D%7D%2C%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SE%22%3Atrue%7D%7D%7D%7D"
+              class="paragraph-hyperlink"
+              ><strong>Tucson SE</strong></a
+            >
+            gives you everything you need to start strong, including an 8-inch
+            touchscreen, wireless Apple CarPlay® and Android Auto™, and Hyundai
+            SmartSense safety features.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <a
+              href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22model%22%3A%7B%22value%22%3A%7B%22Tucson%22%3Atrue%7D%7D%2C%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SEL%22%3Atrue%7D%7D%7D%7D"
+              class="paragraph-hyperlink"
+              ><strong>Tucson SEL</strong></a
+            >
+            adds comfort touches like heated front seats, keyless entry with
+            push-button start, and more tech upgrades.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <a
+              href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22model%22%3A%7B%22value%22%3A%7B%22Tucson%22%3Atrue%7D%7D%2C%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22XRT%22%3Atrue%7D%7D%7D%7D"
+              class="paragraph-hyperlink"
+              ><strong>Tucson XRT</strong></a
+            >
+            brings a tougher edge with black cladding, roof rails, and an
+            off-road look that fits right in on Oklahoma backroads.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>Tucson N Line</strong> steps up the sporty attitude with
+            19-inch alloy wheels, sportier styling, and unique interior accents.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <a
+              href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22model%22%3A%7B%22value%22%3A%7B%22Tucson%22%3Atrue%7D%7D%2C%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22Limited%22%3Atrue%7D%7D%7D%7D"
+              class="paragraph-hyperlink"
+              ><strong>Tucson Limited</strong></a
+            >
+            sits at the top with the full 12.3-inch digital display, ventilated
+            leather seats, and every driver-assist feature Hyundai offers.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Hybrid and Plug-in Hybrid versions mirror these trims, giving drivers
+        the same comfort and design, with more efficiency and instant torque.
+      </p>
+      <br />
+      <h3 class="subsection-heading">2026 Honda CR-V Trims</h3>
+      <br />
+      <p class="paragraph-text">
+        The 2026 CR-V lineup follows a similar structure with LX, EX, EX-L,
+        Sport Hybrid, Sport-L Hybrid, TrailSport Hybrid, and Sport Touring
+        Hybrid models.
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V LX</strong> starts things off with Honda's 1.5L turbo
+            engine and standard Honda Sensing® safety suite.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V EX</strong> adds heated front seats, a moonroof, and
+            upgraded wheels.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V EX-L</strong> raises the bar with leather-trimmed
+            seats, a larger display, and a power tailgate.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V Sport Hybrid</strong> introduces hybrid power for a
+            more efficient, athletic drive.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V Sport-L Hybrid</strong> mixes performance with comfort,
+            adding wireless charging and premium materials.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V TrailSport Hybrid</strong> is tuned for light off-road
+            use, with rugged styling and standard AWD.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p class="paragraph-text">
+            <strong>CR-V Sport Touring Hybrid</strong> tops the lineup with
+            Bose® audio, hands-free tailgate, and the most advanced tech
+            package.
+          </p>
+        </li>
+      </ul>
+
+      <hr class="hr-1" id="value" />
+
+      <!-- Section 6: Value and Peace of Mind -->
+      <h2 class="section-heading">
+        What Sets the Tucson Apart in Value and Peace of Mind
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The final, and perhaps most critical, aspect of any vehicle purchase is
+        the long-term value and peace of mind it provides. In this bottom-line
+        analysis of safety, warranty, and cost of ownership, the 2026 Hyundai
+        Tucson delivers a comprehensive and undeniable advantage that makes it
+        the better choice.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Proactive Protection on Oklahoma Roads</h3>
+      <br />
+      <p class="paragraph-text">
+        Both Hyundai and Honda have earned strong reputations for safety, and
+        the 2026 models are no exception. Both the Tucson and the CR-V come
+        equipped with extensive suites of standard driver-assistance
+        technologies, including Forward Collision-Avoidance Assist, Lane Keeping
+        Assist, Blind-Spot Collision-Avoidance Assist, and Smart Cruise Control
+        with Stop & Go. These systems work together to create a formidable
+        safety net for drivers and their families.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        However, Hyundai pushes the technological envelope further by offering a
+        higher tier of advanced safety and convenience features that are not
+        available on the CR-V. On its top trims, the Tucson offers the
+        innovative Blind-Spot View Monitor (BVM). When a turn signal is
+        activated, BVM projects a live video feed of the corresponding blind
+        spot directly into the digital instrument cluster, providing
+        unparalleled situational awareness. Another exclusive feature is Remote
+        Smart Parking Assist, which allows the driver to remotely guide the
+        Tucson into or out of a tight parking space from outside the vehicle.
+        These technologies offer an extra layer of confidence and convenience
+        that Honda does not match. Navigating a crowded parking garage or
+        changing lanes on a hectic stretch is made demonstrably safer and less
+        stressful with these cutting-edge Hyundai features.
+      </p>
+      <br />
+      <h3 class="subsection-heading">
+        America's Best Warranty and Long-Term Value
+      </h3>
+      <br />
+      <p class="paragraph-text">
+        While features and technology are compelling, the single most decisive
+        factor in this comparison is Hyundai's industry-leading warranty. It
+        promises quality and reliability that fundamentally lowers the total
+        cost of ownership and provides unparalleled peace of mind.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Every 2026 Hyundai Tucson is backed by a 10-year/100,000-mile powertrain
+        limited warranty. This is double the 5-year/60,000-mile powertrain
+        warranty typically offered by Honda. This difference is monumental. For
+        a buyer who finances their vehicle over five or six years, the Tucson's
+        powertrain remains under warranty for years after the final payment is
+        made. For the CR-V owner, the warranty will have long since expired,
+        leaving them financially responsible for any major engine or
+        transmission repairs.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The advantages continue with 5 years of 24/7 Roadside Assistance with
+        unlimited mileage, compared to Honda's more limited coverage.
+        Furthermore, Hyundai includes 3 years or 36,000 miles of complimentary
+        scheduled maintenance, covering routine services like oil changes and
+        tire rotations. Honda's complimentary maintenance program is
+        significantly shorter, covering only 1 year or 12,000 miles.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        For a family or a budget-conscious buyer, this coverage translates into
+        thousands of dollars in potential savings and eliminates the anxiety of
+        unexpected repair bills.
+      </p>
+
+      <!-- Warranty Table -->
+      <br />
+      <h3 class="table-heading">Warranty and Ownership Comparison</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Warranty/Ownership Benefit</th>
+            <th>2026 Hyundai Tucson</th>
+            <th>2026 Honda CR-V</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Basic (Bumper-to-Bumper) Warranty</td>
+            <td>5 Years / 60,000 Miles</td>
+            <td>3 Years / 36,000 Miles</td>
+          </tr>
+          <tr>
+            <td>Powertrain Warranty</td>
+            <td>10 Years / 100,000 Miles</td>
+            <td>5 Years / 60,000 Miles</td>
+          </tr>
+          <tr>
+            <td>Anti-Perforation Warranty</td>
+            <td>7 Years / Unlimited Miles</td>
+            <td>5 Years / Unlimited Miles</td>
+          </tr>
+          <tr>
+            <td>24/7 Roadside Assistance</td>
+            <td>5 Years / Unlimited Miles</td>
+            <td>3 Years / 36,000 Miles</td>
+          </tr>
+          <tr>
+            <td>Complimentary Scheduled Maintenance</td>
+            <td>3 Years / 36,000 Miles</td>
+            <td>1 Year / 12,000 Miles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="verdict" />
+
+      <!-- Section 7: Final Thoughts -->
+      <h2 class="section-heading">Final Thoughts</h2>
+      <br />
+      <p class="paragraph-text">
+        When you look at everything side by side, the
+        <a
+          href="https://joecooperhyundai.com/cars/new-tucson"
+          class="paragraph-hyperlink"
+          ><strong>2026 Hyundai Tucson</strong></a
+        >
+        simply gives you more. It's built for the way people actually drive,
+        offering more choices under the hood, more confidence on the road, and
+        more peace of mind over the years. With options that include gas,
+        hybrid, and plug-in hybrid models, the Tucson lets you pick the power
+        that fits your lifestyle. Add in its smart safety tech, upscale cabin,
+        and a ride that feels solid and refined, and you have an SUV that just
+        makes every drive easier and more enjoyable.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Honda CR-V is still a solid, dependable pick, but the Tucson
+        goes a step further. It's more flexible, more advanced, and backed by
+        America's Best Warranty, which means you're covered long after the
+        others run out. It's the kind of SUV that doesn't just check boxes; it
+        delivers value you can feel every day.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        If you're ready to see what sets the Tucson apart, stop by Joe Cooper
+        Hyundai of Midwest City at 6601 SE 29th St, Midwest City, OK 73110. You
+        can also take a test drive, compare trims, and see why so many Oklahoma
+        drivers are choosing Hyundai. Feel free to reach our team anytime at
+        (405) 733-1611. We're here to help you find the Tucson that fits you
+        best.
+      </p>
+
+      <!-- Final Image -->
+      <br />
+      <div class="single-image-container">
+        <img
+          src="https://i.ibb.co/PZ9tW2TG/hyundai-tucson-1231faef.jpg"
+          alt="2026 Hyundai Tucson"
+          class="vehicle-image-placeholder-2"
+        />
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Raptor Series</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer2 {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer2 h3,
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 p,
+      .featuresContainer2 ol,
+      .featuresContainer2 ul,
+      .featuresContainer2 table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .card2 {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+      }
+
+      .card2:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-image2 {
+        width: 100%;
+        height: 240px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card-image2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-content2 {
+        padding: 1.75rem;
+      }
+
+      .card-title2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .card-subtitle2 {
+        font-size: 0.95rem;
+        color: #718096;
+        font-weight: 500;
+        margin-bottom: 1.25rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .card-description2 {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* Individual card themes with minimal colors */
+      .ranger-card2 .card-title2 {
+        color: #0f3079;
+      }
+
+      .ranger-card2 .card-image2 {
+        background: linear-gradient(135deg, #ebf4ff 0%, #3971b5 100%);
+        color: #3182ce;
+      }
+
+      .f150-card2 .card-title2 {
+        color: #2d3748;
+      }
+
+      .f150-card2 .card-image2 {
+        background: linear-gradient(135deg, #f7fafc 0%, #a5a8ac 100%);
+        color: #4a5568;
+      }
+
+      .raptor-r-card2 .card-title2 {
+        color: #c53030;
+      }
+
+      .raptor-r-card2 .card-image2 {
+        background: linear-gradient(135deg, #fed7d7 0%, #e14b4b 100%);
+        color: #e53e3e;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .feat-desc br {
+          display: block;
+        }
+
+        .cards-grid2 {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .main-title2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .card-content2 {
+          padding: 1.5rem;
+        }
+
+        .card-image2 {
+          height: 200px;
+        }
+
+        body {
+          padding: 1rem 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid2 {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .card-content2 {
+          padding: 1.25rem;
+        }
+
+        .card-title2 {
+          font-size: 1.25rem;
+        }
+
+        .card-description2 {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Subtle animations */
+      .card-title2 {
+        position: relative;
+      }
+
+      .card-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: currentColor;
+        opacity: 0.3;
+        transition: width 0.3s ease-out;
+      }
+
+      .card2:hover .card-title2::after {
+        width: 100px;
+      }
+
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 30px !important;
+      }
+
+      .feat-desc br {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2" style="text-align: center">
+        What is the
+        <span style="color: #0f3079">Top Ford Model?</span>
+      </h2>
+      <p class="feat-desc">
+        Ford has several standout models that have shaped its reputation and
+        continue to dominate sales in Oklahoma and nationwide.
+      </p>
+      <div class="cards-grid2">
+        <div class="card2 ranger-card2">
+          <div class="card-image2">
+            <img
+              src="https://i.ibb.co/0RFyVZHs/25-frd-f15l-lar-antb-ps34.jpg"
+              alt="Ford Ranger Raptor"
+            />
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford F-Series</h2>
+            <p class="card-subtitle2">The Unrivaled Leader</p>
+            <p class="card-description2">
+              No discussion of top Ford models is complete without the Ford
+              F-Series. <br/><br/>This lineup has been America's best-selling vehicle for
+              over four decades, with the F-150 model leading the charge. It
+              boasts a 325-horsepower twin-turbo V6 engine starting point, with
+              options scaling up to V8s and hybrid powertrains. Its towing
+              capacity ranges from 8,200 to over 14,000 pounds depending on
+              configuration.<br /><br />
+              The F-Series' blend of power, versatility, and technology, such as
+              hands-free driving and advanced towing aids, make it perfect for
+              both work and family life in Yukon and Mustang.
+            </p>
+          </div>
+        </div>
+
+        <div class="card2 f150-card2">
+          <div class="card-image2">
+            <img src="https://i.ibb.co/s9n5wjQt/25-frd-esp-actv-oxwh-ps34.jpg" alt="25-frd-esp-actv-oxwh-ps34" border="0">
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford Escape</h2>
+            <p class="card-subtitle2">Consistent Practicality</p>
+            <p class="card-description2">
+              The Escape is a compact SUV known for its fuel efficiency and
+              comfortable ride. <br/><br/>Newer models include hybrid and plug-in hybrid
+              variants, providing excellent mileage without sacrificing
+              performance. <br/><br/>Its advanced driver-assistance features are tailored
+              for urban and suburban areas like Edmond and Moore.
+            </p>
+          </div>
+        </div>
+
+        <div class="card2 raptor-r-card2">
+          <div class="card-image2">
+            <img src="https://i.ibb.co/53GvKZG/25-frd-mst-dkhrp-rcrd-ps34.jpg" alt="25-frd-mst-dkhrp-rcrd-ps34" border="0">
+          </div>
+          <div class="card-content2">
+            <h2 class="card-title2">Ford Mustang</h2>
+            <p class="card-subtitle2">Iconic Muscle and Style</p>
+            <p class="card-description2">
+              The Mustang continues to be a symbol of American muscle with
+              available engines up to 526 horsepower and sleek, aerodynamic
+              designs. <br/><br/>It combines classic styling with modern technology,
+              including advanced infotainment and driver assistance, making it a
+              thrilling choice for Oklahoma drivers who want performance and
+              style.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

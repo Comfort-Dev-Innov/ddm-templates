@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <style>
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-left {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-right {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        border-radius: 12px;
+        list-style: none;
+        margin: 12px 0;
+      }
+
+      .bullet-list {
+        margin-top: 10px;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: "•";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .image-right {
+          min-height: 250px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="bullet-section" id="bullet-section">
+        <div class="content-layout">
+          <div class="content-left">
+            <h2 class="section-title">
+                Is It Really Worth Paying More for a
+              <span style="color: #0f3079">Certified Pre-Owned Hyundai?</span>
+            </h2>
+            <p>
+              For many drivers, the answer is a resounding yes. The CPO premium is not just an added cost; it's an investment in value, confidence, and a better ownership experience. Let's analyze the value for different types of buyers:
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <p>
+                  <strong>For the First-Time Buyer or Student:</strong> Buying your first car can be intimidating. A CPO vehicle removes the guesswork. You get a reliable, safe car with a warranty that protects your tight budget from devastating repair bills, and the included roadside assistance is an invaluable safety net.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>For the Busy Professional or Family:</strong> Your time is your most valuable asset. You don't have the bandwidth to deal with unexpected breakdowns, vet repair shops, or worry about your vehicle's reliability. A CPO Hyundai provides dependable transportation that you can count on day in and day out, letting you focus on your career and family. The peace of mind is worth the premium.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>For the Tech-Savvy, Value-Conscious Driver:</strong> You want modern features like Apple CarPlay®, advanced safety assists, and great fuel economy without paying the new-car price. A CPO vehicle, typically just a few years old, gives you access to this technology while bypassing the steepest depreciation. The included warranty and special financing rates make it a financially savvy move.
+                </p>
+              </li>
+            </ul>
+            <p>
+              Ultimately, the "worth" comes from quantifying the value of peace of mind. What is the value of knowing your engine is covered for up to 10 years? What is the value of having 24/7 roadside assistance? For many, these assurances are worth far more than the initial price difference.
+            </p>
+          </div>
+          <div class="image-right">
+            <img
+              src="https://pictures.dealer.com/b/bramanhyundaimiami/1052/e437ef4fa6088f76cebf006357ef1085x.jpg"
+              alt="Hyundai certified pre-owned vehicle representing value and quality assurance"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

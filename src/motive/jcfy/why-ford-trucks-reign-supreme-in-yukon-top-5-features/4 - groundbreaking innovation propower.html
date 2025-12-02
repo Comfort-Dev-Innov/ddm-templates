@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Power Onboard™ - Groundbreaking Innovation</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer h3,
+      .featuresContainer h1,
+      .featuresContainer h2,
+      .featuresContainer p,
+      .featuresContainer ol,
+      .featuresContainer ul,
+      .featuresContainer table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title {
+        font-size: 42px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        color: #0f3079;
+        text-align: center;
+      }
+
+      .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        border: 2px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-color: #0f3079;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 260px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 2px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .card:hover .card-image img {
+        transform: scale(1.1);
+      }
+
+      .card-content {
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.8rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+        color: #0f3079;
+        font-weight: 600;
+        margin-bottom: 1.5rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .card-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .card-description strong {
+        color: #0f3079;
+        font-weight: 700;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Individual card themes */
+      .power-2kw-card .card-title {
+        color: #2d5aa0;
+      }
+
+      .power-2kw-card .card-image {
+        background: linear-gradient(135deg, #ebf4ff 0%, #4299e1 100%);
+        color: #3182ce;
+      }
+
+      .power-24kw-card .card-title {
+        color: #0f3079;
+      }
+
+      .power-24kw-card .card-image {
+        background: linear-gradient(135deg, #e6fffa 0%, #319795 100%);
+        color: #2d3748;
+      }
+
+      .power-72kw-card .card-title {
+        color: #c53030;
+      }
+
+      .power-72kw-card .card-image {
+        background: linear-gradient(135deg, #fed7d7 0%, #e53e3e 100%);
+        color: #e53e3e;
+      }
+
+      /* Feature highlight section */
+      .feature-highlight {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 50px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+      }
+
+      .feature-highlight h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .feature-highlight p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        opacity: 0.95;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+
+        .card-image {
+          height: 220px;
+        }
+
+        .feature-highlight {
+          padding: 30px 20px;
+        }
+
+        .feature-highlight h3 {
+          font-size: 1.5rem;
+        }
+
+        .feature-highlight p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card-content {
+          padding: 1.25rem;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-description {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Power icon animations */
+      .card-title::before {
+        content: '⚡';
+        font-size: 1.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer">
+      <h2 class="main-title">
+        2. Groundbreaking Innovation: Pro Power Onboard™
+      </h2>
+      <p class="subtitle">
+        Transform Your Ford Truck Into a Mobile Power Station
+      </p>
+
+      <!-- Feature Highlight -->
+      <div class="feature-highlight">
+        <h3>Class-Exclusive Technology</h3>
+        <p>
+          Perhaps one of the most game-changing features in modern trucks,
+          <strong>Pro Power Onboard™</strong> transforms your Ford into a mobile
+          generator. This class-exclusive feature allows you to power tools,
+          lights, tailgating equipment, and even home appliances directly from
+          your truck bed. Available with three levels of output—2.0 kilowatts,
+          2.4 kilowatts, and a massive 7.2 kilowatts—Pro Power Onboard™
+          eliminates the need for a separate, cumbersome generator. For
+          contractors on a job site in Bethany or families camping near Lake
+          Overholser, this feature provides unparalleled convenience and
+          utility.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card power-2kw-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/5gJk4gXm/25-frd-f15l-xlt-oxwh-ps34.jpg"
+              alt="Ford Pro Power Onboard 2.0kW"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">2.0 Kilowatt System</h2>
+            <p class="card-subtitle">Essential Power for Work & Recreation</p>
+            <p class="card-description">
+              Perfect for powering basic tools and equipment on the job site.
+              The 2.0kW system provides enough power for circular saws, drills,
+              lights, and small appliances. <br /><br />
+              Ideal for contractors in Bethany who need reliable power for light
+              construction work or camping enthusiasts looking to power their
+              gear near Lake Overholser.
+            </p>
+          </div>
+        </div>
+
+        <div class="card power-24kw-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/zhGmmjxn/25-frd-f15-xlt-ssc5-agbl-ps34.jpg"
+              alt="Ford Pro Power Onboard 2.4kW"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">2.4 Kilowatt System</h2>
+            <p class="card-subtitle">Enhanced Capability for Demanding Tasks</p>
+            <p class="card-description">
+              Step up to the 2.4kW system for heavier-duty applications. This
+              level supports larger power tools, welding equipment, and multiple
+              devices simultaneously.<br /><br />
+              Perfect for serious contractors and trade professionals who need
+              dependable power for miter saws, compressors, and other demanding
+              equipment throughout Oklahoma.
+            </p>
+          </div>
+        </div>
+
+        <div class="card power-72kw-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/LzbPsWS9/25-frd-f15l-xlt-rprd-ps34.jpg"
+              alt="Ford Pro Power Onboard 7.2kW"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">7.2 Kilowatt System</h2>
+            <p class="card-subtitle">Maximum Power - The Ultimate Solution</p>
+            <p class="card-description" id="built-ford-tough">
+              The massive 7.2kW Pro Power Onboard™ system delivers enough
+              electricity to power your entire home during outages or run the
+              most demanding industrial equipment. <br /><br />
+              Eliminates the need for a separate, cumbersome generator and
+              provides unparalleled convenience for families and businesses
+              across Yukon and Oklahoma City.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
