@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Container Default Styles */
+      .featuresContainer2 {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 h3,
+      .featuresContainer2 p {
+        max-width: 1300px !important;
+      }
+
+      /* Description */
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 30px !important;
+        color: #4a5568;
+        line-height: 1.7;
+      }
+
+      /* Image styling */
+      .cpo-image {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 50px !important;
+        transition: all 0.4s ease;
+      }
+
+      .cpo-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(1, 43, 93, 0.15);
+      }
+
+      .cpo-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(1, 43, 93, 0.2);
+      }
+
+      /* Benefits Grid - Single Column */
+      .divisions-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-bottom: 20px;
+      }
+
+      /* Benefit Card */
+      .division-card {
+        background: white;
+        border-radius: 16px;
+        padding: 35px 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: 2px solid transparent;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* Animated gradient border effect */
+      .division-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 16px;
+        padding: 2px;
+        background: linear-gradient(135deg, transparent, transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .division-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Different hover colors for each benefit */
+      .warranty-card:hover {
+        border-color: #012b5d;
+        box-shadow: 0 12px 35px rgba(1, 43, 93, 0.15);
+      }
+
+      .inspection-card:hover {
+        border-color: #002c5f;
+        box-shadow: 0 12px 35px rgba(0, 44, 95, 0.15);
+      }
+
+      .quality-card:hover {
+        border-color: #012b5d;
+        box-shadow: 0 12px 35px rgba(1, 43, 93, 0.15);
+      }
+
+      .support-card:hover {
+        border-color: #002c5f;
+        box-shadow: 0 12px 35px rgba(0, 44, 95, 0.15);
+      }
+
+      /* Benefit Icon/Number */
+      .division-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        color: white;
+      }
+
+      .warranty-card .division-number {
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+      }
+
+      .inspection-card .division-number {
+        background: linear-gradient(135deg, #002c5f, #4a5568);
+      }
+
+      .quality-card .division-number {
+        background: linear-gradient(135deg, #012b5d, #2d3748);
+      }
+
+      .support-card .division-number {
+        background: linear-gradient(135deg, #002c5f, #4a5568);
+      }
+
+      .division-card:hover .division-number {
+        transform: rotate(360deg) scale(1.1);
+      }
+
+      /* Benefit Title */
+      .division-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px !important;
+        color: #1a202c;
+        position: relative;
+        padding-bottom: 12px;
+      }
+
+      .division-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: currentColor;
+        transition: width 0.4s ease;
+      }
+
+      .division-card:hover .division-title::after {
+        width: 80px;
+      }
+
+      .warranty-card .division-title {
+        color: #012b5d;
+      }
+
+      .inspection-card .division-title {
+        color: #002c5f;
+      }
+
+      .quality-card .division-title {
+        color: #012b5d;
+      }
+
+      .support-card .division-title {
+        color: #002c5f;
+      }
+
+      /* Benefit Description */
+      .division-description {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* List styling within descriptions */
+      .division-description ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+
+      .division-description li {
+        margin: 8px 0;
+        color: #4a5568;
+      }
+
+      .division-description strong {
+        color: #012b5d;
+        font-weight: 600;
+      }
+
+      /* Decorative elements */
+      .division-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(1, 43, 93, 0.05), transparent);
+        border-radius: 50%;
+        transition: all 0.6s ease;
+        pointer-events: none;
+      }
+
+      .division-card:hover::after {
+        top: -30%;
+        right: -30%;
+        width: 250px;
+        height: 250px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .feat-desc {
+          font-size: 16px;
+          margin-bottom: 25px !important;
+        }
+
+        .cpo-image {
+          height: 200px;
+          margin-bottom: 35px !important;
+        }
+
+        .division-card {
+          padding: 28px 24px;
+        }
+
+        .division-title {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .featuresContainer2 {
+          padding: 20px 15px !important;
+        }
+
+        .cpo-image {
+          height: 180px;
+        }
+
+        .division-card {
+          padding: 24px 20px;
+        }
+
+        .division-number {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+
+        .division-title {
+          font-size: 20px;
+        }
+
+        .division-description {
+          font-size: 15px;
+        }
+      }
+
+      /* Stagger animation on load */
+      .division-card {
+        animation: fadeInUp 0.6s ease-out backwards;
+      }
+
+      .division-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .division-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .division-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .division-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <p class="feat-desc">
+        Choosing a Hyundai CPO vehicle gives you a collection of benefits that
+        work together to provide an ownership experience that a typical used car
+        simply can't match.
+      </p>
+
+      <div class="cpo-image">
+        <img
+          src="https://di-uploads-development.dealerinspire.com/paramounthyundaiofhickory/uploads/2024/08/Side-view-of-a-2024-Electric-Hyundai-Tucson-Hybrid-parked-in-front-of-a-building.jpg"
+          alt="Hyundai CPO Vehicle"
+        />
+      </div>
+
+      <div class="divisions-grid">
+        <!-- Warranty Benefit -->
+        <div class="division-card warranty-card">
+          <div class="division-number">01</div>
+          <h3 class="division-title">An Industry-Leading Warranty</h3>
+          <div class="division-description">
+            <p>
+              This is the cornerstone of the Hyundai CPO program. When you buy a
+              CPO Hyundai, you receive:
+            </p>
+            <ul>
+              <li>
+                <strong
+                  >A 10-Year/100,000-Mile Powertrain Limited Warranty:</strong
+                >
+                This is reinstated from the vehicle's original in-service date.
+                It covers the heart of your vehicle—critical and expensive
+                components like the engine, transmission, and transaxle. This
+                long-term protection helps you avoid the financial anxiety of a
+                major mechanical failure.
+              </li>
+              <li>
+                <strong
+                  >The Remainder of the 5-Year/60,000-Mile New Vehicle Limited
+                  Warranty:</strong
+                >
+                This comprehensive "bumper-to-bumper" coverage protects nearly
+                every other vehicle component, from electrical systems to
+                suspension and steering.
+              </li>
+              <li>
+                For powertrain repairs, there's a minimal $50 deductible per
+                visit, a tiny fraction of what such repairs could otherwise
+                cost.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inspection Benefit -->
+        <div class="division-card inspection-card">
+          <div class="division-number">02</div>
+          <h3 class="division-title">The Meticulous 173-Point Inspection</h3>
+          <div class="division-description">
+            <p>
+              This isn't a quick check-up. A Hyundai-trained technician invests
+              significant time examining your potential vehicle against a
+              massive checklist provided by Hyundai Motor America. This includes
+              a road test and evaluations of:
+            </p>
+            <ul>
+              <li>
+                <strong>Mechanical Systems:</strong> Engine, transmission,
+                steering, brakes, and exhaust are all put through their paces.
+              </li>
+              <li>
+                <strong>Safety Features:</strong> Airbags, seatbelts, traction
+                control, and all advanced driver-assistance systems are verified
+                to be fully functional.
+              </li>
+              <li>
+                <strong>Interior and Exterior:</strong> Everything from the
+                paint and body panels to the infotainment screen and climate
+                controls is checked for quality and proper operation.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quality Benefit -->
+        <div class="division-card quality-card">
+          <div class="division-number">03</div>
+          <h3 class="division-title">
+            Guaranteed Quality with Genuine Hyundai Parts
+          </h3>
+          <div class="division-description">
+            <p>
+              If the inspection reveals any component that doesn't meet
+              Hyundai's standards, it is repaired or replaced. These
+              replacements are made with Genuine Hyundai Parts—the same parts
+              used to build the vehicle at the factory. This ensures perfect
+              fit, function, and longevity, maintaining the vehicle's integrity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Support Benefit -->
+        <div class="division-card support-card">
+          <div class="division-number">04</div>
+          <h3 class="division-title">Comprehensive Support and Perks</h3>
+          <div class="division-description">
+            <p>
+              Your protection extends beyond the vehicle itself. A Hyundai CPO
+              purchase includes:
+            </p>
+            <ul>
+              <li>
+                <strong>10-Year/Unlimited Mileage Roadside Assistance:</strong>
+                Whether you have a flat tire, run out of gas, or lock your keys
+                in the car, help is available 24/7.
+              </li>
+              <li>
+                <strong>Rental Car & Travel Interruption Reimbursement:</strong>
+                If a covered repair is needed while you're on the road more than
+                150 miles from home, Hyundai provides reimbursement for rental
+                cars and travel expenses.
+              </li>
+              <li>
+                You get full transparency into the vehicle's past, including
+                service records, ownership history, and confirmation of a clean,
+                non-branded title.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

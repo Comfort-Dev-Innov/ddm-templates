@@ -1,0 +1,348 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #cfd1d4;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 24px !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      .toc-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 45px 100px;
+        margin: 40px 0;
+      }
+
+      .toc-list-desktop {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: '▶';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: #0f3079;
+        font-size: 12px;
+        line-height: 1.6;
+        transition: left 0.2s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        left: 5px;
+      }
+
+      .toc-list-desktop li p,
+      .toc-list-mobile li p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #0f3079;
+        text-decoration: underline;
+      }
+
+      .toc-list-mobile {
+        display: none;
+        grid-template-columns: 1fr;
+      }
+
+      .toc-list-desktop-description {
+        max-width: 20rem;
+        width: 100%;
+        font-size: 0.8rem;
+        padding-left: 15px;
+        color: #666;
+        text-align: justify;
+      }
+
+      .toc-list-mobile-description {
+        max-width: 20rem;
+        width: 100%;
+        font-size: 12px;
+        padding-left: 15px;
+        color: #666;
+        text-align: justify;
+      }
+
+      @media (max-width: 1024px) {
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          display: grid;
+        }
+        .toc-section {
+          padding: 45px;
+        }
+
+        .toc-list-desktop-description {
+          width: 100%;
+          max-width: 20rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 15px;
+          margin-top: 30px;
+        }
+
+        .toc-list-desktop-description {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tocContainer">
+      <section class="toc-section">
+        <h3 class="section-title toc-title">Table of Contents</h3>
+        <!-- TOC on Desktop -->
+        <ul class="toc-list-desktop">
+          <li>
+            <p>
+              <a href="#pre-purchase-checklist-section"
+                >Understanding the Ford 3.5L PowerBoost Full Hybrid V6 Engine
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Explore the hybrid powertrain&apos;s technical makeup, how it
+              operates, and why it&apos;s a game changer in full-size pickups.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#new-truck-pros-cons"
+                >Fuel Economy: Does the F-150 Hybrid Get Better Gas Mileage?
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Discover how the hybrid system improves fuel efficiency compared
+              to traditional engines, using real-world data and comparisons.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#used-truck-pros-cons"
+                >Reliability of Ford Hybrid Engines</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Learn about the durability and lifespan of Ford's hybrid
+              powertrains, including battery longevity and maintenance
+              considerations.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#best-time-to-buy-section"
+                >Common Ford F-150 Hybrid Problems and Solutions</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Identify potential challenges, such as battery performance issues
+              and turbocharger problems, and receive advice on how to mitigate
+              them.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#depreciation-section"
+                >Recommended Maintenance for the F-150 Hybrid
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Understand the service intervals and upkeep needed to keep your
+              hybrid running smoothly in Oklahoma City or Union City.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#final-decision-section"
+                >Important Recall Information on the 2025 Ford F-150 Hybrid</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Stay informed about recent recalls and fixes related to the hybrid
+              model to maintain safety and performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#sweet-spot-section"
+                >Is the Ford F-150 Hybrid Worth Buying?</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Weigh the pros and cons to determine if this hybrid truck suits
+              your lifestyle and budget, with a focus on your local driving
+              needs.
+            </p>
+          </li>
+        </ul>
+
+        <!-- TOC on Mobile -->
+        <ul class="toc-list-mobile">
+          <li>
+            <p>
+              <a href="#new-truck-pros-cons"
+                >The Case for a New 2025 Ford Truck: Pros &amp; Cons</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Weigh the pros and cons to determine if this hybrid truck suits
+              your lifestyle and budget, with a focus on your local driving
+              needs.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#used-truck-pros-cons"
+                >The Value of a Used Ford Truck: Pros &amp; Cons</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Discover how the hybrid system improves fuel efficiency compared
+              to traditional engines, using real-world data and comparisons.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#depreciation-section"
+                >Decoding Depreciation: How a New Truck's Value Changes</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Learn about the durability and lifespan of Ford's hybrid
+              powertrains, including battery longevity and maintenance
+              considerations.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#sweet-spot-section"
+                >The "Sweet Spot": Finding the Best Age &amp; Mileage for a Used
+                Ford</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Identify potential challenges, such as battery performance issues
+              and turbocharger problems, and receive advice on how to mitigate
+              them.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#pre-purchase-checklist-section"
+                >Your Pre-Purchase Checklist for a Used Ford Truck</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Understand the service intervals and upkeep needed to keep your
+              hybrid running smoothly in Oklahoma City or Union City.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#best-time-to-buy-section"
+                >When Is the Best Time to Buy a Truck in 2025?</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Stay informed about recent recalls and fixes related to the hybrid
+              model to maintain safety and performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#final-decision-section">Making Your Final Decision</a>
+            </p>
+            <p class="toc-list-mobile-description">
+              Weigh the pros and cons to determine if this hybrid truck suits
+              your lifestyle and budget, with a focus on your local driving
+              needs.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

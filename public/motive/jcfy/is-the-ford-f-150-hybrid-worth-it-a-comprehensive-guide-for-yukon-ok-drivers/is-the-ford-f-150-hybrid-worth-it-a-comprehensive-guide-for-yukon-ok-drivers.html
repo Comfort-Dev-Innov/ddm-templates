@@ -1,0 +1,1256 @@
+<html>
+  <head>
+    <style>
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #cfd1d4;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 24px !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      .toc-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 45px 100px;
+        margin: 40px 0;
+      }
+
+      .toc-list-desktop {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: '▶';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: #0f3079;
+        font-size: 12px;
+        line-height: 1.6;
+        transition: left 0.2s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        left: 5px;
+      }
+
+      .toc-list-desktop li p,
+      .toc-list-mobile li p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #0f3079;
+        text-decoration: underline;
+      }
+
+      .toc-list-mobile {
+        display: none;
+        grid-template-columns: 1fr;
+      }
+
+      .toc-list-desktop-description {
+        max-width: 20rem;
+        width: 100%;
+        font-size: 0.8rem;
+        padding-left: 15px;
+        color: #666;
+        text-align: justify;
+      }
+
+      .toc-list-mobile-description {
+        max-width: 20rem;
+        width: 100%;
+        font-size: 12px;
+        padding-left: 15px;
+        color: #666;
+        text-align: justify;
+      }
+
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-indent: 1rem;
+        text-align: justify;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      /* Introduction Section Template */
+      .section-intro {
+        width: 100% !important;
+        font-size: 18px !important;
+        margin-bottom: 30px !important;
+        margin-top: 30px !important;
+        padding: 0 !important;
+        color: #2c3e50;
+        font-weight: 400 !important;
+      }
+
+      .section-intro-big-character {
+        font-size: 72px !important;
+        margin: 0 8px 0 0 !important;
+        line-height: 0.8 !important;
+        color: #2c3e50;
+        font-weight: 700 !important;
+        float: left !important;
+      }
+
+      .section-intro span {
+        flex: 1 !important;
+        margin-top: 12px !important;
+      }
+
+      /* START section-bullet-02-template */
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-left {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-right {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        border-radius: 12px;
+        list-style: none;
+        margin: 0;
+      }
+
+      .bullet-list {
+        margin-top: 10px auto;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: '•';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .image-right {
+          min-height: 250px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+      /*END section-bullet-02-template */
+
+      /* START Bullet List Section 01 */
+      .bullet-section-01 {
+        /* Bullet List Section */
+        .bullet-list {
+          border-radius: 12px;
+          list-style: none;
+          margin: 10px auto;
+        }
+
+        .bullet-list {
+          padding: 20px 20px 0 20px;
+          border: 2px dashed #ddd;
+          border-radius: 12px;
+          list-style: none;
+          margin: 10px auto;
+        }
+
+        .bullet-list li {
+          margin-bottom: 24px;
+          position: relative;
+          padding-left: 20px;
+        }
+
+        .bullet-list li::before {
+          content: '•';
+          position: absolute;
+          top: -10px;
+          left: 0;
+          color: #3b82f6;
+          font-weight: bold;
+          font-size: 1.8em;
+        }
+
+        .bullet-list li p {
+          margin: 0;
+        }
+
+        .bullet-list li ul {
+          margin-top: 12px;
+          padding-left: 20px;
+        }
+
+        .bullet-list li ul li {
+          margin-bottom: 16px;
+        }
+      }
+      /* END Bullet List Section 01 */
+
+      /* START comparison Section */
+      .new-truck-pros-cons,
+      .used-truck-pros-cons {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+
+      /* Pros and Cons Section */
+      .pros-cons-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 600px;
+        margin: 15px 40px;
+        margin-bottom: 50px;
+      }
+
+      .pros-section {
+        background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-left: 1px solid #059669;
+        border-top: 1px solid #059669;
+        border-bottom: 1px solid #059669;
+        border-right: 1px solid #b4b4b4;
+      }
+
+      .cons-section {
+        background: linear-gradient(135deg, #fef7f7 0%, #fdf2f2 100%);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-right: 1px solid #dc2626;
+        border-top: 1px solid #dc2626;
+        border-bottom: 1px solid #dc2626;
+      }
+
+      .compare-section-content {
+        padding: 2rem;
+        height: 100%;
+      }
+
+      .compare-section-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        margin-top: 0px;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .pros-section .compare-section-title {
+        color: #059669;
+      }
+
+      .cons-section .compare-section-title {
+        color: #dc2626;
+      }
+
+      .icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .pros-icon {
+        background: #059669;
+        color: white;
+      }
+
+      .cons-icon {
+        background: #dc2626;
+        color: white;
+      }
+
+      .points-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .point-item {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        padding: 1.25rem;
+        border-left: 4px solid transparent;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .pros-section .point-item {
+        border-left-color: #059669;
+        box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+      }
+
+      .cons-section .point-item {
+        border-left-color: #dc2626;
+        box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+      }
+
+      .point-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .point-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .pros-section .point-title {
+        color: #065f46;
+      }
+
+      .cons-section .point-title {
+        color: #991b1b;
+      }
+
+      .point-description {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .point-bullet {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 0.6rem;
+      }
+
+      .pros-section .point-bullet {
+        background: #059669;
+      }
+
+      .cons-section .point-bullet {
+        background: #dc2626;
+      }
+
+      @media (max-width: 1000px) {
+        .pros-cons-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pros-section {
+          border: 1px solid #059669;
+          border-radius: 20px;
+          margin-bottom: 20px;
+        }
+
+        .cons-section {
+          border: 1px solid #dc2626;
+          border-radius: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .points-list {
+          padding-left: 0;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .pros-cons-grid {
+          margin: 0 15px;
+        }
+
+        .compare-section-content {
+          padding: 2rem 0.5rem;
+        }
+
+        .compare-section-title {
+          flex-direction: column;
+        }
+
+        .pros-section .point-item {
+          border-left: 0px;
+          border-top: 3px solid #059669;
+        }
+
+        .cons-section .point-item {
+          border-left: none;
+          border-top: 3px solid #dc2626;
+        }
+
+        .point-title {
+          font-size: 16px;
+        }
+
+        .point-description {
+          font-size: 0.8rem;
+        }
+      }
+      /* END comparison Section */
+
+      .hr-2 {
+        padding: 0;
+        border: none;
+        border-top: medium double #0f3079;
+        color: #0f3079;
+        text-align: center;
+      }
+
+      .hr-2:after {
+        content: '§';
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: #fff;
+      }
+
+      .hr-3 {
+        padding: 0;
+        border: none;
+        border-bottom: medium double #0f3079;
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .hr-3:before {
+        content: '§';
+        display: inline-block;
+        position: relative;
+        top: 0.6em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: #fff;
+      }
+
+      @media (min-width: 768px) {
+        .paragraph-text {
+          font-size: 15px;
+          text-indent: 1.5rem;
+          text-align: justify;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          display: grid;
+        }
+        .toc-section {
+          padding: 45px;
+        }
+
+        .toc-list-desktop-description {
+          width: 100%;
+          max-width: 20rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 15px;
+          margin-top: 30px;
+        }
+
+        .toc-list-desktop-description {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section-intro">
+      <span>
+        <span class="section-intro-big-character">I</span>f you&apos;re in
+        Yukon, Mustang, or Edmond and are considering a new truck, the Ford
+        F-150 Hybrid, particularly the PowerBoost model, is a thrilling option.
+        It combines rugged capability with hybrid innovation, offering a unique
+        blend of power, efficiency, and versatility. Whether you need a
+        workhorse for towing in Piedmont or a reliable daily driver in Warr
+        Acres, the F-150 Hybrid is a modern marvel that blends traditional truck
+        toughness with cutting-edge technology. For personalized assistance or
+        to schedule a test drive, please call us at
+        <a class="paragraph-hyperlink" href="tel:4053541111">(405) 354-1111</a>
+        or visit us at
+        <a
+          class="paragraph-hyperlink"
+          href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88"
+          >1780 Garth Brooks Blvd, Yukon, OK 73099</a
+        >.
+      </span>
+    </section>
+    <div class="tocContainer">
+      <section class="toc-section">
+        <h3 class="section-title toc-title">Table of Contents</h3>
+        <!-- TOC on Desktop -->
+        <ul class="toc-list-desktop">
+          <li>
+            <p>
+              <a href="#section1"
+                >Understanding the Ford 3.5L PowerBoost Full Hybrid V6 Engine
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Explore the hybrid powertrain&apos;s technical makeup, how it
+              operates, and why it&apos;s a game changer in full-size pickups.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section2"
+                >Fuel Economy: Does the F-150 Hybrid Get Better Gas Mileage?
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Discover how the hybrid system improves fuel efficiency compared
+              to traditional engines, using real-world data and comparisons.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section3">Reliability of Ford Hybrid Engines</a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Learn about the durability and lifespan of Ford's hybrid
+              powertrains, including battery longevity and maintenance
+              considerations.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section4"
+                >Common Ford F-150 Hybrid Problems and Solutions</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Identify potential challenges, such as battery performance issues
+              and turbocharger problems, and receive advice on how to mitigate
+              them.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section5"
+                >Recommended Maintenance for the F-150 Hybrid
+              </a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Understand the service intervals and upkeep needed to keep your
+              hybrid running smoothly in Oklahoma City or Union City.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section6"
+                >Important Recall Information on the 2025 Ford F-150 Hybrid</a
+              >
+            </p>
+            <p class="toc-list-desktop-description">
+              Stay informed about recent recalls and fixes related to the hybrid
+              model to maintain safety and performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section7">Is the Ford F-150 Hybrid Worth Buying?</a>
+            </p>
+            <p class="toc-list-desktop-description">
+              Weigh the pros and cons to determine if this hybrid truck suits
+              your lifestyle and budget, with a focus on your local driving
+              needs.
+            </p>
+          </li>
+        </ul>
+
+        <!-- TOC on Mobile -->
+        <ul class="toc-list-mobile">
+          <li>
+            <p>
+              <a href="#section1"
+                >Understanding the Ford 3.5L PowerBoost Full Hybrid V6 Engine</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Explore the hybrid powertrain&apos;s technical makeup, how it
+              operates, and why it&apos;s a game changer in full-size pickups.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section2"
+                >Fuel Economy: Does the F-150 Hybrid Get Better Gas Mileage?</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Discover how the hybrid system improves fuel efficiency compared
+              to traditional engines, using real-world data and comparisons.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section3">Reliability of Ford Hybrid Engines</a>
+            </p>
+            <p class="toc-list-mobile-description">
+              Learn about the durability and lifespan of Ford&apos;s hybrid
+              powertrains, including battery longevity and maintenance
+              considerations.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section4"
+                >Common Ford F-150 Hybrid Problems and Solutions</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Identify potential challenges, such as battery performance issues
+              and turbocharger problems, and receive advice on how to mitigate
+              them.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section5"
+                >Recommended Maintenance for the F-150 Hybrid</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Understand the service intervals and upkeep needed to keep your
+              hybrid running smoothly in Oklahoma City or Union City.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section6"
+                >Important Recall Information on the 2025 Ford F-150 Hybrid</a
+              >
+            </p>
+            <p class="toc-list-mobile-description">
+              Stay informed about recent recalls and fixes related to the hybrid
+              model to maintain safety and performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#section7">Making Your Final Decision</a>
+            </p>
+            <p class="toc-list-mobile-description">
+              Weigh the pros and cons to determine if this hybrid truck suits
+              your lifestyle and budget, with a focus on your local driving
+              needs.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <hr class="hr-3" />
+    <section id="section1" class="container">
+      <h1 class="section-title">
+        Understanding the Ford 3.5L PowerBoost Full Hybrid V6 Engine
+      </h1>
+
+      <div class="paragraph-container">
+        <p class="paragraph-text">
+          The heart of the Ford F-150 Hybrid is its innovative 3.5-liter
+          twin-turbocharged V6 EcoBoost engine, paired seamlessly with a full
+          hybrid system known as the PowerBoost. This system integrates a 35kW
+          electric motor directly into a 10-speed modular transmission,
+          supported by a 1.5 kWh lithium-ion battery pack. Unlike conventional
+          engines, this hybrid setup captures energy during braking and
+          deceleration, storing it for later use to boost performance and
+          efficiency.
+        </p>
+        <p class="paragraph-text">
+          This hybrid engine produces an impressive 430 horsepower and 570
+          pound-feet of torque, matching or exceeding the output of some
+          traditional V8 engines. The electric motor assists during
+          acceleration, reducing turbo lag and providing smoother power
+          delivery. This results in enhanced towing and payload capabilities,
+          with the F-150 Hybrid able to tow up to 11,200 pounds and carry a
+          payload of around 1,755 pounds, making it a true work-ready truck.
+        </p>
+        <p class="paragraph-text">
+          In locations like Bethany and Warr Acres, where both city stop-and-go
+          and highway driving are common, the hybrid system’s ability to switch
+          between electric-only and gas-powered modes optimizes fuel use.
+          Additionally, the PowerBoost includes Pro Power Onboard, a mobile
+          generator system offering 2.4 kW as the standard, with the option to
+          upgrade to 7.2 kW. This feature is invaluable for job sites or outdoor
+          activities, as it powers tools or appliances without requiring a
+          separate generator. It's like having a portable power station wherever
+          you go.
+        </p>
+        <p class="paragraph-text">
+          For those interested in exploring these features firsthand, Joe Cooper
+          Ford of Yukon offers the complete lineup of the 2024 and 2025 F-150
+          PowerBoost hybrids. You can browse our All-New Vehicles online or
+          contact us to arrange a demonstration.
+        </p>
+      </div>
+      <hr class="hr-1" />
+    </section>
+
+    <section id="section2" class="container">
+      <h1 class="section-title">
+        Fuel Economy: Does the F-150 Hybrid Get Better Gas Mileage?
+      </h1>
+
+      <div class="paragraph-container">
+        <p class="paragraph-text">
+          One of the most compelling reasons to consider the Ford F-150 Hybrid
+          is its improved fuel economy. According to EPA estimates, the 2025
+          F-150 PowerBoost hybrid achieves approximately 22 mpg in the city and
+          24 mpg on the highway, combining for an overall rating of nearly 23
+          mpg. This is a marked improvement over the non-hybrid 3.5-liter
+          EcoBoost V6, which averages 18-20 MPG combined.
+        </p>
+        <p class="paragraph-text">
+          In real-world driving scenarios typical of Oklahoma City and nearby
+          Union City, drivers benefit from the hybrid system&apos;s ability to
+          operate on electric power at low speeds and during idling, which is
+          especially advantageous in stop-and-go traffic. The regenerative
+          braking system recaptures
+        </p>
+        <p class="paragraph-text">
+          When comparing fuel economy to other full-size hybrid trucks, the
+          F-150 Hybrid stands out with its balance of power and efficiency. For
+          example, the 2025 Toyota Tundra i-Force Max hybrid achieves
+          approximately 22 MPG combined, while the Ram 1500 eTorque mild hybrid
+          achieves a rating of nearly 23 MPG. The F-150 Hybrid&apos;s advantage
+          lies in its superior towing capacity alongside fuel savings, making it
+          a strong choice for drivers who need both.
+        </p>
+        <p class="paragraph-text">
+          Maximize your F-150 Hybrid's fuel economy by maintaining proper tire
+          pressure, removing unnecessary weight, and adopting smooth driving
+          habits. Scheduling regular maintenance with our
+          <a
+            class="paragraph-hyperlink"
+            href="https://joecooperfordyukon.com/parts"
+            >Service Scheduler</a
+          >
+          helps ensure your truck operates at peak efficiency.
+        </p>
+      </div>
+      <hr class="hr-1" />
+    </section>
+
+    <section id="section3" class="container">
+      <h1 class="section-title">Reliability of Ford Hybrid Engines</h1>
+
+      <div class="paragraph-container">
+        <p class="paragraph-text">
+          Concerns about hybrid engine reliability are natural, especially when
+          considering a truck as essential as the F-150. Ford&apos;s hybrid
+          powertrains, including the PowerBoost system, have demonstrated strong
+          durability comparable to conventional engines. Owners in areas like
+          Piedmont and Moore report that with proper maintenance, these hybrids
+          easily surpass 150,000 miles, with many reaching well beyond 200,000
+          miles.
+        </p>
+        <p class="paragraph-text">
+          The lithium-ion battery packs are engineered for longevity, typically
+          lasting eight to ten years or up to 150,000 miles. Ford&apos;s hybrid
+          battery warranty covers 8 years or 100,000 miles, aligning with
+          industry standards and providing peace of mind against premature
+          battery failure.
+        </p>
+        <p class="paragraph-text">
+          Ford hybrid technology benefits from extensive testing and continuous
+          software updates, improving system reliability and performance over
+          time. The hybrid components are designed to withstand the same harsh
+          conditions as traditional F-150 engines, including towing heavy loads
+          and off-road use common in Oklahoma.
+        </p>
+        <p class="paragraph-text">
+          For parts replacement or upgrades, Joe Cooper Ford of Yukon&apos;s
+          <a
+            class="paragraph-hyperlink"
+            href="https://joecooperfordyukon.com/parts"
+            >Parts Department</a
+          >
+          stocks authentic OEM components to maintain your vehicle&apos;s
+          quality and performance.
+        </p>
+      </div>
+      <hr class="hr-1" />
+    </section>
+
+    <section class="bullet-section container" id="section4">
+      <div class="content-layout">
+        <div class="content-left">
+          <h1 class="section-title">
+            Common Ford F-150 Hybrid
+            <span style="color: #0f3079">Problems and Solutions</span>
+          </h1>
+          <p>
+            While the Ford F-150 Hybrid offers advanced technology, some owners
+            have reported issues that are important to consider:
+          </p>
+          <ul class="bullet-list">
+            <li>
+              <p>
+                <strong>Battery Performance Issues:</strong> Decreased battery
+                efficiency may occur due to frequent short trips or extreme
+                temperatures. Regular maintenance and software updates can help
+                mitigate these effects.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Engine Noise and Vibrations:</strong>Transitioning
+                between electric and gasoline modes might cause unusual sounds
+                or vibrations; software updates and engine mount inspections
+                often resolve these.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Fuel Efficiency Drops:</strong> Changes in driving
+                habits or tire pressure can affect MPG. Maintaining proper tire
+                inflation and adopting fuel-efficient driving improves mileage.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Overheating:</strong> Coolant leaks or thermostat
+                problems can cause engine overheating. Prompt servicing is
+                essential to prevent damage.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Turbocharger Wear:</strong> Proper oil changes and
+                maintenance reduce the risk of turbocharger failure.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="image-right">
+          <img
+            src="https://www.ford.com/is/image/content/dam/na/ford/en_us/images/f150-lightning/2025/dm/25_FRD_FLI_66500_v4.tif?croppathe=1_8x9&wid=992&fmt=webp"
+            alt="Ford truck in perfect condition representing the sweet spot for used vehicle purchases"
+          />
+        </div>
+      </div>
+      <hr class="hr-1" />
+    </section>
+
+    <section class="container bullet-section" id="section5">
+      <h1 class="section-title">
+        Recommended Maintenance for the F-150 Hybrid
+      </h1>
+
+      <p class="paragraph-text">
+        Routine maintenance is critical for maximizing the lifespan and
+        efficiency of the F-150 Hybrid. For drivers in Yukon, Bethany, or Warr
+        Acres, keeping to a regular service schedule ensures reliable
+        performance.
+      </p>
+      <ul class="bullet-list">
+        <li>
+          <p>
+            <strong>End of the Year (October - December):</strong> This is often
+            the best time for new trucks. Dealerships are motivated to clear out
+            current-year inventory to make room for next year's models and to
+            meet annual sales goals.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>End of the Month/Quarter:</strong> Sales targets can create
+            opportunities for buyers at the end of any month or financial
+            quarter.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Model Year Changeover:</strong> When the 2026 models are
+            announced and begin arriving, dealers will be eager to move the
+            remaining 2025 models. This is a prime time to get a great deal on a
+            new, outgoing-model-year truck.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Holiday Sales Events:</strong> Look for promotions around
+            Memorial Day, Labor Day, and Black Friday for both new and used
+            vehicles.
+          </p>
+        </li>
+      </ul>
+      <hr class="hr-1" />
+    </section>
+
+    <section id="section6" class="container">
+      <h1 class="section-title">
+        Important Recall Information on the 2025 Ford F-150 Hybrid
+      </h1>
+
+      <div class="paragraph-container">
+        <p class="paragraph-text">
+          Ford has issued a recall for certain 2025 F-150 Hybrid models due to
+          an incorrect installation of a fuse in the high-voltage junction box.
+          This fuse can blow under normal load, causing a sudden loss of drive
+          power. While only 47 units are affected and six incidents have been
+          reported, it&apos;s essential for owners in Oklahoma City and
+          surrounding areas to ensure their vehicle is inspected.
+        </p>
+        <p class="paragraph-text">
+          The fix is straightforward: dealers will replace the incorrect fuse at
+          no cost, usually within minutes. If you own a 2025 F-150 Hybrid,
+          contact Joe Cooper Ford of Yukon or visit us at
+          <a
+            class="paragraph-hyperlink"
+            href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88"
+            >Parts Department 1780 Garth Brooks Blvd, Yukon, OK 73099 </a
+          >to confirm your vehicle&apos;s status and schedule a recall service.
+        </p>
+      </div>
+      <hr class="hr-1" />
+    </section>
+
+    <section id="section7" class="container">
+      <section id="new-truck-pros-cons">
+        <h1 class="section-title">Is the Ford F-150 Hybrid Worth Buying?</h1>
+        <p class="paragraph-text">
+          For drivers in Yukon, Mustang, and Edmond weighing their options, the
+          Ford F-150 Hybrid offers a compelling package:
+        </p>
+
+        <div class="pros-cons-grid">
+          <div class="pros-section">
+            <div class="compare-section-content">
+              <h3 class="compare-section-title">
+                <div class="icon pros-icon">✓</div>
+                Advantages:
+              </h3>
+              <ul class="points-list">
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Improved Fuel Economy
+                  </div>
+                  <p class="point-description">
+                    Especially beneficial in urban and mixed driving conditions
+                    found in Oklahoma City and surrounding suburbs.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Cutting-Edge Technology
+                  </div>
+                  <p class="point-description">
+                    The 2025 models feature Ford's most advanced tech. This can
+                    include the hands-free BlueCruise highway driving system,
+                    the versatile Pro Power Onboard generator, larger
+                    touchscreens with SYNC® 4, and the latest suite of
+                    Co-Pilot360™ safety assists.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Robust Power and Towing
+                  </div>
+                  <p class="point-description">
+                    Full-size truck capability with hybrid efficiency.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Innovative Features
+                  </div>
+                  <p class="point-description">
+                    Pro Power Onboard generator enhances utility for work and
+                    recreation.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Strong Reliability
+                  </div>
+                  <p class="point-description">
+                    Backed by Ford’s warranty and hybrid technology durability.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Potential Cost Savings
+                  </div>
+                  <p class="point-description">
+                    Fuel and maintenance savings can offset the higher initial
+                    price over time.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cons-section">
+            <div class="compare-section-content">
+              <h3 class="compare-section-title">
+                <div class="icon cons-icon">✗</div>
+                Considerations:
+              </h3>
+              <ul class="points-list">
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Higher Initial Cost
+                  </div>
+                  <p class="point-description">
+                    The hybrid F-150 typically costs more than non-hybrid
+                    models, which might not fit every budget.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Variable Fuel Savings
+                  </div>
+                  <p class="point-description">
+                    Highway-only drivers may see less dramatic MPG improvements.
+                  </p>
+                </li>
+                <li class="point-item">
+                  <div class="point-title">
+                    <div class="point-bullet"></div>
+                    Maintenance Complexity
+                  </div>
+                  <p class="point-description">
+                    Hybrid systems require specialized care, though routine
+                    servicing is manageable with professional support.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="paragraph-text">
+          If you want to experience the Ford F-150 Hybrid for yourself, explore
+          our inventory of
+          <a
+            class="paragraph-hyperlink"
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22dealer_id%22%3A%7B%22value%22%3A%7B%22230%22%3Atrue%7D%7D%7D%7D"
+            >All New Vehicles</a
+          >
+          or browse
+          <a
+            class="paragraph-hyperlink"
+            href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22Used%22%3Atrue%7D%7D%7D%7D"
+            >All Used Vehicles
+          </a>
+          at Joe Cooper Ford of Yukon. Use our
+          <a
+            class="paragraph-hyperlink"
+            href="https://joecooperfordyukon.com/trade"
+            >Trade Valuation </a
+          >tool to discover your current vehicle&apos;s worth and find out how
+          it can help fund your new purchase.
+        </p>
+
+        <p class="paragraph-text">
+          No matter your budget or credit history, our finance experts are ready
+          to assist you with competitive rates and flexible options, helping you
+          drive home happy. Remember, we will beat any competitor&apos;s price
+          on a new vehicle by $500! Who Loves Ya, Oklahoma?
+        </p>
+      </section>
+      <hr class="hr-1" />
+    </section>
+  </body>
+</html>

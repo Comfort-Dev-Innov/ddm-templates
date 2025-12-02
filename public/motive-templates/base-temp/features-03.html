@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Most Affordable Ford Models</title>
+    <style>
+      /* Container Default Styles */
+      .featuresContainer2 {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 h3,
+      .featuresContainer2 p {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title Section */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        text-align: center;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      /* Description */
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 50px !important;
+        color: #4a5568;
+      }
+
+      /* Cards Grid */
+      .affordable-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* Animated Card Styles */
+      .affordable-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      .affordable-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .affordable-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .affordable-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0f3079, #3971b5);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .affordable-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .affordable-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(15, 48, 121, 0.15);
+      }
+
+      /* Image Section */
+      .card-image-wrapper {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+      }
+
+      .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .affordable-card:hover .card-image-wrapper img {
+        transform: scale(1.1);
+      }
+
+      /* Price Badge */
+      .price-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 700;
+        color: #0f3079;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Card Content */
+      .card-content-wrapper {
+        padding: 30px;
+      }
+
+      .card-title-main {
+        font-size: 26px;
+        font-weight: 700;
+        color: #0f3079;
+        margin-bottom: 8px !important;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card-subtitle-main {
+        font-size: 16px;
+        color: #718096;
+        font-weight: 600;
+        margin-bottom: 20px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .card-description-main {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* Animated Underline */
+      .card-title-main::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: #0f3079;
+        transition: width 0.4s ease;
+      }
+
+      .affordable-card:hover .card-title-main::after {
+        width: 60px;
+      }
+
+      /* Features List */
+      .features-list {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .feature-item {
+        background: #f7fafc;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        color: #2d3748;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover {
+        background: #e2e8f0;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .affordable-cards-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .feat-desc {
+          font-size: 16px;
+          margin-bottom: 30px !important;
+        }
+
+        .card-image-wrapper {
+          height: 220px;
+        }
+
+        .card-content-wrapper {
+          padding: 24px;
+        }
+
+        .card-title-main {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .featuresContainer2 {
+          padding: 20px 15px !important;
+        }
+
+        .card-image-wrapper {
+          height: 200px;
+        }
+
+        .card-content-wrapper {
+          padding: 20px;
+        }
+
+        .card-title-main {
+          font-size: 20px;
+        }
+
+        .card-description-main {
+          font-size: 15px;
+        }
+      }
+
+      /* Parallax Effect on Scroll */
+      .affordable-card {
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2">
+        Identifying the <span style="color: #0f3079">Most Affordable Ford Models</span>
+      </h2>
+      
+      <p class="feat-desc">
+        For budget-conscious shoppers in Oklahoma City, Piedmont, and Bethany, Ford offers several affordable yet capable vehicles.
+      </p>
+
+      <div class="affordable-cards-grid">
+        <!-- Ford Maverick Card -->
+        <div class="affordable-card">
+          <div class="card-image-wrapper">
+            <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/maverick/2025/jellybeans/Ford_Maverick_2025_702A_PE7_886_89W_96G_576_16B_BY1AL_60B_61D_43L_64L_4WD_99A_HKCBA_LOB_DEFAULT_EXT_1_005.png" alt="Ford Maverick" />
+            <div class="price-badge">Most Affordable</div>
+          </div>
+          <div class="card-content-wrapper">
+            <h3 class="card-title-main">Ford Maverick</h3>
+            <p class="card-subtitle-main">Compact and Efficient</p>
+            <p class="card-description-main">
+              The Maverick XL pickup starts at an accessible price, offering a hybrid powertrain, a payload rating of 1,500 pounds, and a towing capacity of 4,000 pounds. It's ideal for city drivers and small business owners alike.
+            </p>
+            <div class="features-list">
+              <span class="feature-item">Hybrid Powertrain</span>
+              <span class="feature-item">1,500 lbs Payload</span>
+              <span class="feature-item">4,000 lbs Towing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ford Escape Card -->
+        <div class="affordable-card">
+          <div class="card-image-wrapper">
+            <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/escape/2026/jellybeans/26_frd_esp_phev_vpbl_dr78.png" alt="Ford Escape" />
+            <div class="price-badge">Best Value</div>
+          </div>
+          <div class="card-content-wrapper">
+            <h3 class="card-title-main">Ford Escape</h3>
+            <p class="card-subtitle-main">Affordable and Versatile</p>
+            <p class="card-description-main">
+              The Escape's starting price makes it a popular compact SUV choice, with strong safety ratings and efficient fuel economy, perfect for family and commuter use.
+            </p>
+            <div class="features-list">
+              <span class="feature-item">Strong Safety Ratings</span>
+              <span class="feature-item">Efficient Fuel Economy</span>
+              <span class="feature-item">Family-Friendly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

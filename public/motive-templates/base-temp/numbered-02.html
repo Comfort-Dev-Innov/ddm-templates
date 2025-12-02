@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Motor Company Divisions</title>
+    <style>
+      /* Container Default Styles */
+      .featuresContainer2 {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 h3,
+      .featuresContainer2 p {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title Section */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        text-align: center;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      /* Description */
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 50px !important;
+        color: #4a5568;
+        line-height: 1.7;
+      }
+
+      /* Divisions Grid */
+      .divisions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 35px;
+        margin-bottom: 20px;
+      }
+
+      /* Division Card */
+      .division-card {
+        background: white;
+        border-radius: 16px;
+        padding: 35px 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: 2px solid transparent;
+        overflow: hidden;
+      }
+
+      /* Animated gradient border effect */
+      .division-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 16px;
+        padding: 2px;
+        background: linear-gradient(135deg, transparent, transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .division-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Different hover colors for each division */
+      .ford-blue-card:hover {
+        border-color: #0f3079;
+        box-shadow: 0 12px 35px rgba(15, 48, 121, 0.15);
+      }
+
+      .ford-model-e-card:hover {
+        border-color: #2c5282;
+        box-shadow: 0 12px 35px rgba(44, 82, 130, 0.15);
+      }
+
+      .ford-pro-card:hover {
+        border-color: #2d3748;
+        box-shadow: 0 12px 35px rgba(45, 55, 72, 0.15);
+      }
+
+      /* Division Icon/Number */
+      .division-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        color: white;
+      }
+
+      .ford-blue-card .division-number {
+        background: linear-gradient(135deg, #0f3079, #3971b5);
+      }
+
+      .ford-model-e-card .division-number {
+        background: linear-gradient(135deg, #2c5282, #4299e1);
+      }
+
+      .ford-pro-card .division-number {
+        background: linear-gradient(135deg, #2d3748, #4a5568);
+      }
+
+      .division-card:hover .division-number {
+        transform: rotate(360deg) scale(1.1);
+      }
+
+      /* Division Title */
+      .division-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px !important;
+        color: #1a202c;
+        position: relative;
+        padding-bottom: 12px;
+      }
+
+      .division-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: currentColor;
+        transition: width 0.4s ease;
+      }
+
+      .division-card:hover .division-title::after {
+        width: 80px;
+      }
+
+      .ford-blue-card .division-title {
+        color: #0f3079;
+      }
+
+      .ford-model-e-card .division-title {
+        color: #2c5282;
+      }
+
+      .ford-pro-card .division-title {
+        color: #2d3748;
+      }
+
+      /* Division Subtitle */
+      .division-subtitle {
+        font-size: 14px;
+        color: #718096;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 18px !important;
+      }
+
+      /* Division Description */
+      .division-description {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* Decorative elements */
+      .division-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(15, 48, 121, 0.05), transparent);
+        border-radius: 50%;
+        transition: all 0.6s ease;
+        pointer-events: none;
+      }
+
+      .division-card:hover::after {
+        top: -30%;
+        right: -30%;
+        width: 250px;
+        height: 250px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .divisions-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .feat-desc {
+          font-size: 16px;
+          margin-bottom: 35px !important;
+        }
+
+        .division-card {
+          padding: 28px 24px;
+        }
+
+        .division-title {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .featuresContainer2 {
+          padding: 20px 15px !important;
+        }
+
+        .division-card {
+          padding: 24px 20px;
+        }
+
+        .division-number {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+
+        .division-title {
+          font-size: 20px;
+        }
+
+        .division-description {
+          font-size: 15px;
+        }
+      }
+
+      /* Stagger animation on load */
+      .division-card {
+        animation: fadeInUp 0.6s ease-out backwards;
+      }
+
+      .division-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .division-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .division-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2">
+        The Three Divisions of <span style="color: #0f3079">Ford Motor Company</span>
+      </h2>
+      
+      <p class="feat-desc">
+        Understanding Ford's organizational structure provides insight into how innovation and production are managed, benefiting customers from Yukon to Moore.
+      </p>
+
+      <div class="divisions-grid">
+        <!-- Ford Blue Division -->
+        <div class="division-card ford-blue-card">
+          <div class="division-number">01</div>
+          <h3 class="division-title">Ford Blue</h3>
+          <p class="division-subtitle">Traditional Vehicles</p>
+          <p class="division-description">
+            Ford Blue focuses on internal combustion engine vehicles, including trucks and SUVs that have been staples in communities around Oklahoma City and Edmond.
+          </p>
+        </div>
+
+        <!-- Ford Model E Division -->
+        <div class="division-card ford-model-e-card">
+          <div class="division-number">02</div>
+          <h3 class="division-title">Ford Model E</h3>
+          <p class="division-subtitle">Electric Vehicles</p>
+          <p class="division-description">
+            Dedicated to electric vehicle development, Ford Model E leads Ford's charge in EV innovation with models like the Mustang Mach-E and F-150 Lightning, designed to meet growing demand in areas like Yukon and Piedmont.
+          </p>
+        </div>
+
+        <!-- Ford Pro Division -->
+        <div class="division-card ford-pro-card">
+          <div class="division-number">03</div>
+          <h3 class="division-title">Ford Pro</h3>
+          <p class="division-subtitle">Commercial and Service Division</p>
+          <p class="division-description">
+            Ford Pro handles commercial vehicle distribution and related services, ensuring that businesses in Mustang and Bethany have access to reliable work trucks and vans, along with comprehensive support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

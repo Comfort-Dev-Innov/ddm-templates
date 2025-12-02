@@ -1,0 +1,202 @@
+<style>
+  /* Section 1 Scoped Styles - Note: Body styles handled by motive to avoid conflicts */
+
+  /* Section 1 Scoped Styles */
+  .section1 .container {
+    padding: 40px 0 !important;
+    line-height: 1.6 !important;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section1 .container h1 {
+    width: fit-content !important;
+  }
+
+  .section1 .container h3,
+  .section1 .container h1,
+  .section1 .container h2,
+  .section1 .container p,
+  .section1 .container ol,
+  .section1 .container ul {
+    max-width: 1300px !important;
+  }
+
+  /* Heading with Image */
+  .section1 .heading-with-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 50px 0px;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+
+  .section1 .hyundai-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('https://images.unsplash.com/photo-1619767886558-efdc259cde1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')
+        center/cover;
+  }
+
+  .section1 .heading-with-image h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .section1 .heading-with-image span {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .subsection-intro {
+    text-align: center;
+    margin: 30px 40px !important;
+    font-size: 18px;
+  }
+
+  /* Introduction Section Template */
+  .section1 .section-intro {
+    width: 100% !important;
+    font-size: 14px !important;
+    margin-bottom: 30px !important;
+    padding: 0 40px !important;
+    font-weight: 400 !important;
+    text-align: center;
+  }
+
+  .section1 .section-intro span {
+    flex: 1 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Paragraph Text Start */
+  .section1 .paragraph-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: black;
+    text-align: justify;
+    width: 100% !important;
+  }
+
+  .paragraph-container {
+    display: flex;
+    width: 100% !important;
+    flex-direction: column;
+    margin-top: 2rem;
+    justify-self: center;
+    align-self: center;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0f3079;
+    border-radius: 12px;
+    padding: 1.25rem 2rem;
+    max-width: calc(100% - 8rem);
+  }
+
+  .section1 .paragraph-hyperlink {
+    color: #0f3079;
+    text-decoration: none;
+    font-weight: 800;
+  }
+
+  .hr-1 {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+    margin: 50px 40px;
+  }
+
+  @media (max-width: 768px) {
+    .subsection-intro {
+      margin: 30px 20px !important;
+      font-size: 16px;
+    }
+
+    .subsection-intro br {
+      display: none;
+    }
+
+    .section-intro {
+      padding: 0 20px !important;
+    }
+
+    .section-intro h1 {
+      font-size: 48px !important;
+    }
+
+    .paragraph-text {
+      font-size: 15px;
+      text-align: justify;
+    }
+
+    .paragraph-container {
+      padding: 10px 20px;
+    }
+
+    .hr-1 {
+      margin: 50px 20px;
+    }
+  }
+
+  /* Paragraph Style End */
+</style>
+
+<div class="container section1">
+  <div class="heading-with-image hyundai-image">
+    <h2>
+      Hyundai Tucson Hybrid vs. Gas: <br /><span>Which Should You Choose?</span>
+    </h2>
+  </div>
+  <div>
+    <p class="subsection-intro">
+      Making the right choice between hybrid and traditional gas powertrains
+      requires understanding your driving needs, budget, and priorities.
+    </p>
+  </div>
+
+  <section class="section-intro">
+    <span>
+      When you're shopping for a Hyundai Tucson, one of the biggest decisions
+      you'll face is choosing between the hybrid and traditional gas engine.
+      It's a choice that goes beyond just fuel efficiency – it touches on your
+      driving habits, budget, environmental priorities, and long-term ownership
+      goals.
+    </span>
+  </section>
+
+  <div class="paragraph-container">
+    <p class="paragraph-text">
+      The Tucson has earned its reputation as a reliable, well-equipped compact
+      SUV, but the addition of hybrid technology adds another layer to consider.
+      Are you someone who prioritizes maximum fuel savings and eco-friendliness?
+      Or do you value the simplicity and lower upfront cost of a conventional
+      gas engine? Maybe you're wondering if the hybrid's extra complexity is
+      worth the potential benefits, or if the gas version offers better
+      long-term value.
+    </p>
+    <br />
+
+    <p class="paragraph-text">
+      Your decision will ultimately depend on how you plan to use your vehicle,
+      where you drive most often, and what matters most to you as an owner.
+      Whether you're drawn to cutting-edge efficiency or proven reliability,
+      understanding the real-world differences between these two powertrains
+      will help you make the choice that's right for your lifestyle and budget.
+    </p>
+    <br />
+
+    <p class="paragraph-text">Let's get into it.</p>
+  </div>
+
+  <hr class="hr-1" />
+</div>

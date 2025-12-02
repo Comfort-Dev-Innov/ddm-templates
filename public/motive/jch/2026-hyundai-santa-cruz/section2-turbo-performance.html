@@ -1,0 +1,395 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Performance Table Styling */
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .performance-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 1300px !important;
+        background: white;
+      }
+
+      .performance-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .performance-table th {
+        padding: 1.25rem 1rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .performance-table th:last-child {
+        border-right: none;
+      }
+
+      .performance-table th:first-child {
+        border-top-left-radius: 16px;
+      }
+
+      .performance-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .performance-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .performance-table tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: translateX(5px);
+      }
+
+      .performance-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .performance-table td {
+        padding: 1rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .performance-table td:last-child {
+        border-right: none;
+      }
+
+      .spec-label {
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .power-value {
+        color: #dc2626;
+        font-weight: 600;
+      }
+
+      .torque-value {
+        color: #0f3079;
+        font-weight: 600;
+      }
+
+      .highlight-best {
+        background: #f0fdf4;
+        font-weight: 600;
+      }
+
+      /* Landscape Image Section */
+      .landscape-image-section {
+        width: 100%;
+        margin: 40px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .landscape-image-section img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .performance-table {
+          min-width: 800px;
+        }
+
+        .performance-table th,
+        .performance-table td {
+          padding: 0.75rem 0.5rem;
+          font-size: 0.85rem;
+        }
+
+        .performance-table th:first-child,
+        .performance-table td.spec-label {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .performance-table th,
+        .performance-table td {
+          padding: 0.5rem 0.4rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        The 2026 Santa Cruz and 2026 Frontier Turbo Power & Performance
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          The powertrain philosophies of the Santa Cruz and Frontier are as
+          distinct as their chassis designs, offering buyers a choice between
+          modern versatility and traditional, standardized power.
+        </p>
+        <p class="paragraph-text">
+          Hyundai provides two advanced engine options for the Santa Cruz. The
+          standard powertrain, found in the SE,
+          <a
+            href="https://joecooperhyundai.com/cars/new-santa-cruz?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SEL%22%3Atrue%7D%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >SEL</a
+          >, and SEL Activity trims, is a 2.5-liter four-cylinder engine
+          featuring both Gasoline Direct Injection (GDI) and Multi-Port
+          Injection (MPI). This engine produces a capable 191 horsepower and 181
+          lb-ft of torque, making it an efficient and affordable choice for
+          those who prioritize fuel economy and utility for lighter tasks. For
+          those seeking a significant performance upgrade, the
+          <a
+            href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Santa%20Cruz%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22XRT%22%3Atrue%7D%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >XRT</a
+          >
+          and
+          <a
+            href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Santa%20Cruz%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22Limited%22%3Atrue%7D%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >Limited</a
+          >
+          trims come standard with a 2.5-liter turbocharged four-cylinder trims
+          come standard with a 2.5-liter turbocharged four-cylinder engine. This
+          powerhouse generates 281 horsepower and a formidable 311 lb-ft of
+          torque. Critically, this peak torque is available at a low 1,700 RPM,
+          translating to immediate, off-the-line responsiveness that makes the
+          Santa Cruz feel exceptionally quick in city traffic and powerful when
+          merging onto I-44. For 2026, both engines are paired with a smooth
+          8-speed automatic transmission.
+        </p>
+        <p class="paragraph-text">
+          Nissan takes a simpler approach, equipping every 2026 Frontier with a
+          single, potent engine: a 3.8-liter direct-injection V6 that produces
+          310 horsepower and 281 lb-ft of torque, managed by a 9-speed automatic
+          transmission. This standardization is a strong selling point for
+          buyers who believe a truck, by definition, should have V6 power. The
+          engine is smooth and provides ample thrust for any situation. However,
+          its peak torque arrives much later in the rev range, at 4,400 RPM.
+          This means the engine needs to be worked harder to access its full
+          strength, resulting in a more traditional truck-like feel that is less
+          immediately responsive from a standstill compared to the Santa Cruz's
+          turbocharged option.
+        </p>
+        <p class="paragraph-text">
+          This creates a fascinating performance dynamic. While the Frontier
+          boasts a higher peak horsepower figure, the turbocharged Santa Cruz
+          delivers more torque and delivers it much earlier. In the typical
+          1,500 to 3,500 RPM range of everyday driving, the Santa Cruz Turbo is
+          operating at its peak pulling power, while the Frontier is still
+          building momentum. For pulling away from a stoplight, passing on a
+          two-lane highway, or effortlessly cruising, the Santa Cruz's low-end
+          torque provides a tangible advantage in real-world usability.
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <br />
+      <h3 class="table-heading">Engine & Performance Comparison</h3>
+
+      <div class="table-wrapper">
+        <table class="performance-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Hyundai Santa Cruz (2.5L)</th>
+              <th>Hyundai Santa Cruz (2.5L Turbo)</th>
+              <th>Nissan Frontier (3.8L V6)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="spec-label">Engine Type</td>
+              <td>2.5L Inline 4-Cylinder</td>
+              <td>2.5L Turbocharged Inline 4-Cylinder</td>
+              <td>3.8L V6</td>
+            </tr>
+            <tr>
+              <td class="spec-label">Horsepower</td>
+              <td>191 hp @ 6,100 RPM</td>
+              <td class="">281 hp @ 5,800 RPM</td>
+              <td class="">310 hp @ 6,400 RPM</td>
+            </tr>
+            <tr>
+              <td class="spec-label">Torque</td>
+              <td>181 lb-ft @ 4,000 RPM</td>
+              <td class="">311 lb-ft @ 1,700-4,000 RPM</td>
+              <td class="">281 lb-ft @ 4,400 RPM</td>
+            </tr>
+            <tr>
+              <td class="spec-label">Transmission</td>
+              <td>8-Speed Automatic with SHIFTRONIC®</td>
+              <td>8-Speed Automatic with SHIFTRONIC®</td>
+              <td>9-Speed Automatic</td>
+            </tr>
+            <tr>
+              <td class="spec-label">Drivetrain Options</td>
+              <td>FWD or HTRAC AWD</td>
+              <td>HTRAC AWD Standard</td>
+              <td>RWD or Part-Time 4WD</td>
+            </tr>
+            <tr>
+              <td class="spec-label">EPA Est. MPG (FWD/RWD)</td>
+              <td class="">22 City / 30 Hwy / 25 Comb.</td>
+              <td>Not Available</td>
+              <td>19 City / 24 Hwy / 21 Comb.</td>
+            </tr>
+            <tr>
+              <td class="spec-label">EPA Est. MPG (AWD/4WD)</td>
+              <td class="">21 City / 29 Hwy / 24 Comb.</td>
+              <td>18 City / 25 Hwy / 20 Comb.</td>
+              <td>16-17 City / 20-21 Hwy / 18-19 Comb.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Landscape Image Section -->
+      <div class="landscape-image-section">
+        <img
+          src="https://i.ibb.co/4Z4L8p4z/gallery-0328-4.jpg"
+          alt="2026 Hyundai Santa Cruz in motion"
+        />
+      </div>
+
+      <hr class="hr-1" id="driving-dynamics" />
+    </div>
+  </body>
+</html>

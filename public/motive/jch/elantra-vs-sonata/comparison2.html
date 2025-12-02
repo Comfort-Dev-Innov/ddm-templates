@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .space-comparison-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .space-comparison-container h3,
+        .space-comparison-container h1,
+        .space-comparison-container h2,
+        .space-comparison-container p {
+            max-width: 1300px !important;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .space-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .space-comparison-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .space-comparison-card:nth-child(1) {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .space-comparison-card:nth-child(2) {
+            animation: slideInFromRight 0.8s ease-out;
+        }
+
+        .space-comparison-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #3e85ff, #012b5d);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .space-comparison-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #3e85ff;
+        }
+
+        .space-comparison-card:hover::before {
+            opacity: 1;
+        }
+
+        .space-card-header {
+            background: linear-gradient(135deg, #012b5d 0%, #1a4078 100%);
+            padding: 30px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .space-card-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(62, 133, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .space-card-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .space-card-title::before {
+            content: '';
+            width: 6px;
+            height: 40px;
+            background: linear-gradient(180deg, #3e85ff, #5fa3ff);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .space-card-body {
+            padding: 35px;
+            background: white;
+        }
+
+        .space-card-body p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .space-card-body p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #3e85ff, #012b5d);
+            border-radius: 50%;
+        }
+
+        .space-card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .space-card-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(62, 133, 255, 0.05), rgba(1, 43, 93, 0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .space-comparison-card:hover .space-card-icon {
+            opacity: 1;
+            transform: rotate(360deg);
+        }
+
+        .space-card-icon::after {
+            content: '🚗';
+            font-size: 32px;
+        }
+
+        .space-comparison-card:nth-child(2) .space-card-icon::after {
+            content: '🚙';
+        }
+
+        @media (max-width: 1024px) {
+            .space-comparison-grid {
+                gap: 30px;
+            }
+
+            .space-card-title {
+                font-size: 22px;
+            }
+
+            .space-card-body {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .space-comparison-container {
+                padding: 20px 15px !important;
+            }
+
+            .space-comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .space-card-header {
+                padding: 25px;
+            }
+
+            .space-card-title {
+                font-size: 20px;
+            }
+
+            .space-card-title::before {
+                height: 30px;
+            }
+
+            .space-card-body {
+                padding: 25px;
+            }
+
+            .space-card-body p {
+                font-size: 15px;
+                padding-left: 18px;
+            }
+
+            .space-comparison-card:nth-child(1),
+            .space-comparison-card:nth-child(2) {
+                animation: slideInFromLeft 0.8s ease-out;
+            }
+
+            .space-card-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="space-comparison-container">
+        <div class="space-comparison-grid">
+            <div class="space-comparison-card">
+                <div class="space-card-header">
+                    <h3 class="space-card-title">The Hyundai Elantra's Urban Agility</h3>
+                </div>
+                <div class="space-card-body">
+                    <p>The Elantra's compact dimensions are a significant advantage in everyday driving scenarios. Its shorter length and wheelbase make it noticeably easier to navigate tight parking lots, whether at Penn Square Mall or on a busy street in Norman's Campus Corner. U-turns are less stressful, and fitting into a snug parallel parking spot is a far simpler task.</p>
+                    <p>While its trunk is smaller than the Sonata's at 14.2 cubic feet, it is described as "perfectly acceptable for a sport compact car and large enough for the average person's hauling needs".  This space is more than ample for luggage or sports equipment. Furthermore, the Elantra's 99.4 cubic feet of passenger volume is remarkably generous for its class, handily beating key competitors and providing comfortable seating for four adults.  The Elantra occupies a "sweet spot" of practicality, offering ample room for most daily needs without the encumbrance of a larger footprint.</p>
+                </div>
+                <div class="space-card-icon"></div>
+            </div>
+
+            <div class="space-comparison-card">
+                <div class="space-card-header">
+                    <h3 class="space-card-title">Hyundai Sonata's Expansive Cabin</h3>
+                </div>
+                <div class="space-card-body">
+                    <p>The Sonata's primary advantage is its larger cabin and trunk. The additional five cubic feet of passenger volume translates directly into more generous rear-seat legroom and shoulder room, a tangible benefit for families with teenagers or for those who frequently carpool with colleagues. The larger 16.0 cubic-foot trunk can more easily accommodate bulky items, such as multiple large suitcases or camping trip equipment.  For buyers whose top priority is maximizing interior space, the Sonata holds a clear edge. However, this added space comes at the cost of a vehicle that is less nimble in urban environments.</p>
+                </div>
+                <div class="space-card-icon"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

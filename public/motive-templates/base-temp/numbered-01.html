@@ -1,0 +1,184 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Numbered Section */
+      .arrow-gradient-alt {
+        width: 60px;
+        height: 30px;
+        background: linear-gradient(180deg, #fff 0%, #0f3079 60%, #0f3079 100%);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        transition: transform 0.3s ease;
+      }
+
+      .arrow-gradient-alt:hover {
+        transform: scale(1.1);
+      }
+
+      .pre-purchase-checklist {
+        padding-left: 15px;
+        counter-reset: checklist;
+        list-style: none;
+      }
+
+      .checklist-item {
+        counter-increment: checklist;
+        position: relative;
+        padding-left: 60px;
+      }
+
+      .checklist-item::before {
+        content: counter(checklist);
+        position: absolute;
+        left: 0;
+        color: #0f3079;
+        font-weight: bolder;
+        background: #f0f4ff;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 1.3em;
+      }
+
+      .checklist-item p strong {
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section
+        class="pre-purchase-checklist-section"
+        id="pre-purchase-checklist-section"
+      >
+        <h2 class="section-title">
+          Your <span style="color: #0f3079">Pre-Purchase Checklist</span> for a
+          Used Ford Truck
+        </h2>
+        <p>
+          Vigilance is key when buying used. Use this checklist to inspect any
+          potential purchase.
+        </p>
+        <ol class="pre-purchase-checklist">
+          <li class="checklist-item">
+            <p>
+              <strong>Review the Paperwork:</strong> <br />Always ask for a
+              Vehicle History Report (like CARFAX® or AutoCheck®) to check for
+              reported accidents, title issues (salvage, flood), and an odometer
+              check. Review any available service records.
+            </p>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p>
+              <strong>Inspect the Frame:</strong> <br />Get underneath the truck
+              with a flashlight. Look for excessive rust, corrosion, or fresh
+              undercoating that might be hiding damage. A little surface rust
+              can be normal, but deep, flaking rust on the frame is a major red
+              flag.
+            </p>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p><strong>Check for Signs of Hard Use:</strong></p>
+            <ul>
+              <li>
+                <p>
+                  <span style="font-weight: bold">Towing:</span> Look for
+                  excessive wear on the hitch receiver and check the rear
+                  suspension for sagging.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span style="font-weight: bold">Off-Roading:</span> Inspect
+                  the skid plates, bumpers, and undercarriage for deep
+                  scratches, dents, or gouges.
+                </p>
+              </li>
+            </ul>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p>
+              <strong>Examine the Engine Bay:</strong> <br />Look for fluid
+              leaks (oil, coolant, transmission fluid), cracked hoses, or frayed
+              belts. A clean engine is nice, but a recently steam-cleaned engine
+              could be hiding leaks.
+            </p>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p>
+              <strong>Test All Electronics:</strong> <br />Start the truck and
+              ensure no warning lights (Check Engine, ABS) remain on. Test the
+              4x4 system by switching between 2WD, 4-High, and 4-Low. Test the
+              infotainment screen, windows, and climate controls.
+            </p>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p>
+              <strong>Take a Thorough Test Drive:</strong> <br />Drive the truck
+              at various speeds. Listen for unusual noises from the engine or
+              suspension. The transmission should shift smoothly without
+              hesitation or clunking. Test the brakes to ensure they are
+              responsive and don't pull the truck to one side.
+            </p>
+          </li>
+          <div style="display: flex; justify-content: center; margin: 60px 0">
+            <div class="arrow-gradient-alt"></div>
+          </div>
+          <li class="checklist-item">
+            <p>
+              <strong>Get a Professional Inspection:</strong> <br />If you're
+              not a mechanic, it's always worth paying for an independent
+              pre-purchase inspection. An expert can spot issues you might miss.
+            </p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>

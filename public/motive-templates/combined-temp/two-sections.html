@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Section</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ddm-ts-comparison-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .ddm-ts-comparison-container h1 {
+            width: fit-content !important;
+        }
+
+        .ddm-ts-comparison-container h3,
+        .ddm-ts-comparison-container h1,
+        .ddm-ts-comparison-container h2,
+        .ddm-ts-comparison-container p,
+        .ddm-ts-comparison-container ol,
+        .ddm-ts-comparison-container ul {
+            max-width: 1300px !important;
+        }
+
+        .ddm-ts-comparison-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 50px;
+            margin: 40px 20px;
+            box-shadow: 0 4px 20px rgba(1, 43, 93, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ddm-ts-comparison-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.12);
+        }
+
+        .ddm-ts-intro-text {
+            color: #4a4a4a;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .ddm-ts-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .ddm-ts-comparison-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 35px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .ddm-ts-comparison-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .ddm-ts-comparison-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .ddm-ts-comparison-card:hover {
+            border-color: #012b5d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(1, 43, 93, 0.15);
+        }
+
+        .ddm-ts-card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .ddm-ts-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ddm-ts-used-icon {
+            background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+        }
+
+        .ddm-ts-cpo-icon {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+        }
+
+        .ddm-ts-comparison-card:hover .ddm-ts-card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .ddm-ts-card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #012b5d;
+            margin: 0;
+        }
+
+        .ddm-ts-card-content {
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        .ddm-ts-card-content p {
+            margin: 16px 0;
+        }
+
+        .ddm-ts-card-content strong {
+            color: #012b5d;
+            font-weight: 600;
+        }
+
+        .ddm-ts-highlight-text {
+            color: #002c5f;
+            font-weight: 500;
+        }
+
+        .ddm-ts-highlight-link {
+            color: #012b5d;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .ddm-ts-highlight-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .ddm-ts-highlight-link:hover {
+            color: #002c5f;
+        }
+
+        .ddm-ts-highlight-link:hover::after {
+            width: 100%;
+        }
+
+        .ddm-ts-inspection-highlight {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05), rgba(0, 44, 95, 0.05));
+            border-left: 4px solid #012b5d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .ddm-ts-inspection-highlight:hover {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.08), rgba(0, 44, 95, 0.08));
+            transform: translateX(5px);
+        }
+
+        .ddm-ts-key-points {
+            background: #f7f7f7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #757575;
+            transition: all 0.3s ease;
+        }
+
+        .ddm-ts-key-points:hover {
+            border-left-color: #012b5d;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 1024px) {
+            .ddm-ts-comparison-section {
+                padding: 40px 30px;
+                margin: 30px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ddm-ts-comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .ddm-ts-comparison-section {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            .ddm-ts-card-title {
+                font-size: 20px;
+            }
+
+            .ddm-ts-intro-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ddm-ts-comparison-container">
+        <section class="ddm-ts-comparison-section">
+            <p class="ddm-ts-intro-text">While every Certified Pre-Owned vehicle is technically "used," a vast gulf separates a <a href="https://joecooperhyundai.com/cars/certified-pre-owned?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%7D%7D" class="ddm-ts-highlight-link">Certified Pre-Owned Hyundai</a> from a typical used car. Understanding this distinction is the first step toward making the right decision for your needs.</p>
+            
+            <div class="ddm-ts-comparison-grid">
+                <div class="ddm-ts-comparison-card">
+                    <div class="ddm-ts-card-header">
+                        <div class="ddm-ts-card-icon ddm-ts-used-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10.5V6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v4.5L3.5 12c-.8.2-1.5 1-1.5 1.9V16c0 .6.4 1 1 1h2c0 1.7 1.3 3 3 3s3-1.3 3-3h4c0 1.7 1.3 3 3 3s3-1.3 3-3zM8 6h8v3.5l-8 0V6zm0 13.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm8 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z" fill="#757575"/>
+                            </svg>
+                        </div>
+                        <h3 class="ddm-ts-card-title">What is a standard Used Car?</h3>
+                    </div>
+                    <div class="ddm-ts-card-content">
+                        <p>A "used car" is a term for any vehicle that has had at least one previous owner. These vehicles represent a wide spectrum of age, mileage, condition, and history. You can find them through private sellers, independent used car lots, or as part of a dealership's non-certified inventory.</p>
+                        
+                        <div class="ddm-ts-key-points">
+                            <p><strong>The primary appeal of a standard used car is its lower upfront cost.</strong></p>
+                        </div>
+                        
+                        <p>However, this affordability often comes with a higher degree of uncertainty. Most used cars are sold "as-is," which means you accept the vehicle in its current state, and the seller has no obligation to cover repairs after the sale. While we thoroughly inspect all used vehicles on our lot to ensure they are safe and operational, they don't undergo the rigorous, manufacturer-mandated process required for certification. The responsibility for verifying the vehicle's mechanical health and history largely falls on you, the buyer.</p>
+                    </div>
+                </div>
+
+                <div class="ddm-ts-comparison-card">
+                    <div class="ddm-ts-card-header">
+                        <div class="ddm-ts-card-icon ddm-ts-cpo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="ddm-ts-card-title">What is a Hyundai Certified Pre-Owned Vehicle?</h3>
+                    </div>
+                    <div class="ddm-ts-card-content">
+                        <p>A Hyundai Certified Pre-Owned vehicle isn't just another used car—it's a vehicle that has earned its title. To even be considered for the Hyundai CPO program, a vehicle must meet strict initial criteria: <span class="ddm-ts-highlight-text">it must be no more than six model years old and have fewer than 80,000 miles on the odometer.</span></p>
+                        
+                        <div class="ddm-ts-inspection-highlight">
+                            <p><strong>If it meets these requirements, it then undergoes a comprehensive 173-point quality assurance inspection conducted by a factory-trained Hyundai technician.</strong> This exhaustive process covers everything from the engine and transmission performance to the function of the navigation system and the condition of the paint. Any component that doesn't meet Hyundai's high standards is repaired or replaced with a Genuine Hyundai Part.</p>
+                        </div>
+                        
+                        <p>This meticulous process ensures that a CPO Hyundai offers a "like-new" experience with the value of a pre-owned price tag. It's a vehicle that provides proven quality and, most importantly, unparalleled peace of mind backed directly by the manufacturer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

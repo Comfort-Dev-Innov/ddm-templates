@@ -1,0 +1,455 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    :is([class*="Section-module__"][class*="__section--blog"]) { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    :is([class*="Section-module__"][class*="__section--blog"]) * { max-width: 100% !important; box-sizing: border-box; }
+    /* Typography */
+    .blog-content p { margin: 1em 0; }
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .blog-content h2 { font-size: 1.6em; }
+    .blog-content h3 { font-size: 1.35em; }
+    /* Tables */
+    .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+    .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+    .blog-content table.e-rte-table td { color: #374151; }
+    .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+    .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-content table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-content table.e-rte-table th,
+      .blog-content table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    /* Links */
+    .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+    .blog-content a:hover { color: #15306e !important; }
+    /* TOC */
+    .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+    .blog-content h2 + ul li { margin: 6px 0; }
+    .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-content h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    /* offset for fixed navbars */
+    .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  
+    /* Images */
+    .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+    /* floating */
+    .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+    .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+    /* clear fix after floats */
+    .blog-content .clearfix::after { content:""; display:table; clear:both; }
+  
+    /* Image Wrapper Styles */
+    .blog-content .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .blog-content .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-content .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .blog-content .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .blog-content .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-content .image-float-left, .blog-content .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .blog-content .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .blog-content .image-float-left img, .blog-content .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .blog-content .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .blog-content .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-content .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-content .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-content .image-grid img {
+        border: none;
+      }
+  
+      .blog-content .image-float-left img,
+      .blog-content .image-float-right img {
+        border: none;
+      }
+    }
+  
+    </style><div class="blog-content"><p>Discover a midsize SUV that balances remarkable comfort, advanced technology, and Nissan's heritage of reliable craftsmanship. At Jackie Cooper Nissan, nestled at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>, we proudly feature the 2026 Nissan Murano Base—a vehicle designed to serve families in Tulsa, Broken Arrow, and beyond with dependable quality and thoughtful design.</p><p>Whether you are embarking on daily commutes across Tulsa or weekend getaways to Broken Arrow, the Murano Base's confident presence and driver-focused comfort are set to make every mile a pleasure. Call us anytime at <strong><a href="tel:+19189216531">(918) 921-6531</a></strong> to speak with our knowledgeable team or plan your visit.</p>
+
+<div class="image-wrapper" style="max-width: 1000px !important; margin: 32px auto;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/overview/pfa/2026-nissan-murano-xl-v2.jpg" alt="2026 Nissan Murano Base">
+</div><h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#introducing-the-2026-nissan-murano-base">Introducing the 2026 Nissan Murano Base</a></li>
+  <li><a href="#striking-exterior-design-and-details">Striking Exterior Design and Details</a></li>
+  <li><a href="#performance-and-driving-experience-on-tulsa-roads">Performance and Driving Experience on Tulsa Roads</a></li>
+  <li><a href="#comfort-and-refined-interior-features">Comfort and Refined Interior Features</a></li>
+  <li><a href="#technology-and-seamless-connectivity">Technology and Seamless Connectivity</a></li>
+  <li><a href="#safety-and-driver-assistance-systems">Safety and Driver Assistance Systems</a></li>
+  <li><a href="#trim-levels-and-available-packages-overview">Trim Levels and Available Packages Overview</a></li>
+  <li><a href="#warranty-and-maintenance-programs">Warranty and Maintenance Programs</a></li>
+  <li><a href="#why-choose-jackie-cooper-nissan-for-your-murano">Why Choose Jackie Cooper Nissan for Your Murano?</a></li>
+  </ul><h2 id="introducing-the-2026-nissan-murano-base">Introducing the 2026 Nissan Murano Base</h2><p>Designed for families and commuters alike, the 2026 Murano Base blends Nissan’s signature engineering with practical luxury for a ride that is as reliable as it is comfortable.&nbsp;This midsize SUV offers seating for five and generous space for both passengers and cargo, making it&nbsp;ideally suited to meet the diverse needs of drivers from Broken Arrow to Tulsa.</p><p>This generation of Murano continues the fourth-generation design evolution first introduced in 2025, emphasizing a modern aesthetic and elevated driving experience. The Base trim anchors the lineup with a powerful yet efficient 2.0-liter Variable Compression Turbocharged engine producing 241 horsepower and 260 lb-ft of torque. It pairs with a 9-speed automatic transmission designed to deliver smooth gear changes and a confident feel, whether navigating city streets or open highways around Tulsa.</p><p>Fuel efficiency plays an important role here, with EPA ratings reaching up to 21 mpg city and 27 mpg highway—numbers that align well with everyday driving patterns typical in the Tulsa metropolitan area. The standard front-wheel drive on the Base keeps the vehicle accessible and straightforward, while all-wheel-drive options are available for those requiring added traction in varying weather.</p><h3 id="key-highlights-of-the-murano-base">Key Highlights of the Murano Base</h3><ul>
+  <li>Seating capacity for five with roomy front legroom at 44.3 inches</li>
+  <li>Cargo volume of 32.9 cubic feet with seats upright, expanding to 63.5 cubic feet folded</li>
+  <li>Turbocharged 2.0-liter inline-4 engine with 241 hp and 260 lb-ft torque</li>
+  <li>Advanced 9-speed automatic transmission for smooth performance</li>
+  <li>State-of-the-art dual 12.3-inch digital displays</li>
+  <li>Standard safety tech including blind-spot monitoring and emergency braking</li>
+  </ul><h2 id="striking-exterior-design-and-details">Striking Exterior Design and Details</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/overview/2025-murano.jpg" alt="2026 Nissan Murano Exterior Design">
+</div>
+</div>
+
+<p>The 2026 Nissan Murano Base carries forward the sleek, robust styling cues introduced with the fourth-generation redesign, making a strong statement on Tulsa streets. Its silhouette balances sophistication with dynamic presence, presenting a mid-size SUV that blends practical utility with urban elegance.</p><p>A standout feature of the 2026 Base is its standard 20-inch wheels, which provide a confident stance and a smooth ride over common roadway surfaces in Broken Arrow. The blacked-out motifs seen in the Midnight Edition variant, such as black grille accents and trim pieces, elevate style on higher trims.&nbsp;Full LED headlights and taillights ensure enhanced visibility and add to the vehicle's contemporary appearance. The smooth roofline meets an available panoramic moonroof, bringing natural light into the cabin and making every ride more pleasant.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/exterior/lightbox/2026-nissan-murano-two-tone-design-d.jpg" alt="Nissan Murano Two-Tone Design">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/exterior/lightbox/2026-nissan-murano-bridge-champagne.jpg" alt="Nissan Murano Champagne Color">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/exterior/lightbox/2026-nissan-murano-front-view-blue-d.jpg" alt="Nissan Murano Front View">
+</div>
+
+<h3 id="exterior-dimensions-and-styling-features">Exterior Dimensions and Styling Features</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Dimension</strong></th>
+  <th><strong>Measurement</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Overall Length</td>
+  <td>192.9 inches</td>
+  </tr>
+  <tr>
+  <td>Width</td>
+  <td>78.0 inches</td>
+  </tr>
+  <tr>
+  <td>Height</td>
+  <td>67.9 inches</td>
+  </tr>
+  <tr>
+  <td>Wheelbase</td>
+  <td>111.2 inches</td>
+  </tr>
+  <tr>
+  <td>Ground Clearance</td>
+  <td>Moderate for urban and light off-road conditions</td>
+  </tr>
+  </tbody></table><p>The exterior colors and finishes accommodate a range of tastes, allowing drivers in Tulsa and Broken Arrow to select a version that reflects their personal style and professionalism.</p>
+
+<div style="clear: both;"></div><h2 id="performance-and-driving-experience-on-tulsa-roads">Performance and Driving Experience on Tulsa Roads</h2><p>The Murano Base's heart is its 2.0L VC-Turbo four-cylinder engine, a refined powertrain that balances spirited performance with everyday efficiency. Delivering 241 horsepower and 260 lb-ft of torque, this engine springs to life, providing smooth acceleration, with independent tests measuring around 7.2 seconds from 0 to 60 mph.</p><p>Driving through Tulsa’s varying conditions, the nine-speed automatic transmission complements the engine smoothly, providing responsive shifts without the lags sometimes associated with turbocharged variable compression technology. While the chassis design carries some legacy elements, steering remains precise, and suspension tuning delivers an adequately comfortable ride across different road surfaces.</p><p>The Base’s front-wheel-drive configuration offers confident traction in dry to moderately wet conditions typically found in the Tulsa area. For those seeking traction control for more challenging conditions, all-wheel drive is available on higher trims, adding peace of mind for winter weather or off-pavement excursions near Broken Arrow.</p><h3 id="performance-specifications-at-a-glance">Performance Specifications at a Glance</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Specification</strong></th>
+  <th><strong>Value/Details</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Engine Type</td>
+  <td>2.0L Turbocharged Inline-4</td>
+  </tr>
+  <tr>
+  <td>Horsepower</td>
+  <td>241 hp</td>
+  </tr>
+  <tr>
+  <td>Torque</td>
+  <td>260 lb-ft</td>
+  </tr>
+  <tr>
+  <td>Transmission</td>
+  <td>9-speed Automatic</td>
+  </tr>
+  <tr>
+  <td>Drivetrain</td>
+  <td>Front-Wheel Drive (Base), AWD available</td>
+  </tr>
+  <tr>
+  <td>0-60 mph Acceleration</td>
+  <td>~7.2 seconds</td>
+  </tr>
+  <tr>
+  <td>Fuel Economy (EPA)</td>
+  <td>21 mpg city / 27 mpg highway</td>
+  </tr>
+  <tr>
+  <td>Braking Distance (70-0)</td>
+  <td>179 feet</td>
+  </tr>
+  </tbody></table><p>Handling is agile enough for city traffic yet stable on highways, fitting well with the lifestyles of drivers commuting through Tulsa or enjoying drives out of Broken Arrow. The vehicle's noise suppression and active noise cancellation system further enhance cabin serenity.</p><h2 id="comfort-and-refined-interior-features">Comfort and Refined Interior Features</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-seats.jpg" alt="2026 Nissan Murano Interior Seats">
+</div>
+</div>
+
+<p>Step inside the Murano Base, and the welcoming atmosphere immediately signals Nissan's attention to comfort and craftsmanship. This vehicle offers space thoughtfully laid out to maximize passenger ease, with front legroom measuring approximately 44.3 inches and rear legroom at 36.3 inches—comfortably exceeding some rivals in its class.</p><p>Premium materials create an inviting cabin with low interior noise levels, even on highways, allowing passengers to enjoy conversations or music without distraction. The optional panoramic moonroof floods the interior with daylight, creating an open feel that enhances every journey around Broken Arrow or Tulsa.</p><p>Nissan's Zero Gravity seats deliver ergonomic support for drivers and passengers alike, with available upgrades in upper trims for ventilated and massaging functions. The Base trim focuses on essential comfort and functional design with durable yet premium-feeling materials suitable for daily family use.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-seats-tan.jpg" alt="Nissan Murano Tan Seats">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-glass-dash.jpg" alt="Nissan Murano Glass Dashboard">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-moonroof.jpg" alt="Nissan Murano Moonroof">
+</div>
+
+<h3 id="interior-space-and-cargo-capacity">Interior Space and Cargo Capacity</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Space</strong></th>
+  <th><strong>Measurement</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Front Legroom</td>
+  <td>44.3 inches</td>
+  </tr>
+  <tr>
+  <td>Rear Legroom</td>
+  <td>36.3 inches</td>
+  </tr>
+  <tr>
+  <td>Cargo Volume (Seats Up)</td>
+  <td>32.9 cubic feet</td>
+  </tr>
+  <tr>
+  <td>Cargo Volume (Seats Folded)</td>
+  <td>63.5 cubic feet</td>
+  </tr>
+  <tr>
+  <td>Passenger Volume</td>
+  <td>Approx. 106 cubic feet total</td>
+  </tr>
+  </tbody></table><p>Storage compartments and innovative organization features provide practical solutions for everyday items, supporting active households and individual adventurers alike. The wide rear cargo area accommodates items ranging from groceries to sports gear—whether traveling locally or farther afield.</p><h2 id="technology-and-seamless-connectivity">Technology and Seamless Connectivity</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-dual-display.jpg" alt="2026 Nissan Murano Dual Display Technology">
+</div>
+</div>
+
+<p>The 2026 Murano Base embraces technology with an intuitive dual 12.3-inch digital display setup that blends the instrument cluster and infotainment center into a cohesive digital experience. These Monolith Displays elevate driver engagement with crisp, customizable visuals that deliver critical information quickly and elegantly.</p><p>Powered by Google OS, the infotainment system includes embedded Google Maps, Google Assistant, and access to the Google Play Store, enhancing navigation and app usability for drivers traversing the Tulsa area or exploring the roads near Broken Arrow. Wireless Apple CarPlay and Android Auto are standard on the Base, ensuring seamless smartphone connectivity without the clutter of cables.</p><p>Additional features include wireless phone charging and an active noise-cancellation system, fostering a calm, connected environment inside the vehicle.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-interior-ambient-lighting.jpg" alt="Nissan Murano Ambient Lighting">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/murano/2026/gallery/interior/lightbox/2026-nissan-murano-push-button-transmission.jpg" alt="Nissan Murano Push Button Transmission">
+</div>
+
+<h3 id="infotainment-and-connectivity-features">Infotainment and Connectivity Features</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Feature</strong></th>
+  <th><strong>Description</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Displays</td>
+  <td>Dual 12.3-inch digital screens</td>
+  </tr>
+  <tr>
+  <td>Operating System</td>
+  <td>Google OS with native Google apps</td>
+  </tr>
+  <tr>
+  <td>Smartphone Integration</td>
+  <td>Wireless Apple CarPlay and Android Auto</td>
+  </tr>
+  <tr>
+  <td>Audio System</td>
+  <td>6-speaker standard stereo</td>
+  </tr>
+  <tr>
+  <td>Additional Technologies</td>
+  <td>Wireless charging, multiple USB-C ports</td>
+  </tr>
+  <tr>
+  <td>Voice Assist</td>
+  <td>Google Assistant and Amazon Alexa</td>
+  </tr>
+  <tr>
+  <td>Connectivity</td>
+  <td>NissanConnect Services with MyNISSAN app, Wi-Fi hotspot capability</td>
+  </tr>
+  </tbody></table><p>This technology suite supports families and professionals looking to maintain focus and convenience, reinforcing Jackie Cooper Nissan's commitment to meeting modern connectivity expectations.</p><h2 id="safety-and-driver-assistance-systems">Safety and Driver Assistance Systems</h2><div class="image-float-right" style="max-width: 400px !important;">
+    <img src="https://ms-prd-nna.use.mediaserver.heliosnissan.net/iris/iris?resp=png&bkgnd=transparent&pov=E22&width=1600&height=900&vehicle=8_Z53&paint=XKN&fabric=K&brand=nisnna&sa=1_T,2_DR,4_N,5_L,6_J,7_2,11_T,12_U,13_A,SHADOW_ON,PI_ON,PE_ON,2026" alt="2026 Nissan Murano Profile">
+    </div><p>Safety remains a cornerstone of the 2026 Murano Base, offering numerous advanced driver assistance systems standard to keep you and your loved ones confident and safe on every trip through Tulsa streets and Broken Arrow neighborhoods.</p><p>Key safety technologies include forward and reverse automatic emergency braking, blind-spot monitoring with intervention, lane-keeping assist, rear cross-traffic alert, adaptive cruise control, and hill start assist. These comprehensive features come together within Nissan’s Safety Shield® technology suite, designed to proactively detect risks and assist the driver in controlling the vehicle when critical.</p><p>Both the Insurance Institute for Highway Safety (IIHS) and the National Highway Traffic Safety Administration (NHTSA) recognize the Murano’s strong safety record. The 2025 model earned Top Safety Pick+ accolades from IIHS alongside a 5-star overall rating from NHTSA, underscoring Nissan’s dedication to passenger protection.</p><h3 id="standard-safety-features-summary">Standard Safety Features Summary</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Feature</strong></th>
+  <th><strong>Availability</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Forward/Reverse Automatic Emergency Braking</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>Blind-Spot Monitoring with Intervention</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>Lane Keeping Assist</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>Rear Cross-Traffic Alert</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>Adaptive Cruise Control</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>Hill Start Assist</td>
+  <td>Standard</td>
+  </tr>
+  <tr>
+  <td>ProPILOT Assist (Hands-on)</td>
+  <td>Available on higher trims</td>
+  </tr>
+  </tbody></table><p>Nissan’s dedicated roadside assistance program is included with ownership, providing peace of mind with manufacturer-backed support throughout Oklahoma. For emergency help, owners can contact <strong><a href="tel:+1-800-647-7261">Nissan Roadside Assistance: 800-647-7261</a></strong> for trusted, expert service.</p><h2 id="trim-levels-and-available-packages-overview">Trim Levels and Available Packages Overview</h2><p>The 2026 Murano lineup offers a range of trims—from Base to SV, SL, and Platinum. The Base trim focuses on essential luxury and comfort, with a well-equipped suite of features that emphasizes reliability and Nissan’s famed quality. Stepping up to the SV and SL trims unlocks a higher level of refinement, offering available amenities like a panoramic sunroof, premium audio, and heated and ventilated seats alongside enhanced driver-assist tech.</p><p>Special editions, such as the Midnight Edition, highlighted by blacked-out exterior accents and distinctive styling, cater to those seeking a more assertive, unique SUV appearance.</p><h3 id="key-trims-and-estimated-pricing-msrp-awd-models">Key Trims and Estimated Pricing (MSRP AWD Models)</h3><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th><strong>Trim Level</strong></th>
+  <th><strong>Approximate MSRP</strong></th>
+  <th><strong>Distinctive Features</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td>Base</td>
+  <td>$41,670</td>
+  <td>Turbocharged engine, dual digital displays, standard AWD (note: FWD discontinued for 2026)</td>
+  </tr>
+  <tr>
+  <td>SV</td>
+  <td>$43,165</td>
+  <td>Heated mirrors, panoramic sunroof, Bose audio options</td>
+  </tr>
+  <tr>
+  <td>SL</td>
+  <td>$48,255</td>
+  <td>Premium seating, ProPILOT Assist 2.1, advanced navigation</td>
+  </tr>
+  <tr>
+  <td>Platinum</td>
+  <td>$49,800</td>
+  <td>Semi-aniline leather, massaging seats, hands-free liftgate</td>
+  </tr>
+  </tbody></table><p>For an overview of current inventory and trims available in Tulsa, explore <strong><a href="https://jackiecoopernissan.com/cars/new-inventory">All New Vehicles</a></strong> or find your ideal fit with <strong><a href="https://jackiecoopernissan.com/cars/used-inventory">All Used Vehicles</a></strong>.</p><h2 id="warranty-and-maintenance-programs">Warranty and Maintenance Programs</h2><p>Jackie Cooper Nissan provides every 2026 Murano owner in Broken Arrow and Tulsa with peace of mind through Nissan’s comprehensive warranty and maintenance coverage.</p><p>The coverage package is extensive, featuring a limited warranty for 3 years or 36,000 miles and powertrain protection for 5 years or 60,000 miles. Additionally, the inclusion of complimentary scheduled maintenance for 2 years or 24,000 miles underscores a dedication to vehicle health and owner satisfaction.</p><p>For maintenance needs ranging from oil changes to part replacement, the dealership’s expert technicians at our <strong><a href="https://jackiecoopernissan.com/service">Service Department</a></strong> stand ready to provide honest, transparent care using genuine parts from our well-stocked <strong><a href="https://jackiecoopernissan.com/parts">Parts Department</a></strong>.</p><p>Don’t forget to assess your current vehicle’s value with our helpful <strong><a href="https://jackiecoopernissan.com/trade">Trade Valuation</a></strong> tool to plan your next vehicle upgrade.</p><h2 id="why-choose-jackie-cooper-nissan-for-your-murano">Why Choose Jackie Cooper Nissan for Your Murano?</h2><p>Serving the Tulsa and Broken Arrow communities since 1946, Jackie Cooper Nissan has built a legacy grounded in trust, transparency, and genuine customer care. When you select your 2026 Nissan Murano through us, you join a family-oriented dealership that puts your needs first.</p><p>Our team’s certified expertise helps you navigate features and trims with clarity, avoiding overwhelm and ensuring confidence in your choice. Located conveniently at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>, we welcome Tulsa and Broken Arrow drivers to experience the Murano firsthand through a no-pressure test drive.</p><p>Explore our dedicated online resources for extended browsing:</p><ul>
+  <li><a href="#certified-pre-owned-vehicles">Certified Pre-Owned Vehicles</a> </strong> for quality and value</li>
+  <li><a href="#all-used-vehicles-under-25k">All Used Vehicles Under $25k</a> </strong></li>
+  </ul><p>Our transparent policies and sincere approach reflect a commitment to seeing you well beyond your initial purchase, solidifying a relationship built on accountability and care. Schedule your visit or request personalized assistance today through our <strong><a href="https://jackiecoopernissan.com/contact">Contact Us</a></strong> page.</p><hr><p>Jackie Cooper Nissan invites you to embrace the balance of tradition and modern sophistication that the 2026 Murano Base uniquely delivers. We look forward to welcoming you to Tulsa and Broken Arrow to explore this exceptional SUV in person.</p><hr><p>© 2025 Jackie Cooper Nissan. All rights reserved.</p></div>

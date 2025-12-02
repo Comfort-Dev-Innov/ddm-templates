@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const motiveDir = 'src/motive';
+const motiveDir = 'public/motive';
 const brands = fs.readdirSync(motiveDir, { withFileTypes: true })
   .filter(dirent => dirent.isDirectory() && dirent.name !== '.DS_Store')
   .map(dirent => dirent.name);
@@ -17,7 +17,7 @@ brands.forEach(brand => {
       // File directly in brand folder
       const baseName = item.name.replace(/\.(html|txt)$/, '');
       const displayName = `${brand} / ${baseName}`;
-      templates.push(`  { name: '${displayName}', fileName: '${item.name}', category: 'base-temp', path: '/src/motive/${brand}/${item.name}', brand: '${brand}', project: null },`);
+      templates.push(`  { name: '${displayName}', fileName: '${item.name}', category: 'base-temp', path: '/motive/${brand}/${item.name}', brand: '${brand}', project: null },`);
     } else if (item.isDirectory()) {
       // Project folder
       const projectPath = path.join(brandPath, item.name);
@@ -27,7 +27,7 @@ brands.forEach(brand => {
       files.forEach(file => {
         const baseName = file.replace(/\.(html|txt)$/, '');
         const displayName = `${brand} / ${item.name} / ${baseName}`;
-        templates.push(`  { name: '${displayName}', fileName: '${file}', category: 'base-temp', path: '/src/motive/${brand}/${item.name}/${file}', brand: '${brand}', project: '${item.name}' },`);
+        templates.push(`  { name: '${displayName}', fileName: '${file}', category: 'base-temp', path: '/motive/${brand}/${item.name}/${file}', brand: '${brand}', project: '${item.name}' },`);
       });
     }
   });

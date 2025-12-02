@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Escape: The Ultimate Compact SUV</title>
+    <style>
+        .ford-escape-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .ford-escape-container h1 {
+            width: fit-content !important;
+        }
+
+        .ford-escape-container h3,
+        .ford-escape-container h1,
+        .ford-escape-container h2,
+        .ford-escape-container p,
+        .ford-escape-container ol,
+        .ford-escape-container ul {
+            max-width: 1300px !important;
+        }
+
+        .ford-escape-content {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .ford-escape-content:hover {
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.15);
+        }
+
+        .ford-escape-image {
+            flex: 0 0 40%;
+            min-height: 500px;
+        }
+
+        .ford-escape-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ford-escape-text {
+            flex: 1;
+            padding: 60px 40px;
+        }
+
+        .ford-escape-heading {
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .ford-escape-text p {
+            color: #374151;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .ford-escape-cta-link {
+            color: #002c5f;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 4px;
+            padding: 2px 6px;
+            margin: 0 -6px;
+        }
+
+        .ford-escape-cta-link:hover {
+            color: #012b5d;
+            background-color: rgba(1, 43, 93, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .ford-escape-contact {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.08) 0%, rgba(0, 44, 95, 0.12) 100%);
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            border: 2px solid rgba(1, 43, 93, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.08);
+        }
+
+        .ford-escape-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #012b5d 0%, #002c5f 50%, #012b5d 100%);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .ford-escape-contact:hover {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.12) 0%, rgba(0, 44, 95, 0.16) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.15);
+        }
+
+        .ford-escape-contact p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .ford-escape-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            color: white !important;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin: 0 4px;
+            box-shadow: 0 4px 12px rgba(1, 43, 93, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ford-escape-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ford-escape-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .ford-escape-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(1, 43, 93, 0.4);
+            background: linear-gradient(135deg, #013866 0%, #003366 100%);
+        }
+
+        .ford-escape-cta-button:active {
+            transform: translateY(0);
+        }
+
+        .ford-escape-final-text {
+            margin-top: 30px;
+            padding: 24px;
+            background: linear-gradient(to right, rgba(1, 43, 93, 0.03), rgba(0, 44, 95, 0.06), rgba(1, 43, 93, 0.03));
+            border-left: 4px solid #012b5d;
+            border-radius: 8px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        @media (max-width: 768px) {
+            .ford-escape-content {
+                flex-direction: column;
+            }
+
+            .ford-escape-image {
+                flex: 0 0 auto;
+                min-height: 300px;
+            }
+
+            .ford-escape-text {
+                padding: 40px 20px;
+            }
+
+            .ford-escape-heading {
+                font-size: 2.2rem;
+            }
+
+            .ford-escape-text p {
+                font-size: 1rem;
+            }
+
+            .ford-escape-cta-button {
+                display: block;
+                width: 100%;
+                margin: 10px 0 !important;
+                justify-content: center;
+            }
+
+            .ford-escape-contact {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ford-escape-container">
+        <div class="ford-escape-content">
+            <div class="ford-escape-image">
+                <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:bd7c2071-b2cd-4c72-8a1c-17d0f3535d29/as/26_FRD_ESP_BB_Backup.webp?max-quality=75&crop-names=1_16x9&width=3840" alt="2025 Ford Escape">
+            </div>
+            
+            <div class="ford-escape-text">
+                <h2 class="ford-escape-heading">Final Verdict: Why the Ford Escape Reigns Supreme</h2>
+                
+                <p>Choosing a compact SUV is about balancing power, technology, comfort, and real-world utility. The <strong>2025 Ford Escape</strong> deftly combines these elements, giving drivers in Yukon, Warr Acres, Edmond, and beyond a smarter, value-packed vehicle that adapts to diverse needs. Its turbocharged engine options deliver confident acceleration unmatched by the Forester's flat-four, while the Escape's electrified powertrains offer clear advantages in fuel savings.</p>
+
+                <p>Inside, modern infotainment, a digitally rendered instrument cluster, and comprehensive safety tech stakes Escape's claim as the more forward-thinking choice. While the Forester provides excellent AWD and cargo volume, it cannot quite match Escape's blend of driving enjoyment, technological advancements, and trim versatility.</p>
+
+                <div class="ford-escape-contact">
+                    <p>Experience the 2025 Ford Escape firsthand at <strong>Joe Cooper Ford of Yukon</strong>. Whether venturing around Moore or making a daily commute in Oklahoma City, the Escape is engineered to meet your needs with style and substance.</p>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="tel:4053541111" class="ford-escape-cta-button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call (405) 354-1111
+                        </a>
+                        <a href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88" target="_blank" class="ford-escape-cta-button" style="margin-left: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Visit Us
+                        </a>
+                    </div>
+                </div>
+
+                <p class="ford-escape-final-text">Don't miss your chance to test drive this standout SUV, and explore our full selection of the 
+                    <a style="color: #002c5f; text-decoration: underline; font-weight: 800;" href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3Anull%7D%2C%22make%22%3A%7B%22value%22%3A%7B%22Ford%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Escape%22%3Atrue%2C%22Escape%20Hybrid%22%3Atrue%7D%7D%7D%7D">2025 Ford Escape</a> available now. For ongoing maintenance, trust our expert service team to keep your Escape running reliably with Genuine OEM parts.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

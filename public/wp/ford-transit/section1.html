@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Transit Power Section</title>
+    <style>
+      .wp-transit-sec1-ford-article {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: "Georgia", serif;
+        line-height: 1.7;
+        color: #333;
+        position: relative;
+      }
+
+      .wp-transit-sec1-article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .wp-transit-sec1-article-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .wp-transit-sec1-article-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .wp-transit-sec1-article-intro {
+        font-size: 1.1rem;
+        color: #555;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2.5rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .wp-transit-sec1-article-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .wp-transit-sec1-section-title {
+        font-size: 1.8rem;
+        font-weight: 900 !important;
+        color: #2c3e50 !important;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .wp-transit-sec1-section-content {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 1.5rem;
+      }
+
+      .wp-transit-sec1-highlight-box {
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        border: 1px solid #2196f3;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .wp-transit-sec1-highlight-box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #2196f3;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .wp-transit-sec1-highlight-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1565c0;
+        margin-bottom: 0.8rem;
+      }
+
+      .wp-transit-sec1-highlight-text {
+        color: #0d47a1;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .wp-transit-sec1-specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .wp-transit-sec1-spec-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .wp-transit-sec1-spec-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .wp-transit-sec1-spec-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+      }
+
+      .wp-transit-sec1-spec-text {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .wp-transit-sec1-conclusion-section {
+        background: linear-gradient(135deg, #f1f8ff, #e6f3ff);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 3rem;
+        border: 1px solid #cce7ff;
+      }
+
+      .wp-transit-sec1-conclusion-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a365d;
+        margin-bottom: 1rem;
+      }
+
+      .wp-transit-sec1-conclusion-text {
+        font-size: 1rem;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      .wp-transit-sec1-image-intro {
+        display: grid;
+        grid-template-columns: 1.2fr 1.8fr;
+        gap: 1.5rem;
+        align-items: center;
+        margin: 2rem 0;
+      }
+
+      .wp-transit-sec1-image-intro figure {
+        margin: 0;
+      }
+
+      .wp-transit-sec1-image-intro img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        object-fit: cover;
+      }
+
+      .wp-transit-sec1-power-section-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+        align-items: start;
+      }
+
+      .wp-transit-sec1-power-image {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        object-fit: cover;
+      }
+
+      .wp-transit-sec1-engine-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 0 !important;
+      }
+
+      .wp-transit-sec1-engine-card {
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border-left: 4px solid #0066cc;
+      }
+
+      .wp-transit-sec1-engine-card:hover {
+        transform: translateX(4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .wp-transit-sec1-engine-name {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #0066cc;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .wp-transit-sec1-engine-name::before {
+        content: "⚡";
+        font-size: 1.3rem;
+      }
+
+      .wp-transit-sec1-engine-description {
+        font-size: 0.95rem;
+        color: #495057;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 992px) {
+        .wp-transit-sec1-power-section-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .wp-transit-sec1-ford-article {
+          padding: 1rem;
+        }
+
+        .wp-transit-sec1-article-intro {
+          padding: 1.5rem;
+        }
+
+        .wp-transit-sec1-image-intro {
+          grid-template-columns: 1fr;
+        }
+
+        .wp-transit-sec1-specs-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .wp-transit-sec1-section-title {
+          font-size: 1.5rem;
+        }
+
+        .wp-transit-sec1-engine-cards {
+          gap: 1rem;
+        }
+
+        .wp-transit-sec1-engine-card {
+          padding: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .wp-transit-sec1-ford-article {
+          padding: 0.75rem;
+        }
+
+        .wp-transit-sec1-article-intro {
+          padding: 1rem;
+        }
+
+        .wp-transit-sec1-section-title {
+          font-size: 1.3rem;
+        }
+
+        .wp-transit-sec1-section-content {
+          font-size: 0.95rem;
+        }
+
+        .wp-transit-sec1-engine-card {
+          padding: 1rem;
+        }
+
+        .wp-transit-sec1-engine-name {
+          font-size: 1.05rem;
+        }
+
+        .wp-transit-sec1-engine-description {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="wp-transit-sec1-ford-article">
+      <section class="wp-transit-sec1-article-section">
+        <h2 class="wp-transit-sec1-section-title">Power and Performance for the Pacific Northwest</h2>
+        
+        <div class="wp-transit-sec1-power-section-grid">
+          <div>
+            <p class="wp-transit-sec1-section-content">
+              Whether you're hauling equipment, delivering goods, or transporting a crew, the 2025 Ford Transit offers powertrain options designed to handle the diverse demands of the Puget Sound region. Ford continues its tradition of providing robust and capable engines that strike a balance between power and efficiency.
+            </p>
+            <img 
+              src="https://www.ford.com/is/image/content/dam/vdm_ford/live/en_us/ford/nameplate/transitcommercial/2025/collections/dm/24_FRD_TRN_47598_R2_FN.tif?croppathe=1_21x9&wid=1440" 
+              alt="Ford Transit Engine" 
+              class="wp-transit-sec1-power-image"
+              loading="lazy"
+            />
+          </div>
+          
+          <div class="wp-transit-sec1-engine-cards">
+            <div class="wp-transit-sec1-engine-card">
+              <div class="wp-transit-sec1-engine-name">3.5-Liter V6 (Standard)</div>
+              <div class="wp-transit-sec1-engine-description">
+                The standard engine is the proven 3.5-liter V6, delivering ample horsepower and torque for daily tasks.
+              </div>
+            </div>
+            
+            <div class="wp-transit-sec1-engine-card">
+              <div class="wp-transit-sec1-engine-name">3.5-Liter EcoBoost V6</div>
+              <div class="wp-transit-sec1-engine-description">
+                For those requiring more muscle to tackle steeper grades or heavier loads, the available 3.5-liter EcoBoost V6 engine is the ideal choice. This twin-turbocharged powerhouse delivers exceptional performance without compromising fuel economy, making it a wise investment for businesses seeking to optimize their operational costs.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="wp-transit-sec1-section-content">
+          Both engines are paired with a smooth and responsive 10-speed automatic transmission, ensuring confident acceleration and efficient power delivery. An intelligent all-wheel-drive (AWD) system is also available, providing enhanced traction and control during Washington's notoriously rainy seasons.
+        </p>
+      </section>
+    </article>
+  </body>
+</html>

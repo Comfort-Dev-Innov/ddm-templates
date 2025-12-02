@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford F-150 Article</title>
+    <style>
+        .ford-article {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            position: relative;
+        }
+
+        .ford-article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, #0066cc 0%, #00142E 50%, #0066cc 100%);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .article-intro {
+            font-size: 1.1rem;
+            color: #555;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #0066cc;
+        }
+
+        .article-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2196f3;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .highlight-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1565c0;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-text {
+            color: #0d47a1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .spec-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .spec-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .spec-text {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .conclusion-section {
+            background: linear-gradient(135deg, #f1f8ff, #e6f3ff);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            border: 1px solid #cce7ff;
+        }
+
+        .conclusion-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .conclusion-text {
+            font-size: 1rem;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .ford-article {
+                padding: 1rem;
+            }
+            
+            .article-intro {
+                padding: 1.5rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="ford-article">
+        <header class="article-header">
+            <h1 class="article-title"><span style="font-weight: 900;">The Ultimate Family SUV for the Pacific Northwest</span>: A Look at the 2025 Ford Expedition in Kent, WA
+            </h1>
+        </header>
+
+        <p style="text-align: justify; font-size: 18px;">
+            For drivers in the Puget Sound region, a vehicle needs to be more than just a mode of transportation. It needs to be a versatile partner, capable of handling the daily commute on Highway 167, hauling sports gear to a weekend tournament, and confidently taking the family on an adventure to Mount Rainier National Park. 
+        </p>
+        <div class="article-intro">
+            The 2025 Ford Expedition, arriving soon at Bowen Scarff Ford, is engineered to excel in all of these roles with unparalleled comfort, power, and technology.
+        </div>
+
+        <section class="article-section">
+            <!-- <h2 class="section-title">Looking Toward the Future</h2> -->
+            <p class="section-content">
+                As Ford's flagship full-size SUV, the Expedition has long been the standard for families seeking space and capability. For 2025, Ford builds upon this legacy with significant updates, blending rugged performance with sophisticated technology. 
+            </p>
+        </section>
+        <div class="article-intro">
+            This guide from your local experts at Bowen Scarff Ford in Kent explores everything you need to know about the new Expedition.
+        </div>
+    </article>
+</body>
+</html>

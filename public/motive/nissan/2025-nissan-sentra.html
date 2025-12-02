@@ -1,0 +1,349 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    :is([class*="Section-module__"][class*="__section--blog"]) { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    :is([class*="Section-module__"][class*="__section--blog"]) * { max-width: 100% !important; box-sizing: border-box; }
+    /* Typography */
+    .blog-content p { margin: 1em 0; }
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .blog-content h2 { font-size: 1.6em; }
+    .blog-content h3 { font-size: 1.35em; }
+    /* Tables */
+    .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+    .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+    .blog-content table.e-rte-table td { color: #374151; }
+    .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+    .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-content table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-content table.e-rte-table th,
+      .blog-content table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    /* Links */
+    .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+    .blog-content a:hover { color: #15306e !important; }
+    /* TOC */
+    .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+    .blog-content h2 + ul li { margin: 6px 0; }
+    .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-content h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    /* offset for fixed navbars */
+    .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  
+    /* Images */
+    .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+    /* floating */
+    .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+    .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+    /* clear fix after floats */
+    .blog-content .clearfix::after { content:""; display:table; clear:both; }
+  
+    /* Image Wrapper Styles */
+    .blog-content .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .blog-content .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-content .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .blog-content .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .blog-content .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-content .image-float-left, .blog-content .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .blog-content .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .blog-content .image-float-left img, .blog-content .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .blog-content .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .blog-content .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-content .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-content .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-content .image-grid img {
+        border: none;
+      }
+  
+      .blog-content .image-float-left img,
+      .blog-content .image-float-right img {
+        border: none;
+      }
+    }
+  
+    </style><div class="blog-content"><p>Experience a compact sedan that combines reliability, thoughtful design, and safety—all backed by the integrity and heritage of Jackie Cooper Nissan, proudly serving Tulsa, Broken Arrow, and surrounding communities from 9898 S Memorial Dr, Tulsa, OK 74133. The 2025 Nissan Sentra Base trim offers a compelling balance of practical features and proven performance, ideal for Oklahoma drivers seeking dependable value with modern conveniences. Call us today at <strong><a href="tel:9189216531">(918) 921-6531</a></strong> to learn more or schedule a visit.</p><h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#a-trustworthy-compact-sedan-built-to-serve">A Trustworthy Compact Sedan Built to Serve</a></li>
+  <li><a href="#distinctive-exterior-craftsmanship-with-practical-flare">Distinctive Exterior Craftsmanship with Practical Flare</a></li>
+  <li><a href="#performance-tailored-for-comfort-and-efficiency">Performance Tailored for Comfort and Efficiency</a></li>
+  <li><a href="#interior-space-and-features-designed-for-oklahoma-roads">Interior Space and Features Designed for Oklahoma Roads</a></li>
+  <li><a href="#user-friendly-technology-to-keep-you-connected">User-Friendly Technology to Keep You Connected</a></li>
+  <li><a href="#comprehensive-safety-suite-for-peace-of-mind">Comprehensive Safety Suite for Peace of Mind</a></li>
+  <li><a href="#trim-options-and-customization-for-local-needs">Trim Options and Customization for Local Needs</a></li>
+  <li><a href="#dependable-coverage-and-maintenance-support">Dependable Coverage and Maintenance Support</a></li>
+  <li><a href="#why-choose-jackie-cooper-nissan-for-your-2025-sentra">Why Choose Jackie Cooper Nissan for Your 2025 Sentra</a></li>
+  </ul><h2 id="a-trustworthy-compact-sedan-built-to-serve">A Trustworthy Compact Sedan Built to Serve</h2>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div class="image-wrapper" style="max-width: 1000px !important;">
+    <img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-seen-from-above-driving-swiftly-highway-ocean-background.jpg" alt="2025 Nissan Sentra Aerial Highway View">
+    </div>
+    </div>
+  
+  <p>Rooted in Nissan’s commitment to reliable, value-rich automobiles, the <strong>2025 Nissan Sentra Base</strong> stands out as a balanced choice for compact sedan shoppers in Tulsa and Broken Arrow. Positioned firmly as a pragmatic yet modern option within Nissan’s lineup, it comfortably seats five occupants and offers a spacious trunk space suitable for family errands or weekend getaways.</p><p>The Sentra Base trim starts at an MSRP of $21,590 and carries forward Nissan’s reputation for building vehicles with both longevity and everyday usability in mind. It features a front-wheel-drive layout and a capable 2.0-liter inline-4 engine that produces 149 horsepower and 146 lb-ft of torque—combining adequate performance with fuel efficiency appreciated on Oklahoma’s city streets and highways.</p><p>Drivers in the Tulsa area will find its EPA-rated fuel economy (30 mpg city / 40 mpg highway) aligns well with daily commuting demands, balancing economy with comfort. The Sentra’s interior offers generous legroom—44 inches upfront and nearly 35 inches in the rear—fitting for families and local carpoolers alike. Cargo space measures 14.3 cubic feet, making it practical compared to peer models like the Toyota Corolla and Honda Civic.</p><p>Jackie Cooper Nissan invites you to explore this sedan in person, where our knowledgeable team can walk you through its features and arrange a test drive to experience the Sentra’s quiet ride and thoughtfully engineered amenities firsthand.</p><h2 id="distinctive-exterior-craftsmanship-with-practical-flare">Distinctive Exterior Craftsmanship with Practical Flare</h2>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-white-parked-parking-garage.jpg" alt="2025 Nissan Sentra White Parked">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-parked-front-hotel-couple-approaching-car.jpg" alt="2025 Nissan Sentra Parked Front Hotel">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-front-view-white-driving-through-city-streets.jpg" alt="2025 Nissan Sentra Driving City Streets">
+</div>
+
+<h3 id="modern-styling-with-functional-details">Modern Styling with Functional Details</h3><p>The 2025 Sentra Base trim features a fresh, appealing exterior that catches attention throughout Tulsa neighborhoods and Broken Arrow streets. Its sculpted hood, refined grille, and sleek profile emphasize a contemporary yet approachable design, balancing style with everyday practicality. To handle the daily drive, base trims come with standard wheels that prioritize durability and efficient performance throughout Oklahoma.</p><h3 id="dimensions-and-aerodynamics">Dimensions and Aerodynamics</h3><p>The Sentra measures a balanced 182.7 inches in length and 71.5 inches wide, offering a commanding presence in the compact sedan segment without overwhelming urban or suburban spaces. Its aerodynamic profile supports fuel efficiency and reduces wind noise, contributing to a calmer cabin during highway cruising.</p><h3 id="visibility-and-lighting">Visibility and Lighting</h3><p>While the base model opts for traditional lighting systems, it provides sufficient illumination for safe night driving. It is complemented by driver-assistance features, such as high-beam assist, within the comprehensive Nissan Safety Shield 360 suite. This blend of style and function ensures confident driving even in Oklahoma's varied lighting conditions.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-red-taking-mountain-curve-speed.jpg" alt="2025 Nissan Sentra Red Mountain Curve">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-parked-profile-as-people-approach.jpg" alt="2025 Nissan Sentra Profile View">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/exterior/lightbox/2025-nissan-sentra-blue-driveway-front-building.jpg" alt="2025 Nissan Sentra Blue Front Building">
+</div>
+
+<h2 id="performance-tailored-for-comfort-and-efficiency">Performance Tailored for Comfort and Efficiency</h2><h3 id="engine-and-transmission">Engine and Transmission</h3><p>Under the hood, the Sentra Base features a 2.0-liter inline-4 engine that produces 149 horsepower and 146 lb-ft of torque. This engine is designed with an aluminum block and head, featuring direct injection to optimize power delivery and efficiency. It is well suited for urban commutes and highway driving around Broken Arrow.</p><p>Paired with a continuously variable transmission (CVT), this combination provides smooth acceleration and refined response, with an officially recorded 0-60 mph time of approximately 8.4 seconds—an improvement over previous years and sufficient power for city driving and highway merging without fuss.</p><h3 id="drivetrain-and-handling">Drivetrain and Handling</h3><p>The Sentra’s front-wheel-drive system delivers predictable handling, ideal for calm, confident drives on Tulsa’s highways and suburban roads. The independent multi-link rear suspension and front strut design balance comfort and stability, providing a compliant ride quality managed for everyday use.</p><h3 id="fuel-efficiency-and-economy">Fuel Efficiency and Economy</h3><p>The Sentra Base trim's fuel economy is 30 mpg in city driving and 40 mpg on the highway, matching&nbsp;many Oklahoma drivers’ expectations for efficient and reliable transportation. While rivals offer some hybrid options, the Sentra focuses on delivering proven gasoline engine economics without hybrid complexity.</p><p><strong>2025 Nissan Sentra Base Performance Specifications</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Specification</strong></th>
+  <th align="right"><strong>Detail</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Engine Type</td>
+  <td align="right">2.0L Inline-4, DOHC, Direct Injection</td>
+  </tr>
+  <tr>
+  <td align="left">Power Output</td>
+  <td align="right">149 horsepower</td>
+  </tr>
+  <tr>
+  <td align="left">Torque</td>
+  <td align="right">146 lb-ft</td>
+  </tr>
+  <tr>
+  <td align="left">Transmission</td>
+  <td align="right">Continuously Variable Transmission (CVT)</td>
+  </tr>
+  <tr>
+  <td align="left">Drivetrain</td>
+  <td align="right">Front-Wheel Drive (FWD)</td>
+  </tr>
+  <tr>
+  <td align="left">Acceleration (0-60 mph)</td>
+  <td align="right">8.4 seconds</td>
+  </tr>
+  <tr>
+  <td align="left">Fuel Economy (City/Highway)</td>
+  <td align="right">30 / 40 mpg</td>
+  </tr>
+  </tbody></table><h2 id="interior-space-and-features-designed-for-oklahoma-roads">Interior Space and Features Designed for Oklahoma Roads</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/2025-nissan-sentra-black-interior-front-seats-cockpit.jpg" alt="2025 Nissan Sentra Interior Cockpit">
+</div>
+</div>
+
+<h3 id="spacious-dimensions-for-passengers">Spacious Dimensions for Passengers</h3><p>Inside the 2025 Sentra Base, occupants will find welcoming comfort and thoughtful ergonomic design for daily commutes or longer drives through Tulsa and Broken Arrow. Front passengers enjoy a spacious 44.0 inches of legroom, with rear passengers afforded 34.9 inches—ample for compact sedan standards.</p><h3 id="flexible-cargo-storage">Flexible Cargo Storage</h3>
+
+<div class="image-float-right" style="max-width: 400px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/2025-nissan-sentra-displaying-people-putting-rug-into-cargo-space.jpg" alt="2025 Nissan Sentra Cargo Space">
+</div>
+
+<p>The sedan's trunk offers 14.3 cubic feet of cargo space, enough to fit multiple grocery bags or luggage for family trips. Its 60/40 split-fold rear seats enhance versatility for transporting larger items, complementing the robust storage demands of practical Oklahoma lifestyles.</p>
+
+<div style="clear: both;"></div><h3 id="comfort-features">Comfort Features</h3><p>Equipped with Nissan's acclaimed Zero Gravity seats, the cabin prioritizes occupant support. It reduces fatigue on longer journeys, a welcome aspect for drivers frequently navigating city and highway routes in Tulsa. Materials blend soft-touch areas with durable surfaces, maintaining an inviting atmosphere without excessive upkeep.</p>
+
+<div class="image-grid">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/nissan-sentra-2025-detail-central-console-gear-shift-v2.jpg" alt="2025 Nissan Sentra Center Console">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/nissan-sentra-2025-driver-over-the-shoulder-view-during-journey-v2.jpg" alt="2025 Nissan Sentra Driver View">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/2025-nissan-sentra-driver-side-front-rear-doors-illustrating-spacious-interior.jpg" alt="2025 Nissan Sentra Spacious Interior">
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/2025-nissan-sentra-tan-interior-front-seats-v2.jpg" alt="2025 Nissan Sentra Tan Interior">
+</div>
+</div><h2 id="user-friendly-technology-to-keep-you-connected">User-Friendly Technology to Keep You Connected</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/nissan-sentra-2025-display-8-inch-touch-screen-interface-v2.jpg" alt="2025 Nissan Sentra Touchscreen Display">
+</div>
+</div>
+
+<h3 id="infotainment-interface">Infotainment Interface</h3><p>The Sentra Base model comes standard with a 7.0-inch touchscreen that integrates Apple CarPlay® and Android Auto® technologies, letting drivers seamlessly connect smartphones to access navigation, communication, and entertainment apps with ease and safety on Tulsa’s roadways.</p><h3 id="audio-and-convenience">Audio and Convenience</h3><p>The audio system delivers clear sound from multiple speakers (quantity depending on trim), with speed-sensitive volume control that adjusts output based on driving speed—helpful for shifting between quiet parking lots and busy highways.</p><h3 id="connected-services">Connected Services</h3><p>Car owners in Broken Arrow can benefit from NissanConnect® services available on higher trims, which include remote vehicle controls and security alerts via the MyNISSAN app. The Base trim provides the essentials to stay connected without overwhelming technology complexity.</p>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://www.nissanusa.com/content/dam/Nissan/us/vehicles/sentra/2025/gallery/interior/lightbox/2025-nissan-sentra-interior-people-using-their-smartphones-show-device-connectivity.jpg" alt="2025 Nissan Sentra Smartphone Connectivity">
+</div>
+</div><h2 id="comprehensive-safety-suite-for-peace-of-mind">Comprehensive Safety Suite for Peace of Mind</h2><h3 id="standard-safety-features">Standard Safety Features</h3><p>All 2025 Sentra models include Nissan Safety Shield 360 as part of their foundational commitment to driver and passenger protection. This integrated technology bundle features:</p><ul>
+  <li>Automatic emergency braking with pedestrian detection</li>
+  <li>Blind-spot warning system</li>
+  <li>Rear cross-traffic alert</li>
+  <li>Lane departure warning</li>
+  <li>Rear automatic braking</li>
+  <li>High-beam assist for optimized night visibility</li>
+  </ul><h3 id="advanced-options-for-added-confidence">Advanced Options for Added Confidence</h3><p>For drivers who prioritize enhanced assistance, available packages on higher trims provide adaptive cruise control and a 360-degree camera system, ideal for navigating Tulsa’s busy streets and parking in tight spots.</p><h3 id="ratings-and-recognition">Ratings and Recognition</h3><p>The Sentra has earned a solid overall 5-star safety rating from NHTSA and favorable scores in various IIHS crash test categories, reflecting responsible engineering designed to protect Oklahoma families under diverse real-world conditions.</p><p><strong>2025 Nissan Sentra Safety Ratings Overview</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Agency/Test</strong></th>
+  <th align="right"><strong>Result</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">NHTSA Overall Safety</td>
+  <td align="right">5 Stars</td>
+  </tr>
+  <tr>
+  <td align="left">IIHS Small Overlap Front</td>
+  <td align="right">Good</td>
+  </tr>
+  <tr>
+  <td align="left">IIHS Moderate Overlap Front</td>
+  <td align="right">Good</td>
+  </tr>
+  <tr>
+  <td align="left">IIHS Side Crash Original</td>
+  <td align="right">Good</td>
+  </tr>
+  <tr>
+  <td align="left">IIHS Side Crash Updated</td>
+  <td align="right">Acceptable</td>
+  </tr>
+  <tr>
+  <td align="left">IIHS Headlights</td>
+  <td align="right">Poor</td>
+  </tr>
+  </tbody></table><h2 id="trim-options-and-customization-for-local-needs">Trim Options and Customization for Local Needs</h2><p>While our focus here is on the Base model, the Sentra provides a well-defined trim palette to match various preferences and budgets from Tulsa-area drivers:</p><ul>
+  <li><strong>S (Base):</strong> Provides essential safety and technology features, the starting point for reliable transportation</li>
+  <li><strong>SV:</strong> Offers upgrades like 16-inch alloy wheels, Intelligent Cruise Control, and an 8-inch touchscreen with NissanConnect®</li>
+  <li><strong>SR:</strong> Adds sportier styling and premium features, including 18-inch wheels and LED headlights</li>
+  <li><strong>SR Midnight Edition:</strong> A specialized package with exclusive exterior styling enhancements</li>
+  </ul><p>The SV trim strikes a strong balance of features and value for residents around Broken Arrow, combining modern technology with driver-assist systems tailored to local road conditions.</p><h2 id="dependable-coverage-and-maintenance-support">Dependable Coverage and Maintenance Support</h2><p>Jackie Cooper Nissan supports your ownership experience with the industry-backed confidence provided by Nissan’s warranties:</p><ul>
+  <li>New vehicle limited warranty covering 3 years or 36,000 miles</li>
+  <li>Powertrain warranty extending to 5 years or 60,000 miles</li>
+  <li>Nissan Maintenance Care program offering up to three oil changes within the first 24,000 miles or two years, helping drivers in Tulsa maintain vehicle performance with ease</li>
+  </ul><p>Our <strong><a href="https://jackiecoopernissan.com/service">Service Department</a></strong> employs factory-trained specialists using genuine Nissan parts to ensure your Sentra continues to perform reliably throughout its lifespan. When maintenance or repairs are needed, our <strong><a href="https://jackiecoopernissan.com/parts">Parts Department</a></strong> offers quick access to authentic components crafted for your vehicle.</p><h2 id="why-choose-jackie-cooper-nissan-for-your-2025-sentra">Why Choose Jackie Cooper Nissan for Your 2025 Sentra</h2><p>Since 1946, Jackie Cooper Nissan has been a pillar for drivers in Tulsa and Broken Arrow, operating not just as a dealership, but as a family-rooted institution dedicated to honest, reliable service. Our team understands the local community’s expectations for trustworthy vehicles that serve daily needs with confidence and comfort.</p><p>At Jackie Cooper Nissan, you can explore the full lineup of 2025 Sentra models, including the Base trim and extended options. Visit our showroom at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJLVJj_A-OtocRWgqxlxNtLGA">9898 S Memorial Dr, Tulsa, OK 74133</a></strong>, where our experienced staff will guide you through a relaxed, informative buying experience focused on your satisfaction and long-term vehicle enjoyment.</p><p>Whether you’re considering a new Nissan or seeking a dependable used vehicle, feel free to browse our inventories:</p><ul>
+  <li><a href="#all-new-vehicles">All New Vehicles</a> </strong> – Explore the latest Sentra and other Nissan models ready for your test drive</li>
+  <li><a href="#all-used-vehicles">All Used Vehicles</a> </strong> – Find quality pre-owned cars with credible history and exceptional care</li>
+  </ul><p>Are you wondering about trading in your current car? Use our <strong><a href="https://jackiecoopernissan.com/trade">Trade Valuation</a></strong> tool to get started and see how your vehicle's value can help you step into a 2025 Sentra confidently today.</p><p>Jackie Cooper Nissan warmly invites you to experience the trusted combination of longstanding community service and modern automotive excellence. Please feel free to reach out at <strong><a href="tel:9189216531">(918) 921-6531</a></strong> or visit us today.</p></div><p>© 2025 Jackie Cooper Nissan</p>

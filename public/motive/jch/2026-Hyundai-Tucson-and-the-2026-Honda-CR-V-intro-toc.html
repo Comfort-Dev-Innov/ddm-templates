@@ -1,0 +1,462 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: underline;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Comparison Images Section */
+      .comparison-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 40px 0;
+        align-items: start;
+      }
+
+      .vehicle-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 450;
+        max-width: 800px;
+        width: calc(100% - 400px);
+        margin: 0 auto;
+      }
+
+      .vehicle-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      .vehicle-image-label {
+        color: #0f3079;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .vehicle-image-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        border: 2px dashed #0f3079;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f3079;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      /* Single Image Container */
+      .single-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .single-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      /* TOC Styling */
+      .toc-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 4px solid #0f3079;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 40px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .toc-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toc-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(15, 48, 121, 0.1);
+      }
+
+      .toc-list li:last-child {
+        border-bottom: none;
+      }
+
+      .toc-list a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: block;
+      }
+
+      .toc-list a:hover {
+        color: #2d5aa0;
+        padding-left: 10px;
+      }
+
+      .vehicle-image-placeholder-2 {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+        object-fit: contain;
+      }
+
+      /* Bullet List Styling */
+      .bullet-list {
+        margin-left: 20px;
+        line-height: 1.8;
+      }
+
+      .bullet-list li {
+        margin-bottom: 10px;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+
+        .vehicle-image-container {
+          max-width: 80%;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-images {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .vehicle-image-container {
+          max-width: 90%;
+          width: 100%;
+          max-height: 350px;
+        }
+
+        .vehicle-image-placeholder {
+          height: 250px;
+          font-size: 1rem;
+          object-fit: contain;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+
+        .vehicle-image-placeholder-2 {
+          height: 300px;
+          object-fit: contain;
+          border-radius: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <h1 class="section-heading">
+        The 2026 Hyundai Tucson vs. The 2026 Honda CR-V: Side-by-Side SUV
+        Comparison
+      </h1> -->
+      <br />
+      <p class="paragraph-text">
+        Compact SUVs remain a top choice for drivers seeking comfort,
+        efficiency, and flexibility in a single vehicle. Among the most trusted
+        names in this class, the Hyundai Tucson and Honda CR-V stand out for
+        their quality and everyday ease of use. Both return for 2026 with
+        updates that strengthen their appeal and show how each brand interprets
+        what modern SUV ownership should offer.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Honda CR-V builds on its reputation for refined performance and
+        fuel economy, while the 2026 Hyundai Tucson expands on versatility and
+        technology with a range of powertrain choices and a more connected
+        driving experience. Both models are well-equipped, capable, and designed
+        to handle daily needs with confidence.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        In this side-by-side comparison, we highlight the key similarities and
+        differences to help you understand what each model offers and which one
+        best suits your lifestyle.
+      </p>
+
+      <!-- Table of Contents -->
+      <div class="toc-container">
+        <h3 class="toc-heading">Table of Contents</h3>
+        <ol class="toc-list">
+          <li>
+            <a href="#powertrain">Powertrain and Capability</a>
+          </li>
+          <li>
+            <a href="#performance"
+              >2026 Hyundai Tucson and the 2026 Honda CR-V's Performance
+              Levels</a
+            >
+          </li>
+          <li>
+            <a href="#design">Design and Domain</a>
+          </li>
+          <li>
+            <a href="#technology">Technology and Connectivity</a>
+          </li>
+          <li>
+            <a href="#trims">Trim Levels and Lineup Overview</a>
+          </li>
+          <li>
+            <a href="#value"
+              >What Sets the Tucson Apart in Value and Peace of Mind</a
+            >
+          </li>
+          <li>
+            <a href="#verdict">Final Thoughts</a>
+          </li>
+        </ol>
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,463 @@
+<style>
+  /* ===== Base Blog Section Layout ===== */
+  .blog-content { 
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #111827;
+    line-height: 1.7;
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+  .blog-content * { max-width: 100% !important; box-sizing: border-box; }
+  /* Typography */
+  .blog-content p { margin: 1em 0; }
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #000000;
+  }
+  .blog-content h2 { font-size: 1.6em; }
+  .blog-content h3 { font-size: 1.35em; }
+  /* Tables */
+  .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+  .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+  .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+  .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+  .blog-content table.e-rte-table td { color: #374151; }
+  .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+  .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+  .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+  /* Responsive Table */
+  @media (max-width: 700px) {
+    .blog-content table.e-rte-table {
+      font-size: 14px;
+      overflow-x: auto;
+      display: block;
+    }
+    .blog-content table.e-rte-table th,
+    .blog-content table.e-rte-table td {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+  }
+  /* Links */
+  .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+  .blog-content a:hover { color: #15306e !important; }
+  /* TOC */
+  .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+  .blog-content h2 + ul li { margin: 6px 0; }
+  .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+  .blog-content h2 + ul li a:hover { text-decoration: underline; }
+
+  /* Smooth scrolling globally */
+  html { scroll-behavior: smooth; }
+  /* offset for fixed navbars */
+  .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+
+  /* highlight on jump */
+  .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+  @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+
+  /* Images */
+  .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+  .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+  /* floating */
+  .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+  .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+  /* clear fix after floats */
+  .blog-content .clearfix::after { content:""; display:table; clear:both; }
+
+  /* Image Wrapper Styles */
+  .blog-content .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 32px 0;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .blog-content .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: 4px solid #1e3a8a;
+    outline: 3px dashed #1e3a8a;
+    outline-offset: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .blog-content .image-wrapper img:hover {
+    transform: scale(1.02) translateY(-4px);
+    box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+    outline-offset: 12px;
+    border-color: #2563eb;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Image Grid Layouts */
+  .blog-content .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+    padding: 32px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    border-radius: 12px;
+  }
+  .blog-content .image-grid img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .blog-content .image-grid img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+    border-color: #1e40af;
+  }
+
+  /* Floating Images */
+  .blog-content .image-float-left, .blog-content .image-float-right {
+    max-width: 48%;
+    margin: 16px;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .blog-content .image-float-left {
+    float: left;
+    margin-right: 24px;
+  }
+  .blog-content .image-float-right {
+    float: right;
+    margin-left: 24px;
+  }
+  .blog-content .image-float-left img, .blog-content .image-float-right img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid #60a5fa;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: all 0.35s ease-out;
+    cursor: pointer;
+  }
+  .blog-content .image-float-left img:hover {
+    transform: translateX(-8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+    border-color: #2563eb;
+  }
+  .blog-content .image-float-right img:hover {
+    transform: translateX(8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+    border-color: #2563eb;
+  }
+
+  /* Mobile: Remove decorative borders and outlines */
+  @media (max-width: 768px) {
+    .blog-content .image-wrapper img {
+      border: none;
+      outline: none;
+      outline-offset: 0;
+      border-radius: 8px;
+    }
+
+    .blog-content .image-grid {
+      background: transparent;
+      padding: 0;
+      gap: 16px;
+    }
+
+    .blog-content .image-grid img {
+      border: none;
+    }
+
+    .blog-content .image-float-left img,
+    .blog-content .image-float-right img {
+      border: none;
+    }
+  }
+
+  </style><div class="blog-content"><p>Navigating the roads near Shawnee, OK, and beyond—from Norman to Meeker and Oklahoma City to Prague—requires a vehicle that blends rugged capability with everyday comfort. The 2026 Jeep Gladiator Base delivers just that, combining Jeep’s legendary off-road heritage with the practicality of a midsize pickup truck. For families and adventurers in Harrah, Bethel Acres, and Tecumseh, this Gladiator offers a distinctive balance of toughness and versatility. At Joe Cooper Dodge Jeep Of Shawnee, we’re proud to bring you this model, designed to tackle the road and errands alike with confidence and style. For questions or to schedule a visit, please call us at <strong><a href="tel:+14052751104">(405) 275-1104</a></strong>&nbsp;or stop by our showroom at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJPagqO_rHs4cRAEt_NlUhmcA">4940 Automall Dr, Shawnee, OK 74804</a></strong>.</p><h2 id="table-of-contents">Table of Contents</h2><ul>
+<li><a href="#introducing-the-2026-jeep-gladiator-base">Introducing the 2026 Jeep Gladiator Base</a></li></li>
+<li><a href="#distinctive-exterior-design-and-functional-styling">Distinctive Exterior Design and Functional Styling</a></li></li>
+<li><a href="#robust-performance-and-driving-dynamics">Robust Performance and Driving Dynamics</a></li></li>
+<li><a href="#comfort-and-convenience-inside-the-cabin">Comfort and Convenience Inside the Cabin</a></li></li>
+<li><a href="#advanced-technology-and-connectivity-options">Advanced Technology and Connectivity Options</a></li></li>
+<li><a href="#safety-features-and-driver-support-systems">Safety Features and Driver Support Systems</a></li></li>
+<li><a href="#trim-choices-and-customization-packages">Trim Choices and Customization Packages</a></li></li>
+<li><a href="#warranty-coverage-and-complimentary-maintenance">Warranty Coverage and Complimentary Maintenance</a></li></li>
+<li><a href="#why-joe-cooper-dodge-jeep-of-shawnee-is-your-trusted-jeep-partner">Why Joe Cooper Dodge Jeep Of Shawnee is Your Trusted Jeep Partner</a></li></li>
+</ul><h2 id="introducing-the-2026-jeep-gladiator-base">Introducing the 2026 Jeep Gladiator Base</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="image-wrapper" style="max-width: 1000px !important;">
+  <img src="https://i.ibb.co/GvfKrXKW/JP026-001-GL.jpg" alt="2026 Jeep Gladiator Exterior Design">
+  </div>
+  </div>
+  
+<p>The 2026 Jeep Gladiator Base caters to drivers around Shawnee, OK, and neighboring communities like Choctaw and Seminole who need a midsize pickup capable of handling both work demands and weekend adventures. Carrying five passengers comfortably, it pairs the iconic Jeep off-road prowess with the practicality of a five-foot pickup bed. The four-door extended wheelbase offers roominess unmatched in many trucks of its size, with front and rear passenger volumes spanning from 54 to 57 cubic feet up front and 50 to 53 cubic feet in the rear.</p><p>Under the hood, this Gladiator is powered by a 3.6-liter naturally aspirated V6 engine, producing 285 horsepower and 260 lb-ft of torque. This powerplant, coupled with a smooth 8-speed automatic transmission, propels the truck with confidence whether cruising urban streets in Moore or tackling rugged trails near McLoud. Four-wheel drive comes standard, ensuring traction on Oklahoma’s varied terrain.</p><p>For those in Newalla or Jones, its capability is proven in towing and hauling: the Gladiator Base can tow up to 7,700 pounds when equipped with the proper axle and tow packages, while maximum payload climbs to 1,725 pounds depending on configuration—ideal for both worksite tools and recreational gear.</p><h2 id="distinctive-exterior-design-and-functional-styling">Distinctive Exterior Design and Functional Styling</h2>
+
+<p>The Gladiator Base embodies Jeep's unmistakable heritage through its boxy silhouette and robust build, proudly echoing cues from the Wrangler lineage. From streets in Tecumseh to backroads outside Bethel Acres, drivers will appreciate its aggressive yet purposeful presence. Measuring 218.1 inches long with a 137.3-inch wheelbase, it offers excellent stability.</p><p>One of the Gladiator’s standout features is its open-air capability: the windshield folds down flat, and doors and roof panels can be removed without tools, allowing drivers and passengers to fully embrace the outdoors. This design speaks directly to Jeep’s community legacy, letting families and friends share memorable drives under Oklahoma's wide skies.</p><p>Functionality extends to the steel five-foot cargo bed, equipped with integrated tie-down points and an easy-lift tailgate for efficient loading and unloading. New exterior color options cater to diverse tastes, while available all-terrain tires add ruggedness for off-pavement excursions near Harrah or Prague. Its ground clearance and durable undercarriage protect critical components, thanks to steel skid plates offered especially on off-road-focused trims.</p>
+
+<div class="image-grid">
+  <img src="https://i.ibb.co/wNBzqhTT/JP026-002-GL.jpg" alt="Jeep Gladiator Side Profile">
+  <img src="https://i.ibb.co/NdjRXwkp/JP026-008-GL.jpg" alt="Jeep Gladiator Detail View">
+  <img src="https://i.ibb.co/xtdZBHbX/JP026-021-GL.jpg" alt="Jeep Gladiator Front View">
+  <img src="https://i.ibb.co/FLdGRL00/JP026-042-GL.jpg" alt="Jeep Gladiator Cargo Bed">
+</div>
+
+<h4 id="exterior-dimension-and-capability-overview">Exterior Dimension and Capability Overview</h4><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Dimension/Specification</strong></th>
+<th><strong>Measure</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Overall Length</td>
+<td>218.1 inches</td>
+</tr>
+<tr>
+<td>Wheelbase</td>
+<td>137.3 inches</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>73.8 inches</td>
+</tr>
+<tr>
+<td>Height (varies by trim)</td>
+<td>73.1 to 75.1 inches</td>
+</tr>
+<tr>
+<td>Cargo Bed Length</td>
+<td>5 feet</td>
+</tr>
+<tr>
+<td>Water Fording Depth</td>
+<td>Up to 31.5 inches</td>
+</tr>
+<tr>
+<td>Maximum Towing Capacity</td>
+<td>7,700 pounds</td>
+</tr>
+<tr>
+<td>Maximum Payload Capacity</td>
+<td>Up to 1,725 pounds</td>
+</tr>
+</tbody></table><h2 id="robust-performance-and-driving-dynamics">Robust Performance and Driving Dynamics</h2>
+
+<div class="image-float-right" style="max-width: 400px !important;">
+  <img src="https://i.ibb.co/v4DRccgZ/JP026-081-GL.jpg" alt="Jeep Gladiator Engine">
+</div>
+
+<p>The heart of the 2026 Gladiator Base is its reliable 3.6-liter V6 engine, designed with an aluminum block and four valves per cylinder to maximize power and efficiency. Located upfront, the engine’s 285 horsepower peaks at 6,400 rpm, while 260 lb-ft of torque becomes available at 4,400 rpm, delivering the performance necessary for daily drives and demanding excursions alike.</p><p>Paired with an 8-speed automatic transmission, the truck offers smooth gear transitions optimized for fuel economy and responsiveness. In areas like Oklahoma City and Norman, the Gladiator feels robust yet manageable. Still, potential drivers should anticipate a firmer ride over uneven surfaces—a tradeoff for the off-road-ready suspension and solid frame.</p><p>Steering has been described as slightly imprecise, yet it aligns with the Gladiator’s rugged intent rather than a sports sedan’s nimbleness. Its acceleration from 0 to 60 mph clocks around 7.2 seconds, matching typical midsize pickup capabilities, with a top speed of roughly 97 mph.</p><p>Off-road seekers from surrounding towns like McLoud and Newalla will appreciate the Gladiator’s strengthened iron steering knuckles and reinforced frame. When equipped with optional packages, the truck gains sway bar disconnect technology and heavy-duty engine cooling, enhancing control and durability. Its trail performance is further supported by impressive ground clearance and specialized tires available on select trims.</p><div style="clear: both;"></div>
+
+<h4 id="performance-specifications">Performance Specifications</h4>
+<table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Performance Aspect</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engine Type</td>
+<td>3.6-liter V6, DOHC, port fuel injection</td>
+</tr>
+<tr>
+<td>Horsepower</td>
+<td>285 hp at 6,400 rpm</td>
+</tr>
+<tr>
+<td>Torque</td>
+<td>260 lb-ft at 4,400 rpm</td>
+</tr>
+<tr>
+<td>Transmission</td>
+<td>8-speed automatic</td>
+</tr>
+<tr>
+<td>0-60 mph Acceleration</td>
+<td>~7.2 seconds</td>
+</tr>
+<tr>
+<td>Top Speed</td>
+<td>~97 mph</td>
+</tr>
+<tr>
+<td>Drivetrain</td>
+<td>Four-wheel drive</td>
+</tr>
+<tr>
+<td>Water Fording Capacity</td>
+<td>31.5 inches</td>
+</tr>
+</tbody></table><h2 id="comfort-and-convenience-inside-the-cabin">Comfort and Convenience Inside the Cabin</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://i.ibb.co/SZ6QbxM/JP026-064-GL.jpg" alt="2026 Jeep Gladiator Interior Dashboard">
+</div>
+</div>
+
+<p>Stepping inside the Gladiator Base reveals a cabin thoughtfully laid out for both comfort and practicality, perfect for families and adventurers from Choctaw to Jones. Its upright dashboard features tactile physical controls designed for ease of use, especially when driving off-road or in changing conditions.</p><p>Front seats offer supportive cushioning and optional eight-way power adjustments and heating, enhancing driver comfort on chilly mornings or during&nbsp;extended trips. The rear area comfortably accommodates three more passengers, with sufficient headroom and elbow space, and is further enhanced when the removable roof and doors are removed to let fresh air flow freely.</p><p>Storage is well-considered with compartments beneath and behind the rear seats for smaller items, complemented by multiple cupholders and durable materials designed to withstand active lifestyles. Climate control vents are positioned for even distribution, ensuring occupant comfort regardless of outside weather fluctuations experienced in Shawnee or beyond.</p>
+
+<div class="image-grid">
+  <img src="https://i.ibb.co/S75SDJnc/JP026-066-GL.jpg" alt="Jeep Gladiator Interior Seating">
+  <img src="https://i.ibb.co/ynsy5FpQ/JP026-067-GL.jpg" alt="Jeep Gladiator Equipment and Controls">
+</div>
+
+<table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Interior Feature</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Seating Capacity</td>
+<td>5 passengers</td>
+</tr>
+<tr>
+<td>Front Passenger Volume</td>
+<td>54 to 57 cubic feet</td>
+</tr>
+<tr>
+<td>Rear Passenger Volume</td>
+<td>50 to 53 cubic feet</td>
+</tr>
+<tr>
+<td>Seat Adjustments</td>
+<td>Available 8-way power, heated front seats</td>
+</tr>
+<tr>
+<td>Storage Solutions</td>
+<td>Under-seat and rear compartments</td>
+</tr>
+<tr>
+<td>Climate Control System</td>
+<td>Manual with vents throughout</td>
+</tr>
+</tbody></table><h2 id="advanced-technology-and-connectivity-options">Advanced Technology and Connectivity Options</h2>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://i.ibb.co/C3GQyw7Q/JP026-072-GL.jpg" alt="2026 Jeep Gladiator Infotainment System">
+</div>
+</div>
+
+<p>For drivers based in Moore, Seminole, and surrounding areas seeking connectivity on the go, the 2026 Gladiator Base features a vibrant 12.3-inch touchscreen with the Uconnect® 5 system. This intuitive interface supports navigation with integrated trail guides, including detailed maps of Jeep’s famed Badge of Honor® trail series, enhancing off-road confidence.</p><p>Smartphone integration is seamless thanks to wireless Apple CarPlay and Android Auto capabilities, enabling hands-free calls, music streaming, and app access without distracting from the drive. Bluetooth connectivity is standard, paired with an 8-speaker stereo system that fills the cabin with clear sound. For audiophiles or those wanting more, an optional 9-speaker Alpine system with a removable Bluetooth speaker turns every drive into an immersive audio experience.</p><p>Multiple USB ports are strategically placed to keep devices charged, whether you're navigating city streets in Norman or rugged trails farther out. Remote features accessible through the Jeep Connect smartphone app allow vehicle location tracking, health reports, and remote start—bringing convenience to owners throughout the Shawnee region.</p>
+
+<div class="image-grid">
+  <img src="https://i.ibb.co/7tNBrw2Z/JP026-073-GL.jpg" alt="Jeep Gladiator Connectivity Features">
+</div>
+
+<table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Technology Feature</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Infotainment Screen</td>
+<td>12.3-inch touchscreen</td>
+</tr>
+<tr>
+<td>Connectivity</td>
+<td>Wireless Apple CarPlay, Android Auto, Bluetooth</td>
+</tr>
+<tr>
+<td>Audio System</td>
+<td>Standard 8-speaker; optional 9-speaker Alpine system with removable Bluetooth speaker</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td>Uconnect® 5 with on-road and off-road trail guides</td>
+</tr>
+<tr>
+<td>USB Ports</td>
+<td>Multiple locations throughout the cabin</td>
+</tr>
+<tr>
+<td>Remote Features</td>
+<td>Vehicle Finder, Vehicle Health Report via Jeep Connect app</td>
+</tr>
+</tbody></table><h2 id="safety-features-and-driver-support-systems">Safety Features and Driver Support Systems</h2><p>Safety remains a central consideration for drivers from Meeker to Newalla. The Gladiator Base comes equipped with a high-strength steel chassis providing a robust foundation. While basic safety features are standard, more advanced driver assistance options are available through packages or higher trims.</p><p>Available technologies include adaptive cruise control, automated emergency braking, blind-spot monitoring, rear cross-path detection, and rear parking sensors that enhance situational awareness in busy environments like Oklahoma City traffic. Automatic high-beam headlights further contribute to safe nighttime driving.</p><p>Jeep’s emphasis on trail safety is apparent in off-road-oriented protections like steel skid plates that safeguard vital components and optional TrailCam forward-facing camera assistance for navigating challenging terrain. These systems are designed to elevate driver confidence, whether taking on the highways near McLoud or remote backcountry paths.</p><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Safety Feature</strong></th>
+<th><strong>Availability</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>High-Strength Steel Frame</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>Adaptive Cruise Control</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Automated Emergency Braking</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Blind-Spot Monitoring</td>
+<td>Optional with the Active Safety Group package</td>
+</tr>
+<tr>
+<td>Rear Parking Sensors</td>
+<td>Optional with the Active Safety Group package</td>
+</tr>
+<tr>
+<td>Rear Cross Path Detection</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>TrailCam Off-Road Camera</td>
+<td>Available on select trims</td>
+</tr>
+<tr>
+<td>Steel Skid Plates</td>
+<td>Standard/Available</td>
+</tr>
+</tbody></table><h2 id="trim-choices-and-customization-packages">Trim Choices and Customization Packages</h2><p>While the Base trim of the Gladiator is a capable entry point for buyers in Choctaw, Shawnee, and surrounding communities, Jeep offers several packages to enhance capability and comfort:</p><ul>
+<li><p><strong>Active Safety Group:</strong> Adds key driver aids, including blind-spot monitoring, rear parking sensors, and automatic high beams, ideal for safer daily driving in and around Moore or Norman.</p>
+</li>
+<li><p><strong>Convenience Group:</strong> Takes comfort a step further with features such as heated front seats, remote start, a Gorilla Glass windshield for enhanced durability, and a digital instrument cluster.</p>
+</li>
+<li><p><strong>Max Tow Package:</strong> Optimizes towing ability with a 4.10 axle ratio, all-terrain tires, an anti-spin rear differential, and reinforced engine cooling systems.</p>
+</li>
+</ul><p>Each package is designed to tailor the Gladiator to individual needs, whether for active off-roading or enhanced commuting comfort.</p><h2 id="warranty-coverage-and-complimentary-maintenance">Warranty Coverage and Complimentary Maintenance</h2><p>At Joe Cooper Dodge Jeep of Shawnee, we understand the importance of peace of mind when investing in a new vehicle. The 2026 Gladiator Base comes with factory-backed coverage to protect your ownership experience.</p><table class="e-rte-table">
+<thead>
+<tr>
+<th><strong>Warranty Coverage</strong></th>
+<th><strong>Duration</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Limited Warranty</td>
+<td>3 years / 36,000 miles</td>
+</tr>
+<tr>
+<td>Powertrain Warranty</td>
+<td>5 years / 60,000 miles</td>
+</tr>
+<tr>
+<td>Complimentary Maintenance</td>
+<td>2 years / Included</td>
+</tr>
+</tbody></table><p>For residents from Seminole through Jones to Meeker, our dealership also makes it simple to schedule routine service and repairs, ensuring your Gladiator stays in peak condition. Genuine parts are readily available through our <strong><a href="https://joecooperdodgejeep.com/parts">Parts Department</a></strong>, and our skilled team welcomes you at our <strong><a href="https://joecooperdodgejeep.com/service">Service Department</a></strong>.</p><h2 id="why-joe-cooper-dodge-jeep-of-shawnee-is-your-trusted-jeep-partner">Why Joe Cooper Dodge Jeep Of Shawnee is Your Trusted Jeep Partner</h2><p>Serving Shawnee families with dedication since 1946, Joe Cooper Dodge Jeep of Shawnee blends decades of experience with genuine care for our community. Whether you live in Norman, Newalla, or Choctaw, our team warmly welcomes you to explore the 2026 Jeep Gladiator Base in a spacious, clean, and customer-focused environment.</p><p>Our sales specialists are deeply knowledgeable about Jeep’s heritage and technical features, offering transparent guidance tuned to your personal needs. We’re committed to building lasting relationships beyond the sale—helping you find the right vehicle, assisting with trade-in value through our <strong><a href="https://joecooperdodgejeep.com/trade">Trade Valuation</a></strong> tool, and providing expert maintenance to keep your Gladiator rugged and reliable.</p><p>For those ready to experience the legendary capabilities and family-friendly features of the Gladiator, we encourage scheduling a visit or test drive by contacting us directly at <strong><a href="tel:+14052751104">(405) 275-1104</a></strong> or stopping by the dealership at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJPagqO_rHs4cRAEt_NlUhmcA">4940 Automall Dr, Shawnee, OK 74804</a></strong>. We also invite you to browse our wide selection of <strong><a href="https://joecooperdodgejeep.com/cars/new-inventory">All New Vehicles</a></strong> and <strong><a href="https://joecooperdodgejeep.com/cars/used-inventory">All Used Vehicles</a></strong>.</p><p>Experience the blend of heritage, performance, and community support that only Joe Cooper Dodge Jeep of Shawnee can provide. We're here to help you embrace every journey with confidence and care.</p></div><footer>
+  <p>© 2025 Joe Cooper Dodge Jeep Of Shawnee</p>
+</footer>

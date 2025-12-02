@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .tucson-trim-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .tucson-trim-container h1 {
+        width: fit-content !important;
+        color: #012b5d;
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 0 auto 30px auto;
+        text-align: center;
+      }
+
+      .tucson-trim-container h3,
+      .tucson-trim-container h1,
+      .tucson-trim-container h2,
+      .tucson-trim-container p,
+      .tucson-trim-container ol,
+      .tucson-trim-container ul {
+        max-width: 1300px !important;
+      }
+
+      .tucson-trim-container p {
+        color: #002c5f;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      .tucson-trim-container ul {
+        list-style: none;
+        padding-left: 40px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .tucson-trim-container li {
+        color: #002c5f;
+        font-size: 1.2em;
+        padding: 18px 30px 18px 55px;
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.02),
+          rgba(0, 44, 95, 0.04)
+        );
+        border-radius: 12px;
+        box-shadow: 0 1px 4px rgba(1, 43, 93, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid rgba(1, 43, 93, 0.08);
+      }
+
+      .tucson-trim-container li:hover {
+        transform: translateX(8px);
+        box-shadow: 0 3px 12px rgba(1, 43, 93, 0.12);
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.04),
+          rgba(0, 44, 95, 0.06)
+        );
+        border-color: rgba(1, 43, 93, 0.15);
+      }
+
+      .tucson-trim-container li::before {
+        content: "→";
+        color: #012b5d;
+        font-size: 1.4em;
+        font-weight: bold;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+      }
+
+      .tucson-trim-container li:hover::before {
+        transform: translateY(-50%) translateX(3px);
+        color: #002c5f;
+      }
+
+      .tucson-trim-container strong {
+        color: #012b5d;
+        font-weight: bold;
+      }
+
+      .nested-list {
+        padding-left: 20px !important;
+        margin-top: 15px;
+        gap: 10px;
+      }
+
+      .nested-list li {
+        padding: 12px 20px 12px 40px;
+        font-size: 1.1em;
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.01),
+          rgba(0, 44, 95, 0.02)
+        );
+      }
+
+      .nested-list li::before {
+        content: "•";
+        left: 12px;
+        font-size: 1.2em;
+      }
+
+      @media (max-width: 768px) {
+        .tucson-trim-container p {
+          text-align: center;
+        }
+
+        .tucson-trim-container ul {
+          padding-left: 0px;
+        }
+
+        .nested-list {
+          padding-left: 10px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="tucson-trim-container">
+      <p>
+        You've decided a CPO Hyundai is right for you. Fantastic! Now, here's how to be an expert buyer and ensure you get the perfect vehicle.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Confirm the Certification:</strong> Ask to see the paperwork that officially designates the vehicle as a Hyundai Certified Pre-Owned vehicle.
+        </li>
+        <li>
+          <strong>Review the 173-Point Inspection Report:</strong> Don't just be told it passed; ask to see the signed checklist. This report will show you every single item the technician checked. It's a fantastic testament to the vehicle's condition.
+        </li>
+        <li>
+          <strong>Analyze the CARFAX® Vehicle History Report:</strong> Look at the service history, the number of previous owners, and confirm there are no reported accidents or title issues like flood or salvage branding. A clean report is a prerequisite for CPO status.
+        </li>
+        <li>
+          <strong>Take a Thorough Test Drive:</strong> This is your chance to see how the car feels.
+          <ul class="nested-list">
+            <li>Drive it to test its performance at different speeds.</li>
+            <li>Listen for any unusual noises from the engine, brakes, or suspension.</li>
+            <li>Test all the electronics: connect your phone, use the navigation, check the backup camera, and play with the sound system.</li>
+            <li>Make sure the heating and air conditioning work quickly and effectively.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Understand the Warranty Documents:</strong> Get a copy of the CPO warranty booklet. <a href="https://joecooperhyundai.com/contact">Our team</a> can highlight the key details for you, including what's covered and the term lengths.
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

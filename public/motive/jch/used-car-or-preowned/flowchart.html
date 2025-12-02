@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Decision Chart</title>
+    <style>
+        .decision-chart-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .decision-chart-container h1 {
+            width: fit-content !important;
+        }
+        
+        .decision-chart-container h3,
+        .decision-chart-container h1,
+        .decision-chart-container h2,
+        .decision-chart-container p,
+        .decision-chart-container ol,
+        .decision-chart-container ul {
+            max-width: 1300px !important;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: #012b5d;
+            font-size: 18px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .start-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .start-label {
+            color: #002c5f;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .arrow-gradient-alt {
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(180deg, #fff 0%, #0f3079 60%, #0f3079 100%);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .arrow-gradient-alt:hover {
+            transform: scale(1.1);
+        }
+
+        .flowchart-image {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .flowchart-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .flowchart-image {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decision-chart-container">
+        <p class="intro-text">
+            Feeling overwhelmed? Use this simple decision chart to see which path might be a better fit for your personal needs.
+        </p>
+        
+        <div class="start-section">
+            <div class="start-label">Start Here:</div>
+            <div class="arrow-gradient-alt"></div>
+        </div>
+
+        <div class="flowchart-image">
+            <img src="https://i.ibb.co/FkLqLjjR/flowchart-image-1.png" alt="flowchart-image-1" border="0">
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Expedition vs Suburban – Performance and Driving Dynamics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f6fa;
+        }
+
+        .perf-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .perf-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .perf-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .perf-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .perf-title {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .perf-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .perf-subsections {
+            display: grid;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .perf-subsection-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perf-subsection-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: rgba(59, 130, 246, 0.08);
+            color: #1d4ed8;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            margin-bottom: 0.9rem;
+        }
+
+        .perf-subsection-heading {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1.2rem;
+        }
+
+        .perf-columns {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .perf-column {
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .perf-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .perf-column-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .perf-pill-expedition,
+        .perf-pill-suburban {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .perf-pill-expedition {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .perf-pill-suburban {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .perf-table-container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .perf-table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .perf-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .perf-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .perf-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .perf-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .perf-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .perf-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .perf-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .perf-spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .perf-ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .perf-chevy-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .perf-footnote {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #4b5563;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 900px) {
+            .perf-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .perf-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .perf-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .perf-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .perf-subsection-card {
+                padding: 1.5rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="perf-section" id="performance-dynamics">
+        <div class="perf-container">
+            <header class="perf-header">
+                <div class="perf-kicker">Performance &amp; Driving Dynamics Face-Off</div>
+                <h2 class="perf-title">Powertrain Engineering, Ride Quality &amp; Real-World Capability</h2>
+                <p class="perf-subtitle">
+                    Compare how the 2026 Ford Expedition and 2026 Chevrolet Suburban deploy their powertrains and chassis tuning
+                    to deliver acceleration, comfort, and towing strength for drivers around Kent, Maple Valley, and beyond.
+                </p>
+            </header>
+
+            <!-- Narrative comparison cards before the table -->
+            <div class="perf-subsections">
+                <!-- Powertrain Engineering and Output -->
+                <article class="perf-subsection-card">
+                    <div class="perf-subsection-label">Powertrain Engineering &amp; Output</div>
+                    <h3 class="perf-subsection-heading">Twin‑Turbo V6 Muscle vs. Traditional V8 Lineup</h3>
+                    <div class="perf-columns">
+                        <div class="perf-column">
+                            <div class="perf-column-header">
+                                <span class="perf-pill-expedition">Expedition</span>
+                                <h4 class="perf-column-title">
+                                    Twin‑Turbo V6 Advantage
+                                </h4>
+                            </div>
+                            <p>
+                                The Expedition’s 3.5‑liter twin‑turbocharged V6 engines—available in either standard 400 horsepower
+                                or high‑output 440 horsepower configurations—deliver robust, responsive power that often matches or
+                                surpasses competitors' larger displacement V8s. Torque peaks at 510 lb‑ft in the high‑output variant,
+                                boosting towing and acceleration. Coupled with a smooth 10‑speed automatic transmission, it empowers
+                                the Expedition to reach 60 mph in under 5 seconds in its Max configuration—a remarkable feat against
+                                the Suburban’s roughly 6.3‑second sprint with the 6.2L V8 engine.
+                            </p>
+                        </div>
+                        <div class="perf-column">
+                            <div class="perf-column-header">
+                                <span class="perf-pill-suburban">Suburban</span>
+                                <h4 class="perf-column-title">
+                                    Three‑Engine V8 &amp; Diesel Range
+                                </h4>
+                            </div>
+                            <p>
+                                Meanwhile, the Suburban offers three engines: a 5.3L V8 producing 355 hp, an optional 6.2L V8 producing
+                                420 hp, and a 3.0L turbo‑diesel inline‑six focused on torque and fuel efficiency. While the diesel excels
+                                in torque (495 lb‑ft), its slower acceleration limits spirited driving. The gasoline V8 variants, although
+                                powerful, deliver inferior power‑to‑weight ratios compared to the Expedition’s advanced twin‑turbo V6s.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Driving Experience and Ride Quality -->
+                <article class="perf-subsection-card">
+                    <div class="perf-subsection-label">Driving Experience &amp; Ride Quality</div>
+                    <h3 class="perf-subsection-heading">On‑Road Comfort with Confidence Off‑Road</h3>
+                    <div class="perf-columns">
+                        <div class="perf-column">
+                            <div class="perf-column-header">
+                                <span class="perf-pill-expedition">Expedition</span>
+                                <h4 class="perf-column-title">
+                                    Composed &amp; Trail‑Ready
+                                </h4>
+                            </div>
+                            <p>
+                                Ford engineers implemented a redesigned suspension system for the Expedition, emphasizing smoothness and
+                                comfort across diverse terrains common around Kent and Maple Valley, although steering feedback feels
+                                somewhat muted. The Expedition's Tremor trim enhances off‑road prowess with spray‑on skid plates and
+                                specialized suspension tuning, positioning it confidently on rugged trails—capabilities that give it an
+                                extra edge when pavement ends.
+                            </p>
+                        </div>
+                        <div class="perf-column">
+                            <div class="perf-column-header">
+                                <span class="perf-pill-suburban">Suburban</span>
+                                <h4 class="perf-column-title">
+                                    Highway‑Biased Comfort
+                                </h4>
+                            </div>
+                            <p>
+                                The Suburban benefits from an adaptive air suspension on higher trims, improving highway comfort but
+                                suffering on large 24‑inch wheels that degrade ride quality noticeably over uneven pavement. Overall,
+                                the Expedition offers a more composed balance between dynamic handling and ride comfort for mixed
+                                driving needs, while the Suburban feels tuned more for straight‑line cruising.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Detailed Performance Statistics Comparison Table -->
+            <div class="perf-table-container">
+                <h3 class="perf-table-title">Detailed Performance Statistics Comparison</h3>
+                <table class="perf-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>2026 Ford Expedition (Max High‑Output V6)</th>
+                            <th>2026 Chevrolet Suburban (6.2L V8)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="perf-spec-name">Horsepower</td>
+                            <td class="perf-ford-value">440 hp</td>
+                            <td class="perf-chevy-value">420 hp</td>
+                        </tr>
+                        <tr>
+                            <td class="perf-spec-name">Torque</td>
+                            <td class="perf-ford-value">510 lb‑ft</td>
+                            <td class="perf-chevy-value">460 lb‑ft</td>
+                        </tr>
+                        <tr>
+                            <td class="perf-spec-name">Transmission</td>
+                            <td class="perf-ford-value">10‑speed automatic</td>
+                            <td class="perf-chevy-value">10‑speed automatic</td>
+                        </tr>
+                        <tr>
+                            <td class="perf-spec-name">0–60 mph Acceleration</td>
+                            <td class="perf-ford-value">4.9 seconds</td>
+                            <td class="perf-chevy-value">6.3 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="perf-spec-name">Top Speed</td>
+                            <td class="perf-ford-value">125 mph (electronically limited)</td>
+                            <td class="perf-chevy-value">~113 mph</td>
+                        </tr>
+                        <tr>
+                            <td class="perf-spec-name">Max Towing Capacity</td>
+                            <td class="perf-ford-value">9,600 lbs</td>
+                            <td class="perf-chevy-value">8,300 lbs</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="perf-footnote">
+                    The Expedition’s powertrain delivers superior acceleration, towing, and top speed, appealing strongly to drivers
+                    who demand more muscle and versatility from their full‑size SUV.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

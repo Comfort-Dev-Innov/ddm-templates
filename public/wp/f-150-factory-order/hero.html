@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .hero-content {
+        color: white;
+        max-width: 1000px;
+        padding: 2rem 2rem 0 2rem;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 6vw, 3.5rem) !important;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem !important;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        opacity: 1;
+        text-shadow: 
+          2px 2px 4px rgba(0, 0, 0, 0.9),
+          0px 0px 8px rgba(0, 0, 0, 0.8),
+          0px 0px 16px rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: inline-block;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-features {
+        display: flex;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 8px;
+        max-width: 800px;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .feature-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .feature-description {
+        font-size: 1rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      .cta-section {
+        margin-top: 3rem;
+        padding-bottom: 2rem;
+      }
+
+      .cta-phone2 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: white !important;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        transition: color 0.3s ease;
+        letter-spacing: 2px;
+      }
+
+      .cta-phone2:hover {
+        color: #fbbf24 !important;
+        transform: scale(1.05);
+      }
+
+      .cta-text {
+        font-size: 1rem;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 1rem;
+        }
+
+        .hero-features {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .feature-card {
+          padding: 1.5rem;
+        }
+
+        .cta-phone2 {
+          font-size: 1.8rem;
+        }
+
+        .hero-title {
+          font-size: 1.8rem !important;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero-content">
+      <div class="hero-badge">
+        Factory Orders Are Now Open - Further Details Below!
+      </div>
+      
+      <h1 class="hero-title">2026 Ford F-150 Orders Now Available!</h1>
+      <h2 class="hero-subtitle">Ford Truck Experts Over 60 Years!</h2>
+
+      <div class="hero-features">
+        <div class="feature-card">
+          <h3 class="feature-title">Simple Pressure-Free Ordering</h3>
+          <p class="feature-description">
+            Build a 2026 F-150, order banks open now!
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <a href="tel:2532702530" class="cta-phone2">253-270-2530</a>
+        <p class="cta-text">
+          Speak to a Live 2026 Ford F-150 Ordering Specialist
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

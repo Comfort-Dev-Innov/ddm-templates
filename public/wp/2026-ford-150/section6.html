@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuel Economy Expectations Across 2026 F-150 Engine Options</title>
+    <style>
+      .fuel-economy-container {
+        max-width: 1140px !important;
+        margin: 0 auto !important;
+      }
+
+      .fuel-economy-hero-section {
+        background: white !important;
+        border-radius: 20px !important;
+        padding: 3rem !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .fuel-economy-hero-section::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 5px !important;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%) !important;
+      }
+
+      .fuel-economy-main-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem) !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 2rem !important;
+        letter-spacing: -0.5px !important;
+      }
+
+      .fuel-economy-intro-block {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        padding: 2rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 3rem !important;
+        border-left: 4px solid #10b981 !important;
+      }
+
+      .fuel-economy-intro-block p {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+      }
+
+      .fuel-economy-engines-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+        gap: 2rem !important;
+        margin-bottom: 3rem !important;
+      }
+
+      .fuel-economy-engine-card {
+        background: white !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.4s ease !important;
+        border: 2px solid #e9ecef !important;
+        position: relative !important;
+      }
+
+      .fuel-economy-engine-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 15px 40px rgba(0, 51, 102, 0.15) !important;
+        border-color: #10b981 !important;
+      }
+
+      .fuel-economy-engine-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%) !important;
+        padding: 2rem !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .fuel-economy-engine-header::before {
+        content: "" !important;
+        position: absolute !important;
+        top: -50% !important;
+        right: -20% !important;
+        width: 300px !important;
+        height: 300px !important;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%) !important;
+        border-radius: 50% !important;
+      }
+
+      .fuel-economy-engine-name {
+        font-size: 1.4rem !important;
+        font-weight: 700 !important;
+        color: white !important;
+        margin-bottom: 0.5rem !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      .fuel-economy-engine-description {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        line-height: 1.6 !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      .fuel-economy-mpg-display {
+        padding: 2rem !important;
+        background: #f8f9fa !important;
+      }
+
+      .fuel-economy-mpg-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .fuel-economy-mpg-box {
+        background: white !important;
+        border-radius: 10px !important;
+        padding: 1.5rem !important;
+        text-align: center !important;
+        border: 2px solid #e3f2fd !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .fuel-economy-mpg-box:hover {
+        border-color: #10b981 !important;
+        transform: scale(1.05) !important;
+      }
+
+      .fuel-economy-mpg-value {
+        font-size: 2.2rem !important;
+        font-weight: 700 !important;
+        color: #10b981 !important;
+        margin-bottom: 0.3rem !important;
+        display: block !important;
+      }
+
+      .fuel-economy-mpg-label {
+        font-size: 0.9rem !important;
+        color: #6c757d !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        font-weight: 600 !important;
+      }
+
+      .fuel-economy-description-text {
+        color: #4a5568 !important;
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+        padding: 0 0.5rem !important;
+      }
+
+      /* Special styling for hybrid card */
+      .fuel-economy-engine-card.fuel-economy-hybrid-special {
+        border: 3px solid #10b981 !important;
+        box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2) !important;
+      }
+
+      .fuel-economy-hybrid-special .fuel-economy-engine-header {
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      }
+
+      .fuel-economy-hybrid-badge {
+        position: absolute !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+        color: #78350f !important;
+        padding: 0.5rem 1.2rem !important;
+        border-radius: 25px !important;
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        z-index: 2 !important;
+        box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4) !important;
+      }
+
+      /* Special styling for Raptor R card */
+      .fuel-economy-engine-card.fuel-economy-performance-special {
+        border: 3px solid #dc2626 !important;
+      }
+
+      .fuel-economy-performance-special .fuel-economy-engine-header {
+        background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%) !important;
+      }
+
+      .fuel-economy-performance-badge {
+        position: absolute !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
+        color: white !important;
+        padding: 0.5rem 1.2rem !important;
+        border-radius: 25px !important;
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        z-index: 2 !important;
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4) !important;
+      }
+
+      .fuel-economy-comparison-section {
+        background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%) !important;
+        border-radius: 16px !important;
+        padding: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+        border: 2px solid #0284c7 !important;
+      }
+
+      .fuel-economy-comparison-title {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #0c4a6e !important;
+        margin-bottom: 1.5rem !important;
+        text-align: center !important;
+      }
+
+      .fuel-economy-comparison-text {
+        color: #075985 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
+      }
+
+      .fuel-economy-location-emphasis {
+        font-weight: 700 !important;
+        color: #0c4a6e !important;
+      }
+
+      .fuel-economy-key-takeaway {
+        background: white !important;
+        border: 2px solid #e3f2fd !important;
+        border-radius: 16px !important;
+        padding: 2.5rem !important;
+        box-shadow: 0 6px 20px rgba(0, 51, 102, 0.08) !important;
+      }
+
+      .fuel-economy-takeaway-title {
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 1.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .fuel-economy-takeaway-title::before {
+        content: "💡" !important;
+        font-size: 2rem !important;
+        margin-right: 1rem !important;
+      }
+
+      .fuel-economy-takeaway-text {
+        color: #4a5568 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+      }
+
+      .fuel-economy-highlight-green {
+        background: linear-gradient(120deg, #d1fae5 0%, #a7f3d0 100%) !important;
+        padding: 0.2rem 0.5rem !important;
+        border-radius: 4px !important;
+        font-weight: 700 !important;
+        color: #065f46 !important;
+      }
+
+      @media (max-width: 768px) {
+        .fuel-economy-hero-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .fuel-economy-intro-block {
+          padding: 1.5rem !important;
+        }
+
+        .fuel-economy-engines-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+
+        .fuel-economy-mpg-grid {
+          gap: 1rem !important;
+        }
+
+        .fuel-economy-comparison-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .fuel-economy-key-takeaway {
+          padding: 2rem 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem !important;
+        }
+
+        .fuel-economy-hero-section {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .fuel-economy-engine-header {
+          padding: 1.5rem !important;
+        }
+
+        .fuel-economy-mpg-display {
+          padding: 1.5rem !important;
+        }
+
+        .fuel-economy-mpg-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .fuel-economy-mpg-value {
+          font-size: 2rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fuel-economy-container" id="horsepower-performance">
+      <div class="fuel-economy-hero-section">
+        <h1 class="fuel-economy-main-title">
+          Fuel Economy Expectations Across 2026 F-150 Engine Options
+        </h1>
+
+        <div class="fuel-economy-intro-block">
+          <p>
+            Fuel efficiency varies significantly across the 2026 Ford F-150's diverse powertrain lineup, allowing buyers to prioritize economy or performance based on their needs. Here's a detailed breakdown of EPA-estimated miles per gallon (MPG) for key engines:
+          </p>
+        </div>
+
+        <div class="fuel-economy-engines-grid">
+          <!-- 2.7L Twin-Turbo V6 -->
+          <div class="fuel-economy-engine-card">
+            <div class="fuel-economy-engine-header">
+              <h3 class="fuel-economy-engine-name">2.7L Twin-Turbo V6</h3>
+              <p class="fuel-economy-engine-description">
+                Balanced mix of power and fuel savings suited for everyday use
+              </p>
+            </div>
+            <div class="fuel-economy-mpg-display">
+              <div class="fuel-economy-mpg-grid">
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">18-19</span>
+                  <span class="fuel-economy-mpg-label">City MPG</span>
+                </div>
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">23-25</span>
+                  <span class="fuel-economy-mpg-label">Highway MPG</span>
+                </div>
+              </div>
+              <p class="fuel-economy-description-text">
+                Approximately 18-19 MPG city and 23-25 MPG highway, offering a balanced mix of power and fuel savings suited for everyday use.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5.0L V8 -->
+          <div class="fuel-economy-engine-card">
+            <div class="fuel-economy-engine-header">
+              <h3 class="fuel-economy-engine-name">5.0L V8</h3>
+              <p class="fuel-economy-engine-description">
+                Strong power with reasonable fuel economy for a naturally aspirated V8
+              </p>
+            </div>
+            <div class="fuel-economy-mpg-display">
+              <div class="fuel-economy-mpg-grid">
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">16</span>
+                  <span class="fuel-economy-mpg-label">City MPG</span>
+                </div>
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">24</span>
+                  <span class="fuel-economy-mpg-label">Highway MPG</span>
+                </div>
+              </div>
+              <p class="fuel-economy-description-text">
+                Around 16 MPG city and 24 MPG highway, delivering strong power with reasonable fuel economy for a naturally aspirated V8.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3.5L Twin-Turbo V6 -->
+          <div class="fuel-economy-engine-card">
+            <div class="fuel-economy-engine-header">
+              <h3 class="fuel-economy-engine-name">3.5L Twin-Turbo V6</h3>
+              <p class="fuel-economy-engine-description">
+                Turbocharged power with competitive fuel efficiency
+              </p>
+            </div>
+            <div class="fuel-economy-mpg-display">
+              <div class="fuel-economy-mpg-grid">
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">16-17</span>
+                  <span class="fuel-economy-mpg-label">City MPG</span>
+                </div>
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">24-25</span>
+                  <span class="fuel-economy-mpg-label">Highway MPG</span>
+                </div>
+              </div>
+              <p class="fuel-economy-description-text">
+                16-17 MPG city and 24-25 MPG highway, combining turbocharged power with competitive fuel efficiency.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3.5L Hybrid PowerBoost V6 -->
+          <div class="fuel-economy-engine-card fuel-economy-hybrid-special">
+            <div class="fuel-economy-engine-header">
+              <h3 class="fuel-economy-engine-name">3.5L Hybrid PowerBoost V6</h3>
+              <p class="fuel-economy-engine-description">
+                Best-in-class fuel economy for a full-size pickup
+              </p>
+            </div>
+            <div class="fuel-economy-mpg-display">
+              <div class="fuel-economy-mpg-grid">
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">22</span>
+                  <span class="fuel-economy-mpg-label">City MPG</span>
+                </div>
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">24</span>
+                  <span class="fuel-economy-mpg-label">Highway MPG</span>
+                </div>
+              </div>
+              <p class="fuel-economy-description-text">
+                Best-in-class fuel economy for a full-size pickup at 22 MPG city and 24 MPG highway, ideal for buyers in urban and suburban Washington looking to reduce fuel costs.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5.2L Supercharged V8 (Raptor R) -->
+          <div class="fuel-economy-engine-card fuel-economy-performance-special">
+            <div class="fuel-economy-engine-header">
+              <h3 class="fuel-economy-engine-name">5.2L Supercharged V8 (Raptor R)</h3>
+              <p class="fuel-economy-engine-description">
+                Maximum output focused on pure performance
+              </p>
+            </div>
+            <div class="fuel-economy-mpg-display">
+              <div class="fuel-economy-mpg-grid">
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">10</span>
+                  <span class="fuel-economy-mpg-label">City MPG</span>
+                </div>
+                <div class="fuel-economy-mpg-box">
+                  <span class="fuel-economy-mpg-value">15</span>
+                  <span class="fuel-economy-mpg-label">Highway MPG</span>
+                </div>
+              </div>
+              <p class="fuel-economy-description-text">
+                The high-performance engine is rated at 10 MPG city and 15 MPG highway, reflecting its focus on maximum output over efficiency.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fuel-economy-comparison-section">
+          <h3 class="fuel-economy-comparison-title">Making the Right Choice for Your Needs</h3>
+          <p class="fuel-economy-comparison-text">
+            These fuel economy figures help customers in the <span class="fuel-economy-location-emphasis">Kent</span>, <span class="fuel-economy-location-emphasis">Auburn</span>, and <span class="fuel-economy-location-emphasis">Federal Way</span> regions assess the trade-offs between performance and running costs.
+          </p>
+        </div>
+
+        <div class="fuel-economy-key-takeaway">
+          <h3 class="fuel-economy-takeaway-title">Key Recommendation</h3>
+          <p class="fuel-economy-takeaway-text">
+            For those seeking to maximize efficiency without sacrificing capability, the <span class="fuel-economy-highlight-green">hybrid PowerBoost engine</span> stands out as an excellent choice.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

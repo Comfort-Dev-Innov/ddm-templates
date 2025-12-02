@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhancing Your Ford F-150 Experience at Bowen Scarff Ford</title>
+    <style>
+      .cta-main-container {
+        max-width: 1140px !important;
+        margin: 0 auto !important;
+      }
+
+      .cta-hero-section {
+        background: white !important;
+        border-radius: 20px !important;
+        padding: 3rem !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .cta-hero-section::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 5px !important;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%) !important;
+      }
+
+      .cta-main-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem) !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 2.5rem !important;
+        letter-spacing: -0.5px !important;
+      }
+
+      .cta-hero-image-wrapper {
+        width: 100% !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        margin-bottom: 2.5rem !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+        position: relative !important;
+      }
+
+      .cta-hero-image-wrapper::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(180deg, rgba(0, 51, 102, 0) 0%, rgba(0, 51, 102, 0.1) 100%) !important;
+        pointer-events: none !important;
+      }
+
+      .cta-hero-image {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        transition: transform 0.5s ease !important;
+      }
+
+      .cta-hero-image-wrapper:hover .cta-hero-image {
+        transform: scale(1.03) !important;
+      }
+
+      .cta-dealership-banner {
+        background: linear-gradient(135deg, #003366 0%, #0066cc 100%) !important;
+        color: white !important;
+        padding: 2.5rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 2.5rem !important;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.25) !important;
+        text-align: center !important;
+      }
+
+      .cta-dealership-name {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .cta-dealership-address {
+        font-size: 1.2rem !important;
+        opacity: 0.95 !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .cta-content-block {
+        background: #f8f9fa !important;
+        padding: 2rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 1.5rem !important;
+        border-left: 4px solid #0066cc !important;
+      }
+
+      .cta-content-block p {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cta-content-block p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .cta-services-highlight {
+        background: white !important;
+        border: 2px solid #e3f2fd !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        margin-bottom: 2.5rem !important;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08) !important;
+      }
+
+      .cta-services-highlight p {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+      }
+
+      .cta-contact-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        padding: 2.5rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        border: 2px solid #e3f2fd !important;
+        margin-bottom: 2.5rem !important;
+      }
+
+      .cta-contact-title {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cta-contact-text {
+        color: #4a5568 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .cta-button-group {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
+      }
+
+      .cta-phone-button {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #0066cc 0%, #003366 100%) !important;
+        color: white !important;
+        padding: 1rem 2.5rem !important;
+        border-radius: 50px !important;
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 6px 20px rgba(0, 51, 102, 0.2) !important;
+        position: relative !important;
+      }
+
+      .cta-phone-button::before {
+        content: "📞" !important;
+        margin-right: 0.8rem !important;
+      }
+
+      .cta-phone-button:hover {
+        transform: translateY(-3px) scale(1.05) !important;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3) !important;
+        color: white !important;
+      }
+
+      .cta-location-button {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+        color: white !important;
+        padding: 1rem 2.5rem !important;
+        border-radius: 50px !important;
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2) !important;
+        position: relative !important;
+      }
+
+      .cta-location-button::before {
+        content: "📍" !important;
+        margin-right: 0.8rem !important;
+      }
+
+      .cta-location-button:hover {
+        transform: translateY(-3px) scale(1.05) !important;
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3) !important;
+        color: white !important;
+      }
+
+      /* Link styling with underline animation */
+      .cta-inline-link {
+        color: #0066cc !important;
+        text-decoration: none !important;
+        font-weight: 700 !important;
+        position: relative !important;
+        display: inline-block !important;
+        transition: all 0.3s ease !important;
+        border-bottom: 2px solid transparent !important;
+      }
+
+      .cta-inline-link:hover {
+        color: #003366 !important;
+        border-bottom: 2px solid #003366 !important;
+      }
+
+      .cta-phone-link {
+        color: #0066cc !important;
+        text-decoration: none !important;
+        font-weight: 700 !important;
+        position: relative !important;
+        display: inline-block !important;
+        transition: all 0.3s ease !important;
+        border-bottom: 2px solid transparent !important;
+      }
+
+      .cta-phone-link:hover {
+        color: #003366 !important;
+        border-bottom: 2px solid #003366 !important;
+      }
+
+      .cta2-section {
+        max-width: 1140px !important;
+        padding: 4rem 2rem !important;
+        border-radius: 0 !important;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+
+      .cta2-section::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 15px !important;
+        background: linear-gradient(135deg, #0066cc 0%, #00142E 50%, #0066cc 100%) !important;
+        clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%) !important;
+      }
+
+      .cta-divider {
+        border: 0 !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent 0%, #0066cc 50%, transparent 100%) !important;
+        margin: 0 !important;
+      }
+
+      .cta-copyright {
+        text-align: center !important;
+        color: #6c757d !important;
+        font-size: 1rem !important;
+        padding-top: 2rem !important;
+        font-weight: 500 !important;
+      }
+
+      @media (max-width: 768px) {
+        .cta-hero-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cta-hero-image-wrapper {
+          margin-bottom: 2rem !important;
+        }
+
+        .cta-dealership-banner {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cta-content-block {
+          padding: 1.5rem !important;
+        }
+
+        .cta-services-highlight {
+          padding: 1.5rem !important;
+        }
+
+        .cta-contact-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cta-button-group {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .cta-phone-button,
+        .cta-location-button {
+          width: 100% !important;
+          max-width: 350px !important;
+          padding: 0.9rem 2rem !important;
+          font-size: 1.1rem !important;
+        }
+
+        .cta2-section {
+          padding: 3rem 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem !important;
+        }
+
+        .cta-hero-section {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .cta-hero-image-wrapper {
+          margin-bottom: 1.5rem !important;
+        }
+
+        .cta-dealership-banner {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .cta-content-block {
+          padding: 1.2rem !important;
+        }
+
+        .cta2-section {
+          padding: 2rem 1rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cta-main-container">
+      <div class="cta-hero-section">
+        <h1 class="cta-main-title">
+          Enhancing Your Ford F-150 Experience at Bowen Scarff Ford in Kent, WA
+        </h1>
+
+        <div class="cta-hero-image-wrapper">
+          <img 
+            src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:add020b4-cdb9-4cd6-96f6-810172208c75/as/26_FRD_F15_64541.webp?max-quality=75&crop-names=1_3x4&width=768" 
+            alt="2026 Ford F-150 at Bowen Scarff Ford"
+            class="cta-hero-image"
+          />
+        </div>
+
+        <div class="cta-content-block">
+          <p>
+            At <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer" class="cta-inline-link">1157 Central Ave N, Kent, WA 98032</a>, Bowen Scarff Ford offers a comprehensive selection of the 2026 Ford F-150 models, backed by expert guidance and exceptional customer service. Whether you need help understanding the latest tech upgrades, comparing trim levels, or exploring available accessories like trailer hitches, running boards, or all-weather liners, our knowledgeable team is here to assist.
+          </p>
+        </div>
+
+        <div class="cta-services-highlight">
+          <p>
+            Additionally, if you encounter roadside challenges, remember that Ford's manufacturer-backed Roadside Assistance program is the exclusive resource offering expert help with flat tires, breakdowns, and emergency towing—ensuring your F-150 is supported wherever the road takes you.
+          </p>
+        </div>
+
+        <div class="cta-contact-section">
+          <h3 class="cta-contact-title">Ready to Experience the 2026 F-150?</h3>
+          <p class="cta-contact-text">
+            Contact us today at <a href="tel:+12538521480" class="cta-phone-link">(253) 852-1480</a> to schedule a test drive or discuss your next Ford F-150 purchase. Experience firsthand why the 2026 Ford F-150 continues to dominate as America's best-selling truck and how it can serve as the perfect partner for your adventures around Kent, WA, and beyond.
+          </p>
+          
+          <div class="cta-button-group">
+            <a href="tel:+12538521480" class="cta-phone-button">(253) 852-1480</a>
+            <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer" class="cta-location-button">Visit Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta2-section">
+      <hr class="cta-divider" />
+      <div class="cta-copyright">© 2025 Bowen Scarff Ford</div>
+    </div>
+  </body>
+</html>

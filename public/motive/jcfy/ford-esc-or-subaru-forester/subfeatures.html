@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notable Ford Models</title>
+    <style>
+      .featListContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .featListContainer h1 {
+        width: 100%;
+        color: #003478;
+        border-bottom: 3px solid #003478;
+        padding-bottom: 10px;
+      }
+
+      .featListContainer h3,
+      .featListContainer h1,
+      .featListContainer h2,
+      .featListContainer p,
+      .featListContainer ol,
+      .featListContainer ul {
+        max-width: 1300px !important;
+      }
+
+      .model-card {
+        background-color: white;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .model-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .model-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 999px;
+        flex-shrink: 0;
+        border: 2px dashed #003478;
+        overflow: hidden;
+      }
+
+      .model-info {
+        flex: 1;
+      }
+
+      .model-name {
+        color: #003478;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .model-description {
+        color: #333;
+        line-height: 1.6;
+      }
+
+      @media(max-width:400px) {
+        .model-card {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .model-image {
+            width: 100px;
+            height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featListContainer">
+      <div class="model-card">
+        <img
+          src="https://canadaoneprod-com.cdn-convertus.com/uploads/sites/26/2024/11/2024-escape.jpeg"
+          alt="Ford Transit"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Ford Escape</div>
+          <div class="model-description">
+            The Escape's handling provides a distinctly agile and sporty feel for the segment, aided by its turbocharged engine options and precise steering calibration. Though its ride can veer towards firmness on uneven roads, this limits unwanted body roll and keeps the Escape composed during quick maneuvers—qualities beneficial for drivers in fast-paced Oklahoma City traffic or hilly areas near Bethany.
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ3M42G_z_JSjUdKCQBfaKx4Dlun7nF1Hm0Q&s"
+          alt="Ford Explorer"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Subaru Forester</div>
+          <div class="model-description">
+            The Forester's suspension prioritizes comfort, with a compliant tuning that soaks up minor road imperfections. However, this comes at the expense of sharper handling, with noticeable understeer and less engaging steering feedback, particularly when driven aggressively.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

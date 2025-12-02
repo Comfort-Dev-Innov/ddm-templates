@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustang Mach-E vs Tesla Model Y – Vehicle Profiles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .vi-comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .vi-comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .vi-comparison-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .vi-comparison-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .vi-comparison-subtitle {
+            font-size: 20px;
+            color: #4b5563;
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        .vi-vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .vi-vehicle-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vi-vehicle-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-pill.vi-ford {
+            background: rgba(37, 99, 235, 0.08);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.35);
+        }
+
+        .vi-vehicle-pill.vi-tesla {
+            background: rgba(220, 38, 38, 0.06);
+            color: #991b1b;
+            border: 1px solid rgba(220, 38, 38, 0.35);
+        }
+
+        .vi-vehicle-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-tagline {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin-bottom: 1.25rem;
+        }
+
+        .vi-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #cbd5f5);
+            padding: 3px; /* gradient border thickness */
+            position: relative;
+        }
+
+        .vi-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .vi-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .vi-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .vi-image-wrapper:hover .vi-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .vi-vehicle-body {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+        }
+
+        .vi-comparison-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .vi-comparison-label-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .vi-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+        }
+
+        .vi-dot.vi-ford {
+            background: #2563eb;
+        }
+
+        .vi-dot.vi-tesla {
+            background: #dc2626;
+        }
+
+        @media (max-width: 900px) {
+            .vi-vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vi-comparison-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .vi-comparison-header {
+                margin-bottom: 2rem;
+            }
+
+            .vi-comparison-title {
+                font-size: 20px;
+            }
+
+            .vi-comparison-subtitle {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vi-comparison-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .vi-vehicle-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vi-comparison-section" id="vehicle-profiles">
+        <div class="vi-comparison-container">
+            <header class="vi-comparison-header">
+                <h2 class="vi-comparison-title">Vehicle Profiles & Market Positioning</h2>
+                <p class="vi-comparison-subtitle">Side-by-side overview of how each compact all-electric SUV is positioned in the market.</p>
+            </header>
+
+            <div class="vi-comparison-label-row">
+                <span><span class="vi-dot vi-ford"></span> 2025 Ford Mustang Mach-E</span>
+                <span><span class="vi-dot vi-tesla"></span> 2025 Tesla Model Y</span>
+            </div>
+
+            <div class="vi-vehicle-grid">
+                <!-- Ford Mustang Mach-E Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-ford">
+                        Ford Innovation
+                    </div>
+                    <h3 class="vi-vehicle-title">2025 Ford Mustang Mach-E</h3>
+                    <p class="vi-vehicle-tagline">Combining Mustang heritage with innovative electric mobility.</p>
+
+                    <div class="vi-image-wrapper">
+                        <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/models/premium-awd/colorizer/360/velocity-blue/ph-premium-awd-velocity-blue-03.webp" alt="2025 Ford Mustang Mach-E in Velocity Blue" class="vi-image">
+                    </div>
+
+                    <p class="vi-vehicle-body">
+                        The Mustang Mach-E embodies Ford's strong commitment to electrification, combining Mustang heritage with innovative electric mobility. Positioned firmly within the compact all-electric SUV segment, the Mach-E offers multiple trims and drivetrain options—<strong>Rear-Wheel Drive (RWD) and All-Wheel Drive (AWD)</strong>—spanning power outputs from 246 horsepower up to 480 horsepower in sporty GT and Rally trims. <br/><br/>It features a practical yet stylish design that emphasizes passenger comfort and adaptability, supported by Ford's evolving BlueCruise driver-assistance enhancements, a premium infotainment system, and competitive charging capability.
+                    </p>
+                </article>
+
+                <!-- Tesla Model Y Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-tesla">
+                        Tesla Technology
+                    </div>
+                    <h3 class="vi-vehicle-title">2025 Tesla Model Y</h3>
+                    <p class="vi-vehicle-tagline">Long-range capability and quick acceleration with extensive Supercharger access.</p>
+
+                    <div class="vi-image-wrapper">
+                        <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto,w_220,c_scale/dpr_2.0/Mega-Menu-Vehicles-Model-Y-2-v2.png" alt="2025 Tesla Model Y" class="vi-image">
+                    </div>
+
+                    <p class="vi-vehicle-body">
+                        A favorite among EV enthusiasts, the midsize <strong>Tesla Model Y</strong> combines long-range capability and quick acceleration with the convenience of Tesla's Supercharger network. Despite this, the 2025 iteration holds off on a highly anticipated redesign until 2026, inheriting previous-generation traits such as a firm ride and a minimalist, touchscreen-heavy cabin interface. <br/><br/>Tesla's reliance on software-driven autonomy and constant over-the-air updates appeals to tech enthusiasts but can introduce complexity and user interface trade-offs compared to the Mach-E.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

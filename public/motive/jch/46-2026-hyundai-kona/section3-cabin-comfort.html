@@ -1,0 +1,387 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section3 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Comparison Images Section */
+        .comparison-images {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin: 40px 0;
+        }
+
+        .vehicle-image-wrapper {
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+          transition: all 0.3s ease;
+        }
+
+        .vehicle-image-wrapper:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .vehicle-image-wrapper img {
+          width: 100%;
+          height: 350px;
+          object-fit: cover;
+          display: block;
+        }
+
+        .vehicle-label {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(
+            to top,
+            rgba(15, 48, 121, 0.95),
+            rgba(15, 48, 121, 0.85)
+          );
+          color: white;
+          padding: 15px 20px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        /* Space & Comfort Comparison Cards */
+        .space-cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 25px;
+          margin: 30px 0;
+        }
+
+        .space-card {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          border-radius: 12px;
+          padding: 25px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          border-top: 4px solid #0f3079;
+        }
+
+        .space-card.niro-card {
+          border-top-color: #6c757d;
+          background: linear-gradient(135deg, #f1f3f5 0%, #dee2e6 100%);
+        }
+
+        .space-card-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #0f3079;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .dimension-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #dee2e6;
+        }
+
+        .dimension-item:last-child {
+          border-bottom: none;
+        }
+
+        .dimension-label {
+          font-size: 14px;
+          color: #495057;
+          font-weight: 500;
+        }
+
+        .dimension-value {
+          font-size: 15px;
+          color: #0f3079;
+          font-weight: 700;
+        }
+
+        /* Highlight Box */
+        .cargo-highlight {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+          padding: 25px 30px;
+          border-radius: 12px;
+          margin: 30px 0;
+          box-shadow: 0 4px 20px rgba(15, 48, 121, 0.2);
+          text-align: center;
+        }
+
+        .cargo-highlight h4 {
+          font-size: 1.4rem;
+          margin: 0 0 15px 0;
+          font-weight: 700;
+        }
+
+        .cargo-highlight p {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.6;
+        }
+
+        .cargo-stats {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+          gap: 20px;
+        }
+
+        .cargo-stat {
+          text-align: center;
+        }
+
+        .cargo-stat-value {
+          font-size: 2rem;
+          font-weight: 700;
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        .cargo-stat-label {
+          font-size: 13px;
+          opacity: 0.9;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .comparison-images,
+          .space-cards {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .vehicle-image-wrapper img {
+            height: 250px;
+          }
+
+          .cargo-stats {
+            flex-direction: column;
+            gap: 15px;
+          }
+
+          .cargo-stat-value {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section3">
+      <h2 class="section-heading">Inside the Cabin: Space and Comfort</h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          Despite their shared platform heritage, the Hyundai Kona elevates
+          passenger comfort with thoughtful design and competitive interior
+          dimensions, especially important for families or groups commuting from
+          one city to another.
+        </p>
+        <ul class="bullet-list paragraph-text">
+          <li>
+            Front legroom measures 41.7 inches with rear legroom ranging from
+            36.4 to 38.2 inches, slightly enhancing rear occupant space for
+            adults.
+          </li>
+          <li>
+            The Kia Niro offers respectable passenger room, but its battery pack
+            placement reduces rear cargo flexibility.
+          </li>
+        </ul>
+        <p class="paragraph-text">
+          The Kona's cargo capacity outshines its competitor with 25.5 cubic
+          feet behind rear seats and expanding to an impressive 63.7 cubic feet
+          with the rear seats folded, more generous than the Niro's 19.4 to 22.8
+          cubic feet range, depending on model, facilitating large loads for
+          weekend getaways or shopping runs.
+        </p>
+      </div>
+
+      <!-- Space for Two Side-by-Side Interior Images -->
+      <div class="comparison-images">
+        <div class="vehicle-image-wrapper">
+          <img
+            src="https://i.ibb.co/VpTMKkBL/Large-66946-2026-Kona.jpg"
+            alt="2026 Hyundai Kona interior cabin space"
+          />
+          <div class="vehicle-label">2026 Hyundai Kona Interior</div>
+        </div>
+        <div class="vehicle-image-wrapper">
+          <img
+            src="https://i.ibb.co/Pv3ygbwj/kia-niro-my23-interior-closeup-dual-displays.jpg"
+            alt="2026 Kia Niro interior cabin space"
+          />
+          <div class="vehicle-label">2026 Kia Niro Interior</div>
+        </div>
+      </div>
+
+      <!-- Interior Dimensions Comparison -->
+      <div class="space-cards">
+        <div class="space-card">
+          <h4 class="space-card-title">Hyundai Kona Dimensions</h4>
+          <div class="dimension-item">
+            <span class="dimension-label">Front Legroom</span>
+            <span class="dimension-value">41.7 inches</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Rear Legroom</span>
+            <span class="dimension-value">36.4 - 38.2 inches</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Cargo (Seats Up)</span>
+            <span class="dimension-value">25.5 cu. ft.</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Cargo (Seats Down)</span>
+            <span class="dimension-value">63.7 cu. ft.</span>
+          </div>
+        </div>
+
+        <div class="space-card niro-card">
+          <h4 class="space-card-title">Kia Niro Dimensions</h4>
+          <div class="dimension-item">
+            <span class="dimension-label">Front Legroom</span>
+            <span class="dimension-value">41 inches</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Rear Legroom</span>
+            <span class="dimension-value">37 inches</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Cargo (Seats Up)</span>
+            <span class="dimension-value">19.4 - 22.8 cu. ft.</span>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">Cargo (Seats Down)</span>
+            <span class="dimension-value">50-53 cu. ft.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cargo Capacity Highlight -->
+      <div class="cargo-highlight">
+        <h4>Kona's Superior Cargo Advantage</h4>
+        <p>
+          The Kona provides significantly more versatile cargo space, making it
+          ideal for weekend getaways, shopping runs, and daily family needs.
+        </p>
+        <div class="cargo-stats">
+          <div class="cargo-stat">
+            <span class="cargo-stat-value">25.5</span>
+            <span class="cargo-stat-label">cu. ft. (Seats Up)</span>
+          </div>
+          <div class="cargo-stat">
+            <span class="cargo-stat-value">63.7</span>
+            <span class="cargo-stat-label">cu. ft. (Seats Down)</span>
+          </div>
+          <div class="cargo-stat">
+            <span class="cargo-stat-value">38+</span>
+            <span class="cargo-stat-label">cu. ft. MORE than Niro</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="hr-1" id="technology-features" />
+    </div>
+  </body>
+</html>

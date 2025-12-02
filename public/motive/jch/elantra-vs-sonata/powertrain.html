@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Motive Container Default Styles */
+      .vcomp-main-container {
+        padding: 0px 0px 40px 0px !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .vcomp-main-container h3,
+      .vcomp-main-container h1,
+      .vcomp-main-container h2,
+      .vcomp-main-container p,
+      .vcomp-main-container ol,
+      .vcomp-main-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Intro paragraph styling - similar to subintro */
+      .vcomp-intro-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #4a5568;
+        margin-bottom: 40px;
+      }
+
+      @keyframes vcompFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes vcompSlideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes vcompSlideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Section with Card Layout */
+      .vcomp-section-wrapper {
+        display: flex;
+        gap: 40px;
+        margin: 50px 0;
+        align-items: flex-start;
+        animation: vcompFadeInUp 0.8s ease-out;
+      }
+
+      .vcomp-section-content-wrapper {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .vcomp-section-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #012b5d;
+        margin: 0 0 20px 0;
+        position: relative;
+        display: inline-block;
+      }
+
+      .vcomp-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #3e85ff, #012b5d);
+        border-radius: 2px;
+      }
+
+      .vcomp-section-text {
+        padding-top: 18px;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #333;
+      }
+
+      .vcomp-section-text p {
+        margin-bottom: 18px;
+      }
+
+      /* Highlighted Box */
+      .vcomp-highlight-box {
+        background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
+        border-left: 4px solid #3e85ff;
+        padding: 20px 25px;
+        border-radius: 12px;
+        margin: 25px 0;
+        box-shadow: 0 4px 12px rgba(62, 133, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .vcomp-highlight-box:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(62, 133, 255, 0.15);
+      }
+
+      .vcomp-highlight-box p {
+        margin: 0;
+        color: #1a365d;
+        font-weight: 500;
+      }
+
+      /* Vehicle Card */
+      .vcomp-card-wrapper {
+        flex-shrink: 0;
+        width: 380px;
+        position: sticky;
+        top: 20px;
+      }
+
+      .vcomp-vehicle-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .vcomp-section-wrapper:nth-of-type(odd) .vcomp-vehicle-card {
+        animation: vcompSlideInRight 0.8s ease-out 0.2s both;
+      }
+
+      .vcomp-section-wrapper:nth-of-type(even) .vcomp-vehicle-card {
+        animation: vcompSlideInRight 0.8s ease-out 0.4s both;
+      }
+
+      .vcomp-vehicle-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-color: #3e85ff;
+      }
+
+      .vcomp-card-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .vcomp-vehicle-card:hover .vcomp-card-image {
+        transform: scale(1.05);
+      }
+
+      .vcomp-card-content {
+        padding: 25px;
+      }
+
+      .vcomp-card-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #012b5d;
+        margin: 0 0 10px 0;
+        position: relative;
+        display: inline-block;
+      }
+
+      .vcomp-card-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3e85ff, #012b5d);
+        transition: width 0.4s ease;
+      }
+
+      .vcomp-vehicle-card:hover .vcomp-card-title::after {
+        width: 100%;
+      }
+
+      .vcomp-card-subtitle {
+        padding-top: 15px;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .vcomp-card-specs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .vcomp-spec-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #333;
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .vcomp-spec-item:last-child {
+        border-bottom: none;
+      }
+
+      .vcomp-spec-label {
+        font-weight: 600;
+        color: #012b5d;
+        min-width: 100px;
+      }
+
+      .vcomp-spec-value {
+        color: #4a5568;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .vcomp-card-wrapper {
+          width: 320px;
+        }
+
+        .vcomp-section-wrapper {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .vcomp-section-wrapper {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .vcomp-card-wrapper {
+          width: 100%;
+          position: static;
+        }
+
+        .vcomp-intro-text {
+          font-size: 16px;
+        }
+
+        .vcomp-section-title {
+          font-size: 24px;
+        }
+
+        .vcomp-section-text {
+          font-size: 15px;
+        }
+
+        .vcomp-card-title {
+          font-size: 20px;
+        }
+
+        .vcomp-card-image {
+          height: 200px;
+        }
+
+        .vcomp-main-container {
+          padding: 20px 15px !important;
+        }
+
+        .vcomp-section-wrapper:nth-of-type(odd) .vcomp-vehicle-card,
+        .vcomp-section-wrapper:nth-of-type(even) .vcomp-vehicle-card {
+          animation: vcompFadeInUp 0.8s ease-out both;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vcomp-main-container">
+      <!-- Intro Paragraph -->
+      <p class="vcomp-intro-text">
+        A vehicle's heart is its powertrain, and in Oklahoma, that heart needs to be versatile. It must be efficient for daily commutes, powerful enough for confident highway merging, and, for some, thrilling on a winding back road. Both the Elantra and Sonata offer a diverse range of engine options, but a closer look reveals that the Elantra provides a broader spectrum of performance personalities, making it a more adaptable choice for a wider array of drivers.
+      </p>
+
+      <!-- Elantra Section with Card -->
+      <div class="vcomp-section-wrapper">
+        <div class="vcomp-section-content-wrapper">
+          <h2 class="vcomp-section-title">Elantra's Efficiency-First Options</h2>
+          <div class="vcomp-section-text">
+            <p>
+              For the majority of drivers navigating the Oklahoma City metro area, fuel efficiency is paramount. The 2026 Elantra is engineered to excel in this regard, offering two powertrains that minimize time spent at the pump without sacrificing drivability.
+            </p>
+            <p>
+              The standard engine powering the Elantra SE, SEL, and Limited trims is a highly reliable 2.0-liter four-cylinder engine producing 147 horsepower and 132 lb-ft of torque. Paired with Hyundai's smooth and intelligent Smartstream® Intelligent Variable Transmission (IVT), this setup is the perfect workhorse for the daily grind. It delivers an exceptional EPA-estimated 32 MPG in the city and 41 MPG on the highway, making it one of the most fuel-efficient non-hybrid vehicles in its class.
+            </p>
+            <div class="vcomp-highlight-box">
+              <p>
+                For those seeking the ultimate in fuel savings, the Elantra Hybrid is a technological marvel. It combines a 1.6-liter four-cylinder engine with an electric motor to produce a combined 139 horsepower and a robust 195 lb-ft of torque. This torque figure is key, providing responsive acceleration from a standstill. Uniquely, the Elantra Hybrid utilizes a 6-speed EcoShift® Dual-Clutch Transmission (DCT) instead of a typical CVT. This design provides the crisp, direct feel of a traditional automatic, eliminating the monotonous "drone" associated with many other hybrids during acceleration. The result is a more engaging and satisfying driving experience. The payoff is a phenomenal EPA-estimated fuel economy of up to 51 MPG city and 58 MPG highway on the Blue trim.
+              </p>
+            </div>
+            <p>
+              This efficiency translates into significant, tangible savings. Consider a daily commute from Norman to downtown OKC, roughly 60 miles round-trip. In the Elantra Hybrid Blue (54 MPG combined), this trip uses just over one gallon of gas. Over a year of commuting, this can lead to hundreds of dollars in fuel savings compared to less efficient vehicles, freeing up your budget for more important things.
+            </p>
+          </div>
+        </div>
+
+        <div class="vcomp-card-wrapper">
+          <div class="vcomp-vehicle-card">
+            <img 
+              src="https://di-uploads-pod33.dealerinspire.com/universalhyundai/uploads/2024/12/1727237534629_d8dde1957ad94165b15efeb0467cc923-1536x1152-1.jpg" 
+              alt="2026 Hyundai Elantra" 
+              class="vcomp-card-image"
+            />
+            <div class="vcomp-card-content">
+              <h3 class="vcomp-card-title">Hyundai Elantra</h3>
+              <p class="vcomp-card-subtitle">Compact Sedan</p>
+              <div class="vcomp-card-specs">
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">Engine:</span>
+                  <span class="vcomp-spec-value">2.0L 4-cyl / Hybrid</span>
+                </div>
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">Max Power:</span>
+                  <span class="vcomp-spec-value">286 hp (Elantra N)</span>
+                </div>
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">MPG:</span>
+                  <span class="vcomp-spec-value">Up to 58 Highway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sonata Section with Card -->
+      <div class="vcomp-section-wrapper">
+        <div class="vcomp-section-content-wrapper">
+          <h2 class="vcomp-section-title">Sonata's Smooth and Confident Power</h2>
+          <div class="vcomp-section-text">
+            <p>
+              The 2026 Sonata, as a midsize sedan, is engineered with an emphasis on smooth, comfortable, and confident power, particularly for long-distance highway travel. Its standard powertrain is a formidable 2.5-liter four-cylinder engine that generates 191 horsepower and 181 lb-ft of torque, paired with a conventional and refined 8-speed automatic transmission. This combination provides effortless acceleration for merging onto the Kilpatrick Turnpike and exceptionally quiet operation at cruising speeds, making it an ideal companion for road trips.
+            </p>
+            <div class="vcomp-highlight-box">
+              <p>
+                A significant advantage for the Sonata is the availability of HTRAC All-Wheel Drive on the SEL trim. This advanced system provides an extra layer of confidence and control, which is invaluable when dealing with Oklahoma's unpredictable weather, from sudden summer downpours to the occasional winter ice storm. The Elantra lineup is exclusively front-wheel drive.
+              </p>
+            </div>
+            <p>
+              The Sonata Hybrid offers its own compelling blend of power and efficiency. Its system delivers a combined 192 horsepower, making it feel more powerful than the Elantra Hybrid, while still achieving an impressive EPA-estimated 56 MPG on the highway in its Blue configuration.
+            </p>
+          </div>
+        </div>
+
+        <div class="vcomp-card-wrapper">
+          <div class="vcomp-vehicle-card">
+            <img 
+              src="https://s7d1.scene7.com/is/image/hyundai/2025-sonata-open-graph?wid=1200&hei=630&qlt=85,0&fmt=webp" 
+              alt="2026 Hyundai Sonata" 
+              class="vcomp-card-image"
+            />
+            <div class="vcomp-card-content">
+              <h3 class="vcomp-card-title">Hyundai Sonata</h3>
+              <p class="vcomp-card-subtitle">Midsize Sedan</p>
+              <div class="vcomp-card-specs">
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">Engine:</span>
+                  <span class="vcomp-spec-value">2.5L 4-cyl / Hybrid</span>
+                </div>
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">Max Power:</span>
+                  <span class="vcomp-spec-value">290 hp (Sonata N Line)</span>
+                </div>
+                <div class="vcomp-spec-item">
+                  <span class="vcomp-spec-label">MPG:</span>
+                  <span class="vcomp-spec-value">Up to 56 Highway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

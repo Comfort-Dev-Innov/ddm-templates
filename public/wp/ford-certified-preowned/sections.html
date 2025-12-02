@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Certified Pre-Owned Guide - Bowen Scarff Ford</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+        line-height: 1.6 !important;
+      }
+
+      .cpo-main-container {
+        max-width: 1140px !important;
+        margin: 0 auto !important;
+      }
+
+      .cpo-main-container .cpo-section {
+        background: white !important;
+        border-radius: 20px !important;
+        padding: 3rem !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .cpo-main-container .cpo-section::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 5px !important;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%) !important;
+      }
+
+      .cpo-main-container .cpo-section-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem) !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 2.5rem !important;
+        letter-spacing: -0.5px !important;
+      }
+
+      .cpo-main-container .cpo-intro-text {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .cpo-main-container .cpo-content-block {
+        background: #f8f9fa !important;
+        padding: 2rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 1.5rem !important;
+        border-left: 4px solid #0066cc !important;
+      }
+
+      .cpo-main-container .cpo-content-block p {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cpo-main-container .cpo-content-block p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .cpo-main-container .cpo-image-wrapper {
+        width: 100% !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        margin: 2.5rem 0 !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+        position: relative !important;
+      }
+
+      .cpo-main-container .cpo-image-wrapper::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(180deg, rgba(0, 51, 102, 0) 0%, rgba(0, 51, 102, 0.1) 100%) !important;
+        pointer-events: none !important;
+      }
+
+      .cpo-main-container .cpo-image {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        transition: transform 0.5s ease !important;
+      }
+
+      .cpo-main-container .cpo-image-wrapper:hover .cpo-image {
+        transform: scale(1.03) !important;
+      }
+
+      .cpo-main-container .cpo-highlight-box {
+        background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%) !important;
+        border-left: 4px solid #0284c7 !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        margin: 2rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-highlight-box p {
+        color: #075985 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .cpo-main-container .cpo-highlight-box p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .cpo-main-container .cpo-benefits-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 2rem !important;
+        margin: 2.5rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-benefit-card {
+        background: white !important;
+        border: 2px solid #e3f2fd !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08) !important;
+      }
+
+      .cpo-main-container .cpo-benefit-card:hover {
+        border-color: #0066cc !important;
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.15) !important;
+      }
+
+      .cpo-main-container .cpo-benefit-icon {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+      }
+
+      .cpo-main-container .cpo-benefit-title {
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 0.8rem !important;
+      }
+
+      .cpo-main-container .cpo-benefit-description {
+        color: #4a5568 !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .cpo-main-container .cpo-certification-comparison {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+        gap: 2rem !important;
+        margin: 2.5rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-cert-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        border-radius: 16px !important;
+        padding: 2.5rem !important;
+        border: 3px solid #fbbf24 !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .cpo-main-container .cpo-cert-card.cpo-blue-cert {
+        border-color: #0066cc !important;
+      }
+
+      .cpo-main-container .cpo-cert-badge {
+        position: absolute !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+        color: #78350f !important;
+        padding: 0.5rem 1.2rem !important;
+        border-radius: 25px !important;
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4) !important;
+      }
+
+      .cpo-main-container .cpo-cert-card.cpo-blue-cert .cpo-cert-badge {
+        background: linear-gradient(135deg, #0066cc 0%, #003366 100%) !important;
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4) !important;
+      }
+
+      .cpo-main-container .cpo-cert-title {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cpo-main-container .cpo-cert-intro {
+        color: #4a5568 !important;
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .cpo-main-container .cpo-cert-list {
+        list-style: none !important;
+        margin: 1.5rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-cert-list li {
+        color: #2d3748 !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0.8rem !important;
+        padding-left: 2rem !important;
+        position: relative !important;
+      }
+
+      .cpo-main-container .cpo-cert-list li::before {
+        content: "✓" !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: #10b981 !important;
+        font-weight: bold !important;
+        font-size: 1.3rem !important;
+      }
+
+      .cpo-main-container .cpo-cert-coverage {
+        margin-top: 2rem !important;
+        padding-top: 2rem !important;
+        border-top: 2px solid #e9ecef !important;
+      }
+
+      .cpo-main-container .cpo-cert-coverage p {
+        color: #2d3748 !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .cpo-main-container .cpo-exclusive-banner {
+        background: linear-gradient(135deg, #003366 0%, #0066cc 100%) !important;
+        color: white !important;
+        padding: 3rem !important;
+        border-radius: 16px !important;
+        margin: 3rem 0 !important;
+        text-align: center !important;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.25) !important;
+      }
+
+      .cpo-main-container .cpo-exclusive-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cpo-main-container .cpo-exclusive-text {
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+        opacity: 0.95 !important;
+        max-width: 900px !important;
+        margin: 0 auto 2rem auto !important;
+      }
+
+      .cpo-main-container .cpo-protection-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+      }
+
+      .cpo-main-container .cpo-protection-item {
+        background: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .cpo-main-container .cpo-protection-item:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+        transform: translateY(-3px) !important;
+      }
+
+      .cpo-main-container .cpo-protection-icon {
+        font-size: 2rem !important;
+        margin-bottom: 0.8rem !important;
+        display: block !important;
+      }
+
+      .cpo-main-container .cpo-protection-label {
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .cpo-main-container .cpo-protection-desc {
+        font-size: 0.9rem !important;
+        opacity: 0.9 !important;
+        line-height: 1.5 !important;
+      }
+
+      .cpo-main-container .cpo-tips-section {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+        border-left: 4px solid #f59e0b !important;
+        border-radius: 12px !important;
+        padding: 2.5rem !important;
+        margin: 2.5rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-tips-title {
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+        color: #78350f !important;
+        margin-bottom: 1.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      .cpo-main-container .cpo-tips-title::before {
+        content: "💡" !important;
+        font-size: 2rem !important;
+        margin-right: 1rem !important;
+      }
+
+      .cpo-main-container .cpo-tips-list {
+        list-style: none !important;
+      }
+
+      .cpo-main-container .cpo-tips-list li {
+        color: #92400e !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1.2rem !important;
+        padding-left: 2rem !important;
+        position: relative !important;
+      }
+
+      .cpo-main-container .cpo-tips-list li::before {
+        content: "▸" !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: #f59e0b !important;
+        font-weight: bold !important;
+        font-size: 1.3rem !important;
+      }
+
+      .cpo-main-container .cpo-cta-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        padding: 2.5rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        border: 2px solid #e3f2fd !important;
+        margin: 3rem 0 !important;
+      }
+
+      .cpo-main-container .cpo-cta-title {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .cpo-main-container .cpo-cta-text {
+        color: #4a5568 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .cpo-main-container .cpo-cta-buttons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
+      }
+
+      .cpo-main-container .cpo-cta-button {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #0066cc 0%, #003366 100%) !important;
+        color: white !important;
+        padding: 1rem 2.5rem !important;
+        border-radius: 50px !important;
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 6px 20px rgba(0, 51, 102, 0.2) !important;
+      }
+
+      .cpo-main-container .cpo-cta-button:hover {
+        transform: translateY(-3px) scale(1.05) !important;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3) !important;
+        color: white !important;
+      }
+
+      .cpo-main-container .cpo-cta-button::before {
+        content: "📞" !important;
+        margin-right: 0.8rem !important;
+      }
+
+      /* Link styling */
+      .cpo-main-container a {
+        color: #0066cc !important;
+        text-decoration: none !important;
+        font-weight: 700 !important;
+        position: relative !important;
+        display: inline-block !important;
+        transition: all 0.3s ease !important;
+        border-bottom: 2px solid transparent !important;
+      }
+
+      .cpo-main-container a:hover {
+        color: #003366 !important;
+        border-bottom: 2px solid #003366 !important;
+      }
+
+      .cpo-main-container .cpo-inline-link {
+        color: #0066cc !important;
+        text-decoration: none !important;
+        font-weight: 700 !important;
+        border-bottom: 2px solid transparent !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .cpo-main-container .cpo-inline-link:hover {
+        color: #003366 !important;
+        border-bottom: 2px solid #003366 !important;
+      }
+
+      @media (max-width: 768px) {
+        .cpo-main-container .cpo-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cpo-main-container .cpo-content-block {
+          padding: 1.5rem !important;
+        }
+
+        .cpo-main-container .cpo-benefits-grid,
+        .cpo-main-container .cpo-certification-comparison,
+        .cpo-main-container .cpo-protection-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .cpo-main-container .cpo-exclusive-banner {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cpo-main-container .cpo-tips-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .cpo-main-container .cpo-cta-buttons {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .cpo-main-container .cpo-cta-button {
+          width: 100% !important;
+          max-width: 350px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem !important;
+        }
+
+        .cpo-main-container .cpo-section {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .cpo-main-container .cpo-content-block {
+          padding: 1.2rem !important;
+        }
+
+        .cpo-main-container .cpo-image-wrapper {
+          margin: 1.5rem 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cpo-main-container">
+      
+      <!-- Section 1: Understanding What Ford Certified Pre-Owned Means -->
+      <div class="cpo-section" id="understanding-ford-cpo">
+        <h1 class="cpo-section-title">Understanding What Ford Certified Pre-Owned Means</h1>
+        
+        <p class="cpo-intro-text">
+          A Ford certified pre-owned vehicle is far more than a typical used car. It represents a high-quality used Ford model that has met strict manufacturer standards through rigorous inspection and reconditioning. Unlike standard used vehicles, Ford CPO cars undergo a comprehensive vetting process to ensure reliability and peace of mind for buyers.
+        </p>
+
+        <div class="cpo-content-block">
+          <p>
+            To qualify for Ford's prestigious Blue Advantage program, a vehicle must meet specific age and mileage thresholds—primarily, it must be less than 6 years old and have fewer than 80,000 miles on the odometer for Gold Certified status. Vehicles that don't meet these stringent criteria but are still less than 10 years old and under 150,000 miles can qualify for the Blue Certified category, which also offers robust benefits.
+          </p>
+        </div>
+
+        <div class="cpo-image-wrapper">
+          <img 
+            src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2026/collections/3_2/C11048223_COMF_750_34FrntPassCnstrnSiteWthWkr_mj_fade_167.jpg/jcr:content/renditions/cq5dam.web.1440.1440.jpeg" 
+            alt="Ford Commercial Vehicles"
+            class="cpo-image"
+          />
+        </div>
+
+        <div class="cpo-highlight-box">
+          <p>
+            Inspection is one of the critical elements that separates a Ford CPO from typical used cars. Ford-certified technicians perform a detailed multi-point inspection—172 points for Gold Certified vehicles and 139 points for Blue Certified ones—covering everything from engine components and brakes to the electrical system and interior condition. This process ensures each car complies with the highest safety and performance standards before it reaches buyers in places like Federal Way or Kent.
+          </p>
+        </div>
+
+        <div class="cpo-content-block">
+          <p>
+            This thorough certification process reflects Ford's commitment to quality and customer satisfaction, giving drivers in the greater Seattle region confidence that their investment is backed by the manufacturer's expertise and warranty protections.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: Benefits of Choosing a Ford Certified Pre-Owned Vehicle -->
+      <div class="cpo-section" id="benefits-ford-cpo">
+        <h2 class="cpo-section-title">Benefits of Choosing a Ford Certified Pre-Owned Vehicle</h2>
+        
+        <p class="cpo-intro-text">
+          Selecting a Ford certified pre-owned vehicle comes with a suite of advantages that offer tangible value and security beyond what a standard used car can provide. At <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer" class="cpo-inline-link">Bowen Scarff Ford</a>, customers from neighboring areas such as Auburn and Renton benefit from these comprehensive perks included with each Ford Blue Advantage vehicle.
+        </p>
+
+        <div class="cpo-content-block">
+          <p>
+            One of the primary benefits is the extended warranty coverage. Ford Gold Certified vehicles come with a 12-month/12,000-mile comprehensive limited warranty, protecting against unexpected repairs and defects. In addition, there is a 7-year/100,000-mile powertrain warranty, which covers essential components like the engine, transmission, and drivetrain. Blue Certified vehicles receive a 90-day/4,000-mile comprehensive limited warranty, still offering substantial protection compared to non-certified used cars.
+          </p>
+        </div>
+
+        <div class="cpo-image-wrapper">
+          <img 
+            src="https://www.ford.com/is/image/content/dam/brand_ford/en_us/brand/trucks/transit/dm/3_V408_51809_L_54516.tif?croppathe=4x3&wid=900" 
+            alt="Ford Transit Van"
+            class="cpo-image"
+          />
+        </div>
+
+        <div class="cpo-content-block">
+          <p>
+            Another critical advantage is the inclusion of a detailed vehicle history report, commonly a CARFAX® report, offered at Bowen Scarff Ford with every Ford CPO purchase. This report discloses any past accidents, service records, and title information, ensuring transparency and helping buyers make informed decisions.
+          </p>
+          <p>
+            Ford's CPO program also includes a 14-day/1,000-mile money-back guarantee, allowing customers to return their vehicle if unsatisfied, providing added peace of mind. Furthermore, complimentary 24/7 roadside assistance is included, covering emergency services such as towing, lockout assistance, and flat tire changes. This Ford-specific roadside assistance ensures customers in communities like Kent and Seattle receive expert help with genuine Ford parts and authorized service centers.
+          </p>
+        </div>
+
+        <div class="cpo-highlight-box">
+          <p>
+            Enjoy immediate perks like a full tank of gas, fresh oil, and new wipers, plus a complimentary three-month trial of SiriusXM® to provide the soundtrack for your first drive. FordPass™ Rewards points accumulated with each purchase can be redeemed for maintenance services, adding ongoing value.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 3: Ford Certified Pre-Owned Program Rules and Eligibility -->
+      <div class="cpo-section" id="ford-cpo-rules-eligibility">
+        <h2 class="cpo-section-title">Ford Certified Pre-Owned Program Rules and Eligibility</h2>
+        
+        <p class="cpo-intro-text">
+          The Ford Blue Advantage program is designed with clear, strict rules to maintain high standards and customer trust. Understanding these rules is essential when evaluating Ford CPO vehicles in the Kent, Washington area.
+        </p>
+
+        <div class="cpo-certification-comparison">
+          <div class="cpo-cert-card">
+            <span class="cpo-cert-badge">Gold Certified</span>
+            <h3 class="cpo-cert-title">Gold Certified</h3>
+            <p class="cpo-cert-intro">
+              For a vehicle to be Gold Certified, it must meet the following criteria:
+            </p>
+            <ul class="cpo-cert-list">
+              <li>Be a Ford model not older than six years</li>
+              <li>Have logged fewer than 80,000 miles</li>
+              <li>Successfully pass a rigorous 172-point inspection conducted by Ford-trained technicians</li>
+            </ul>
+            <div class="cpo-cert-coverage">
+              <p>
+                To protect your investment, eligible vehicles come with extensive coverage, including a 12-month/12,000-mile comprehensive limited warranty and long-term powertrain protection for up to 7 years or 100,000 miles. This level of certification also grants the buyer a 14-day/1,000-mile satisfaction guarantee and eligibility for FordPass™ Rewards.
+              </p>
+            </div>
+          </div>
+
+          <div class="cpo-cert-card cpo-blue-cert">
+            <span class="cpo-cert-badge">Blue Certified</span>
+            <h3 class="cpo-cert-title">Blue Certified</h3>
+            <p class="cpo-cert-intro">
+              Blue Certified vehicles follow a more lenient but still demanding standard:
+            </p>
+            <ul class="cpo-cert-list">
+              <li>Less than 10 years old</li>
+              <li>Fewer than 150,000 miles driven</li>
+              <li>Pass a 139-point inspection</li>
+            </ul>
+            <div class="cpo-cert-coverage">
+              <p>
+                Blue Certified vehicles come with a 90-day/4,000-mile limited warranty and the same 14-day return option, roadside assistance, and reward points, though on a smaller scale compared to Gold Certification.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cpo-image-wrapper">
+          <img 
+            src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/segment_landing/commercial/mobile/22_FRD_CTV_56120_RedUpfit_Final_1440.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg" 
+            alt="Ford Commercial Fleet"
+            class="cpo-image"
+          />
+        </div>
+
+        <div class="cpo-content-block">
+          <p>
+            While the Blue Certified program extends eligibility to non-Ford makes—bringing competitive brands into the fold—these vehicles operate under a separate tier and do not carry the full suite of Gold Certified warranty benefits. This flexibility offers more options for buyers who prefer other brands but want Ford's inspection credibility and roadside support.
+          </p>
+          <p>
+            Ford's warranty coverage and roadside assistance are honored at any Ford dealership nationwide. This widespread serviceability is crucial for drivers in the Puget Sound region who may travel between cities such as Federal Way, Renton, and Seattle.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 4: How Ford Certified Pre-Owned Compares to Other Used Vehicle Options -->
+      <div class="cpo-section" id="comparing-ford-cpo">
+        <h2 class="cpo-section-title">How Ford Certified Pre-Owned Compares to Other Used Vehicle Options</h2>
+        
+        <p class="cpo-intro-text">
+          Buying a Ford certified pre-owned vehicle offers distinct advantages over purchasing a non-certified used car or even a CPO from other manufacturers. For shoppers in Kent and beyond, these differences can impact long-term ownership satisfaction and cost of maintenance.
+        </p>
+
+        <div class="cpo-content-block">
+          <p>
+            Most used vehicles on the market have varying inspection standards, often limited to basic mechanical checks or none at all if purchased from private sellers. Ford's Blue Advantage program mandates a detailed multi-point inspection covering critical systems and components, reducing the risk of unexpected breakdowns.
+          </p>
+        </div>
+
+        <div class="cpo-image-wrapper">
+          <img 
+            src="https://www.ford.com/is/image/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2026/collections/dm/25_FRD_CMD_48485_PK.tif?croppathe=1_21x9&wid=1440" 
+            alt="Ford F-650/750 Commercial Truck"
+            class="cpo-image"
+          />
+        </div>
+
+        <div class="cpo-highlight-box">
+          <p>
+            Compared to other manufacturers' CPO programs, Ford's warranty coverage is notably robust, especially with the 7-year/100,000-mile powertrain protection included in Gold Certified vehicles. Additionally, Ford's inclusion of roadside assistance and the money-back guarantee surpasses many competitors.
+          </p>
+        </div>
+
+        <div class="cpo-content-block">
+          <p>
+            Another differentiator is FordPass™ Rewards, a points-based system exclusive to Ford owners, which helps offset maintenance costs and encourages routine servicing at authorized dealerships like Bowen Scarff Ford. This program not only supports vehicle longevity but also adds financial value to ownership.
+          </p>
+          <p>
+            Unlike private sales or uncertified used car purchases, Ford CPO vehicles typically offer financing options directly through the dealership, making the buying process more accessible for customers in the Kent area. This contrasts with private sales, where buyers must secure their own financing without the benefit of manufacturer backing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 5: Exclusive Perks at Bowen Scarff Ford -->
+      <div class="cpo-section" id="exclusive-perks-bowen-scarff">
+        <h2 class="cpo-section-title">Exclusive Perks at Bowen Scarff Ford</h2>
+        
+        <div class="cpo-content-block">
+          <p>
+            While the Ford Certified Pre-Owned (CPO) warranty offers comprehensive mechanical coverage, Bowen Scarff Ford takes your peace of mind a step further. We understand that daily driving exposes your vehicle to hazards that aren't typically covered by standard powertrain warranties.
+          </p>
+          <p>
+            That is why, exclusively at our dealership, every Certified Pre-Owned vehicle includes an additional one-year protection plan designed to safeguard the aesthetic and functional parts of your car that face the most wear and tear. This exclusive coverage includes:
+          </p>
+        </div>
+
+        <div class="cpo-protection-grid">
+          <div class="cpo-protection-item">
+            <span class="cpo-protection-icon">🎨</span>
+            <div class="cpo-protection-label">Paint</div>
+            <div class="cpo-protection-desc">Protection against environmental damage and minor imperfections</div>
+          </div>
+          
+          <div class="cpo-protection-item">
+            <span class="cpo-protection-icon">🪟</span>
+            <div class="cpo-protection-label">Windshield</div>
+            <div class="cpo-protection-desc">Coverage for chips and cracks caused by road debris</div>
+          </div>
+          
+          <div class="cpo-protection-item">
+            <span class="cpo-protection-icon">🛞</span>
+            <div class="cpo-protection-label">Tires</div>
+            <div class="cpo-protection-desc">Protection against road hazards</div>
+          </div>
+          
+          <div class="cpo-protection-item">
+            <span class="cpo-protection-icon">⚙️</span>
+            <div class="cpo-protection-label">Wheels & Rims</div>
+            <div class="cpo-protection-desc">Coverage for cosmetic and structural damage</div>
+          </div>
+        </div>
+
+        <div class="cpo-highlight-box">
+          <p>
+            This added layer of security ensures that your investment remains protected against the unpredictable nature of the road, keeping your Ford looking and running like new.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 6: Considerations and Tips for Buying Ford CPO Vehicles -->
+      <div class="cpo-section" id="considerations-tips-buying-cpo">
+        <h2 class="cpo-section-title">Considerations and Tips for Buying Ford CPO Vehicles</h2>
+        
+        <p class="cpo-intro-text">
+          When selecting a Ford certified pre-owned vehicle, several practical factors should guide your decision to maximize your investment's long-term value.
+        </p>
+
+        <div class="cpo-content-block">
+          <p>
+            First, always confirm the certification level of the vehicle. A Gold Certified Ford provides more extensive warranty coverage and benefits than a Blue Certified one. Inspect the vehicle history report carefully and ask about any past repairs or accident history. At Bowen Scarff Ford, our team provides full transparency and can walk you through these documents for models like the Ford F-150 or Ford Escape.
+          </p>
+          <p>
+            Next, leverage the 14-day/1,000-mile satisfaction guarantee offered by Ford. Use this period to thoroughly assess the vehicle's performance in your daily routine around Kent or nearby cities such as Auburn. This trial window allows you to return the vehicle if it doesn't meet your expectations, a rare benefit in used vehicle purchasing.
+          </p>
+        </div>
+
+        <div class="cpo-content-block">
+          <p>
+            Additionally, utilize the complimentary roadside assistance program, especially if you frequently travel in the Pacific Northwest, where weather and road conditions can vary.
+          </p>
+          <p>
+            Regular maintenance at authorized Ford dealerships is crucial to preserve warranty coverage and optimize vehicle longevity. Redeeming FordPass™ Rewards points during scheduled services at locations like Bowen Scarff Ford can reduce your maintenance expenses substantially.
+          </p>
+        </div>
+
+        <div class="cpo-highlight-box">
+          <p>
+            Lastly, take into consideration the total cost of ownership, including insurance. While Ford CPO vehicles may carry a premium over non-certified used cars, the extended warranties and included services often translate into lower repair costs and greater resale value, making them a wise choice for savvy buyers across Kent and the surrounding areas.
+          </p>
+        </div>
+
+        <div class="cpo-cta-section">
+          <h3 class="cpo-cta-title">Ready to Find Your Perfect Certified Pre-Owned Ford?</h3>
+          <p class="cpo-cta-text">
+            Visit <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer" class="cpo-inline-link">Bowen Scarff Ford in Kent, WA</a> to explore our extensive inventory of Ford Certified Pre-Owned vehicles. Our expert team is ready to help you find the perfect vehicle with all the benefits and protections you deserve.
+          </p>
+          <div class="cpo-cta-buttons">
+            <a href="tel:+12538521480" class="cpo-cta-button">(253) 852-1480</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #cfd1d4;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 24px !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      .toc-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 45px 100px;
+        margin: 40px 0;
+      }
+
+      .toc-list-desktop,
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: #0f3079;
+        font-size: 12px;
+        line-height: 1.6;
+        transition: left 0.2s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        left: 5px;
+      }
+
+      .toc-list-desktop li p,
+      .toc-list-mobile li p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #0f3079;
+        text-decoration: underline;
+      }
+
+      .toc-list-mobile {
+        display: none;
+        grid-template-columns: 1fr;
+      }
+
+      @media (max-width: 1024px) {
+        .toc-section {
+          padding: 45px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .toc-list-desktop {
+          display: none;
+        }
+
+        .toc-list-mobile {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tocContainer">
+      <section class="toc-section">
+        <h3 class="section-title toc-title">Table of Contents</h3>
+        <!-- TOC on Desktop -->
+        <ul class="toc-list-desktop">
+          <li>
+            <p>
+              <a href="#used-vs-cpo-section"
+                >Used vs. Certified Pre-Owned: Definitions and Key Differences</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#worth-paying-more-section"
+                >Is It Really Worth Paying More for a Certified Pre-Owned Hyundai?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#decision-guide-section"
+                >Your Decision-Making Guide: A Quick Flowchart</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#cpo-pricing-section"
+                >A Deeper Look: Why Are Certified Pre-Owned Vehicles More Expensive?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#cpo-advantages-section"
+                >The Powerful Advantages of Buying a Certified Pre-Owned Hyundai</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#buyer-checklist-section"
+                >Your Smart Buyer's Checklist: What to Look for in a CPO Vehicle</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#considerations-section"
+                >What to Consider Before Choosing a Certified Pre-Owned Vehicle</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#expert-tips-section"
+                >Expert Tips: The Best Times to Buy and How to Negotiate</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#financial-comparison-section"
+                >Is It Financially Smarter to Buy New, Used, or Certified Pre-Owned?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#explore-options-section"
+                >Explore Your Options at Joe Cooper Hyundai</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#manufacturer-backed-section"
+                >Why a Manufacturer-Backed CPO Program Matters</a
+              >
+            </p>
+          </li>
+        </ul>
+
+        <!-- TOC on Mobile -->
+        <ul class="toc-list-mobile">
+          <li>
+            <p>
+              <a href="#used-vs-cpo-section"
+                >Used vs. Certified Pre-Owned: Definitions and Key Differences</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#decision-guide-section"
+                >Your Decision-Making Guide: A Quick Flowchart</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#cpo-advantages-section"
+                >The Powerful Advantages of Buying a Certified Pre-Owned Hyundai</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#considerations-section"
+                >What to Consider Before Choosing a Certified Pre-Owned Vehicle</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#financial-comparison-section"
+                >Is It Financially Smarter to Buy New, Used, or Certified Pre-Owned?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#manufacturer-backed-section"
+                >Why a Manufacturer-Backed CPO Program Matters</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#worth-paying-more-section"
+                >Is It Really Worth Paying More for a Certified Pre-Owned Hyundai?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#cpo-pricing-section"
+                >A Deeper Look: Why Are Certified Pre-Owned Vehicles More Expensive?</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#buyer-checklist-section"
+                >Your Smart Buyer's Checklist: What to Look for in a CPO Vehicle</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#expert-tips-section"
+                >Expert Tips: The Best Times to Buy and How to Negotiate</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#explore-options-section"
+                >Explore Your Options at Joe Cooper Hyundai</a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

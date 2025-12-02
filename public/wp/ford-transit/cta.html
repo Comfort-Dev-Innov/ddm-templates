@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Transit - CTA</title>
+    <style>
+        .cta2-section {
+            max-width: 1140px;
+            background: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .cta2-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, #0066cc 0%, #00142E 50%, #0066cc 100%);
+            clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+        }
+
+        .cta2-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .cta2-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta2-title {
+            text-transform: uppercase !important;
+            font-size: 32px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .cta2-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            margin: 12px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #0066cc, #00142E);
+        }
+
+        .cta2-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta2-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta2-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 20, 46, 0.12);
+            border: 1px solid #e6eef8;
+            margin-bottom: 4rem !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta2-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(135deg, #0066cc, #00142E);
+        }
+
+        .cta2-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta2-card-with-image {
+            display: block;
+        }
+
+        .cta2-card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cta2-card-with-image {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .cta2-card-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cta2-card-text {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+            margin-bottom: 1rem;
+        }
+
+        .cta2-card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta2-action-box {
+            background: linear-gradient(135deg, #0066cc, #004999);
+            color: white;
+            padding: 2rem;
+            border-radius: 14px;
+            margin-top: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta2-action-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta2-action-address {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cta2-button {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #ffffff;
+            color: #004999;
+            font-weight: 700;
+            padding: 0.8rem 1.25rem;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .cta2-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        }
+
+        @media (max-width: 768px) {
+            .cta2-section {
+                padding: 2rem 1rem;
+            }
+
+            .cta2-header {
+                margin-bottom: 2rem;
+            }
+
+            .cta2-card {
+                padding: 1.5rem;
+            }
+
+            .cta2-card-heading {
+                font-size: 1.5rem;
+            }
+
+            .cta2-action-box {
+                padding: 1.5rem;
+            }
+
+            .cta2-action-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cta2-title {
+                font-size: 20px;
+            }
+
+            .cta2-card-heading {
+                font-size: 1.3rem;
+            }
+
+            .cta2-card-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <section class="cta2-section">
+        <div class="cta2-container">
+            <header class="cta2-header">
+                <h2 class="cta2-title">Experience the 2025 Ford Transit at Bowen Scarff Ford</h2>
+            </header>
+
+            <div class="cta2-card">
+                <div class="cta2-card-with-image">
+                    <div>
+                        <p class="cta2-card-text">For businesses in Kent, Auburn, and across King County, the 2025 Ford Transit represents a powerful investment in efficiency, safety, and reliability. It's a vehicle built to work as hard as you do. The best way to understand its capabilities is to experience it firsthand.</p>
+
+                        <p class="cta2-card-text">The team at Bowen Scarff Ford is ready to help you explore every feature and configuration of the new Transit. We invite you to visit our dealership, conveniently located in Kent, WA, to see the 2025 Ford Transit up close.</p>
+
+                        <p class="cta2-card-text">Ready to get behind the wheel? Schedule your test drive online today and discover how the new Ford Transit can drive your business forward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+

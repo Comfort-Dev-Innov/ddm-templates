@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .performance-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 1300px !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .performance-table th {
+        background: #f8f9fa;
+        color: #495057;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        font-size: 0.95rem;
+      }
+
+      .performance-table th:first-child {
+        background: #495057;
+        color: white;
+        border-top-left-radius: 16px;
+      }
+
+      .performance-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .performance-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        background-color: white;
+      }
+
+      .performance-table tbody tr {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .performance-table tbody tr:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .performance-table td {
+        transition: all 0.3s ease;
+      }
+
+      .performance-table tbody tr:hover td {
+        padding: 1.1rem;
+      }
+
+      .metric-label {
+        background: #f1f3f4;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .engine-power {
+        color: #1e293b;
+      }
+
+      .acceleration-time {
+        color: #1e293b;
+      }
+
+      .braking-distance {
+        color: #1e293b;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 16px;
+      }
+
+      .table-wrapper::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-wrapper::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      .table-wrapper::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+
+      .table-wrapper::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+      }
+
+      .table-note {
+        max-width: 1300px !important;
+        margin: 0 auto !important;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .table-note p {
+        max-width: 1300px !important;
+      }
+
+      .table-note br {
+        display: none;
+      }
+
+      @media (max-width: 1024px) {
+        .table-wrapper {
+          margin: 0 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .table-note br {
+          display: block;
+        }
+
+        .table-note {
+          font-size: 15px;
+        }
+
+        .table-wrapper {
+          margin: 0;
+        }
+
+        .performance-table {
+          min-width: 800px;
+          box-shadow: none;
+        }
+
+        .performance-table th,
+        .performance-table td {
+          padding: 0.75rem 0.5rem;
+          font-size: 0.85rem;
+          white-space: nowrap;
+        }
+
+        .performance-table th:first-child,
+        .performance-table td:first-child {
+          position: sticky;
+          left: 0;
+          background: #495057;
+          color: white;
+          z-index: 2;
+        }
+
+        .performance-table td:first-child {
+          background: #f1f3f4;
+          color: #333;
+          font-weight: 600;
+        }
+
+        .performance-table tbody tr:hover td:first-child {
+          background: #e9ecef;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .performance-table th,
+        .performance-table td {
+          padding: 0.5rem 0.4rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-section">
+      <div class="table-wrapper">
+        <table class="performance-table">
+          <thead>
+            <tr>
+              <th>Performance Metrics</th>
+              <th>2025 Ford F-150 XLT</th>
+              <th>2025 Ford F-150 Lariat</th>
+              <th>2025 Ford F-150 STX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric-label">Engine Options</td>
+              <td class="engine-power">
+                2.7L twin-turbo V6 (325 hp / 400 lb-ft torque); 3.5L twin-turbo
+                hybrid V6 (430 hp / 570 lb-ft)
+              </td>
+              <td class="engine-power">
+                5.0L V8 (400 hp / 410 lb-ft); optional 3.5L twin-turbo V6 (400
+                hp / 500 lb-ft)
+              </td>
+              <td class="engine-power">
+                2.7L twin-turbo V6 (325 hp / 400 lb-ft); 5.0L V8 (400 hp / 410
+                lb-ft)
+              </td>
+            </tr>
+            <tr>
+              <td class="metric-label">Transmission</td>
+              <td>10-speed automatic</td>
+              <td>10-speed automatic</td>
+              <td>10-speed automatic</td>
+            </tr>
+            <tr>
+              <td class="metric-label">0-60 mph Acceleration</td>
+              <td class="acceleration-time best-value">
+                Approximately 5.0 seconds (hybrid powertrain)
+              </td>
+              <td class="acceleration-time">Approximately 5.5 seconds (V8)</td>
+              <td class="acceleration-time">Approximately 6.0 seconds</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Towing Capacity (max)</td>
+              <td class="towing-capacity best-value">Up to 13,500 pounds</td>
+              <td class="towing-capacity">Up to 13,000 pounds</td>
+              <td class="towing-capacity">Up to 13,000 pounds</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Braking Distance (70-0 mph)</td>
+              <td class="braking-distance best-value">185 feet</td>
+              <td class="braking-distance">190 feet</td>
+              <td class="braking-distance">195 feet</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Off-Road Packages</td>
+              <td>FX4 and Tremor optional</td>
+              <td>FX4 and Tremor optional</td>
+              <td>FX4 package optional</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note">
+        <p>
+          The XLT's hybrid option not only delivers best-in-class torque to
+          handle heavy payloads common in and around Union City but also fast
+          acceleration, edging out the STX's slower times and matching or
+          surpassing the Lariat's V8 in power delivery. <br/> <br/>Moreover, the XLT
+          benefits from advanced suspension tuning with available FX4 or Tremor
+          off-road packages, supporting off-road capabilities for buyers
+          venturing from Bethany into rougher terrain or construction sites near
+          Moore.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

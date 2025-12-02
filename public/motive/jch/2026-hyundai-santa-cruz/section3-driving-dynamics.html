@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Comparison Image Grid */
+      .comparison-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 40px 0;
+      }
+
+      .vehicle-image-wrapper {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .vehicle-image-wrapper:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .vehicle-image-wrapper img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .vehicle-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 48, 121, 0.95),
+          rgba(15, 48, 121, 0.7)
+        );
+        color: white;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+
+        .vehicle-image-wrapper img {
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .comparison-images {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .vehicle-image-wrapper img {
+          height: 250px;
+        }
+
+        .vehicle-label {
+          font-size: 1rem;
+          padding: 12px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Driving Dynamics of the 2026 Santa Cruz and The 2026 Frontier
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          The differences in drivetrain technology and off-road hardware further
+          define the distinct roles of the Santa Cruz and Frontier.
+        </p>
+        <p class="paragraph-text">
+          The Santa Cruz offers standard Front-Wheel Drive (FWD) on its
+          entry-level trims, with Hyundai's advanced HTRAC All-Wheel Drive (AWD)
+          system available as an option or as standard equipment on higher
+          trims. HTRAC is an intelligent, proactive system that constantly
+          monitors driving conditions and automatically distributes power
+          between the front and rear axles to ensure optimal traction. It's a
+          "set it and forget it" system, perfect for providing confidence on
+          rain-slicked roads, in wintry conditions, or on gravel paths without
+          requiring any driver intervention. The Santa Cruz XRT trim is geared
+          toward adventure, featuring standard HTRAC AWD with an enhanced
+          Terrain Mode Select, unique 18-inch wheels, and rugged styling cues.
+          It is perfectly suited for navigating dirt roads to a campsite or
+          trailhead.
+        </p>
+        <p class="paragraph-text">
+          The Frontier adheres to a more traditional truck setup, offering
+          Rear-Wheel Drive (RWD) or a robust, part-time 4-Wheel Drive (4WD)
+          system with a 2-speed transfer case for high- and low-range gearing.
+          This is a mechanically direct system that the driver must manually
+          engage, making it ideal for the deliberate demands of serious
+          off-roading. The Frontier's commitment to off-road prowess is fully
+          realized in the PRO-4X trim. This is not merely an appearance package;
+          it is a dedicated off-road machine equipped with specialized Bilstein
+          shocks, protective skid plates, all-terrain tires, and a crucial
+          electronic locking rear differential. This hardware gives it the
+          capability to tackle truly challenging terrain, such as the rugged
+          trails found in the Ouachita National Forest. For 2026, Nissan has
+          partnered with Roush Performance to offer the PRO-4X R, an even more
+          extreme package featuring a 2-inch lift and a high-performance Öhlins
+          suspension system.
+        </p>
+        <p class="paragraph-text">
+          The gap in off-road intent is vast and deliberate. The Santa Cruz XRT
+          is for the owner whose adventures are part of an active lifestyle like
+          kayaking or hiking, and who needs a vehicle that can confidently get
+          them and their gear to the starting point. The Frontier PRO-4X is
+          built for the enthusiast who views conquering difficult trails as the
+          primary mission. Both philosophies are valid, but Oklahoma buyers
+          should recognize which adventure profile best describes their actual
+          needs rather than aspirational ones.
+        </p>
+      </div>
+
+      <!-- Vehicle Comparison Images -->
+      <div class="comparison-images">
+        <div class="vehicle-image-wrapper">
+          <img
+            src="https://i.ibb.co/bntBPXW/image3.jpg"
+            alt="2026 Hyundai Santa Cruz XRT off-road capability"
+          />
+          <div class="vehicle-label">2026 Hyundai Santa Cruz XRT</div>
+        </div>
+        <div class="vehicle-image-wrapper">
+          <img
+            src="https://i.ibb.co/hJLxPQG2/image2.jpg"
+            alt="2026 Nissan Frontier PRO-4X off-road capability"
+          />
+          <div class="vehicle-label">2026 Nissan Frontier PRO-4X</div>
+        </div>
+      </div>
+
+      <hr class="hr-1" id="utility-cargo-capacity" />
+    </div>
+  </body>
+</html>

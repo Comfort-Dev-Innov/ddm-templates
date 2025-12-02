@@ -1,0 +1,331 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section9 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Conclusion Box */
+        .conclusion-box {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+          padding: 35px 40px;
+          border-radius: 15px;
+          margin: 40px 0;
+          box-shadow: 0 8px 30px rgba(15, 48, 121, 0.25);
+          text-align: center;
+        }
+
+        .conclusion-box h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin: 0 0 20px 0;
+        }
+
+        .conclusion-box p {
+          font-size: 16px;
+          line-height: 1.7;
+          margin: 0;
+          text-align: justify;
+        }
+
+        /* CTA Section */
+        .cta-section {
+          background: linear-gradient(
+            135deg,
+            rgba(15, 48, 121, 0.05) 0%,
+            rgba(45, 90, 160, 0.05) 100%
+          );
+          padding: 40px;
+          border-radius: 15px;
+          margin: 30px 0;
+          text-align: center;
+          border: 2px solid #e9ecef;
+        }
+
+        .cta-heading {
+          color: #0f3079;
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin: 0 0 15px 0;
+        }
+
+        .cta-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: center;
+          margin: 0 0 25px 0;
+        }
+
+        .dealership-info {
+          background: white;
+          padding: 25px;
+          border-radius: 12px;
+          margin: 25px 0;
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dealership-name {
+          color: #0f3079;
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin: 0 0 10px 0;
+        }
+
+        .dealership-address {
+          font-size: 15px;
+          color: #495057;
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 30px;
+        }
+
+        .cta-button {
+          display: inline-block;
+          padding: 15px 35px;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-primary {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+        }
+
+        .cta-button-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(15, 48, 121, 0.3);
+        }
+
+        .cta-button-secondary {
+          background: white;
+          color: #0f3079;
+          border: 2px solid #0f3079;
+        }
+
+        .cta-button-secondary:hover {
+          background: #0f3079;
+          color: white;
+          transform: translateY(-3px);
+        }
+
+        /* Hyperlink Style */
+        .paragraph-hyperlink {
+          color: white;
+          text-decoration: underline;
+          font-weight: 600;
+          transition: opacity 0.2s ease;
+        }
+
+        .paragraph-hyperlink:hover {
+          opacity: 0.8;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .conclusion-box {
+            padding: 25px 20px;
+          }
+
+          .conclusion-box h3 {
+            font-size: 1.5rem;
+          }
+
+          .cta-section {
+            padding: 25px 20px;
+          }
+
+          .cta-heading {
+            font-size: 1.5rem;
+          }
+
+          .cta-buttons {
+            flex-direction: column;
+            gap: 15px;
+          }
+
+          .cta-button {
+            width: 100%;
+            padding: 12px 25px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section9">
+      <h2 class="section-heading">
+        Final Recommendation from Joe Cooper Hyundai of Midwest City
+      </h2>
+
+      <div class="conclusion-box">
+        <p>
+          For drivers seeking a subcompact SUV that balances power, technology,
+          practicality, and peace of mind, the
+         2026 Hyundai Kona
+          emerges as the clear leader. Its available all-wheel drive,
+          turbocharged engine, advanced safety suite, and spacious, tech-forward
+          interior provide a more versatile and enjoyable driving experience
+          than the Kia Niro. When paired with Hyundai's industry-leading
+          warranty and complimentary maintenance, the Kona offers long-term
+          value that extends beyond the initial purchase. Whether navigating
+          city streets, commuting, or running errands, the Kona is engineered to
+          make everyday driving smarter, safer, and more satisfying.
+        </p>
+      </div>
+
+      <div class="cta-section">
+        <h3 class="cta-heading">
+          Experience the 2026 Hyundai Kona for Yourself
+        </h3>
+        <p class="cta-text">
+          If you have further questions or enquiries,
+          <a
+            href="https://joecooperhyundai.com/contact"
+            style="color: #0f3079; font-weight: 600; text-decoration: underline"
+            >contact us</a today
+          >
+          or visit Joe Cooper Hyundai of Midwest City to explore our  <a
+            href="https://joecooperhyundai.com/cars/new-kona?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Age%22%2C%22value%22%3A%22age%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D" 
+            target="_blank" style="text-decoration: underline; color: #0f3079 !important; font-weight: 600;">new 2026
+          Hyundai Kona models</a> and schedule your personalized test drive.
+        </p>
+
+        <div class="dealership-info">
+          <p class="dealership-name">Joe Cooper Hyundai of Midwest City</p>
+          <p class="dealership-address">
+            📍 6601 SE 29th St, Midwest City, OK 73110<br />
+
+            <br />
+            🌐
+            <a
+              href="https://joecooperhyundai.com"
+              target="_blank"
+              style="color: #0f3079; text-decoration: none"
+              >joecooperhyundai.com</a
+            >
+          </p>
+        </div>
+
+        <div class="cta-buttons">
+          <a
+            href="https://joecooperhyundai.com/cars/new-kona?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Age%22%2C%22value%22%3A%22age%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D"
+            class="cta-button cta-button-primary"
+            >Check out Hyundai Kona models</a
+          >
+          <a
+            href="https://joecooperhyundai.com/contact"
+            class="cta-button cta-button-secondary"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

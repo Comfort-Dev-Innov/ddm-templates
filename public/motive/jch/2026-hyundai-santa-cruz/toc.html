@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 15px;
+        margin: 0 auto;
+        width: 100% !important;
+        margin-bottom: 35px;
+        border-bottom: 3px solid #0f3079;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 28px !important;
+        letter-spacing: 0.1em !important;
+        color: #0f3079;
+        position: relative;
+      }
+
+      .toc-title::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .toc-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 50px;
+        margin: 40px 0;
+        box-shadow: 0 8px 25px rgba(15, 48, 121, 0.1);
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        counter-reset: toc-counter;
+      }
+
+      .toc-list li {
+        position: relative;
+        padding: 20px 25px 20px 70px;
+        background: white;
+        border-radius: 10px;
+        border-left: 5px solid #0f3079;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        counter-increment: toc-counter;
+      }
+
+      .toc-list li::before {
+        content: counter(toc-counter);
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #0f3079, #2d5aa0);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(15, 48, 121, 0.3);
+      }
+
+      .toc-list li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-left-color: #ff6b35;
+      }
+
+      .toc-list li:hover::before {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+      }
+
+      .toc-list a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        display: block;
+      }
+
+      .toc-list a:hover {
+        color: #ff6b35;
+      }
+
+      @media (max-width: 1024px) {
+        .toc-section {
+          padding: 40px 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .toc-list {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .toc-section {
+          padding: 30px 20px;
+        }
+
+        .toc-list li {
+          padding: 15px 20px 15px 65px;
+        }
+
+        .toc-list li::before {
+          width: 35px;
+          height: 35px;
+          font-size: 16px;
+          left: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="toc-section">
+        <h3 class="toc-title">Table of Contents</h3>
+        <ul class="toc-list">
+          <br />
+          <li>
+            <a href="#body-on-frame">Body-on-Frame Overview</a>
+          </li>
+          <li>
+            <a href="#turbo-power-performance">Turbo Power & Performance</a>
+          </li>
+          <li>
+            <a href="#driving-dynamics">Driving Dynamics</a>
+          </li>
+          <li>
+            <a href="#utility-cargo-capacity">Utility and Cargo Capacity</a>
+          </li>
+          <li>
+            <a href="#trim-breakdown">The Definitive Trim-by-Trim Breakdown</a>
+          </li>
+          <li>
+            <a href="#exterior-interior-design"
+              >The Exterior and Interior Cabin Design</a
+            >
+          </li>
+          <li>
+            <a href="#ownership-advantage"
+              >The Ownership Advantage: Warranty, Maintenance, and Peace of
+              Mind</a
+            >
+          </li>
+          <li id="body-on-frame">
+            <a href="#final-thoughts"
+              >Final Thoughts: Why the 2026 Hyundai Santa Cruz Stands Out</a
+            >
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

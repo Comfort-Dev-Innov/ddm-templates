@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparing the 2026 Ford F-150 to the 2025 Model</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f7fa;
+        padding: 2rem 1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .container {
+        max-width: 1140px !important;
+        margin: 0 auto;
+      }
+
+      .hero-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%);
+      }
+
+      .hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-intro {
+        font-size: 1.1rem;
+        color: #4a5568;
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #e9ecef;
+      }
+
+      .section-wrapper {
+        margin-top: 3rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .section-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 80%;
+        background: linear-gradient(180deg, #003366 0%, #0066cc 100%);
+        border-radius: 3px;
+      }
+
+      .section-image-wrapper {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        position: relative;
+      }
+
+      .section-image-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0, 51, 102, 0) 0%, rgba(0, 51, 102, 0.1) 100%);
+        pointer-events: none;
+      }
+
+      .section-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .section-image-wrapper:hover .section-image {
+        transform: scale(1.03);
+      }
+
+      .content-block {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .content-block p {
+        margin-bottom: 1.5rem;
+        color: #2d3748;
+        font-size: 1.05rem;
+      }
+
+      .content-block p:last-child {
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #003366;
+      }
+
+      .feature-emphasis {
+        background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #78350f;
+      }
+
+      .info-box {
+        background: white;
+        border: 2px solid #e3f2fd;
+        border-radius: 12px;
+        padding: 1.8rem;
+        margin: 2rem 0;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08);
+      }
+
+      .info-box-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #003366;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .info-box-title::before {
+        content: "ⓘ";
+        font-size: 1.5rem;
+        margin-right: 0.8rem;
+        color: #0066cc;
+      }
+
+      .info-box p {
+        color: #4a5568;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .comparison-card {
+        background: white;
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-card:hover {
+        border-color: #0066cc;
+        box-shadow: 0 8px 25px rgba(0, 51, 102, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .comparison-card-year {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #003366;
+        margin-bottom: 0.5rem;
+      }
+
+      .comparison-card-label {
+        font-size: 0.9rem;
+        color: #6c757d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1rem;
+      }
+
+      .comparison-card-content {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .content-block {
+          padding: 1.5rem;
+        }
+
+        .section-title {
+          padding-left: 1rem;
+        }
+
+        .section-wrapper {
+          margin-top: 2rem;
+        }
+
+        .info-box {
+          padding: 1.5rem;
+        }
+
+        .comparison-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .hero-section {
+          padding: 1.5rem 1rem;
+        }
+
+        .content-block {
+          padding: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+        }
+
+        .section-image-wrapper {
+          margin-bottom: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="comparing-2026-2025">
+      <div class="hero-section">
+        <h1 class="hero-title">
+          Comparing the 2026 Ford F-150 to the 2025 Model
+        </h1>
+        
+        <p class="hero-intro">
+          While the 2026 Ford F-150 is largely a carryover from the 2025 model, it introduces several targeted updates that enhance driver experience, safety, and powertrain efficiency.
+        </p>
+
+        <!-- Technology Section -->
+        <div class="section-wrapper">
+          <h2 class="section-title">Technology and Interior Refinements</h2>
+          
+          <div class="section-image-wrapper">
+            <img 
+              src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:d6bfb94d-da4e-471b-a761-18297bc9f061/as/26_FRD_F15_62074.webp?max-quality=75&crop-names=1_16x7&width=1920" 
+              alt="2026 Ford F-150 Technology and Interior"
+              class="section-image"
+            />
+          </div>
+          
+          <div class="content-block">
+            <p>
+              The 2026 model steps up with a more responsive <span class="feature-emphasis">SYNC infotainment system</span>, featuring faster processing speeds and the potential integration of SYNC 5 technology. This means smoother navigation, quicker app responsiveness, and improved voice commands — a significant leap for tech-savvy users in the <span class="highlight">Greater Seattle area</span>.
+            </p>
+            <p>
+              Additionally, the 2026 F-150 expands the availability of a <span class="feature-emphasis">12-inch digital instrument cluster</span>, giving drivers clearer and more customizable information displays.
+            </p>
+          </div>
+
+          <div class="content-block">
+            <p>
+              Ford has also added a <span class="feature-emphasis">driver-facing attention monitoring camera</span> in select trims, enhancing safety by detecting driver distraction or fatigue. Wireless charging capabilities have been improved across trims, allowing for faster, more convenient device charging during long trips.
+            </p>
+          </div>
+        </div>
+
+        <!-- Powertrain Section -->
+        <div class="section-wrapper">
+          <h2 class="section-title">Powertrain and Performance Updates</h2>
+          
+          <div class="section-image-wrapper">
+            <img 
+              src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:e984260d-346d-420b-9e80-dd12069379e8/as/2024_F150_ENG_99J_52L.webp?max-quality=75&crop-names=1_16x7&width=1920" 
+              alt="2026 Ford F-150 Powertrain Engine"
+              class="section-image"
+            />
+          </div>
+          
+          <div class="content-block">
+            <p>
+              Both 2025 and 2026 models share a similar array of engines, but the 2026 version introduces minor tuning refinements aimed at smoother throttle response and more seamless transmission shifts, especially when towing heavy loads. This is critical for drivers regularly hauling trailers or boats around the <span class="highlight">Tacoma</span> or <span class="highlight">Federal Way</span> regions.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-title">Environmental Commitment</div>
+            <p>
+              A notable change is the addition of <span class="feature-emphasis">gasoline particulate filters</span> on some engines in the 2026 lineup to meet stricter emissions regulations. While this reduces horsepower slightly on affected engines, it represents a commitment to environmental standards without sacrificing the F-150's renowned capability.
+            </p>
+          </div>
+        </div>
+
+        <!-- Safety Section -->
+        <div class="section-wrapper">
+          <h2 class="section-title">Safety and Driver Assistance Enhancements</h2>
+          
+          <div class="section-image-wrapper">
+            <img 
+              src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:fddb01e3-9f32-4ec1-b05e-195bdac5d8ae/as/26_FRD_F15_62062.webp?max-quality=75&crop-names=1_8x9&width=1920" 
+              alt="2026 Ford F-150 Safety and Driver Assistance"
+              class="section-image"
+            />
+          </div>
+          
+          <div class="content-block">
+            <p>
+              Ford has broadened the availability of <span class="feature-emphasis">BlueCruise</span>, the industry-leading hands-free highway driving system, to more trims in 2026. This feature enhances long-distance driving comfort on highways like <span class="highlight">I-5</span>, reducing driver fatigue.
+            </p>
+            <p>
+              Trailer sway control and <span class="feature-emphasis">Pro Trailer Backup Assist</span> systems have received upgrades, improving trailer handling and safety during maneuvering.
+            </p>
+          </div>
+
+          <div class="content-block">
+            <p>
+              The 2025 model already comes equipped with the <span class="feature-emphasis">Ford Co-Pilot360</span> suite, including automatic emergency braking, blind-spot monitoring, and lane-keeping assist. The 2026 model builds upon this foundation, reinforcing Ford's position as a leader in truck safety technology.
+            </p>
+          </div>
+        </div>
+
+        <!-- Comparison Grid -->
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <div class="comparison-card-year">2025</div>
+            <div class="comparison-card-label">Foundation Model</div>
+            <div class="comparison-card-content">
+              Established technology suite with proven reliability and comprehensive safety features
+            </div>
+          </div>
+          
+          <div class="comparison-card">
+            <div class="comparison-card-year">2026</div>
+            <div class="comparison-card-label">Enhanced Model</div>
+            <div class="comparison-card-content">
+              Refined performance, expanded tech availability, and improved environmental compliance
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

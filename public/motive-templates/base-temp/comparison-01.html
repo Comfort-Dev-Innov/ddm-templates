@@ -1,0 +1,356 @@
+<html lang="en">
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .new-truck-pros-cons,
+      .used-truck-pros-cons {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+
+      /* Pros and Cons Section */
+      .pros-cons-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 600px;
+        margin: 0 40px;
+        margin-bottom: 50px;
+      }
+
+      .pros-section {
+        background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-left: 1px solid #059669;
+        border-top: 1px solid #059669;
+        border-bottom: 1px solid #059669;
+        border-right: 1px solid #b4b4b4;
+      }
+
+      .cons-section {
+        background: linear-gradient(135deg, #fef7f7 0%, #fdf2f2 100%);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-right: 1px solid #dc2626;
+        border-top: 1px solid #dc2626;
+        border-bottom: 1px solid #dc2626;
+      }
+
+      .compare-section-content {
+        padding: 2rem;
+        height: 100%;
+      }
+
+      .compare-section-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        margin-top: 0px;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .pros-section .compare-section-title {
+        color: #059669;
+      }
+
+      .cons-section .compare-section-title {
+        color: #dc2626;
+      }
+
+      .icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .pros-icon {
+        background: #059669;
+        color: white;
+      }
+
+      .cons-icon {
+        background: #dc2626;
+        color: white;
+      }
+
+      .points-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .point-item {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        padding: 1.25rem;
+        border-left: 4px solid transparent;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .pros-section .point-item {
+        border-left-color: #059669;
+        box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+      }
+
+      .cons-section .point-item {
+        border-left-color: #dc2626;
+        box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+      }
+
+      .point-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .point-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .pros-section .point-title {
+        color: #065f46;
+      }
+
+      .cons-section .point-title {
+        color: #991b1b;
+      }
+
+      .point-description {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .point-bullet {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 0.6rem;
+      }
+
+      .pros-section .point-bullet {
+        background: #059669;
+      }
+
+      .cons-section .point-bullet {
+        background: #dc2626;
+      }
+
+      @media (max-width: 1000px) {
+        .pros-cons-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pros-section {
+          border: 1px solid #059669;
+          border-radius: 20px;
+          margin-bottom: 20px;
+        }
+
+        .cons-section {
+          border: 1px solid #dc2626;
+          border-radius: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .points-list {
+          padding-left: 0;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .pros-cons-grid {
+          margin: 0 15px;
+        }
+
+        .compare-section-content {
+          padding: 2rem 0.5rem;
+        }
+
+        .compare-section-title {
+          flex-direction: column;
+        }
+
+        .pros-section .point-item {
+          border-left: 0px;
+          border-top: 3px solid #059669;
+        }
+
+        .cons-section .point-item {
+          border-left: none;
+          border-top: 3px solid #dc2626;
+        }
+
+        .point-title {
+          font-size: 16px;
+        }
+
+        .point-description {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <section id="new-truck-pros-cons">    
+              <div class="pros-cons-grid">
+                <div class="pros-section">
+                  <div class="compare-section-content">
+                    <h3 class="compare-section-title">
+                      <div class="icon pros-icon">✓</div>
+                      Pros of Buying New:
+                    </h3>
+                    <ul class="points-list">
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Full Factory Warranty
+                        </div>
+                        <p class="point-description">
+                          A new Ford comes with a comprehensive bumper-to-bumper and
+                          powertrain warranty. If anything goes wrong in the first
+                          few years, repairs are covered, offering predictable
+                          ownership costs.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Cutting-Edge Technology
+                        </div>
+                        <p class="point-description">
+                          The 2025 models feature Ford's most advanced tech. This
+                          can include the hands-free BlueCruise highway driving
+                          system, the versatile Pro Power Onboard generator, larger
+                          touchscreens with SYNC® 4, and the latest suite of
+                          Co-Pilot360™ safety assists.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Pristine Condition
+                        </div>
+                        <p class="point-description">
+                          You are the first owner. There are no scratches, no hidden
+                          wear and tear, and no questions about its history. The
+                          interior and exterior are flawless.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Better Financing Rates
+                        </div>
+                        <p class="point-description">
+                          Manufacturers often offer promotional financing rates on
+                          new vehicles, such as 0% APR for qualified buyers, which
+                          can be lower than typical used auto loan rates.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Latest Powertrains & Efficiency
+                        </div>
+                        <p class="point-description">
+                          Automakers are constantly refining engines for better
+                          performance and fuel economy. A 2025 model will have the
+                          most current and efficient version of the PowerBoost
+                          Hybrid, EcoBoost V6, or Power Stroke® diesel engines.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+    
+                <div class="cons-section">
+                  <div class="compare-section-content">
+                    <h3 class="compare-section-title">
+                      <div class="icon cons-icon">✗</div>
+                      Cons of Buying New:
+                    </h3>
+                    <ul class="points-list">
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Rapid Depreciation
+                        </div>
+                        <p class="point-description">
+                          The single biggest drawback is depreciation. A new vehicle
+                          can lose up to 20% of its value in the first year alone.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Higher Purchase Price
+                        </div>
+                        <p class="point-description">
+                          A new truck carries a significantly higher Manufacturer's
+                          Suggested Retail Price (MSRP) than a comparable used
+                          model.
+                        </p>
+                      </li>
+                      <li class="point-item">
+                        <div class="point-title">
+                          <div class="point-bullet"></div>
+                          Higher Insurance Costs
+                        </div>
+                        <p class="point-description">
+                          The higher value of a new truck typically translates to
+                          higher monthly insurance premiums.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </div>
+  </body>
+</html>

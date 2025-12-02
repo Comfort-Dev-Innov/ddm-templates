@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Required Motive styling overrides */
+      .numberedContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .numberedContainer h3,
+      .numberedContainer h1,
+      .numberedContainer h2,
+      .numberedContainer p,
+      .numberedContainer ol,
+      .numberedContainer ul {
+        max-width: 1300px !important;
+      }
+
+      .main-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 3rem;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.2s forwards;
+        position: relative;
+        width: 100% !important;
+      }
+
+      .main-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #012b5d, #0056b3, #4a90e2, #0056b3, #012b5d);
+        border-radius: 2px;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.8s forwards;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+        color: #555;
+        text-align: center;
+        margin-top: 3rem !important;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.4s forwards;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:nth-child(1) {
+        animation-delay: 0.6s;
+      }
+      .feature-item:nth-child(2) {
+        animation-delay: 0.8s;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-number {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(1, 43, 93, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .feature-number:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(1, 43, 93, 0.3);
+      }
+
+      .feature-content {
+        flex: 1;
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #012b5d;
+        margin: 0 0 1rem 0;
+        position: relative;
+      }
+
+      .feature-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        transition: width 0.5s ease;
+      }
+
+      .feature-item:hover .feature-title::after {
+        width: 100px;
+      }
+
+      .feature-description {
+        color: #555;
+        margin: 0 0 1.5rem 0;
+        font-size: 1rem;
+        padding-top: 10px;
+      }
+
+      .feature-description p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .feature-description p:last-child {
+        margin-bottom: 0;
+      }
+
+      .highlight-callout {
+        background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+        border-left: 4px solid #012b5d;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #012b5d;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 10px rgba(1, 43, 93, 0.1);
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 800px;
+        height: 400px;
+        margin: 3rem auto 4rem auto;
+        background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #012b5d;
+        font-size: 1.2rem;
+        opacity: 0;
+        animation: fadeInScale 1.2s ease-out 0.8s forwards;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        outline: 1px dashed #012b5d;
+        outline-offset: 8px;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      .image-placeholder {
+        text-align: center;
+        height: 100%;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .numberedContainer {
+          padding: 20px 15px !important;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .feature-item {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .feature-number {
+          margin: 0 auto;
+        }
+
+        .hero-image {
+          height: 250px;
+          margin: 2rem auto;
+        }
+
+        .feature-title::after {
+          left: calc(50% - 50px);
+        }
+      }
+
+      .numberedContainer a {
+        color: #012b5d;
+        text-decoration: underline;
+        font-weight: 600;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .numberedContainer a:hover {
+        color: #0056b3;
+        transition: all 0.3s ease;
+      }
+
+      /* Scroll animations */
+      @media (prefers-reduced-motion: no-preference) {
+        .scroll-reveal {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="numberedContainer">
+      <h1 class="main-title">
+        Engine, Performance, and Capability
+      </h1>
+
+      <p class="intro-text">
+        At the core of the 2025 Santa Fe is a choice—a choice that allows you to perfectly align your vehicle's performance with your unique Oklahoma lifestyle. Hyundai offers two distinct and highly capable powertrains: the 2.5L Turbocharged engine, designed for those who prioritize robust performance and maximum capability, and the brilliantly efficient 1.6L Turbo Hybrid, crafted for drivers focused on optimizing every gallon of gas during their daily journeys.
+      </p>
+
+      <div class="hero-image">
+        <div class="image-placeholder">
+          <img src="https://www.hyundai.com/content/dam/hyundai/ph/en/images/find-a-car/pip/2024SantaFe/local-santa-fe-hybrid-2.jpg"/>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-number">1</div>
+          <div class="feature-content">
+            <h3 class="feature-title">The 2.5L Turbocharged GDI/MPI Engine</h3>
+            <div class="feature-description">
+              <p>For those who crave responsive power and commanding performance, the standard 2.5L Turbocharged engine is an exceptional choice. This advanced powertrain delivers an impressive 277 horsepower and a massive 311 lb-ft of torque.</p>
+              
+              <div class="highlight-callout">
+                These aren't just numbers on a page; they translate into tangible, real-world confidence.
+              </div>
+              
+              <p>It's the feeling of effortless acceleration as you merge onto a bustling I-35 during rush hour, the smooth power delivery, and the quiet assurance that you have ample power in reserve, even with a full complement of passengers and cargo.</p>
+              
+              <p>This potent engine is paired with a sophisticated 8-speed wet dual-clutch transmission (DCT) featuring SHIFTRONIC® manual shifting capability.</p>
+              
+              <div class="highlight-callout">
+                This modern gearbox provides lightning-fast, crisp shifts that enhance both performance and fuel efficiency.
+              </div>
+              
+              <p>Whether you're navigating the stop-and-go traffic of Bricktown after a Thunder game or enjoying a long, smooth cruise down to Dallas for the weekend, the transmission operates with a refined precision that makes every drive more enjoyable. This powertrain gives you the muscle needed for the diverse demands of Oklahoma life, ensuring you're always prepared.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">2</div>
+          <div class="feature-content">
+            <h3 class="feature-title">The 1.6L Turbocharged GDI Hybrid System: The Smart Choice for City and Beyond</h3>
+            <div class="feature-description">
+              <p>If your daily life involves more city commuting than open-highway cruising, the 1.6L Turbo Hybrid powertrain presents a brilliantly smart alternative.</p>
+              
+              <div class="highlight-callout">
+                This system is a marvel of efficiency, offering substantial fuel savings without asking you to change a single thing about your driving routine.
+              </div>
+              
+              <p>It masterfully blends a 1.6L turbocharged gasoline engine (producing 178 horsepower) with a potent 44.2 kW electric motor. Working in concert, they deliver a combined system output of 231 horsepower and 271 lb-ft of torque, providing smooth, responsive acceleration whenever you need it.</p>
+              
+              <p>The Santa Fe Hybrid operates as a "parallel hybrid," meaning it can be powered by the gasoline engine, the electric motor, or both simultaneously. The vehicle's intelligent energy management system automatically and seamlessly switches between these power sources to optimize performance and efficiency in any given situation. At low speeds or when coasting, the electric motor can power the vehicle alone for silent, zero-emission driving. During acceleration, the gas engine and electric motor team up for a confident surge of power.</p>
+              
+              <div class="highlight-callout">
+                Best of all, this is a "plug-free" hybrid. You never need to plug it in to charge the battery.
+              </div>
+              
+              <p>The system recharges itself through a process called regenerative braking, which cleverly captures the kinetic energy that is normally lost when you slow down or brake and converts it into electricity to be stored in the battery. For you, this means incredible fuel economy—up to an EPA-estimated 36 MPG combined on front-wheel-drive models—which translates directly into fewer trips to the gas station and significant savings over time. It's the perfect setup for anyone commuting from suburbs like Edmond or Moore into the city, turning every traffic jam into an opportunity to save fuel. Furthermore, unlike many hybrids that use a continuously variable transmission (CVT), the Santa Fe Hybrid employs a conventional 6-speed automatic, providing the familiar, engaging driving feel that many Oklahomans prefer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      }, observerOptions);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollElements = document.querySelectorAll(
+          ".feature-item, .hero-image"
+        );
+        scrollElements.forEach((el) => {
+          el.classList.add("scroll-reveal");
+          observer.observe(el);
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const heroImage = document.querySelector(".hero-image");
+        const rate = scrolled * -0.2;
+
+        if (heroImage) {
+          heroImage.style.transform = `translateY(${rate}px)`;
+        }
+      });
+    </script>
+  </body>
+</html>

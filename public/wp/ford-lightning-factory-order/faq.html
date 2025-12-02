@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ford F-150 FAQ</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+       details summary::-webkit-details-marker {
+           display: none;
+       }
+       details summary::marker {
+           display: none;
+       }
+       .arrow {
+           transition: transform 0.3s ease;
+       }
+       details[open] .arrow {
+           transform: rotate(180deg);
+       }
+       .answer-content {
+           animation: slideDown 0.3s ease-out;
+       }
+       @keyframes slideDown {
+           from {
+               opacity: 0;
+               transform: translateY(-10px);
+           }
+           to {
+               opacity: 1;
+               transform: translateY(0);
+           }
+       }
+   </style>
+</head>
+<body>
+   <section class="!py-12 !px-8 !my-8 !bg-white md:!py-8 md:!px-4">
+       <div class="!max-w-5xl !mx-auto">
+           <h2 class="!text-4xl md:!text-3xl !font-bold !text-gray-900 !mb-8 !leading-tight !pb-2 !border-b-4 !border-blue-600 !text-center">Online Reservation FAQs</h2>
+           
+           <div class="!bg-gray-50 !rounded-xl !overflow-hidden !shadow-lg">
+               <details class="!border-b !border-gray-300 group">
+                   <summary class="!bg-white !p-6 !cursor-pointer !list-none md:!p-4 !flex !justify-between !items-center hover:!bg-gray-50 !transition-colors !duration-200">
+                       <h3 class="!text-lg !font-semibold !text-gray-700">What is a reservation?</h3>
+                       <span class="arrow !text-blue-600 !text-xl !font-bold">▼</span>
+                   </summary>
+                   <div class="answer-content !bg-white !p-6 !text-base !text-gray-600 !leading-relaxed md:!p-4">
+                       A reservation puts you on our list to be among the first to order a 2026 Ford F-150. It is not an actual order and does not guarantee delivery. While you're waiting for the order banks to open, we will keep you updated on all things Maverick.
+                   </div>
+               </details>
+
+               <details class="!border-b !border-gray-300 group">
+                   <summary class="!bg-white !p-6 !cursor-pointer !list-none md:!p-4 !flex !justify-between !items-center hover:!bg-gray-50 !transition-colors !duration-200">
+                       <h3 class="!text-lg !font-semibold !text-gray-700">What steps are required to complete my reservation?</h3>
+                       <span class="arrow !text-blue-600 !text-xl !font-bold">▼</span>
+                   </summary>
+                   <div class="answer-content !bg-white !p-6 !text-base !text-gray-600 !leading-relaxed md:!p-4">
+                       Go online and select <strong>"Step 1 Start Reservation"</strong> fill out the reservation form and submit your request to join the list for a new 2026 Ford F-150 truck. A confirmation will display after the form is submitted and an email <strong>will</strong> be sent to the address in the reservation form.
+                   </div>
+               </details>
+
+               <details class="!border-b !border-gray-300 group">
+                   <summary class="!bg-white !p-6 !cursor-pointer !list-none md:!p-4 !flex !justify-between !items-center hover:!bg-gray-50 !transition-colors !duration-200">
+                       <h3 class="!text-lg !font-semibold !text-gray-700">When can I order my F-150?</h3>
+                       <span class="arrow !text-blue-600 !text-xl !font-bold">▼</span>
+                   </summary>
+                   <div class="answer-content !bg-white !p-6 !text-base !text-gray-600 !leading-relaxed md:!p-4">
+                       Prior to order banks opening, we will reach out to help you complete your F-150 build. We'll be able to answer any questions, come to a pricing agreement, and then submit your order as soon as order banks open. We expect the ordering window to open sometime this summer/fall.
+                   </div>
+               </details>
+
+               <details class="!border-b !border-gray-300 group">
+                   <summary class="!bg-white !p-6 !cursor-pointer !list-none md:!p-4 !flex !justify-between !items-center hover:!bg-gray-50 !transition-colors !duration-200">
+                       <h3 class="!text-lg !font-semibold !text-gray-700">When will my vehicle be delivered?</h3>
+                       <span class="arrow !text-blue-600 !text-xl !font-bold">▼</span>
+                   </summary>
+                   <div class="answer-content !bg-white !p-6 !text-base !text-gray-600 !leading-relaxed md:!p-4">
+                       Production and delivery timing varies depending on configuration and order submission date. Since this is one of our most popular models, delivery typically takes 4+ months. Once Ford schedules your order for production, you will be able to track your Super Duty production and delivery progress.
+                   </div>
+               </details>
+
+               <details class="group">
+                   <summary class="!bg-white !p-6 !cursor-pointer !list-none md:!p-4 !flex !justify-between !items-center hover:!bg-gray-50 !transition-colors !duration-200">
+                       <h3 class="!text-lg !font-semibold !text-gray-700">Am I buying this vehicle directly from Ford?</h3>
+                       <span class="arrow !text-blue-600 !text-xl !font-bold">▼</span>
+                   </summary>
+                   <div class="answer-content !bg-white !p-6 !text-base !text-gray-600 !leading-relaxed md:!p-4">
+                       No. The purchase agreement will be between you and Bowen Scarff Ford, not you and Ford Motor Company.
+                   </div>
+               </details>
+           </div>
+
+           <div class="!bg-gradient-to-br !from-yellow-100 !to-yellow-200 !border !border-yellow-400 !p-6 !rounded-lg !mt-8">
+               <p class="!font-bold !text-yellow-800 !mb-2">DISCLAIMER:</p>
+               <p class="!text-yellow-800 !text-sm !leading-normal">By completing the reservation process, you are not ordering or purchasing a vehicle. Participation in the program does not guarantee your vehicle delivery. Your reservation does not guarantee a set price for the vehicle.</p>
+           </div>
+       </div>
+   </section>
+</body>
+</html>

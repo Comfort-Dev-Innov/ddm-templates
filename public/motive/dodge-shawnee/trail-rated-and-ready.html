@@ -1,0 +1,377 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .blog-content { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    .blog-content * { max-width: 100% !important; box-sizing: border-box; }
+    /* Typography */
+    .blog-content p { margin: 1em 0; }
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .blog-content h2 { font-size: 1.6em; }
+    .blog-content h3 { font-size: 1.35em; }
+    /* Tables */
+    .blog-content table.e-rte-table { width: 100%; border-collapse: collapse; font-size: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; margin: 32px 0; }
+    .blog-content table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-content table.e-rte-table th, .blog-content table.e-rte-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    .blog-content table.e-rte-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; }
+    .blog-content table.e-rte-table td { color: #374151; }
+    .blog-content table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-content table.e-rte-table tbody tr:hover { background: #eef2ff; transition: background 0.2s ease-in-out; }
+    .blog-content table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-content table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-content table.e-rte-table th,
+      .blog-content table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    /* Links */
+    .blog-content a { color: #1e3a8a !important; font-weight: 600 !important; text-decoration: underline; text-decoration-thickness: 1.5px; }
+    .blog-content a:hover { color: #15306e !important; }
+    /* TOC */
+    .blog-content h2 + ul { border: 1px solid #e5e7eb; padding: 16px; margin: 24px 0; background: #f9fafb; border-radius: 8px; list-style: none; }
+    .blog-content h2 + ul li { margin: 6px 0; }
+    .blog-content h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-content h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    /* offset for fixed navbars */
+    .blog-content h2[id], .blog-content h3[id], .blog-content h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-content :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 0% { background-color: #fff3cd; } 100% { background-color: transparent; } }
+  
+    /* Images */
+    .blog-content .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .blog-content .article-image img { max-width:100%; border-radius:8px; display:block; }
+    /* floating */
+    .blog-content .article-image.float-right { float: right; margin-left: 16px; margin-bottom: 12px; max-width: 45%; }
+    .blog-content .article-image.float-left { float: left; margin-right: 16px; margin-bottom: 12px; max-width: 45%; }
+    /* clear fix after floats */
+    .blog-content .clearfix::after { content:""; display:table; clear:both; }
+  
+    /* Image Wrapper Styles */
+    .blog-content .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .blog-content .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-content .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .blog-content .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .blog-content .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-content .image-float-left, .blog-content .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .blog-content .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .blog-content .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .blog-content .image-float-left img, .blog-content .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .blog-content .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .blog-content .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-content .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-content .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-content .image-grid img {
+        border: none;
+      }
+  
+      .blog-content .image-float-left img,
+      .blog-content .image-float-right img {
+        border: none;
+      }
+    }
+  
+    </style><div class="blog-content"><p>Experience the timeless spirit of adventure and rugged capability with the <strong>2026 Jeep Wrangler 2-Door Base</strong>, now available at <strong>Joe Cooper Dodge Jeep of Shawnee</strong>. Perfectly suited for both daily drives through Norman, OK, and exhilarating off-road expeditions near Meeker, OK, this iconic SUV blends heritage with modern-day reliability. Our knowledgeable team warmly invites you to explore the features that have made the Wrangler a legend across communities like Harrah, OK, and McLoud, OK. Whether navigating city streets in Shawnee or venturing to the outskirts of Prague, OK, the Wrangler Base offers versatility crafted for your lifestyle.</p>
+        <div class="image-grid">
+            <img src="https://i.ibb.co/JRVThwMj/JP026-002-WR.jpg" alt="2026 Jeep Wrangler Showcase">
+            <img src="https://i.ibb.co/cBnzR28/JP026-003-WR.jpg" alt="2026 Jeep Wrangler Front View">
+            </div>
+    
+    <h2 id="table-of-contents">Table of Contents</h2><ul>
+  <li><a href="#a-legacy-of-wrangler-the-2026-base-model-overview">A Legacy of Wrangler: The 2026 Base Model Overview</a></li></li>
+  <li><a href="#signature-exterior-design-and-styling-highlights">Signature Exterior Design and Styling Highlights</a></li></li>
+  <li><a href="#engineered-for-adventure-performance-and-handling">Engineered for Adventure: Performance and Handling</a></li></li>
+  <li><a href="#interior-comfort-for-every-journey">Interior Comfort for Every Journey</a></li></li>
+  <li><a href="#technology-that-keeps-you-connected">Technology That Keeps You Connected</a></li></li>
+  <li><a href="#safety-systems-grounded-in-confidence">Safety Systems Grounded in Confidence</a></li></li>
+  <li><a href="#trim-levels-and-packages-tailoring-your-jeep">Trim Levels and Packages: Tailoring Your Jeep</a></li></li>
+  <li><a href="#coverage-and-care-warranty-and-maintenance">Coverage and Care: Warranty and Maintenance</a></li></li>
+  <li><a href="#why-choose-joe-cooper-dodge-jeep-of-shawnee">Why Choose Joe Cooper Dodge Jeep Of Shawnee</a></li></li>
+  </ul><h3 id="a-legacy-of-wrangler-the-2026-base-model-overview">A Legacy of Wrangler: The 2026 Base Model Overview</h3><p>The <strong>2026 Jeep Wrangler 2-Door Base</strong> stands as a beacon of durability and authentic off-road capability, built for drivers around Moore, OK, and Tecumseh, OK, who value tradition backed by proven engineering. The Wrangler remains true to its roots, delivering an SUV that not only meets daily utility needs but also conquers rough terrains with ease. The Base model serves as the entry point into the renowned Wrangler lineup, offering a sturdy foundation for outdoor enthusiasts in towns like Seminole, OK, and Oklahoma City, OK.</p><p>This version preserves classic Jeep design cues while integrating improvements that enhance functionality and driver engagement. Its compact 2-door configuration strikes a balance between maneuverability and cargo efficiency, ideal for navigating the urban environments of Choctaw, OK, or weekend adventures out of Jones, OK.</p><p>As an embodiment of Jeep’s commitment to rugged dependability, the Wrangler Base arrives calibrated to stand up to the demands faced by residents in Bethel Acres, OK, and Newalla, OK — ready for both local journeys and far-flung explorations.</p><h3 id="signature-exterior-design-and-styling-highlights">Signature Exterior Design and Styling Highlights</h3>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://i.ibb.co/Ldz7rxvp/JP026-019-WR.jpg" alt="2026 Jeep Wrangler Exterior Design">
+</div>
+</div>
+
+<h2 id="iconic-silhouette-with-modern-touches">Iconic Silhouette with Modern Touches</h2><p>The 2026 Wrangler 2-Door Base proudly retains the unmistakable Jeep silhouette that has become synonymous with off-road prowess around Shawnee, OK, and the surrounding areas. Its upright front grille with seven slots, round headlamps, and bold fender flares uphold Jeep’s heritage of purposeful styling. The compact stance ensures a commanding presence while allowing tighter turning radii — a genuine advantage in confined city streets of Bethel Acres, OK.</p><h2 id="functional-features-with-rugged-appeal">Functional Features with Rugged Appeal</h2><p>Durability is evident in its exterior features:</p><ul>
+  <li>Heavy-duty steel frame supports challenging terrains near McLoud, OK</li>
+  <li>Removable doors and fold-down windshield enable open-air freedom on sunny days around Harrah, OK</li>
+  <li>Standard approach and departure angles designed to conquer obstacles confidently in Prague, OK</li>
+  </ul>
+  <div class="image-grid">
+    <img src="https://i.ibb.co/bRJJcRrc/JP026-022-WR.jpg" alt="Jeep Wrangler Rugged Exterior">
+    <img src="https://i.ibb.co/4gCwRYtf/JP026-029-WR.jpg" alt="Jeep Wrangler Side Profile">
+    <img src="https://i.ibb.co/Fqnx7bNB/JP026-035-WR.jpg" alt="Jeep Wrangler Off-Road Ready">
+    </div><h2 id="wheel-and-tire-configuration">Wheel and Tire Configuration</h2><p>The Wrangler Base is equipped with 17-inch steel wheels fitted with all-terrain tires engineered to provide traction on varied surfaces prevalent in Newalla, OK, and Tecumseh, OK. This combination balances on-road comfort with off-road readiness, preparing owners to tackle diverse environments from paved roads to rugged trails.</p>
+  <div class="image-grid">
+    <img src="https://i.ibb.co/21pK28Qz/JP026-038-WR.jpg" alt="Jeep Wrangler Wheel Configuration">
+    <img src="https://i.ibb.co/pvzzQ2gh/JP026-046-WR.jpg" alt="Jeep Wrangler All-Terrain Ready">
+    </div>
+<p><strong>2026 Jeep Wrangler 2-Door Base: Exterior Dimensions &amp; Specifications</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Specification</strong></th>
+  <th align="right"><strong>Measurement</strong></th>
+  <th align="left"><strong>Unit</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Overall Length</td>
+  <td align="right">166.8</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Overall Width (without mirrors)</td>
+  <td align="right">73.8</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Height</td>
+  <td align="right">73.6</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Wheelbase</td>
+  <td align="right">96.8</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Ground Clearance</td>
+  <td align="right">10.4</td>
+  <td align="left">inches</td>
+  </tr>
+  <tr>
+  <td align="left">Approach Angle</td>
+  <td align="right">44</td>
+  <td align="left">degrees</td>
+  </tr>
+  <tr>
+  <td align="left">Departure Angle</td>
+  <td align="right">37</td>
+  <td align="left">degrees</td>
+  </tr>
+  </tbody></table><h3 id="engineered-for-adventure-performance-and-handling">Engineered for Adventure: Performance and Handling</h3>
+
+<div class="image-float-right" style="max-width: 400px !important;">
+    <img src="https://i.ibb.co/wZ3Mhmxf/JP026-018-WR.jpg" alt="Jeep Wrangler Engine">
+    </div>
+<h2 id="engine-and-transmission-excellence">Engine and Transmission Excellence</h2><p>The heart of the 2026 Wrangler 2-Door Base delivers reliable power tailored for the variable terrain around Moore, OK, and Seminole, OK. While Jeep’s latest calibrations determine specific horsepower and torque values, the Wrangler traditionally pairs a turbocharged or naturally aspirated gasoline engine with a refined six-speed manual transmission offering direct driver control. This setup excels in on-road efficiency and off-road throttle response, essential for excursions from Oklahoma City's outskirts to the natural trails near Choctaw, OK.</p><h2 id="drivetrain-and-four-wheel-drive-capability">Drivetrain and Four-Wheel Drive Capability</h2><p>Every Wrangler Base features Jeep's proven four-wheel-drive system engineered to maximize traction across slippery or uneven surfaces encountered near Jones, OK, and Bethel Acres, OK. The system includes:</p><ul>
+  <li>Command-Trac® part-time 4WD with a two-speed transfer case</li>
+  <li>Low-range gearing for steep climbs and obstacles within McLoud, OK’s rugged areas</li>
+  </ul><p>This drivetrain excels at intelligently delivering power to each wheel based on terrain conditions, giving drivers the confidence essential for driving&nbsp;between Norman, OK, and Meeker, OK.</p><h2 id="handling-dynamics-and-suspension">Handling Dynamics and Suspension</h2><p>Suspension tuning strikes a pragmatic balance, providing enough articulation for off-road ventures while retaining manageable ride comfort on the city streets of Harrah, OK. The front and rear solid axles, equipped with coil springs, provide durability and predictable handling, ensuring the Wrangler Base adapts well to both pavement and dirt roads.</p><h2 id="braking-and-safety-control">Braking and Safety Control</h2><p>The braking system consists of four-wheel disc brakes with anti-lock technology, designed to support safe stopping in diverse conditions, from rain-soaked Oklahoma City roads to dusty trails near Prague, OK.</p><p><strong>2026 Jeep Wrangler 2-Door Base: Performance and Technical Specifications</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Feature</strong></th>
+  <th align="right"><strong>Specification</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Engine Type</td>
+  <td align="right">Turbocharged Inline-4</td>
+  </tr>
+  <tr>
+  <td align="left">Transmission</td>
+  <td align="right">6-speed Manual</td>
+  </tr>
+  <tr>
+  <td align="left">Drivetrain</td>
+  <td align="right">Part-time 4WD</td>
+  </tr>
+  <tr>
+  <td align="left">Ground Clearance</td>
+  <td align="right">10.4 inches</td>
+  </tr>
+  <tr>
+  <td align="left">Brakes</td>
+  <td align="right">4-wheel Disc with ABS</td>
+  </tr>
+  </tbody></table><div style="clear: both;"></div>
+<h3 id="interior-comfort-for-every-journey">Interior Comfort for Every Journey</h3>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://i.ibb.co/21rjyMzC/JP026-015-WR.jpg" alt="2026 Jeep Wrangler Interior Dashboard">
+</div>
+</div>
+
+<h2 id="functional-cabin-with-essential-comforts">Functional Cabin with Essential Comforts</h2><p>Inside the Wrangler Base, occupants from communities like Tecumseh, OK, to Choctaw, OK, find a straightforward, durable cabin built to withstand the elements while providing welcoming comfort. The materials combine resilient cloth seating surfaces with textured plastics that clean easily after muddy trails around Newalla, OK. Thoughtful touches prioritize practicality over extravagance while maintaining user-friendly ergonomics.</p><h2 id="seating-and-space">Seating and Space</h2><p>The two-door Wrangler seats four, providing ample head- and legroom for passengers traveling from Moore, OK, to Seminole, OK, in comfort. The compact format does not compromise passenger comfort, as the upright seating position supports excellent visibility, essential for safety and confidence on roads near Jones, OK.</p><h2 id="cargo-versatility">Cargo Versatility</h2><p>Cargo space behind the rear seats optimizes storage for gear needed in outdoor activities around Bethel Acres, OK. With rear seatbacks that fold, the area expands to hold larger equipment, suitable for both daily errands and weekend getaways around Shawnee, OK.</p>
+
+<div class="image-grid">
+<img src="https://i.ibb.co/kV1R1847/JP026-059-WR.jpg" alt="Jeep Wrangler Interior Features">
+<img src="https://i.ibb.co/zT0F6pfY/JP026-060-WR.jpg" alt="Jeep Wrangler Cabin Storage">
+<img src="https://i.ibb.co/q3JC7jKN/JP026-061-WR.jpg" alt="Jeep Wrangler Interior Details">
+</div>
+
+<p><strong>2026 Jeep Wrangler 2-Door Base: Interior and Cargo Space</strong></p><table class="e-rte-table">
+  <thead>
+  <tr>
+  <th align="left"><strong>Feature</strong></th>
+  <th align="right"><strong>Measurement</strong></th>
+  <th align="left"><strong>Unit</strong></th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td align="left">Seating Capacity</td>
+  <td align="right">4</td>
+  <td align="left">persons</td>
+  </tr>
+  <tr>
+  <td align="left">Passenger Volume</td>
+  <td align="right">127.4</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  <tr>
+  <td align="left">Cargo Volume (behind rear seats)</td>
+  <td align="right">12.9</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  <tr>
+  <td align="left">Cargo Volume (rear seats folded)</td>
+  <td align="right">31.7</td>
+  <td align="left">cubic feet</td>
+  </tr>
+  </tbody></table><h3 id="technology-that-keeps-you-connected">Technology That Keeps You Connected</h3>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="image-wrapper" style="max-width: 1000px !important;">
+<img src="https://i.ibb.co/RkN74436/JP026-070-WR.jpg" alt="2026 Jeep Wrangler Technology Features">
+</div>
+</div>
+
+<h2 id="infotainment-basics-built-for-adventure">Infotainment Basics Built for Adventure</h2><p>While focusing on durability for communities like Prague, OK, and McLoud, OK, the 2026 Wrangler Base includes an infotainment system designed to meet essential connectivity demands. The setup features a touchscreen interface with Apple CarPlay and Android Auto integration, enabling seamless access to navigation, phone, and media applications.</p><h2 id="audio-and-connectivity">Audio and Connectivity</h2><p>A multi-speaker sound system fills the cabin with clear audio during commutes or outdoor gatherings near Shawnee, OK. USB ports provide device charging and connectivity, essential for longer trips beyond Harrah, OK.</p>
+
+<div class="image-grid">
+<img src="https://i.ibb.co/dw98C3YG/JP026-071-WR.jpg" alt="Jeep Wrangler Infotainment System">
+<img src="https://i.ibb.co/MD8wXbWx/JP026-073-WR.jpg" alt="Jeep Wrangler Connectivity Features">
+</div>
+
+<h2 id="driver-convenience">Driver Convenience</h2><p>Keyless entry and remote start systems (when equipped) support ease of use, particularly during crisp Oklahoma City mornings and cool Meeker evenings. The Wrangler's straightforward controls enhance usability without distraction.</p><h3 id="safety-systems-grounded-in-confidence">Safety Systems Grounded in Confidence</h3><h2 id="core-safety-equipment">Core Safety Equipment</h2><p>Jeep constructs the 2026 Wrangler Base with a strong safety foundation tailored for urban life in Choctaw, OK, and off-road challenges around Jones, OK. Features include four-wheel anti-lock brakes, electronic stability control, and multiple airbags positioned throughout the cabin for occupant protection.</p><h2 id="driver-assistance-technologies">Driver Assistance Technologies</h2><p>While the Base trim emphasizes traditional capability, it benefits from electronic aids such as hill-start assist and trailer sway control — critical for navigating steep grades near Bethel Acres, OK, or towing cargo on excursions from Newalla, OK.</p><h2 id="chrysler-dodge-jeep-ram-roadside-assistance">Chrysler, Dodge, Jeep, RAM Roadside Assistance</h2><p>Owners in and around communities like Tecumseh, OK, or Seminole, OK, enjoy peace of mind through the Jeep Wave® program that comes with every vehicle purchase. Included is access to manufacturer-backed roadside assistance through the exclusive Chrysler, Dodge, Jeep, RAM Roadside Assistance. This program delivers trusted, expert help with repairs, towing, and emergency services from authorized facilities.</p><p><a href="tel:+1-800-243-7762">Chrysler, Dodge, Jeep, RAM Roadside Assistance: 800-243-7762</a></p><h3 id="trim-levels-and-packages-tailoring-your-jeep">Trim Levels and Packages: Tailoring Your Jeep</h3><p>The Base Sport trim introduces prospective Jeep owners from Norman, OK, and Moore, OK to the essential Wrangler experience—a flexible platform ready for customization and upgrades. Jeep’s broader Wrangler family includes:</p><ul>
+  <li><strong>Sport S</strong>: Adds comfort and tech upgrades for heightened convenience</li>
+  <li><strong>Willys Edition</strong>: Emphasizes off-road enhancements and styling</li>
+  <li><strong>Sahara</strong>: Available in a 4-door for a spacious, refined ride</li>
+  <li><strong>Rubicon and Rubicon X</strong>: Focused on extreme off-road performance</li>
+  <li><strong>Rubicon 392</strong>: The pinnacle of power with a high-output engine</li>
+  </ul><p>For those considering additional options, packages for lighting, audio, and towing are typically available and can be explored at our dealership to match your needs. Visit the <strong><a href="https://joecooperdodgejeep.com/cars/new-inventory">All New Vehicles</a></strong> section to browse current Wrangler selections or explore <strong><a href="https://joecooperdodgejeep.com/cars/new-inventory?filters=%7B%22model%22%3A%7B%22value%22%3A%7B%22Wrangler%22%3Atrue%7D%7D%7D">New Wranglers</a></strong> available now.</p><h3 id="coverage-and-care-warranty-and-maintenance">Coverage and Care: Warranty and Maintenance</h3><p>At <strong>Joe Cooper Dodge Jeep of Shawnee</strong>, we prioritize your ownership experience from day one. The 2026 Wrangler Base benefits from Jeep Wave®, a comprehensive ownership program that provides:</p><ul>
+  <li>Scheduled maintenance coverage ensuring your Wrangler stays peak-performing around Oklahoma City and neighbors like Meeker, OK</li>
+  <li>Dedicated customer support backed by a trusted manufacturer</li>
+  <li>Additional perks designed to simplify service and upkeep</li>
+  </ul><p>For all maintenance needs, our expert technicians in Shawnee are ready to help you. Schedule your next appointment easily with our <strong><a href="https://joecooperdodgejeep.com/service">Service Department</a></strong>, where your vehicle receives specialized care with genuine parts available through our <strong><a href="https://joecooperdodgejeep.com/parts">Parts Department</a></strong>.</p><h3 id="why-choose-joe-cooper-dodge-jeep-of-shawnee">Why Choose Joe Cooper Dodge Jeep Of Shawnee</h3><p>Our dealership stands as a pillar of trust and expertise for Jeep buyers throughout Shawnee and the greater Oklahoma region. With decades rooted in family values and community service, we understand the importance of a dependable vehicle and a welcoming, respectful experience. Families and adventurers from Moore to Norman find that our commitment to transparent, honest communication and relationship-building makes vehicle selection and ownership seamless.</p><p>Visiting us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJPagqO_rHs4cRAEt_NlUhmcA">4940 Automall Dr, Shawnee, OK 74804</a></strong> offers more than a showroom — it’s an opportunity to meet our dedicated team who uphold the legacy of service excellence. Contact us anytime at <strong><a href="tel:4052751104">(405) 275-1104</a></strong> to ask questions or schedule a personalized tour and test drive of the <strong>2026 Jeep Wrangler 2-Door Base</strong>.</p><p>Thinking about your current vehicle? Use our <strong><a href="https://joecooperdodgejeep.com/trade">Trade Valuation</a></strong> tool to understand its worth as you plan for your next adventure vehicle.</p><p>For those exploring a wider variety, discover quality options at both ends of the spectrum by visiting our <strong><a href="https://joecooperdodgejeep.com/cars/used-inventory">All Used Vehicles</a></strong> and <strong><a href="https://joecooperdodgejeep.com/cars/new-inventory?filters=%7B%22price%22%3A%7B%22value%22%3A%5B0%2C35000%5D%7D%7D">New Vehicles Under $35k</a></strong> listings.</p><hr><p>You can elevate your driving experience with a vehicle that is&nbsp;anchored in tradition, versatility, and community care. The <strong>2026 Jeep Wrangler 2-Door Base</strong> is waiting to join your story in Shawnee and beyond.</p></div><footer>
+    <p>© 2025 Joe Cooper Dodge Jeep Of Shawnee</p>
+  </footer>

@@ -1,0 +1,326 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.trim-section {
+  background: #ebf4ff;
+  padding: 4rem 2rem;
+  border-radius: 0;
+  position: relative;
+}
+
+.trim-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.trim-header {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.trim-title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #00142E;
+  margin-bottom: 0.75rem;
+}
+
+.trim-subtitle {
+  font-size: 18px;
+  color: #4b5563;
+  font-weight: 400;
+  max-width: 780px;
+}
+
+.trim-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.trim-image-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.trim-image-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.trim-image-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.trim-image-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 0.5rem;
+}
+
+.trim-table-container {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  overflow-x: auto;
+  margin-bottom: 2.5rem;
+}
+
+.table-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.trim-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+}
+
+.trim-table th {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #0066cc;
+}
+
+.trim-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.trim-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.trim-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #333;
+  vertical-align: middle;
+}
+
+.trim-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.trim-table tr:hover {
+  background: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+.trim-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.trim-features {
+  font-weight: 500;
+  color: #555;
+  line-height: 1.6;
+}
+
+.trim-content {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+.trim-content p {
+  margin-bottom: 1.5rem;
+}
+
+.trim-content a {
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.45);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.trim-content a:hover,
+.trim-content a:focus {
+  color: #0f172a;
+  border-color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .trim-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .trim-title {
+    font-size: 24px;
+  }
+
+  .trim-images-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .trim-table-container {
+    padding: 1rem;
+  }
+
+  .trim-table {
+    font-size: 0.8rem;
+  }
+
+  .trim-table th,
+  .trim-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .trim-content {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .trim-section {
+    padding: 2rem 0.75rem;
+  }
+
+  .trim-title {
+    font-size: 20px;
+  }
+
+  .trim-images-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .trim-table {
+    font-size: 0.75rem;
+  }
+
+  .trim-table th,
+  .trim-table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .trim-table-container {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .table-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trim-table {
+    font-size: 0.7rem;
+  }
+
+  .trim-table th,
+  .trim-table td {
+    padding: 0.4rem 0.3rem;
+  }
+
+  .trim-table th {
+    font-size: 0.75rem;
+  }
+}
+</style>
+
+<section class="trim-section" id="trim-package-options">
+  <div class="trim-container">
+    <header class="trim-header">
+      <h2 class="trim-title">Trim and Package Options: Tailoring Your Lightning</h2>
+      <p class="trim-subtitle">
+        While this profile focuses on the Base trim, the 2025 F-150 Lightning line includes additional models with escalating features and capabilities:
+      </p>
+    </header>
+
+    <div class="trim-images-grid">
+      <div class="trim-image-card">
+        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-pro.png" alt="Lightning Pro">
+        <div class="trim-image-label">Lightning Pro</div>
+      </div>
+
+      <div class="trim-image-card">
+        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-xlt.png" alt="XLT">
+        <div class="trim-image-label">XLT</div>
+      </div>
+
+      <div class="trim-image-card">
+        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-flash.png" alt="Flash">
+        <div class="trim-image-label">Flash</div>
+      </div>
+
+      <div class="trim-image-card">
+        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-lariat.png" alt="Lariat">
+        <div class="trim-image-label">Lariat</div>
+      </div>
+
+      <div class="trim-image-card">
+        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-plat.png" alt="Platinum">
+        <div class="trim-image-label">Platinum</div>
+      </div>
+    </div>
+
+    <div class="trim-table-container">
+      <h3 class="table-title">2025 F-150 Lightning Trim Level Comparison</h3>
+      <table class="trim-table">
+        <thead>
+          <tr>
+            <th>Trim Level</th>
+            <th>Key Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="trim-name">Base (Pro) SuperCrew Cab</td>
+            <td class="trim-features">Dual motors, 98 kWh battery, basic cloth seats, standard technology, and safety</td>
+          </tr>
+          <tr>
+            <td class="trim-name">XLT SuperCrew Cab</td>
+            <td class="trim-features">Wheel upgrades, larger touchscreen, Tow Technology package included</td>
+          </tr>
+          <tr>
+            <td class="trim-name">Flash SuperCrew Cab</td>
+            <td class="trim-features">123 kWh battery, ActiveX seating, BlueCruise hands-free system</td>
+          </tr>
+          <tr>
+            <td class="trim-name">Lariat SuperCrew Cab</td>
+            <td class="trim-features">131 kWh battery, premium materials, 15.5-inch display, enhanced towing options</td>
+          </tr>
+          <tr>
+            <td class="trim-name">Platinum SuperCrew Cab</td>
+            <td class="trim-features">Top-tier luxury fittings, Dark Matter Gray Gloss grille, advanced audio system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trim-content">
+      <p>Available packages, such as the Max Trailer Tow and Work Surface options, allow customization to specific work or recreational needs. Bowen Scarff Ford can assist in exploring these options at <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer">our Kent location</a>.</p>
+    </div>
+  </div>
+</section>

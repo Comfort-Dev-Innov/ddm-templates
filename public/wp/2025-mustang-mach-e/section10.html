@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ownership Value, Warranty, and Cost Considerations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .own-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .own-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .own-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .own-title {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .own-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 780px;
+        }
+
+        .own-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin: 2.5rem 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .own-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .own-content a {
+            color: #1d4ed8;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.45);
+            padding-bottom: 1px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .own-content a:hover,
+        .own-content a:focus {
+            color: #0f172a;
+            border-color: #0f172a;
+        }
+
+        .own-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .own-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .own-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .own-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .own-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .own-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .own-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .own-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .own-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .own-title {
+                font-size: 24px;
+            }
+
+            .own-table-container {
+                padding: 1rem;
+            }
+
+            .own-table {
+                font-size: 0.8rem;
+            }
+
+            .own-table th,
+            .own-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .own-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .own-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .own-title {
+                font-size: 20px;
+            }
+
+            .own-table {
+                font-size: 0.75rem;
+            }
+
+            .own-table th,
+            .own-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .own-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .own-table {
+                font-size: 0.7rem;
+            }
+
+            .own-table th,
+            .own-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .own-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="own-section" id="ownership-value">
+        <div class="own-container">
+            <header class="own-header">
+                <h2 class="own-title">Ownership Value, Warranty, and Cost Considerations</h2>
+                <p class="own-subtitle">
+                    Comparing how warranty coverage, service support, roadside assistance, and dealer accessibility impact long-term ownership for the Ford Mustang Mach-E versus the Tesla Model Y.
+                </p>
+            </header>
+
+            <div class="own-content">
+                <p>Ford's Mach-E offers a compelling value proposition with a strong warranty package: 3 years/36,000 miles basic coverage, 5 years/60,000 miles for powertrain, and an 8-year/100,000-mile warranty for battery components. While no complimentary scheduled maintenance is included, Ford prioritizes accessible service options at local authorized centers such as Bowen Scarff Ford at <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer">1157 Central Ave N, Kent, WA 98032</a>, where expert technicians ensure genuine parts and quality care with the benefit of Ford Roadside Assistance at <a href="tel:1-800-241-3673">Ford Roadside Assistance: 1-800-241-3673</a>, providing peace of mind exclusive to Ford owners.</p>
+                <p>Tesla offers a comparable warranty duration, with 4 years/50,000 miles basic coverage and an 8-year battery and drive unit warranty extending to 100,000–120,000 miles depending on the model. However, Tesla's service and repair costs can be higher, and service appointments may have longer wait times, given its more centralized global service network.</p>
+            </div>
+
+            <div class="own-table-container">
+                <h3 class="table-title">Ownership Consideration Comparison</h3>
+                <table class="own-table">
+                    <thead>
+                        <tr>
+                            <th>Ownership Consideration</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Basic Warranty</td>
+                            <td class="ford-value">3 years / 36,000 miles</td>
+                            <td class="tesla-value">4 years / 50,000 miles</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Powertrain Warranty</td>
+                            <td class="ford-value">5 years / 60,000 miles</td>
+                            <td class="tesla-value">Included in basic warranty</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Battery &amp; Electric Components Warranty</td>
+                            <td class="ford-value">8 years / 100,000 miles</td>
+                            <td class="tesla-value">8 years / 100,000–120,000 miles</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Scheduled Maintenance</td>
+                            <td class="ford-value">Not included: dealership support from Bowen Scarff Ford</td>
+                            <td class="tesla-value">Not included; service availability varies</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Roadside Assistance</td>
+                            <td class="ford-value">Ford Roadside Assistance included</td>
+                            <td class="tesla-value">Tesla Roadside Assistance (region dependent)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: underline !important;
+        font-weight: 800;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+        min-width: 150px;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+          min-width: 100px;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+          min-width: 70px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        A Quick Overview of the 2026 Hyundai Kona and the 2026 Subaru Crosstrek
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Before diving into a detailed analysis, this overview provides a
+        snapshot of the most critical differences between the 2026 Hyundai Kona
+        and the 2026 Subaru Crosstrek.
+      </p>
+
+      <!-- Overview Comparison Table -->
+      <br />
+      <h3 class="table-heading">
+        Quick Overview of the 2026 Hyundai Kona vs. 2026 Subaru Crosstrek
+      </h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>2026 Hyundai Kona</th>
+            <th>2026 Subaru Crosstrek</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Starting MSRP</td>
+            <td>$25,350</td>
+            <td>$26,995 (Gas) / $33,995 (Hybrid)</td>
+          </tr>
+          <tr>
+            <td>Powertrain Options</td>
+            <td>147 hp 2.0L I-4 / 190 hp 1.6L Turbo I-4</td>
+            <td>180-182 hp 2.5L Boxer-4 / 194 hp Hybrid</td>
+          </tr>
+          <tr>
+            <td>Standard Drivetrain</td>
+            <td>Front-Wheel Drive (FWD)</td>
+            <td>Symmetrical All-Wheel Drive (AWD)</td>
+          </tr>
+          <tr>
+            <td>Available Drivetrain</td>
+            <td>All-Wheel Drive (AWD)</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Standard Infotainment Screen</td>
+            <td>12.3-inch Touchscreen</td>
+            <td>7-inch or Dual 7-inch Touchscreens</td>
+          </tr>
+          <tr>
+            <td>Maximum Cargo Capacity</td>
+            <td>63.7 cu. ft.</td>
+            <td>50.6 - 55.3 cu. ft.</td>
+          </tr>
+          <tr>
+            <td>Basic Warranty</td>
+            <td>5 Years / 60,000 Miles</td>
+            <td id="powertrain-specification">3 Years / 36,000 Miles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

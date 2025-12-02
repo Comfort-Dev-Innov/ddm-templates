@@ -1,0 +1,169 @@
+<style>
+  /* ===== Container Override ===== */
+  .cta-section-container {
+    padding: 40px 0 !important;
+    line-height: 1.6 !important;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .cta-section-container h1 {
+    width: fit-content !important;
+  }
+
+  .cta-section-container h3,
+  .cta-section-container h1,
+  .cta-section-container h2,
+  .cta-section-container p,
+  .cta-section-container ol,
+  .cta-section-container ul {
+    max-width: 1300px !important;
+  }
+
+  .cta-section-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+
+  .cta-section-container p {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .cta-section-container a {
+    color: #0366b0;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+  }
+
+  .cta-section-container a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #0366b0;
+    transition: width 0.3s ease;
+  }
+
+  .cta-section-container a:hover::after {
+    width: 100%;
+  }
+
+  /* ===== CTA Cards Grid ===== */
+  .cta-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .cta-card {
+    background: #ffffff;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #0366b0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cta-card:hover {
+    border-color: #0366b0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(3, 102, 176, 0.15);
+  }
+
+  .cta-card-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+    display: block;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    filter: grayscale(0.3);
+  }
+
+  .cta-card:hover .cta-card-icon {
+    filter: grayscale(0);
+  }
+
+  .cta-card-text {
+    font-size: 16px;
+    color: #000000;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .cta-card-text a {
+    color: #0366b0;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .cta-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>
+
+<div class="cta-section-container">
+  <p>For those seeking uncompromised performance, impeccable design, futuristic technology, and comprehensive safety in a midsize luxury SUV, the <strong>2026 BMW X6</strong> commands attention as the premier choice. Its potent engine lineup, sport-tuned dynamics, and sophisticated interior transform every journey across Edmond, Moore, and Bethany into a dynamic yet comfortable experience.</p>
+
+  <p>Discover how the BMW X6 fits your lifestyle—whether negotiating city streets or embarking on weekend adventures by scheduling your personalized test drive. Reach out at <a href="tel:4057553600"><strong>(405) 755-3600</strong></a> or visit us at <a href="https://www.google.com/maps/place/?q=place_id:ChIJaSuP28IesocRIvRN-5tbg-E">14145 N Broadway Ext, Edmond, OK 73013</a> to experience firsthand the engineering excellence that sets the BMW X6 apart.</p>
+
+  <div class="cta-cards-grid">
+    <div class="cta-card">
+      <span class="cta-card-icon">🚗</span>
+      <div class="cta-card-text">
+        Explore our complete <a href="https://cooperbmw.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">All New Vehicles</a> selection to find your perfect fit.
+      </div>
+    </div>
+    
+    <div class="cta-card">
+      <span class="cta-card-icon">🔑</span>
+      <div class="cta-card-text">
+        Looking for certified pre-owned options? Browse our <a href="https://cooperbmw.com/cars/pre-owned-inventory">All Used Vehicles</a> selection.
+      </div>
+    </div>
+    
+    <div class="cta-card">
+      <span class="cta-card-icon">🔧</span>
+      <div class="cta-card-text">
+        Maintain your BMW's performance—schedule service through our <a href="https://cooperbmw.com/service">Service Department</a>.
+      </div>
+    </div>
+    
+    <div class="cta-card">
+      <span class="cta-card-icon">💰</span>
+      <div class="cta-card-text">
+        Optimize trade-in value easily at <a href="https://cooperbmw.com/trade-or-sell">Value Your Trade</a>.
+      </div>
+    </div>
+  </div>
+</div>
+

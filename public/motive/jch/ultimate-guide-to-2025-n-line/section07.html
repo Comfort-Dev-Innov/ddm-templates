@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .choosing-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .choosing-container h1 {
+            width: fit-content !important;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .choosing-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .choosing-container h1:hover::after {
+            width: 180px;
+        }
+
+        .choosing-container h3,
+        .choosing-container h1,
+        .choosing-container h2,
+        .choosing-container p,
+        .choosing-container ol,
+        .choosing-container ul {
+            max-width: 1300px !important;
+        }
+
+        .investment-section {
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 50px 0;
+            border: 2px solid #eef1ff;
+            text-align: center;
+        }
+
+        .investment-content {
+            font-size: 1.3rem;
+            color: #012b5d;
+            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .assurance-section {
+            margin: 60px 0;
+        }
+
+        .assurance-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .assurance-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+        }
+
+        .best-warranty-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #012b5d;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 20px 0 40px 0;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .warranty-intro {
+            font-size: 1.2rem;
+            color: #444;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .warranty-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .warranty-item {
+            background: #ffffff;
+            border: 2px solid #eef1ff;
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .warranty-item:hover {
+            transform: translateY(-8px);
+            border-color: #012b5d;
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.15);
+        }
+
+        .warranty-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .warranty-arrow {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .warranty-content {
+            flex: 1;
+        }
+
+        .warranty-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .warranty-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .confidence-callout {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confidence-callout::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .confidence-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .confidence-content {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .highlight-text {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .quality-card {
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border: 2px solid #dde2ff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .quality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 20px 20px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .quality-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .quality-card:hover {
+            transform: translateY(-10px);
+            border-color: #012b5d;
+            box-shadow: 0 20px 40px rgba(1, 43, 93, 0.15);
+        }
+
+        .quality-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .quality-diamond {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .quality-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 15px;
+        }
+
+        .quality-desc {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .choosing-container h1 {
+                font-size: 2.2rem;
+            }
+
+            .warranty-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .warranty-item {
+                padding: 25px;
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .warranty-icon {
+                margin: 0 auto;
+            }
+
+            .investment-section,
+            .confidence-callout {
+                padding: 30px 20px;
+            }
+
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="choosing-container">
+        <h1>Choosing a Hyundai N-Line</h1>
+        
+        <div class="investment-section">
+            <div class="investment-content">
+                Choosing a Hyundai N-Line is not just an investment in performance and style; it's an investment in quality and confidence, backed by one of the best protection plans in the automotive industry. This commitment provides peace of mind on every drive, whether you're commuting daily from Moore to Midwest City or embarking on a long cross-country road trip.
+            </div>
+        </div>
+
+        <div class="assurance-section">
+            <div class="assurance-title">Hyundai Owner Assurance</div>
+
+            <div class="warranty-intro">
+                At the forefront of this commitment is Hyundai Owner Assurance, featuring America's Best Warranty. This comprehensive coverage is a cornerstone of the Hyundai value proposition and includes:
+            </div>
+
+            <div class="warranty-list">
+                <div class="warranty-item">
+                    <div class="warranty-icon">
+                        <svg class="warranty-arrow" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="warranty-content">
+                        <div class="warranty-title">10-Year/100,000-Mile Powertrain Limited Warranty</div>
+                        <div class="warranty-description">Comprehensive coverage for your engine, transmission, and drivetrain components</div>
+                    </div>
+                </div>
+
+                <div class="warranty-item">
+                    <div class="warranty-icon">
+                        <svg class="warranty-arrow" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="warranty-content">
+                        <div class="warranty-title">5-Year/60,000-Mile New Vehicle Limited Warranty</div>
+                        <div class="warranty-description">Complete protection for your entire vehicle from bumper to bumper</div>
+                    </div>
+                </div>
+
+                <div class="warranty-item">
+                    <div class="warranty-icon">
+                        <svg class="warranty-arrow" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="warranty-content">
+                        <div class="warranty-title">7-Year/Unlimited-Mile Anti-Perforation Warranty</div>
+                        <div class="warranty-description">Protection against rust and corrosion with no mileage restrictions</div>
+                    </div>
+                </div>
+
+                <div class="warranty-item">
+                    <div class="warranty-icon">
+                        <svg class="warranty-arrow" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="warranty-content">
+                        <div class="warranty-title">5-Year/Unlimited-Mile 24/7 Roadside Assistance</div>
+                        <div class="warranty-description">Round-the-clock support wherever your journey takes you</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

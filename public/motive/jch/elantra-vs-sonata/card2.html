@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safety Ratings</title>
+    <style>
+      /* Container Styles */
+      .safety-container {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .safety-container h1,
+      .safety-container h2,
+      .safety-container h3,
+      .safety-container p {
+        max-width: 1300px !important;
+      }
+
+      /* Cards Grid */
+      .safety-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 20px 0;
+      }
+
+      /* Individual Card Styles */
+      .safety-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: 1px solid #e2e8f0;
+      }
+
+      .safety-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 52, 120, 0.12);
+        border-color: #003478;
+      }
+
+      /* Card Header with Icon */
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: linear-gradient(135deg, #003478 0%, #0052a3 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+
+      .safety-card:hover .icon-wrapper {
+        transform: rotate(5deg) scale(1.1);
+      }
+
+      .icon-wrapper svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* Card Title */
+      .card-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #003478;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      /* Card Content */
+      .card-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .safety-cards-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .safety-card {
+          padding: 24px;
+        }
+
+        .card-title {
+          font-size: 20px;
+        }
+
+        .card-content {
+          font-size: 15px;
+        }
+
+        .icon-wrapper {
+          width: 45px;
+          height: 45px;
+          min-width: 45px;
+        }
+
+        .icon-wrapper svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .safety-container {
+          padding: 20px 15px !important;
+        }
+
+        .safety-card {
+          padding: 20px;
+        }
+
+        .card-header {
+          gap: 12px;
+        }
+
+        .card-title {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="safety-container">
+      <div class="safety-cards-grid">
+        
+        <!-- Card 1: IIHS TOP SAFETY PICK+ -->
+        <div class="safety-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="card-title">The Pinnacle of Safety: IIHS TOP SAFETY PICK+</h3>
+          </div>
+          <div class="card-content">
+            <p>Both the 2025 Elantra (for models built after October 2024) and the 2025 Sonata (for models built after November 2024) have earned the highest possible rating from the Insurance Institute for Highway Safety (IIHS): the TOP SAFETY PICK+ award.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: NHTSA Five Stars -->
+        <div class="safety-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Five Stars from the NHTSA</h3>
+          </div>
+          <div class="card-content">
+            <p>This commitment to safety is further validated by the National Highway Traffic Safety Administration (NHTSA). The 2025 Elantra has received a 5-Star Overall Safety Rating, the agency's top honor. This rating is a composite score based on rigorous frontal crash, side crash, and rollover resistance tests. Historically, the Sonata has also been a consistent recipient of the 5-Star Overall Safety Rating, reinforcing that excellence in safety is a brand-wide priority for Hyundai.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

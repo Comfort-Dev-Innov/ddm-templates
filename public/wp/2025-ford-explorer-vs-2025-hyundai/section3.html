@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance & Handling: Power Meets Precision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .performance-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .performance-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .performance-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .performance-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .performance-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .performance-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .performance-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .performance-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .performance-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .performance-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .performance-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .performance-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .performance-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .performance-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .honda-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .performance-section {
+                padding: 2rem 1rem;
+            }
+
+            .performance-header {
+                margin-bottom: 2rem;
+            }
+
+            .performance-title {
+                font-size: 20px;
+            }
+
+            .performance-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .performance-table-container {
+                padding: 1rem;
+            }
+
+            .performance-table {
+                font-size: 0.8rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .performance-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .performance-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .performance-title {
+                font-size: 18px;
+            }
+
+            .performance-subtitle {
+                font-size: 1rem;
+            }
+
+            .performance-table {
+                font-size: 0.75rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .performance-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .performance-table {
+                font-size: 0.7rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .performance-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="performance-section" id="performance-dynamics">
+        <div class="performance-container">
+            <header class="performance-header">
+                <h2 class="performance-title">Power and Driving Dynamics Analysis</h2>
+            </header>
+
+            <div class="performance-content">
+                <p>One of the Explorer's standout advantages is its powertrain variety and performance prowess, designed for drivers who crave capability without sacrificing comfort. The twin-turbocharged 3.0-liter V6 available in ST and Platinum trims punches out a class-leading 400 horsepower and 415 lb-ft of torque, substantially exceeding the Pilot's 285 hp and 262 lb-ft from its naturally aspirated 3.5-liter V6.</p>
+            </div>
+
+            <div class="performance-table-container">
+                <h3 class="table-title">Performance Comparison</h3>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Performance Metric</th>
+                            <th>2025 Ford Explorer ST AWD</th>
+                            <th>2025 Honda Pilot Elite AWD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Engine</td>
+                            <td class="ford-value">3.0L twin-turbo V6, 400 hp @ 5500 rpm</td>
+                            <td class="honda-value">3.5L V6, 285 hp @ 6100 rpm</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Torque</td>
+                            <td class="ford-value">415 lb-ft @ 3500 rpm</td>
+                            <td class="honda-value">262 lb-ft @ 5000 rpm</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Transmission</td>
+                            <td class="ford-value">10-speed automatic</td>
+                            <td class="honda-value">10-speed automatic</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Drivetrain</td>
+                            <td class="ford-value">RWD standard, AWD optional</td>
+                            <td class="honda-value">FWD standard, AWD optional (Elite AWD standard)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">0-60 mph Acceleration (seconds)</td>
+                            <td class="ford-value">5.1</td>
+                            <td class="honda-value">7.2</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Towing Capacity (lbs)</td>
+                            <td class="ford-value">5,000</td>
+                            <td class="honda-value">5,000 (AWD) / 3,500 (FWD)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="performance-content" style="margin-top: 3rem;">
+                <p>The Explorer's potent engine translates to brisker acceleration and confident passing power, paired with a refined 10-speed automatic transmission refined for smoothness and efficiency. Its rear-wheel basis improves towing stability and driving dynamics, especially noticeable on crowded Kenmore streets or open highways southbound.</p>
+                <p>The Pilot's focus on everyday driving earns it respectable composure, but its less powerful engine and front-wheel-drive base configuration limit dynamic versatility. The TrailSport's all-terrain enhancements add utility but don't shift the performance balance meaningfully.</p>
+            </div>
+
+            <div class="performance-content" style="margin-top: 3rem;">
+                <h3 class="performance-subtitle">Driving Experience and Handling</h3>
+                
+                <div class="explorer-image-container" style="width: 100%; margin: 2rem 0; text-align: center; border-radius: 12px; overflow: hidden;">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:7446ad2c-f8c7-4051-96d5-5e968b0dcb0e/as/26_FRD_EPR_R7A0449_plt_red.webp?max-quality=75&crop-names=1_16x7&width=1920" alt="2025 Ford Explorer" style="max-width: 100%; height: auto; display: block; border-radius: 8px; transition: transform 0.5s ease, filter 0.5s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.filter='brightness(1.1)';" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)';">
+                </div>
+
+                <p>The Explorer features selectable drive modes calibrated for diverse conditions, from Sport to Tow/Haul, allowing drivers to adjust vehicle behavior seamlessly. Designed for the driving enthusiast, the ST's sport-tuned suspension delivers razor-sharp cornering and planted stability, a sharp contrast to the Pilot's softer, traditional ride quality.</p>
+                <p>When braking from highway speeds, the Explorer demonstrates efficient stopping distances, aided by large ventilated disc brakes, showing an edge in active driving safety. Additionally, Explorer's lateral grip maximizes confidence in twisty Washington backroads.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

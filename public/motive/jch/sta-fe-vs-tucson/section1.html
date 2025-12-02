@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .oklahoma-comparison-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .oklahoma-comparison-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+        }
+
+        .oklahoma-comparison-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .oklahoma-comparison-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .oklahoma-comparison-container h1:hover::after {
+            width: 100%;
+        }
+
+        .oklahoma-comparison-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .oklahoma-comparison-container h2:hover {
+            color: #012b5d;
+        }
+
+        .oklahoma-comparison-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .oklahoma-comparison-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .oklahoma-comparison-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .oklahoma-comparison-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .oklahoma-comparison-container ol,
+        .oklahoma-comparison-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .oklahoma-comparison-container li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .oklahoma-comparison-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .oklahoma-comparison-container a {
+            color: #012b5d;
+            text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .oklahoma-comparison-container a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .oklahoma-comparison-container a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+        }
+
+        .oklahoma-comparison-container a:hover::before {
+            width: 100%;
+        }
+
+        .oklahoma-vehicle-section {
+            background: linear-gradient(135deg, rgba(0, 44, 95, 0.02), rgba(1, 43, 93, 0.03));
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(0, 44, 95, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oklahoma-vehicle-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 44, 95, 0.08), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .oklahoma-vehicle-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 44, 95, 0.15);
+            border-color: rgba(0, 44, 95, 0.25);
+        }
+
+        .oklahoma-vehicle-section:hover::before {
+            left: 100%;
+        }
+
+        .oklahoma-santa-fe-link {
+            color: #002c5f !important;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            background: linear-gradient(120deg, rgba(0, 44, 95, 0.1), rgba(1, 43, 93, 0.1));
+            padding: 3px 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .oklahoma-santa-fe-link:hover {
+            background: linear-gradient(120deg, rgba(0, 44, 95, 0.2), rgba(1, 43, 93, 0.2));
+            transform: scale(1.03);
+            color: #012b5d !important;
+        }
+
+        .oklahoma-tucson-link {
+            color: #012b5d !important;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.1), rgba(0, 44, 95, 0.1));
+            padding: 3px 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .oklahoma-tucson-link:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.2), rgba(0, 44, 95, 0.2));
+            transform: scale(1.03);
+            color: #002c5f !important;
+        }
+
+        .oklahoma-vehicle-image-placeholder {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .oklahoma-image-box {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px dashed #002c5f;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oklahoma-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .oklahoma-image-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .oklahoma-image-box:hover {
+            transform: scale(1.02);
+            border-color: #012b5d;
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.1);
+        }
+
+        .oklahoma-image-box:hover::before {
+            left: 100%;
+        }
+
+        .oklahoma-image-text {
+            color: #002c5f;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .oklahoma-comparison-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .oklahoma-comparison-container h1 {
+                font-size: 2rem;
+            }
+
+            .oklahoma-comparison-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .oklahoma-comparison-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .oklahoma-comparison-container p {
+                font-size: 1rem;
+            }
+
+            .oklahoma-vehicle-section {
+                padding: 1.8rem;
+                margin: 2rem 0;
+            }
+
+            .oklahoma-image-box {
+                height: 250px;
+            }
+
+            .oklahoma-image-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="oklahoma-comparison-container">
+        <h1>What Sets the Santa Fe and Tucson Apart?</h1>
+        
+        <p>Before diving into the specifications, it's important to understand the core identity of each SUV, their fundamental purpose, and the type of driver they are designed to serve.</p>
+        
+        <div class="oklahoma-vehicle-section">
+            <h2>The Santa Fe</h2>
+            
+            <p><a href="https://joecooperhyundai.com/cars/new-santa-fe" class="oklahoma-santa-fe-link">The 2025 Hyundai Santa Fe</a> has been completely reimagined with a clear mission: to be the ultimate hub for family life and adventure. Its identity is defined by a bold, distinctive design that prioritizes space and utility above all else. The upright, boxy shape is a deliberate engineering decision to maximize interior volume, providing generous room for passengers and cargo alike. This is a vehicle that makes a statement.</p>
+            
+            <p>Think of the Santa Fe as your mobile command center. It's built for the family that needs standard three-row seating for the kids and their friends on the way to a Sooners game. It's for the driver who wants an "epically capable" vehicle that feels solid and secure on the highway, with a commanding view of the road ahead. The Santa Fe is designed for those whose lives require more space, more presence, and the versatility to handle everything a growing family throws at it.</p>
+            <div class="oklahoma-vehicle-image-placeholder">
+                <div class="oklahoma-image-box">
+                    <img src="https://i.ibb.co/JRWBMHQK/image1.png" alt="image1" border="0">
+                </div>
+            </div>
+        </div>
+        
+        <div class="oklahoma-vehicle-section">
+            <h2>The Tucson</h2>
+            
+
+            
+            <p><a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-SEL_Convenience-5NMJCCDE1SH565198" class="oklahoma-tucson-link">The 2025 Hyundai Tucson</a>, on the other hand, embodies a different kind of versatility. Positioned as the "modern adventure SUV," its identity is rooted in dynamic style, intelligent technology, and agile performance. Its striking exterior, characterized by sharp lines and jewel-like hidden lighting, is designed to turn heads, whether you're pulling up to a restaurant in Bricktown or cruising through your neighborhood in Bethany.</p>
+            
+            <p>As a five-passenger compact SUV, the Tucson is perfectly scaled for modern life. But its clever packaging means it doesn't sacrifice practicality. <a href="https://joecooperhyundai.com/cars/new-tucson" class="oklahoma-tucson-link">The Tucson</a> is for the individual, couple, or small family who values a vehicle that is as stylish as it is smart, blending cutting-edge design with the everyday usability and efficiency needed for life in and around the OKC metro.</p>
+            
+            <p>The core difference between these two SUVs comes down to their design philosophy. The Santa Fe's form is dictated by its function—its boxy shape is the most efficient way to create a cavernous, three-row interior. In contrast, the Tucson's form is more expressive and futuristic, prioritizing a dynamic aesthetic and aerodynamic efficiency to appeal to a driver who wants SUV capability without sacrificing style.</p>
+            <div class="oklahoma-vehicle-image-placeholder">
+                <div class="oklahoma-image-box">
+                    <img src="https://i.ibb.co/MxKV23h0/image2.png" alt="image2" border="0">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

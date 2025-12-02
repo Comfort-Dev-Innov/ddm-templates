@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hyundai-safety-value-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .hyundai-safety-value-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-safety-value-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .hyundai-safety-value-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .hyundai-safety-value-container h1:hover::after {
+            width: 100%;
+        }
+
+        .hyundai-safety-value-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-safety-value-container h2:hover {
+            color: #012b5d;
+        }
+
+        .hyundai-safety-value-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-safety-value-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-safety-value-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .hyundai-safety-value-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .hyundai-safety-value-container ol,
+        .hyundai-safety-value-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-safety-value-container li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-safety-value-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-safety-value-container a {
+            color: #012b5d;
+            text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-safety-value-container a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .hyundai-safety-value-container a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+        }
+
+        .hyundai-safety-value-container a:hover::before {
+            width: 100%;
+        }
+
+        .santa-fe-highlight {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.08), rgba(0, 44, 95, 0.06));
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(1, 43, 93, 0.12);
+            font-weight: 600;
+        }
+
+        .santa-fe-highlight:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.15), rgba(0, 44, 95, 0.12));
+            border-color: rgba(1, 43, 93, 0.25);
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .tucson-highlight {
+            background: linear-gradient(120deg, rgba(0, 44, 95, 0.08), rgba(1, 43, 93, 0.06));
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 44, 95, 0.12);
+            font-weight: 600;
+        }
+
+        .tucson-highlight:hover {
+            background: linear-gradient(120deg, rgba(0, 44, 95, 0.15), rgba(1, 43, 93, 0.12));
+            border-color: rgba(0, 44, 95, 0.25);
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .safety-hero-image {
+            width: 100%;
+            max-width: 1300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .safety-hero-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(1, 43, 93, 0.2);
+        }
+
+        .safety-overview-section {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02), rgba(0, 44, 95, 0.04));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .safety-overview-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .safety-overview-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .safety-overview-section:hover::before {
+            left: 100%;
+        }
+
+        .safety-overview-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .safety-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .safety-feature-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.85));
+            border: 1px solid rgba(1, 43, 93, 0.12);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(1, 43, 93, 0.08);
+        }
+
+        .safety-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .safety-feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.15);
+            border-color: rgba(1, 43, 93, 0.25);
+        }
+
+        .safety-feature-card:hover::before {
+            left: 100%;
+        }
+
+        .safety-feature-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .safety-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .safety-feature-card:hover .safety-badge {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .safety-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .safety-feature-card:hover .safety-title {
+            color: #002c5f;
+            transform: translateX(5px);
+        }
+
+        .safety-description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, rgba(0, 44, 95, 0.03), rgba(1, 43, 93, 0.05));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 2px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(1, 43, 93, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 44, 95, 0.05) 0%, transparent 50%);
+            animation: pricingFloat 12s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .pricing-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(1, 43, 93, 0.12);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .pricing-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+        }
+
+        .pricing-card {
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .vehicle-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #002c5f;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .value-pillars-section {
+            margin: 3rem 0;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .pillar-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.12);
+            border-color: rgba(0, 44, 95, 0.2);
+        }
+
+        .pillar-card:hover::before {
+            left: 100%;
+        }
+
+        .pillar-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover .pillar-number {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.3);
+        }
+
+        .pillar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @keyframes pricingFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(20px, -15px) rotate(2deg); }
+            66% { transform: translate(-15px, 10px) rotate(-2deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hyundai-safety-value-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .hyundai-safety-value-container h1 {
+                font-size: 2rem;
+            }
+
+            .hyundai-safety-value-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .hyundai-safety-value-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .hyundai-safety-value-container p {
+                font-size: 1rem;
+            }
+
+            .safety-hero-image {
+                height: 250px;
+                margin: 1.5rem 0;
+            }
+
+            .safety-overview-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .safety-features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .safety-feature-card {
+                padding: 2rem;
+            }
+
+            .pricing-overview {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .pricing-amount {
+                font-size: 1.8rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pillar-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hyundai-safety-value-container">
+        <h1>Safety and Driver Assistance: Both Strong, but Is One Smarter?</h1>
+        
+        <img src="https://autocanadaprod-com.cdn-convertus.com/uploads/sites/32/2024/11/2025-santa-fe-hero-sm.jpg" alt="Hyundai Safety Features" class="safety-hero-image" />
+        
+        <div class="safety-overview-section">
+            <p>When it comes to protecting you and your loved ones, Hyundai makes safety a top priority. Both the Santa Fe and the Tucson are built with a high-strength steel chassis and are equipped with a comprehensive suite of advanced safety features, giving you peace of mind on every journey.</p>
+        </div>
+
+        <div class="safety-features-grid">
+            <div class="safety-feature-card">
+                <div class="safety-badge">Standard Suite</div>
+                <h3 class="safety-title">The Standard SmartSense Suite</h3>
+                <div class="safety-description">
+                    <p>One of the most compelling aspects of owning a Hyundai is the incredible array of safety technology that comes standard on every single trim. Whether you choose a Tucson SE or a Santa Fe Calligraphy, your vehicle is equipped with Hyundai SmartSense. This includes crucial features like Forward Collision-Avoidance Assist with Pedestrian, Cyclist, and Junction Turning Detection (FCA-JT), which can automatically apply the brakes if it detects an impending collision. You also get Blind-Spot Collision Warning (BCW), Rear Cross-Traffic Collision-Avoidance Assist (RCCA), Lane Keeping Assist (LKA), and Lane Following Assist (LFA) to help you stay centered in your lane. Furthermore, Smart Cruise Control (SCC) with Stop & Go comes standard, making highway driving in traffic less stressful by automatically maintaining a set distance from the car ahead. This commitment to standard safety means you never have to compromise on what matters most.</p>
+                </div>
+            </div>
+
+            <div class="safety-feature-card">
+                <div class="safety-badge">Advanced Tech</div>
+                <h3 class="safety-title">Advanced Assistance</h3>
+                <div class="safety-description">
+                    <p>As you move up the trim levels, Hyundai's safety technology evolves from pure protection to offering incredible levels of driver convenience and support. Higher trims of both models unlock a suite of advanced features that can make your drive easier and less fatiguing.</p>
+                    
+                    <p>The Blind-Spot View Monitor (BVM), available on Limited and Calligraphy trims, is a standout feature. When you activate your turn signal, it displays a live video feed of your blind spot directly in the digital instrument cluster, giving you a clear view of what's next to you before you change lanes on I-44. The Surround View Monitor (SVM) uses multiple cameras to create a 360-degree bird's-eye view of your vehicle, making it incredibly easy to navigate tight parking spots without worrying about curbs or obstacles.</p>
+                    
+                    <p>For the ultimate in convenience, there's Remote Smart Parking Assist (RSPA). Available on the highest trims, this system allows you to stand outside the vehicle and use your Smart Key to remotely guide it into or out of a tight parking space—a true lifesaver in crowded lots.</p>
+                    
+                    <p>Finally, Highway Driving Assist (HDA) makes long road trips down the Turner Turnpike a breeze. It works with Smart Cruise Control and Lane Following Assist to help you maintain your speed, stay centered in the lane, and keep a safe distance from the vehicle ahead. The most advanced version, HDA 2 (standard on the Santa Fe Calligraphy), adds even more capability, including the ability to assist with lane changes. Hyundai's safety systems are designed as a ladder of support: they start with foundational collision avoidance, progress to enhanced driver awareness, and culminate in luxury-level features that actively reduce driver fatigue and add remarkable convenience to your daily life.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h1>Pricing and Value: What Do You Get for the Money?</h1>
+            
+            <p>A smart vehicle purchase is about more than just the sticker price; it's about the total value you receive over the life of your ownership. This is where Hyundai truly excels, offering a combination of competitive pricing, industry-leading warranty coverage, and complimentary services that make owning a Santa Fe or Tucson an incredibly smart financial decision.</p>
+            
+            <div class="pricing-overview">
+                <div class="pricing-card">
+                    <div class="vehicle-name">2025 Tucson</div>
+                    <div class="pricing-amount">$28,593</div>
+                    <div class="pricing-note">Starting with SE trim</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="vehicle-name">2025 Santa Fe</div>
+                    <div class="pricing-amount">$34,300</div>
+                    <div class="pricing-note">Starting with SE trim</div>
+                </div>
+            </div>
+            
+            <p>The 2025 Tucson lineup starts with the SE trim at an accessible price $28,593 while the larger 2025 Santa Fe begins with its well-equipped SE trim at $34,300. While these prices are already competitive, they are just the beginning of the value story. The true advantage lies in what Hyundai includes with every new vehicle.</p>
+        </div>
+
+        <div class="value-pillars-section">
+            <h2>This value is built on three pillars:</h2>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3 class="pillar-title">America's Best Warranty</h3>
+                    <div class="pillar-description">
+                        This is the cornerstone of Hyundai's promise to you. It provides a 10-Year/100,000-Mile Powertrain Limited Warranty and a 5-Year/60,000-Mile New Vehicle Limited Warranty. This comprehensive coverage provides long-term peace of mind and protects you from unexpected major repair costs far longer than most other manufacturers. It also includes 5 years of 24/7 Roadside Assistance with unlimited mileage, so help is always just a phone call away.
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3 class="pillar-title">Hyundai Complimentary Maintenance</h3>
+                    <div class="pillar-description">
+                        To make ownership even more worry-free, Hyundai covers your normal, factory-scheduled maintenance for the first 3 years or 36,000 miles, whichever comes first. This includes engine oil and filter changes, tire rotations, and a multi-point inspection, performed by certified Hyundai technicians. This directly reduces your out-of-pocket costs for the first few years of ownership.
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h3 class="pillar-title">Bluelink+ Connected Car Services</h3>
+                    <div class="pillar-description">
+                        For 2024 and newer models, Hyundai provides its Bluelink+ connected car services to the original owner at no additional cost. This is a significant value, saving you what could be hundreds of dollars a year in subscription fees. Bluelink+ allows you to use your smartphone to remotely start your car, lock or unlock the doors, and adjust the climate control. The ability to pre-cool your SUV from your phone during a sweltering Oklahoma summer is a tangible benefit you'll appreciate every day.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

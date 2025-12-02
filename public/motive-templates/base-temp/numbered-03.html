@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2025 Tucson - What's New</title>
+    <style>
+      /* Required Motive styling overrides */
+      .numberedContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .numberedContainer h1 {
+        width: fit-content !important;
+      }
+
+      .numberedContainer h3,
+      .numberedContainer h1,
+      .numberedContainer h2,
+      .numberedContainer p,
+      .numberedContainer ol,
+      .numberedContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Custom styles */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+        color: #333;
+      }
+
+      .main-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 3rem;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.2s forwards;
+        position: relative;
+      }
+
+      .main-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #012b5d, #0056b3, #4a90e2, #0056b3, #012b5d);
+        border-radius: 2px;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.8s forwards;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:nth-child(1) {
+        animation-delay: 0.4s;
+      }
+      .feature-item:nth-child(2) {
+        animation-delay: 0.6s;
+      }
+      .feature-item:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+      .feature-item:nth-child(4) {
+        animation-delay: 1s;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-number {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(1, 43, 93, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .feature-number:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(1, 43, 93, 0.3);
+      }
+
+      .feature-content {
+        flex: 1;
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #012b5d;
+        margin: 0 0 1rem 0;
+        position: relative;
+      }
+
+      .feature-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        transition: width 0.5s ease;
+      }
+
+      .feature-item:hover .feature-title::after {
+        width: 100px;
+      }
+
+      .feature-description {
+        color: #555;
+        margin: 0;
+        font-size: 1rem;
+        padding-top: 10px;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 800px;
+        height: 400px;
+        margin: 3rem auto 4rem auto;
+        background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #012b5d;
+        font-size: 1.2rem;
+        opacity: 0;
+        animation: fadeInScale 1.2s ease-out 0.8s forwards;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        outline: 1px dashed #012b5d;
+        outline-offset: 8px;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      .image-placeholder {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .numberedContainer {
+          padding: 20px 15px !important;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .feature-item {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .feature-number {
+          margin: 0 auto;
+        }
+
+        .hero-image {
+          height: 250px;
+          margin: 2rem auto;
+        }
+
+        .feature-title::after {
+          left: calc(50% - 50px);
+        }
+      }
+
+      .numberedContainer a {
+        color: #012b5d;
+        text-decoration: underline;
+        font-weight: 600;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .numberedContainer a:hover {
+        color: #0056b3;
+        transition: all 0.3s ease;
+      }
+
+      /* Scroll animations */
+      @media (prefers-reduced-motion: no-preference) {
+        .scroll-reveal {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="numberedContainer">
+      <h1 class="main-title">
+        What's New for 2025: A Bold Refresh Inside and Out
+      </h1>
+
+      <div class="hero-image">
+        <img src="https://www.hyundai.com/content/dam/hyundai/ph/en/images/find-a-car/pip/new-tucson-2024/new-tucson-perf-1.jpg">
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-number">1</div>
+          <div class="feature-content">
+            <h3 class="feature-title">Exterior Enhancements</h3>
+            <p class="feature-description">
+              The Tucson's "Sensuous Sportiness" design identity has been
+              sharpened for 2025, creating a more commanding presence on the
+              road. The most noticeable change is at the front, where the
+              signature "Parametric Jewel" Daytime Running Lights (DRLs) have
+              been made larger and are now more seamlessly integrated into the
+              revamped grille design. <br /><br />When the vehicle is off, the
+              front end has a clean, unified look; when switched on, the DRLs
+              illuminate to create an unmistakable and futuristic light
+              signature. The front and rear bumpers have also been redesigned
+              for a bolder stance, complemented by new alloy wheel designs
+              across the lineup.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">2</div>
+          <div class="feature-content">
+            <h3 class="feature-title">Cabin Changes</h3>
+            <p class="feature-description">
+              Stepping inside the 2025 Tucson reveals the most dramatic and
+              impactful changes. The interior has been completely redesigned to
+              be more open, elegant, and technologically advanced. The
+              centerpiece of this transformation, available on the SEL
+              Convenience trim and higher, is a stunning panoramic curved
+              display that seamlessly merges a 12.3-inch digital instrument
+              cluster and a 12.3-inch infotainment touchscreen into a single,
+              cohesive unit. <br /><br />This driver-centric cockpit is the kind
+              of feature typically reserved for luxury brands like Genesis or
+              BMW, immediately setting the Tucson apart from its mainstream
+              competitors and creating a near-premium atmosphere.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">3</div>
+          <div class="feature-content">
+            <h3 class="feature-title">Ergonomics</h3>
+            <p class="feature-description">
+              While previous models were praised for their modern aesthetic,
+              some users found the reliance on touch-capacitive controls for
+              climate and audio to be distracting. For 2025, Hyundai has
+              reintroduced physical knobs for volume and tuning, along with a
+              row of clearly marked hard buttons for essential climate control
+              functions. <br /><br />This change is a direct response to
+              customer and critic feedback, demonstrating a commitment to
+              real-world usability. The result is a perfect blend of high-tech
+              cool and intuitive functionality, allowing drivers to make common
+              adjustments without taking their eyes off the road.
+              <br /><br />This user-focused design philosophy builds significant
+              trust and shows that the brand prioritizes safety and convenience
+              over chasing trends.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">4</div>
+          <div class="feature-content">
+            <h3 class="feature-title">New Smart Technologies</h3>
+            <p class="feature-description">
+              The 2025 model year also ushers in a suite of new technologies
+              that enhance comfort, convenience, and safety. All models now
+              support Over-the-Air (OTA) updates, ensuring the vehicle's
+              multimedia and mapping software remains current without requiring
+              a visit to the service center at Joe Cooper Hyundai. <br /><br />
+              Also, the addition of family-friendly features such as Baby Mode
+              on 
+              <a target="_blank" href="https://www.hyundai.com/content/dam/hyundai/ph/en/images/find-a-car/pip/new-tucson-2024/new-tucson-perf-1.jpg">hybrid trims</a>, along with an upgraded SmartSense safety package,
+              strengthens the Tucson's appeal to many buyers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      }, observerOptions);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollElements = document.querySelectorAll(
+          ".feature-item, .hero-image"
+        );
+        scrollElements.forEach((el) => {
+          el.classList.add("scroll-reveal");
+          observer.observe(el);
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const heroImage = document.querySelector(".hero-image");
+        const rate = scrolled * -0.2;
+
+        if (heroImage) {
+          heroImage.style.transform = `translateY(${rate}px)`;
+        }
+      });
+    </script>
+  </body>
+</html>

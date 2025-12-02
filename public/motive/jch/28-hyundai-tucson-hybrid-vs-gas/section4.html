@@ -1,0 +1,375 @@
+<style>
+  /* Section 4 Scoped Styles - Fresh Interior Focus Design */
+
+  .section4 .container {
+    padding: 40px 20px !important;
+    line-height: 1.6 !important;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .section4 .container h1 {
+    width: 100% !important;
+  }
+
+  .section4 .container h3,
+  .section4 .container h1,
+  .section4 .container h2,
+  .section4 .container p,
+  .section4 .container ol,
+  .section4 .container ul {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Hero Section - Simple */
+  .section4 .hero-section {
+    background: #1a237e;
+    color: white;
+    padding: 60px 40px;
+    margin: 0 0 50px 0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .section4 .hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 auto;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section4 .hero-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  /* Content Introduction with Card Style */
+  .section4 .intro-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 0;
+    border-left: 5px solid #1a237e;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .section4 .intro-text {
+    font-size: 18px;
+    color: #2c3e50;
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+    font-weight: 400;
+  }
+
+  /* Feature Spotlight Sections */
+  .section4 .feature-spotlight {
+    margin: 60px 0;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .section4 .feature-spotlight:hover {
+    transform: translateY(-5px);
+  }
+
+  .section4 .feature-spotlight:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .section4 .feature-icon {
+    flex: 0 0 300px;
+    height: 200px;
+    background: #1a237e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10%;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .section4 .feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10%;
+  }
+
+  .section4 .feature-icon::before {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 2rem;
+  }
+
+  .section4 .feature-content {
+    flex: 1;
+    padding: 40px;
+  }
+
+  .section4 .feature-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a237e;
+    margin: 0 0 20px 0;
+    position: relative;
+  }
+
+  .section4 .feature-title::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #1a237e;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+  }
+
+  .section4 .feature-description {
+    font-size: 16px;
+    color: #495057;
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+  }
+
+  /* Special Digital Key Section */
+  .section4 .digital-key-section {
+    background: #2c3e50;
+    color: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    margin: 60px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+  }
+
+  .section4 .digital-key-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section4 .digital-key-content {
+    position: relative;
+    width: 90%;
+    z-index: 1;
+  }
+
+  .section4 .digital-key-text {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.95;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .section4 .digital-key-highlight {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+  }
+
+  .section4 .hr-style {
+    border: 0;
+    height: 2px;
+    background: #1a237e;
+    margin: 60px 0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .section4 .container {
+      padding: 20px 15px !important;
+    }
+
+    .section4 .hero-section {
+      padding: 40px 20px;
+      margin: 0 0 30px 0;
+    }
+
+    .section4 .hero-title {
+      font-size: 32px;
+    }
+
+    .section4 .hero-subtitle {
+      font-size: 18px;
+    }
+
+    .section4 .intro-card {
+      padding: 25px;
+      margin: 25px 0;
+    }
+
+    .section4 .intro-text {
+      font-size: 16px;
+    }
+
+    .section4 .feature-spotlight {
+      flex-direction: column !important;
+      margin: 40px 0;
+    }
+
+    .section4 .feature-spotlight:nth-child(even) {
+      flex-direction: column !important;
+    }
+
+    .section4 .feature-icon {
+      flex: none;
+      width: 100%;
+      height: 120px;
+    }
+
+    .section4 .feature-icon::before {
+      width: 60px;
+      height: 60px;
+    }
+
+    .section4 .feature-content {
+      padding: 25px;
+    }
+
+    .section4 .feature-title {
+      font-size: 24px;
+    }
+
+    .section4 .feature-description {
+      font-size: 15px;
+    }
+
+    .section4 .digital-key-section {
+      padding: 35px 20px;
+      margin: 40px 0;
+    }
+
+    .section4 .digital-key-title {
+      font-size: 26px;
+    }
+
+    .section4 .digital-key-text {
+      font-size: 15px;
+    }
+
+    .section4 .digital-key-highlight {
+      padding: 20px;
+      margin: 20px 0;
+    }
+  }
+</style>
+
+<div class="container section4">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1 class="hero-title">Inside the 2025 Tucson</h1>
+    <p class="hero-subtitle">
+      One of the most dramatic updates for the 2025 Tucson is its completely
+      redesigned interior, which creates a driver-focused environment that is
+      both technologically advanced and beautifully intuitive.
+    </p>
+  </div>
+
+  <!-- Panoramic Display Feature -->
+  <div class="feature-spotlight">
+    <div class="feature-icon">
+      <img
+        src="https://i.ibb.co/V0BQ83st/Panoramic-Curved-Display-Cluster-tucson-1380x750.jpg"
+        alt="Panoramic Curved Display"
+      />
+    </div>
+
+    <div class="feature-content">
+      <h2 class="feature-title">The Panoramic Curved Display</h2>
+      <p class="feature-description">
+        The centerpiece of the new cabin is the available panoramic curved
+        display. This stunning feature seamlessly integrates a 12.3-inch digital
+        instrument cluster and a 12.3-inch infotainment touchscreen into a
+        single, elegant unit that sweeps across the dashboard. This is a design
+        statement that gives the Tucson a sophisticated, futuristic feel. The
+        system itself is faster, with enhanced graphics and quicker processing
+        speeds, making every interaction smooth and responsive.
+      </p>
+    </div>
+  </div>
+
+  <!-- Connectivity Feature -->
+  <div class="feature-spotlight">
+    <div class="feature-icon">
+      <img
+        src="https://i.ibb.co/JWbqcVcZ/carplay-hyundai.jpg"
+        style="object-fit: contain"
+        alt="Effortless Connectivity"
+      />
+    </div>
+    <div class="feature-content">
+      <h2 class="feature-title">Effortless Connectivity</h2>
+      <p class="feature-description">
+        Hyundai understands that seamless connection to your digital life is
+        essential. That's why every 2025 Tucson, from the SE on up, comes
+        standard with wireless Apple CarPlay® and Android Auto™. This means you
+        can access your favorite maps, music, and messaging apps on the large
+        touchscreen without ever needing to plug in your phone. In a thoughtful
+        nod to user-friendliness, Hyundai has also brought back physical knobs
+        for volume and tuning, along with dedicated switchgear for the climate
+        controls, making common adjustments quick, easy, and safe to perform
+        while driving.
+      </p>
+    </div>
+  </div>
+
+  <!-- Digital Key Section - Special Treatment -->
+  <div class="digital-key-section">
+    <div class="digital-key-content">
+      <h2 class="digital-key-title">
+        Your Smartphone is the Key: Hyundai Digital Key 2
+      </h2>
+
+      <p class="digital-key-text">
+        The available Hyundai Digital Key 2 technology transforms how you
+        interact with your vehicle. This feature allows you to use your
+        compatible iPhone, Apple Watch, or Samsung/Google smartphone to securely
+        lock, unlock, and start your Tucson. The system uses two forms of
+        technology. For many devices, you can simply use Near Field
+        Communication (NFC) by tapping your phone on the driver's door handle to
+        unlock it. For newer, UWB-equipped devices and vehicles, the experience
+        is even more magical: the car can sense your approach and unlock the
+        doors for you automatically, hands-free.
+      </p>
+
+      <div class="digital-key-highlight">
+        <p class="digital-key-text">
+          Perhaps the most powerful aspect of Digital Key 2 is the ability to
+          securely share a key with up to three other people through your
+          phone's wallet app. This is a perfect solution for Oklahoma families.
+          You can grant a teenager access to the car for a specific period
+          without handing over a physical key, or send a key to a visiting
+          family member from across the country. It's the ultimate in modern
+          convenience and control.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hr-style" />
+</div>

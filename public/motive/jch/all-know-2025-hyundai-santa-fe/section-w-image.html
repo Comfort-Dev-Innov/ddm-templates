@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Fe Cabin</title>
+    <style>
+        .santa-fe-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            font-family: 'Georgia', serif;
+        }
+        
+        .santa-fe-container h1 {
+            width: fit-content !important;
+        }
+        
+        .santa-fe-container h3,
+        .santa-fe-container h1,
+        .santa-fe-container h2,
+        .santa-fe-container p,
+        .santa-fe-container ol,
+        .santa-fe-container ul {
+            max-width: 1300px !important;
+        }
+
+        .cabin-intro-paragraph {
+            font-size: 1.1em;
+            color: #012b5d;
+            margin-bottom: 2.5em;
+            padding: 0 20px;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        .cabin-intro-paragraph:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(1, 43, 93, 0.1);
+        }
+
+        .cabin-section-header {
+            color: #002c5f;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 2.5em 0 1.5em 0;
+            padding: 0 20px;
+            border-left: 4px solid #012b5d;
+            padding-left: 25px;
+            transition: border-left 0.3s ease;
+        }
+
+        .cabin-section-header:hover {
+            border-left: 6px solid #002c5f;
+        }
+
+        .cabin-content-block {
+            margin-bottom: 2em;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px dashed #ccc;
+        }
+
+        .content-block p {
+            color: #012b5d;
+            margin-bottom: 1.3em;
+            text-align: justify;
+            transition: color 0.3s ease;
+        }
+
+        .content-block p:hover {
+            color: #002c5f;
+        }
+
+        .cabin-highlight-text {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.1) 0%, rgba(0, 44, 95, 0.1) 100%);
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .cabin-highlight-text:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.2) 0%, rgba(0, 44, 95, 0.2) 100%);
+        }
+
+        .cabin-dimensions-highlight {
+            font-weight: 600;
+            color: #002c5f;
+        }
+
+        .cabin-capacity-stats {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05) 0%, rgba(0, 44, 95, 0.05) 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 1.5em 20px;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cabin-capacity-stats:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(1, 43, 93, 0.15);
+            border-color: rgba(0, 44, 95, 0.2);
+        }
+
+        .cabin-capacity-stats p {
+            margin: 0.8em 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cabin-content-block {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .santa-fe-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d 0%, #002c5f 100%);
+            opacity: 0.3;
+        }
+
+        .cabin-hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 2em auto 3em auto;
+            display: block;
+            box-shadow: 0 8px 24px rgba(1, 43, 93, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .cabin-hero-image:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(1, 43, 93, 0.25);
+        }
+
+        .cabin-image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #002c5f;
+            font-size: 0.9em;
+            margin: -2em auto 3em auto;
+            max-width: 600px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="santa-fe-container">
+        <div class="cabin-intro-paragraph">
+            The cabin of the 2025 Hyundai Santa Fe has been completely reimagined to serve as your personal sanctuary—a versatile, comfortable, and technologically advanced space for you and your passengers. Whether you're running daily errands, embarking on a family road trip, or seeking a quiet moment of refuge, the interior is designed to cater to your every need.
+        </div>
+
+        <img src="https://www.hyundai.com/content/dam/hyundai/template_en/en/images/find-a-car/pip/santa-fe/interior/santa-fe-design-full-view-interior-pc.jpg" alt="Luxurious SUV interior with spacious seating and modern design" class="cabin-hero-image">
+        <p class="cabin-image-caption">Experience the refined comfort and spacious design of a modern SUV interior</p>
+
+        <div class="cabin-section-header">A Cabin for Every Crew: Versatility and Space</div>
+
+        <div class="cabin-content-block">
+            <p>The Santa Fe's expanded dimensions and thoughtful layout create a remarkably spacious and flexible interior. Most trims come standard with a <span class="cabin-highlight-text">seven-seat configuration</span>, featuring a second-row bench seat that is perfect for maximizing passenger capacity.</p>
+        </div>
+        <div class="cabin-content-block">
+            <p>If you prioritize second-row comfort, the top-tier Calligraphy trim offers a luxurious <span class="cabin-highlight-text">six-seat layout</span> with plush captain's chairs that provide generous personal space and a convenient pass-through to the third row.</p>
+        </div>
+
+        <div class="cabin-content-block">
+            <p>The interior dimensions speak for themselves, with generous <span class="cabin-dimensions-highlight">head, shoulder, and legroom</span> in all three rows to ensure that passengers of all sizes can travel in comfort.</p>
+            
+            <p>There is plenty of room for growing teenagers in the second row, and enough space for everyone to feel relaxed and comfortable, even on a longer road trip to a destination like Arkansas, or Dallas, Texas.</p>
+        </div>
+
+        <div class="cabin-content-block">
+            <p>When it's time to haul gear instead of people, the Santa Fe transforms into a cargo king.</p>
+
+            <div class="cabin-capacity-stats">
+                <p>With all seats in place, you still have a useful <span class="cabin-dimensions-highlight">14.6 cubic feet</span> of space behind the third row.</p>
+                
+                <p>Fold the third row down, and that expands to a cavernous <span class="cabin-dimensions-highlight">40.5 cubic feet</span>.</p>
+                
+                <p>For maximum capacity, folding both the second and third rows flat opens up a massive <span class="cabin-dimensions-highlight">79.6 cubic feet</span> of space.</p>
+            </div>
+
+            <p>This is more than enough room for a full load of luggage, sports equipment for a weekend tournament, or a big shopping haul.</p>
+        </div>
+
+        <div class="cabin-section-header">Interior Upholstery and Color Availability</div>
+
+        <div>
+            <p>Your cabin's color and materials are a personal expression of your style. This table outlines the beautiful and practical options available for each 2025 Santa Fe trim.</p>
+        </div>
+    </div>
+</body>
+</html>

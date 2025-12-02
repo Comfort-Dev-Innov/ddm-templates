@@ -1,0 +1,1296 @@
+    <html>
+    <head>
+        <style>
+        /* TODO: Remove this every pasting */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+
+        /* Motive Container Default Styles */
+        .container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .container h1 {
+            width: fit-content !important;
+        }
+
+        .container h3,
+        .container h1,
+        .container h2,
+        .container p,
+        .container ol,
+        .container ul {
+            max-width: 1300px !important;
+        }
+
+        .paragraph-hyperlink {
+            color: #0f3079;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.5s ease-in-out;
+            animation-duration: 0.5s;
+        }
+
+        .paragraph-hyperlink:hover {
+            transition: all 0.5s ease-in-out;
+            text-decoration: underline;
+            animation-duration: 0.5s;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            color: #0f3079;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #0f3079, #2d5aa0);
+            border-radius: 2px;
+        }
+
+        /* Subsection Heading */
+        .subsection-heading {
+            color: #0f3079;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 20px 0;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: black;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        /* Comparison Images Section */
+        .comparison-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+            align-items: start;
+        }
+
+        .vehicle-image-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #0f3079;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 450;
+            max-width: 800px;
+            width: calc(100% - 400px);
+            margin: 0 auto;
+        }
+
+        .vehicle-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+        }
+
+        .vehicle-image-label {
+            color: #0f3079;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .vehicle-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            border: 2px dashed #0f3079;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f3079;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+
+        /* Single Image Container */
+        .single-image-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #0f3079;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .single-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+        }
+
+        /* Table Heading */
+        .table-heading {
+            color: #0f3079;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            text-align: center;
+        }
+
+        /* Table Styling */
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background: white;
+            font-size: 0.9rem;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 1rem 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.3;
+        }
+
+        .comparison-table th:last-child {
+            border-right: none;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 16px;
+            text-align: left;
+            padding-left: 1rem;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 16px;
+        }
+
+        .comparison-table tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-table td {
+            padding: 0.9rem 0.75rem;
+            vertical-align: top;
+            border-right: 1px solid #e9ecef;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .comparison-table td:last-child {
+            border-right: none;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            background: #f8fafc;
+        }
+
+        .hr-1 {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+            );
+            margin: 50px 0;
+        }
+
+        /* TOC Styling */
+        .toc-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #0f3079;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .toc-heading {
+            color: #0f3079;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(15, 48, 121, 0.1);
+        }
+
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .toc-list a {
+            color: #0f3079;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .toc-list a:hover {
+            color: #2d5aa0;
+            padding-left: 10px;
+        }
+
+        .vehicle-image-placeholder-2 {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            body {
+            padding: 5rem 8rem;
+            }
+
+            .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+            }
+
+            .section-heading {
+            font-size: 2.2rem;
+            }
+
+            .vehicle-image-container {
+            max-width: 80%;
+            width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-heading {
+            font-size: 1.6rem;
+            }
+
+            .subsection-heading {
+            font-size: 1.2rem;
+            }
+
+            .table-heading {
+            font-size: 1.3rem;
+            }
+
+            .comparison-images {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            }
+
+            .vehicle-image-container {
+            max-width: 90%;
+            width: 100%;
+            max-height: 350px;
+            }
+
+            .vehicle-image-placeholder {
+            height: 250px;
+            font-size: 1rem;
+            object-fit: contain;
+            }
+
+            .comparison-table {
+            min-width: 800px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+            padding: 0.7rem 0.5rem;
+            font-size: 0.8rem;
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+            }
+
+            .vehicle-image-placeholder-2 {
+            height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <h1 class="section-heading">
+            The 2026 Hyundai Elantra vs. The 2026 Honda Civic
+        </h1>
+        <br />
+        <p class="paragraph-text">
+            Compact sedans remain a cornerstone of practical, efficient driving for
+            Oklahomans seeking value without compromising modern design or
+            technology. The 2026 Hyundai Elantra and 2026 Honda Civic both stand as
+            leading choices in this competitive segment, each offering a unique
+            blend of performance, innovation, and reliability.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            This comparison explores how these two nameplates measure up across
+            critical categories, from comfort and safety to technology and
+            real-world efficiency, helping you determine which compact sedan best
+            complements your everyday driving needs.
+        </p>
+
+        <!-- Table of Contents -->
+        <div class="toc-container">
+            <h3 class="toc-heading">Table of Contents</h3>
+            <ol class="toc-list">
+            <li>
+                <a href="#overview"
+                >Model Overview of The Hyundai Elantra and Honda Civic</a
+                >
+            </li>
+            <li>
+                <a href="#performance"
+                >Elantra and Civic's Powertrain and Road Feel</a
+                >
+            </li>
+            <li>
+                <a href="#exterior"
+                >Exterior and Design Features of the 2026 Elantra and Civic</a
+                >
+            </li>
+            <li>
+                <a href="#interior"
+                >The Comfort and Cabin Space Inside the 2026 Hyundai Elantra and
+                Honda Civic</a
+                >
+            </li>
+            <li><a href="#technology">Connectivity and Infotainment</a></li>
+            <li>
+                <a href="#safety">Safety and Driver Assistance Innovations</a>
+            </li>
+            <li><a href="#fuel">Fuel Economy and Range Comparison</a></li>
+            <li><a href="#cargo">Cargo Versatility and Usability</a></li>
+            <li><a href="#value">Ownership and Value</a></li>
+            <li>
+                <a href="#verdict">Why the 2026 Hyundai Elantra Wins</a>
+            </li>
+            </ol>
+        </div>
+
+        <hr class="hr-1" />
+
+        <!-- Spotlight Section (Not in TOC) -->
+        <h2 class="section-heading">
+            Spotlight on The 2026 Hyundai Elantra and The Honda Civic
+        </h2>
+        <br />
+        <p class="paragraph-text">
+            Both the 2026 Hyundai Elantra and 2026 Honda Civic cater to the needs of
+            drivers in terms of efficiency and refinement in their daily commute,
+            but the Elantra distinctly outshines the Civic with its broader
+            powertrain suite, superior fuel economy in hybrid variants, enhanced
+            interior refinements, and advanced safety technology as standard.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            In performance, the Elantra offers a wider array of trims, including the
+            exhilarating Elantra N, whose turbocharged 276-horsepower engine
+            competes closely with Civic Type R's 315 hp, but at a compelling value
+            with more contemporary tech inclusions. Meanwhile, the Civic's base
+            powertrain lags marginally in acceleration and torque, underlining
+            Hyundai's edge in driving engagement across all trim levels.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            Technology-wise, the Elantra's availability of dual 10.25-inch digital
+            displays alongside wireless smartphone integration even in base trims
+            makes it a tech leader, while Honda's infotainment system remains more
+            limited in touchscreen size and wireless support, especially across
+            non-hybrid variants.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            Safety is yet another decisive field, where the Elantra carries forward
+            critical standards like automatic emergency braking, blind-spot
+            monitoring, and rear cross-traffic alerts across every trim, whereas
+            some of these features are reserved for higher Civic trims only.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            Overall, considering the metropolitan driving demands around Guthrie and
+            Norman, the 2026 Hyundai Elantra presents a more balanced, value-packed
+            proposition for buyers seeking vigor, safety, and sophistication in
+            their transportation choice.
+        </p>
+
+        <hr class="hr-1" id="overview" />
+
+        <!-- Section 1: Model Overview -->
+        <h2 class="section-heading">
+            Model Overview of The Hyundai Elantra and Honda Civic
+        </h2>
+        <br />
+        <div class="vehicle-image-container">
+            <div class="vehicle-image-label">The 2026 Hyundai Elantra</div>
+            <img
+            src="https://i.ibb.co/XxCGvNb3/hyundai-elantra-2026.png"
+            alt="2026 Hyundai Elantra Image"
+            class="vehicle-image-placeholder"
+            />
+        </div>
+        <br/>
+        <h3 class="subsection-heading">2026 Hyundai Elantra</h3>
+        <p class="paragraph-text">
+            The 2026 Elantra stands out with its sharp, aggressive design language
+            and thoughtfully executed cabin upgrades introduced in its recent 2024
+            facelift. Its redesigned front and rear fascias, new trim levels such as
+            SEL Sport Premium, and exclusive features like haptic steering wheel
+            feedback demonstrate Hyundai's commitment to innovation. The Elantra
+            covers a broad range of driver expectations through multiple
+            configurations, from a fuel-efficient base 2.0L model to an electrifying
+            276-hp Elantra N.
+        </p>
+        <br />
+        <div class="vehicle-image-container">
+            <div class="vehicle-image-label">The 2026 Honda Civic</div>
+            <img
+            src="https://i.ibb.co/ksZZGRT5/hondacivic2026.png"
+            alt="2026 Honda Civic Image"
+            class="vehicle-image-placeholder"
+            />
+        </div>
+        <br />
+        <h3 class="subsection-heading">2026 Honda Civic</h3>
+        <p class="paragraph-text">
+            Honda carries its storied Civic nameplate forward in 2026 with minimal
+            exterior and mechanical changes following its 2022 redesign and 2025
+            midcycle update. Available in sedan and hatchback formats, the Civic
+            offers a solid base 2.0-liter naturally aspirated engine and a lively
+            hybrid variant with a 200-hp output. While it includes sporty Si and
+            Type R trims, much of the emphasis remains on broad market appeal and
+            reliability rather than pushing technology or interior refinement
+            frontiers.
+        </p>
+
+        <hr class="hr-1" id="performance" />
+
+        <!-- Section 2: Performance -->
+        <h2 class="section-heading">
+            Elantra and Civic's Powertrain and Road Feel
+        </h2>
+
+        <br/>
+        <h3 class="subsection-heading">Elantra's Diverse Powertrain Choices</h3>
+        <p class="paragraph-text">
+            Hyundai equips the Elantra with several powertrains, offering
+            flexibility across price and performance expectations:
+        </p>
+        <br />
+        <ul class="bullet-list">
+            <li>
+            Base 2.0L Inline-4: 147 hp and 132 lb-ft torque paired with a smooth
+            CVT, generating competent acceleration at approximately 8.4 seconds
+            from 0-60 mph, well-suited for urban driving and on the highway.
+            </li>
+            <br />
+            <li>
+            N-Line Turbocharged Engine: Boosted to 201 hp and 195 lb-ft with a
+            seven-speed dual-clutch transmission delivering swifter 7.0-second
+            sprints for drivers seeking sharper ride response.
+            </li>
+            <br />
+            <li>
+            At 276 hp and torque close to 289 lb-ft, equipped with adaptive
+            suspension and electronically controlled limited-slip differential, it
+            asserts dominance with a 5.5-second 0-60 mph time, amenable to those
+            who crave true sportiness without sacrificing day-to-day usability.
+            </li>
+        </ul>
+        <br />
+        <h3 class="subsection-heading">Honda Civic's Powertrains</h3>
+        <p class="paragraph-text">
+            By comparison, the Civic's engine lineup is narrower, with:
+        </p>
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            Base 2.0L Inline-4: Roughly 150 hp and 133 lb-ft torque paired with a
+            CVT; however, it trails the Elantra by nearly a second in 0-60 mph
+            acceleration (~9.6 seconds), indicating a more relaxed power delivery.
+            </li>
+            <br />
+            <li>
+            Hybrid Model: Offers 200 hp and 232 lb-ft with a notably quicker
+            6.1-second sprint, showcasing Honda's hybrid technology capabilities.
+            </li>
+            <br />
+            <li>
+            Si Trim: Featuring a 1.5L turbo with 200 hp, matching the Elantra
+            N-Line's power but lacking the modern transmission tech found in the
+            Hyundai's dual-clutch gearbox.
+            </li>
+            <br />
+            <li>
+            Type R: The performance pinnacle with 315 hp and 310 lb-ft, edging
+            Elantra N in power and acceleration, but comes with a significantly
+            higher base price and less standard tech.
+            </li>
+        </ul>
+        <br />
+        <h3 class="subsection-heading">Handling and Suspension Considerations</h3>
+        <p class="paragraph-text">
+            Elantra incorporates MacPherson strut front suspension with a torsion
+            beam rear on base models, upgrading to multi-link rear suspension on
+            N-Line and adaptive damping on Elantra N for precision handling.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            Civic utilizes MacPherson struts up front and multi-link rear suspension
+            universally, but its sport-tuned components, especially on Type R, cost
+            more without substantially increasing everyday comfort.
+        </p>
+
+        <!-- Performance Comparison Table -->
+        <br />
+        <h3 class="table-heading">Engine Specifications and Performance</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Specification</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Base Engine Power</td>
+                <td>147 horsepower</td>
+                <td>150 horsepower</td>
+            </tr>
+            <tr>
+                <td>Torque</td>
+                <td>132 lb-ft</td>
+                <td>133 lb-ft</td>
+            </tr>
+            <tr>
+                <td>Transmission</td>
+                <td>CVT (base), 7-speed dual-clutch (N-Line)</td>
+                <td>CVT (base), 6-speed manual (Si/Type R)</td>
+            </tr>
+            <tr>
+                <td>0-60 mph Acceleration (Base)</td>
+                <td>8.4 seconds</td>
+                <td>9.6 seconds</td>
+            </tr>
+            <tr>
+                <td>0-60 mph Acceleration (Performance)</td>
+                <td>5.5 seconds (N)</td>
+                <td>5.3 seconds (Type R)</td>
+            </tr>
+            <tr>
+                <td>Drivetrain</td>
+                <td>Front-wheel drive</td>
+                <td>Front-wheel drive</td>
+            </tr>
+            <tr>
+                <td>Suspension</td>
+                <td>Adaptive (N), sport-tuned (N-Line)</td>
+                <td>Sport-tuned (Si/Type R)</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Single Image Placeholder for Performance -->
+        <div class="single-image-container">
+            <div class="vehicle-image-label">
+            Performance Comparison: Elantra N vs Civic Type R
+            </div>
+            <img
+            src="https://i.ibb.co/vvJc4KpN/the-new-elantra-cn7-og.jpg"
+            alt="Performance Comparison: Elantra N vs Civic Type R"
+            class="vehicle-image-placeholder-2"
+            />
+        </div>
+
+        <hr class="hr-1" id="exterior" />
+
+        <!-- Section 3: Exterior Design -->
+        <h2 class="section-heading">
+            Exterior and Design Features of the 2026 Elantra and Civic
+        </h2>
+        <br />
+        <p class="paragraph-text">
+            The 2026 Elantra has an angular design aesthetic with aggressive front
+            and rear fascia updates, crisp creases, and new wheel designs, including
+            17-inch gloss black rims on SEL Sport Premium models that convey a
+            confident street presence. These details complement an adaptive LED
+            lighting system and a bold grille, perfect for turning heads or
+            commuting stylishly.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            In contrast, the Honda Civic leans toward a more conservatively modern
+            look. Its 2025 refresh brought polished but subtle updates, body-colored
+            headlight accents, and darker taillights. This restrained approach
+            appeals to buyers favoring timeless looks but lacks the visual energy
+            that the Elantra delivers in this segment.
+        </p>
+
+        <!-- Exterior Dimensions Table -->
+        <br />
+        <h3 class="table-heading">Exterior Dimensions and Design Features</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Exterior Feature</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Length</td>
+                <td>184.1 inches</td>
+                <td>184.8 inches</td>
+            </tr>
+            <tr>
+                <td>Width</td>
+                <td>71.9 inches</td>
+                <td>70.9 inches</td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td>55.7 inches</td>
+                <td>55.7 inches</td>
+            </tr>
+            <tr>
+                <td>Wheel Options</td>
+                <td>15", 17", 18" gloss black on SEL Sport Premium</td>
+                <td>16", 18" alloy wheels</td>
+            </tr>
+            <tr>
+                <td>Lighting</td>
+                <td>Dual-LED projector headlights (standard)</td>
+                <td>Dual-LED low-beam headlamps (standard)</td>
+            </tr>
+            <tr>
+                <td>Styling Accents</td>
+                <td>
+                Black exterior accents, gloss black wheels (SEL Sport Premium)
+                </td>
+                <td>Matte Shark Gray inserts (Sport Touring Hybrid)</td>
+            </tr>
+            <tr>
+                <td>Rear Design</td>
+                <td>LED taillights with diffuser (N-Line)</td>
+                <td>Redesigned darker taillights</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p class="paragraph-text">
+            The Elantra's bolder palette of exterior accents, combined with more
+            wheel size variety, gives it an edge in capturing attention.
+        </p>
+
+        <hr class="hr-1" id="interior" />
+
+        <!-- Section 4: Interior -->
+        <h2 class="section-heading">
+            The Comfort and Cabin Space: Inside the 2026 Hyundai Elantra and Honda
+            Civic
+        </h2>
+        <br />
+        <p class="paragraph-text">
+            Space and comfort within the cabin are critical for drivers in Oklahoma
+            who spend significant time commuting or road-tripping. The 2026 Hyundai
+            Elantra delivers with a roomy interior featuring:
+        </p>
+        <br />
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            <p class="paragraph-text">
+            Front legroom of 42.3 inches and rear legroom extending 38.0 inches,
+            comfortably accommodating adults on longer drives through Moore or
+            Proviso Township.
+            </p>
+            </li>
+
+        <br />
+
+            <li>
+            <p class="paragraph-text">
+            Generous trunk space of 14.2 cubic feet, offering ample capacity for
+            groceries, sports gear, or luggage.
+            </p>
+            </li>
+
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Enhanced interior materials and design created an upscale feeling,
+            especially on SEL Sport Premium and Limited trims with leatherette
+            seating, heated front seats, and advanced dual-zone climate control.
+            </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Advanced ergonomic layout with dual 10.3-inch digital displays in upper
+            trims alongside customizable ambient lighting and a wireless charging
+            pad complements overall user comfort.
+            </p>
+        </li>
+        <br />
+        <p class="paragraph-text">
+            While the 2026 Honda Civic boasts similar front legroom (42.3 inches),
+            its rear room shrinks slightly to 37.4 inches, and trunk space inches up
+            to 14.8 cubic feet in sedan form. Despite slightly larger cargo volume,
+            the Civic's materials tend to be more utilitarian, with fewer high-end
+            touches standard, especially in non-hybrid base trims.
+        </p>
+
+        <!-- Interior Dimensions Table -->
+        <br />
+        <h3 class="table-heading">Interior Dimensions and Comfort Features</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Interior Dimension / Feature</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Front Legroom</td>
+                <td>42.3 inches</td>
+                <td>42.3 inches</td>
+            </tr>
+            <tr>
+                <td>Rear Legroom</td>
+                <td>38.0 inches</td>
+                <td>37.4 inches</td>
+            </tr>
+            <tr>
+                <td>Passenger Volume</td>
+                <td>99.4 cubic feet</td>
+                <td>Approximately 96+ cubic feet</td>
+            </tr>
+            <tr>
+                <td>Cargo Volume</td>
+                <td>14.2 cubic feet</td>
+                <td>14.8 cubic feet (sedan)</td>
+            </tr>
+            <tr>
+                <td>Heating & Cooling</td>
+                <td>Dual-zone climate standard on upper trims</td>
+                <td>Dual-zone climate on Sport Hybrid and above</td>
+            </tr>
+            <tr>
+                <td>Seat Material</td>
+                <td>Cloth standard; leatherette upper trims</td>
+                <td>Cloth standard; leather optional</td>
+            </tr>
+            <tr>
+                <td>Ambient Lighting</td>
+                <td>Available on Limited trim</td>
+                <td>Not standard</td>
+            </tr>
+            <tr>
+                <td>Wireless Charging</td>
+                <td>Standard on SEL Sport Premium & above</td>
+                <td>Sport Touring Hybrid trim only</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p class="paragraph-text">
+            Thanks to its focus on premium features at more accessible price points,
+            the Elantra's cabin ambiance is more refined for families and
+            professionals covering daily routes within and around Oklahoma City.
+        </p>
+
+        <!-- Single Image Placeholder for Interior -->
+        <div class="single-image-container">
+            <div class="vehicle-image-label">
+            Interior Comfort: Elantra's Premium Cabin
+            </div>
+            <img
+            src="https://i.ibb.co/rf0yWf7r/elantra-hyundai-2026-interior.jpg"
+            alt="Interior Comfort: Elantra's Premium Cabin"
+            class="vehicle-image-placeholder-2"
+            />
+        </div>
+
+        <hr class="hr-1" id="technology" />
+
+        <!-- Section 5: Technology -->
+        <h2 class="section-heading">
+            Connectivity and Infotainment of the 2026 Hyundai Elantra and 2026 Honda
+            Civic
+        </h2>
+        <br />
+        <p class="paragraph-text">
+            In today's digital age, seamless technology integration influences buyer
+            decisions, especially in bustling hubs like Midwest City and Yukon.
+            Here, the Elantra's tech package pulls decisively ahead with:
+        </p>
+        <br />
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            <p class="paragraph-text">
+        <p class="paragraph-text">
+            Standard wireless Apple CarPlay and Android Auto on all trims, a
+            convenience the Civic restricts mostly to higher trims, especially
+            hybrids.
+            </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Available dual 10.25-inch displays combine the instrument cluster and
+            infotainment, providing a crisp, modern interface on SEL Convenience,
+            Limited, and N-Line trims.
+            </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Hyundai Digital Key 2 Touch technology offers smartphone-based vehicle
+            access on Limited and N-Line, blending security and convenience.
+            </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Wi-Fi hotspot available on multiple trims with easy activation, further
+            empowering connected lifestyles.
+            </p>
+        </li>
+        </ul>
+        <br />
+        <p class="paragraph-text">The Honda Civic offers respectable tech, such as a 7-inch base touchscreen and an optional 9-inch screen with Google integration and a Garmin-based audio system in sportier variants. Wireless smartphone mirroring and Bose premium audio are limited to higher trims like Sport Touring Hybrid, excluding base variants.
+    </p>
+        <!-- Technology Comparison Table -->
+        <br />
+        <h3 class="table-heading">Infotainment and Connectivity Comparison</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Technology Feature</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Base Touchscreen Size</td>
+                <td>
+                8.0-inch (entry trims), 10.25-inch (SEL Sport Premium and up)
+                </td>
+                <td>7.0-inch (base), 9.0-inch (optional)</td>
+            </tr>
+            <tr>
+                <td>Digital Instrument Cluster</td>
+                <td>4.2-inch (base), 10.25-inch digital (higher trims)</td>
+                <td>7.0-inch (base), 10.2-inch (high trim)</td>
+            </tr>
+            <tr>
+                <td>Wireless Apple CarPlay/Android Auto</td>
+                <td>Standard across all trims</td>
+                <td>Wireless on Sport Touring Hybrid only</td>
+            </tr>
+            <tr>
+                <td>Digital Key Technology</td>
+                <td>Digital Key 2 Touch (Limited and N-Line)</td>
+                <td>Not available</td>
+            </tr>
+            <tr>
+                <td>Bluetooth and USB Ports</td>
+                <td>Multiple USB and rear passenger USB Type-C ports</td>
+                <td>Front USB ports standard</td>
+            </tr>
+            <tr>
+                <td>Premium Audio</td>
+                <td>Bose 8-speaker on Limited trim</td>
+                <td>Bose 12-speaker on Sport Touring Hybrid</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p class="paragraph-text">
+            Elantra's broad standard of tech features offers a user-friendly and
+            connected driving experience for Norman area customers without the
+            frustration of costly upgrades.
+        </p>
+
+        <hr class="hr-1" id="safety" />
+
+        <!-- Section 6: Safety -->
+        <h2 class="section-heading">Safety and Driver Assistance Innovations</h2>
+        <br />
+        <p class="paragraph-text">
+            Driver and passenger safety reign supreme in any purchasing decision.
+            The Elantra delivers on this front with an exceptional standard
+            equipment list across every trim:
+        </p>
+        <br />
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            <p class="paragraph-text">
+                IIHS Top Safety Pick+ designation with a five-star NHTSA overall rating.
+            </p>
+            </li>
+            <br />
+            <li>
+            <p class="paragraph-text">
+                Standard features include forward collision-avoidance with pedestrian
+                detection, blind-spot collision warning, lane keeping and following
+                assist, rear cross-traffic alert, and automatic emergency braking.
+            </p>
+            </li>
+        <br />
+            <li>
+            <p class="paragraph-text">
+                Higher trims add sophisticated technology such as Highway Driving Assist
+            and adaptive cruise control with stop-and-go.
+            </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            Hyundai's five-year unlimited-mile roadside assistance program assures
+            drivers in Oklahoma City and neighboring communities peace of mind long
+            term.
+            </p>
+        </li>
+        <br />
+        </ul>
+            <p class="paragraph-text">
+            The Civic aligns closely with safety essentials, offering Honda Sensing®
+            standard across trims, including collision mitigation braking, lane
+            keeping assist, and adaptive cruise control. However, some safety items
+            like blind-spot monitoring and rear cross-traffic alert appear only on
+            mid-level trims or above, limiting their availability to base buyers.
+            </p>
+
+
+        <!-- Safety Features Table -->
+        <br />
+        <h3 class="table-heading">Standard and Available Safety Features</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Safety Feature</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>IIHS Safety Rating</td>
+                <td>Top Safety Pick+</td>
+                <td>Top Safety Pick (sedan), Top Pick+ (hatchback)</td>
+            </tr>
+            <tr>
+                <td>NHTSA Overall Rating</td>
+                <td>5 stars</td>
+                <td>5 stars</td>
+            </tr>
+            <tr>
+                <td>Forward Collision Avoidance</td>
+                <td>Standard on all trims</td>
+                <td>Standard</td>
+            </tr>
+            <tr>
+                <td>Blind-Spot Monitoring</td>
+                <td>Standard on all trims</td>
+                <td>Standard on mid-level trims and above</td>
+            </tr>
+            <tr>
+                <td>Rear Cross-Traffic Alert</td>
+                <td>Standard on all trims</td>
+                <td>Standard on mid-level trims and above</td>
+            </tr>
+            <tr>
+                <td>Lane Following & Keeping</td>
+                <td>Standard</td>
+                <td>Standard</td>
+            </tr>
+            <tr>
+                <td>Adaptive Cruise Control</td>
+                <td>Available on SEL, standard higher trims</td>
+                <td>Standard across the lineup</td>
+            </tr>
+            <tr>
+                <td>Roadside Assistance</td>
+                <td>5 years / unlimited miles (Hyundai-branded)</td>
+                <td>Included, shorter duration</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p class="paragraph-text">
+            Given that many drivers in Bethany and Edmond prioritize comprehensive
+            safety, the Elantra's broader standard inclusion offers superior
+            protection without needing costly trim upgrades.
+        </p>
+
+        <hr class="hr-1" id="fuel" />
+
+        <!-- Section 7: Fuel Economy -->
+        <h2 class="section-heading">
+            Fuel Economy and Range Comparison for the 2026 Elantra and Civic
+        </h2>
+        <br />
+        
+        
+        <p class="paragraph-text">
+            If you are a budget-conscious commuter, fuel efficiency is an important
+            investment factor. Hyundai's Elantra lineup meets or surpasses Civic
+            benchmarks in most categories:
+        </p>
+        <br />
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            <p class="paragraph-text">
+            Base Elantra 2.0L engine achieves approximately 30-32 MPG city and 39-41
+            MPG highway, matching Civic's gasoline estimate but often benefiting
+            from a slightly larger fuel tank for a longer range.
+        </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+            The Elantra Hybrid Blue impresses with EPA figures of 51 city / 58
+            highway MPG and over 590 miles driving range, outperforming the Civic
+            Hybrid's 50 city / 47 highway MPG and roughly 490 miles range by a
+            healthy margin.
+        </p>
+        </li>
+        <br />
+        <li>
+            <p class="paragraph-text">
+        <p class="paragraph-text">
+            Elantra N-Line and performance variants maintain an admirable balance
+            between power and efficiency, showcasing Hyundai's advanced turbocharged
+            tech.
+        </p>
+        </li>
+        </ul>
+        <!-- Fuel Economy Table -->
+        <br />
+        <h3 class="table-heading">Fuel Economy and Efficiency</h3>
+
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Fuel Economy Specification</th>
+                <th>2026 Hyundai Elantra</th>
+                <th>2026 Honda Civic</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Base Gasoline City/Highway</td>
+                <td>30-32 / 39-41 MPG</td>
+                <td>32 / 41 MPG</td>
+            </tr>
+            <tr>
+                <td>Hybrid City/Highway</td>
+                <td>49-51 / 52-58 MPG</td>
+                <td>50 / 47 MPG</td>
+            </tr>
+            <tr>
+                <td>Estimated Driving Range (Hybrid)</td>
+                <td>~594 miles</td>
+                <td>~490 miles</td>
+            </tr>
+            <tr>
+                <td>Performance Fuel Economy</td>
+                <td>28 / 35 MPG (N-Line trim)</td>
+                <td>27 / 37 MPG (Si trim)</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p class="paragraph-text">
+            This fuel advantage means fewer stops at the pump, ideal for Oklahoma
+            City region drivers covering varying daily routes.
+        </p>
+
+        <hr class="hr-1" id="cargo" />
+
+        <!-- Section 8: Cargo -->
+        <h2 class="section-heading">Cargo Versatility and Usability</h2>
+        <br />
+        <p class="paragraph-text">
+            Functionality often tilts purchase decisions in suburban environments
+            like Moore, where grocery runs, errands, and family trips are routine.
+            Here, the Elantra's cabin and cargo versatility prove attractive:
+        </p>
+        <br />
+        <ul class="bullet-list" style="list-style-type: disc">
+            <li>
+            <p class="paragraph-text">
+            Rear seats fold 60/40 in upper trims, substantially increasing usable
+            cargo space beyond the 14.2 cubic feet trunk capacity, which
+            accommodates typical family needs.
+            </p>
+            </li>
+            <br />
+            <li>
+            <p class="paragraph-text">
+            Thoughtful ergonomics in control layout, integrated USB Type-C ports in
+            both front and rear rows, and multiple storage cubbies cater to active
+            lifestyles.
+            </p>
+            </li>
+            <br />
+            <li>
+            <p class="paragraph-text">
+            The optional hands-free power trunk release simplifies loading, a
+            feature the Civic offers only on certain higher trims.
+            </p>
+            </li>
+            <br />
+    </ul>
+        <p class="paragraph-text">
+            Though the Civic sedan boasts a slightly larger trunk at approximately
+            14.8 cubic feet, this does not fully compensate for the Elantra's
+            superior cabin ergonomics and more universally convenient tech features
+            as standard.
+        </p>
+
+        <hr class="hr-1" id="value" />
+
+        <!-- Section 9: Value -->
+        <h2 class="section-heading">
+            Ownership and Value Proposition of the 2026 Elantra and Civic
+        </h2>
+        <br />
+        <p class="paragraph-text">
+            Ownership excellence extends beyond sticker price. When thinking long
+            term, warranty and standard coverage matter a great deal. For the 2026
+            Elantra, Hyundai continues to offer a 5-year / 60,000-mile new vehicle
+            limited ("bumper-to-bumper") warranty and a 10-year / 100,000-mile
+            powertrain warranty, matching or exceeding much of the competition.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            The Honda Civic's standard warranty includes 3 years / 36,000 miles
+            basic coverage, and 5 years / 60,000 miles for the powertrain, a solid
+            package but less extensive in duration.
+        </p>
+
+        <hr class="hr-1" id="verdict" />
+
+        <!-- Section 10: Final Verdict -->
+        <h2 class="section-heading">Why the 2026 Hyundai Elantra Wins</h2>
+        <br />
+        <p class="paragraph-text">
+            After examining both models in depth, the 2026 Hyundai Elantra provides
+            the better overall package. With its broader range of powertrain
+            options, richer standard technology, and more comprehensive safety
+            suite, the Elantra meets expectations and redefines them. Add in its
+            superior warranty coverage and lower long-term ownership costs, and it's
+            clear why so many Oklahoma drivers will see it as the smarter
+            investment.
+        </p>
+        <br />
+        <p class="paragraph-text">
+            To truly understand what sets the Elantra apart, take the opportunity to
+            explore it in person. Whether you're comparing trims, evaluating hybrid
+            options, or simply curious about its advanced features, our team at
+            <a href="https://joecooperhyundai.com/" class="paragraph-hyperlink"
+            >Joe Cooper Hyundai</a
+            >
+            of Midwest City is here to help you make an informed decision.
+            <a
+            href="https://joecooperhyundai.com/contact"
+            class="paragraph-hyperlink"
+            >Contact us</a
+            >
+            today to get started!
+        </p>
+
+        <hr class="hr-1" />
+        </div>
+    </body>
+    </html>

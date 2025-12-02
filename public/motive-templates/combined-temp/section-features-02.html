@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Raptor Series</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer h3,
+      .featuresContainer h1,
+      .featuresContainer h2,
+      .featuresContainer p,
+      .featuresContainer ol,
+      .featuresContainer ul,
+      .featuresContainer table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 40px !important;
+      }
+
+      .main-title::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-image {
+        width: 40%;
+        min-width: 300px;
+        height: 375px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-right: 1px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 1.75rem;
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .card-subtitle {
+        font-size: 0.95rem;
+        color: #718096;
+        font-weight: 500;
+        margin-bottom: 1.25rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .card-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+    
+
+      /* Individual card themes with minimal colors */
+      .ranger-card .card-title {
+        color: #8b4513;
+      }
+
+      .ranger-card .card-image {
+        background: linear-gradient(135deg, #f5f2e8 0%, #d2b48c 100%);
+        color: #a0522d;
+      }
+
+      .f150-card .card-title {
+        color: #2d3748;
+      }
+
+      .f150-card .card-image {
+        background: linear-gradient(135deg, #f7fafc 0%, #a5a8ac 100%);
+        color: #4a5568;
+      }
+
+      .raptor-r-card .card-title {
+        color: #0f3079;
+      }
+
+      .raptor-r-card .card-image {
+        background: linear-gradient(135deg, #ebf4ff 0%, #3971b5 100%);
+        color: #3182ce;
+      }
+
+      .commercial-card .card-title {
+        color: #4a5568;
+      }
+
+      .commercial-card .card-image {
+        background: linear-gradient(135deg, #f7fafc 0%, #a0aec0 100%);
+        color: #718096;
+      }
+
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 30px !important;
+      }
+
+      .feat-desc br {
+        display: none;
+      }
+
+      /* Responsive design */
+      @media(max-width: 1100px) {
+        .card-image {
+        height: 100%;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .feat-desc br {
+          display: block;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        .card {
+          flex-direction: column;
+        }
+
+        .card-image {
+          width: 100%;
+          min-width: unset;
+          border-right: none;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+
+        .card-image {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .card-content {
+          padding: 1.25rem;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-description {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Subtle animations */
+      .card-title {
+        position: relative;
+      }
+
+      .card-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: currentColor;
+        opacity: 0.3;
+        transition: width 0.3s ease-out;
+      }
+
+      .card:hover .card-title::after {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer">
+      <h2 class="main-title" style="text-align: center">
+        Understanding the
+        <span style="color: #0f3079">Different Types of Ford Vehicles</span>
+      </h2>
+      <p class="feat-desc">
+        Ford's vehicle lineup is remarkably diverse, engineered to meet the
+        demands of various lifestyles and professional needs.
+        <br /><br />Drivers in communities like Union City and Piedmont can find
+        options ranging from powerful work trucks to efficient family SUVs.
+      </p>
+      <div class="cards-grid">
+        <div class="card ranger-card">
+          <div class="card-image">
+            <img
+              src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/trucks/f150/brand_f-150/desktop/24_FRD_F15_62093.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg"
+              alt="Ford Ranger Raptor"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">Trucks</h2>
+            <p class="card-subtitle">The Backbone of Ford's Legacy</p>
+            <p class="card-description">
+              Ford's trucks, led by the iconic F-Series, are renowned for their
+              durability and versatility. The F-150, available in traditional
+              gasoline, hybrid, and all-electric (F-150 Lightning) versions,
+              offers customizable cab sizes and bed lengths, making it a perfect
+              companion for Oklahoma City's work sites or recreational
+              towing.<br /><br />
+              The Super Duty lineup, encompassing the F-250, F-350, and beyond,
+              caters to heavy-duty commercial needs, with towing capacities
+              exceeding 40,000 pounds. The Ranger and Maverick add compact and
+              mid-size truck options, blending fuel efficiency with Ford's
+              signature ruggedness.
+            </p>
+          </div>
+        </div>
+
+        <div class="card f150-card">
+          <div class="card-image suv">
+            <img
+              src="https://www.ford.com.ph/content/ford/ph/en_ph/explorer-content/billboard-carousels/overview-feature-carousal/jcr:content/par/billboard_1559723572/imageComponent/image.imgs.full.high.jpg"
+              alt="Ford F-150 Raptor"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">SUVs</h2>
+            <p class="card-subtitle">Family-Friendly and Adventure-Ready</p>
+            <p class="card-description">
+              Ford's SUV range suits families in Edmond and Warr Acres, as well
+              as outdoor enthusiasts. The compact Ford Escape offers excellent
+              fuel economy and advanced tech features, ideal for daily commutes.
+              For larger families or those needing more cargo space, the
+              Explorer and Expedition provide three-row seating and powerful
+              engines.<br /><br />
+              The Bronco and Bronco Sport emphasize off-road capability,
+              appealing to drivers seeking adventure on Oklahoma's backroads and
+              beyond.
+            </p>
+          </div>
+        </div>
+
+        <div class="card raptor-r-card">
+          <div class="card-image">
+            <img
+              src="https://www.ford.com.ph/content/dam/Ford/ph/home/tabs/mustang-mach-e-mobile.webp"
+              alt="Ford F-150 Raptor R"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">Cars and Electric Vehicles</h2>
+            <p class="card-subtitle">Cutting-Edge Technology</p>
+            <p class="card-description">
+              Though Ford's lineup has shifted toward SUVs and trucks, the
+              Mustang remains a flagship muscle car, delivering aggressive
+              styling and high performance. The Mustang Mach-E represents Ford's
+              push into electric vehicles with competitive range and
+              cutting-edge technology.<br /><br />
+              Other sedans like the Fusion and Taurus, while discontinued in
+              North America, continue to have a presence in global markets
+              including Ford's Indian lineup with models like the Figo and
+              Aspire.
+            </p>
+          </div>
+        </div>
+
+        <div class="card commercial-card">
+          <div class="card-image">
+            <img
+              src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/segment_landing/commercial/mobile/26_C9565019_CHAS_Lariat_34FntDrvrPanoUtlBox_Chassis_Utility_silver_mn-edit_2_1440x1080.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg"
+              alt="Ford Commercial Vehicle"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">Commercial Vehicles</h2>
+            <p class="card-subtitle">Cargo or Passenger Needs</p>
+            <p class="card-description">
+              Ford Pro, the commercial vehicle division, offers the Transit van
+              series and E-Transit electric vans, supporting businesses from
+              Yukon to Bethany with customizable configurations for cargo or
+              passenger needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choosing Your First Car - Joe Cooper Hyundai</title>
+    <style>
+        .first-car-guide-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            color: #012b5d;
+        }
+
+        .first-car-guide-container h1 {
+            width: fit-content !important;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .first-car-guide-container h3,
+        .first-car-guide-container h1,
+        .first-car-guide-container h2,
+        .first-car-guide-container p,
+        .first-car-guide-container ol,
+        .first-car-guide-container ul {
+            max-width: 1300px !important;
+        }
+
+        .first-car-guide-container p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            padding: 0 20px;
+            text-align: justify;
+            animation: fadeInUp 1s ease-out;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .first-car-guide-container a {
+            color: #002c5f;
+            text-decoration: underline;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .first-car-guide-container a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .first-car-guide-container a:hover {
+            color: #012b5d;
+            transform: translateY(-1px);
+        }
+
+        .first-car-guide-container a:hover::after {
+            width: 100%;
+        }
+
+        .car-images-gallery {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .car-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            animation: fadeInScale 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .car-image-wrapper {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-bottom: 15px;
+        }
+
+        .car-container:nth-child(1) { animation-delay: 0.3s; }
+        .car-container:nth-child(2) { animation-delay: 0.5s; }
+        .car-container:nth-child(3) { animation-delay: 0.7s; }
+
+        .car-container:hover .car-image-wrapper {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.25);
+        }
+
+        .car-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .car-container:hover .car-image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .car-image-caption {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #012b5d;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05), rgba(0, 44, 95, 0.08));
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 15px;
+            border-left: 5px solid #012b5d;
+            animation: slideInRight 1s ease-out;
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .highlight-section p {
+            margin-bottom: 0;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .location-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.3);
+        }
+
+        .location-highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(1, 43, 93, 0.4);
+            color: white;
+        }
+
+        .closing-section {
+            border: 1px dashed #012b5d;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 15px;
+            animation: fadeInUp 1s ease-out;
+            animation-delay: 0.6s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .first-car-guide-container h1 {
+                font-size: 2rem;
+                padding: 0 20px;
+            }
+            
+            .car-images-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .car-container {
+                min-width: 280px;
+            }
+            
+            .first-car-guide-container p {
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="first-car-guide-container">
+        <h1>Choosing Your First Car</h1>
+        
+        <p>Choosing the right first car is a journey that involves careful consideration of safety, value, and reliability. As this guide demonstrates, the Hyundai lineup—from the efficient Elantra and versatile Kona to the guardian-like Tucson and sophisticated Sonata Hybrid—offers an ideal solution for every new driver and family in the Oklahoma City area. Each model is built on a foundation of industry-leading safety technology and is backed by the unparalleled promise of America's Best Warranty.</p>
+
+        <div class="car-images-gallery">
+            <div class="car-container">
+                <div class="car-image-wrapper">
+                    <img src="https://di-uploads-pod7.dealerinspire.com/kearnymesahyundai/uploads/2024/10/2025-Hyundai-Elantra.png" alt="Modern Hyundai Sedan">
+                </div>
+                <div class="car-image-caption">Hyundai Elantra - Efficiency Meets Style</div>
+            </div>
+            <div class="car-container">
+                <div class="car-image-wrapper">
+                    <img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/newsroom/news-image/2024/03/0328-2/detail-kv-230328.jpg" alt="Hyundai SUV">
+                </div>
+                <div class="car-image-caption">Hyundai Tucson - Safety Guardian</div>
+            </div>
+            <div class="car-container">
+                <div class="car-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hyundai Compact SUV">
+                </div>
+                <div class="car-image-caption">Hyundai Kona - Versatile Adventure</div>
+            </div>
+        </div>
+
+        <p>However, the vehicle itself is only part of the equation. The experience of buying and owning that vehicle is just as important, and that is where our commitment at Joe Cooper Hyundai of Midwest City truly shines. We are not just another car dealership; we are a part of this community's fabric, with a legacy of trust that began when Claude Cooper first opened his doors in 1946. For over 75 years and across three generations, the Cooper family has operated on a simple set of values: be honest, value relationships, treat people the way you want to be treated, and be easy to do business with.</p>
+
+        <div class="highlight-section">
+            <p>We understand that purchasing a first car can be an intimidating process. That's why we've built our dealership to be a partner in your journey. Our finance experts are skilled at creating custom solutions for every budget and credit situation, including first-time buyers or those rebuilding their credit, ensuring you can drive away with confidence.</p>
+        </div>
+
+        <div class="closing-section">
+            <p>Our state-of-the-art service center, staffed by factory-trained technicians using genuine OEM Hyundai parts, is here to uphold the reliability of your vehicle for years to come, honoring the Hyundai Complimentary Maintenance program and providing expert care long after.</p>
+
+            <p>This commitment to a hassle-free, supportive experience is the Joe Cooper difference. It's the peace of mind that comes from knowing you have a trusted partner for the life of your vehicle.</p>
+
+            <p>Your journey to finding the perfect, safest first car for your new driver starts <a href="https://joecooperhyundai.com/contact">here</a>. Continue your research by exploring our extensive <a href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">new</a> and <a href="https://joecooperhyundai.com/cars/certified-pre-owned">pre-owned</a> inventory online. You can also experience our commitment to customer service firsthand by visiting us at our showroom located at <span class="location-highlight">6601 SE 29th St, Midwest City</span>.</p>
+        </div>
+    </div>
+</body>
+</html>

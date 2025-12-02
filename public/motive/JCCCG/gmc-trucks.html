@@ -1,0 +1,385 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .gmc-diesel-blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    .gmc-diesel-blog-section * { max-width: 100% !important; box-sizing: border-box; }
+    
+    /* Typography */
+    .gmc-diesel-blog-section p { margin: 1em 0; }
+    .gmc-diesel-blog-section h2,
+    .gmc-diesel-blog-section h3,
+    .gmc-diesel-blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .gmc-diesel-blog-section h2 { font-size: 1.6em; }
+    .gmc-diesel-blog-section h3 { font-size: 1.35em; }
+    
+    /* Tables */
+    .gmc-diesel-blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+    .gmc-diesel-blog-section table.e-rte-table thead { background: #c8102e; color: #fff; }
+    .gmc-diesel-blog-section table.e-rte-table th, 
+    .gmc-diesel-blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .gmc-diesel-blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .gmc-diesel-blog-section table.e-rte-table td { color: #374151; }
+    .gmc-diesel-blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .gmc-diesel-blog-section table.e-rte-table tbody tr:hover { 
+      background: #fff5f5; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .gmc-diesel-blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .gmc-diesel-blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .gmc-diesel-blog-section table.e-rte-table th,
+      .gmc-diesel-blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    
+    /* Links */
+    .gmc-diesel-blog-section a { 
+      color: #c8102e !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .gmc-diesel-blog-section a:hover { color: #a00d25 !important; }
+    
+    /* TOC */
+    .gmc-diesel-blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .gmc-diesel-blog-section h2 + ul li { margin: 6px 0; }
+    .gmc-diesel-blog-section h2 + ul li a { text-decoration: none; color: #c8102e; }
+    .gmc-diesel-blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .gmc-diesel-blog-section h2[id], 
+    .gmc-diesel-blog-section h3[id], 
+    .gmc-diesel-blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .gmc-diesel-blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* Image Wrapper Styles */
+    .gmc-diesel-blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .gmc-diesel-blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #c8102e;
+      outline: 3px dashed #c8102e;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .gmc-diesel-blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(200, 16, 46, 0.25);
+      outline-offset: 12px;
+      border-color: #e01e37;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .gmc-diesel-blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 100%);
+      border-radius: 12px;
+    }
+    .gmc-diesel-blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #ef4444;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .gmc-diesel-blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(239, 68, 68, 0.3);
+      border-color: #c8102e;
+    }
+  
+    /* Floating Images */
+    .gmc-diesel-blog-section .image-float-left, 
+    .gmc-diesel-blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .gmc-diesel-blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .gmc-diesel-blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .gmc-diesel-blog-section .image-float-left img, 
+    .gmc-diesel-blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #f87171;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .gmc-diesel-blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(248, 113, 113, 0.35);
+      border-color: #c8102e;
+    }
+    .gmc-diesel-blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(248, 113, 113, 0.35);
+      border-color: #c8102e;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .gmc-diesel-blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .gmc-diesel-blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .gmc-diesel-blog-section .image-grid img {
+        border: none;
+      }
+  
+      .gmc-diesel-blog-section .image-float-left img,
+      .gmc-diesel-blog-section .image-float-right img {
+        border: none;
+      }
+      
+      .gmc-diesel-blog-section .image-float-left,
+      .gmc-diesel-blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  
+    /* Images */
+    .gmc-diesel-blog-section .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .gmc-diesel-blog-section .article-image img { max-width:100%; border-radius:8px; display:block; }
+    
+    /* floating */
+    .gmc-diesel-blog-section .article-image.float-right { 
+      float: right; 
+      margin-left: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    .gmc-diesel-blog-section .article-image.float-left { 
+      float: left; 
+      margin-right: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    
+    /* clear fix after floats */
+    .gmc-diesel-blog-section .clearfix::after { content:""; display:table; clear:both; }
+  </style>
+  
+  <section class="gmc-diesel-blog-section">
+    <p>When it comes to dependable diesel trucks in Oklahoma, especially for drivers around <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong>, the question often arises: <strong>Which GMC trucks offer diesel engines?</strong> and <strong>How long can a GMC 1500 diesel engine last?</strong> At <strong>Joe Cooper Chevrolet Cadillac GMC</strong>, we proudly serve our neighbors from Norman, Moore, and Edmond, OK, providing expert knowledge and access to some of the most dependable GMC diesel trucks on the market. Whether you're hauling heavy loads in Chandler or navigating rugged terrain near Bethel Acres, understanding your diesel truck options and their longevity is key to making an informed purchase.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/trucks/sierra-ld/overview/exterior/2025-sierra-1500-mov-ext-header-l-3000x1000-25PGSRLD00119.jpg?imwidth=1200" alt="2025 GMC Sierra 1500 Exterior">
+      </div>
+    </div>
+  
+    <p>If you have questions or want to explore our extensive inventory, call us at <strong><a href="tel:4057772603">(405) 777-2603</a></strong> or visit us today. We'd like to invite you to browse through our <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory">All New Vehicles</a></strong> and <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/used-inventory">All Used Vehicles</a></strong> to find the perfect GMC truck tailored to your needs.</p>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#gmc-diesel-truck-lineup-which-models-offer-diesel-engines">GMC Diesel Truck Lineup: Which Models Offer Diesel Engines?</a> - Discover the GMC trucks equipped with diesel powertrains and their unique features tailored for different demands.</li>
+      <li><a href="#understanding-the-lifespan-of-the-gmc-1500-diesel-engine">Understanding the Lifespan of the GMC 1500 Diesel Engine</a> - Explore detailed insights into how long the GMC 1500 diesel engine lasts with proper care and maintenance.</li>
+      <li><a href="#diesel-engine-technology-and-performance-in-gmc-trucks">Diesel Engine Technology and Performance in GMC Trucks</a> - Learn about the advanced diesel technologies GMC integrates to ensure power, efficiency, and longevity.</li>
+      <li><a href="#maintaining-your-gmc-diesel-truck-for-maximum-lifespan">Maintaining Your GMC Diesel Truck for Maximum Lifespan</a> - Expert recommendations on upkeep to help your diesel truck serve you well in places like Yukon and Mustang.</li>
+      <li><a href="#why-choose-gmc-for-diesel-trucks-in-oklahoma">Why Choose GMC for Diesel Trucks in Oklahoma?</a> - Understand the value and reliability GMC trucks bring to customers in Tuttle, Harrah, and surrounding communities.</li>
+      <li><a href="#explore-our-inventory-and-services-at-joe-cooper-chevrolet-cadillac-gmc">Explore Our Inventory and Services at Joe Cooper Chevrolet Cadillac GMC</a> - How to access our inventory and service options for diesel trucks and parts to keep your truck running strong.</li>
+    </ul>
+  
+    <h2 id="gmc-diesel-truck-lineup-which-models-offer-diesel-engines">GMC Diesel Truck Lineup: Which Models Offer Diesel Engines?</h2>
+    <p>GMC's reputation for rugged, reliable trucks is well-established, and its diesel engine offerings enhance this legacy. For customers in Okemah, Seminole, and Pink, OK, looking for diesel-powered trucks, GMC provides a selection of light and heavy-duty pickups and SUVs designed for strength, fuel efficiency, and durability.</p>
+    <p>Whether you are looking for the latest factory-fresh technology or a reliable pre-owned model, here is the complete breakdown of GMC's diesel availability.</p>
+  
+    <h4 id="current-diesel-models-2024-2025"><strong>Current Diesel Models (2024–2025)</strong></h4>
+    <p>The latest generation of GMC diesel vehicles features the upgraded "LZ0" Duramax engine, which offers quieter operation and higher torque than previous years.</p>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/trucks/sierra-ld/overview/capability/2025-sierra-1500-mov-cap-header-l-3000x1000-25PGSRLD00069.jpg?imwidth=1200" alt="GMC Sierra 1500 Capability">
+    </div>
+  
+    <ul>
+      <li><p><strong>2024–2025 GMC Sierra 1500:</strong> This light-duty pickup is available with the enhanced <strong>3.0-liter Duramax Turbo-Diesel</strong> inline-six engine. It now delivers <strong>305 horsepower and 495 lb-ft of torque</strong>, giving you best-in-class diesel horsepower for towing trailers or hauling equipment around Edmond or Moore.</p></li>
+      <li><p><strong>2024–2025 GMC Sierra HD (2500HD and 3500HD):</strong> These heavy-duty trucks come equipped with the legendary <strong>6.6-liter Duramax Turbo-Diesel V8</strong>. The latest iteration provides <strong>470 horsepower and 975 lb-ft of torque</strong>, offering increased low-end power perfect for the demanding ranch work found near Henryetta.</p></li>
+      <li><p><strong>2025 GMC Yukon &amp; Yukon XL:</strong> For the first time, the <strong>3.0-liter Duramax Turbo-Diesel</strong> is available across <em>all</em> trims, including the off-road-ready <strong>AT4</strong>. This engine provides families in Chandler or Bethel Acres with a unique blend of 305 horsepower and highway fuel efficiency that gas engines simply cannot match.</p></li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/trucks/sierra-hd/overview/capability/2025-sierra-hd-mov-capability-header-l-2500x833-24PGSRHD00341.jpg?imwidth=1200" alt="GMC Sierra HD Capability">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/trucks/sierra-hd/overview/capability/2025-sierra-hd-mov-capability-feature-onpage-l-1920x1440-25PGSRHD00174.jpg?imwidth=1200" alt="GMC Sierra HD Towing">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/trucks/sierra-hd/overview/exterior/2025-sierra-hd-mov-exterior-header-l-2500x1000-25PGSRHD00093.jpg?imwidth=1200" alt="GMC Sierra HD Exterior">
+    </div>
+  
+    <h4 id="pre-owned-amp-recent-model-years"><strong>Pre-Owned &amp; Recent Model Years</strong></h4>
+    <p>If you are shopping for a pre-owned vehicle, you can still find exceptional diesel performance in recent model years.</p>
+    <ul>
+      <li><p><strong>GMC Sierra 1500 (2020–2023):</strong> Look for models equipped with the "LM2" <strong>3.0L Duramax</strong> engine. While slightly different from the 2024 specs, these trucks still produce a robust 277 horsepower and 460 lb-ft of torque, capable of towing up to 13,000 lbs (depending on configuration).</p></li>
+      <li><p><strong>GMC Canyon (2016–2022):</strong> While the 2023+ Canyon is gas-only, the previous generation offered a <strong>2.8L Duramax Turbo-Diesel</strong> 4-cylinder. This rare mid-size diesel truck is a favorite for commuters from Shawnee who want exceptional fuel economy and 7,700 lbs of towing capacity.</p></li>
+      <li><p><strong>GMC Yukon (2021–2024):</strong> The previous version of the <strong>3.0L Duramax</strong> (277 hp) was available on SLE, SLT, and Denali trims. It remains one of the most fuel-efficient full-size SUVs on the market.</p></li>
+    </ul>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2026/trucks/canyon/overview/capability/my26-canyon-mov-capability-header-3000x1000-26PGCN99072.jpg?imwidth=1920" alt="2026 GMC Canyon Capability">
+      </div>
+    </div>
+  
+    <p>Each diesel engine option integrates advanced technologies such as variable-geometry turbochargers and high-pressure common-rail fuel systems, contributing to efficient combustion and power delivery. Whether you choose a brand-new 2025 Sierra or a pre-owned Canyon, these diesel engines provide the strength and endurance you need.</p>
+    <p>For those exploring diesel-powered SUVs, the GMC Yukon's diesel option brings a unique blend of capability and comfort, making it a strong choice in the full-size SUV market. Browse our <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory?filters=%7B%22model%22%3A%7B%22value%22%3A%7B%22Yukon%22%3Atrue%7D%7D%7D">All New Yukon Models</a></strong> to see available diesel options today.</p>
+  
+    <div class="image-grid">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/suvs/yukon/overview/exterior/my25-yukon-mov-exterior-header-3000x1000-25PGYK00083.jpg?imwidth=1200" alt="GMC Yukon Exterior">
+      <img src="https://www.gmc.com/content/dam/gmc/na/us/english/index/vehicles/2025/suvs/yukon/overview/capability/my25-yukon-mov-capability-header-3000x1000-25PGYK00062.jpg?imwidth=1920" alt="GMC Yukon Capability">
+    </div>
+  
+    <h2 id="understanding-the-lifespan-of-the-gmc-1500-diesel-engine">Understanding the Lifespan of the GMC 1500 Diesel Engine</h2>
+    <p>One of the most common questions from customers in Norman, Oklahoma City, and surrounding areas involves the durability of the GMC 1500 diesel engine. The good news is that with attentive maintenance and proper operation, the 3.0-liter Duramax diesel engine in the Sierra 1500 has demonstrated impressive longevity.</p>
+    <p>Reliable data from real-world owners and industry standards indicate that the GMC 1500 diesel engine typically reaches at least 200,000 miles before requiring significant repairs. However, many drivers have reported surpassing 250,000 to 300,000 miles with routine upkeep. Some have even driven these engines well beyond 400,000 miles, showcasing the robust build and engineering behind GMC diesel powertrains.</p>
+    <p>Factors influencing the lifespan include:</p>
+    <ul>
+      <li><strong>Regular Maintenance</strong>: Timely oil changes with high-quality diesel engine oil, replacement of fuel filters, and periodic inspections.</li>
+      <li><strong>Driving Conditions</strong>: Trucks used primarily for highway driving in places like Yukon often experience less wear than those regularly hauling heavy loads in rugged terrains near Pink or Seminole.</li>
+      <li><strong>Usage Patterns</strong>: Consistent use in heavy towing or commercial applications demands more frequent maintenance but does not inherently reduce lifespan when managed properly.</li>
+    </ul>
+    <p>Industry experts emphasize that the Duramax engine's design prioritizes durability with features like a high-strength block, advanced cooling systems, and robust fuel injection technology. These components work together to resist wear and maintain performance over time.</p>
+    <p>For GMC Sierra 1500 owners in Moore or Harrah, staying ahead of maintenance schedules is crucial to maximizing engine longevity. Our service department at Joe Cooper Chevrolet Cadillac GMC is equipped with highly knowledgeable technicians who understand the needs of diesel engines. You can <strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong> with us anytime to keep your diesel engine running at its best.</p>
+  
+    <h2 id="diesel-engine-technology-and-performance-in-gmc-trucks">Diesel Engine Technology and Performance in GMC Trucks</h2>
+    <p>GMC's diesel engines stand out for their innovative technology, which combines power with efficiency. The Duramax diesel engines, known for their durability, incorporate several key features that enhance performance and extend engine life:</p>
+    <ul>
+      <li><strong>Turbocharging with Variable Geometry</strong>: This adjusts the turbocharger's vanes to optimize airflow across different engine speeds, improving power delivery and fuel economy.</li>
+      <li><strong>High-Pressure Common Rail Fuel Injection</strong>: Provides precise fuel delivery for cleaner combustion, better efficiency, and lower emissions.</li>
+      <li><strong>Advanced Cooling Systems</strong>: Help maintain optimal engine temperature even under heavy loads or in hot climates like Oklahoma City or Mustang.</li>
+      <li><strong>Robust Engine Construction</strong>: Including a cast-iron block and forged steel components designed to endure high stress and long-term use.</li>
+    </ul>
+    <p>Performance-wise, the 3.0-liter Duramax diesel in the Sierra 1500 offers a towing capacity of up to 9,300 pounds and a payload capacity nearing 2,000 pounds, making it an excellent choice for both work and recreational purposes in Okemah or Chandler. The heavy-duty 6.6-liter Duramax V8 engines elevate capabilities further, supporting some of the most demanding towing and hauling scenarios.</p>
+    <p>Beyond raw power, these diesel engines provide strong fuel economy, with the Sierra 1500 Duramax achieving an EPA-estimated 24 miles per gallon combined, which is advantageous for drivers commuting long distances in Bethel Acres or Edmond.</p>
+  
+    <h2 id="maintaining-your-gmc-diesel-truck-for-maximum-lifespan">Maintaining Your GMC Diesel Truck for Maximum Lifespan</h2>
+    <p>Proper maintenance is vital for your GMC diesel engine's longevity, especially for customers in Shawnee, Oklahoma City, and surrounding communities. Diesel engines require specific care practices to thrive over hundreds of thousands of miles:</p>
+    <ul>
+      <li><strong>Regular Oil Changes</strong>: Use manufacturer-recommended synthetic diesel oils and adhere to change intervals, typically every 7,500 to 10,000 miles.</li>
+      <li><strong>Fuel System Care</strong>: Replace fuel filters regularly to prevent contamination and maintain injection system health.</li>
+      <li><strong>Cooling System Maintenance</strong>: Periodically check coolant levels and condition to avoid overheating.</li>
+      <li><strong>Exhaust and Emission System Checks</strong>: Ensure components like the Diesel Particulate Filter (DPF) and Exhaust Gas Recirculation (EGR) systems are functioning properly to maintain performance and comply with regulations.</li>
+    </ul>
+    <p>Joe Cooper Chevrolet Cadillac GMC offers a comprehensive <strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong> program staffed with technicians who specialize in GMC diesel engines. Using genuine OEM parts from our <strong><a href="https://joecooperchevroletcadillacgmc.com/parts">Parts Department</a></strong> ensures your truck continues running as intended by the manufacturer.</p>
+    <p>Additionally, owners in nearby communities like Norman or Moore can benefit from trade-in opportunities by using our <strong><a href="https://joecooperchevroletcadillacgmc.com/trade">Trade Valuation</a></strong> tool, helping you stay current with the best diesel technology available.</p>
+  
+    <h2 id="why-choose-gmc-for-diesel-trucks-in-oklahoma">Why Choose GMC for Diesel Trucks in Oklahoma?</h2>
+    <p>Choosing GMC diesel trucks means investing in a legacy of reliability and community trust. Drivers from Harrah to Seminole appreciate GMC's commitment to honesty, integrity, and relationship building, which is reflected in every vehicle we offer. GMC's diesel trucks are engineered to endure Oklahoma's diverse weather and terrain—from the urban streets of Oklahoma City to the rural landscapes near Tuttle.</p>
+    <p>Key reasons residents in these areas turn to GMC diesel trucks include:</p>
+    <ul>
+      <li><strong>Durability and Longevity</strong>: Proven engine designs that deliver years of dependable service.</li>
+      <li><strong>Advanced Safety Features</strong>: Including forward collision alert, lane change alert, and HD surround vision, enhancing driver confidence.</li>
+      <li><strong>Strong Resale Value</strong>: GMC trucks hold their value well, offering long-term financial benefits.</li>
+      <li><strong>Dealer Support and Warranty</strong>: Local access to expert service and manufacturer-backed warranties that protect your investment.</li>
+    </ul>
+    <p>Explore our selection of new GMC trucks at <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory?filters=%7B%22make%22%3A%7B%22value%22%3A%7B%22GMC%22%3Atrue%7D%7D%7D">New GMC Trucks</a></strong> or browse certified pre-owned options to find a diesel truck that fits your lifestyle.</p>
+  
+    <h2 id="explore-our-inventory-and-services-at-joe-cooper-chevrolet-cadillac-gmc">Explore Our Inventory and Services at Joe Cooper Chevrolet Cadillac GMC</h2>
+    <p>At Joe Cooper Chevrolet Cadillac GMC, located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong>, we take pride in offering a wide variety of GMC diesel trucks along with personalized customer service. Whether you're shopping for a brand-new 2024 GMC Sierra 1500 diesel or looking for a dependable used diesel truck, our team is ready to assist.</p>
+    <ul>
+      <li>Browse our <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory">New Vehicle Inventory</a></strong> or explore <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/used-inventory">Used Vehicles</a></strong> to find the perfect diesel truck.</li>
+      <li>Visit our <strong><a href="https://joecooperchevroletcadillacgmc.com/parts">Parts Department</a></strong> to order genuine components.</li>
+      <li><strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong> online.</li>
+      <li>Use our <strong><a href="https://joecooperchevroletcadillacgmc.com/trade">Trade Valuation</a></strong> tool.</li>
+    </ul>
+    <p>Our commitment to employee care is reflected in our customer experience, ensuring every visitor from Edmond, Yukon, or Mustang feels valued and supported throughout their truck ownership journey.</p>
+  
+    <h3 id="summary-of-gmc-diesel-trucks-and-engine-longevity">Summary of GMC Diesel Trucks and Engine Longevity</h3>
+    <p>For drivers in Shawnee, Norman, and beyond, GMC's diesel trucks offer a compelling combination of power, durability, and advanced technology. The GMC Sierra 1500 diesel engine, renowned for its impressive lifespan reaching well beyond 200,000 miles with proper maintenance, remains a top choice for both work and lifestyle needs. Backed by trusted dealership support and genuine parts from Joe Cooper Chevrolet Cadillac GMC, you're investing in a vehicle designed to serve you faithfully through Oklahoma's varied roads and workloads.</p>
+    <p>Visit us today or call <strong><a href="tel:4057772603">(405) 777-2603</a></strong> to discuss your next diesel truck purchase, maintenance needs, or trade-in possibilities.</p>
+  
+    <hr>
+    <p>© 2025 Joe Cooper Chevrolet Cadillac GMC</p>
+  </section>

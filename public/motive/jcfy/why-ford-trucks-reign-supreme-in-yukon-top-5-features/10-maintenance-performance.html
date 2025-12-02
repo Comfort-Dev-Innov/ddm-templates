@@ -1,0 +1,411 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintaining Your Ford's Peak Performance in Yukon</title>
+    <style>
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title */
+      .main-title {
+        font-size: 40px;
+        font-weight: 700;
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 40px;
+        font-style: italic;
+      }
+
+      /* Service Features Grid */
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+      }
+
+      .service-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border-top: 5px solid #0f3079;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-top-color: #ff6b35;
+      }
+
+      .service-card h4 {
+        color: #0f3079;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .service-card p {
+        color: #4a5568;
+        line-height: 1.7;
+        font-size: 15px;
+        margin: 0;
+      }
+
+      /* Maintenance Schedule */
+      .maintenance-schedule {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 40px;
+        border-radius: 15px;
+        margin: 40px 0;
+        border: 2px solid #0f3079;
+      }
+
+      .schedule-title {
+        color: #0f3079;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .schedule-item {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #0f3079;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .schedule-item h5 {
+        color: #0f3079;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .schedule-item ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .schedule-item li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 6px;
+        color: #4a5568;
+        font-size: 14px;
+      }
+
+      .schedule-item li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #ff6b35;
+        font-weight: bold;
+      }
+
+      /* Genuine Parts Section */
+      .parts-section {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 50px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+      }
+
+      .parts-section h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .parts-section p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        margin: 0 10px;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+      }
+
+      .cta-button.secondary {
+        background: linear-gradient(45deg, transparent, transparent);
+        border: 2px solid white;
+        color: white;
+      }
+
+      .cta-button.secondary:hover {
+        background: white;
+        color: #0f3079;
+      }
+
+      /* Commitment Section */
+      .commitment-section {
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        padding: 40px;
+        border-radius: 15px;
+        margin: 40px 0;
+        text-align: center;
+      }
+
+      .commitment-section h3 {
+        color: #0f3079;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .commitment-section p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #4a5568;
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2.2rem;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .schedule-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .maintenance-schedule {
+          padding: 30px 20px;
+        }
+
+        .parts-section {
+          padding: 30px 20px;
+        }
+
+        .parts-section h3 {
+          font-size: 1.6rem;
+        }
+
+        .parts-section p {
+          font-size: 1rem;
+        }
+
+        .commitment-section {
+          padding: 30px 20px;
+        }
+
+        .cta-button {
+          display: block;
+          margin: 10px auto;
+          width: fit-content;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .service-card {
+          padding: 20px;
+        }
+
+        .schedule-item {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-title" custom-input="text">
+        Maintaining Your Ford's Peak Performance in Yukon
+      </h2>
+      <p class="subtitle" custom-input="text">
+        To keep your Ford truck performing at its best through every demanding
+        Oklahoma season, regular maintenance is crucial
+      </p>
+
+      <div class="commitment-section">
+        <h3 custom-input="text">Our Commitment Extends Beyond the Sale</h3>
+        <p custom-input="text">
+          <strong custom-input="text"
+            >Our commitment to you doesn't end when you drive off the
+            lot.</strong
+          >
+          The certified technicians at Joe Cooper Ford of Yukon provide
+          comprehensive services, including oil changes, tire rotations, brake
+          inspections, and complex engine diagnostics. By using only genuine OEM
+          parts from our
+          <a href="https://joecooperfordyukon.com/parts"> Parts Department</a>,
+          we ensure your truck maintains its world-class reliability and
+          warranty protection.
+        </p>
+      </div>
+
+      <!-- Service Features -->
+      <div class="service-grid">
+        <div class="service-card">
+          <h4 custom-input="text">🔧 Expert Technicians</h4>
+          <p custom-input="text">
+            Our Ford-certified technicians receive ongoing training on the
+            latest Ford technology and service procedures, ensuring your truck
+            receives expert care from professionals who know Ford trucks inside
+            and out.
+          </p>
+        </div>
+        <div class="service-card">
+          <h4 custom-input="text">🛠️ Comprehensive Services</h4>
+          <p custom-input="text">
+            From routine oil changes and tire rotations to complex engine
+            diagnostics and transmission service, we provide complete
+            maintenance and repair services for all Ford truck models.
+          </p>
+        </div>
+        <div class="service-card">
+          <h4 custom-input="text">📋 Advanced Diagnostics</h4>
+          <p custom-input="text">
+            State-of-the-art diagnostic equipment allows us to quickly identify
+            issues and perform precise repairs, minimizing downtime and ensuring
+            your truck runs at peak efficiency.
+          </p>
+        </div>
+        <div class="service-card">
+          <h4 custom-input="text">🔍 Preventive Care</h4>
+          <p custom-input="text">
+            Our thorough multi-point inspections during every service visit help
+            identify potential issues before they become major problems, saving
+            you time and money.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service Specials -->
+      <div
+        style="
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          padding: 40px;
+          border-radius: 15px;
+          text-align: center;
+          margin: 40px 0;
+        "
+      >
+        <h3
+          style="color: #0f3079; margin-bottom: 20px; font-size: 1.8rem"
+          custom-input="text"
+        >
+          Take Advantage of Current Service Specials
+        </h3>
+        <p
+          style="
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 25px;
+          "
+          custom-input="text"
+        >
+          Save money on essential maintenance with our current service specials.
+          <span class="highlight" custom-input="text"
+            >Book your next appointment today</span
+          >
+          with our convenient online Service Scheduler and keep your Ford truck
+          running at its best.
+        </p>
+        <a
+          href="https://joecooperfordyukon.com/service"
+          class="cta-button"
+          custom-input="text"
+          >Schedule Appointment</a
+        >
+        <a
+          href="https://joecooperfordyukon.com/service-parts-special-coupon"
+          class="cta-button"
+          custom-input="text"
+          id="experience-ford-legacy"
+          >Check Service Specials</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Expedition vs Suburban – Interior Space & Comfort</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f6fa;
+        }
+
+        .int-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .int-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .int-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .int-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .int-title {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .int-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .int-subsections {
+            display: grid;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .int-image-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .int-image-wrapper {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #38bdf8);
+            padding: 3px;
+            position: relative;
+        }
+
+        .int-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.6;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .int-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .int-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .int-image-wrapper:hover .int-image {
+            transform: scale(1.04);
+            filter: brightness(1.05) saturate(1.05);
+        }
+
+        .int-subsection-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .int-subsection-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: rgba(59, 130, 246, 0.08);
+            color: #1d4ed8;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            margin-bottom: 0.9rem;
+        }
+
+        .int-subsection-heading {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1.2rem;
+        }
+
+        .int-columns {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .int-column {
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .int-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .int-column-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .int-pill-expedition,
+        .int-pill-suburban {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .int-pill-expedition {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .int-pill-suburban {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .int-table-container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .int-table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .int-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .int-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .int-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .int-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .int-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .int-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .int-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .int-spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .int-ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .int-chevy-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .int-footnote {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #4b5563;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 900px) {
+            .int-columns {
+                grid-template-columns: 1fr;
+            }
+            .int-image-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .int-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .int-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .int-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .int-subsection-card {
+                padding: 1.5rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="int-section" id="interior-space-comfort">
+        <div class="int-container">
+            <header class="int-header">
+                <div class="int-kicker">Interior Space, Comfort &amp; Luxury</div>
+                <h2 class="int-title">Space, Comfort, and Luxury Inside</h2>
+                <p class="int-subtitle">
+                    Compare how the 2026 Ford Expedition and 2026 Chevrolet Suburban use their generous dimensions, seating layouts,
+                    and premium materials to serve families around Kent, Auburn, and beyond.
+                </p>
+            </header>
+
+            <!-- Interior imagery row -->
+            <div class="int-image-row">
+                <div class="int-image-wrapper">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:7cf7edfb-2e6d-40bd-ac28-03d9593cfdfd/as/25_FRD_EPD_Gallery_13.webp?max-quality=75&amp;crop-names=1_16x7&amp;width=2160" alt="Ford Expedition interior seating and cargo flexibility" class="int-image">
+                </div>
+                <div class="int-image-wrapper">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:8a66b76a-d10f-4c7d-b172-f1b5368ec949/as/25_FRD_EPD_Gallery_02.webp?max-quality=75&amp;crop-names=1_16x7&amp;width=2160" alt="Ford Expedition dashboard and digital displays" class="int-image">
+                </div>
+            </div>
+
+            <!-- Narrative comparison cards before the table -->
+            <div class="int-subsections">
+                <!-- Seating Layouts and Cargo Capacities -->
+                <article class="int-subsection-card">
+                    <div class="int-subsection-label">Seating Layouts &amp; Cargo Capacities</div>
+                    <h3 class="int-subsection-heading">Flexible Seating vs. Maximum Raw Cargo Volume</h3>
+                    <div class="int-columns">
+                        <div class="int-column">
+                            <div class="int-column-header">
+                                <span class="int-pill-expedition">Expedition</span>
+                                <h4 class="int-column-title">
+                                    Versatile Seating &amp; Smart Cargo Tunnels
+                                </h4>
+                            </div>
+                            <p>
+                                The <strong>Ford Expedition</strong> provides seating for seven to eight passengers, as well as versatile
+                                configurations featuring captain’s chairs or a 40/20/40 split bench in the second row. The third row
+                                includes an innovative fold‑flat middle seat that creates a tunnel for long cargo through the cabin—
+                                perfect for transporting skis or lumber without sacrificing passenger space. Cargo volume behind the
+                                front seats in the Expedition Max model reaches an ample 123.1 cubic feet.
+                            </p>
+                        </div>
+                        <div class="int-column">
+                            <div class="int-column-header">
+                                <span class="int-pill-suburban">Suburban</span>
+                                <h4 class="int-column-title">
+                                    Sheer Volume &amp; Nine‑Seat Potential
+                                </h4>
+                            </div>
+                            <p>
+                                Conversely, the <strong>Suburban</strong> leads in sheer cargo volume, boasting up to 144.5 cubic feet
+                                behind the first row and slightly more passenger space overall. It also offers up to nine‑seat
+                                configurations with the optional front bench. However, the Expedition’s more intelligent seat‑folding
+                                and cargo‑management solutions give it an edge in usability and adaptability for diverse daily driving
+                                needs across Kent and beyond.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Materials and Cabin Quality -->
+                <article class="int-subsection-card">
+                    <div class="int-subsection-label">Materials &amp; Cabin Quality</div>
+                    <h3 class="int-subsection-heading">Modern Digital Lounge vs. Traditional Luxury</h3>
+                    <div class="int-columns">
+                        <div class="int-column">
+                            <div class="int-column-header">
+                                <span class="int-pill-expedition">Expedition</span>
+                                <h4 class="int-column-title">
+                                    Tech‑Forward, Thoughtful Cabin
+                                </h4>
+                            </div>
+                            <p>
+                                Ford’s redesigned dashboard is finished in premium materials, featuring a sweeping 24‑inch digital
+                                instrumentation display poised near the windshield, coupled with a 13.2‑inch infotainment touchscreen,
+                                merging technology and style impressively. The center console slides rearward, easing second‑row access—
+                                showcasing thoughtfulness in design that enhances passenger comfort and convenience.
+                            </p>
+                        </div>
+                        <div class="int-column">
+                            <div class="int-column-header">
+                                <span class="int-pill-suburban">Suburban</span>
+                                <h4 class="int-column-title">
+                                    Upscale but More Traditional Layout
+                                </h4>
+                            </div>
+                            <p>
+                                While the Suburban offers generous interior upgrades with leather upholstery, wood accents, and large
+                                17.7‑inch infotainment screens, some reviewers consider its cabin layout more traditional and less
+                                intuitive by comparison. The Expedition's advanced digital displays and ergonomic innovations elevate
+                                driver and passenger experiences, especially during longer family outings or commutes around cities
+                                like Auburn or Renton.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Detailed Interior Space & Seating Table -->
+            <div class="int-table-container">
+                <h3 class="int-table-title">Key Interior Space &amp; Seating Comparisons</h3>
+                <table class="int-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>2026 Ford Expedition Max</th>
+                            <th>2026 Chevrolet Suburban</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="int-spec-name">Front Legroom</td>
+                            <td class="int-ford-value">43.9 inches</td>
+                            <td class="int-chevy-value">44.5 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="int-spec-name">Second Row Legroom</td>
+                            <td class="int-ford-value">41.1 inches</td>
+                            <td class="int-chevy-value">42.0 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="int-spec-name">Third Row Legroom</td>
+                            <td class="int-ford-value">36.5 inches</td>
+                            <td class="int-chevy-value">36.7 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="int-spec-name">Max Cargo Volume</td>
+                            <td class="int-ford-value">123.1 cubic feet</td>
+                            <td class="int-chevy-value">144.5 cubic feet</td>
+                        </tr>
+                        <tr>
+                            <td class="int-spec-name">Seating Capacity</td>
+                            <td class="int-ford-value">7–8 passengers</td>
+                            <td class="int-chevy-value">7–9 passengers</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="int-footnote">
+                    Although the Suburban slightly out‑measures the Expedition in raw space, the latter’s intricate seat‑folding systems
+                    and passenger comfort refinements make it the more livable cabin for active families.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

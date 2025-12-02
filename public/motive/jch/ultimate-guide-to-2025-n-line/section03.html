@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2025 Hyundai N-Line Family: A Model</title>
+    <style>
+        .vehicle-showcase-wrapper {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .vehicle-showcase-wrapper h1 {
+            width: fit-content !important;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .vehicle-showcase-wrapper h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .vehicle-showcase-wrapper h1:hover::after {
+            width: 180px;
+        }
+
+        .vehicle-showcase-wrapper h3,
+        .vehicle-showcase-wrapper h1,
+        .vehicle-showcase-wrapper h2,
+        .vehicle-showcase-wrapper p,
+        .vehicle-showcase-wrapper ol,
+        .vehicle-showcase-wrapper ul {
+            max-width: 1300px !important;
+        }
+
+        .vehicle-intro-block {
+            margin-bottom: 50px;
+        }
+
+        .intro-text-content p {
+            font-size: 1.2rem;
+            color: #012b5d;
+            font-weight: 500;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .automotive-hero-display {
+            height: 500px;
+            border-radius: 20px;
+            border: 3px solid #012b5d;
+            transition: all 0.3s ease;
+        }
+
+        .automotive-hero-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .automotive-hero-display:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(1, 43, 93, 0.2);
+        }
+
+        .model-details-panel {
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 50px 0;
+            border: 2px solid #eef1ff;
+        }
+
+        .vehicle-model-heading {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vehicle-tagline-subtitle {
+            font-size: 1.4rem;
+            color: #002c5f;
+            margin-bottom: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .vehicle-overview-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .powertrain-specifications {
+            background: #ffffff;
+            border: 2px solid #dde2ff;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .powertrain-specifications::before {
+            content: '⚡';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .engine-performance-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 20px;
+            margin-left: 40px;
+        }
+
+        .performance-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .metric-display-card {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border-radius: 15px;
+            border: 1px solid #eef1ff;
+            transition: all 0.3s ease;
+        }
+
+        .metric-display-card:hover {
+            transform: translateY(-5px);
+            border-color: #012b5d;
+            box-shadow: 0 10px 25px rgba(1, 43, 93, 0.1);
+        }
+
+        .metric-number-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 5px;
+        }
+
+        .metric-description-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .drivetrain-information-box {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .drivetrain-information-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .drivetrain-information-box p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .chassis-technology-feature {
+            background: #ffffff;
+            border: 3px solid #012b5d;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .feature-emphasis-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .suspension-system-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .suspension-detail-paragraph {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .advantage-cards-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .performance-benefit-card {
+            background: linear-gradient(135deg, #f0f2ff, #ffffff);
+            border: 1px solid #dde2ff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .performance-benefit-card:hover {
+            transform: scale(1.05);
+            border-color: #012b5d;
+            box-shadow: 0 8px 20px rgba(1, 43, 93, 0.1);
+        }
+
+        .benefit-feature-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #012b5d;
+            margin-bottom: 8px;
+        }
+
+        .benefit-explanation-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .exclusive-features-area {
+            margin: 50px 0;
+        }
+
+        .features-section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .feature-categories-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .feature-detail-category {
+            background: #fafbff;
+            border: 2px solid #eef1ff;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-detail-category:hover {
+            transform: translateY(-5px);
+            border-color: #012b5d;
+            box-shadow: 0 10px 30px rgba(1, 43, 93, 0.1);
+        }
+
+        .category-section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-visual-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .feature-description-content {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .vehicle-showcase-wrapper h1 {
+                font-size: 2.2rem;
+            }
+
+            .model-details-panel {
+                padding: 30px 20px;
+            }
+
+            .performance-metrics-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature-categories-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .chassis-technology-feature {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="vehicle-showcase-wrapper">
+        <h1>The 2025 Hyundai N-Line Family: A Model</h1>
+        
+        <div class="vehicle-intro-block">
+            <div class="intro-text-content">
+                <p>The 2025 N-Line family offers four distinct models, each tailored to a different type of driver but all sharing the same commitment to style, performance, and value. Here is a detailed look at what makes each N-Line vehicle a compelling choice for drivers in the Oklahoma City area.</p>
+            </div>
+            <div class="automotive-hero-display">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2024-hyundai-elantra-n-lightning-lap-2025-788-67b0a409b17e3.jpg?crop=0.627xw:0.528xh;0.206xw,0.244xh&resize=1200:*" alt="2025 Hyundai N-Line Family">
+            </div>
+        </div>
+
+        <div class="model-details-panel">
+            <div class="vehicle-model-heading">The 2025 Hyundai Elantra N-Line</div>
+            <div class="vehicle-tagline-subtitle">The Agile and Tech-Savvy Sport Compact</div>
+            
+            <div class="vehicle-overview-text">
+                The 2025 Hyundai Elantra N-Line is the quintessential sport compact sedan, engineered for those who desire a sharp, responsive vehicle that is as fun to drive as it is efficient for daily commutes.
+            </div>
+
+            <div class="powertrain-specifications">
+                <div class="engine-performance-title">1.6L Turbo GDI Engine Performance</div>
+                
+                <div class="performance-metrics-grid">
+                    <div class="metric-display-card">
+                        <div class="metric-number-value">201</div>
+                        <div class="metric-description-label">HP @ 6,000 RPM</div>
+                    </div>
+                    <div class="metric-display-card">
+                        <div class="metric-number-value">195</div>
+                        <div class="metric-description-label">LB-FT TORQUE</div>
+                    </div>
+                    <div class="metric-display-card">
+                        <div class="metric-number-value">1,500-4,500</div>
+                        <div class="metric-description-label">RPM RANGE</div>
+                    </div>
+                </div>
+
+                <p style="color: #555; margin-top: 20px; line-height: 1.6;">
+                    At the heart of the Elantra N-Line is a spirited 1.6L Turbo GDI 4-cylinder engine that produces a robust 201hp at 6,000 RPM and a substantial 195 lb.-ft. of torque across a wide band from 1,500 to 4,500 RPM. This broad torque curve means that acceleration is readily available from low engine speeds, making the car feel eager and responsive in city traffic.
+                </p>
+
+                <div class="drivetrain-information-box">
+                    <h4>7-Speed Dual Clutch Transmission (DCT)</h4>
+                    <p>This energetic engine is paired exclusively with a quick-shifting 7-speed Dual Clutch Transmission (DCT), which features SHIFTRONIC® manual shift mode and steering-wheel-mounted paddle shifters for drivers who want more control.</p>
+                </div>
+            </div>
+
+            <div class="chassis-technology-feature">
+                <div class="feature-emphasis-badge">KEY UPGRADE</div>
+                <div class="suspension-system-title">Multi-Link Independent Rear Suspension</div>
+                
+                <div class="suspension-detail-paragraph">
+                    The Elantra N-Line's most significant performance upgrade is one that many buyers might overlook: its advanced rear suspension. Unlike the standard Elantra trims, which use a coupled torsion beam axle, the N-Line is equipped with a sophisticated multi-link independent rear suspension.
+                </div>
+                
+                <div class="suspension-detail-paragraph">
+                    This is a crucial engineering difference that transforms the vehicle's handling and ride quality. This advanced design allows each rear wheel to react independently to bumps, dips, and imperfections in the road. For you, this translates into a more composed and comfortable ride on Oklahoma's varied road surfaces and, more importantly, significantly improved grip, stability, and predictability when cornering. It is this chassis upgrade, combined with the sport-tuned suspension, that gives the Elantra N-Line its confident, planted feel and makes it so rewarding to drive.
+                </div>
+
+                <div class="advantage-cards-layout">
+                    <div class="performance-benefit-card">
+                        <div class="benefit-feature-heading">Independent Wheel Control</div>
+                        <div class="benefit-explanation-text">Each rear wheel reacts independently</div>
+                    </div>
+                    <div class="performance-benefit-card">
+                        <div class="benefit-feature-heading">Enhanced Comfort</div>
+                        <div class="benefit-explanation-text">Better ride on varied road surfaces</div>
+                    </div>
+                    <div class="performance-benefit-card">
+                        <div class="benefit-feature-heading">Improved Handling</div>
+                        <div class="benefit-explanation-text">Superior grip and stability</div>
+                    </div>
+                    <div class="performance-benefit-card">
+                        <div class="benefit-feature-heading">Confident Feel</div>
+                        <div class="benefit-explanation-text">Planted, rewarding driving experience</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exclusive-features-area">
+                <div class="features-section-heading">Exclusive N-Line Features</div>
+                
+                <div class="feature-categories-layout">
+                    <div class="feature-detail-category">
+                        <div class="category-section-title">
+                            <div class="category-visual-icon">🚗</div>
+                            Exterior Design
+                        </div>
+                        <div class="feature-description-content">
+                            The N-Line's exclusive features extend throughout the vehicle. The exterior is defined by an N-Line unique front bumper and black grille, a sporty rear fascia with an integrated diffuser, a chrome twin exhaust outlet, and unique 18-inch alloy wheels shod in performance all-season tires.
+                        </div>
+                    </div>
+
+                    <div class="feature-detail-category">
+                        <div class="category-section-title">
+                            <div class="category-visual-icon">📱</div>
+                            Interior & Technology
+                        </div>
+                        <div class="feature-description-content">
+                            The interior is a driver-focused environment, featuring a leather-wrapped N-Line sport steering wheel and a full suite of premium technology. This includes a vibrant 10.25-inch high-resolution touchscreen with navigation and a powerful Bose premium audio system with eight speakers, ensuring every drive is entertaining.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

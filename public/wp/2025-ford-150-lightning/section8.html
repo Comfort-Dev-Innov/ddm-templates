@@ -1,0 +1,245 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.warranty-section {
+  background: #ebf4ff;
+  padding: 4rem 2rem;
+  border-radius: 0;
+  position: relative;
+}
+
+.warranty-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.warranty-header {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.warranty-title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #00142E;
+  margin-bottom: 0.75rem;
+}
+
+.warranty-subtitle {
+  font-size: 18px;
+  color: #4b5563;
+  font-weight: 400;
+  max-width: 780px;
+}
+
+.warranty-content {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0 0 2.5rem 0;
+  font-family: 'Georgia', serif;
+}
+
+.warranty-content p {
+  margin-bottom: 1.5rem;
+}
+
+.warranty-content a {
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.45);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.warranty-content a:hover,
+.warranty-content a:focus {
+  color: #0f172a;
+  border-color: #0f172a;
+}
+
+.warranty-table-container {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  overflow-x: auto;
+  margin-bottom: 2.5rem;
+}
+
+.table-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.warranty-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+}
+
+.warranty-table th {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #0066cc;
+}
+
+.warranty-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.warranty-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.warranty-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #333;
+  vertical-align: middle;
+}
+
+.warranty-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.warranty-table tr:hover {
+  background: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+.warranty-component {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.warranty-coverage {
+  font-weight: 500;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .warranty-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .warranty-title {
+    font-size: 24px;
+  }
+
+  .warranty-table-container {
+    padding: 1rem;
+  }
+
+  .warranty-table {
+    font-size: 0.8rem;
+  }
+
+  .warranty-table th,
+  .warranty-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .warranty-content {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .warranty-section {
+    padding: 2rem 0.75rem;
+  }
+
+  .warranty-title {
+    font-size: 20px;
+  }
+
+  .warranty-table {
+    font-size: 0.75rem;
+  }
+
+  .warranty-table th,
+  .warranty-table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .warranty-table-container {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .table-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .warranty-table {
+    font-size: 0.7rem;
+  }
+
+  .warranty-table th,
+  .warranty-table td {
+    padding: 0.4rem 0.3rem;
+  }
+
+  .warranty-table th {
+    font-size: 0.75rem;
+  }
+}
+</style>
+
+<section class="warranty-section" id="coverage-maintenance">
+  <div class="warranty-container">
+    <header class="warranty-header">
+      <h2 class="warranty-title">Coverage and Maintenance Benefits</h2>
+      <p class="warranty-subtitle">
+        Ford provides assurance with the F-150 Lightning, offering the following warranties:
+      </p>
+    </header>
+
+    <div class="warranty-table-container">
+      <h3 class="table-title">2025 F-150 Lightning Warranty Coverage</h3>
+      <table class="warranty-table">
+        <thead>
+          <tr>
+            <th>Warranty Component</th>
+            <th>Coverage Duration/Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="warranty-component">Basic Limited Warranty</td>
+            <td class="warranty-coverage">3 years / 36,000 miles</td>
+          </tr>
+          <tr>
+            <td class="warranty-component">Powertrain Warranty</td>
+            <td class="warranty-coverage">5 years / 60,000 miles</td>
+          </tr>
+          <tr>
+            <td class="warranty-component">Battery and EV Components</td>
+            <td class="warranty-coverage">8 years / 100,000 miles</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warranty-content">
+      <p>Though no complimentary scheduled maintenance is included, Bowen Scarff Ford's skilled technicians specialize in electric vehicle servicing, ensuring your F-150 Lightning receives expert attention throughout its lifespan. For unexpected assistance, Ford Roadside Assistance is available exclusively at <a href="tel:1-800-241-3673">Ford Roadside Assistance: 1-800-241-3673</a>, offering manufacturer-backed support anywhere in Washington State.</p>
+    </div>
+  </div>
+</section>

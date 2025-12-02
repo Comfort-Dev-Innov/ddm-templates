@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .financial-smart-buying-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .financial-smart-buying-container h1 {
+            width: fit-content !important;
+            color: #012b5d;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .financial-smart-buying-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 2px 8px rgba(1, 43, 93, 0.3);
+        }
+
+        .financial-smart-buying-container h2 {
+            color: #002c5f;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+            cursor: default;
+        }
+
+        .financial-smart-buying-container h2:hover {
+            color: #012b5d;
+        }
+
+        .financial-smart-buying-container h3,
+        .financial-smart-buying-container h1,
+        .financial-smart-buying-container h2,
+        .financial-smart-buying-container p,
+        .financial-smart-buying-container ol,
+        .financial-smart-buying-container ul {
+            max-width: 1300px !important;
+        }
+
+        .financial-smart-buying-container p {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .financial-advice-intro-text {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #012b5d;
+            margin-bottom: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .financial-advice-intro-text:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.15);
+        }
+
+        .vehicle-purchase-option {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vehicle-purchase-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .vehicle-purchase-option:hover::before {
+            left: 100%;
+        }
+
+        .vehicle-purchase-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 44, 95, 0.15);
+            border-color: #012b5d;
+        }
+
+        .vehicle-purchase-option h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .vehicle-purchase-option h2::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(to right, #012b5d, #002c5f);
+            margin-left: 15px;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .vehicle-purchase-option:hover h2::after {
+            width: 50px;
+        }
+
+        .vehicle-option-pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vehicle-option-pros, .vehicle-option-cons {
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .vehicle-option-pros {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-left: 4px solid #28a745;
+        }
+
+        .vehicle-option-cons {
+            background: linear-gradient(135deg, #fff5f5 0%, #fef8f8 100%);
+            border-left: 4px solid #dc3545;
+        }
+
+        .vehicle-option-pros:hover, .vehicle-option-cons:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .vehicle-option-pros h3 {
+            color: #28a745;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .vehicle-option-cons h3 {
+            color: #dc3545;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .vehicle-option-best-for {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #012b5d;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .vehicle-option-best-for:hover {
+            transform: translateX(5px);
+            box-shadow: -5px 0 15px rgba(1, 43, 93, 0.1);
+        }
+
+        .vehicle-option-best-for strong {
+            color: #012b5d;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: #002c5f;
+        }
+
+        strong {
+            color: #012b5d;
+            font-weight: 600;
+        }
+
+        .financial-advice-highlight {
+            background: linear-gradient(120deg, transparent 0%, rgba(1, 43, 93, 0.1) 50%, transparent 100%);
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .financial-advice-highlight:hover {
+            background: linear-gradient(120deg, transparent 0%, rgba(1, 43, 93, 0.2) 50%, transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            .vehicle-option-pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .financial-smart-buying-container h1 {
+                font-size: 1.8rem;
+            }
+            
+            .financial-smart-buying-container h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Smooth scrolling animation */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="financial-smart-buying-container">        
+        <div class="financial-advice-intro-text">
+            <p>To find the "financially smartest" option, you have to look beyond the sticker price and consider the <span class="financial-advice-highlight">Total Cost of Ownership (TCO)</span> over time. This includes depreciation, insurance, financing, and potential repair costs.</p>
+        </div>
+
+        <div class="vehicle-purchase-option">
+            <h2>New Cars</h2>
+            <div class="vehicle-option-pros-cons">
+                <div class="vehicle-option-pros">
+                    <h3><strong>Pros:</strong></h3>
+                    <ul>
+                        <li>You get the latest technology, safety features, and design</li>
+                        <li>A new car comes with a full manufacturer's warranty from day one</li>
+                        <li>Often qualifies for the lowest promotional financing rates</li>
+                    </ul>
+                </div>
+                <div class="vehicle-option-cons">
+                    <h3><strong>Cons:</strong></h3>
+                    <ul>
+                        <li>The biggest financial drawback is depreciation</li>
+                        <li>A new car loses a significant portion of its value—often up to 20-30%—in the first one to two years</li>
+                        <li>Your insurance premiums will also be higher on a new vehicle</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vehicle-option-best-for">
+                <p><strong>Best for:</strong> The buyer who wants the absolute latest features, plans to keep the car for a very long time, and prioritizes a full, untouched warranty period.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-purchase-option">
+            <h2>Used Cars: The Budget Champion</h2>
+            <div class="vehicle-option-pros-cons">
+                <div class="vehicle-option-pros">
+                    <h3><strong>Pros:</strong></h3>
+                    <ul>
+                        <li>The primary advantage is the lowest purchase price</li>
+                        <li>Someone else has already absorbed the steepest part of the depreciation curve</li>
+                        <li>This often leads to lower monthly payments and cheaper insurance rates</li>
+                    </ul>
+                </div>
+                <div class="vehicle-option-cons">
+                    <h3><strong>Cons:</strong></h3>
+                    <ul>
+                        <li>The financial risk comes from unpredictable repair costs</li>
+                        <li>Without a warranty, a single major repair (like a transmission failure) could wipe out your initial savings</li>
+                        <li>Financing rates for used cars are also typically higher than for new or CPO vehicles</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vehicle-option-best-for">
+                <p><strong>Best for:</strong> The budget-focused buyer who has a trusted mechanic for a pre-purchase inspection and maintains a separate fund for potential future repairs.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-purchase-option">
+            <h2>Certified Pre-Owned: The Middle Ground</h2>
+            <div class="vehicle-option-pros-cons">
+                <div class="vehicle-option-pros">
+                    <h3><strong>Pros:</strong></h3>
+                    <ul>
+                        <li>CPO offers a brilliant financial middle ground</li>
+                        <li>You avoid the initial massive depreciation hit of a new car, but you gain the warranty protection that a standard used car lacks</li>
+                        <li>This makes your Total Cost of Ownership more predictable</li>
+                        <li>Unexpected, budget-breaking repair bills are far less likely</li>
+                        <li>Furthermore, CPO vehicles often qualify for special low-APR financing offers from Hyundai, which can save you thousands in interest over the life of the loan</li>
+                    </ul>
+                </div>
+                <div class="vehicle-option-cons">
+                    <h3><strong>Cons:</strong></h3>
+                    <ul>
+                        <li>The initial purchase price is higher than a comparable non-certified used car</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vehicle-option-best-for">
+                <p><strong>Best for:</strong> The value-conscious buyer who wants a reliable, late-model vehicle with modern features and long-term protection against unexpected costs. It's for the driver who wants to balance cost savings with peace of mind.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

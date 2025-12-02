@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truck Body Types Comparison</title>
+    <style>
+      .comparison-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+
+      .comparison-container h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+      }
+
+      .trim-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .trim-intro {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+        font-family: "Georgia", serif;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th {
+        background-color: #f5f5f5;
+        padding: 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .comparison-table td {
+        padding: 20px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
+
+      .section-title {
+        font-weight: bold;
+        color: #444;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .description {
+        margin-bottom: 20px;
+        text-align: justify;
+        text-indent: 50px;
+      }
+
+      .features-list {
+        margin: 15px 0;
+      }
+
+      .feature-item {
+        margin-bottom: 12px;
+        padding-left: 15px;
+        position: relative;
+      }
+
+      .feature-item:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #666;
+      }
+
+      .feature-title {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .feature-desc {
+        color: #666;
+        font-size: 0.95em;
+        margin-top: 3px;
+      }
+
+      .advantage-box {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+      }
+
+      .advantage-title {
+        font-weight: bold;
+        color: #495057;
+        margin-bottom: 8px;
+      }
+
+      .advantage-text {
+        color: #6c757d;
+        font-size: 0.95em;
+      }
+
+      .advantage-cont {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin: 20px 0;
+      }
+
+      @media (max-width: 768px) {
+        .comparison-table,
+        .comparison-table tbody,
+        .comparison-table th,
+        .comparison-table td,
+        .comparison-table tr {
+          display: block;
+        }
+
+        .comparison-table thead tr {
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+
+        .comparison-table tr {
+          margin-bottom: 30px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+        }
+
+        .comparison-table td {
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding: 15px 0;
+        }
+
+        .comparison-table td:before {
+          content: attr(data-label) ": ";
+          font-weight: bold;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+
+        .advantage-cont {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="comparison-container">
+      <div class="trim-header">
+        <div class="trim-title">
+          Understanding the Core Difference:
+          <span style="color: #002352">Ford Dump Body vs. Platform Body</span>
+        </div>
+        <div class="trim-intro">
+          The fundamental distinction between Ford dump body and platform body
+          work trucks is in their cargo bed design and inherent functionality,
+          with each engineered to optimize different types of hauling and
+          unloading operations.
+        </div>
+      </div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="section-title" style="text-align: center">
+              <span style="color: #002352">Dump Body Trucks:</span> <br /><span
+                style="font-weight: 400 !important"
+                >Power and Precision for Bulk Materials</span
+              >
+            </th>
+            <th class="section-title" style="text-align: center">
+              <span style="color: #002352">Platform Body Trucks:</span>
+              <br /><span style="font-weight: 400 !important"
+                >Versatility for Diverse Cargo</span
+              >
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Dump Body Trucks">
+              <div class="description">
+                A <strong style="color: #002352">dump body truck</strong> has a
+                hydraulically operated cargo bed that can be raised and tilted,
+                facilitating the efficient unloading of materials by gravity.
+                This design transforms a Ford chassis cab into a highly capable
+                vehicle for handling bulk materials such as gravel, sand, mulch,
+                dirt, or various forms of construction debris.
+                <div
+                  style="justify-content: center; display: flex; margin: 20px 0"
+                >
+                  <svg
+                    height="40px"
+                    width="40px"
+                    version="1.1"
+                    id="_x32_"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 512 512"
+                    xml:space="preserve"
+                    fill="#003780"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <style type="text/css">
+                        .st0 {
+                          fill: ;
+                        }
+                      </style>
+                      <g>
+                        <path
+                          class="st0"
+                          d="M128.786,273.797c-39.318,0-71.198,31.874-71.198,71.204c0,39.318,31.88,71.192,71.198,71.192 c39.324,0,71.204-31.874,71.204-71.192C199.991,305.671,168.11,273.797,128.786,273.797z M128.786,375.035 c-16.589,0-30.039-13.45-30.039-30.033c0-16.589,13.45-30.039,30.039-30.039c16.596,0,30.04,13.45,30.04,30.039 C158.826,361.585,145.382,375.035,128.786,375.035z"
+                        ></path>
+                        <path
+                          class="st0"
+                          d="M388.445,273.797c-39.324,0-71.198,31.874-71.198,71.204c0,39.318,31.874,71.192,71.198,71.192 c39.324,0,71.198-31.874,71.198-71.192C459.643,305.671,427.769,273.797,388.445,273.797z M388.445,375.035 c-16.589,0-30.039-13.45-30.039-30.033c0-16.589,13.45-30.039,30.039-30.039c16.59,0,30.046,13.45,30.046,30.039 C418.492,361.585,405.035,375.035,388.445,375.035z"
+                        ></path>
+                        <path
+                          class="st0"
+                          d="M499.967,212.99l-36.854-45.184c-10.146-12.437-25.344-19.649-41.397-19.649h-91.893v77.482H308.87v-6.278 v-83.774v-6.278h90.052V95.807H271.175v33.503v6.278H0v90.052l169.474,32.165c32.808,15.378,55.642,48.629,55.642,87.198 c0,0.709-0.093,1.384-0.1,2.087h67.205c-0.007-0.702-0.106-1.378-0.106-2.087c0-53.118,43.218-96.336,96.33-96.336 c48.119,0,87.993,35.502,95.085,81.667h10.662c9.834,0,17.807-7.973,17.807-17.807v-65.774 C512,234.447,507.749,222.52,499.967,212.99z M73.813,216.811l-17.278-3.066v-53.026h17.278V216.811z M147.634,229.944 l-17.278-3.08v-66.145h17.278V229.944z M221.448,243.142l-17.278-3.072v-79.35h17.278V243.142z M368.77,220.189v-41.887h54.205 c4.748,0,9.185,2.106,12.186,5.781l29.45,36.106H368.77z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <div style="text-indent: 50px">
+                  The
+                  <strong style="color: #002352"
+                    >hydraulic lifting mechanism</strong
+                  >
+                  is seamlessly integrated with the truck's Power Take-Off (PTO)
+                  system, allowing the dump function to operate effectively
+                  whether the vehicle is stationary or in motion. This
+                  live-drive PTO functionality is a significant advantage for
+                  operations requiring continuous material handling.
+                </div>
+                <div
+                  style="justify-content: center; display: flex; margin: 20px 0"
+                >
+                  <svg
+                    fill="#002352"
+                    style="width: 40px; height: 40px"
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 32 32"
+                    xml:space="preserve"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <g>
+                          <path
+                            d="M21.947,6.05V5.192c0-0.722-0.584-1.306-1.307-1.306h-1.927C18.896,3.513,19,3.11,19,2.678C19,1.204,17.802,0,16.328,0 c-1.473,0-2.672,1.206-2.672,2.681c0,0.433,0.104,0.833,0.287,1.206h-2.582c-0.722,0-1.306,0.584-1.306,1.306V6.05h-3.29 c-1.169,0-2.118,0.948-2.118,2.117v21.715c0,1.17,0.948,2.118,2.118,2.118h18.472c1.17,0,2.117-0.948,2.117-2.118V8.167 c0-1.169-0.949-2.117-2.117-2.117H21.947z M14.736,2.679c0-0.879,0.715-1.599,1.592-1.599c0.877,0,1.592,0.721,1.592,1.601 c0,0.48-0.213,0.915-0.547,1.206h-2.089C14.948,3.596,14.736,3.159,14.736,2.679z M25.191,28.738c0,0.606-0.492,1.1-1.099,1.1 H7.909c-0.607,0-1.099-0.492-1.099-1.1V9.311c0-0.607,0.492-1.099,1.099-1.099h2.145c0,0.597,0.484,1.081,1.081,1.081h9.73 c0.598,0,1.082-0.484,1.082-1.081h2.146c0.606,0,1.099,0.491,1.099,1.099V28.738z"
+                          ></path>
+                          <path
+                            d="M15.13,19.572l-1.318-1.32c-0.148-0.148-0.35-0.232-0.56-0.232c-0.21,0-0.411,0.084-0.56,0.232l-0.409,0.409 c-0.309,0.309-0.309,0.81,0,1.119l2.315,2.317c0.151,0.15,0.358,0.234,0.571,0.23c0.214-0.003,0.418-0.092,0.565-0.248 l4.021-4.264c0.3-0.317,0.286-0.817-0.032-1.118l-0.42-0.396c-0.152-0.145-0.355-0.222-0.566-0.216 c-0.209,0.006-0.408,0.096-0.553,0.248L15.13,19.572z"
+                          ></path>
+                          <path
+                            d="M16,10.903c-4.356,0-7.899,3.548-7.899,7.91c0,4.359,3.543,7.908,7.899,7.908c4.355,0,7.9-3.549,7.9-7.908 C23.9,14.451,20.357,10.903,16,10.903z M16,24.561c-3.165,0-5.739-2.578-5.739-5.748c0-3.17,2.574-5.749,5.739-5.749 c3.164,0,5.74,2.578,5.74,5.749C21.74,21.982,19.164,24.561,16,24.561z"
+                          ></path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <div style="text-indent: 50px">
+                  The primary benefit of dump bodies lies in their speed and
+                  efficiency when unloading loose materials, eliminating the
+                  need for manual shoveling or additional equipment and enabling
+                  drivers to empty entire loads in seconds.
+                </div>
+              </div>
+            </td>
+
+            <td data-label="Platform Body Trucks">
+              <div class="description">
+                Commonly referred to as flatbed trucks, platform body trucks
+                feature a completely flat, open cargo surface devoid of sides or
+                a built-in tilting mechanism. This configuration offers
+                unparalleled versatility for loading and securing a wide array
+                of cargo, including various construction materials, diverse
+                types of equipment, heavy machinery, and irregularly shaped
+                items.
+                <div
+                  style="justify-content: center; display: flex; margin: 20px 0"
+                >
+                  <svg
+                    style="width: 40px; height: 40px"
+                    fill="#003780"
+                    viewBox="0 0 50 50"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    stroke="#003780"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M48.375,16.063L44.219,10.5C43.266,9.352,41.77,8,40,8h-7v15H1c-0.553,0-1,0.448-1,1v5.333c0,1.728,1.315,3.172,3.074,3.557C3.506,35.777,5.995,38,9,38c2.967,0,5.431-2.167,5.91-5h0.181c0.478,2.833,2.942,5,5.91,5s5.431-2.167,5.91-5H33c0.48,2.832,3.031,5,6,5s5.43-2.168,5.906-5H47c1.57,0,3-1.43,3-3v-9.625C50,18.363,48.551,16.309,48.375,16.063z M9,36c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S11.206,36,9,36z M21,36c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S23.206,36,21,36z M39,36c-2.207,0-4-1.793-4-4s1.793-4,4-4s4,1.793,4,4S41.207,36,39,36z M48,21H38c-1,0-2-1-2-2v-4c0-1.105,1-2,2-2h5.594l3.188,4.25C47.121,17.73,48,19.203,48,20.375V21z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div style="text-indent: 50px">
+                  The flat design provides unobstructed access from all sides,
+                  simplifying the loading process with forklifts, cranes, or
+                  manual placement. Platform bodies are particularly well-suited
+                  for scenarios where cargo varies significantly in size and
+                  shape, requires multiple tie-down points for secure transport,
+                  or demands precise placement during the unloading process.
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              colspan="2"
+              style="
+                background-color: #fafbfc;
+                padding: 25px;
+                border-top: 3px solid #002352;
+              "
+            >
+              <div
+                class="section-title"
+                style="
+                  text-align: center;
+                  margin-bottom: 20px;
+                  font-size: 1.4em;
+                  color: #002352;
+                "
+              >
+                Key Structural Differences
+              </div>
+              <div
+                class="description"
+                style="text-indent: 0; margin-bottom: 15px"
+              >
+                Ford's chassis cab foundation, known for its fully boxed frame
+                design and reinforced mounting points, provides the necessary
+                structural integrity for both dump and platform body
+                configurations. This robust design, featuring high-strength
+                all-steel frames and military-grade aluminum alloy bodies,
+                reduces weight without compromising durability and offers
+                rust-resistant qualities crucial for vehicle longevity.
+              </div>
+              <div class="advantage-cont">
+                <div class="advantage-box">
+                  <div class="advantage-title" style="color: #002352">
+                    Dump Body Complexity
+                  </div>
+                  <div class="advantage-text">
+                    However, sump bodies inherently require additional hydraulic
+                    components, including cylinders and specialized mounting
+                    hardware, which contribute to their greater mechanical
+                    complexity.
+                  </div>
+                </div>
+                <div class="advantage-box">
+                  <div class="advantage-title" style="color: #002352">
+                    Platform Body Simplicity
+                  </div>
+                  <div class="advantage-text">
+                    In contrast, platform bodies typically mount directly to the
+                    chassis frame using standard hardware, resulting in a
+                    simpler and more straightforward installation.
+                  </div>
+                </div>
+              </div>
+              <div
+                class="description"
+                style="text-indent: 0; margin-bottom: 15px"
+              >
+                Despite the inherent simplicity of a platform body, the
+                extensive availability of Ford's Power Take-Off system across
+                its chassis cab lineup (from F-350 through F-750) introduces a
+                level of versatility that extends beyond basic flatbed
+                functionality.
+              </div>
+              <div
+                class="advantage-box"
+                style="background-color: #f0f7ff; border-color: #002352"
+              >
+                <div class="advantage-title" style="color: #002352">
+                  Strategic Investment Advantage
+                </div>
+                <div class="advantage-text">
+                  The consistent inclusion of live-drive PTO capability means
+                  that a platform body can be equipped with various
+                  hydraulically powered tools, such as cranes or wood chippers,
+                  effectively expanding its operational scope.
+                  <br /><br />This fundamental adaptability of Ford's chassis
+                  cab platform means that an initial investment offers
+                  significant flexibility for future specialized equipment or
+                  evolving operational needs, allowing businesses to
+                  strategically plan for future demands and optimize their
+                  long-term investment.
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
