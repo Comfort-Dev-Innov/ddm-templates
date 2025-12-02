@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Work Truck Industry Guide</title>
+    <style>
+        .powertrain-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .powertrain-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .powertrain-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .powertrain-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+        }
+
+        .powertrain-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0 auto;
+        }
+
+        .powertrain-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .powertrain-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .engine-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .engine-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .engine-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .engine-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .engine-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .engine-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .engine-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .engine-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .engine-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .table-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 1.5rem !important;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .powertrain-section {
+                padding: 2rem 1rem;
+            }
+            
+            .engine-table-container {
+                padding: 1rem;
+            }
+            
+            .engine-table {
+                font-size: 0.8rem;
+            }
+            
+            .engine-table th,
+            .engine-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .engine-table {
+                font-size: 0.7rem;
+            }
+            
+            .engine-table th,
+            .engine-table td {
+                padding: 0.5rem 0.3rem;
+            }
+        }
+
+        .capability-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .capability-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .capability-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .capability-card-content {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .capability-highlight {
+            background: linear-gradient(135deg, #0066cc, #004999);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .capability-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .capability-card {
+                padding: 1.5rem;
+            }
+
+            .capability-card-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Added: image and icon helpers */
+        .section-image {
+            margin-top: 1.5rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0066cc, #004999);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .capability-card-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* Added: media bullets alternating left/right images */
+        .media-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .media-bullets li {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 1rem;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 0.75rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .media-bullets li.right {
+            grid-template-columns: 1fr 72px;
+        }
+
+        .media-bullets img {
+            width: 100%;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .media-bullets .bullet-text {
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .media-bullets li {
+                grid-template-columns: 56px 1fr;
+                padding: 0.6rem;
+            }
+            .media-bullets li.right {
+                grid-template-columns: 1fr 56px;
+            }
+            .media-bullets img {
+                height: 48px;
+            }
+        }
+
+        /* Added: two-column media rows for paragraph + bullets with side image */
+        .media-row {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .media-row.right {
+            grid-template-columns: 1fr 420px;
+        }
+
+        .media-image {
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+
+        .media-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .media-row,
+            .media-row.right {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Added: side-by-side image compare */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .compare-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+
+        .compare-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .compare-label {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: rgba(0, 20, 46, 0.9);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 768px) {
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="powertrain-section">
+        <div class="powertrain-container">
+            <header class="powertrain-header">
+                <h2 class="powertrain-title">The Heart of the Matter: Performance and Capability</h2>
+            </header>
+
+            <div class="powertrain-content">
+                <div class="media-row">
+                    <div class="media-image">
+                        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:17d43ded-9e7f-485c-b33d-f470f6cdbe89/as/DSC_0896.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford Bronco engine and chassis" />
+                    </div>
+                    <div>
+                        <p>The most significant distinction between the 2025 Ford Bronco and the Bronco Sport lies under the hood and in their foundational design. The 2025 Ford Bronco is a body-on-frame SUV, sharing its tough underpinnings with the Ford Ranger. This construction is ideal for serious off-roading and provides a commanding presence on the road. Kent drivers can choose between two potent engine options:</p>
+                        <ul>
+                            <li>A standard 2.3-liter EcoBoost® inline-four engine, delivering a robust 300 horsepower and 325 lb.-ft. of torque.</li>
+                            <li>An available 2.7-liter EcoBoost® V6 engine, churning out an impressive 330 horsepower and 415 lb.-ft. of torque for those who demand maximum power.</li>
+                        </ul>
+                        <p>The Bronco comes standard with a 4x4 drivetrain and offers either a 7-speed manual transmission (a rarity in today's market) or a smooth-shifting 10-speed automatic.</p>
+                    </div>
+                </div>
+
+                <div class="media-row right">
+                    <div>
+                        <p>In contrast, the 2025 Ford Bronco Sport is a unibody crossover based on the Ford Escape platform. This design offers a more comfortable and car-like ride, ideal for navigating Kent's city streets and highways with improved fuel efficiency. The Bronco Sport still packs a punch with its standard 4x4 capability and two available EcoBoost® engines:</p>
+                        <ul>
+                            <li>A 1.5-liter EcoBoost® three-cylinder engine with 181 horsepower and 190 lb.-ft. of torque, offering an excellent blend of power and efficiency for daily driving.</li>
+                            <li>A more powerful 2.0-liter EcoBoost four-cylinder engine is available on higher trims, delivering a spirited 250 horsepower and 277 lb-ft of torque. of torque.</li>
+                        </ul>
+                        <p>Both Bronco Sport engines are paired with an 8-speed automatic transmission.</p>
+                    </div>
+                    <div class="media-image">
+                        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:52663be5-9afb-481a-8060-65d462ea85bd/as/25_frd_bros_64848_badl_sasq_ruby.webp?max-quality=75&crop-names=1_21x9&width=1440" alt="Ford Bronco Sport driving in city" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="engine-table-container">
+                <table class="engine-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>2025 Ford Bronco</th>
+                            <th>2025 Ford Bronco Sport</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="engine-name">Platform</td>
+                            <td>Body-on-frame</td>
+                            <td>Unibody Crossover</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">Standard Engine</td>
+                            <td>2.3L EcoBoost® I-4 (300 hp)</td>
+                            <td>1.5L EcoBoost® I-3 (181 hp)</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">Available Engine</td>
+                            <td>2.7L EcoBoost® V6 (330 hp)</td>
+                            <td>2.0L EcoBoost® I-4 (250 hp)</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">Transmission</td>
+                            <td>7-Speed Manual or 10-Speed Automatic</td>
+                            <td>8-Speed Automatic</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">Drivetrain</td>
+                            <td>Standard 4x4</td>
+                            <td>Standard 4x4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="capability-cards">
+                <div class="capability-card">
+                    <span class="capability-card-icon icon-circle">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8h-3.17l-1.41-1.41A2 2 0 0014 6h-4a2 2 0 00-1.41.59L7.17 8H4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2v-8a2 2 0 00-2-2zm-8 9a4 4 0 110-8 4 4 0 010 8z"/></svg>
+                    </span>
+                    <div class="capability-card-title">Engine Choices</div>
+                    <div class="capability-card-content">Two Bronco engines and two Bronco Sport engines provide tailored power for Kent driving.</div>
+                </div>
+                <div class="capability-card">
+                    <span class="capability-card-icon icon-circle">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.57 14.86l-2.83-2.83-2.12 2.12 2.83 2.83a1.5 1.5 0 002.12-2.12zM3 17v2h2l9.29-9.29-2-2L3 17zM14.5 6.5l2 2 1.79-1.79a1 1 0 000-1.41l-.59-.59a1 1 0 00-1.41 0L14.5 6.5z"/></svg>
+                    </span>
+                    <div class="capability-card-title">Built to Suit</div>
+                    <div class="capability-card-content">Body-on-frame Bronco vs. unibody Bronco Sport for comfort and efficiency.</div>
+                </div>
+                <div class="capability-card">
+                    <span class="capability-card-icon icon-circle">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v11a3 3 0 003 3h14a3 3 0 003-3V6a2 2 0 00-2-2zm-9 12H6v-2h5v2zm7-4H6v-2h12v2zm0-4H6V6h12v2z"/></svg>
+                    </span>
+                    <div class="capability-card-title">Drivetrain & Gears</div>
+                    <div class="capability-card-content">Standard 4x4 on both, with manual or automatic options on Bronco.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="powertrain-section">
+        <div class="powertrain-container">
+            <header class="powertrain-header">
+                <h2 class="powertrain-title">Ready for Adventure: Off-Road Prowess</h2>
+            </header>
+
+            <div class="powertrain-content">
+                <p>For the true off-road enthusiast in the Kent area, the 2025 Ford Bronco is the undisputed champion. Its robust construction, higher ground clearance, and advanced off-road technology, including the Terrain Management System™ with G.O.A.T. Modes™ (Goes Over Any Type of Terrain), make it capable of tackling the most challenging trails near Mount Rainier or the Snoqualmie National Forest. With available features like front and rear locking differentials, a disconnecting front stabilizer bar, and massive 35-inch all-terrain tires, the Bronco is built to conquer the wild.</p>
+                <p>The 2025 Ford Bronco Sport, while not as extreme as its larger counterpart, is no slouch when the pavement ends. Its standard 4x4 system and G.O.A.T. Modes™ provide confident handling on slippery roads and light trails. For those seeking more aggressive off-road capability, the Badlands™ trim offers an advanced 4x4 system with a twin-clutch rear-drive unit, all-terrain tires, and an off-road-tuned suspension. This makes the Bronco Sport a fantastic choice for weekend camping trips, visits to Lake Tapps, or exploring the scenic backroads of the Pacific Northwest.</p>
+                <div class="compare-grid">
+                    <div class="compare-item">
+                        <span class="compare-label">2025 Bronco</span>
+                        <img src="https://www.ford.ca/cmslibs/content/dam/na/ford/en_ca/images/bronco/2025/jellybeans/25_frd_bro_rptr_4d_mrgr_ps34.png" alt="Bronco rock crawling" />
+                    </div>
+                    <div class="compare-item">
+                        <span class="compare-label">2025 Bronco Sport</span>
+                        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/bronco-sport/2025/jellybeans/Ford_Bronco-Sport_2025_250A_PG1_88R_89J_64W_T7Q_99N_HRT_DEFAULT_EXT_4_004.png" alt="Bronco Sport on sand" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="powertrain-section">
+        <div class="powertrain-container">
+            <header class="powertrain-header">
+                <h2 class="powertrain-title">Creature Comforts and Technology</h2>
+            </header>
+
+            <div class="powertrain-content">
+                <p>Inside, both Broncos offer a blend of rugged functionality and modern technology. The 2025 Ford Bronco boasts a purpose-built interior crafted from durable materials, complemented by available washout floors with integrated drains, making it effortless to clean up after a muddy adventure. The centerpiece of the dashboard is a large touchscreen featuring Ford's SYNC 4 infotainment system, which offers seamless smartphone integration and navigation. The Bronco's iconic removable doors and top provide an unparalleled open-air experience.</p>
+                <p>The 2025 Ford Bronco Sport boasts a comfortable and spacious interior with clever storage solutions, including an available under-seat storage compartment in the second row. The user-friendly SYNC® 4 system is also standard, displayed on a generous touchscreen. The Bronco Sport is packed with standard and available Ford Co-Pilot360™ driver-assist technologies, providing peace of mind on your daily commute through the Kent Valley.</p>
+                <div class="compare-grid">
+                    <div class="compare-item">
+                        <span class="compare-label">Bronco Interior</span>
+                        <img src="https://www.powerfordnm.com/blogs/2553/wp-content/uploads/2024/12/Bronco-Interior-1-1024x683.jpg" alt="Bronco interior dashboard" />
+                    </div>
+                    <div class="compare-item">
+                        <span class="compare-label">Bronco Sport Interior</span>
+                        <img src="https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/UTR1zgV5vnOuYpwTu2pkSqiCSqQqWuPj1S6ejooD.jpg" alt="Bronco Sport interior dashboard" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

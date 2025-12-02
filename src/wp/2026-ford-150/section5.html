@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horsepower and Performance of the 2026 F-150 5.0L V8</title>
+    <style>
+      .performance-container {
+        max-width: 1140px !important;
+        margin: 0 auto !important;
+      }
+
+      .performance-hero-section {
+        background: white !important;
+        border-radius: 20px !important;
+        padding: 3rem !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .performance-hero-section::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 5px !important;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%) !important;
+      }
+
+      .performance-hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem) !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 2.5rem !important;
+        letter-spacing: -0.5px !important;
+      }
+
+      .performance-hero-image-wrapper {
+        width: 100% !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        margin-bottom: 2.5rem !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      .performance-hero-image {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+      }
+
+      .performance-engine-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%) !important;
+        border-radius: 16px !important;
+        padding: 3rem !important;
+        margin-bottom: 3rem !important;
+        position: relative !important;
+        overflow: hidden !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .performance-engine-hero::before {
+        content: "" !important;
+        position: absolute !important;
+        top: -50% !important;
+        right: -10% !important;
+        width: 500px !important;
+        height: 500px !important;
+        background: radial-gradient(circle, rgba(0, 102, 204, 0.15) 0%, transparent 70%) !important;
+        border-radius: 50% !important;
+      }
+
+      .performance-engine-badge {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
+        color: white !important;
+        padding: 0.6rem 1.5rem !important;
+        border-radius: 25px !important;
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3) !important;
+      }
+
+      .performance-engine-title {
+        font-size: clamp(2rem, 5vw, 3rem) !important;
+        font-weight: 700 !important;
+        color: white !important;
+        margin-bottom: 2rem !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      .performance-stats-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+        gap: 2rem !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      .performance-stat-card {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 12px !important;
+        padding: 1.8rem !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .performance-stat-card:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        transform: translateY(-5px) !important;
+        border-color: rgba(0, 102, 204, 0.5) !important;
+      }
+
+      .performance-stat-value {
+        font-size: clamp(2rem, 5vw, 2.8rem) !important;
+        font-weight: 700 !important;
+        color: #fbbf24 !important;
+        margin-bottom: 0.5rem !important;
+        display: block !important;
+      }
+
+      .performance-stat-label {
+        font-size: 1rem !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        font-weight: 600 !important;
+      }
+
+      .performance-content-block {
+        background: #f8f9fa !important;
+        padding: 2rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 1.5rem !important;
+        border-left: 4px solid #0066cc !important;
+      }
+
+      .performance-content-block p {
+        color: #2d3748 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .performance-content-block p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .performance-capabilities-section {
+        background: white !important;
+        border: 2px solid #e3f2fd !important;
+        border-radius: 16px !important;
+        padding: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+        box-shadow: 0 6px 20px rgba(0, 51, 102, 0.08) !important;
+      }
+
+      .performance-capabilities-title {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 2rem !important;
+        text-align: center !important;
+      }
+
+      .performance-capabilities-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 2rem !important;
+      }
+
+      .performance-capability-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+        border: 2px solid transparent !important;
+      }
+
+      .performance-capability-card:hover {
+        border-color: #0066cc !important;
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 25px rgba(0, 51, 102, 0.1) !important;
+      }
+
+      .performance-capability-icon {
+        font-size: 3rem !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+      }
+
+      .performance-capability-value {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        color: #003366 !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .performance-capability-label {
+        font-size: 1.1rem !important;
+        color: #4a5568 !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.8rem !important;
+      }
+
+      .performance-capability-description {
+        font-size: 0.95rem !important;
+        color: #6c757d !important;
+        line-height: 1.6 !important;
+      }
+
+      .performance-comparison-box {
+        background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%) !important;
+        border-left: 4px solid #ea580c !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .performance-comparison-box-title {
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+        color: #9a3412 !important;
+        margin-bottom: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      .performance-comparison-box-title::before {
+        content: "⚡" !important;
+        font-size: 1.8rem !important;
+        margin-right: 0.8rem !important;
+      }
+
+      .performance-comparison-box p {
+        color: #78350f !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+      }
+
+      .performance-engine-features {
+        background: white !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        border: 2px solid #e9ecef !important;
+      }
+
+      .performance-features-title {
+        font-size: 1.4rem !important;
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .performance-feature-list {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+        gap: 1.2rem !important;
+      }
+
+      .performance-feature-item {
+        display: flex !important;
+        align-items: flex-start !important;
+        color: #4a5568 !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+      }
+
+      .performance-feature-item::before {
+        content: "✓" !important;
+        color: #0066cc !important;
+        font-weight: bold !important;
+        font-size: 1.3rem !important;
+        margin-right: 0.8rem !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Link Styling */
+      .performance-container a {
+        color: #0066cc !important;
+        text-decoration: underline !important;
+        font-weight: 600 !important;
+        position: relative !important;
+        display: inline-block !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .performance-container a::after {
+        content: "" !important;
+        position: absolute !important;
+        width: 0 !important;
+        height: 2px !important;
+        bottom: -2px !important;
+        left: 0 !important;
+        background: linear-gradient(90deg, #0066cc 0%, #003366 100%) !important;
+        transition: width 0.3s ease !important;
+      }
+
+      .performance-container a:hover {
+        color: #003366 !important;
+        transform: translateX(3px) !important;
+      }
+
+      @media (max-width: 768px) {
+        .performance-hero-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .performance-hero-image-wrapper {
+          margin-bottom: 2rem !important;
+        }
+
+        .performance-engine-hero {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .performance-stats-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.5rem !important;
+        }
+
+        .performance-content-block {
+          padding: 1.5rem !important;
+        }
+
+        .performance-capabilities-section {
+          padding: 2rem 1.5rem !important;
+        }
+
+        .performance-capabilities-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .performance-comparison-box {
+          padding: 1.5rem !important;
+        }
+
+        .performance-engine-features {
+          padding: 1.5rem !important;
+        }
+
+        .performance-feature-list {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem !important;
+        }
+
+        .performance-hero-section {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .performance-hero-image-wrapper {
+          margin-bottom: 1.5rem !important;
+        }
+
+        .performance-engine-hero {
+          padding: 1.5rem 1rem !important;
+        }
+
+        .performance-stats-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1rem !important;
+        }
+
+        .performance-stat-card {
+          padding: 1.5rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="performance-container" id="horsepower-performance">
+      <div class="performance-hero-section">
+        <h1 class="performance-hero-title">
+          Horsepower and Performance of the 2026 F-150 5.0L V8
+        </h1>
+
+        <div class="performance-hero-image-wrapper">
+          <img 
+            src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:e66fd8eb-5b77-4421-8e30-9ac337991d1f/as/26_FRD_F15_51106_XLT.webp?max-quality=75&crop-names=1_3x4&width=768" 
+            alt="2026 Ford F-150"
+            class="performance-hero-image"
+          />
+        </div>
+
+        <div class="performance-engine-hero">
+          <span class="performance-engine-badge">Naturally Aspirated V8</span>
+          <h2 class="performance-engine-title">5.0L Ti-VCT V8 Engine</h2>
+          
+          <div class="performance-stats-grid">
+            <div class="performance-stat-card">
+              <span class="performance-stat-value">400</span>
+              <span class="performance-stat-label">Horsepower</span>
+            </div>
+            <div class="performance-stat-card">
+              <span class="performance-stat-value">410</span>
+              <span class="performance-stat-label">lb-ft Torque</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-content-block">
+          <p>
+            The 5.0-liter naturally aspirated V8 engine remains a favorite among Ford enthusiasts who appreciate the classic V8 sound, linear power delivery, and robust capability. For 2026, this engine delivers an impressive 400 horsepower and 410 lb-ft of torque, making it well-suited for towing, payload, and daily driving.
+          </p>
+        </div>
+
+        <div class="performance-content-block">
+          <p>
+            This powertrain is ideal for those in the Kent and Renton areas who require a reliable workhorse that can handle towing trailers, boats, or heavy equipment. The 5.0L V8 supports a maximum payload capacity of up to 2,225 pounds and a towing capacity of approximately 12,900 pounds when properly equipped, which ranks it among the top in its class.
+          </p>
+        </div>
+
+        <div class="performance-capabilities-section">
+          <h3 class="performance-capabilities-title">Capability Specifications</h3>
+          
+          <div class="performance-capabilities-grid">
+            <div class="performance-capability-card">
+              <span class="performance-capability-icon">🚚</span>
+              <div class="performance-capability-value">2,225 lbs</div>
+              <div class="performance-capability-label">Maximum Payload</div>
+              <div class="performance-capability-description">
+                Haul equipment and materials with confidence
+              </div>
+            </div>
+
+            <div class="performance-capability-card">
+              <span class="performance-capability-icon">🎣</span>
+              <div class="performance-capability-value">12,900 lbs</div>
+              <div class="performance-capability-label">Towing Capacity</div>
+              <div class="performance-capability-description">
+                Pull trailers, boats, and heavy equipment with ease
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-comparison-box">
+          <div class="performance-comparison-box-title">Traditional Power Delivery</div>
+          <p>
+            When compared to the 3.5-liter EcoBoost V6 variants, the 5.0L engine offers a more traditional driving experience without forced induction, appealing to buyers who prioritize simplicity and engine sound over turbocharged performance.
+          </p>
+        </div>
+
+        <div class="performance-engine-features">
+          <h3 class="performance-features-title">Why Choose the 5.0L V8?</h3>
+          <div class="performance-feature-list">
+            <div class="performance-feature-item">Classic V8 engine sound and character</div>
+            <div class="performance-feature-item">Linear, naturally aspirated power delivery</div>
+            <div class="performance-feature-item">Proven reliability and durability</div>
+            <div class="performance-feature-item">Excellent towing and payload capability</div>
+            <div class="performance-feature-item">No turbocharger complexity</div>
+            <div class="performance-feature-item">Perfect for daily driving and heavy work</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

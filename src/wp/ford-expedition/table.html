@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Work Truck Industry Guide</title>
+    <style>
+        .powertrain-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .powertrain-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .powertrain-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .powertrain-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+        }
+
+        .powertrain-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0 auto;
+        }
+
+        .powertrain-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .powertrain-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .engine-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .engine-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .engine-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .engine-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .engine-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .engine-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .engine-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .engine-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .engine-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .table-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 1.5rem !important;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .powertrain-section {
+                padding: 2rem 1rem;
+            }
+            
+            .engine-table-container {
+                padding: 1rem;
+            }
+            
+            .engine-table {
+                font-size: 0.8rem;
+            }
+            
+            .engine-table th,
+            .engine-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .engine-table {
+                font-size: 0.7rem;
+            }
+            
+            .engine-table th,
+            .engine-table td {
+                padding: 0.5rem 0.3rem;
+            }
+        }
+
+        .capability-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .capability-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .capability-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .capability-card-content {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .capability-highlight {
+            background: linear-gradient(135deg, #0066cc, #004999);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .capability-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .capability-card {
+                padding: 1.5rem;
+            }
+
+            .capability-card-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="powertrain-section">
+        <div class="powertrain-container">
+            <header class="powertrain-header">
+                <h2 class="powertrain-title">Power and Capability <span style="font-weight: 400;">for Every Washington Adventure</span></h2>
+            </header>
+
+            <div class="powertrain-content">
+                <p>Under the hood, the 2025 Expedition continues to rely on the proven and powerful 3.5-liter EcoBoost V6 engine. This isn't just any V6; its twin-turbocharged design delivers the V8-like power you need for merging onto I-5 with confidence, while offering greater efficiency.</p>
+                <p><strong>The engine is offered in two variants:</strong></p>
+            </div>
+
+            <div class="engine-table-container">
+                <table class="engine-table">
+                    <thead>
+                        <tr>
+                            <th>Engine Configuration</th>
+                            <th>Horsepower (est.)</th>
+                            <th>Torque (est.)</th>
+                            <th>Key Benefit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="engine-name">Standard 3.6L EcoBoost V6</td>
+                            <td>400 hp</td>
+                            <td>480 lb.-ft.</td>
+                            <td class="spec-value">Excellent balance of power and efficiency for daily driving.</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">High-Output 3.5L EcoBoost V6</td>
+                            <td>440 hp</td>
+                            <td>510 lb.-ft.</td>
+                            <td class="spec-value">Maximum performance for towing and demanding tasks.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="capability-cards">
+                <div class="capability-card">
+                    <span class="capability-card-icon">⚙️</span>
+                    <h3 class="capability-card-title">Transmission & Towing Power</h3>
+                    <p class="capability-card-content">
+                        Paired with a smooth 10-speed SelectShift automatic transmission, the powertrain provides responsive acceleration and intelligent gear changes. For those who plan to tow a boat to Lake Tapps or a travel trailer into the Cascades, the Expedition's capability is second to none. When equipped with the Heavy-Duty Trailer Tow Package, it boasts a maximum towing capacity of up to 9,300 pounds.
+                    </p>
+                </div>
+
+                <div class="capability-card">
+                    <span class="capability-card-icon">🏔️</span>
+                    <h3 class="capability-card-title">Four-Wheel-Drive System</h3>
+                    <p class="capability-card-content">
+                        Furthermore, the available Control Trac Four-Wheel-Drive (4WD) system provides sure-footed traction, essential for navigating slick winter roads or exploring the gravel paths leading to your favorite trailhead.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

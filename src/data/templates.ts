@@ -68,3 +68,19 @@ export const combinedTemplates: Template[] = [
 ];
 
 export const allTemplates: Template[] = [...baseTemplates, ...combinedTemplates];
+
+// Wix Templates
+export const wixBaseTemplates: Template[] = [
+  { name: 'Image 01', fileName: 'image01.html', category: 'base-temp', path: '/src/wix-templates/base-temp/image01.html' },
+  { name: 'Introduction', fileName: 'introduction.html', category: 'base-temp', path: '/src/wix-templates/base-temp/introduction.html' },
+  { name: 'TOC 01', fileName: 'toc01.html', category: 'base-temp', path: '/src/wix-templates/base-temp/toc01.html' },
+];
+
+export const allWixTemplates: Template[] = [...wixBaseTemplates];
+
+// WP Templates - Import from separate file
+import { wpTemplates as wpTemplatesImport } from './wp-templates';
+export const wpTemplates = wpTemplatesImport;
+
+// Combined list of all templates from Motive, Wix, and WP
+export const allAvailableTemplates: Template[] = [...allTemplates, ...allWixTemplates, ...wpTemplates];

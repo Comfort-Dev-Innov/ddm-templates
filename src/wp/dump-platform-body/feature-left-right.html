@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dump Body vs Platform Body Comparison</title>
+    <style>
+        .comparison-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .comparison-text p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text li {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-text li strong {
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .comparison-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 55% center;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .unique-image img {
+            object-position: 70% center !important;
+        }
+
+        .comparison-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Left layout: text left, image right */
+        .layout-left .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Right layout: image left, text right */
+        .layout-right .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-right .comparison-text {
+            order: 2;
+        }
+
+        .layout-right .comparison-image {
+            order: 1;
+        }
+
+        .industry-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .industry-highlight h4 {
+            color: #0066cc;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .industry-highlight p {
+            color: #1a5490;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-content {
+                display: flex;
+                flex-direction: column;
+                /* grid-template-columns: 1fr; */
+                gap: 2rem;
+            }
+
+            .layout-right .comparison-text {
+                order: 1;
+            }
+
+            .layout-right .comparison-image {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Introduction Section -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <div style="text-align: center;">
+                <p style="font-size: 1.1rem; color: #444; line-height: 1.7; margin: 0 auto;">Your choice between a dump body and a platform body becomes clearer when you consider your specific industry requirements. If you operate in the Pacific Northwest, understanding these industry-specific patterns, along with regional environmental and logistical considerations, helps you select the most efficient Ford work truck for your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dump Body Section - Image on Right -->
+    <section class="comparison-section layout-left">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Dump Body</h2>
+                    
+                    <p>If you're in any of these industries, dump bodies overwhelmingly deliver the best operational results:</p>
+
+                    <ul>
+                        <li><strong>Waste Management:</strong> Your operations require rapid loading and even faster dumping, making dump bodies your near-universal choice for efficiency across numerous daily stops.</li>
+                        <li><strong>Excavation & Heavy Construction:</strong> When you're moving substantial quantities of gravel, sand, dirt, or concrete daily, you need the hydraulic power of a dump body to save countless hours of manual labor. In the Pacific Northwest, where wet soil conditions are common, Ford's robust hydraulic system becomes particularly valuable for your heavier, stickier loads, ensuring consistent performance even when weather challenges your operations.</li>
+                        <li><strong>Mining Operations:</strong> Similar to heavy construction, if your mining operations involve transporting massive volumes of raw materials in demanding, rugged conditions, the dump function becomes indispensable for your high-volume, heavy-duty material transport needs.</li>
+                        <li><strong>Road Crews:</strong> When your tasks involve laying asphalt or moving aggregate, the precise dumping control offered by a dump body ensures your materials are placed exactly where you need them, helping you achieve faster work zone clearance and enhanced safety.</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-image unique-image">
+                    <img src="https://www.ford.com/is/image/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2025/collections/dm/25_FRD_CMD_48485_PK.tif?croppathe=1_21x9&wid=1440" alt="Ford Dump Body Truck">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Body Section - Image on Left -->
+    <section class="comparison-section layout-right">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Platform Body</h2>
+                    
+                    <p>If your operations demand flexibility and secure transport of varied items, platform bodies are for you:</p>
+
+                    <ul>
+                        <li><strong>Equipment & Machinery Transport:</strong> When your business focuses primarily on moving heavy equipment, machinery, or items requiring careful securing and positioning, you'll find platform bodies invaluable. Their flat, open surface and multiple tie-down points effectively accommodate the diverse sizes and shapes you handle.</li>
+                        <li><strong>Manufacturing Operations, Utility Companies, Auto Parts Suppliers, Machinery Dealers, & Equipment Rental:</strong> These sectors benefit significantly from the loading flexibility of platform bodies, which allow easy access from all sides for your forklifts or cranes, plus secure transport of your diverse items. If you're a utility company, you'll particularly appreciate how platform bodies pair with specialized equipment like bucket lifts.</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-image">
+                    
+                    <img src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2026/collections/equipment/3-2/21_FRD_CMD_48509_32.jpg/jcr:content/renditions/cq5dam.web.768.768.jpeg" alt="Ford Platform Body Truck">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual-Use Scenarios Section - Image on Right -->
+    <section class="comparison-section layout-left">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Dual-Use Scenarios</h2>
+                    
+                    <p>Both configurations work for some industries:</p>
+
+                    <ul>
+                        <li><strong>Landscaping:</strong> If your primary tasks involve delivering bulk materials like soil, mulch, or decorative stone, a dump body delivers high efficiency. However, if you frequently haul equipment (mowers, aerators, trimmers) or perform installations requiring precise material placement, a platform body offers you greater utility.</li>
+                        <li><strong>Mixed Fleet Approach:</strong> Many businesses, especially in construction, successfully employ a mixed fleet approach, using dump trucks for material delivery and platform bodies for equipment moves, thereby optimizing their fleet for diverse operational demands.</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-image">
+                    <img src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2025/collections/_360/oxford-white-dump/mdty_23_oxfordwhite_dump_env.1.jpg" alt="Mixed Fleet of Dump and Platform Body Trucks">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pacific Northwest Section - Image on Left -->
+    <section class="comparison-section layout-right">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Pacific Northwest Specific Industry Considerations</h2>
+                    
+                    <p>The unique characteristics of the Pacific Northwest introduce additional considerations for your vehicle selection:</p>
+
+                    <ul>
+                        <li><strong>Forestry & Logging:</strong> If you're in this industry, your forestry operations frequently require platform bodies equipped with specialized log bunks for transporting timber. You may also utilize dump bodies for hauling wood chips or clearing debris from your logging sites.</li>
+                        <li><strong>Marine & Waterfront Construction:</strong> When your projects run along Seattle's extensive waterways, you often need both dump bodies for bulk material movement (dredging spoils, riprap) and platform bodies for transporting specialized marine equipment or construction components to your dockside locations.</li>
+                    </ul>
+
+                    <!-- <div class="industry-highlight">
+                        <h4>Regional Weather Considerations</h4>
+                        <p>The Pacific Northwest's wet climate makes Ford's robust hydraulic systems particularly valuable for consistent performance in challenging weather conditions.</p>
+                    </div> -->
+                </div>
+
+                <div class="comparison-image">
+                    <img src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/f-650-750/2025/collections/3_2/C11048223_COMF_750_34FrntPassCnstrnSiteWthWkr_mj_fade_167.jpg/jcr:content/renditions/cq5dam.web.1440.1440.jpeg" alt="Pacific Northwest Commercial Operations">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

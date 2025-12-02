@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Ford Expedition vs Chevrolet Suburban Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .comparison-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .chevy-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .content-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #f97316);
+            padding: 3px; /* gradient border thickness */
+            position: relative;
+        }
+
+        .content-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(14, 165, 233, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.55;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .content-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .content-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .content-image-wrapper:hover .content-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-header {
+                margin-bottom: 2rem;
+            }
+
+            .comparison-title {
+                font-size: 20px;
+            }
+
+            .comparison-subtitle {
+                font-size: 18px;
+            }
+            
+            .comparison-table-container {
+                padding: 1rem;
+            }
+            
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .comparison-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .comparison-title {
+                font-size: 18px;
+            }
+
+            .comparison-subtitle {
+                font-size: 16px;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="comparison-section" id="clear-winner">
+        <div class="comparison-container">
+            <header class="comparison-header">
+                <h2 class="comparison-title">Clear Winner: <span style="font-weight: 400;">The Expedition's Executive Overview</span></h2>
+            </header>
+
+            <div class="comparison-content">
+                <div class="content-image-wrapper">
+                    <img src="https://www.ford.com/is/image/content/dam/na/ford/en_us/images/expedition/2025/dm/25_FRD_EPD_Tremor_02_v1.tif?croppathe=1_21x9&wid=3840&fmt=webp" alt="2026 Ford Expedition Tremor" class="content-image">
+                </div>
+                <p style="margin-bottom: 80px !important;">The 2026 Ford Expedition emerges as a dominant full-size SUV by combining a commanding array of engine options, advanced interior technology, and distinctive practical features. It offers seating for up to eight passengers, an expansive cargo area—especially in the extended "Max" version—and industry-leading towing capabilities reaching 9,600 pounds. In contrast, the Chevrolet Suburban's older V8 propulsion, heavier powertrain choices, and mixed fuel economy diminish its appeal slightly, despite its historically spacious interior and strong infotainment systems.</p>
+                
+                <div class="content-image-wrapper">
+                    <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/suvs/suburban/01-images/design/2025-suburban-mov-design-03.png?imwidth=1920" alt="2026 Chevrolet Suburban" class="content-image">
+                </div>
+                <p style="margin-bottom: 80px !important;">While the Suburban excels with its enormous cargo volume and familiar V8 engine choices, the Expedition outshines with more potent twin-turbocharged V6 powertrains that deliver V8-level performance yet greater refinement. Whether you are managing the daily family commute in Bellevue or seeking adventure near Auburn, the Ford Expedition delivers with peace-of-mind safety tech and the capable Tremor off-road package. Across almost every measurable aspect—power, technology, interior flexibility, and safety—the Expedition asserts clear superiority.</p>
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Summary Table: Key Differentiators</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Specification / Feature</th>
+                            <th>2026 Ford Expedition</th>
+                            <th>2026 Chevrolet Suburban</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Seating Capacity</td>
+                            <td class="ford-value">Up to 8 passengers</td>
+                            <td class="chevy-value">7 to 9 passengers</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Engine Type</td>
+                            <td class="ford-value">3.5L Twin-Turbo V6 (400–440 hp)</td>
+                            <td class="chevy-value">5.3L / 6.2L V8, 3.0L Turbo Diesel</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Max Towing Capacity</td>
+                            <td class="ford-value">9,600 lbs</td>
+                            <td class="chevy-value">8,300 lbs</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">0–60 mph Acceleration</td>
+                            <td class="ford-value">4.9 seconds (Max, high-output V6)</td>
+                            <td class="chevy-value">~6.3 seconds (6.2L V8)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Cargo Volume (behind front seats)</td>
+                            <td class="ford-value">123 cu ft (Max model: 123.1 cu ft)</td>
+                            <td class="chevy-value">144.5 cu ft</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Infotainment Screen Size</td>
+                            <td class="ford-value">13.2" touchscreen + 24" digital display</td>
+                            <td class="chevy-value">17.7" touchscreen + 11" cluster</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Standard Safety Features</td>
+                            <td class="ford-value">Extensive suite incl. BlueCruise</td>
+                            <td class="chevy-value">Chevy Safety Assist; Super Cruise optional</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Fuel Economy (RWD City/Highway)</td>
+                            <td class="ford-value">17/23 mpg</td>
+                            <td class="chevy-value">15/20 mpg (gas V8)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Base Price</td>
+                            <td class="ford-value">~$64,995</td>
+                            <td class="chevy-value">~$63,400 (LS)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Drivetrain</td>
+                            <td class="ford-value">RWD / 4WD</td>
+                            <td class="chevy-value">RWD / 4WD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

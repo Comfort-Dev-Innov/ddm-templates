@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Innovations and Driver Assistance Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .safety-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .safety-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .safety-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .safety-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .safety-title {
+            font-size: 30px;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .safety-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .safety-image-wrapper {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #38bdf8);
+            padding: 3px;
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .safety-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.65;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .safety-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .safety-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .safety-image-wrapper:hover .safety-image {
+            transform: scale(1.04);
+            filter: brightness(1.05) saturate(1.05);
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .safety-column {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .safety-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .safety-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .safety-pill-mache {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .safety-pill-tesla {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .safety-column-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .safety-body {
+            margin-top: 0.75rem;
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .safety-body p + p {
+            margin-top: 1rem;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            .safety-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .safety-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .safety-title {
+                font-size: 24px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .safety-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .safety-column {
+                padding: 1.6rem 1.4rem;
+            }
+
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="safety-section" id="safety-innovations">
+        <div class="safety-container">
+            <header class="safety-header">
+                <div class="safety-kicker">Advanced Protection &amp; Driver Assistance</div>
+                <h2 class="safety-title">Safety Innovations and Driver Assistance Systems</h2>
+                <p class="safety-subtitle">
+                    Compare the comprehensive safety features and driver assistance technologies that keep Kent-area drivers and families protected on every journey.
+                </p>
+            </header>
+
+            <div class="safety-image-wrapper">
+                <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/feature/ph-mustang-mach-e-feature-technology-card-01.webp" alt="Ford Mustang Mach-E Co-Pilot Active Safety Technology" class="safety-image">
+            </div>
+
+            <div class="safety-grid">
+                <!-- Mustang Mach-E column -->
+                <article class="safety-column">
+                    <div class="safety-column-header">
+                        <span class="safety-pill safety-pill-mache">Mach-E Protection</span>
+                        <h3 class="safety-column-title">Ford Co-Pilot360 &amp; BlueCruise Excellence</h3>
+                    </div>
+                    <div class="safety-body">
+                        <p>
+                            Both vehicles offer an extensive suite of active and passive safety features, yet the Mach-E's BlueCruise system presents an accessible entry point into hands-free driving with verified safety ratings and practical hands-on control features. Ford's Co-Pilot360 technology package delivers comprehensive collision avoidance and emergency braking capabilities standard, supported by blind-spot monitoring and rear cross-traffic alert.
+                        </p>
+                        <p>
+                            The Mustang Mach-E maintains top marks with a five-star crash rating and IIHS Top Safety Pick+ status, reassuring Kent-area drivers who prioritize family safety and trusted automation.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Tesla Model Y column -->
+                <article class="safety-column">
+                    <div class="safety-column-header">
+                        <span class="safety-pill safety-pill-tesla">Tesla Approach</span>
+                        <h3 class="safety-column-title">Autopilot &amp; Advanced Features</h3>
+                    </div>
+                    <div class="safety-body">
+                        <p>
+                            Tesla matches with its Autopilot suite and the optional Full Self-Driving package, but relies heavily on driver supervision and has drawn criticism for inconsistencies in real-world scenarios.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Safety Features Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Safety Feature</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Automatic Emergency Braking</td>
+                            <td class="ford-value">Standard (Co-Pilot360)</td>
+                            <td class="tesla-value">Standard (Autopilot)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Blind-Spot Monitoring</td>
+                            <td class="ford-value">Standard</td>
+                            <td class="tesla-value">Standard</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Lane Keeping Assist</td>
+                            <td class="ford-value">Standard</td>
+                            <td class="tesla-value">Standard</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Hands-Free Driving Technology</td>
+                            <td class="ford-value">BlueCruise 1.5 with Auto Lane Change</td>
+                            <td class="tesla-value">Autopilot, Full Self-Driving (optional)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Crash Ratings</td>
+                            <td class="ford-value">NHTSA 5-star, IIHS Top Safety Pick+</td>
+                            <td class="tesla-value">NHTSA 5-star, IIHS not rated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

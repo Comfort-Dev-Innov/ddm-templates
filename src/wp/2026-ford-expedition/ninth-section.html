@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Expedition vs Suburban – Everyday Utility & Usability</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .util-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .util-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .util-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .util-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .util-title {
+            font-size: 30px;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .util-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .util-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+        }
+
+        .util-column {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .util-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .util-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .util-pill-expedition {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .util-pill-suburban {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .util-column-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .util-body {
+            margin-top: 0.75rem;
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .util-body p + p {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .util-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .util-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .util-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .util-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .util-column {
+                padding: 1.6rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="util-section" id="everyday-utility">
+        <div class="util-container">
+            <header class="util-header">
+                <div class="util-kicker">Real‑World Everyday Advantage</div>
+                <h2 class="util-title">Everyday Utility and Usability</h2>
+                <p class="util-subtitle">
+                    How the 2026 Ford Expedition and 2026 Chevrolet Suburban handle daily tasks like loading, maneuvering, and
+                    keeping passengers comfortable across King County and beyond.
+                </p>
+            </header>
+
+            <div class="util-grid">
+                <!-- Expedition column -->
+                <article class="util-column">
+                    <div class="util-column-header">
+                        <span class="util-pill util-pill-expedition">Expedition Focus</span>
+                        <h3 class="util-column-title">Smarter Loading &amp; Family‑Friendly Convenience</h3>
+                    </div>
+                    <div class="util-body">
+                        <p>
+                            Ford’s Expedition wins hands down in several everyday usability areas. The innovative Split Gate liftgate
+                            uniquely assists loading at crowded campgrounds and parking lots scattered throughout King County, while the
+                            sliding center console enhances cabin access without compromising passenger space.
+                        </p>
+                        <p>
+                            The Tremor trim’s specialized off-road equipment equips the Expedition for rough terrain, matching or
+                            exceeding the Suburban’s Z71 package, but benefits from smoother chassis tuning and trail-focused driver
+                            aids. Loading, seating comfort, and cabin temperature management through multi-zone climate controls further
+                            leverage convenience, critical for larger families and groups.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Suburban column -->
+                <article class="util-column">
+                    <div class="util-column-header">
+                        <span class="util-pill util-pill-suburban">Suburban Contrast</span>
+                        <h3 class="util-column-title">Traditional Utility, Greater Bulk</h3>
+                    </div>
+                    <div class="util-body">
+                        <p>
+                            Meanwhile, Chevrolet’s updated Suburban relies on traditional technology and larger dimensions that can
+                            challenge maneuverability in more congested cityscapes around Bellevue or Kent.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

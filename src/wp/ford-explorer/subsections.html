@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dump Body vs Platform Body Comparison</title>
+    <style>
+        .comparison-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .comparison-text p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text li {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-text li strong {
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .comparison-image,
+        .comparison-imagez {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 55% center;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-imagez img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 10% left;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .unique-image img {
+            object-position: 70% center !important;
+        }
+
+        .comparison-image:hover img,
+        .comparison-imagez:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Left layout: text left, image right */
+        .layout-left .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Right layout: image left, text right */
+        .layout-right .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-right .comparison-text {
+            order: 2;
+        }
+
+        .layout-right .comparison-image {
+            order: 1;
+        }
+
+        .industry-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .industry-highlight h4 {
+            color: #0066cc;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .industry-highlight p {
+            color: #1a5490;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-content {
+                display: flex;
+                flex-direction: column;
+                /* grid-template-columns: 1fr; */
+                gap: 2rem;
+            }
+
+            .layout-right .comparison-text {
+                order: 1;
+            }
+
+            .layout-right .comparison-image {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Performance Section - Image on Right -->
+    <section class="comparison-section layout-left">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Uncompromising Performance for Washington Roads</h2>
+                    
+                    <p>Under the hood, the 2026 Explorer offers two potent EcoBoost® engine options, both paired with a smooth 10-speed automatic transmission, ensuring you have the power you need whether merging onto I-5 or climbing a steep mountain pass.</p>
+
+                    <ul>
+                        <li><strong>Standard 2.3L EcoBoost® I-4:</strong> This robust engine is anything but basic. It delivers a commanding 300 horsepower and 310 lb.-ft. of torque, providing spirited acceleration and efficient performance for your daily drives around the Kent Valley.</li>
+                        <li><strong>Available 3.0L EcoBoost® V6:</strong> Standard on the ST and Platinum trims, this twin-turbocharged powerhouse unleashes an exhilarating 400 horsepower and 415 lb.-ft. of torque. This engine gives the Explorer the capability to tow up to 5,000 pounds when properly equipped—more than enough for a boat for a day on Lake Tapps or a small trailer for a camping trip in the Cascades.</li>
+                    </ul>
+
+                    <p>Rear-wheel drive comes standard, offering a sporty feel, while available intelligent four-wheel drive provides enhanced traction and control, a must-have for slick roads and gravel paths leading to your favorite trailhead.</p>
+                </div>
+
+                <div class="comparison-image unique-image">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:04794b1d-d35b-42d6-9740-7126f92ee8ff/as/26_FRD_EPR_66100_trem_crgr.webp?max-quality=75&crop-names=1_15x16&width=768" alt="Ford Explorer Performance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section - Image on Left -->
+    <section class="comparison-section layout-right">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">A Cabin of Comfort and Cutting-Edge Tech</h2>
+                    
+                    <p>Step inside the 2026 Explorer and you'll find a completely redesigned cabin focused on comfort, connectivity, and a premium experience. The dashboard has been pushed forward to create a more open and airy feel, and it's adorned with higher-quality materials and soft-touch surfaces throughout.</p>
+
+                    <p>The star of the new interior is the Ford Digital Experience infotainment system. This new platform seamlessly integrates your digital life into the vehicle.</p>
+
+                    <p><strong>Key Technology Features:</strong></p>
+
+                    <ul>
+                        <li><strong>Standard 13.2-inch Touchscreen:</strong> This vibrant, landscape-oriented screen is your command center for navigation, entertainment, and vehicle settings.</li>
+                        <li><strong>Standard 12.3-inch Digital Instrument Cluster:</strong> Customize the information you see, from your speed and fuel economy to detailed navigation prompts.</li>
+                        <li><strong>Google Built-in:</strong> With Google Maps as the native navigation system, you get real-time traffic updates and easy-to-use routing. Google Assistant enables you to control various functions with simple voice commands, such as "Hey Google, find the nearest coffee shop."</li>
+                        <li><strong>The Google Play Store:</strong> Download your favorite apps, such as Spotify and Audible, directly to the vehicle, so your entertainment is always ready to go, even without your phone.</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-imagez">
+                    
+                    <img src="https://static0.topspeedimages.com/wordpress/wp-content/uploads/wm/2025/06/2026-ford-explorer-tremor-pre-production-model-06.jpg?q=49&fit=contain&w=750&h=422&dpr=2" alt="Ford Explorer Interior Technology">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

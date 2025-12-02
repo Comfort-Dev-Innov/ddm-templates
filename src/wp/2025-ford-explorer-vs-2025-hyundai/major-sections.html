@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Explorer vs Honda Pilot - Comprehensive Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-intro {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin: 2.5rem 0;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .honda-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .conclusion-text {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid #0066cc;
+            font-family: 'Georgia', serif;
+        }
+
+        .cargo-image-wrapper {
+            width: 100%;
+            margin: 2.5rem 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #cbd5f5);
+            padding: 3px;
+            position: relative;
+        }
+
+        .cargo-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .cargo-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .cargo-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .cargo-image-wrapper:hover .cargo-image {
+            transform: scale(1.03);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .section-intro,
+            .conclusion-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Safety Systems Section -->
+    <section class="comparison-section" id="safety-systems-assistance">
+        <div class="comparison-container">
+            <header class="section-header">
+                <h2 class="section-title">Safety Systems and Driver Assistance Comparison</h2>
+            </header>
+
+            <div class="section-intro">
+                Both the Explorer and Pilot include comprehensive suites catering to modern safety expectations, but Ford's BlueCruise system adds a distinctive advantage, allowing hands-free highway driving across most controlled-access roads in the U.S. and Canada.
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Safety Feature Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Safety Feature</th>
+                            <th>2025 Ford Explorer</th>
+                            <th>2025 Honda Pilot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Standard Safety Suite</td>
+                            <td class="ford-value">Ford Co-Pilot360 Assist+ (automatic emergency braking, blind-spot monitoring, rear cross-traffic alert, lane-keep assist, automatic high beams)</td>
+                            <td class="honda-value">Honda Sensing suite (collision mitigation, adaptive cruise control, lane keeping, traffic sign recognition)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Advanced Driver Assist</td>
+                            <td class="ford-value">Optional BlueCruise 1.2 hands-free driving</td>
+                            <td class="honda-value">No hands-free system available</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Blind Spot Monitoring</td>
+                            <td class="ford-value">Standard</td>
+                            <td class="honda-value">Available on higher trims</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Rear Cross-Traffic Alert</td>
+                            <td class="ford-value">Standard</td>
+                            <td class="honda-value">Standard on most trims</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Adaptive Cruise Control</td>
+                            <td class="ford-value">Optional (included in packages)</td>
+                            <td class="honda-value">Standard</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Emergency Evasive Steering</td>
+                            <td class="ford-value">Optional</td>
+                            <td class="honda-value">Not available</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Parking Assistance</td>
+                            <td class="ford-value">Available (optional upgrades)</td>
+                            <td class="honda-value">Available on higher trims</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Crash Safety Ratings</td>
+                            <td class="ford-value">High (NHTSA, IIHS)</td>
+                            <td class="honda-value">High (NHTSA, IIHS)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="conclusion-text">
+                The hands-free BlueCruise technology transforms long-distance travel on highways near Kirkland or Federal Way, reducing driver stress and fatigue, and establishing the Explorer's leadership in safety innovation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Fuel Economy Section -->
+    <section class="comparison-section" id="fuel-economy-range">
+        <div class="comparison-container">
+            <header class="section-header">
+                <h2 class="section-title">Fuel Economy and Driving Range Assessment</h2>
+            </header>
+
+            <div class="section-intro">
+                While both SUVs offer comparable EPA estimates, the Explorer's range flexibility and fuel efficiency come with a performance edge.
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Fuel Economy Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Fuel Economy (EPA mpg)</th>
+                            <th>2025 Ford Explorer 2.3L Turbo RWD</th>
+                            <th>2025 Honda Pilot FWD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">City (mpg)</td>
+                            <td class="ford-value">21</td>
+                            <td class="honda-value">19</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Highway (mpg)</td>
+                            <td class="ford-value">28</td>
+                            <td class="honda-value">27</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Combined (mpg)</td>
+                            <td class="ford-value">24</td>
+                            <td class="honda-value">23</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Estimated Driving Range (miles)</td>
+                            <td class="ford-value">430</td>
+                            <td class="honda-value">~490 (Elite trim, best economy)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="conclusion-text">
+                The Explorer offers multiple drive modes optimizing fuel use, and the turbocharged architecture allows more power without a stark fuel economy penalty. In typical suburban Seattle commuting conditions, the Explorer delivers balanced fuel use with superior refinement.
+            </div>
+        </div>
+    </section>
+
+    <!-- Cargo and Usability Section -->
+    <section class="comparison-section" id="everyday-usability-cargo">
+        <div class="comparison-container">
+            <header class="section-header">
+                <h2 class="section-title">Everyday Usability and Cargo Flexibility</h2>
+            </header>
+
+            <div class="section-intro">
+                With families in mind, Explorer's versatile cargo and seating configurations excel.
+            </div>
+
+            <div class="cargo-image-wrapper">
+                <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:358e96fb-1c90-4ff4-8094-35c60b705c46/as/26_FRD_EPR_63654_plt_stwh.webp?max-quality=75&crop-names=1_16x7&width=1920" alt="2025 Ford Explorer Cargo Space" class="cargo-image">
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Space & Practicality Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Space & Practicality Aspect</th>
+                            <th>2025 Ford Explorer</th>
+                            <th>2025 Honda Pilot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Maximum Cargo Volume (cu ft)</td>
+                            <td class="ford-value">87.8</td>
+                            <td class="honda-value">87.0</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Cargo Space Behind 3rd Row (cu ft)</td>
+                            <td class="ford-value">18.2</td>
+                            <td class="honda-value">18.6</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Power-Folding 3rd Row Seats</td>
+                            <td class="ford-value">Available on higher trims</td>
+                            <td class="honda-value">Manual fold or removable (varies)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Seating Configurations</td>
+                            <td class="ford-value">6 or 7 seats (captain's chairs or bench in 2nd row)</td>
+                            <td class="honda-value">7 or 8 seats (second-row bench or captain's chairs)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Trailer Tow Package</td>
+                            <td class="ford-value">Standard Class III with a 5,000 lbs rating</td>
+                            <td class="honda-value">5,000 lbs (AWD trims), 3,500 lbs (FWD)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Interior Storage Solutions</td>
+                            <td class="ford-value">Multiple organizers, ambient lighting, 8 USB ports</td>
+                            <td class="honda-value">Ample cupholders, moderate tech storage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="conclusion-text">
+                Despite similar cargo volumes, Explorer's refined access with power-folding seats and captain's chair availability provides better passenger comfort and adaptability, essential for Seattle area family excursions or transporting sports gear.
+            </div>
+        </div>
+    </section>
+
+    <!-- Ownership Section -->
+    <section class="comparison-section" id="ownership-value-cost">
+        <div class="comparison-container">
+            <header class="section-header">
+                <h2 class="section-title">Ownership Value and Cost Considerations</h2>
+            </header>
+
+            <div class="section-intro">
+                Owning a vehicle involves more than initial investment. The Ford Explorer offers an attractive warranty package and dealer-supported maintenance perks at Bowen Scarff Ford. Unlike Honda's Pilot, which lacks complimentary maintenance beyond the first year, the Explorer aligns ownership with reliable Ford-backed service.
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Ownership Aspect Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Ownership Aspect</th>
+                            <th>2025 Ford Explorer</th>
+                            <th>2025 Honda Pilot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Limited Warranty</td>
+                            <td class="ford-value">3 years / 36,000 miles</td>
+                            <td class="honda-value">3 years / 36,000 miles</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Powertrain Warranty</td>
+                            <td class="ford-value">5 years / 60,000 miles</td>
+                            <td class="honda-value">5 years / 60,000 miles</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Scheduled Maintenance</td>
+                            <td class="ford-value">Available via dealer programs</td>
+                            <td class="honda-value">1 year / 12,000 miles complimentary</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Roadside Assistance</td>
+                            <td class="ford-value">Ford Roadside Assistance Included <a href="tel:8002413673">(800) 241-3673</a></td>
+                            <td class="honda-value">Honda roadside assistance is available, but on different terms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="conclusion-text">
+                Bowen Scarff Ford also provides expert service support, genuine parts, and Ford's roadside assistance, ensuring peace of mind for explorers traveling throughout the Puget Sound.
+            </div>
+        </div>
+    </section>
+</body>
+</html>

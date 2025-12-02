@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npx shadcn@latest add:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(node -e:*)",
+      "Bash(node generate-wp-templates.js:*)",
+      "Bash(node generate-wp-templates.cjs:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

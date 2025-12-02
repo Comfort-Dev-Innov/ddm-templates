@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dump Body vs Platform Body Comparison</title>
+    <style>
+        .comparison-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .comparison-text p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text li {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-text li strong {
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .comparison-image,
+        .comparison-imagez {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 55% center;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-imagez img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 10% left;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .unique-image img {
+            object-position: 70% center !important;
+        }
+
+        .comparison-image:hover img,
+        .comparison-imagez:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Left layout: text left, image right */
+        .layout-left .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Right layout: image left, text right */
+        .layout-right .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-right .comparison-text {
+            order: 2;
+        }
+
+        .layout-right .comparison-image {
+            order: 1;
+        }
+
+        .industry-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .industry-highlight h4 {
+            color: #0066cc;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .industry-highlight p {
+            color: #1a5490;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-content {
+                display: flex;
+                flex-direction: column;
+                /* grid-template-columns: 1fr; */
+                gap: 2rem;
+            }
+
+            .layout-right .comparison-text {
+                order: 1;
+            }
+
+            .layout-right .comparison-image {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Performance Section - Image on Right -->
+    <section class="comparison-section layout-left">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Intelligent Adaptive Cruise Control with Stop-and-Go and Lane Centering</h2>
+                    
+                    <p>One of the cornerstone features of Ford Co-Pilot360 Assist+ is its advanced Intelligent Adaptive Cruise Control (IACC). Think of it as a smarter, more intuitive version of traditional cruise control.</p>
+
+                    <ul>
+                        <li><strong>Stop-and-Go:</strong> This function is a game-changer for anyone who frequently drives in heavy traffic. When activated, the system monitors the vehicle ahead of it. It will automatically bring your Ford to a complete stop if traffic halts and then resume driving once traffic starts moving again (if the stop is less than three seconds). This significantly reduces the fatigue associated with stop-and-go commuting.</li>
+                        <li><strong>Lane Centering:</strong> Working in tandem with IACC, Lane Centering uses a forward-facing camera to detect lane markings. It then provides continuous steering assistance to help keep your vehicle centered in its lane. It's not a hands-free system, but it lessens the steering effort required from the driver, making long highway drives much more relaxing.</li>
+                        <li><strong>Speed Sign Recognition:</strong> IACC also incorporates Speed Sign Recognition. The system can identify speed limit signs and automatically adjust your vehicle's set cruise control speed to match the posted limit, helping you avoid unintentional speeding.</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-image unique-image">
+                    <img src="https://autoimage.capitalone.com/cms/Auto/assets/images/2186-update-hero-ford-bluecruise.jpg" alt="Ford Co-Pilot360 Intelligent Adaptive Cruise Control">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

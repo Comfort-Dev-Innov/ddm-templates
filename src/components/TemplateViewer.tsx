@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { allTemplates } from "@/data/templates";
+import { allAvailableTemplates } from "@/data/templates";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Eye, Code2, Copy, Check } from "lucide-react";
@@ -23,7 +23,7 @@ export function TemplateViewer() {
       setError(null);
 
       try {
-        const template = allTemplates.find(
+        const template = allAvailableTemplates.find(
           (t) => t.category === category && t.fileName === fileName
         );
 

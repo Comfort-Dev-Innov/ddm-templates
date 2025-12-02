@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exterior Aesthetics and Design Language</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f6fa;
+        }
+
+        .design-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .design-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .design-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .design-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .design-title {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .design-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .design-subsections {
+            display: grid;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .design-subsection-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-subsection-heading {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .design-content {
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .design-content p {
+            margin-bottom: 1.25rem;
+        }
+
+        .design-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #cbd5f5);
+            padding: 3px;
+            position: relative;
+        }
+
+        .design-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .design-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .design-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .design-image-wrapper:hover .design-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .design-table-container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .design-table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .design-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .design-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .design-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .design-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .design-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .design-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .design-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .design-spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .design-ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .design-tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .design-footnote {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #4b5563;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 768px) {
+            .design-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .design-title {
+                font-size: 24px;
+            }
+
+            .design-subtitle {
+                font-size: 16px;
+            }
+
+            .design-subsection-heading {
+                font-size: 20px;
+            }
+
+            .design-image {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .design-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .design-subsection-card {
+                padding: 1.25rem;
+            }
+
+            .design-title {
+                font-size: 22px;
+            }
+
+            .design-subsection-heading {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="design-section" id="exterior-style">
+        <div class="design-container">
+            <header class="design-header">
+                <div class="design-kicker">Bold Mustang Heritage Meets Electric Innovation</div>
+                <h2 class="design-title">Exterior Aesthetics & Design Language</h2>
+                <p class="design-subtitle">
+                    Explore how the Mustang Mach-E's iconic styling contrasts with the Tesla Model Y's minimalist approach to electric vehicle design.
+                </p>
+            </header>
+
+            <!-- Narrative comparison cards -->
+            <div class="design-subsections">
+                <!-- Ford Mustang Mach-E Styling -->
+                <article class="design-subsection-card">
+                    <h3 class="design-subsection-heading">Ford Mustang Mach-E Styling</h3>
+                    <div class="design-content">
+                        <p>The Mustang Mach-E carries the iconic Mustang design philosophy into an electric crossover form with strong character lines, sculpted surfaces, and aggressive details—especially prominent in the new Sport Appearance package for the Premium trim. Features include distinctive gloss-black 19-inch wheels, red Brembo brake calipers, and a tailored front fascia that references traditional Mustang muscle-car cues. The integration of new paint options, such as Molten Magenta and Desert Sand, offers personalized flair unmatched in the segment.</p>
+                        
+                        <div class="design-image-wrapper">
+                            <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/models/premium-awd/cards/range-for-every-day-driving.webp" alt="Ford Mustang Mach-E" class="design-image">
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tesla Model Y Exterior Design -->
+                <article class="design-subsection-card">
+                    <h3 class="design-subsection-heading">Tesla Model Y Exterior Design</h3>
+                    <div class="design-content">
+                        <p>While sleek and aerodynamically efficient, the Model Y's styling is largely minimalist and subdued compared to the Mach-E's assertive presence. Its smooth silhouette lacks bold exterior design cues, focusing rather on function and efficiency. With the upcoming 2026 Juniper refresh delayed, 2025 buyers must contend with the current understated look rather than the planned upgrades that promise improved soundproofing and refreshed front-end styling.</p>
+                        
+                        <div class="design-image-wrapper">
+                            <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-2-Redesigned-Desktop.png" alt="Tesla Model Y" class="design-image">
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Detailed Design Dimensions Comparison Table -->
+            <div class="design-table-container">
+                <h3 class="design-table-title">Design Dimensions Comparison</h3>
+                <table class="design-table">
+                    <thead>
+                        <tr>
+                            <th>Design Aspect</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="design-spec-name">Length</td>
+                            <td class="design-ford-value">187.0 inches</td>
+                            <td class="design-tesla-value">188.6 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="design-spec-name">Width (excl. mirrors)</td>
+                            <td class="design-ford-value">74.1 inches</td>
+                            <td class="design-tesla-value">75.6 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="design-spec-name">Height</td>
+                            <td class="design-ford-value">64.9 inches</td>
+                            <td class="design-tesla-value">63.9 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="design-spec-name">Wheelbase</td>
+                            <td class="design-ford-value">117.5 inches</td>
+                            <td class="design-tesla-value">113.8 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="design-spec-name">Ground Clearance</td>
+                            <td class="design-ford-value">Below typical SUV standards (&lt; 6")</td>
+                            <td class="design-tesla-value">6.0 to 6.6 inches</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="design-footnote">
+                    The Mach-E's longer wheelbase contributes to improved interior space and ride stability, while its distinctive styling makes a bold statement compared to the Model Y's understated aesthetic.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discontinued Packages for 2025: What's No Longer Available?</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f7fa;
+        padding: 2rem 1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .discontinued-container {
+        max-width: 1140px !important;
+        margin: 0 auto;
+      }
+
+      .discontinued-hero-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .discontinued-hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%);
+      }
+
+      .discontinued-hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 2.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .discontinued-content-block {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .discontinued-content-block p {
+        margin-bottom: 1.5rem;
+        color: #2d3748;
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .discontinued-content-block p:last-child {
+        margin-bottom: 0;
+      }
+
+      .discontinued-highlight {
+        background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #003366;
+      }
+
+      .discontinued-feature-emphasis {
+        background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #78350f;
+      }
+
+      .discontinued-badge {
+        background: linear-gradient(120deg, #fee2e2 0%, #fecaca 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #991b1b;
+      }
+
+      .discontinued-heritage-box {
+        background: white;
+        border: 2px solid #e3f2fd;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08);
+        position: relative;
+      }
+
+      .discontinued-heritage-box::before {
+        content: "🏆";
+        position: absolute;
+        top: -15px;
+        left: 30px;
+        font-size: 2rem;
+        background: white;
+        padding: 0 10px;
+      }
+
+      .discontinued-heritage-box-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #003366;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .discontinued-heritage-box p {
+        color: #4a5568;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .discontinued-heritage-box p:last-child {
+        margin-bottom: 0;
+      }
+
+      .discontinued-features-list {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .discontinued-features-list-title {
+        font-weight: 600;
+        color: #003366;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .discontinued-feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.8rem;
+        color: #4a5568;
+      }
+
+      .discontinued-feature-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .discontinued-feature-item::before {
+        content: "✓";
+        color: #0066cc;
+        font-weight: bold;
+        margin-right: 0.8rem;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .discontinued-alert-box {
+        background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        border-left: 4px solid #ea580c;
+        border-radius: 12px;
+        padding: 1.8rem;
+        margin: 2rem 0;
+        box-shadow: 0 4px 15px rgba(234, 88, 12, 0.1);
+      }
+
+      .discontinued-alert-box-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #9a3412;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .discontinued-alert-box-title::before {
+        content: "⚠";
+        font-size: 1.5rem;
+        margin-right: 0.8rem;
+        color: #ea580c;
+      }
+
+      .discontinued-alert-box p {
+        color: #78350f;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      /* Link Styling with Animation */
+      .discontinued-container a {
+        color: #0066cc;
+        text-decoration: underline !important;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .discontinued-container a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #0066cc 0%, #003366 100%);
+        transition: width 0.3s ease;
+      }
+
+      .discontinued-container a:hover {
+        color: #003366;
+        transform: translateX(3px);
+      }
+
+      /* External link icon animation */
+      .discontinued-external-link {
+        padding-right: 22px;
+        position: relative;
+      }
+
+      .discontinued-external-link::after {
+        content: "↗";
+        position: absolute;
+        right: 0;
+        top: -2px;
+        font-size: 1rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        background: none !important;
+        height: auto;
+        width: auto;
+      }
+
+      .discontinued-external-link:hover::after {
+        opacity: 1;
+        transform: translate(3px, -3px);
+      }
+
+      @media (max-width: 768px) {
+        .discontinued-hero-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .discontinued-content-block {
+          padding: 1.5rem;
+        }
+
+        .discontinued-heritage-box {
+          padding: 1.5rem;
+        }
+
+        .discontinued-features-list {
+          padding: 1.2rem;
+        }
+
+        .discontinued-alert-box {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .discontinued-hero-section {
+          padding: 1.5rem 1rem;
+        }
+
+        .discontinued-content-block {
+          padding: 1.2rem;
+        }
+
+        .discontinued-heritage-box {
+          padding: 1.2rem;
+        }
+
+        .discontinued-heritage-box::before {
+          font-size: 1.5rem;
+          top: -12px;
+          left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="discontinued-container" id="discontinued-packages">
+      <div class="discontinued-hero-section">
+        <h1 class="discontinued-hero-title">
+          Discontinued Packages for 2025: What's No Longer Available?
+        </h1>
+
+        <div class="discontinued-content-block">
+          <p>
+            For those interested in package options, the 2025 Ford F-150 marked the end of the <span class="discontinued-badge">Heritage Edition package</span>, which debuted in 2023 as a nostalgic nod to Ford's past with distinctive two-tone paint schemes inspired by classic Blue Oval pickups of the 1970s through 1990s. This package was designed to celebrate Ford's 120th anniversary and 75 years of the F-Series legacy.
+          </p>
+        </div>
+
+        <div class="discontinued-heritage-box">
+          <h3 class="discontinued-heritage-box-title">Heritage Edition Package Details</h3>
+          <p>
+            The <span class="discontinued-feature-emphasis">Heritage Edition</span> was available exclusively on <span class="discontinued-highlight">XLT High (303A)</span> models with a 145-inch wheelbase and the twin-turbo <span class="discontinued-highlight">3.5L V6 EcoBoost engine</span>. It included unique exterior paint themes, black running boards, a honeycomb grille, 20-inch gloss black wheels, and a special interior with Heritage logos and slate gray accents.
+          </p>
+          
+          <div class="discontinued-features-list">
+            <div class="discontinued-features-list-title">Exclusive Features Included:</div>
+            <div class="discontinued-feature-item">Unique exterior paint themes inspired by classic Ford pickups</div>
+            <div class="discontinued-feature-item">Black running boards for enhanced style and functionality</div>
+            <div class="discontinued-feature-item">Distinctive honeycomb grille design</div>
+            <div class="discontinued-feature-item">20-inch gloss black wheels</div>
+            <div class="discontinued-feature-item">Special interior with Heritage Edition logos</div>
+            <div class="discontinued-feature-item">Slate gray interior accents</div>
+          </div>
+        </div>
+
+        <div class="discontinued-content-block">
+          <p>
+            With the Heritage Edition package no longer offered for 2025 and absent from the 2026 lineup, buyers seeking retro styling cues might consider custom aftermarket accessories or select trims with appearance packages available at <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer" class="discontinued-external-link">Bowen Scarff Ford</a>.
+          </p>
+        </div>
+
+        <div class="discontinued-alert-box">
+          <div class="discontinued-alert-box-title">Additional Change for 2025</div>
+          <p>
+            Another notable change is the removal of the <span class="discontinued-feature-emphasis">SecuriCode keypad</span> from the standard features of XLT trims and above, which is now available only as a dealer-installed option. This adjustment reflects Ford's evolving approach to security and convenience features.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

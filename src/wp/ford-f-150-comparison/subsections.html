@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dump Body vs Platform Body Comparison</title>
+    <style>
+        .comparison-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .comparison-text p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-text li {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-text li strong {
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .comparison-image,
+        .comparison-imagez {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 55% center;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-imagez img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 10% left;
+            transform: scale(0.95);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .unique-image img {
+            object-position: 70% center !important;
+        }
+
+        .comparison-image:hover img,
+        .comparison-imagez:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Left layout: text left, image right */
+        .layout-left .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Right layout: image left, text right */
+        .layout-right .comparison-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-right .comparison-text {
+            order: 2;
+        }
+
+        .layout-right .comparison-image {
+            order: 1;
+        }
+
+        .industry-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .industry-highlight h4 {
+            color: #0066cc;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .industry-highlight p {
+            color: #1a5490;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-content {
+                display: flex;
+                flex-direction: column;
+                /* grid-template-columns: 1fr; */
+                gap: 2rem;
+            }
+
+            .layout-right .comparison-text {
+                order: 1;
+            }
+
+            .layout-right .comparison-image {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Performance Section - Image on Right -->
+    <section class="comparison-section layout-left">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Power and Performance: Ready for Work and Play</h2>
+                    
+                    <p>Whether you're towing a boat to Lake Meridian or hauling supplies for a home improvement project, the F-150's powertrain options are designed for peak performance.</p>
+
+                    <ul>
+                        <li><strong>Engine Lineup:</strong> The 2025 F-150 offers a diverse range of engines, including the incredibly popular 3.5L EcoBoost V6, known for its impressive balance of power and fuel efficiency. For those seeking maximum grunt, the available 5.0L V8 provides classic V8 performance. At the same time, the innovative PowerBoost Full Hybrid V6 offers class-leading power and an onboard generator system – a game-changer for tailgating at Accesso ShoWare Center or powering tools on a remote job site.</li>
+                        <li><strong>Towing and Payload:</strong> Ford consistently leads in towing and payload capacities. The 2025 F-150, when properly equipped, can tow up to 13,500 pounds, allowing Kent drivers to confidently tackle the heaviest loads.</li>
+                        <li><strong>Off-Road Prowess:</strong> With available FX4 Off-Road Packages and the Baja-blasting Raptor, the F-150 is more than capable of handling the diverse terrains surrounding Kent, from muddy trails to gravel roads.</li>
+                    </ul>
+
+                    <p>In comparison, while the Silverado offers strong engine options, the F-150's PowerBoost hybrid system provides a unique advantage in versatility and efficiency that the Silverado currently struggles to match.</p>
+                </div>
+
+                <div class="comparison-image unique-image">
+                    <img src="https://s1.cdn.autoevolution.com/images/news/ford-recalls-certain-2025-f-150-pickup-trucks-over-missing-labels-250797_1.jpg" alt="Ford Explorer Performance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section - Image on Left -->
+    <section class="comparison-section layout-right">
+        <div class="comparison-container">
+            <div class="comparison-content">
+                <div class="comparison-text">
+                    <h2 class="comparison-title">Innovation Inside and Out: Designed for the Modern Driver</h2>
+                    
+                    <p>Ford's commitment to innovation is evident throughout the 2025 F-150, making it a more intelligent and convenient truck for drivers in Kent.</p>
+
+                    <ul>
+                        <li><strong>Pro Power Onboard:</strong> This revolutionary feature, exclusive to Ford, transforms your truck into a mobile generator. Available in various power outputs, it can power everything from tools at a construction site to an entire campsite. Imagine the convenience for outdoor enthusiasts or local businesses.</li>
+                        <li><strong>Interior Refinements:</strong> The 2025 F-150 is offers a sophisticated and comfortable cabin. Expect large, intuitive touchscreens, premium materials, and innovative storage solutions that make the F-150 a true mobile office or family hauler.</li>
+                        <li><strong>Advanced Driver-Assistance Systems:</strong> Ford Co-Pilot360™ technologies offer a range of safety and convenience features, from adaptive cruise control for navigating I-5 traffic to blind-spot monitoring for safer lane changes.</li>
+                    </ul>
+
+                    <p>While the Silverado also boasts advanced features, Ford's Pro Power Onboard and its more refined interior often give the F-150 an edge in practical innovation.</p>
+                </div>
+
+                <div class="comparison-imagez">
+                    
+                    <img src="https://di-uploads-pod45.dealerinspire.com/jimellisfordsandysprings/uploads/2024/10/Ford-F-150-for-Sale-Near-Kennesaw-2025-Ford-F-150-XLT-Trailer.jpg" alt="Ford Explorer Interior Technology">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

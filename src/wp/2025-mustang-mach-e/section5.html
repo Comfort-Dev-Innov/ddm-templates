@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustang Mach-E – Interior Comfort & Cabin Space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f6fa;
+        }
+
+        .interior-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .interior-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .interior-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .interior-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .interior-title {
+            font-size: 30px;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #00142E;
+        }
+
+        .interior-content {
+            font-size: 0.98rem;
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .interior-subsection {
+            margin-bottom: 2.5rem;
+        }
+
+        .interior-subsection-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .interior-subsection p {
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .interior-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+        }
+
+        .interior-column {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .interior-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .interior-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .interior-pill-mache {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .interior-pill-tesla {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .interior-column-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .interior-image-wrapper {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #38bdf8);
+            padding: 3px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .interior-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.65;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .interior-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .interior-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .interior-image-wrapper:hover .interior-image {
+            transform: scale(1.04);
+            filter: brightness(1.05) saturate(1.05);
+        }
+
+        @media (max-width: 900px) {
+            .interior-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .interior-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .interior-title {
+                font-size: 24px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .interior-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interior-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .interior-title {
+                font-size: 20px;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .interior-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .interior-column {
+                padding: 1.6rem 1.4rem;
+            }
+
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="interior-section" id="interior-comfort">
+        <div class="interior-container">
+            <header class="interior-header">
+                <div class="interior-kicker">Cabin Experience &amp; Comfort</div>
+                <h2 class="interior-title">Interior Comfort, Cabin Space &amp; Material Excellence</h2>
+            </header>
+
+            <div class="interior-content">
+                <div class="interior-subsection">
+                    <h3 class="interior-subsection-title">Passenger Space and Seating</h3>
+                    
+                    <div class="interior-image-wrapper">
+                        <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/models/premium-awd/cards/luxury-comfortable-seats.webp" alt="Ford Mustang Mach-E luxury comfortable seats" class="interior-image">
+                    </div>
+                    
+                    <p>
+                        The 2025 Mustang Mach-E features a thoughtfully packaged cabin that prioritizes passenger comfort and modernity. Front legroom measures a competitive 43.3 inches with rear seating at 38.1 inches, providing plenty of comfort for four adults. The Mach-E is optimized for a five-passenger layout, with a focus on driver and front passenger luxury.
+                    </p>
+                    <p>
+                        In comparison, the Tesla Model Y offers generous interior volume, with approximately 105 cubic feet of overall passenger space and the option for seven seats. However, this configuration sacrifices cargo volume and rear occupant comfort. Front and rear legroom measures 41.8 and 40.5 inches respectively, slightly less generous up front but more versatile at the rear.
+                    </p>
+                </div>
+
+                <div class="interior-subsection">
+                    <h3 class="interior-subsection-title">Cargo and Storage Capacity</h3>
+                    
+                    <div class="interior-image-wrapper">
+                        <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/models/premium-awd/cards/one-pedal-drive-desktop.webp" alt="Ford Mustang Mach-E one pedal drive and interior features" class="interior-image">
+                    </div>
+                    
+                    <p>
+                        The Mustang Mach-E offers practical cargo solutions, with 29.7 cubic feet behind the rear seats and up to 59.7 cubic feet with the rear seats folded. Additionally, its front trunk ("frunk") offers extra storage, enhancing day-to-day usability. Tesla offers similar cargo capacity behind the second row (about 30.2 cubic feet) and maximum cargo volumes near 71 cubic feet, but the Mach-E's versatile layout and rear seat comfort yield higher usability for families and active lifestyles, such as those in Issaquah and Auburn.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Interior Specifications Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Interior Metric</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y (5-seat)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Front Legroom</td>
+                            <td class="ford-value">43.3 inches</td>
+                            <td class="tesla-value">41.8 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Rear Legroom</td>
+                            <td class="ford-value">38.1 inches</td>
+                            <td class="tesla-value">40.5 inches</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Cargo Volume (behind rear seats)</td>
+                            <td class="ford-value">29.7 cubic feet</td>
+                            <td class="tesla-value">30.2 cubic feet</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Cargo Volume (seats folded)</td>
+                            <td class="ford-value">59.7 cubic feet</td>
+                            <td class="tesla-value">71 cubic feet</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Passenger Volume</td>
+                            <td class="ford-value">~103 cubic feet</td>
+                            <td class="tesla-value">~105 cubic feet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="interior-grid">
+                <article class="interior-column">
+                    <div class="interior-column-header">
+                        <span class="interior-pill interior-pill-mache">Mach-E Focus</span>
+                        <h3 class="interior-column-title">Materials and Features</h3>
+                    </div>
+                    <p>
+                        Ford equips the Mach-E's interior with high-quality materials and features like the available 10-speaker Bang &amp; Olufsen audio, ventilated front seats standard across trims, and ambient lighting that complements the sleek, digital-first cockpit anchored by a 15.5-inch touchscreen. The minimalistic design effectively balances aesthetics with easy-to-use tactile controls, augmented by wireless Apple CarPlay and Android Auto support.
+                    </p>
+                </article>
+
+                <article class="interior-column">
+                    <div class="interior-column-header">
+                        <span class="interior-pill interior-pill-tesla">Tesla Contrast</span>
+                        <h3 class="interior-column-title">Minimalism vs. Practicality</h3>
+                    </div>
+                    <p>
+                        Tesla's interior centers on a central 15.4-inch or 16-inch touchscreen, with limited physical buttons and no support for mirroring from Apple or Android smartphones. While Tesla's cabin is spacious and modern, some users report that the interface can be distracting, especially while driving, and that the materials feel less upscale than those in the Mach-E, particularly at this price threshold.
+                    </p>
+                </article>
+            </div>
+            <div class="interior-image-wrapper" style="margin-top: 40px !important;">
+                <img src="https://www.ford.com.ph/content/dam/Ford/ph/nameplate/mustang-mach-e/overview/billboards/ph-mustang-mach-e-feature05.webp" alt="Ford Mustang Mach-E technology and connectivity features" class="interior-image">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

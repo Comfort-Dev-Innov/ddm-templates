@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Dimensions, Comfort, and Material Quality</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .interior-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .interior-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .interior-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .interior-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .interior-intro {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .explorer-interior-wrapper {
+            width: 100%;
+            margin: 2.5rem 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #cbd5f5);
+            padding: 3px;
+            position: relative;
+        }
+
+        .explorer-interior-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .explorer-interior-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .explorer-interior-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .explorer-interior-wrapper:hover .explorer-interior-image {
+            transform: scale(1.03);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin: 2.5rem 0;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .honda-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .interior-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin: 2.5rem 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .interior-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .subsection-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #0066cc;
+        }
+
+        .content-card p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 768px) {
+            .interior-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .interior-header {
+                margin-bottom: 2rem;
+            }
+
+            .interior-title {
+                font-size: 20px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .interior-intro,
+            .interior-content {
+                font-size: 0.95rem;
+            }
+
+            .subsection-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interior-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .interior-title {
+                font-size: 18px;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+
+            .content-card {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="interior-section" id="interior-dimensions-comfort">
+        <div class="interior-container">
+            <header class="interior-header">
+                <h2 class="interior-title">Interior Dimensions, Comfort, and Material Quality</h2>
+            </header>
+
+            <div class="interior-intro">
+                For families spending hours on the road between Bellevue, Kent, and beyond, cabin comfort and space are paramount. The Explorer capitalizes on a reimagined interior featuring upgraded soft-touch surfaces, intricate textures, and thoughtful color accents that elevate the environment well above class norms. Though the third-row armrests remain a hard plastic in all models, the availability of power-folding seats on select trims greatly enhances usability.
+            </div>
+
+            <div class="explorer-interior-wrapper">
+                <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:8a456dd4-adfe-4924-a3db-0a13f5d9a095/as/26_FRD_EPR_61840_stline_onyx.webp?max-quality=75&crop-names=1_16x7&width=1920" alt="2025 Ford Explorer Interior" class="explorer-interior-image">
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Interior Measurements</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Interior Measurement</th>
+                            <th>2025 Ford Explorer</th>
+                            <th>2025 Honda Pilot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Seating Capacity</td>
+                            <td class="ford-value">6 to 7</td>
+                            <td class="honda-value">7 to 8</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Front Legroom (inches)</td>
+                            <td class="ford-value">43.0</td>
+                            <td class="honda-value">41.0</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Second-Row Legroom (inches)</td>
+                            <td class="ford-value">39.0</td>
+                            <td class="honda-value">40.8</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Third-Row Legroom (inches)</td>
+                            <td class="ford-value">32.2</td>
+                            <td class="honda-value">32.5</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Max Cargo Volume (cu ft)</td>
+                            <td class="ford-value">87.8</td>
+                            <td class="honda-value">87.0</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Cargo Behind 3rd Row (cu ft)</td>
+                            <td class="ford-value">18.2</td>
+                            <td class="honda-value">18.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="interior-content">
+                <p>The Explorer offers generous front-row space, superior middle-row comfort with captain's chair options (standard on ST), and ample cargo management options. Its multi-textured interior with ambient lighting options fosters an upscale ambiance compared to the Pilot's more utilitarian layout and materials.</p>
+                <p>Honda's Pilot does provide competent space with flexible seating arrangements, including a stowable second-row center seat for an eight-passenger capacity, but many materials feel more conventional and less impressively refined than those in the refreshed Explorer cabin.</p>
+            </div>
+
+            <h3 class="subsection-title">Seating and Convenience</h3>
+
+            <div class="content-card">
+                <p>Explorer's tri-zone climate controls, power-adjustable heated front seats, and available ventilated seating on higher trims elevate passenger comfort for long drives through Lake Sammamish or Mount Rainier trips. The Pilot offers similar features at upper trims, but lacks the breadth of ambient lighting and interior customization offered by Ford.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

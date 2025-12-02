@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Ford F-150 Lightning - Electric Truck Reimagined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0 auto;
+        }
+
+        .comparison-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .comparison-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-content a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .comparison-content a:hover {
+            color: #004a99;
+            text-decoration: underline;
+        }
+
+        /* Side by side layout for first image and text */
+        .side-by-side-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 2.5rem;
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .content-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #f97316);
+            padding: 3px; /* gradient border thickness */
+            position: relative;
+        }
+
+        .content-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(14, 165, 233, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.55;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .content-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .content-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .content-image-wrapper:hover .content-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        /* Full width image wrapper */
+        .full-width-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #f97316);
+            padding: 3px;
+            position: relative;
+        }
+
+        .full-width-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(14, 165, 233, 0.45), transparent 55%);
+            mix-blend-mode: soft-light;
+            opacity: 0.55;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .full-width-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .full-width-image-wrapper:hover .content-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                padding: 2rem 1rem;
+            }
+
+            .comparison-header {
+                margin-bottom: 2rem;
+            }
+
+            .comparison-title {
+                font-size: 20px;
+            }
+
+            .comparison-subtitle {
+                font-size: 18px;
+            }
+
+            .comparison-content {
+                font-size: 0.95rem;
+            }
+
+            .side-by-side-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .comparison-title {
+                font-size: 18px;
+            }
+
+            .comparison-subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="comparison-section" id="electric-truck-introduction">
+        <div class="comparison-container">
+            <header class="comparison-header">
+                <h2 class="comparison-title">Electric Truck Reimagined: Introduction to the 2025 Ford F-150 Lightning</h2>
+            </header>
+
+            <div class="comparison-content">
+                <div class="side-by-side-wrapper">
+                    <div class="content-image-wrapper">
+                        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:5778555b-0f29-4bf3-93b7-d4515623095d/as/2026Lightningstx_WithClippingPaths.webp?max-quality=75&crop-names=1_4x3&width=3840" alt="2025 Ford F-150 Lightning" class="content-image">
+                    </div>
+
+                    <div class="text-content">
+                        <p>The <strong>2025 Ford F-150 Lightning Base</strong> introduces an innovative blend of traditional truck toughness and cutting-edge electric propulsion, bringing new energy to the sought-after Ford lineup. Rooted in the familiar body-on-frame architecture of the iconic F-150, this electric variant makes no compromises on capability while delivering a cleaner, quieter ride suited for the varied roads of Kent and Tukwila.</p>
+                        
+                        <p>This all-wheel-drive truck features dual electric motors for smooth power delivery and an independent rear suspension that enhances ride comfort and handling stability. Uniquely designed to serve both families and professionals, it strikes a balance between utility and modern technology, without the rugged, radical styling typical of many electric trucks.</p>
+                    </div>
+                </div>
+
+                <div class="text-content">
+                    <p>Bowen Scarff Ford invites drivers from Covington and surrounding communities to explore this electric powerhouse that stands poised to redefine work and leisure driving. Combining Ford's legendary durability with next-generation electric power, the F-150 Lightning is built to handle everything from heavy equipment hauling to off-grid weekend adventures.</p>
+                </div>
+
+                <div class="full-width-image-wrapper">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:576de64a-20c6-4234-b80d-5d27597e8129/as/2025_Lightning_2.webp?max-quality=75&crop-names=1_21x9&width=3840" alt="2025 Ford F-150 Lightning - Full View" class="content-image">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
