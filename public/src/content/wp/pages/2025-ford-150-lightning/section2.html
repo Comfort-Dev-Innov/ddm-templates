@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 F-150 Lightning - Striking Exterior Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .exterior-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .exterior-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .exterior-header {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .exterior-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .exterior-subtitle {
+            font-size: 20px;
+            color: #4b5563;
+            font-weight: 400;
+            margin-top: 0.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            margin-bottom: 2.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
+            padding: 4px;
+            position: relative;
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .exterior-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .image-wrapper:hover {
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+            border-color: rgba(37, 99, 235, 0.6);
+        }
+
+        .image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .image-wrapper:hover .exterior-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .content-section {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .content-section.full-width {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-section:hover {
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .section-heading {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 5px solid #2563eb;
+            line-height: 1.4;
+        }
+
+        .section-text {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .exterior-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .exterior-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .exterior-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .exterior-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .exterior-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .exterior-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .exterior-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .exterior-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .exterior-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .exterior-title {
+                font-size: 20px;
+            }
+
+            .exterior-subtitle {
+                font-size: 18px;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .section-heading {
+                font-size: 1.1rem;
+                padding-left: 0.75rem;
+                border-left-width: 4px;
+            }
+
+            .section-text {
+                font-size: 0.95rem;
+            }
+
+            .table-container {
+                padding: 1rem;
+            }
+
+            .exterior-table {
+                font-size: 0.8rem;
+            }
+
+            .exterior-table th,
+            .exterior-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .exterior-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .exterior-title {
+                font-size: 18px;
+            }
+
+            .exterior-subtitle {
+                font-size: 16px;
+            }
+
+            .content-section {
+                padding: 1.25rem;
+            }
+
+            .section-heading {
+                font-size: 1rem;
+                padding-left: 0.625rem;
+                border-left-width: 3px;
+            }
+
+            .exterior-table {
+                font-size: 0.75rem;
+            }
+
+            .exterior-table th,
+            .exterior-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exterior-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .exterior-table {
+                font-size: 0.7rem;
+            }
+
+            .exterior-table th,
+            .exterior-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .exterior-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="exterior-section" id="exterior-design">
+        <div class="exterior-container">
+            <header class="exterior-header">
+                <h2 class="exterior-title">Striking Exterior Design and Functional Styling</h2>
+                <p class="exterior-subtitle">The exterior of the 2025 F-150 Lightning Base preserves the commanding presence of Ford's full-size pickup line while integrating new electric-vehicle-specific enhancements. The design elegantly reflects the robust heritage of the F-Series, with carefully refined details that make a statement in cities like Federal Way and Newcastle.</p>
+            </header>
+
+            <div class="image-wrapper">
+                <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:ffb61d32-c0a5-4ade-8c04-915bfa2b2f88/as/25_FRD_FLI_67647_SEATTLE.webp?max-quality=75&crop-names=1_8x9&width=1920" alt="2025 Ford F-150 Lightning" class="exterior-image">
+            </div>
+
+            <div class="content-grid">
+                <div class="content-section">
+                    <h3 class="section-heading">Bold yet Practical Front Fascia</h3>
+                    <p class="section-text">
+                        Adopting a clean yet assertive front end, the Lightning features a closed grille that improves aerodynamics, essential for maximizing electric range. Headlamps feature modern LED technology, ensuring excellent visibility during early-morning starts along the I-405 corridor. The truck rides on medium-sized wheels optimized to balance ride comfort and off-road readiness, complemented by a subtle dark finish enhancing the truck's rugged look.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h3 class="section-heading">Smart Bed and Tailgate Innovations</h3>
+                    <p class="section-text">
+                        The 5.5-foot bed integrates clever features, including a tailgate step option on higher trims (not included on the Base but available as an upgrade) that enhances ease of access. This design caters perfectly to work environments common in the Seattle metropolitan area, facilitating effortless loading and unloading of tools or recreational gear. Plus, the absence of a traditional gas engine allows the inclusion of a spacious front trunk, or "frunk," offering additional secure cargo space that stands apart in the electric truck segment.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section full-width">
+                <h3 class="section-heading">Exterior Dimensions and Aerodynamics</h3>
+                <p class="section-text">
+                    Presented below is a table summarizing key exterior dimensions that influence the F-150 Lightning's road presence and maneuverability across suburban and urban driving situations:
+                </p>
+
+                <div class="table-container">
+                    <h3 class="table-title">Key Exterior Dimensions</h3>
+                    <table class="exterior-table">
+                        <thead>
+                            <tr>
+                                <th>Dimension</th>
+                                <th>Measurement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="spec-name">Overall Length</td>
+                                <td class="spec-value">232.7 inches</td>
+                            </tr>
+                            <tr>
+                                <td class="spec-name">Width (excluding mirrors)</td>
+                                <td class="spec-value">80.0 inches</td>
+                            </tr>
+                            <tr>
+                                <td class="spec-name">Height</td>
+                                <td class="spec-value">78.3 inches</td>
+                            </tr>
+                            <tr>
+                                <td class="spec-name">Wheelbase</td>
+                                <td class="spec-value">145.5 inches</td>
+                            </tr>
+                            <tr>
+                                <td class="spec-name">Ground Clearance</td>
+                                <td class="spec-value">Approx. 8.8 inches</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="section-text" style="margin-top: 2rem;">
+                    This combination maintains the truck's commanding stance, easing the approach and departure angles necessary for light off-roading near Bellevue or Redmond, while keeping city parking manageable.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

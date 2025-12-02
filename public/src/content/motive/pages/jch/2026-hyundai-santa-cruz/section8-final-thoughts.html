@@ -1,0 +1,282 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      /* Conclusion Box */
+      .conclusion-box {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #0f3079;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .conclusion-text {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #333;
+        text-align: justify;
+        font-weight: 500;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin: 40px 0;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.3);
+      }
+
+      .cta-heading {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .cta-text {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+      }
+
+      .cta-button-secondary {
+        background: white;
+        color: #0f3079;
+      }
+
+      .cta-button-secondary:hover {
+        box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .cta-heading {
+          font-size: 1.5rem;
+        }
+
+        .cta-text {
+          font-size: 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .cta-button {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .conclusion-box {
+          padding: 20px;
+        }
+
+        .conclusion-text {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Final Thoughts: Why the 2026 Hyundai Santa Cruz Stands Out
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          For Oklahoma drivers seeking a versatile, modern pickup, the 2026
+          Hyundai Santa Cruz clearly demonstrates why it's a standout choice
+          over the Nissan Frontier. Its unibody construction and independent
+          suspension deliver a smoother, more comfortable ride on city streets
+          and highways, making daily commuting a pleasure. The turbocharged
+          engine option offers immediate, low-end torque, providing responsive
+          performance for both urban driving and weekend adventures, something
+          the Frontier's V6 achieves only at higher RPMs.
+        </p>
+        <p class="paragraph-text">
+          The Santa Cruz also redefines utility with smart, lifestyle-oriented
+          features like the lockable in-bed trunk, integrated tonneau cover, and
+          clever storage solutions, perfect for carrying gear, groceries, or
+          recreational equipment securely and conveniently. Inside, the
+          tech-forward cabin with a glass cockpit, premium touchscreen, wireless
+          CarPlay/Android Auto, and Hyundai Digital Key offers a modern,
+          connected driving experience, while the Frontier's interior emphasizes
+          rugged simplicity.
+        </p>
+        <p class="paragraph-text">
+          Finally, Hyundai's industry-leading warranty and complimentary
+          maintenance provide peace of mind and lower ownership costs,
+          delivering long-term value that the Frontier cannot match.
+        </p>
+      </div>
+
+      <!-- Conclusion Box -->
+      <div class="conclusion-box">
+        <p class="conclusion-text">
+          In short, the
+          <a
+            href="https://joecooperhyundai.com/cars/new-santa-cruz?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Age%22%2C%22value%22%3A%22age%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >2026 Hyundai Santa Cruz</a
+          >
+          combines comfort, capability, and innovation in a way that makes it
+          the smarter, more versatile choice for today's Oklahoma driver.
+        </p>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h3 class="cta-heading">Experience the Santa Cruz Difference</h3>
+        <p class="cta-text">
+          To experience firsthand how this Sport Adventure Vehicle elevates the
+          pickup experience, we invite you to visit Joe Cooper Hyundai and
+          schedule a test drive today or
+          <a
+            href="https://joecooperhyundai.com/contact"
+            class="paragraph-hyperlink"
+            style="text-decoration: underline; color: white !important"
+            >contact us</a
+          >
+          if you have further questions.
+        </p>
+        <br />
+        <div class="cta-buttons">
+          <a
+            href="https://joecooperhyundai.com/contact"
+            class="cta-button cta-button-secondary"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 Ford F-150 - New Features and Exterior Updates</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 2rem 1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .container {
+        max-width: 1140px !important;
+        margin: 0 auto;
+      }
+
+      .hero-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%);
+      }
+
+      .hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-intro {
+        font-size: 1.1rem;
+        color: #4a5568;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .content-block {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .content-block p {
+        margin-bottom: 1.5rem;
+        color: #2d3748;
+        font-size: 1.05rem;
+      }
+
+      .content-block p:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #003366;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+
+      .trim-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        position: relative;
+        border: 1px solid #e2e8f0;
+      }
+
+      .trim-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0, 51, 102, 0.15);
+        border-color: #0066cc;
+      }
+
+      .card-image-wrapper {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem 1rem;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .raptor-bg {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      }
+
+      .tremor-bg {
+        background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+      }
+
+      .xlt-bg {
+        background: linear-gradient(135deg, #373b44 0%, #4286f4 100%);
+      }
+
+      .card-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 160px;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        transition: transform 0.4s ease;
+      }
+
+      .trim-card:hover .card-image {
+        transform: scale(1.05);
+      }
+
+      .card-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        color: #003366;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-content {
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+      }
+
+      .card-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .card-bullet {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 0.8rem;
+        padding-left: 0.5rem;
+      }
+
+      .card-bullet::before {
+        content: "▸";
+        color: #0066cc;
+        font-weight: bold;
+        margin-right: 0.8rem;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .highlight {
+        background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #003366;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .content-block {
+          padding: 1.5rem;
+        }
+
+        .cards-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .hero-section {
+          padding: 1.5rem 1rem;
+        }
+
+        .card-image-wrapper {
+          height: 160px;
+          padding: 1.5rem 1rem;
+        }
+
+        .card-image {
+          max-height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="new-features-exterior">
+      <div class="hero-section">
+        <h1 class="hero-title">
+          New Features and Exterior Updates for the 2026 Ford F-150
+        </h1>
+        
+        <p class="hero-intro">
+          The 2026 Ford F-150 maintains its iconic stance while introducing subtle refinements to its exterior design that enhance both aesthetics and functionality. The front fascia receives a fresh update, featuring an updated grille design and redesigned headlights that create a sharper, more defined, and modern appearance.
+        </p>
+
+        <div class="content-block">
+          <p>
+            These changes not only align with Ford's design language but also improve aerodynamics, boosting fuel efficiency—an important factor for drivers navigating the Pacific Northwest's diverse terrain.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <p>
+            From the perspective of durability and utility, the body lines of the 2026 model have been subtly streamlined, reducing drag while preserving the rugged toughness expected of the F-150. These aerodynamic enhancements improve airflow management, reducing wind noise and improving highway fuel economy.
+          </p>
+          <p>
+            For drivers in areas like <span class="highlight">Auburn</span> or <span class="highlight">Renton</span>, this means a quieter, more efficient ride, whether commuting or hauling gear.
+          </p>
+        </div>
+
+        <h2 class="section-subtitle">
+          Explore the 2026 F-150 Trim Levels
+        </h2>
+
+        <p style="color: #4a5568; font-size: 1.05rem; margin-bottom: 1rem;">
+          The 2026 lineup continues to offer a broad range of trim levels, from the workhorse XL to the off-road-ready Raptor and Tremor editions. Each trim level comes with unique design cues and features:
+        </p>
+
+        <div class="cards-container">
+          <!-- Raptor Card -->
+          <div class="trim-card">
+            <div class="card-image-wrapper raptor-bg">
+              <span class="card-badge">Performance</span>
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f150_rptr_scc_4x4_agry_ps34.png" 
+                alt="2026 Ford F-150 Raptor"
+                class="card-image"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Raptor & Raptor R</h3>
+              <p class="card-description">
+                <div class="card-bullet">Enhanced aggressive styling with specialized grille inserts and performance-oriented skid plates.</div>
+              </p>
+            </div>
+          </div>
+
+          <!-- Tremor Card -->
+          <div class="trim-card">
+            <div class="card-image-wrapper tremor-bg">
+              <span class="card-badge">Off-Road</span>
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f150_trem_scc_4x4_crgr_ps34.png" 
+                alt="2026 Ford F-150 Tremor"
+                class="card-image"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Tremor</h3>
+              <p class="card-description">
+                <div class="card-bullet">Balanced off-road capabilities blended with daily comfort, ideal for those who split time between city streets and rugged trails near Issaquah.</div>
+              </p>
+            </div>
+          </div>
+
+          <!-- XLT Card -->
+          <div class="trim-card">
+            <div class="card-image-wrapper xlt-bg">
+              <span class="card-badge">Everyday</span>
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f150_xlt_scc5_4x4_agbl_ps34.png" 
+                alt="2026 Ford F-150 XLT"
+                class="card-image"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">XLT & Lariat</h3>
+              <p class="card-description">
+                <div class="card-bullet">Updated LED lighting technology and available blacked-out styling packages that add a bold presence without sacrificing utility.</div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block" style="margin-top: 3rem;">
+          <p>
+            These exterior improvements complement the F-150's reputation for durability while pushing the envelope on modern truck design, making the 2026 model a top choice for drivers across <span class="highlight">Kent</span> and surrounding areas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

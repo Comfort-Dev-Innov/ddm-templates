@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Overview for the 2026 Ford F-150</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 2rem 1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .pricing-container {
+        max-width: 1140px !important;
+        margin: 0 auto;
+      }
+
+      .pricing-hero-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #003366 0%, #0066cc 50%, #003366 100%);
+      }
+
+      .pricing-hero-title {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 2rem;
+        letter-spacing: -0.5px;
+      }
+
+      .pricing-hero-image-wrapper {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .pricing-hero-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .pricing-intro-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2.5rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .pricing-intro-section p {
+        color: #2d3748;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .pricing-intro-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .pricing-price-banner {
+        background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+        color: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.25);
+      }
+
+      .pricing-price-label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.9;
+        margin-bottom: 0.5rem;
+      }
+
+      .pricing-price-amount {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .pricing-price-description {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      .pricing-dealer-info {
+        background: white;
+        border: 2px solid #e3f2fd;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08);
+      }
+
+      .pricing-dealer-info p {
+        color: #2d3748;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .pricing-dealer-info p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      /* Link Styling */
+      .pricing-container a {
+        color: #0066cc;
+        text-decoration: underline !important;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .pricing-container a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #0066cc 0%, #003366 100%);
+        transition: width 0.3s ease;
+      }
+
+      .pricing-container a:hover {
+        color: #003366;
+        transform: translateX(3px);
+      }
+
+      .pricing-phone-link {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .pricing-trim-section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .pricing-trims-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .pricing-trim-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        border: 2px solid transparent;
+      }
+
+      .pricing-trim-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 51, 102, 0.15);
+        border-color: #0066cc;
+      }
+
+      .pricing-trim-image-wrapper {
+        background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
+        padding: 2rem 1rem;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-trim-card:nth-child(1) .pricing-trim-image-wrapper {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      }
+
+      .pricing-trim-card:nth-child(2) .pricing-trim-image-wrapper {
+        background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+      }
+
+      .pricing-trim-card:nth-child(3) .pricing-trim-image-wrapper {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      }
+
+      .pricing-trim-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 140px;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+        transition: transform 0.4s ease;
+      }
+
+      .pricing-trim-card:hover .pricing-trim-image {
+        transform: scale(1.08);
+      }
+
+      .pricing-trim-content {
+        padding: 1.8rem;
+      }
+
+      .pricing-trim-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 0.8rem;
+      }
+
+      .pricing-trim-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .pricing-trim-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1rem;
+      }
+
+      .pricing-cta-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: center;
+        border: 2px solid #e3f2fd;
+      }
+
+      .pricing-cta-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+      }
+
+      .pricing-cta-text {
+        color: #4a5568;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .pricing-cta-phone {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #0066cc 0%, #003366 100%) !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border-radius: 50px;
+        font-size: 1.1rem !important;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(0, 51, 102, 0.2);
+      }
+
+      .pricing-cta-phone:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3);
+        color: white !important;
+      }
+
+      .pricing-cta-phone::after {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .pricing-hero-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .pricing-intro-section {
+          padding: 1.5rem;
+        }
+
+        .pricing-price-banner {
+          padding: 2rem 1.5rem;
+        }
+
+        .pricing-dealer-info {
+          padding: 1.5rem;
+        }
+
+        .pricing-trims-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .pricing-trim-content {
+          padding: 1.5rem;
+        }
+
+        .pricing-cta-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .pricing-cta-phone {
+          padding: 0.9rem 2rem;
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .pricing-hero-section {
+          padding: 1.5rem 1rem;
+        }
+
+        .pricing-price-banner {
+          padding: 1.5rem 1rem;
+        }
+
+        .pricing-trim-image-wrapper {
+          height: 150px;
+        }
+
+        .pricing-trim-image {
+          max-height: 110px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pricing-container" id="pricing-overview">
+      <div class="pricing-hero-section">
+        <h1 class="pricing-hero-title">Pricing Overview for the 2026 Ford F-150</h1>
+
+        <div class="pricing-hero-image-wrapper">
+          <img 
+            src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:50979ed5-5e17-4876-8081-10e3a66b9d59/as/26_FRD_F15_Pack_Shot_V4a_1X1.webp?max-quality=75&crop-names=1_16x7&width=1920" 
+            alt="2026 Ford F-150 Lineup"
+            class="pricing-hero-image"
+          />
+        </div>
+
+        <div class="pricing-price-banner">
+          <div class="pricing-price-label">Starting MSRP</div>
+          <div class="pricing-price-amount">$39,330</div>
+          <div class="pricing-price-description">XL 4x2 Regular Cab Model</div>
+        </div>
+
+        <div class="pricing-intro-section">
+          <p>
+            The 2026 Ford F-150 starts at a base MSRP of around $39,330 for the XL 4x2 Regular Cab model, making it an accessible entry point for those seeking a durable, capable full-size truck. Pricing increases with higher trims and additional options, reflecting the advanced technology, luxury features, and performance upgrades offered.
+          </p>
+        </div>
+
+        <div class="pricing-dealer-info">
+          <p>
+            At <a href="https://www.google.com/maps/place/?q=place_id:ChIJX20whg9ckFQRaB0ThosmZ6U" target="_blank" rel="noopener noreferrer">Bowen Scarff Ford in Kent, WA</a>, we assist customers in exploring trims such as:
+          </p>
+        </div>
+
+        <h2 class="pricing-trim-section-title">Explore Available Trim Levels</h2>
+
+        <div class="pricing-trims-grid">
+          <div class="pricing-trim-card">
+            <div class="pricing-trim-image-wrapper">
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f150_lar_scc5_4x4_ruby_ps34.png" 
+                alt="2026 Ford F-150 Lariat"
+                class="pricing-trim-image"
+              />
+            </div>
+            <div class="pricing-trim-content">
+              <span class="pricing-trim-badge">Mid-Level</span>
+              <h3 class="pricing-trim-title">XLT and Lariat</h3>
+              <p class="pricing-trim-description">
+                Mid-level trims with added comfort and tech features.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-trim-card">
+            <div class="pricing-trim-image-wrapper">
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f15_plt_scc5_4x4_stwh_ps34.png" 
+                alt="2026 Ford F-150 Platinum"
+                class="pricing-trim-image"
+              />
+            </div>
+            <div class="pricing-trim-content">
+              <span class="pricing-trim-badge">Premium</span>
+              <h3 class="pricing-trim-title">King Ranch and Platinum</h3>
+              <p class="pricing-trim-description">
+                Premium trims with luxury interiors and advanced driver assistance.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-trim-card">
+            <div class="pricing-trim-image-wrapper">
+              <img 
+                src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f-150/2026/jellybeans/26_frd_f150_rptr_scc_4x4_agry_ps34.png" 
+                alt="2026 Ford F-150 Raptor"
+                class="pricing-trim-image"
+              />
+            </div>
+            <div class="pricing-trim-content">
+              <span class="pricing-trim-badge">Performance</span>
+              <h3 class="pricing-trim-title">Tremor, Raptor, and Raptor R</h3>
+              <p class="pricing-trim-description">
+                Performance-focused trims designed for off-road and high horsepower enthusiasts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-cta-section">
+          <h3 class="pricing-cta-title">Ready to Find Your Perfect F-150?</h3>
+          <p class="pricing-cta-text">
+            Our team is ready to provide guidance on selecting the right configuration based on your budget and usage needs, ensuring you get the best value and fit.
+          </p>
+          <a href="tel:+12538521480" class="pricing-cta-phone">📞 (253) 852-1480</a>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

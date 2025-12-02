@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technology & Features Comparison</title>
+    <style>
+      /* Container Styles */
+      .tech-features-container {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .tech-features-container h1,
+      .tech-features-container h2,
+      .tech-features-container h3,
+      .tech-features-container p {
+        max-width: 1300px !important;
+      }
+
+      /* Cards Grid */
+      .tech-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 20px 0;
+      }
+
+      /* Individual Card Styles */
+      .tech-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: 1px solid #e2e8f0;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 52, 120, 0.12);
+        border-color: #003478;
+      }
+
+      /* Card Header with Icon */
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: linear-gradient(135deg, #003478 0%, #0052a3 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+
+      .tech-card:hover .icon-wrapper {
+        transform: rotate(5deg) scale(1.1);
+      }
+
+      .icon-wrapper svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* Card Title */
+      .card-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #003478;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      /* Card Content */
+      .card-content {
+        color: #4a5568;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .tech-cards-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .tech-card {
+          padding: 24px;
+        }
+
+        .card-title {
+          font-size: 20px;
+        }
+
+        .card-content {
+          font-size: 15px;
+        }
+
+        .icon-wrapper {
+          width: 45px;
+          height: 45px;
+          min-width: 45px;
+        }
+
+        .icon-wrapper svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .tech-features-container {
+          padding: 20px 15px !important;
+        }
+
+        .tech-card {
+          padding: 20px;
+        }
+
+        .card-header {
+          gap: 12px;
+        }
+
+        .card-title {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tech-features-container">
+      <div class="tech-cards-grid">
+        
+        <!-- Card 1: A Shared Digital DNA -->
+        <div class="tech-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="card-title">A Shared Digital DNA</h3>
+          </div>
+          <div class="card-content">
+            <p>Both sedans offer a stunning, driver-focused digital cockpit. The Elantra is available with a beautiful dual-screen display, featuring a 10.25-inch fully digital instrument cluster and a 10.25-inch high-resolution touchscreen for navigation and infotainment. This setup creates a seamless, high-tech interface that is both visually impressive and intuitive to use.</p>
+            <p>The Sonata offers a similar concept, with a standard 12.3-inch central touchscreen and an available 12.3-inch digital instrument cluster. While the Sonata's screens are slightly larger, the core user experience and functionality are remarkably similar. Critically, essential features like wireless Apple CarPlay® and Android Auto™ integration are available on both models, ensuring seamless connectivity for all users.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Premium Features -->
+        <div class="tech-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Premium Features</h3>
+          </div>
+          <div class="card-content">
+            <p>The Elantra offers a number of premium features that were once only found in luxury vehicles. Buyers can equip their Elantra with an 8-speaker Bose® premium sound system, a wireless device charging pad, durable and stylish H-Tex™ leatherette seating surfaces, heated front seats, and a power sunroof.</p>
+            <p>These are the same caliber of features available on the more expensive Sonata, which also offers a Bose® audio system, wireless charging, and heated seats. A fully equipped Elantra Limited provides a near-luxury cabin experience, complete with sophisticated materials and advanced technology, but at a price point that is significantly more accessible than a comparably equipped Sonata. This allows buyers to enjoy a premium experience without paying a premium price.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: The Sonata's Exclusive Tech Features -->
+        <div class="tech-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="card-title">The Sonata's Exclusive Tech Features</h3>
+          </div>
+          <div class="card-content">
+            <p>To its credit, the Sonata does offer a few exclusive, high-end technology features. The most notable is the available Remote Smart Parking Assist (RSPA) on the Limited trim. This futuristic system allows the driver to remotely guide the Sonata into and out of tight parking spaces using the smart key. While an impressive piece of technology, it is a niche feature that underscores the Sonata's positioning as the more luxurious, tech-forward option for those who prioritize such cutting-edge conveniences.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

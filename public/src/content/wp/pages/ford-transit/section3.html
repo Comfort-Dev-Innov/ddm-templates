@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Pro Upfit Section</title>
+    <style>
+      .ft-s3-ford-article {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: "Georgia", serif;
+        line-height: 1.7;
+        color: #333;
+        position: relative;
+      }
+
+      .ft-s3-article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .ft-s3-article-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .ft-s3-article-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .ft-s3-article-intro {
+        font-size: 1.1rem;
+        color: #555;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2.5rem;
+        border-left: 4px solid #0066cc;
+      }
+
+      .ft-s3-article-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .ft-s3-section-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .ft-s3-section-content {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 1.5rem;
+      }
+
+      .ft-s3-highlight-box {
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        border: 1px solid #2196f3;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .ft-s3-highlight-box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #2196f3;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .ft-s3-highlight-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1565c0;
+        margin-bottom: 0.8rem;
+      }
+
+      .ft-s3-highlight-text {
+        color: #0d47a1;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .ft-s3-specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .ft-s3-spec-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .ft-s3-spec-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .ft-s3-spec-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+      }
+
+      .ft-s3-spec-text {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .ft-s3-conclusion-section {
+        background: linear-gradient(135deg, #f1f8ff, #e6f3ff);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 3rem;
+        border: 1px solid #cce7ff;
+      }
+
+      .ft-s3-conclusion-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a365d;
+        margin-bottom: 1rem;
+      }
+
+      .ft-s3-conclusion-text {
+        font-size: 1rem;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      .ft-s3-image-intro {
+        display: grid;
+        grid-template-columns: 1.2fr 1.8fr;
+        gap: 1.5rem;
+        align-items: center;
+        margin: 2rem 0;
+      }
+
+      .ft-s3-image-intro figure {
+        margin: 0;
+      }
+
+      .ft-s3-image-intro img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        object-fit: cover;
+      }
+
+      /* Ford Pro Section Specific Styles */
+      .ft-s3-ford-pro-container {
+        background: linear-gradient(135deg, #00142e 0%, #003d7a 100%);
+        border-radius: 16px;
+        padding: 3rem;
+        margin: 3rem 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 20, 46, 0.15);
+      }
+
+      .ft-s3-ford-pro-container::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 102, 204, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+      }
+
+      .ft-s3-ford-pro-header {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .ft-s3-ford-pro-logo {
+        display: inline-block;
+        background: linear-gradient(135deg, #0066cc, #0088ff);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        font-family: "Arial", sans-serif;
+      }
+
+      .ft-s3-ford-pro-title {
+        font-size: 1.9rem;
+        font-weight: 600;
+        color: #ffffff !important;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .ft-s3-ford-pro-intro {
+        font-size: 1.05rem;
+        color: #e3f2fd;
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 0 auto 2.5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ft-s3-upfit-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        position: relative;
+        z-index: 2;
+        margin-top: 2rem;
+      }
+
+      .ft-s3-upfit-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 1.8rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ft-s3-upfit-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #0066cc, #00a8ff);
+      }
+
+      .ft-s3-upfit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-color: #0066cc;
+      }
+
+      .ft-s3-upfit-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #0066cc, #0088ff);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 102, 204, 0.2);
+      }
+
+      .ft-s3-upfit-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #00142e;
+        margin-bottom: 0.6rem;
+      }
+
+      .ft-s3-upfit-description {
+        font-size: 0.9rem;
+        color: #495057;
+        line-height: 1.5;
+      }
+
+      .ft-s3-dealer-cta {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        backdrop-filter: blur(10px);
+      }
+
+      .ft-s3-dealer-cta-text {
+        font-size: 1.05rem;
+        color: #ffffff;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .ft-s3-dealer-highlight {
+        color: #00a8ff;
+        font-weight: 600;
+      }
+
+      @media (max-width: 992px) {
+        .ft-s3-ford-pro-container {
+          padding: 2.5rem 2rem;
+        }
+
+        .ft-s3-upfit-options {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1.2rem;
+        }
+
+        .ft-s3-ford-pro-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .ft-s3-ford-article {
+          padding: 1rem;
+        }
+
+        .ft-s3-article-intro {
+          padding: 1.5rem;
+        }
+
+        .ft-s3-image-intro {
+          grid-template-columns: 1fr;
+        }
+
+        .ft-s3-specs-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .ft-s3-ford-pro-container {
+          padding: 2rem 1.5rem;
+          margin: 2rem 0;
+        }
+
+        .ft-s3-ford-pro-logo {
+          font-size: 1.3rem;
+          padding: 0.6rem 1.5rem;
+        }
+
+        .ft-s3-ford-pro-title {
+          font-size: 1.4rem;
+        }
+
+        .ft-s3-ford-pro-intro {
+          font-size: 1rem;
+        }
+
+        .ft-s3-upfit-options {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .ft-s3-upfit-card {
+          padding: 1.5rem;
+        }
+
+        .ft-s3-dealer-cta {
+          padding: 1.2rem;
+        }
+
+        .ft-s3-dealer-cta-text {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .ft-s3-ford-article {
+          padding: 0.75rem;
+        }
+
+        .ft-s3-ford-pro-container {
+          padding: 1.5rem 1rem;
+          border-radius: 12px;
+        }
+
+        .ft-s3-ford-pro-logo {
+          font-size: 1.1rem;
+          padding: 0.5rem 1.2rem;
+        }
+
+        .ft-s3-ford-pro-title {
+          font-size: 1.25rem;
+        }
+
+        .ft-s3-ford-pro-intro {
+          font-size: 0.95rem;
+        }
+
+        .ft-s3-upfit-card {
+          padding: 1.2rem;
+        }
+
+        .ft-s3-upfit-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+
+        .ft-s3-upfit-name {
+          font-size: 1rem;
+        }
+
+        .ft-s3-upfit-description {
+          font-size: 0.85rem;
+        }
+
+        .ft-s3-dealer-cta {
+          padding: 1rem;
+        }
+
+        .ft-s3-dealer-cta-text {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="ft-s3-ford-article">
+      <section class="ft-s3-article-section">
+        <div class="ft-s3-ford-pro-container">
+          <div class="ft-s3-ford-pro-header">
+            <h2 class="ft-s3-ford-pro-title">Upfit Ready with Ford Pro</h2>
+          </div>
+
+          <p class="ft-s3-ford-pro-intro">
+            The 2025 Transit is supported by Ford Pro, a comprehensive ecosystem of vehicles, software, and services designed to maximize productivity for commercial customers. Bowen Scarff Ford is your local connection to this robust network. Whether you need custom shelving for plumbing supplies, refrigeration units for catering, or specialized ladder racks, our team can connect you with certified upfitters to transform your Transit into a purpose-built tool for your trade.
+          </p>
+
+          <div class="ft-s3-upfit-options">
+            <div class="ft-s3-upfit-card">
+              <div class="ft-s3-upfit-icon">🔧</div>
+              <div class="ft-s3-upfit-name">Custom Shelving</div>
+              <div class="ft-s3-upfit-description">
+                Organize your plumbing supplies, tools, and equipment with precision-engineered shelving systems
+              </div>
+            </div>
+
+            <div class="ft-s3-upfit-card">
+              <div class="ft-s3-upfit-icon">❄️</div>
+              <div class="ft-s3-upfit-name">Refrigeration Units</div>
+              <div class="ft-s3-upfit-description">
+                Keep catering supplies fresh with professional-grade refrigeration solutions
+              </div>
+            </div>
+
+            <div class="ft-s3-upfit-card">
+              <div class="ft-s3-upfit-icon">🪜</div>
+              <div class="ft-s3-upfit-name">Ladder Racks</div>
+              <div class="ft-s3-upfit-description">
+                Specialized racks for secure transport of ladders and long equipment
+              </div>
+            </div>
+          </div>
+
+          <div class="ft-s3-dealer-cta">
+            <p class="ft-s3-dealer-cta-text">
+              <span class="ft-s3-dealer-highlight">Bowen Scarff Ford</span> connects you with certified upfitters to transform your Transit into a purpose-built tool for your trade
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </body>
+</html>

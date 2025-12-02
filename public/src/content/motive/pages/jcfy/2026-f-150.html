@@ -1,0 +1,544 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+  
+    .blog-section * { max-width: 100% !important; box-sizing: border-box; }
+  
+    /* Typography */
+    .blog-section p { margin: 1em 0; }
+    
+    .blog-section h2,
+    .blog-section h3,
+    .blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+  
+    .blog-section h2 { font-size: 1.6em; }
+    .blog-section h3 { font-size: 1.35em; }
+  
+    /* Tables */
+    .blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+  
+    .blog-section table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-section table.e-rte-table th, .blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .blog-section table.e-rte-table td { color: #374151; }
+    .blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-section table.e-rte-table tbody tr:hover { 
+      background: #eef2ff; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+  
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-section table.e-rte-table th,
+      .blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+  
+    /* Links */
+    .blog-section a { 
+      color: #1e3a8a !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .blog-section a:hover { color: #15306e !important; }
+  
+    /* TOC */
+    .blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .blog-section h2 + ul li { margin: 6px 0; }
+    .blog-section h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .blog-section h2[id], .blog-section h3[id], .blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* ===== Image Styles ===== */
+    .blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+  
+    .blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #3b82f6;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+  
+    .blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+  
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+  
+    .blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+  
+    .blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-section .image-float-left, .blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+  
+    .blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+  
+    .blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+  
+    .blog-section .image-float-left img, .blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+  
+    .blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    .blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-section .image-grid img {
+        border: none;
+      }
+  
+      .blog-section .image-float-left img,
+      .blog-section .image-float-right img {
+        border: none;
+      }
+  
+      .blog-section .image-float-left,
+      .blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  </style>
+  
+  <section class="blog-section">
+    <p>Experience one of the most trusted names in American pickups right here in Yukon, Oklahoma. The 2026 Ford F-150 Base brings a proven combination of robust capability, modern technology, and dependable design that has made the F-Series the nation's best-selling vehicle for over four decades. Whether you're navigating construction sites in Mustang, running errands near Bethany, or hauling gear around Piedmont, this truck stands ready to tackle your day. Visit Joe Cooper Ford of Yukon at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88">1780 Garth Brooks Blvd, Yukon, OK 73099</a>,</strong> or call us at <strong><a href="tel:4053541111">(405) 354-1111</a></strong> to get the full picture of this legendary pickup.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:92e7ecd9-646a-430f-a771-a90f0142445a/as/25_FRD_F15_51172.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="2026 Ford F-150 Exterior">
+      </div>
+    </div>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#built-for-everyday-work-an-overview">Built for Everyday Work: An Overview</a></li>
+      <li><a href="#exterior-styling-and-functional-design">Exterior Styling and Functional Design</a></li>
+      <li><a href="#engine-options-and-driving-dynamics">Engine Options and Driving Dynamics</a></li>
+      <li><a href="#interior-comfort-designed-with-you-in-mind">Interior Comfort: Designed with You in Mind</a></li>
+      <li><a href="#technology-features-that-keep-you-connected">Technology Features That Keep You Connected</a></li>
+      <li><a href="#safety-innovations-for-peace-of-mind">Safety Innovations for Peace of Mind</a></li>
+      <li><a href="#trim-levels-and-package-choices">Trim Levels and Package Choices</a></li>
+      <li><a href="#warranty-and-maintenance-coverage">Warranty and Maintenance Coverage</a></li>
+      <li><a href="#why-choose-joe-cooper-ford-of-yukon-for-your-f-150">Why Choose Joe Cooper Ford of Yukon for Your F-150?</a></li>
+    </ul>
+  
+    <h2 id="built-for-everyday-work-an-overview">Built for Everyday Work: An Overview</h2>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:edac5eb8-e8c2-46e3-8e35-b04f180dfe04/as/Chase_May_29.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford F-150 on the Road">
+    </div>
+  
+    <p>Entering its 14th generation, the 2026 Ford F-150 Base continues the legacy that has cemented the model as the backbone of American trucks. With minimal design changes since the 2021 redesign and a modest facelift in 2024, the 2026 iteration focuses on delivering well-rounded, proven performance rather than reinventing the wheel. Expect a solid mix of utility, strength, and modern enhancements that meet the demands of customers from Yukon to Union City and beyond.</p>
+  
+    <p>The F-150 remains a versatile choice for those requiring a reliable workhorse for daily errands or heavy lifting, perfectly suited to the suburban and semi-rural lifestyles common in Oklahoma. Competitors like the Chevrolet Silverado and Ram 1500 offer strong alternatives, but the F-150 stands out for its balance of availability, dealer support, and broad customization.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <p>Anticipated to retain most of its gasoline engine configurations in 2026, this model offers familiar transmission and drivetrain options that provide driving flexibility, whether you're cruising the highways connecting Moore to Warr Acres or tackling yard work in Mustang. With the all-electric F-150 Lightning gaining its own profile, the Base gasoline model still holds firm for customers focused on tradition and familiar fuel sources.</p>
+  
+    <h3 id="body-and-bed-configurations">Body and Bed Configurations</h3>
+  
+    <p>The 2026 Base trim offers multiple cabin layouts, designed to match your specific usage:</p>
+  
+    <ul>
+      <li><strong>Regular Cab:</strong> Seating for three, perfect for straightforward work needs</li>
+      <li><strong>SuperCab:</strong> Additional rear bench with smaller doors, seating six, mixes crew comfort with cargo space</li>
+      <li><strong>SuperCrew:</strong> Spacious rear seats and full-size rear doors enhance passenger comfort and ease of entry.</li>
+    </ul>
+  
+    <p>Bed sizes remain versatile with options of 5.5, 6.5, or 8.0 feet, accommodating everything from daily gear to substantial payloads.</p>
+  
+    <h2 id="exterior-styling-and-functional-design">Exterior Styling and Functional Design</h2>
+  
+    <div class="image-grid">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:2e9f89ee-afb4-4b8a-b065-29f3fd4c36c1/as/26_F150_90A9117.webp?max-quality=75&crop-names=1_3x2&width=1920" alt="Ford F-150 Front View">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:8c7c9a33-0274-40ea-8fe2-532448f553d7/as/26_FRD_F15_68101.webp?max-quality=75&crop-names=1_3x2&width=1920" alt="Ford F-150 Side Profile">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:ed2b1e2c-8bf4-4d7d-ac19-b7c2c451ee56/as/25_FRD_F15_64400_FRDNTRKK0042.webp?max-quality=75&crop-names=1_3x2&width=1920" alt="Ford F-150 Rear View">
+    </div>
+  
+    <p>The 2026 F-150 Base holds on to the familiar, functional pickup silhouette that has become synonymous with durability across Oklahoma City and surrounding communities. Its design emphasizes ruggedness over flashiness — a trait valued in practical applications such as construction work in Bethany or weekend projects in Mustang.</p>
+  
+    <h3 id="dimensions-and-exterior-features-snapshot">Dimensions and Exterior Features Snapshot</h3>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th><strong>Measurement</strong></th>
+          <th><strong>Value</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Overall Length</td>
+          <td>Varies by bed length (approx. 209-250 inches)</td>
+        </tr>
+        <tr>
+          <td>Bed Depth</td>
+          <td>21.4 inches</td>
+        </tr>
+        <tr>
+          <td>Bed Width (between wheel wells)</td>
+          <td>51.1 inches</td>
+        </tr>
+        <tr>
+          <td>Bed Volume (5.5 ft bed)</td>
+          <td>52.8 cubic feet</td>
+        </tr>
+        <tr>
+          <td>Bed Volume (6.5 ft bed)</td>
+          <td>62.3 cubic feet</td>
+        </tr>
+        <tr>
+          <td>Bed Volume (8.0 ft bed)</td>
+          <td>77.4 cubic feet</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>Available exterior options may include practical additions like durable plastic bed liners and utility cleats for securing cargo. The Base trim leans toward simplicity but supports the installation of accessories to adapt to specific regional demands, such as hauling equipment for outdoor activities near Piedmont.</p>
+  
+    <p>Wheel and tire packages vary by trim; the Base model typically features smaller, durable steel wheels designed to withstand Oklahoma's varied terrain, from paved streets in Union City to rural routes near Moore. Aerodynamics focuses primarily on function, aiding in overall fuel efficiency for daily commutes and work trips alike.</p>
+  
+    <h2 id="engine-options-and-driving-dynamics">Engine Options and Driving Dynamics</h2>
+  
+    <p>The 2026 Ford F-150 Base offers a solid range of gasoline-powered engines, all paired with a 10-speed automatic transmission, balancing power and efficiency for diverse applications across the Oklahoma metro and surrounding areas.</p>
+  
+    <h3 id="gasoline-engine-lineup">Gasoline Engine Lineup</h3>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th><strong>Engine</strong></th>
+          <th><strong>Power (hp)</strong></th>
+          <th><strong>Torque (lb-ft)</strong></th>
+          <th><strong>EPA City MPG</strong></th>
+          <th><strong>EPA Hwy MPG</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2.7L Twin-Turbo V6</td>
+          <td>325</td>
+          <td>400</td>
+          <td>18-19</td>
+          <td>23-25</td>
+        </tr>
+        <tr>
+          <td>5.0L Naturally Aspirated V8</td>
+          <td>400</td>
+          <td>410</td>
+          <td>16</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>3.5L Twin-Turbo V6</td>
+          <td>400</td>
+          <td>500</td>
+          <td>16-17</td>
+          <td>24-25</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>This spread of power plants supports everything from local deliveries in Warr Acres to weekend adventures across Oklahoma's countryside. For drivers prioritizing fuel economy, especially on daily commuter routes in Oklahoma City, the 2.7L twin-turbo V6 offers a practical option without compromising capability. Meanwhile, the larger V8 engine delivers tried-and-true performance for demanding hauling or towing.</p>
+  
+    <h3 id="drivetrain-versatility-and-handling">Drivetrain Versatility and Handling</h3>
+  
+    <p>Buyers can choose between rear-wheel-drive and four-wheel-drive versions, catering to varying road conditions across Union City, Moore, and Bethany. The four-wheel-drive system enhances traction and off-pavement capability, which are valuable for light off-roading or inclement weather. Suspension tuning strikes a balance between rugged durability and daily driving comfort, addressing everything from neighborhood errands to longer expeditions beyond Yukon.</p>
+  
+    <h3 id="towing-and-payload-performance">Towing and Payload Performance</h3>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th><strong>Capability</strong></th>
+          <th><strong>Value</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Max Towing Capacity</td>
+          <td>Approx. 13,500 pounds</td>
+        </tr>
+        <tr>
+          <td>Max Payload Capacity</td>
+          <td>Approx. 2,445 pounds</td>
+        </tr>
+        <tr>
+          <td>Max Towing Configuration</td>
+          <td>SuperCrew, 3.5L V6, 4x4, 6.5 ft bed</td>
+        </tr>
+        <tr>
+          <td>Max Payload Configuration</td>
+          <td>Regular Cab, 3.5L V6, RWD, 8.0 ft bed</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>These figures promote confidence for those operating fleets in Mustang or supporting family outings to the nearby trails while maintaining a vehicle that handles well in urban environments.</p>
+  
+    <h2 id="interior-comfort-designed-with-you-in-mind">Interior Comfort: Designed with You in Mind</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:9aae3aba-ff2b-43db-b4aa-7ae5901bd7d4/as/25_FRD_F15_64420.webp?max-quality=75&crop-names=1_82x83&width=1920" alt="2026 Ford F-150 Interior">
+      </div>
+    </div>
+  
+    <p>Inside the 2026 F-150 Base, durability meets practicality. The cabin offers a spectrum of seating, utilizing basic bench seats in Regular Cab variants and providing more spacious, roomier arrangements in SuperCab and SuperCrew models. This flexibility suits families in Oklahoma City and work crews in Piedmont equally well.</p>
+  
+    <h3 id="space-and-seating">Space and Seating</h3>
+  
+    <ul>
+      <li><strong>Occupant Capacity:</strong> Ranges from 3 with the Regular Cab to 6 in the SuperCab</li>
+      <li><strong>Rear Seat Access:</strong> Enhanced in SuperCrew models with full-size rear doors</li>
+      <li><strong>Materials:</strong> Base trim features durable cloth seating designed for long wear, arranged for simple cleaning after outdoor work or family outings</li>
+    </ul>
+  
+    <div class="image-grid">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:288883c9-6b39-4c42-80fd-e85d50bb172a/as/25_FRD_F15_62081.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford F-150 Dashboard">
+    </div>
+  
+    <h3 id="climate-and-convenience">Climate and Convenience</h3>
+  
+    <p>Standard air conditioning keeps the cabin comfortable during sunny Oklahoma summers, with manual controls positioned for intuitive use on workdays in Bethany or weekend getaways to Union City. Visibility remains excellent, supported by thoughtfully placed mirrors and window sizes to aid with daily city driving and backing into tight spaces.</p>
+  
+    <h2 id="technology-features-that-keep-you-connected">Technology Features That Keep You Connected</h2>
+  
+    <div class="image-float-left" style="max-width: 450px !important;">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:d6bfb94d-da4e-471b-a761-18297bc9f061/as/26_FRD_F15_62074.webp?max-quality=75&crop-names=1_16x7&width=1920" alt="Ford F-150 Technology Display">
+    </div>
+  
+    <p>The 2026 Ford F-150 Base brings an approachable yet effective tech package to keep drivers informed and entertained across Moore, Yukon, and surrounding areas.</p>
+  
+    <h3 id="display-and-infotainment">Display and Infotainment</h3>
+  
+    <ul>
+      <li><strong>Instrument Cluster:</strong> 12.0-inch digital display presenting vital info such as towing stats, fuel economy, and trip details</li>
+      <li><strong>Touchscreen:</strong> 12.0-inch horizontal infotainment system with responsive controls</li>
+      <li><strong>Smartphone Integration:</strong> Wireless Apple CarPlay and Android Auto to support daily commute or family playlists on the go</li>
+      <li><strong>Audio System:</strong> Quality sound from a 14-speaker Bang &amp; Olufsen audio setup enhances listening experiences on longer drives across Bethany and Mustang</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:b9a744c4-fb47-4b59-a962-a1b2a57b03ff/as/26_FRD_FSD_58686_KR_450_KR.webp?max-quality=75&crop-names=1_8x9&width=1920" alt="Ford F-150 Connectivity Features">
+    </div>
+  
+    <h3 id="connectivity-and-updates">Connectivity and Updates</h3>
+  
+    <p>The system supports over-the-air software updates, ensuring features remain up to date without the need to visit a dealership. A wireless charging pad and built-in Wi-Fi hotspot keep devices powered and connected, valuable for local contractors needing live map updates or families streaming entertainment during school runs in Warr Acres.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <h2 id="safety-innovations-for-peace-of-mind">Safety Innovations for Peace of Mind</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:a62f06a2-c0a7-4e8e-b7fc-57e1d4884061/as/26_FRD_F15_62085.webp?max-quality=75&crop-names=1_3x2&width=1920" alt="Ford F-150 BlueCruise Hands-Free Driving">
+      </div>
+    </div>
+  
+    <p>Safety remains a core focus for the 2026 Ford F-150 with standard technologies addressing everyday threats on roads in Oklahoma City and beyond.</p>
+  
+    <h3 id="standard-safety-features">Standard Safety Features</h3>
+  
+    <ul>
+      <li>Automatic emergency braking supports collision avoidance in busy urban areas</li>
+      <li>Blind-spot monitoring aids lane changes along commuter corridors near Union City</li>
+      <li>Lane keep assist helps maintain your lane, especially during highway drives toward Mustang</li>
+      <li>Rear cross-traffic alert offers extra awareness when backing out of tight driveways or parking lots in Yukon</li>
+    </ul>
+  
+    <h3 id="available-advanced-technologies">Available Advanced Technologies</h3>
+  
+    <ul>
+      <li>Safe exit warning provides alerts before opening doors in tight spaces</li>
+      <li>360-degree camera system enhances visibility around the truck during parking or trailer hookups</li>
+      <li>Pro Trailer Hitch Assist and Pro Trailer Backup Assist simplify towing in workload-heavy environments</li>
+      <li>BlueCruise hands-free highway driving aids comfort and safety on mapped routes throughout Oklahoma</li>
+    </ul>
+  
+    <p>The 2026 F-150 has earned the IIHS 2024 Top Safety Pick for the previous model year, reflecting rigorous crash testing and engineering dedication.</p>
+  
+    <h2 id="trim-levels-and-package-choices">Trim Levels and Package Choices</h2>
+  
+    <p>The Base trim offers a dependable starting point for buyers prioritizing utility without extraneous features. Still, the 2026 F-150 lineup extends across nine trims, including XL, STX, XLT, Lariat, King Ranch, Platinum, Tremor, Raptor, and Raptor R. This variety ensures a fit for every driver, whether hauling work supplies in Moore or leading family excursions from Bethany.</p>
+  
+    <p>The Base trim focuses on essential features and reliable powertrains, providing a launchpad for customization to suit specific Oklahoma lifestyle needs. Upgrading trims brings more advanced technology, luxury touches, and off-road capabilities, reflecting the diverse environments customers drive in daily.</p>
+  
+    <h2 id="warranty-and-maintenance-coverage">Warranty and Maintenance Coverage</h2>
+  
+    <div class="image-grid">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:4f839dbe-989d-4c9e-b0da-79e9a4e23b93/as/25_FRD_F15_62077.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford F-150 Cargo Bed">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:e0d7fb84-08f0-44da-b22f-b48ba4e01f82/as/26_FRD_F15_62061.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford F-150 Bed Features">
+      <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:6b060493-eb8b-43c7-8b42-18febb7f0714/as/24_FRD_F15_48641_Platinum.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford F-150 Cargo Versatility">
+    </div>
+  
+    <p>Purchasing a 2026 Ford F-150 Base through Joe Cooper Ford of Yukon guarantees coverage designed to protect your investment.</p>
+  
+    <ul>
+      <li><strong>Basic Limited Warranty:</strong> Covers 3 years or 36,000 miles</li>
+      <li><strong>Powertrain Warranty:</strong> Extends to 5 years or 60,000 miles</li>
+      <li><strong>Roadside Assistance:</strong> Backed by manufacturer support, giving access to specialized Ford roadside service, ideal for emergency support around Yukon and nearby towns. Contact <a href="tel:+1-800-241-3673">Ford Roadside Assistance: 800-241-3673</a></li>
+      <li><strong>Routine Maintenance:</strong> Scheduling available via our convenient <strong><a href="https://joecooperfordyukon.com/service">Service Scheduler</a></strong> to keep your truck running reliably across every Oklahoma season</li>
+    </ul>
+  
+    <p>Keep your F-150 performing at its best with authentic parts guaranteed by our <strong><a href="https://joecooperfordyukon.com/parts">Parts Department</a></strong> at Joe Cooper Ford of Yukon.</p>
+  
+    <h2 id="why-choose-joe-cooper-ford-of-yukon-for-your-f-150">Why Choose Joe Cooper Ford of Yukon for Your F-150?</h2>
+  
+    <p>For residents of Oklahoma City, Warr Acres, Union City, and surrounding communities, Joe Cooper Ford of Yukon stands as a trusted partner for all Ford F-150 needs. Our expertise spans sales, service, and support, helping you get the most from your truck. When you visit us at 1780 Garth Brooks Blvd, Yukon, OK 73099, you'll experience a welcoming atmosphere supported by knowledgeable professionals committed to community values.</p>
+  
+    <p>Our extensive inventory includes a wide range of new Ford models, including the 2026 F-150 Base trim and higher configurations. Feel free to browse our selection online via <strong><a href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">All New Vehicles</a></strong> or explore quality choices in used trucks via <strong><a href="https://joecooperfordyukon.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22Used%22%3Atrue%7D%7D%7D%7D">All Used Vehicles</a></strong>.</p>
+  
+    <p>Thinking about trading your current vehicle? Get an instant estimate on your trade-in value at our easy-to-use <strong><a href="https://joecooperfordyukon.com/trade">Trade Valuation</a></strong> tool. Our finance experts are ready to provide personalized guidance to help you select a financing plan that matches your budget and driving needs in Oklahoma City or nearby towns.</p>
+  
+    <p>At Joe Cooper Ford of Yukon, your F-150 experience includes expert service and support designed to keep you confidently on the road. Schedule your next maintenance appointment through our simple <strong><a href="https://joecooperfordyukon.com/service">Service Scheduler</a></strong> and take advantage of genuine Ford parts, professional technicians, and a community-first approach.</p>
+  
+    <p>Discover the 2026 Ford F-150 Base today—visit Joe Cooper Ford of Yukon and drive home a truck built to earn your trust every mile of the way in Yukon, Mustang, and beyond.</p>
+  
+    <p>© 2025 Joe Cooper Ford of Yukon</p>
+  </section>

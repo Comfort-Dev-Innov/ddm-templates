@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hyundai-powertrain-showcase-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .hyundai-powertrain-showcase-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+        }
+
+        .hyundai-powertrain-showcase-container h1:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+        }
+
+        .hyundai-powertrain-showcase-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.5s ease;
+        }
+
+        .hyundai-powertrain-showcase-container h1:hover::after {
+            width: 100%;
+        }
+
+        .hyundai-powertrain-showcase-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            transition: color 0.3s ease;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-powertrain-showcase-container h2:hover {
+            color: #012b5d;
+        }
+
+        .hyundai-powertrain-showcase-container h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 1.5rem 0 0.8rem 0;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-powertrain-showcase-container h3:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-powertrain-showcase-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            max-width: 1300px !important;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .hyundai-powertrain-showcase-container p:hover {
+            color: #222;
+            transform: translateX(3px);
+        }
+
+        .hyundai-powertrain-showcase-container ol,
+        .hyundai-powertrain-showcase-container ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            max-width: 1300px !important;
+        }
+
+        .hyundai-powertrain-showcase-container li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-powertrain-showcase-container li:hover {
+            color: #012b5d;
+            transform: translateX(5px);
+        }
+
+        .hyundai-powertrain-showcase-container a {
+            color: #012b5d;
+            text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-powertrain-showcase-container a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .hyundai-powertrain-showcase-container a:hover {
+            color: #002c5f;
+            transform: translateY(-1px);
+        }
+
+        .hyundai-powertrain-showcase-container a:hover::before {
+            width: 100%;
+        }
+
+        .blue-trim-highlight {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.08), rgba(0, 44, 95, 0.06));
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(1, 43, 93, 0.12);
+            font-weight: 600;
+        }
+
+        .blue-trim-highlight:hover {
+            background: linear-gradient(120deg, rgba(1, 43, 93, 0.15), rgba(0, 44, 95, 0.12));
+            border-color: rgba(1, 43, 93, 0.25);
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .powertrain-exploration-section {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.02), rgba(0, 44, 95, 0.04));
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .powertrain-exploration-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .powertrain-exploration-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .powertrain-exploration-section:hover::before {
+            left: 100%;
+        }
+
+        .powertrain-exploration-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .engine-comparison-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .engine-showcase-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+            border: 1px solid rgba(1, 43, 93, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .engine-showcase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.06), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .engine-showcase-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.12);
+            border-color: rgba(0, 44, 95, 0.2);
+        }
+
+        .engine-showcase-card:hover::before {
+            left: 100%;
+        }
+
+        .engine-showcase-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vehicle-engine-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .vehicle-engine-image:hover {
+            transform: scale(1.05);
+        }
+
+        .performance-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.03), rgba(0, 44, 95, 0.02));
+            border-radius: 8px;
+        }
+
+        .performance-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .performance-stat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .hybrid-comparison-showcase {
+            background: linear-gradient(135deg, rgba(0, 44, 95, 0.03), rgba(1, 43, 93, 0.05));
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(1, 43, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hybrid-comparison-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(1, 43, 93, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 44, 95, 0.05) 0%, transparent 50%);
+            animation: hybridFloat 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .hybrid-comparison-showcase:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(1, 43, 93, 0.12);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .hybrid-comparison-showcase > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hybrid-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .hybrid-vehicle-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(1, 43, 93, 0.1);
+        }
+
+        .hybrid-vehicle-image:hover {
+            transform: scale(1.03);
+            border-color: rgba(1, 43, 93, 0.3);
+            box-shadow: 0 6px 20px rgba(1, 43, 93, 0.15);
+        }
+
+        @keyframes hybridFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -10px) rotate(1deg); }
+            66% { transform: translate(-10px, 8px) rotate(-1deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hyundai-powertrain-showcase-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .hyundai-powertrain-showcase-container h1 {
+                font-size: 2rem;
+            }
+
+            .hyundai-powertrain-showcase-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .hyundai-powertrain-showcase-container h3 {
+                font-size: 1.2rem;
+            }
+
+            .hyundai-powertrain-showcase-container p {
+                font-size: 1rem;
+            }
+
+            .powertrain-exploration-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .engine-comparison-layout {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .engine-showcase-card {
+                padding: 1.5rem;
+            }
+
+            .performance-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+
+            .performance-stat {
+                padding: 0.8rem;
+            }
+
+            .stat-value {
+                font-size: 1.2rem;
+            }
+
+            .hybrid-image-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hybrid-vehicle-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hyundai-powertrain-showcase-container">
+        <h1>Performance and Powertrains</h1>
+        
+        <p>The engine is the heart of your vehicle, and Hyundai offers a fantastic range of choices for both the <a href="#">Santa Fe</a> and <a href="#">Tucson</a>. Your decision here will define your driving experience, whether you're prioritizing raw power for highway dominance or maximizing fuel efficiency on your daily commute.</p>
+
+        <div class="powertrain-exploration-section">
+            <h2>The Gasoline Engine Choice</h2>
+            
+            <p>This is where you'll find the most significant performance difference between the two models.</p>
+            
+            <div class="engine-comparison-layout">
+                <div class="engine-showcase-card">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/2024-hyundai-santa-fe-151-65fb0b127cc67.jpg?crop=0.735xw:0.620xh;0.151xw,0.281xh&resize=1200:*" alt="Santa Fe Engine" class="vehicle-engine-image" />
+                    <h3>Santa Fe 2.5L Turbo</h3>
+                    <div class="performance-stats-grid">
+                        <div class="performance-stat">
+                            <div class="stat-value">277</div>
+                            <div class="stat-label">HP</div>
+                        </div>
+                        <div class="performance-stat">
+                            <div class="stat-value">311</div>
+                            <div class="stat-label">LB-FT</div>
+                        </div>
+                        <div class="performance-stat">
+                            <div class="stat-value">29</div>
+                            <div class="stat-label">MPG HWY</div>
+                        </div>
+                    </div>
+                    <p>The 2025 <a href="#">Santa Fe</a> comes standard with a potent 2.5L Turbocharged GDI/MPI 4-cylinder engine. This powerhouse delivers an impressive 277 horsepower and 311 lb.-ft. of torque, giving you effortless acceleration and confident passing power. When you're merging onto a busy I-35 with a car full of family and gear, that turbo muscle makes all the difference. This engine is paired with a quick-shifting 8-speed Wet Dual Clutch Transmission. In terms of fuel economy, it achieves up to an EPA-estimated 29 MPG on the highway with front-wheel drive (FWD).</p>
+                </div>
+                
+                <div class="engine-showcase-card">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/2025-hyundai-tucson-xrt-102-660424c8a7e78.jpg" alt="Tucson Engine" class="vehicle-engine-image" />
+                    <h3>Tucson 2.5L Smartstream</h3>
+                    <div class="performance-stats-grid">
+                        <div class="performance-stat">
+                            <div class="stat-value">187</div>
+                            <div class="stat-label">HP</div>
+                        </div>
+                        <div class="performance-stat">
+                            <div class="stat-value">178</div>
+                            <div class="stat-label">LB-FT</div>
+                        </div>
+                        <div class="performance-stat">
+                            <div class="stat-value">33</div>
+                            <div class="stat-label">MPG HWY</div>
+                        </div>
+                    </div>
+                    <p>The 2025 <a href="#">Tucson</a>, in its gasoline form, is equipped with a Smartstream 2.5L GDI/MPI 4-cylinder engine that produces a solid 187 horsepower and 178 lb.-ft. of torque. This engine is tuned for a smooth, balanced, and efficient driving experience. It provides more than enough power for your daily drives around town and comfortable highway cruising. Where it truly shines is its efficiency, delivering an excellent EPA-estimated 33 MPG on the highway with FWD. This makes it a fantastic choice for drivers looking to minimize their fuel costs.</p>
+                </div>
+            </div>
+            
+            <p>To explain it, the <a href="#">Santa Fe</a> offers commanding power, while the <a href="#">Tucson</a> offers outstanding everyday efficiency.</p>
+        </div>
+
+        <div class="powertrain-exploration-section">
+            <h2>The Hybrid Options</h2>
+            
+            <div class="hybrid-comparison-showcase">
+                <p>When you look at the hybrid models, the performance story changes dramatically. Both the <a href="https://joecooperhyundai.com/inventory/New-2026-Hyundai-Santa_Fe_Hybrid-Limited-5NMP3DG1XTH074915">Santa Fe Hybrid</a> and the <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-Limited-KM8JEDD15SU366365">Tucson Hybrid</a> are powered by the same advanced powertrain: a 1.6L Turbocharged GDI 4-cylinder engine paired with an electric motor. This combination produces a robust total system output of 231 horsepower and 271 lb.-ft. of torque. Both are mated to a 6-speed automatic transmission.</p>
+                
+                <div class="hybrid-image-grid">
+                    <img src="https://d3s8goeblmpptu.cloudfront.net/mrp/hyundai/2025/santa-fe-hybrid/2025-hyundai-santa-fe-hybrid_landing_642151.jpg" alt="Santa Fe Hybrid" class="hybrid-vehicle-image" />
+                    <img src="https://media.ed.edmunds-media.com/hyundai/tucson/2025/oem/2025_hyundai_tucson_4dr-suv_limited-hybrid_fq_oem_1_1600.jpg" alt="Tucson Hybrid" class="hybrid-vehicle-image" />
+                </div>
+                
+                <p>This shared powertrain is a game-changer because it completely neutralizes the power gap seen in the gasoline models.</p>
+                
+                <p>A buyer who test drives a gas Tucson and wishes for a bit more punch doesn't have to jump all the way to the larger Santa Fe. The Tucson Hybrid offers a significant 44-horsepower boost over its gas counterpart, resulting in a much quicker, more responsive, and more engaging driving feel. It reframes the hybrid not just as an "eco" choice, but as a compelling performance upgrade within the same agile package.</p>
+            </div>
+            
+            <p>The key differences lie in their application.</p>
+            
+            <p>Every 2025 Tucson Hybrid comes standard with Hyundai's HTRAC All-Wheel Drive (AWD) system, giving you exceptional traction and confidence in all of Oklahoma's unpredictable weather conditions, from sudden downpours to slick winter roads.</p>
+            
+            <p><a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-Blue-KM8JBDD16SU291622" class="blue-trim-highlight">The Tucson Hybrid Blue trim</a> stands out as the champion of the entire lineup, achieving a remarkable EPA-estimated 38 MPG combined.6 This makes it the ultimate choice for a long-distance commuter.</p>
+            
+            <p>The 2025 Santa Fe Hybrid offers you the choice between FWD for maximum efficiency or the added capability of HTRAC AWD.It delivers the same powerful and smooth 231-horsepower performance but in a larger, three-row package. It still achieves an excellent EPA-estimated 36 MPG combined with FWD, proving that you don't have to sacrifice efficiency to get the space your family needs.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW X6 vs Mercedes-Benz GLE Coupe Comparison</title>
+  <style>
+    .comparison-container {
+      padding: 10px 0px 40px 0px !important;
+      line-height: 1.6 !important;
+      max-width: 1300px !important;
+      margin: 0 auto !important;
+    }
+
+    .comparison-container h1 {
+      width: fit-content !important;
+      font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+      color: #0366b0 !important;
+      margin-bottom: 1.5rem !important;
+      font-weight: 700 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h1:hover {
+      color: #024a80 !important;
+    }
+
+    .comparison-container h2 {
+      max-width: 1300px !important;
+      font-size: clamp(1.5rem, 3.5vw, 2rem) !important;
+      color: #0366b0 !important;
+      margin: 2.5rem 0 1.25rem 0 !important;
+      font-weight: 600 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h2:hover {
+      color: #024a80 !important;
+    }
+
+    .comparison-container h3 {
+      max-width: 1300px !important;
+      font-size: 25px !important;
+      color: #000000 !important;
+      margin: 2rem 0 0 0 !important;
+      font-weight: 600 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h3:hover {
+      color: #0366b0 !important;
+    }
+
+    .comparison-container p {
+      max-width: 1300px !important;
+      font-size: 16px !important;
+      color: #000000 !important;
+      margin-bottom: 1.25rem !important;
+      text-align: justify !important;
+      transition: opacity 0.3s ease !important;
+    }
+
+    .comparison-container p:hover {
+      opacity: 0.85 !important;
+    }
+
+    .comparison-container ol,
+    .comparison-container ul {
+      max-width: 1300px !important;
+      margin-bottom: 1.25rem !important;
+      padding-left: 1.5rem !important;
+    }
+
+    .comparison-container ul li {
+      margin-bottom: 0.5rem !important;
+      color: #000000 !important;
+      font-size: clamp(0.95rem, 2vw, 1.05rem) !important;
+    }
+
+    /* Image Section */
+    .comparison-images {
+      width: 100% !important;
+      max-width: 1300px !important;
+      margin: 2rem auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 1.5rem !important;
+    }
+
+    .feature-image {
+      width: 100% !important;
+      overflow: hidden !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(3, 102, 176, 0.1) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      position: relative !important;
+    }
+
+    .feature-image:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 24px rgba(3, 102, 176, 0.15) !important;
+    }
+
+    .feature-image img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      display: block !important;
+      transition: transform 0.4s ease !important;
+    }
+
+    .feature-image:hover img {
+      transform: scale(1.05) !important;
+    }
+
+    .image-label {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      background: linear-gradient(to top, rgba(3, 102, 176, 0.95), transparent) !important;
+      color: #ffffff !important;
+      padding: 1rem !important;
+      font-weight: 600 !important;
+      font-size: clamp(0.95rem, 2vw, 1.1rem) !important;
+      text-align: center !important;
+      transition: background 0.3s ease !important;
+    }
+
+    .feature-image:hover .image-label {
+      background: linear-gradient(to top, rgba(2, 74, 128, 0.95), transparent) !important;
+    }
+
+    /* Table Styles */
+    .table-wrapper {
+      width: 100% !important;
+      max-width: 1300px !important;
+      margin: 0.5rem auto 2rem auto !important;
+      overflow-x: auto !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(3, 102, 176, 0.08) !important;
+      transition: box-shadow 0.3s ease !important;
+    }
+
+    .table-wrapper:hover {
+      box-shadow: 0 6px 20px rgba(3, 102, 176, 0.12) !important;
+    }
+
+    .e-rte-table {
+      width: 100% !important;
+      max-width: 1300px !important;
+      border-collapse: collapse !important;
+      background-color: #ffffff !important;
+      font-size: clamp(0.875rem, 1.8vw, 1rem) !important;
+    }
+
+    .e-rte-table thead {
+      background-color: #0366b0 !important;
+      color: #ffffff !important;
+    }
+
+    .e-rte-table thead th {
+      padding: 1rem !important;
+      text-align: left !important;
+      font-weight: 600 !important;
+      font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+      border-bottom: 2px solid #024a80 !important;
+      transition: background-color 0.3s ease !important;
+    }
+
+    .e-rte-table thead th:hover {
+      background-color: #024a80 !important;
+    }
+
+    .e-rte-table tbody tr {
+      border-bottom: 1px solid #e0e0e0 !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .e-rte-table tbody tr:hover {
+      background-color: #f8f9fa !important;
+      transform: scale(1.01) !important;
+    }
+
+    .e-rte-table tbody tr:last-child {
+      border-bottom: none !important;
+    }
+
+    .e-rte-table tbody td {
+      padding: 1rem !important;
+      color: #000000 !important;
+      vertical-align: top !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .e-rte-table tbody td:first-child {
+      font-weight: 600 !important;
+      color: #0366b0 !important;
+    }
+
+    .e-rte-table tbody tr:hover td:first-child {
+      color: #024a80 !important;
+    }
+
+    .e-rte-table tbody td strong {
+      color: #0366b0 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .comparison-container {
+        padding: 30px 15px !important;
+      }
+
+      .e-rte-table {
+        font-size: 0.9rem !important;
+      }
+
+      .e-rte-table thead th,
+      .e-rte-table tbody td {
+        padding: 0.75rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .comparison-container {
+        padding: 25px 12px !important;
+      }
+
+      .comparison-container p {
+        text-align: left !important;
+      }
+
+      .comparison-images {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .table-wrapper {
+        border-radius: 6px !important;
+      }
+
+      .e-rte-table {
+        font-size: 0.85rem !important;
+      }
+
+      .e-rte-table thead th,
+      .e-rte-table tbody td {
+        padding: 0.6rem !important;
+      }
+
+      /* Stack table for mobile if needed */
+      .e-rte-table thead {
+        display: none !important;
+      }
+
+      .e-rte-table tbody tr {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 6px !important;
+        padding: 0.5rem !important;
+      }
+
+      .e-rte-table tbody tr:hover {
+        transform: scale(1) !important;
+      }
+
+      .e-rte-table tbody td {
+        display: block !important;
+        text-align: left !important;
+        padding: 0.5rem !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+      }
+
+      .e-rte-table tbody td:last-child {
+        border-bottom: none !important;
+      }
+
+      .e-rte-table tbody td:before {
+        content: attr(data-label) !important;
+        font-weight: 600 !important;
+        color: #0366b0 !important;
+        display: block !important;
+        margin-bottom: 0.25rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .comparison-container {
+        padding: 20px 10px !important;
+      }
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth !important;
+    }
+
+    /* Selection styling */
+    ::selection {
+      background-color: #0366b0 !important;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="comparison-container">
+    <p>Positioned within the high-performance segment of midsize SUVs, the 2026 BMW X6 asserts itself as a trailblazer with a dynamic fusion of sharp coupe styling and rugged versatility suited for the diverse roads of Edmond, Bethany, and Guthrie.&nbsp;</p>
+
+    <div class="comparison-images">
+      <div class="feature-image">
+        <img src="https://images.app.ridemotive.com/ba5l4lzdp429qj5uqfabdhx3x7pr" alt="2026 BMW X6 - Luxury Midsize Fastback SUV">
+        <div class="image-label">2026 BMW X6</div>
+      </div>
+      <div class="feature-image">
+        <img src="https://www.mbusa.com/content/dam/mb-nafta/us/myco/my26/gle-class/gle-coupe/trim-lines/2026-GLE450-4M-COUPE-PHT-1.png" alt="2026 Mercedes-Benz GLE Coupe">
+        <div class="image-label">2026 Mercedes-Benz GLE Coupe</div>
+      </div>
+    </div>
+
+    <p>The BMW X6's production at BMW's flagship facility in Greer, South Carolina, underlines its quality craftsmanship. Meanwhile, its broad appeal is enhanced by three finely tuned powertrains, ranging from a refined turbocharged inline-six to the formidable M Competition V8.&nbsp;</p>
+
+    <h3>Comparative Features at a Glance</h3>
+
+    <div class="table-wrapper">
+      <table class="e-rte-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th><strong>2026 BMW X6</strong></th>
+            <th>2026 Mercedes-Benz GLE Coupe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Specification">Vehicle Type</td>
+            <td data-label="2026 BMW X6">Luxury midsize fastback SUV</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">Luxury midsize coupe-style SUV</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Manufacturing Location</td>
+            <td data-label="2026 BMW X6">Greer, South Carolina, USA</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">Tuscaloosa County, Alabama, USA</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Seating Capacity</td>
+            <td data-label="2026 BMW X6">5 passengers</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">5 passengers</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Powertrain Options</td>
+            <td data-label="2026 BMW X6">3.0L I6 turbo mild hybrid, 4.4L V8 twin turbo</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">3.0L inline-6 turbo with mild-hybrid drive</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Drivetrain</td>
+            <td data-label="2026 BMW X6">Standard BMW xDrive all-wheel drive</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">All-wheel drive (4MATIC) on standard models</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">0-60 mph Acceleration</td>
+            <td data-label="2026 BMW X6">5.2 s (xDrive40i) to 3.5 s (M Competition)</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">5.3 seconds</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Cargo Volume (Seats Up)</td>
+            <td data-label="2026 BMW X6">27.4 cubic feet</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">31.6 cubic feet</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Cargo Volume (Seats Folded)</td>
+            <td data-label="2026 BMW X6">59.6 cubic feet</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">64.1 cubic feet</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Digital Displays</td>
+            <td data-label="2026 BMW X6">14.9-inch touchscreen, 12.3-inch digital cluster</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">12.3-inch touchscreen,&nbsp;12.3-inch digital instrument cluster</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Safety Features</td>
+            <td data-label="2026 BMW X6">Advanced driver assist packages standard/optional</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">Advanced driver assist packages standard/optional</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Warranty Coverage</td>
+            <td data-label="2026 BMW X6">4 years / 50,000 miles limited + 3 years servicing</td>
+            <td data-label="2026 Mercedes-Benz GLE Coupe">4 years / 50,000 miles limited</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+

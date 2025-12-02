@@ -1,0 +1,39 @@
+<style>
+    .ddm-btn-container {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 18px !important;
+        justify-content: center !important;
+    }
+    
+    .ddm-btn {
+        background-color: #00142E !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        text-decoration: none !important;
+        border-radius: 12px !important;
+        display: inline-block !important;
+        text-align: center !important;
+        transition: background-color 0.3s !important;
+    }
+    
+    .ddm-btn:hover {
+        background-color: #002654 !important;
+    }
+    
+    /* Mobile and Tablet - Column layout */
+    @media (max-width: 768px) {
+        .ddm-btn-container {
+            flex-direction: column !important;
+        }
+        
+        .ddm-btn {
+            width: 100% !important;
+        }
+    }
+    </style>
+    
+    <div class="ddm-btn-container">
+        <a href="https://www.bowenscarff.com/new-vehicles/" class="ddm-btn">All New Vehicles</a>
+        <a href="https://www.bowenscarff.com/used-vehicles/" class="ddm-btn">All Used Vehicles</a>
+    </div>

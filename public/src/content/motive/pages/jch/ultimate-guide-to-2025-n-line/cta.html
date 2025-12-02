@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hyundai-nline-cta-container {
+            padding: 200px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hyundai-nline-cta-container h1 {
+            width: fit-content !important;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 40px !important;
+            position: relative;
+        }
+
+        .hyundai-nline-cta-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 140px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .hyundai-nline-cta-container h1:hover::after {
+            width: 200px;
+        }
+
+        .hyundai-nline-cta-container h3,
+        .hyundai-nline-cta-container h1,
+        .hyundai-nline-cta-container h2,
+        .hyundai-nline-cta-container p,
+        .hyundai-nline-cta-container ol,
+        .hyundai-nline-cta-container ul {
+            max-width: 1300px !important;
+        }
+
+        .hyundai-nline-intro-section {
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            border: 2px solid #eef1ff;
+            text-align: center;
+        }
+
+        .hyundai-nline-intro-content {
+            font-size: 1.2rem;
+            color: #012b5d;
+            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hyundai-nline-dealership-section {
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hyundai-nline-dealership-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hyundai-nline-dealership-content {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        .hyundai-nline-cta-link {
+            color: #FFD700;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-nline-cta-link:hover {
+            color: #FFF;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .hyundai-nline-action-section {
+            margin: 50px 0;
+        }
+
+        .hyundai-nline-action-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hyundai-nline-action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hyundai-nline-action-item {
+            background: #ffffff;
+            border: 2px solid #eef1ff;
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            position: relative;
+        }
+
+        .hyundai-nline-action-item:hover {
+            transform: translateX(10px);
+            border-color: #012b5d;
+            box-shadow: 0 12px 35px rgba(1, 43, 93, 0.15);
+        }
+
+        .hyundai-nline-action-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .hyundai-nline-action-svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .hyundai-nline-action-content {
+            flex: 1;
+        }
+
+        .hyundai-nline-action-text {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .hyundai-nline-action-links {
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-nline-action-links:hover {
+            color: #012b5d;
+            text-decoration-color: #012b5d;
+        }
+
+        .hyundai-nline-highlight-box {
+            background: linear-gradient(135deg, #f0f8ff, #ffffff);
+            border: 2px solid #b3d9ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .hyundai-nline-highlight-box::before {
+            content: '💡';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .hyundai-nline-highlight-text {
+            font-size: 1rem;
+            color: #012b5d;
+            font-weight: 600;
+            margin-left: 30px;
+        }
+
+        .hyundai-nline-experience-callout {
+            background: #ffffff;
+            color: #012b5d;
+            border: 2px solid #012b5d;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(1, 43, 93, 0.1);
+        }
+
+        .hyundai-nline-experience-link {
+            color: #012b5d;
+            text-decoration: underline;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .hyundai-nline-experience-link:hover {
+            color: #002c5f;
+            text-shadow: 0 0 5px rgba(1, 43, 93, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hyundai-nline-cta-container h1 {
+                font-size: 2.2rem;
+            }
+
+            .hyundai-nline-action-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 25px;
+            }
+
+            .hyundai-nline-action-icon {
+                margin: 0 auto;
+            }
+
+            .hyundai-nline-intro-section,
+            .hyundai-nline-dealership-section {
+                padding: 30px 20px;
+            }
+
+            .hyundai-nline-highlight-text {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hyundai-nline-cta-container">
+        <h1>Your N-Line Awaits at Joe Cooper Hyundai of Midwest City</h1>
+        
+        <div class="hyundai-nline-intro-section">
+            <div class="hyundai-nline-intro-content">
+                The 2025 Hyundai N-Line family offers a uniquely compelling solution for your driving needs. This series masterfully blends head-turning, motorsport-derived style with engaging, responsive performance. It integrates advanced, user-friendly technology into practical, comfortable, and efficient vehicles that are backed by the industry's best warranty. The N-Line is for the driver who believes their daily drive should be an experience, not just a commute.
+            </div>
+        </div>
+
+        <div class="hyundai-nline-dealership-section">
+            <div class="hyundai-nline-dealership-content">
+                At Joe Cooper Hyundai of Midwest City, we have an unparalleled passion for and knowledge of these special vehicles, and are dedicated to helping you find the perfect Hyundai to fit your life and driving style. Reach out to us <a href="https://joecooperhyundai.com/contact" class="hyundai-nline-cta-link">here</a> to get started.
+            </div>
+        </div>
+
+        <div class="hyundai-nline-action-section">
+            <div class="hyundai-nline-action-title">You can also:</div>
+            
+            <div class="hyundai-nline-action-list">
+                <div class="hyundai-nline-action-item">
+                    <div class="hyundai-nline-action-icon">
+                        <svg class="hyundai-nline-action-svg" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                        </svg>
+                    </div>
+                    <div class="hyundai-nline-action-content">
+                        <div class="hyundai-nline-action-text">
+                            Begin your search from the comfort of your home by browsing our extensive <a href="https://www.joecooperhyundai.com/new-inventory/index.htm" class="hyundai-nline-action-links">New Hyundai Inventory</a> and our high-quality <a href="https://www.joecooperhyundai.com/used-inventory/index.htm" class="hyundai-nline-action-links">Used Vehicle Inventory</a> online to see the latest N-Line models we have available.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hyundai-nline-action-item">
+                    <div class="hyundai-nline-action-icon">
+                        <svg class="hyundai-nline-action-svg" viewBox="0 0 24 24">
+                            <path d="M15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4M15,5.9A2.1,2.1 0 0,1 17.1,8A2.1,2.1 0 0,1 15,10.1A2.1,2.1 0 0,1 12.9,8A2.1,2.1 0 0,1 15,5.9M4,7V10H1V12H4V15H6V12H9V10H6V7H4M15,13C12.33,13 7,14.33 7,17V20H23V17C23,14.33 17.67,13 15,13Z"/>
+                        </svg>
+                    </div>
+                    <div class="hyundai-nline-action-content">
+                        <div class="hyundai-nline-action-text">
+                            Value Your Trade: Curious about what your current vehicle is worth? Our online (<a href="https://www.joecooperhyundai.com/value-your-trade.htm" class="hyundai-nline-action-links">https://www.joecooperhyundai.com/value-your-trade.htm</a>) provides a real-time, transparent offer in seconds, making your planning process easier.
+                        </div>
+                        <div class="hyundai-nline-highlight-box">
+                            <div class="hyundai-nline-highlight-text">Get instant, transparent trade-in valuations from home!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hyundai-nline-action-item">
+                    <div class="hyundai-nline-action-icon">
+                        <svg class="hyundai-nline-action-svg" viewBox="0 0 24 24">
+                            <path d="M18.92,6.01C18.72,5.42 18.16,5.01 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6.01L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6.01M6.85,7H17.14L18.22,10H5.78L6.85,7M19,17H5V12H19V17M7.5,13A1.5,1.5 0 0,1 9,14.5A1.5,1.5 0 0,1 7.5,16A1.5,1.5 0 0,1 6,14.5A1.5,1.5 0 0,1 7.5,13M16.5,13A1.5,1.5 0 0,1 18,14.5A1.5,1.5 0 0,1 16.5,16A1.5,1.5 0 0,1 15,14.5A1.5,1.5 0 0,1 16.5,13Z"/>
+                        </svg>
+                    </div>
+                    <div class="hyundai-nline-action-content">
+                        <div class="hyundai-nline-action-text">
+                            Experience the Drive: The best way to truly understand the N-Line difference is from behind the wheel. <a href="https://www.joecooperhyundai.com/schedule-test-drive.htm" class="hyundai-nline-action-links">Schedule a test drive</a> today and feel the performance for yourself.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

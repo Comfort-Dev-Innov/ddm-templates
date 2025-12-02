@@ -1,0 +1,1034 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: underline;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      /* Bullet List Styling */
+      .bullet-list {
+        margin: 20px 0;
+        padding-left: 40px;
+      }
+
+      .bullet-list li {
+        margin-bottom: 15px;
+      }
+
+      /* Single Image Container */
+      .single-image-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+      }
+
+      .single-image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.2);
+      }
+
+      .vehicle-image-label {
+        color: #0f3079;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* Wide Image Styling - Shows full width on desktop */
+      .vehicle-image-wide {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Standard Image Styling */
+      .vehicle-image-standard {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: contain;
+        display: block;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+
+        /* Mobile: Position wide image to show right side where car is */
+        .vehicle-image-wide {
+          object-fit: cover;
+          object-position: right center;
+          height: 250px;
+        }
+
+        .vehicle-image-label {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <hr class="hr-1" id="dynamic-essence" />
+
+      <!-- Section 1: The Essence -->
+      <h2 class="section-heading">The Essence of the 2026 BMW X6</h2>
+      <br />
+      <p class="paragraph-text">
+        The 2026 BMW X6 embodies the spirit of a luxury mid-size SUV, fused with
+        the aesthetics of a coupe-styled fastback. Built at BMW's Greer, South
+        Carolina plant, this model remains a competitive force among the Porsche
+        Cayenne Coupe, Mercedes-Benz GLE Coupe, and Audi Q8, offering a
+        distinctively aggressive yet refined option for drivers in Edmond,
+        Mustang, and Moore seeking dynamic handling paired with upscale
+        presence.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Retaining its proven design from prior years, the 2026 X6 introduces
+        refinements, such as the new Tanzanite Blue metallic paint available on
+        the xDrive40i trim, which enhances the model's look without compromising
+        its iconic form. Its standard all-wheel-drive system ensures confident
+        traction year-round, crucial for commuters navigating varying road
+        conditions in Bethany or Choctaw.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Offering seating for five and a practical cargo space, the X6 blends
+        sportiness and utility, suitable for professionals balancing business
+        and family itineraries across Piedmont and Guthrie.
+      </p>
+
+      <hr class="hr-1" id="sculpted-exterior" />
+
+      <!-- Section 2: Exterior Design -->
+      <h2 class="section-heading">Sculpted Exterior and Signature Styling</h2>
+      <br />
+      <p class="paragraph-text">
+        The X6's exterior design embodies BMW's hallmark of blending athleticism
+        with luxury. The coupe-inspired sloping roofline and sharp contours
+        create a commanding stance that distinguishes it from traditional SUVs
+        in the Edmond area and surrounding communities. Standard adaptive full
+        LED headlights with cornering lights enhance nighttime visibility,
+        boosting safety during commutes after dark in Mustang or Bethany.
+      </p>
+
+      <!-- Wide Exterior Image -->
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">
+          The 2026 BMW X6 – Dynamic Exterior Profile
+        </div>
+        <img
+          src="https://i.ibb.co/gFDXffvs/g06-intro-16to7.webp"
+          alt="2026 BMW X6 Exterior Profile"
+          class="vehicle-image-wide"
+        />
+      </div>
+
+      <br />
+      <p class="paragraph-text">
+        A key exterior highlight for 2026 is the introduction of the striking
+        Tanzanite Blue metallic paint on the base xDrive40i trim, adding a fresh
+        option for discerning buyers wanting an exclusive, high-impact look.
+        Complementing this, wheel options range up to 22-inch M Sport designs,
+        underscoring the model's dynamic character. The broad stance, wide
+        horizontal creases, and muscular flared wheel arches reinforce the
+        aggressive presence synonymous with BMW's X lineup.
+      </p>
+
+      <!-- M Sport Package Exterior Image -->
+      <br />
+      <div class="single-image-container">
+        <div class="vehicle-image-label">BMW X6 with M Sport Package</div>
+        <img
+          src="https://i.ibb.co/ks9N6Td6/g06-exterior-highlight-m-sport-package-3to2.webp"
+          alt="2026 BMW X6 M Sport Package Exterior"
+          class="vehicle-image-standard"
+        />
+      </div>
+
+      <!-- Dimension Table -->
+      <br />
+      <h3 class="table-heading">Dimension Highlights</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Exterior Dimensions</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overall Length</td>
+            <td>195 inches</td>
+          </tr>
+          <tr>
+            <td>Width (w/o mirrors)</td>
+            <td>78.9 inches</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td>66.9 inches</td>
+          </tr>
+          <tr>
+            <td>Wheelbase</td>
+            <td>117.1 inches</td>
+          </tr>
+          <tr>
+            <td>Ground Clearance</td>
+            <td>8.1 inches</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <p class="paragraph-text">
+        This precisely engineered silhouette integrates aerodynamic
+        considerations that balance visual drama with stability, enhancing both
+        fuel efficiency and high-speed composure on highways leading into Edmond
+        or Moore.
+      </p>
+
+      <hr class="hr-1" id="performance-driving" />
+
+      <!-- Section 3: Performance -->
+      <h2 class="section-heading">Performance That Commands the Road</h2>
+      <br />
+      <p class="paragraph-text">
+        Launching your journey in the 2026 BMW X6 means engaging with a suite of
+        robust powertrain options offering a spectrum of power and agility
+        tailored to your driving preferences and lifestyle demands across the
+        broader Edmond area.
+      </p>
+
+      <br />
+      <h3 class="subsection-heading">Base Powertrain: xDrive40i</h3>
+      <p class="paragraph-text">
+        The entry-level xDrive40i is equipped with a 3.0-liter turbocharged
+        inline-six engine, paired with a 48-volt mild hybrid system, producing a
+        potent 375 horsepower and 383 lb-ft of torque. This configuration
+        accelerates the X6 with vigorous responsiveness, achieving 0-60 mph in
+        approximately 5.2 seconds, according to BMW's estimates. Independent
+        tests cite times closer to 4.6 seconds, referencing its sibling, the X5
+        xDrive40i. This powertrain offers a balanced combination of spirited
+        performance and commendable fuel efficiency, rated at nearly 23 mpg city
+        and 26 mpg highway, making it an ideal match for daily commuting and
+        weekend excursions around Bethany or Mustang.
+      </p>
+
+      <br />
+      <h3 class="subsection-heading">Enhanced M60i xDrive Trim</h3>
+      <p class="paragraph-text">
+        Stepping up the power curve, the M60i xDrive variant is equipped with a
+        4.4-liter twin-turbo V8 paired with mild hybrid assistance, delivering
+        an exhilarating 523 horsepower and 553 lb-ft of torque. With an
+        estimated sprint from zero to 60 mph in an impressive 4.2 seconds
+        (likely closer to 3.8 seconds in real-world testing), the M60i combines
+        luxury cruising with genuinely thrilling acceleration. Its adaptive M
+        Suspension ensures dynamic handling without sacrificing control,
+        supported by M Sport brakes for enhanced stopping power—perfect for
+        spirited drives through the underserved roads of Guthrie or roads around
+        Piedmont.
+      </p>
+
+      <br />
+      <h3 class="subsection-heading">Performance Focus: M Competition</h3>
+      <p class="paragraph-text">
+        For enthusiasts prioritizing extreme sport performance, the M
+        Competition model delivers a commanding 617 horsepower from its
+        4.4-liter twin-turbo V8, supported by a reinforced chassis, adaptive
+        electronically controlled suspension, and performance exhaust tuning.
+        Achieving 0-60 mph in just 3.5 seconds and topping out at 155 mph
+        (extendable to 177 mph with the M Drivers Package), this version brings
+        race-inspired agility and precision to the midsize luxury SUV segment.
+        Features like the Active M rear differential translate this raw power
+        into exceptional cornering grip and driving confidence, making it
+        well-suited for navigating challenging routes in Choctaw or Bethany.
+      </p>
+
+      <!-- Performance Table -->
+      <br />
+      <h3 class="table-heading">Performance and Capability Summary</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Performance Metric</th>
+            <th>xDrive40i</th>
+            <th>M60i xDrive</th>
+            <th>M Competition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Engine Displacement</td>
+            <td>3.0L Turbo inline-6</td>
+            <td>4.4L Twin-turbo V8</td>
+            <td>4.4L Twin-turbo V8</td>
+          </tr>
+          <tr>
+            <td>Horsepower (hp)</td>
+            <td>375</td>
+            <td>523</td>
+            <td>617</td>
+          </tr>
+          <tr>
+            <td>Torque (lb-ft)</td>
+            <td>383</td>
+            <td>553</td>
+            <td>553</td>
+          </tr>
+          <tr>
+            <td>0-60 mph Acceleration (sec)</td>
+            <td>~5.2 (est.) / ~4.6 (test)</td>
+            <td>~4.2 (est.) / ~3.8*</td>
+            <td>3.5</td>
+          </tr>
+          <tr>
+            <td>Fuel Economy (mpg city/hwy)</td>
+            <td>23 / 26</td>
+            <td>17 / 22</td>
+            <td>13 / 18</td>
+          </tr>
+          <tr>
+            <td>Top Speed (mph)</td>
+            <td>130</td>
+            <td>130</td>
+            <td>155 (177 with package)</td>
+          </tr>
+          <tr>
+            <td>Towing Capacity (lbs)</td>
+            <td>Up to 7,200</td>
+            <td>Up to 7,200</td>
+            <td>Not specified</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <p class="paragraph-text">
+        *Independent test data referenced from prior models.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        This performance spectrum affirms the X6's role as a versatile luxury
+        SUV, accommodating expressiveness for diverse driving contexts that span
+        Edmond's business corridors to recreational routes beyond Moore.
+      </p>
+
+      <hr class="hr-1" id="luxury-interior" />
+
+      <!-- Section 4: Interior -->
+      <h2 class="section-heading">
+        Interior Craftsmanship and Passenger Comfort
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Step inside the 2026 BMW X6 to encounter a cabin that merges upscale
+        craftsmanship with the thoughtful ergonomics expected by professionals
+        commuting through Guthrie or family outings around Mustang. Its two-row
+        layout comfortably seats five occupants, with front legroom measuring
+        approximately 40.4 inches and rear legroom of 35.7 inches, striking a
+        balance between driver control and passenger comfort.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Compared to the BMW X5, the coupe-esque roofline of the X6 trades a
+        degree of rear headroom and cargo volume for a sleeker visual profile.
+        Cargo capacity maintains practicality with 27.4 cubic feet available
+        behind the rear seats, expanding to 59.6 cubic feet when folded, enough
+        to accommodate the demands of a weekend getaway or family errands in
+        Choctaw.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The cabin features premium materials, including Sensafin sport
+        upholstery, standard on base trims, and Extended Merino Leather,
+        available as an option, reflecting BMW's commitment to tactile
+        excellence. Soft-touch surfaces, customizable ambient lighting, and
+        finely crafted glass controls in the Executive package elevate the
+        tactile and visual ambiance, appealing especially to drivers balancing
+        daytime efficiency and evening relaxation in a suburban Edmond
+        environment.
+      </p>
+
+      <!-- Interior Dimensions Table -->
+      <br />
+      <h3 class="table-heading">Interior Dimensions and Cargo Volume</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th>BMW X6</th>
+            <th>BMW X5 (Comparison)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Front Legroom</td>
+            <td>40.4 inches</td>
+            <td>39.8 inches</td>
+          </tr>
+          <tr>
+            <td>Rear Legroom</td>
+            <td>35.7 inches</td>
+            <td>38.7 inches</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (seats up)</td>
+            <td>27.4 cubic feet</td>
+            <td>33.9 cubic feet</td>
+          </tr>
+          <tr>
+            <td>Cargo Volume (seats folded)</td>
+            <td>59.6 cubic feet</td>
+            <td>72.3 cubic feet</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <h3 class="subsection-heading">Ergonomics and Comfort Features</h3>
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            16-way power-adjustable front seats with heating options
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Ambient lighting with customizable color schemes
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Soft-close doors (Executive package), enhancing refined ingress and
+            egress
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Available panoramic LED Sky Lounge roof for natural illumination and
+            an expansive cabin feel
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Ample storage compartments and intelligently designed cargo
+            management solutions suited for family and commuter utility
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Such appointments ensure your journeys around Edmond, Moore, or Bethany
+        remain comfortable and connected.
+      </p>
+
+      <hr class="hr-1" id="intelligent-technology" />
+
+      <!-- Section 5: Technology -->
+      <h2 class="section-heading">Intelligent Technology and Connectivity</h2>
+      <br />
+      <p class="paragraph-text">
+        Technological sophistication underpins every drive in the 2026 BMW X6.
+        At the heart of the cockpit lies BMW's curved display architecture,
+        which unites a 14.9-inch touchscreen with a 12.3-inch fully digital
+        instrument cluster, providing seamless interaction and data
+        visualization. This advanced setup integrates BMW OS 8.5, providing
+        intuitive and responsive control over vehicle functions and
+        infotainment.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Wireless Apple CarPlay and Android Auto come standard, ensuring
+        effortless smartphone integration for navigation, communications, and
+        entertainment. Augmented reality enhancements within the navigation
+        system provide real-time overlays, simplifying route guidance during
+        complex urban or suburban driving scenarios characteristic of Mustang or
+        Choctaw.
+      </p>
+      <br />
+      <p class="paragraph-text">Additional advanced tech amenities include:</p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            Wireless charging pad positioned for convenient device access
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Gesture controls allowing non-contact command input for frequently
+            used functions such as volume control
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Optional Premium package features, including Harman Kardon surround
+            sound for audiophile-grade listening and head-up displays offering
+            critical driving information within line of sight
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            My BMW app connectivity enables remote vehicle monitoring, status
+            checks, and remote engine start, facilitating readiness tailored for
+            busy mornings in Edmond
+          </p>
+        </li>
+      </ul>
+
+      <hr class="hr-1" id="advanced-safety" />
+
+      <!-- Section 6: Safety -->
+      <h2 class="section-heading">
+        Advanced Safety and Driver Assistance Systems
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Safety remains paramount in the 2026 BMW X6, woven through both standard
+        and available systems designed to inspire confidence during commutes
+        across Bethany, Moore, or Piedmont. The vehicle features a comprehensive
+        forward collision warning system with automatic emergency braking,
+        blind-spot detection that includes mirror and steering wheel alerts,
+        lane-keeping assist, and speed limit recognition as baseline safety
+        features.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        For those seeking an enhanced driving experience, the Driving Assistance
+        Professional package enhances functionality to enable hands-free highway
+        driving up to 85 mph—a valuable aid for longer journeys connecting
+        Edmond to nearby communities. Additional features include:
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            Adaptive cruise control with traffic jam assistance eases
+            stop-and-go traffic burdens
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Parking Assistance Professional offering automated parking
+            maneuvers, 360-degree camera views, and smartphone-enabled parking
+            memory supporting complex parking situations in tighter urban venues
+            like downtown Edmond
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Cross-traffic alert front and rear detectors ensuring safety during
+            reversing and low-speed maneuvers
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        BMW's commitment extends to crash test excellence, with strong ratings
+        in frontal overlap and pedestrian protection, among other key
+        categories.
+      </p>
+
+      <hr class="hr-1" id="trim-options" />
+
+      <!-- Section 7: Trim Levels -->
+      <h2 class="section-heading">Trim Levels and Package Choices</h2>
+      <br />
+      <p class="paragraph-text">
+        The 2026 BMW X6 is available in three distinguished trims at Jackie
+        Cooper BMW, each tailored to distinct performance preferences and luxury
+        demands.
+      </p>
+
+      <!-- Trim Levels Table -->
+      <br />
+      <h3 class="table-heading">Available Trim Levels</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Trim Level</th>
+            <th>Engine</th>
+            <th>Key Features</th>
+            <th>MSRP Range (Approximate)*</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>xDrive40i (Base)</td>
+            <td>3.0L turbocharged inline-six w/ mild hybrid</td>
+            <td>Adaptive M Suspension, LED headlights, standard AWD</td>
+            <td>Around $76,400</td>
+          </tr>
+          <tr>
+            <td>M60i xDrive</td>
+            <td>4.4L twin-turbo V8 w/ mild hybrid</td>
+            <td>M Sport brakes, M Sport exhaust, Harman Kardon audio</td>
+            <td>Around $96,900</td>
+          </tr>
+          <tr>
+            <td>M Competition</td>
+            <td>4.4L twin-turbo V8, enhanced performance package</td>
+            <td>
+              Adaptive M Suspension, reinforced chassis, black chrome exhaust
+            </td>
+            <td>Around $134,600</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <p class="paragraph-text">
+        *Prices exclude taxes and fees; subject to change.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Available packages enhance the X6's capabilities and luxury:
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            <strong>Premium Package</strong>: Upgrades ambient lighting, gesture
+            control, and remote engine start
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            <strong>Executive Package</strong>: Adds glass controls, panoramic
+            sky lounge roof, soft-close doors
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            <strong>M Sport Package</strong>: Boosts aerodynamic styling,
+            sport-tuned suspension, wheel upgrades
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Explore
+        <strong
+          ><a
+            href="https://cooperbmw.com/inventory?filters=%7B%22appliedFilters%22%3A%7B%22category%22%3A%7B%22SUV%22%3Atrue%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >All New SUVs</a
+          ></strong
+        >
+        or find
+        <strong
+          ><a
+            href="https://cooperbmw.com/inventory?filters=%7B%22appliedFilters%22%3A%7B%22category%22%3A%7B%22Sedan%22%3Atrue%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >All New Sedans</a
+          ></strong
+        >
+        from BMW at Jackie Cooper BMW.
+      </p>
+
+      <hr class="hr-1" id="warranty-maintenance" />
+
+      <!-- Section 8: Warranty -->
+      <h2 class="section-heading">
+        Comprehensive Warranty and Maintenance Coverage
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Peace of mind accompanies every BMW X6 purchase from Jackie Cooper BMW,
+        with manufacturer-backed coverage designed to maximize reliability
+        during your active lifestyle in Moore, Guthrie, or Piedmont:
+      </p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            <strong>Limited Warranty</strong>: 4 years or 50,000 miles,
+            encompassing comprehensive vehicle coverage
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            <strong>Powertrain Warranty</strong>: 4 years or 50,000 miles,
+            ensuring drivetrain robustness
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            <strong>Complimentary Maintenance</strong>: Scheduled
+            factory-recommended service for 3 years or 36,000 miles to maintain
+            peak performance and preserve residual value
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Our
+        <strong
+          ><a href="https://cooperbmw.com/service" class="paragraph-hyperlink"
+            >Service Department</a
+          ></strong
+        >
+        employs factory-trained technicians equipped with genuine BMW parts
+        available via our
+        <strong
+          ><a href="https://cooperbmw.com/parts" class="paragraph-hyperlink"
+            >Parts Department</a
+          ></strong
+        >, upholding the highest care standards. Schedule your next service
+        appointment online and experience hassle-free maintenance supported by
+        transparent pricing and swift turnaround times.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        For emergencies, you can rely exclusively on
+        <a href="tel:+1-855-762-2846" class="paragraph-hyperlink"
+          ><strong>BMW Roadside Assistance: 855-762-2846</strong></a
+        >, delivering expert support with manufacturer-authorized service and
+        genuine parts 24/7 across Oklahoma, including Choctaw and Bethany.
+      </p>
+
+      <hr class="hr-1" id="jackie-cooper-value" />
+
+      <!-- Section 9: Why Jackie Cooper BMW -->
+      <h2 class="section-heading">Why Choose Jackie Cooper BMW for Your X6?</h2>
+      <br />
+      <p class="paragraph-text">
+        At Jackie Cooper BMW, located at
+        <strong
+          ><a
+            href="https://www.google.com/maps/place/?q=place_id:ChIJaSuP28IesocRIvRN-5tbg-E"
+            class="paragraph-hyperlink"
+            >14145 N Broadway Ext, Edmond, OK 73013</a
+          ></strong
+        >, we pair an expert sales team with unparalleled after-sale service
+        tailored to buyers from Edmond, Mustang, Choctaw, and beyond.
+      </p>
+      <br />
+      <p class="paragraph-text">Why partner with us for your 2026 BMW X6?</p>
+      <br />
+      <ul class="bullet-list" style="list-style-type: disc">
+        <li>
+          <p class="paragraph-text">
+            Extensive inventory featuring the latest models and trims
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Knowledgeable staff providing transparent guidance respecting your
+            expertise and preferences
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Access to exclusive
+            <strong
+              ><a
+                href="https://cooperbmw.com/dealer-specials"
+                class="paragraph-hyperlink"
+                >New Vehicle Specials</a
+              ></strong
+            >
+            and
+            <strong
+              ><a
+                href="https://cooperbmw.com/cars/pre-owned-specials"
+                class="paragraph-hyperlink"
+                >Pre-Owned Specials</a
+              ></strong
+            >, enhancing value
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Expert maintenance and service support with complimentary amenities
+            fueling worry-free ownership
+          </p>
+        </li>
+        <li>
+          <p class="paragraph-text">
+            Convenient digital tools, including
+            <strong
+              ><a
+                href="https://cooperbmw.com/trade-or-sell"
+                class="paragraph-hyperlink"
+                >Value Your Trade</a
+              ></strong
+            >
+            estimator and virtual consultations
+          </p>
+        </li>
+      </ul>
+      <br />
+      <p class="paragraph-text">
+        Explore our range by browsing
+        <strong
+          ><a
+            href="https://cooperbmw.com/inventory?filters=%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D"
+            class="paragraph-hyperlink"
+            >All New Vehicles</a
+          ></strong
+        >
+        or secure a quality used vehicle from our
+        <strong
+          ><a
+            href="https://cooperbmw.com/cars/pre-owned-inventory"
+            class="paragraph-hyperlink"
+            >All Used Vehicles</a
+          ></strong
+        >
+        inventory.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Elevate your daily drive and family journeys with the 2026 BMW X6.
+        Connect with Jackie Cooper BMW today, schedule your personalized test
+        drive, and experience engineering excellence, luxury, and technological
+        firsthand.
+      </p>
+
+      <hr class="hr-1" />
+
+      <!-- Copyright -->
+      <br />
+      <p class="paragraph-text" style="text-align: center">
+        © 2025 Jackie Cooper BMW
+      </p>
+    </div>
+  </body>
+</html>

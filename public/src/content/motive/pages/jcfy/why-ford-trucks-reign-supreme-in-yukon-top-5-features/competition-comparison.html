@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Ford Stands Out from the Competition</title>
+    <style>
+      /* Motive Container Default Styles */
+      .comparisonContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .comparisonContainer h1 {
+        width: fit-content !important;
+      }
+
+      .comparisonContainer h3,
+      .comparisonContainer h1,
+      .comparisonContainer h2,
+      .comparisonContainer p,
+      .comparisonContainer ol,
+      .comparisonContainer ul,
+      .comparisonContainer table {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title */
+      .main-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      /* Comparison Grid */
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .comparison-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        border: 2px solid #e2e8f0;
+        position: relative;
+      }
+
+      .comparison-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-color: #0f3079;
+      }
+
+      .card-header {
+        padding: 25px;
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .card-header h3 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .vs-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .advantage-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .advantage-list li {
+        position: relative;
+        padding: 12px 0 12px 35px;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #4a5568;
+      }
+
+      .advantage-list li:last-child {
+        border-bottom: none;
+      }
+
+      .advantage-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 12px;
+        color: #0f3079;
+        font-weight: bold;
+        font-size: 18px;
+        width: 25px;
+        height: 25px;
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .advantage-list strong {
+        color: #0f3079;
+        font-weight: 700;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Summary Section */
+      .summary-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 50px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+        border: 2px solid #0f3079;
+      }
+
+      .summary-section h3 {
+        color: #0f3079;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+        font-weight: 700;
+      }
+
+      .summary-section p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #4a5568;
+        margin-bottom: 0;
+      }
+
+      /* Key Differentiators */
+      .differentiators {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+      }
+
+      .differentiator-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        border-left: 5px solid #0f3079;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .differentiator-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-left-color: #ff6b35;
+      }
+
+      .differentiator-card h4 {
+        color: #0f3079;
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .differentiator-card p {
+        color: #4a5568;
+        line-height: 1.7;
+        font-size: 15px;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2.2rem;
+        }
+
+        .comparison-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+
+        .summary-section {
+          padding: 30px 20px;
+        }
+
+        .summary-section h3 {
+          font-size: 1.8rem;
+        }
+
+        .summary-section p {
+          font-size: 1rem;
+        }
+
+        .differentiators {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card-header {
+          padding: 20px 15px;
+        }
+
+        .card-header h3 {
+          font-size: 1.3rem;
+        }
+
+        .advantage-list li {
+          padding: 10px 0 10px 30px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="comparisonContainer">
+      <h2 class="main-title">How Ford Stands Out from the Competition</h2>
+      <p class="subtitle">
+        While the truck market is filled with strong contenders, Ford
+        consistently differentiates itself.
+      </p>
+
+      <div class="comparison-grid">
+        <!-- Ford vs Chevrolet Silverado -->
+        <div class="comparison-card">
+          <div class="card-header">
+            <div class="vs-label">Ford F-150 vs</div>
+            <h3>Chevrolet Silverado</h3>
+          </div>
+          <div class="card-content">
+            <ul class="advantage-list">
+              <li>
+                <strong>Superior Towing Capacity:</strong> F-150 offers
+                <span class="highlight">best-in-class 14,000 lbs</span> vs
+                Silverado's 13,300 lbs
+              </li>
+              <li>
+                <strong>Exclusive Pro Power Onboard™:</strong> Up to 7.2kW
+                mobile generator capability not available on Silverado
+              </li>
+              <li>
+                <strong>More Powertrain Options:</strong> Including the
+                innovative
+                <span class="highlight">PowerBoost™ Hybrid system</span>
+              </li>
+              <li>
+                <strong>Advanced Aluminum Body:</strong> Military-grade
+                construction for better durability and weight savings
+              </li>
+              <li>
+                <strong>Superior Technology Integration:</strong> More intuitive
+                SYNC® 4 system with better voice recognition
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ford vs Ram 1500 -->
+        <div class="comparison-card">
+          <div class="card-header">
+            <div class="vs-label">Ford F-150 vs</div>
+            <h3>Ram 1500</h3>
+          </div>
+          <div class="card-content">
+            <ul class="advantage-list">
+              <li>
+                <strong>Higher Payload Capacity:</strong> F-150's
+                <span class="highlight">3,310 lbs max payload</span> exceeds
+                Ram's capabilities
+              </li>
+              <li>
+                <strong>Better Fuel Economy Options:</strong> PowerBoost™ Hybrid
+                delivers superior efficiency in real-world conditions
+              </li>
+              <li>
+                <strong>More Comprehensive Safety:</strong> Standard Ford
+                Co-Pilot360™ across all trim levels
+              </li>
+              <li>
+                <strong>Proven Durability:</strong>
+                <span class="highlight"
+                  >45+ years as America's best-selling truck</span
+                >
+                speaks to reliability
+              </li>
+              <li>
+                <strong>Better Resale Value:</strong> Ford trucks consistently
+                maintain higher resale values over time
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ford vs Toyota Tundra -->
+        <div class="comparison-card">
+          <div class="card-header">
+            <div class="vs-label">Ford F-150 vs</div>
+            <h3>Toyota Tundra</h3>
+          </div>
+          <div class="card-content">
+            <ul class="advantage-list">
+              <li>
+                <strong>Greater Model Variety:</strong> Complete lineup from
+                <span class="highlight">Maverick to Super Duty</span> vs limited
+                Tundra options
+              </li>
+              <li>
+                <strong>More Advanced Technology:</strong> Pro Power Onboard™,
+                FordPass™ app, and superior connectivity features
+              </li>
+              <li>
+                <strong>Better Towing Performance:</strong> Higher towing
+                capacity with more sophisticated trailer management systems
+              </li>
+              <li>
+                <strong>More Trim Level Options:</strong> Extensive
+                customization from work-ready XL to luxury King Ranch®
+              </li>
+              <li>
+                <strong>Local Service Network:</strong>
+                <span class="highlight">Better service availability</span>
+                throughout Oklahoma and surrounding states
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Differentiators -->
+      <div class="differentiators">
+        <div class="differentiator-card">
+          <h4>🏆 Market Leadership</h4>
+          <p>
+            Ford F-Series has been America's best-selling truck for over 45
+            consecutive years, proving consistent customer satisfaction and
+            trust in real-world conditions.
+          </p>
+        </div>
+        <div class="differentiator-card">
+          <h4>🔋 Innovation Leadership</h4>
+          <p>
+            Exclusive features like Pro Power Onboard™ and the PowerBoost™
+            Hybrid system demonstrate Ford's commitment to practical innovation
+            that solves real problems.
+          </p>
+        </div>
+        <div class="differentiator-card">
+          <h4>📊 Capability Leadership</h4>
+          <p>
+            Best-in-class towing and payload capacities, combined with a
+            comprehensive range from compact to super-duty, ensures there's a
+            Ford for every job.
+          </p>
+        </div>
+        <div class="differentiator-card">
+          <h4>🛠️ Service Leadership</h4>
+          <p>
+            Extensive dealer network throughout Oklahoma provides better service
+            availability, genuine parts access, and specialized Ford truck
+            expertise.
+          </p>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="summary-section">
+        <h3>The Clear Choice for Oklahoma Drivers</h3>
+        <p>
+          Against competitors like the Toyota Tundra, which is known for its
+          reliability, Ford offers greater versatility across its lineup, from
+          compact to super-duty models, ensuring there's a precisely configured
+          truck for every possible need.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

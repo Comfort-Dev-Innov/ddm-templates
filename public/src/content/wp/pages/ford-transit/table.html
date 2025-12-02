@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Transit Configuration Guide</title>
+    <style>
+        .powertrain-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .powertrain-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .powertrain-header {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .powertrain-title {
+            text-transform: none !important;
+            font-size: 28px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+        }
+
+        .powertrain-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .powertrain-content p {
+            margin-bottom: 1rem;
+        }
+
+        .powertrain-content ul {
+            margin: 0 0 1.5rem 1.25rem;
+        }
+
+        .engine-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .engine-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .engine-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .engine-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .engine-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .engine-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .engine-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .engine-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .engine-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .table-note {
+            font-size: 0.95rem;
+            color: #444;
+            margin-top: 1.25rem !important;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .powertrain-section {
+                padding: 2rem 1rem;
+            }
+
+            .engine-table-container {
+                padding: 1rem;
+            }
+
+            .engine-table {
+                font-size: 0.85rem;
+            }
+
+            .engine-table th,
+            .engine-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .engine-table {
+                font-size: 0.8rem;
+            }
+
+            .engine-table th,
+            .engine-table td {
+                padding: 0.6rem 0.35rem;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <section class="powertrain-section">
+        <div class="powertrain-container">
+            <header class="powertrain-header">
+                <h2 class="powertrain-title">Unmatched Versatility: Configured for Your Kent Business</h2>
+            </header>
+
+            <div class="powertrain-content">
+                <p>The true genius of the Ford Transit lies in its incredible versatility. No two businesses are the same, and the Transit can be configured in a seemingly endless number of ways to meet your specific needs. From florists at Pike Place Market to construction crews in Renton, there is a Transit for every trade.</p>
+                <p><strong>Key Configurations Include:</strong></p>
+                <ul>
+                    <li>Roof Heights: Choose from low, medium, and high roof options, allowing for easier access to parking garages or incredible stand-up interior space for a mobile workshop.</li>
+                    <li>Wheelbases: Multiple wheelbase lengths are available, directly impacting cargo volume and maneuverability.</li>
+                    <li>Body Styles: The Transit is available in various body styles, including a Cargo Van, a Passenger Van (also known as a Wagon), a Crew Van, a Cutaway, and a Chassis Cab, providing a foundational platform for numerous custom upfits.</li>
+                </ul>
+            </div>
+
+            <div class="engine-table-container">
+                <table class="engine-table">
+                    <thead>
+                        <tr>
+                            <th>Van Configuration</th>
+                            <th>Max. Cargo Height</th>
+                            <th>Max. Cargo Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="engine-name">Low Roof</td>
+                            <td class="spec-value">56.9 in.</td>
+                            <td class="spec-value">Up to 280.9 cu. ft.</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">Medium Roof</td>
+                            <td class="spec-value">72.0 in.</td>
+                            <td class="spec-value">Up to 404.3 cu. ft.</td>
+                        </tr>
+                        <tr>
+                            <td class="engine-name">High Roof</td>
+                            <td class="spec-value">81.5 in.</td>
+                            <td class="spec-value">Up to 487.3 cu. ft.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="table-note">At Bowen Scarff Ford, our commercial vehicle experts can walk you through every option to build the perfect van for your business needs, ensuring you maximize every square inch of space.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<style>
+.tech-section {
+  background: #ebf4ff;
+  padding: 60px 20px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-title {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  animation: fadeInDown 1s ease-out;
+}
+
+.tech-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 60px;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.tech-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.tech-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.8s ease-out;
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.tech-card:hover::before {
+  left: 100%;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #007aff, #ff9500);
+  transition: width 0.4s ease;
+}
+
+.tech-card:hover .card-title::after {
+  width: 60px;
+}
+
+.card-content {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.tech-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 25px;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.tech-card:hover .tech-image {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .tech-title {
+    font-size: 2.5rem;
+  }
+  
+  .tech-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .tech-card {
+    padding: 30px 25px;
+  }
+}
+</style>
+
+<div class="tech-section" id="technology-connectivity">
+  <div class="tech-container">
+    <h1 class="tech-title">Advanced Technology and Seamless Connectivity</h1>
+    <p class="tech-subtitle" style="margin-bottom: 50px;">Connecting driver and vehicle, the 2025 Base F-150 Lightning offers a suite of electronic systems designed to enhance convenience and command.</p>
+    
+    <div class="tech-content">
+      <div class="tech-card">
+        <h3 class="card-title">Infotainment and Interface</h3>
+        <div class="card-content">
+          A 12-inch digital instrument cluster coupled with a 12-inch touchscreen featuring Ford Sync 4 software provides intuitive access to vehicle settings, navigation, and media. Both Apple CarPlay and Android Auto come standard with wireless support, simplifying smartphone integration for drivers navigating the greater Seattle area.
+          <br><br>
+          Additionally, wireless charging pads and a 360-degree camera system offer added convenience and safety, assisting in tight parking situations along Downtown Kent.
+        </div>
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:28f9f76c-de80-4610-96e5-b5eb4114874d/as/25_FRDNMODT0006_Ford_LightningLux_5193_03_G_RGB_v01.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Ford Lightning Technology Infotainment" class="tech-image">
+      </div>
+      
+      <div class="tech-card">
+        <h3 class="card-title">Driving Enhancements and Hands-Free Capability</h3>
+        <div class="card-content">
+          The Base trim is equipped with Ford's advanced driver-assist technology suite, including the upgraded BlueCruise version 1.4. This hands-free driving system operates on nearly 97% of mapped U.S. and Canadian highways, allowing for more relaxed highway drives on I-5 or SR-512.
+          <br><br>
+          Additional features include lane change assist and in-lane repositioning, both aimed at reducing driver fatigue during long commutes or highway cruising across the Puget Sound region.
+        </div>
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:fbeb139c-8931-44eb-8398-855a58262060/as/2025-f150-lightning-vhp-highlights-bluecruise.webp?max-quality=75&crop-names=1_21x9&width=3840" alt="Ford Lightning BlueCruise Hands-Free" class="tech-image">
+      </div>
+    </div>
+  </div>
+</div>

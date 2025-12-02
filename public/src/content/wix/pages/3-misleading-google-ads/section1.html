@@ -1,0 +1,427 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Container */
+      .fix-section-wrapper {
+        width: 100%;
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 60px 0 !important;
+        font-family: Verdana, Geneva, sans-serif;
+        box-sizing: border-box;
+      }
+
+      /* Main Heading - left aligned with side line */
+      .fix-main-heading {
+        font-size: 32px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 0 0 50px 0;
+        padding-left: 24px;
+        font-family: Verdana, Geneva, sans-serif;
+        letter-spacing: -0.5px;
+        position: relative;
+      }
+
+      .fix-main-heading::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: linear-gradient(180deg, #26488D 0%, #1a3566 100%);
+        border-radius: 3px;
+      }
+
+      /* Section heading */
+      .fix-section-heading {
+        font-size: 17px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 40px 0 16px 0;
+        font-family: Verdana, Geneva, sans-serif;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .fix-section-heading::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #26488D;
+        border-radius: 2px;
+      }
+
+      /* Tab Navigation */
+      .fix-tabs-wrapper {
+        margin: 40px 0;
+      }
+
+      .fix-tabs-nav {
+        display: flex;
+        gap: 8px;
+        border-bottom: 3px solid #e8eef7;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .fix-tab-button {
+        background: transparent;
+        border: none;
+        color: #5a5a5a;
+        font-size: 17px;
+        font-weight: 600;
+        font-family: Verdana, Geneva, sans-serif;
+        padding: 14px 24px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -3px;
+      }
+
+      .fix-tab-button:hover {
+        color: #26488D;
+        background: rgba(38, 72, 141, 0.05);
+      }
+
+      .fix-tab-button.active {
+        color: #26488D;
+        border-bottom-color: #26488D;
+        background: rgba(38, 72, 141, 0.05);
+      }
+
+      .fix-tab-button::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: currentColor;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .fix-tab-button.active::before {
+        opacity: 1;
+      }
+
+      /* Tab Content */
+      .fix-tab-content {
+        display: none;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .fix-tab-content.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tab content styling */
+      .fix-tab-panel {
+        padding: 0;
+      }
+
+      /* Paragraph styling */
+      .fix-paragraph {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        margin: 0 0 20px 0;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .fix-paragraph strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Link styling */
+      .fix-paragraph a,
+      .fix-list a {
+        color: #26488D;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid #26488D;
+        padding-bottom: 1px;
+      }
+
+      .fix-paragraph a:hover,
+      .fix-list a:hover {
+        color: #1a3566;
+        border-bottom-color: #1a3566;
+        padding-bottom: 3px;
+      }
+
+      /* Custom bullet list - minimalistic circles */
+      .fix-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 30px 0;
+      }
+
+      .fix-list li {
+        padding: 10px 0 10px 32px;
+        position: relative;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        font-family: Verdana, Geneva, sans-serif;
+        transition: padding-left 0.2s ease;
+      }
+
+      .fix-list li::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 18px;
+        width: 8px;
+        height: 8px;
+        background: transparent;
+        border: 2px solid #26488D;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .fix-list li::after {
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 22px;
+        width: 0;
+        height: 0;
+        background: #26488D;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .fix-list li:hover {
+        padding-left: 36px;
+      }
+
+      .fix-list li:hover::before {
+        border-color: #1a3566;
+        transform: scale(1.2);
+      }
+
+      .fix-list li:hover::after {
+        width: 4px;
+        height: 4px;
+      }
+
+      .fix-list li strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Note box - minimal */
+      .fix-note-box {
+        background: #f8f9fc;
+        border-left: 4px solid #26488D;
+        border-radius: 4px;
+        padding: 20px 24px;
+        margin: 30px 0;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .fix-note-box strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Call to action box */
+      .fix-cta-box {
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 24px 28px;
+        margin: 30px 0;
+        font-size: 17px;
+        line-height: 1.6;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .fix-cta-box a {
+        color: #ffffff;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        padding-bottom: 1px;
+        transition: all 0.3s ease;
+      }
+
+      .fix-cta-box a:hover {
+        border-bottom-color: #ffffff;
+        padding-bottom: 3px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .fix-section-wrapper {
+          padding: 40px 20px !important;
+        }
+
+        .fix-main-heading {
+          font-size: 26px;
+          padding-left: 20px;
+        }
+
+        .fix-main-heading::before {
+          width: 5px;
+        }
+
+        .fix-tabs-nav {
+          gap: 4px;
+        }
+
+        .fix-tab-button {
+          font-size: 15px;
+          padding: 12px 16px;
+        }
+
+        .fix-section-heading {
+          font-size: 16px;
+          padding-left: 20px;
+        }
+
+        .fix-section-heading::before {
+          width: 10px;
+          height: 10px;
+        }
+
+        .fix-list li {
+          padding-left: 28px;
+        }
+
+        .fix-list li:hover {
+          padding-left: 32px;
+        }
+
+        .fix-note-box,
+        .fix-cta-box {
+          padding: 18px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background:#ffffff;">
+    <div class="fix-section-wrapper" id="fix-data">
+      
+      <!-- Main Heading -->
+      <h1 class="fix-main-heading">How to Fix Misleading Google Ads Data</h1>
+
+      <!-- Tabbed Content -->
+      <div class="fix-tabs-wrapper">
+        <div class="fix-tabs-nav">
+          <button class="fix-tab-button active" onclick="switchTab(event, 'store-visits')">Store Visits</button>
+          <button class="fix-tab-button" onclick="switchTab(event, 'ga4-data')">GA4 Data</button>
+          <button class="fix-tab-button" onclick="switchTab(event, 'phone-calls')">Phone Calls</button>
+        </div>
+
+        <!-- Store Visits Tab -->
+        <div id="store-visits" class="fix-tab-content active">
+          <div class="fix-tab-panel">
+            <ul class="fix-list">
+              <li>Segment by conversion action in Google Ads to see which conversions are actually changing</li>
+              <li>Ignore Store Visits data in your decision-making</li>
+              <li>Focus on verifiable conversion actions: forms, trackable calls, chat conversations</li>
+              <li>If Store Visits fluctuate wildly but other metrics are stable, trust the other metrics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- GA4 Data Tab -->
+        <div id="ga4-data" class="fix-tab-content">
+          <div class="fix-tab-panel">
+            <ul class="fix-list">
+              <li>Create two GA4 properties under your account</li>
+              <li>Turn Data Signals OFF on one property for clean reporting</li>
+              <li>Keep Data Signals ON on the other for remarketing audiences</li>
+              <li>Watch for the orange "thresholding applied" warning cone</li>
+              <li>Compare both properties regularly to understand what data you're missing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phone Calls Tab -->
+        <div id="phone-calls" class="fix-tab-content">
+          <div class="fix-tab-panel">
+            <ul class="fix-list">
+              <li>Implement third-party call tracking (We recommend CallRail)</li>
+              <li>Listen to actual calls to verify quality and count</li>
+              <li>Understand Google's definitions: "Phone Calls" = clicks/dials, "Call from Ads" = 30+ seconds</li>
+              <li>Report internally on actual conversations, not platform metrics</li>
+              <li>Cross-reference Google's numbers with your call tracking system</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important Note -->
+      <div class="fix-note-box">
+        <strong>Another important thing to do is to always question everything and double-check everything.</strong>
+      </div>
+
+      <p class="fix-paragraph">
+        Not everything that Google recommends as a default setting is good. You need to really explore outside the bounds to get accurate reporting.
+      </p>
+
+      <p class="fix-paragraph">
+        <strong>Test these things for yourself.</strong>
+      </p>
+
+      <p class="fix-paragraph">
+        If you have events and conversions set up properly in your account, try the dual GA4 property approach. Compare Store Visits to your actual foot traffic. Install call tracking and see how it aligns with Google's numbers.
+      </p>
+
+      <!-- CTA Box -->
+      <div class="fix-cta-box">
+        We have plenty of resources on <a href="https://www.youtube.com/@david-feldman-makrias" target="_blank">YouTube</a> for setting up events in Google Tag Manager and pushing them to GA4 if you need help with these setups.
+      </div>
+
+    </div>
+
+    <script>
+      function switchTab(event, tabId) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll('.fix-tab-content');
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        // Remove active class from all buttons
+        const tabButtons = document.querySelectorAll('.fix-tab-button');
+        tabButtons.forEach(button => {
+          button.classList.remove('active');
+        });
+
+        // Show selected tab content
+        document.getElementById(tabId).classList.add('active');
+
+        // Add active class to clicked button
+        event.currentTarget.classList.add('active');
+      }
+    </script>
+  </body>
+</html>

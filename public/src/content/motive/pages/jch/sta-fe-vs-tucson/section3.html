@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .hyundai-dimensions-analytics-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hyundai-dimensions-analytics-container h1 {
+        width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin: 0 !important;
+            margin-bottom: 1.5rem !important;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 1300px;
+      }
+
+      .hyundai-dimensions-analytics-container h1:hover {
+        transform: translateY(-2px);
+        text-shadow: 0 4px 8px rgba(1, 43, 93, 0.2);
+      }
+
+      .hyundai-dimensions-analytics-container h1::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        transition: width 0.5s ease;
+      }
+
+      .hyundai-dimensions-analytics-container h1:hover::after {
+        width: 100%;
+      }
+
+      .hyundai-dimensions-analytics-container h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #002c5f;
+        margin: 2rem 0 1rem 0;
+        transition: color 0.3s ease;
+        max-width: 1300px !important;
+      }
+
+      .hyundai-dimensions-analytics-container h2:hover {
+        color: #012b5d;
+      }
+
+      .hyundai-dimensions-analytics-container h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #002c5f;
+        margin: 1.5rem 0 0.8rem 0;
+        max-width: 1300px !important;
+        transition: all 0.3s ease;
+      }
+
+      .hyundai-dimensions-analytics-container h3:hover {
+        color: #012b5d;
+        transform: translateX(5px);
+      }
+
+      .hyundai-dimensions-analytics-container p {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        color: #444;
+        max-width: 1300px !important;
+        transition: all 0.3s ease;
+        line-height: 1.7;
+      }
+
+      .hyundai-dimensions-analytics-container p:hover {
+        color: #222;
+        transform: translateX(3px);
+      }
+
+      .hyundai-dimensions-analytics-container ol,
+      .hyundai-dimensions-analytics-container ul {
+        margin: 1rem 0 1.5rem 1.5rem;
+        max-width: 1300px !important;
+      }
+
+      .hyundai-dimensions-analytics-container li {
+        margin-bottom: 0.5rem;
+        color: #444;
+        transition: all 0.3s ease;
+      }
+
+      .hyundai-dimensions-analytics-container li:hover {
+        color: #012b5d;
+        transform: translateX(5px);
+      }
+
+      .hyundai-dimensions-analytics-container a {
+        color: #012b5d;
+        text-decoration: none;
+        position: relative;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: linear-gradient(
+          120deg,
+          rgba(1, 43, 93, 0.08),
+          rgba(0, 44, 95, 0.06)
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid rgba(1, 43, 93, 0.12);
+      }
+
+      .hyundai-dimensions-analytics-container a::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        transition: width 0.3s ease;
+      }
+
+      .hyundai-dimensions-analytics-container a:hover {
+        color: #002c5f;
+        transform: translateY(-1px) scale(1.02);
+        background: linear-gradient(
+          120deg,
+          rgba(1, 43, 93, 0.15),
+          rgba(0, 44, 95, 0.12)
+        );
+        border-color: rgba(1, 43, 93, 0.25);
+      }
+
+      .hyundai-dimensions-analytics-container a:hover::before {
+        width: 100%;
+      }
+
+      .dimensions-exploration-section {
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.02),
+          rgba(0, 44, 95, 0.04)
+        );
+        border-radius: 16px;
+        padding: 3rem;
+        margin: 2.5rem 0;
+        border: 1px solid rgba(1, 43, 93, 0.1);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+
+      .dimensions-exploration-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(1, 43, 93, 0.05),
+          transparent
+        );
+        transition: left 0.8s ease;
+      }
+
+      .dimensions-exploration-section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(1, 43, 93, 0.1);
+        border-color: rgba(1, 43, 93, 0.2);
+      }
+
+      .dimensions-exploration-section:hover::before {
+        left: 100%;
+      }
+
+      .dimensions-exploration-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .vehicle-comparison-showcase {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        margin: 2rem 0;
+        padding: 2rem;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(248, 249, 250, 0.6)
+        );
+        border-radius: 12px;
+        border: 1px solid rgba(1, 43, 93, 0.08);
+      }
+
+      .vehicle-dimension-card {
+        text-align: center;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(1, 43, 93, 0.03),
+          rgba(0, 44, 95, 0.02)
+        );
+        border-radius: 10px;
+        border: 1px solid rgba(1, 43, 93, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .vehicle-dimension-card:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(1, 43, 93, 0.12);
+      }
+
+      .dimension-vs-divider {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #002c5f;
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .vehicle-image-container {
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
+        margin: 3rem 0 5rem 0 !important;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+        transition: all 0.3s ease;
+        outline: 1px dashed #012b5d;
+        outline-offset: 10px;
+      }
+
+      .vehicle-image-container:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(1, 43, 93, 0.2);
+      }
+
+      .vehicle-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+
+      .vehicle-image-container:hover img {
+        transform: scale(1.05);
+      }
+
+      .capacity-statistics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .capacity-stat-card {
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(248, 249, 250, 0.7)
+        );
+        border: 1px solid rgba(1, 43, 93, 0.1);
+        border-radius: 10px;
+        padding: 1.8rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .capacity-stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(1, 43, 93, 0.06),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .capacity-stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(1, 43, 93, 0.12);
+        border-color: rgba(0, 44, 95, 0.2);
+      }
+
+      .capacity-stat-card:hover::before {
+        left: 100%;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-label {
+        color: #002c5f;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-description {
+        color: #666;
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .vehicle-all-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 50px !important;
+      }
+
+      @media (max-width: 768px) {
+        .vehicle-all-wrapper {
+          flex-direction: column;
+        }
+
+        .hyundai-dimensions-analytics-container {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .hyundai-dimensions-analytics-container h1 {
+          font-size: 2rem;
+        }
+
+        .hyundai-dimensions-analytics-container h2 {
+          font-size: 1.5rem;
+        }
+
+        .hyundai-dimensions-analytics-container h3 {
+          font-size: 1.2rem;
+        }
+
+        .hyundai-dimensions-analytics-container p {
+          font-size: 1rem;
+        }
+
+        .dimensions-exploration-section {
+          padding: 2rem;
+          margin: 2rem 0;
+        }
+
+        .vehicle-comparison-showcase {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .dimension-vs-divider {
+          order: -1;
+        }
+
+        .capacity-statistics-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .capacity-stat-card {
+          padding: 1.5rem;
+        }
+
+        .stat-number {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hyundai-dimensions-analytics-container">
+      <div class="dimensions-exploration-section">
+        <h1>Exterior Dimensions: Parking, Presence, and Practicality</h1>
+
+        <p>
+          The 2025 Santa Fe measures a substantial 190.2 inches in length with a
+          110.8-inch wheelbase, making it a true mid-size SUV. The 2025 Tucson
+          is more compact, at 182.7 inches long with a 108.5-inch wheelbase.
+          That 7.5-inch difference in length has a real impact on your daily
+          drive.
+        </p>
+
+        <div class="vehicle-comparison-showcase">
+          <div class="vehicle-dimension-card">
+            <h3>Santa Fe</h3>
+            <div class="stat-number">190.2"</div>
+            <div class="stat-label">Length</div>
+          </div>
+          <div class="dimension-vs-divider">VS</div>
+          <div class="vehicle-dimension-card">
+            <h3>Tucson</h3>
+            <div class="stat-number">182.7"</div>
+            <div class="stat-label">Length</div>
+          </div>
+        </div>
+
+        <p>
+          For the Santa Fe, its larger size gives it a confident, stable
+          presence on the road, which you'll appreciate when merging during rush
+          hour. It feels planted and secure. However, that length means you'll
+          need a bit more awareness when navigating tight parking garages or
+          fitting into a spot at a busy shopping center.
+        </p>
+
+        <p>
+          The Tucson's smaller dimensions make it a master of maneuverability.
+          It's noticeably easier to park, whether you're in a crowded lot or
+          your own garage. For drivers who spend a lot of time in the city or in
+          dense suburban areas, the Tucson's agility is a significant advantage.
+        </p>
+      </div>
+
+      <div class="dimensions-exploration-section">
+        <h2>Interior Volume and Seating</h2>
+
+        <div class="vehicle-all-wrapper">
+          <div class="vehicle-image-container">
+            <img
+              src="https://di-uploads-pod32.dealerinspire.com/checkeredflaghyundaiworld/uploads/2024/10/2024-santa-fe-mx5-0161-gallery_4-3.webp"
+              alt="Santa Fe Interior"
+            />
+          </div>
+          <div class="vehicle-image-container">
+            <img
+              src="https://di-uploads-pod32.dealerinspire.com/wolfchasehyundai/uploads/2024/12/2025_Hyundai_Santa_Fe_-_H3_Interior_Seating_Image.jpg"
+              alt="Santa Fe Interior"
+            />
+          </div>
+        </div>
+
+        <p>
+          This is where the Santa Fe shines. It comes standard with three rows
+          of seating for up to seven passengers. If you opt for the luxurious
+          <a
+            href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Santa_Fe-Calligraphy-5NMP54GL6SH127121"
+            >Calligraphy</a
+          >
+          trim, you get premium second-row captain's chairs, creating an even
+          more comfortable six-passenger configuration. This makes the Santa Fe
+          the undisputed choice for larger families or anyone who frequently
+          handles carpool duty. It offers more headroom, shoulder room, and hip
+          room in the first two rows, creating a more open and airy cabin
+          experience.
+        </p>
+
+        <div class="vehicle-all-wrapper">
+            <div class="vehicle-image-container">
+              <img
+                src="https://di-uploads-pod32.dealerinspire.com/wolfchasehyundai/uploads/2024/09/2025_Hyundai_Tucson_-_H4_-_Tech_Image.jpg"
+                alt="Santa Fe Interior"
+              />
+            </div>
+            <div class="vehicle-image-container">
+              <img
+                src="https://www.hyundaicanada.com/-/media/hyundai/showroom/2025/tucson/exterior_gallery/thumbnail/mobile/img_005.jpg?h=500&w=600&la=en&hash=A83DFBC5AB4618BDC94B59564130F163"
+                alt="Santa Fe Interior"
+              />
+            </div>
+          </div>
+
+        <p>
+          The Tucson is exclusively a five-passenger SUV. While it doesn't have
+          a third row, it provides a remarkably spacious and comfortable
+          environment for its occupants. In fact, the Tucson offers an
+          impressive 41.3 inches of rear legroom, which is nearly identical to
+          the Santa Fe's generous 41.5 inches in its second row. This means that
+          for a family of four or five, the Tucson provides ample room for
+          everyone to stretch out and be comfortable, even on longer drives.
+        </p>
+      </div>
+
+      <div class="dimensions-exploration-section">
+        <h2>Cargo Capacity: From Groceries to Camping Gear</h2>
+
+        <div class="vehicle-all-wrapper">
+            <div class="vehicle-image-container">
+              <img
+                src="https://di-uploads-pod32.dealerinspire.com/wolfchasehyundai/uploads/2024/12/2025_Hyundai_Santa_Fe_-_H4_Cargo_Image.jpg"
+                alt="Santa Fe Interior"
+              />
+            </div>
+            <div class="vehicle-image-container">
+              <img
+                src="https://img.sm360.ca/images//article/humberviewgroup-941/136614/file/large-56552-2024santafe2-5t1734718691368.jpg"
+                alt="Santa Fe Interior"
+              />
+            </div>
+          </div>
+
+        <p>
+          When it comes to hauling stuff, it gets even more interesting. With
+          all three rows of seats in place, the Santa Fe offers a practical 14.6
+          cubic feet of cargo space, which is perfect for a week's worth of
+          groceries or a couple of backpacks. Fold that third row down, and the
+          space expands to a massive 40.5 cubic feet, easily swallowing luggage
+          for a family weekend getaway.
+        </p>
+
+        <div class="vehicle-all-wrapper">
+            <div class="vehicle-image-container">
+              <img
+                src="https://di-uploads-pod27.dealerinspire.com/dicksmithhyundai/uploads/2025/05/Large-63384-2025TucsonHybrid.jpg"
+                alt="Santa Fe Interior"
+              />
+            </div>
+            <div class="vehicle-image-container">
+              <img
+                src="https://mystrongad.com/vehicle/hyundai/2025/tucson/interior/2025-hyundai-tucson-cargo.webp"
+                alt="Santa Fe Interior"
+              />
+            </div>
+          </div>
+
+        <p>
+          The Tucson, with its rear seats up, provides a best-in-class 41.2
+          cubic feet of cargo space (in gasoline models). This means that for
+          everyday use, the five-seat Tucson actually offers slightly more
+          usable cargo room behind its second row than the seven-seat Santa Fe
+          does.
+        </p>
+
+        <p>
+          But the most surprising detail emerges when you fold all the rear
+          seats down.
+        </p>
+
+        <div class="capacity-statistics-grid">
+          <div class="capacity-stat-card">
+            <div class="stat-number">80.3</div>
+            <div class="stat-label">Tucson Max Cargo</div>
+            <div class="stat-description">Cubic feet (gas model)</div>
+          </div>
+          <div class="capacity-stat-card">
+            <div class="stat-number">79.6</div>
+            <div class="stat-label">Santa Fe Max Cargo</div>
+            <div class="stat-description">Cubic feet</div>
+          </div>
+        </div>
+
+        <p>
+          The Tucson (gas model) boasts a maximum cargo capacity of 80.3 cubic
+          feet, while the Santa Fe offers 79.6 cubic feet.
+        </p>
+
+        <p>
+          How is this possible? It comes back to the design philosophy. The
+          Santa Fe's interior volume is distributed across three rows to
+          maximize passenger capacity. The Tucson concentrates its volume in a
+          dedicated two-row passenger and cargo area. This creates a critical
+          decision point. If you don't need to carry more than five people, the
+          Tucson might actually be the more practical choice for hauling bulky
+          items. For a couple who loves antiquing or needs to transport large
+          home improvement supplies, the Tucson's wide-open cargo bay could be
+          more useful than the Santa Fe's people-focused layout. It challenges
+          the simple assumption that the bigger vehicle always has more cargo
+          space and encourages you to think about how you'll use that space.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

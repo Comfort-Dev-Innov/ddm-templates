@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW X6 Performance Specifications</title>
+  <style>
+    .comparison-container {
+      padding: 10px 0px 40px 0px !important;
+      line-height: 1.6 !important;
+      max-width: 1300px !important;
+      margin: 0 auto !important;
+    }
+
+    .comparison-container h1 {
+      width: fit-content !important;
+      font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+      color: #0366b0 !important;
+      margin-bottom: 1.5rem !important;
+      font-weight: 700 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h1:hover {
+      color: #024a80 !important;
+    }
+
+    .comparison-container h2 {
+      max-width: 1300px !important;
+      font-size: clamp(1.5rem, 3.5vw, 2rem) !important;
+      color: #0366b0 !important;
+      margin: 2.5rem 0 1.25rem 0 !important;
+      font-weight: 600 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h2:hover {
+      color: #024a80 !important;
+    }
+
+    .comparison-container h3 {
+      max-width: 1300px !important;
+      font-size: 25px !important;
+      color: #000000 !important;
+      margin: 2rem 0 0 0 !important;
+      font-weight: 600 !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .comparison-container h3:hover {
+      color: #0366b0 !important;
+    }
+
+    .comparison-container p {
+      max-width: 1300px !important;
+      font-size: 16px !important;
+      color: #000000 !important;
+      margin-bottom: 1.25rem !important;
+      text-align: justify !important;
+      transition: opacity 0.3s ease !important;
+    }
+
+    .comparison-container p:hover {
+      opacity: 0.85 !important;
+    }
+
+    .comparison-container ol,
+    .comparison-container ul {
+      max-width: 1300px !important;
+      margin-bottom: 1.5rem !important;
+      padding-left: 0 !important;
+      list-style: none !important;
+    }
+
+    .comparison-container ul li {
+      margin-bottom: 1.25rem !important;
+      padding-left: 2.5rem !important;
+      color: #000000 !important;
+      font-size: clamp(0.95rem, 2vw, 1.05rem) !important;
+      position: relative !important;
+      transition: all 0.3s ease !important;
+      border-left: 3px solid #0366b0 !important;
+      padding: 0.75rem 0 0.75rem 2.5rem !important;
+      border-radius: 4px !important;
+      background-color: #f8f9fa !important;
+      transform: translateX(8px) !important;
+    }
+
+    .comparison-container ul li:hover {
+      background-color: #e8edf2 !important;
+      border-left-color: #024a80 !important;
+    }
+
+    .comparison-container ul li::before {
+      content: "▸" !important;
+      position: absolute !important;
+      left: 0.75rem !important;
+      color: #024a80 !important;
+      font-size: 1.2rem !important;
+      font-weight: bold !important;
+      transition: all 0.3s ease !important;
+      transform: scale(1.2) !important;
+    }
+
+    .comparison-container ul li:hover::before {
+      color: #012e50 !important;
+    }
+
+    .comparison-container ul li strong {
+      color: #0366b0 !important;
+      font-weight: 600 !important;
+      font-size: 1.05rem !important;
+      display: block !important;
+      margin-bottom: 0.35rem !important;
+    }
+
+    /* Single Image Section */
+    .bmw-x6-perf-image-wrapper {
+      width: 100% !important;
+      max-width: 1300px !important;
+      margin: 2rem auto !important;
+      overflow: hidden !important;
+      border-radius: 12px !important;
+      box-shadow: 0 6px 20px rgba(3, 102, 176, 0.15) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      position: relative !important;
+    }
+
+    .bmw-x6-perf-image-wrapper:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 12px 32px rgba(3, 102, 176, 0.25) !important;
+    }
+
+    .bmw-x6-perf-image-wrapper img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 550px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      display: block !important;
+      transition: transform 0.4s ease !important;
+      position: relative !important;
+    }
+
+    .bmw-x6-perf-image-wrapper::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 5px !important;
+      left: 5px !important;
+      right: 5px !important;
+      bottom: 5px !important;
+      border: 2px dashed #fff !important;
+      border-radius: 8px !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      transition: border-color 0.3s ease !important;
+    }
+
+    .bmw-x6-perf-image-wrapper:hover img {
+      transform: scale(1.03) !important;
+    }
+
+    .bmw-x6-perf-image-label {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      background: linear-gradient(to top, rgba(3, 102, 176, 0.95), transparent) !important;
+      color: #ffffff !important;
+      padding: 1.5rem !important;
+      font-weight: 600 !important;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem) !important;
+      text-align: center !important;
+      transition: background 0.3s ease !important;
+    }
+
+    .bmw-x6-perf-image-wrapper:hover .bmw-x6-perf-image-label {
+      background: linear-gradient(to top, rgba(2, 74, 128, 0.95), transparent) !important;
+    }
+
+    /* Table Styles */
+    .table-wrapper {
+      width: 100% !important;
+      max-width: 1300px !important;
+      margin: 0.5rem auto 2rem auto !important;
+      overflow-x: auto !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 12px rgba(3, 102, 176, 0.08) !important;
+      transition: box-shadow 0.3s ease !important;
+    }
+
+    .table-wrapper:hover {
+      box-shadow: 0 6px 20px rgba(3, 102, 176, 0.12) !important;
+    }
+
+    .e-rte-table {
+      width: 100% !important;
+      max-width: 1300px !important;
+      border-collapse: collapse !important;
+      background-color: #ffffff !important;
+      font-size: clamp(0.875rem, 1.8vw, 1rem) !important;
+    }
+
+    .e-rte-table thead {
+      background-color: #0366b0 !important;
+      color: #ffffff !important;
+    }
+
+    .e-rte-table thead th {
+      padding: 1rem !important;
+      text-align: left !important;
+      font-weight: 600 !important;
+      font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+      border-bottom: 2px solid #024a80 !important;
+      transition: background-color 0.3s ease !important;
+    }
+
+    .e-rte-table thead th:hover {
+      background-color: #024a80 !important;
+    }
+
+    .e-rte-table tbody tr {
+      border-bottom: 1px solid #e0e0e0 !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .e-rte-table tbody tr:hover {
+      background-color: #f8f9fa !important;
+      transform: scale(1.01) !important;
+    }
+
+    .e-rte-table tbody tr:last-child {
+      border-bottom: none !important;
+    }
+
+    .e-rte-table tbody td {
+      padding: 1rem !important;
+      color: #000000 !important;
+      vertical-align: top !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .e-rte-table tbody td:first-child {
+      font-weight: 600 !important;
+      color: #0366b0 !important;
+    }
+
+    .e-rte-table tbody tr:hover td:first-child {
+      color: #024a80 !important;
+    }
+
+    .e-rte-table tbody td strong {
+      color: #0366b0 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .comparison-container {
+        padding: 30px 15px !important;
+      }
+
+      .e-rte-table {
+        font-size: 0.9rem !important;
+      }
+
+      .e-rte-table thead th,
+      .e-rte-table tbody td {
+        padding: 0.75rem !important;
+      }
+
+      .bmw-x6-perf-image-wrapper img {
+        max-height: 450px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .comparison-container {
+        padding: 25px 12px !important;
+      }
+
+      .comparison-container p {
+        text-align: left !important;
+      }
+
+      .comparison-container ul li {
+        padding: 0.5rem 0 0.5rem 1.75rem !important;
+      }
+
+      .comparison-container ul li:hover {
+        padding-left: 2rem !important;
+      }
+
+      .bmw-x6-perf-image-wrapper {
+        border-radius: 8px !important;
+      }
+
+      .bmw-x6-perf-image-wrapper img {
+        max-height: 350px !important;
+      }
+
+      .table-wrapper {
+        border-radius: 6px !important;
+      }
+
+      .e-rte-table {
+        font-size: 0.85rem !important;
+      }
+
+      .e-rte-table thead th,
+      .e-rte-table tbody td {
+        padding: 0.6rem !important;
+      }
+
+      /* Stack table for mobile if needed */
+      .e-rte-table thead {
+        display: none !important;
+      }
+
+      .e-rte-table tbody tr {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 6px !important;
+        padding: 0.5rem !important;
+      }
+
+      .e-rte-table tbody tr:hover {
+        transform: scale(1) !important;
+      }
+
+      .e-rte-table tbody td {
+        display: block !important;
+        text-align: left !important;
+        padding: 0.5rem !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+      }
+
+      .e-rte-table tbody td:last-child {
+        border-bottom: none !important;
+      }
+
+      .e-rte-table tbody td:before {
+        content: attr(data-label) !important;
+        font-weight: 600 !important;
+        color: #0366b0 !important;
+        display: block !important;
+        margin-bottom: 0.25rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .comparison-container {
+        padding: 20px 10px !important;
+      }
+
+      .bmw-x6-perf-image-wrapper img {
+        max-height: 280px !important;
+      }
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth !important;
+    }
+
+    /* Selection styling */
+    ::selection {
+      background-color: #0366b0 !important;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="comparison-container">
+    <p>Underpinning the BMW X6's performance is an advanced lineup designed to satisfy both spirited drivers from Choctaw and families from Piedmont seeking versatility.</p>
+
+    <div class="bmw-x6-perf-image-wrapper">
+        <img src="https://www.bmwusa.com/content/dam/bmw/marketUS/common/vehicles/2025/my26/x-models/x6/bmw-m/desktop/BMW-MY26-X6-MDP-M60i-Features-01-Desktop.jpg" alt="2026 BMW X6 - Performance and Power">
+      </div>
+    <ul>
+      <li>
+        <strong>Base xDrive40i Model:</strong>
+        Powered by a 3.0-liter turbocharged inline-six with mild-hybrid technology, it delivers a robust 375 horsepower and 383 lb-ft of torque, enabling a brisk 0-60 mph in just around 5.2 seconds. This balance of power and efficiency is fine-tuned for urban commutes as well as highway cruising around Mustang or Bethany.
+      </li>
+      <li>
+        <strong>M60i xDrive:</strong>
+        Elevating the performance bar, the 4.4-liter twin-turbocharged V8 pumps out 523 horsepower and 553 lb-ft of torque, pushing the sprint to 60 mph in an estimated 4.2 seconds paired with a refined M Sport exhaust and braking system.
+      </li>
+      <li>
+        <strong>M Competition Variant:</strong>
+        Demanding ultimate performance? The M Competition answers with 617 horsepower, yielding exhilarating 3.5-second acceleration. This power is expertly managed by a reinforced chassis and a highly capable adaptive suspension setup, and extends the X6's sports car DNA while maintaining SUV comfort.
+      </li>
+    </ul>
+
+    <p>The BMW xDrive all-wheel drive system ensures traction and composure on local Edmond roads, while adaptive suspensions tailor ride dynamics between comfort and athleticism. In comparison, the standard engine for the 2026 Mercedes-Benz GLE Coupe (GLE 450 4MATIC) is a 3.0-liter inline-6 turbo, producing 375 hp and 369 lb-ft of torque, integrated with a 48-volt mild-hybrid system. The drivetrain utilizes a 9-speed automatic transmission (9G-TRONIC) and the 4MATIC permanent all-wheel-drive system for optimal traction and performance.</p>
+
+    <h3>Performance Specifications</h3>
+
+    <div class="table-wrapper">
+      <table class="e-rte-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th><strong>BMW X6 xDrive40i</strong></th>
+            <th>BMW X6 M60i</th>
+            <th>BMW X6 M Competition</th>
+            <th>Mercedes-Benz GLE Coupe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Specification">Engine</td>
+            <td data-label="BMW X6 xDrive40i">3.0L I6 Turbo w/ Mild Hybrid</td>
+            <td data-label="BMW X6 M60i">4.4L Twin-Turbo V8</td>
+            <td data-label="BMW X6 M Competition">4.4L Twin-Turbo V8</td>
+            <td data-label="Mercedes-Benz GLE Coupe">3.0L inline-6 turbo with mild hybrid drive</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Horsepower</td>
+            <td data-label="BMW X6 xDrive40i">375 hp</td>
+            <td data-label="BMW X6 M60i">523 hp</td>
+            <td data-label="BMW X6 M Competition">617 hp</td>
+            <td data-label="Mercedes-Benz GLE Coupe">375 hp</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Torque (lb-ft)</td>
+            <td data-label="BMW X6 xDrive40i">383 lb-ft</td>
+            <td data-label="BMW X6 M60i">553 lb-ft</td>
+            <td data-label="BMW X6 M Competition">553 lb-ft</td>
+            <td data-label="Mercedes-Benz GLE Coupe">369 lb-ft</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Transmission</td>
+            <td data-label="BMW X6 xDrive40i">8-speed automatic</td>
+            <td data-label="BMW X6 M60i">8-speed automatic</td>
+            <td data-label="BMW X6 M Competition">8-speed automatic</td>
+            <td data-label="Mercedes-Benz GLE Coupe">9-speed automatic transmission</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">All-Wheel Drive</td>
+            <td data-label="BMW X6 xDrive40i">Standard BMW xDrive</td>
+            <td data-label="BMW X6 M60i">Standard BMW xDrive</td>
+            <td data-label="BMW X6 M Competition">Standard BMW xDrive</td>
+            <td data-label="Mercedes-Benz GLE Coupe">All-wheel drive (4MATIC)</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">0-60 mph Acceleration (sec)</td>
+            <td data-label="BMW X6 xDrive40i">~5.2</td>
+            <td data-label="BMW X6 M60i">~4.2</td>
+            <td data-label="BMW X6 M Competition">~3.5</td>
+            <td data-label="Mercedes-Benz GLE Coupe">~5.3 sec</td>
+          </tr>
+          <tr>
+            <td data-label="Specification">Top Speed (mph)</td>
+            <td data-label="BMW X6 xDrive40i">130</td>
+            <td data-label="BMW X6 M60i">130</td>
+            <td data-label="BMW X6 M Competition">155 (177 with M Package)</td>
+            <td data-label="Mercedes-Benz GLE Coupe">155</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+

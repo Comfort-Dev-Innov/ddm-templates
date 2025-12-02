@@ -1,0 +1,325 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Comparison Table Styling */
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 1300px !important;
+        background: white;
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1.25rem 1rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: translateX(5px);
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 1rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .feature-label {
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .highlight-value {
+        font-weight: 600;
+        color: #0f3079;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 700px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.75rem 0.5rem;
+          font-size: 0.85rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td.feature-label {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.5rem 0.4rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Utility and Cargo Capacity: Hyundai Santa Cruz vs Nissan Frontier
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          How these two vehicles define "utility" is a study in contrast, with
+          the Santa Cruz focusing on innovative, lifestyle-oriented features and
+          the Frontier prioritizing raw capacity and traditional flexibility.
+        </p>
+        <p class="paragraph-text">
+          The 2026 Santa Cruz features a highly versatile 4.3-foot composite bed
+          that is packed with clever solutions for daily use. Its standout
+          feature is a lockable, waterproof under-floor storage compartment,
+          which functions like a car's trunk and even includes a drain plug,
+          making it perfect for use as a cooler. This provides secure,
+          weatherproof storage for groceries, tools, or gear without the need
+          for a separate toolbox or tonneau cover. Other smart touches include
+          integrated corner bumper steps for easy bed access and an available
+          factory-integrated retractable tonneau cover. The Santa Cruz has a
+          maximum payload capacity of 1,411 pounds and can tow up to 3,500
+          pounds with the base engine or a substantial 5,000 pounds with the
+          turbocharged engine and AWD.
+        </p>
+        <p class="paragraph-text">
+          The 2026 Frontier is all about traditional truck capability and scale.
+          It offers buyers a choice between a standard 5-foot bed or a longer
+          6-foot bed, a key advantage for those hauling lumber, motorcycles, or
+          other lengthy items. Its utility is enhanced by the available
+          Utili-track® Channel System, a highly regarded feature with three
+          rails and adjustable cleats for securing cargo of various shapes and
+          sizes. When it comes to raw power, the Frontier is the clear leader,
+          boasting a maximum towing capacity of up to 7,150 pounds and a payload
+          capacity of up to 1,620 pounds. This makes it the undisputed choice
+          for owners who need to tow larger boats, campers, or heavy equipment
+          trailers.
+        </p>
+        <p class="paragraph-text">
+          The choice comes down to the nature of the load. For lifestyle gear,
+          home improvement supplies, and everyday items, the Santa Cruz's
+          secure, convenient, and innovative features are arguably more
+          practical. For serious work, construction materials, or large
+          recreational toys, the Frontier's superior raw capacity is
+          non-negotiable.
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <br />
+      <h3 class="table-heading">Towing, Payload, and Bed Features</h3>
+
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Hyundai Santa Cruz</th>
+              <th>Nissan Frontier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-label">Max Towing Capacity</td>
+              <td>
+                3,500 lbs (2.5L) /
+                <span class="">5,000 lbs (2.5L Turbo)</span>
+              </td>
+              <td><span class="">Up to 7,150 lbs</span></td>
+            </tr>
+            <tr>
+              <td class="feature-label">Max Payload Capacity</td>
+              <td>1,411 lbs</td>
+              <td><span class="">Up to 1,620 lbs</span></td>
+            </tr>
+            <tr>
+              <td class="feature-label">Bed Length(s)</td>
+              <td>52.1 inches (4.3 feet)</td>
+              <td>59.5 inches (5 feet) or 73.3 inches (6.1 feet)</td>
+            </tr>
+            <tr>
+              <td class="feature-label">Bed Width (at wheelhouses)</td>
+              <td>42.7 inches</td>
+              <td>44.5 inches</td>
+            </tr>
+            <tr>
+              <td class="feature-label">Key Bed Features</td>
+              <td>
+                Lockable In-Bed Trunk®, Integrated Bumper Steps, Available
+                Integrated Tonneau Cover
+              </td>
+              <td>
+                Available Utili-track® Channel System, Available Spray-on
+                Bedliner, Dampened Assist Tailgate
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="hr-1" id="trim-breakdown" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section2 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        /* Feature Highlight Cards */
+        .design-cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin: 40px 0;
+        }
+
+        .design-card {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border-left: 5px solid #0f3079;
+          transition: all 0.3s ease;
+        }
+
+        .design-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+          border-left-color: #ff6b35;
+        }
+
+        .design-card.kona-card {
+          border-left-color: #0f3079;
+        }
+
+        .design-card.niro-card {
+          border-left-color: #6c757d;
+          background: linear-gradient(135deg, #f1f3f5 0%, #dee2e6 100%);
+        }
+
+        .card-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #0f3079;
+          margin-bottom: 15px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .card-title::before {
+          content: "✦";
+          font-size: 1.3rem;
+          color: #ff6b35;
+        }
+
+        .card-content {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+        }
+
+        .feature-list {
+          list-style: none;
+          padding: 0;
+          margin: 15px 0 0 0;
+        }
+
+        .feature-list li {
+          padding: 8px 0 8px 25px;
+          position: relative;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .feature-list li::before {
+          content: "→";
+          position: absolute;
+          left: 0;
+          color: #0f3079;
+          font-weight: bold;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+          background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+          color: white;
+          padding: 25px;
+          border-radius: 12px;
+          margin: 30px 0;
+          box-shadow: 0 4px 20px rgba(15, 48, 121, 0.2);
+        }
+
+        .highlight-box p {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.7;
+          text-align: justify;
+          font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .design-cards {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .card-title {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section2">
+      <h2 class="section-heading">
+        The 2026 Kona and 2026 Niro Exterior Appeal and Design Flair
+      </h2>
+
+      <div class="design-cards">
+        <div class="design-card kona-card">
+          <h3 class="card-title">2026 Hyundai Kona</h3>
+          <div class="card-content">
+            <p style="margin-bottom: 15px">
+              The Hyundai Kona showcases a bolder, contemporary exterior that
+              turns heads along the streets in the city. Its sculpted body
+              panels, active grille shutters, and available 19-inch N Line alloy
+              wheels give it a dynamic stance that feels youthful yet refined.
+            </p>
+            <p style="margin: 0">
+              Distinctive LED projector headlights and daytime running lights
+              are standard, perfectly framing the Kona's assertive face. Select
+              trims offer gloss black mirror caps with integrated LED signals,
+              an upscale touch that adds a sense of premium craftsmanship.
+            </p>
+            <ul class="feature-list">
+              <li>Sculpted body panels with active grille shutters</li>
+              <li>Available 19-inch N Line alloy wheels</li>
+              <li>LED projector headlights & daytime running lights</li>
+              <li>Gloss black mirror caps with integrated LED signals</li>
+              <li>Dynamic, youthful stance with premium craftsmanship</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="design-card niro-card">
+          <h3 class="card-title">2026 Kia Niro</h3>
+          <div class="card-content">
+            <p style="margin: 0">
+              Meanwhile, the Kia Niro's styling aligns more closely with a
+              traditional crossover, representing its focus on eco-friendly
+              credentials. While clean and functional, the Niro does not provide
+              the same flair or road presence as the Kona and lacks the offering
+              of larger, sportier wheel options seen in the Kona's SEL Premium
+              and Limited trims.
+            </p>
+            <ul class="feature-list">
+              <li>Traditional crossover styling</li>
+              <li>Eco-friendly design credentials</li>
+              <li>Clean and functional appearance</li>
+              <li>Limited sportier wheel options</li>
+              <li id="cabin-space-comfort">Conservative road presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="hr-1" />
+    </div>
+  </body>
+</html>

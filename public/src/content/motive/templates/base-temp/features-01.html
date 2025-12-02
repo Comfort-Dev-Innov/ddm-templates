@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notable Ford Models</title>
+    <style>
+      .featListContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .featListContainer h1 {
+        width: 100%;
+        color: #003478;
+        border-bottom: 3px solid #003478;
+        padding-bottom: 10px;
+      }
+
+      .featListContainer h3,
+      .featListContainer h1,
+      .featListContainer h2,
+      .featListContainer p,
+      .featListContainer ol,
+      .featListContainer ul {
+        max-width: 1300px !important;
+      }
+
+      .model-card {
+        background-color: white;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .model-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .model-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 999px;
+        flex-shrink: 0;
+        border: 2px dashed #003478;
+        overflow: hidden;
+      }
+
+      .model-info {
+        flex: 1;
+      }
+
+      .model-name {
+        color: #003478;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .model-description {
+        color: #333;
+        line-height: 1.6;
+      }
+
+      @media(max-width:400px) {
+        .model-card {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .model-image {
+            width: 100px;
+            height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featListContainer">
+      <h1>Other Notable Models</h1>
+
+      <div class="model-card">
+        <img
+          src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/transitcommercial/2025/collections/_360/oxford-white/trn_crgv_24_ext_360_oxfordwhite_01.jpg"
+          alt="Ford Transit"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Ford Transit</div>
+          <div class="model-description">
+            Versatile commercial van with multiple configurations.
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <img
+          src="https://www.ford.com.ph/content/ford/ph/en_ph/explorer-content/billboard-carousels/overview-header/jcr:content/par/billboard/imageComponent/image.imgs.full.high.jpg"
+          alt="Ford Explorer"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Ford Explorer</div>
+          <div class="model-description">
+            Mid-size SUV balancing off-road capability and family comfort.
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <img
+          src="https://www.vdm.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/ranger/2024/collections/3-2/Ranger_VHP_Billboard_1440_2160.jpg/_jcr_content/renditions/cq5dam.web.1440.1440.jpeg"
+          alt="Ford Ranger"
+          class="model-image"
+        />
+        <div class="model-info">
+          <div class="model-name">Ford Ranger</div>
+          <div class="model-description">
+            Mid-size pickup with efficient engines and strong utility.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

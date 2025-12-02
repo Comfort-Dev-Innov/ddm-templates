@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efficiency, Range, and Charging Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .efficiency-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .efficiency-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .efficiency-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .efficiency-kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .efficiency-title {
+            font-size: 30px;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #00142E;
+            margin-bottom: 0.75rem;
+        }
+
+        .efficiency-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 720px;
+        }
+
+        .efficiency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .efficiency-column {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .efficiency-column-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .efficiency-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .efficiency-pill-mache {
+            background: rgba(37, 99, 235, 0.09);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.45);
+        }
+
+        .efficiency-pill-tesla {
+            background: rgba(15, 23, 42, 0.07);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.4);
+        }
+
+        .efficiency-column-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .efficiency-body {
+            margin-top: 0.75rem;
+            font-family: 'Georgia', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .efficiency-body p + p {
+            margin-top: 1rem;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            .efficiency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .efficiency-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .efficiency-title {
+                font-size: 24px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .efficiency-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .efficiency-column {
+                padding: 1.6rem 1.4rem;
+            }
+
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="efficiency-section" id="efficiency-range">
+        <div class="efficiency-container">
+            <header class="efficiency-header">
+                <div class="efficiency-kicker">Range Performance &amp; Charging</div>
+                <h2 class="efficiency-title">Efficiency, Range, and Charging Insights</h2>
+                <p class="efficiency-subtitle">
+                    How the Mustang Mach-E and Tesla Model Y compare in real-world range, charging capabilities, and energy efficiency for Kent-area drivers.
+                </p>
+            </header>
+
+            <div class="efficiency-grid">
+                <!-- Mustang Mach-E column -->
+                <article class="efficiency-column">
+                    <div class="efficiency-column-header">
+                        <span class="efficiency-pill efficiency-pill-mache">Mach-E Efficiency</span>
+                        <h3 class="efficiency-column-title">Competitive Range &amp; Smart Charging</h3>
+                    </div>
+                    <div class="efficiency-body">
+                        <p>
+                            While Tesla is known for remarkable range capabilities, the Mach-E provides highly competitive mileage that balances driving range with energy efficiency and usability in typical Northwest conditions. The Mach-E's extended battery RWD model achieves up to approximately 320 miles EPA range, with AWD versions covering ample distances between charges.
+                        </p>
+                        <p>
+                            Charging speeds are robust, with extended-range battery variants benefiting from up to 150 kW DC fast charging, promoting rapid top-offs in under 40 minutes when using public networks like the growing Electrify America infrastructure. The Mustang includes a standard heat pump system, enhancing cold-weather range retention, ideal for Puget Sound's varying climate.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Tesla Model Y column -->
+                <article class="efficiency-column">
+                    <div class="efficiency-column-header">
+                        <span class="efficiency-pill efficiency-pill-tesla">Tesla Performance</span>
+                        <h3 class="efficiency-column-title">Extended Range with Trade-offs</h3>
+                    </div>
+                    <div class="efficiency-body">
+                        <p>
+                            Tesla's Model Y Long Range AWD eclipses with up to 337 miles EPA-estimated range and benefits from Tesla's up to 250 kW Supercharging network, ensuring surety in long-distance travel. However, real-world efficiency fluctuates more widely, and 2025 Model Y customers must anticipate deferred ride quality improvements until the 2026 redesign.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Range & Charging Specifications</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">EPA Estimated Range (miles)</td>
+                            <td class="ford-value">240–320 (depending on battery & drivetrain)</td>
+                            <td class="tesla-value">277–337 (depending on trim)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">DC Fast Charging Peak Rate</td>
+                            <td class="ford-value">Up to 150 kW</td>
+                            <td class="tesla-value">Up to 250 kW</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Charging 10%-80% Time</td>
+                            <td class="ford-value">~38 minutes (fast charge)</td>
+                            <td class="tesla-value">~44 minutes (fast charge)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">MPGe Combined</td>
+                            <td class="ford-value">Up to 110 city / 96 highway (varies by trim)</td>
+                            <td class="tesla-value">104–125 MPGe combined (varies)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Heat Pump for Cold Weather</td>
+                            <td class="ford-value">Standard</td>
+                            <td class="tesla-value">Standard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

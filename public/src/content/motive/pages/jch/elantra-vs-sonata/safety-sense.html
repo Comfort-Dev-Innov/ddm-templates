@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyundai SmartSense™</title>
+    <style>
+      /* Container Styles */
+      .smartsense-container {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .smartsense-container h1,
+      .smartsense-container h2,
+      .smartsense-container h3,
+      .smartsense-container p {
+        max-width: 1300px !important;
+      }
+
+      /* Section Title */
+      .section-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #003478;
+        margin-bottom: 30px;
+        text-align: left;
+      }
+
+      /* Content Wrapper */
+      .content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+        margin-bottom: 30px;
+      }
+
+      /* Image Section */
+      .image-section {
+        position: relative;
+      }
+
+      .image-wrapper {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 52, 120, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .image-wrapper:hover {
+        box-shadow: 0 15px 40px rgba(0, 52, 120, 0.25);
+        transform: translateY(-5px);
+      }
+
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Text Section */
+      .text-section {
+        padding: 20px 0;
+      }
+
+      .intro-text {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #4a5568;
+        margin-bottom: 25px;
+      }
+
+      /* Bullet List Styles */
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 25px 0;
+      }
+
+      .features-list li {
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #4a5568;
+      }
+
+      .features-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #003478 0%, #0052a3 100%);
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0, 52, 120, 0.2);
+      }
+
+      .features-list li::after {
+        content: "✓";
+        position: absolute;
+        left: 5px;
+        top: 4px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .features-list li strong {
+        color: #003478;
+        font-weight: 600;
+      }
+
+      /* Conclusion Text */
+      .conclusion-text {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #4a5568;
+        background: #f7fafc;
+        padding: 25px;
+        border-radius: 12px;
+        border-left: 4px solid #003478;
+        margin-top: 30px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .content-wrapper {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .image-section {
+          order: 1;
+        }
+
+        .text-section {
+          order: 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .smartsense-container {
+          padding: 30px 15px !important;
+        }
+
+        .section-title {
+          font-size: 26px;
+          margin-bottom: 25px;
+        }
+
+        .intro-text,
+        .conclusion-text {
+          font-size: 16px;
+        }
+
+        .features-list li {
+          font-size: 15px;
+          padding-left: 30px;
+        }
+
+        .features-list li::before {
+          width: 18px;
+          height: 18px;
+          top: 5px;
+        }
+
+        .features-list li::after {
+          font-size: 12px;
+          left: 4px;
+          top: 3px;
+        }
+
+        .conclusion-text {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 24px;
+        }
+
+        .content-wrapper {
+          gap: 20px;
+        }
+
+        .features-list li {
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="smartsense-container">
+      <h2 class="section-title">Hyundai SmartSense™ for All</h2>
+
+      <div class="content-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+          <div class="image-wrapper">
+            <img
+              src="https://via.placeholder.com/600x400/003478/FFFFFF?text=Hyundai+SmartSense"
+              alt="Hyundai SmartSense Technology"
+            />
+          </div>
+        </div>
+
+        <!-- Text Section -->
+        <div class="text-section">
+          <p class="intro-text">
+            The foundation of this outstanding safety performance is the Hyundai
+            SmartSense™ suite of advanced driver-assistance systems. This
+            comprehensive safety net is available on both the Elantra and Sonata
+            and includes crucial technologies designed to prevent accidents before
+            they happen. Key features include:
+          </p>
+
+          <ul class="features-list">
+            <li>
+              <strong>Forward Collision-Avoidance Assist with Pedestrian Detection:</strong>
+              Can warn the driver of an impending collision and automatically apply
+              the brakes if necessary.
+            </li>
+            <li>
+              <strong>Lane Keeping Assist & Lane Following Assist:</strong>
+              Helps keep the vehicle centered in its lane.
+            </li>
+            <li>
+              <strong>Blind-Spot Collision-Avoidance Assist:</strong>
+              Can detect vehicles in the driver's blind spot and provide alerts or
+              even braking assistance to prevent an unsafe lane change.
+            </li>
+            <li>
+              <strong>Smart Cruise Control with Stop & Go:</strong>
+              Maintains a set speed and distance from the vehicle ahead, capable of
+              bringing the car to a complete stop and resuming in traffic.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="conclusion-text">
+        The fact that both vehicles offer this identical, top-tier level of
+        safety technology and have earned the same highest-possible safety awards
+        from the IIHS dismantles the "bigger is safer" argument. The Elantra
+        provides uncompromising safety at a more accessible price.
+      </p>
+    </div>
+  </body>
+</html>
+

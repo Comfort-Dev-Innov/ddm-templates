@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section7 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Feature Highlights */
+        .feature-highlights {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          margin: 30px 0;
+        }
+
+        .feature-box {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+          border-top: 3px solid #0f3079;
+          text-align: center;
+        }
+
+        .feature-box-icon {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+          display: block;
+        }
+
+        .feature-box-title {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #0f3079;
+          margin-bottom: 8px;
+        }
+
+        .feature-box-text {
+          font-size: 14px;
+          color: #495057;
+          line-height: 1.5;
+        }
+
+        /* Simple Info Box */
+        .info-box {
+          background: #f8f9fa;
+          border-left: 5px solid #0f3079;
+          padding: 20px 25px;
+          border-radius: 8px;
+          margin: 25px 0;
+        }
+
+        .info-box p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+          margin: 0;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .feature-highlights {
+            grid-template-columns: 1fr;
+            gap: 15px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section7">
+      <h2 class="section-heading">Everyday Usability: Cargo Capacity</h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          The Kona excels in functional versatility. Dual-row USB ports ensure
+          all passengers stay connected, while wireless charging is curtailed to
+          higher trims, enhancing convenience for tech-reliant drivers around
+          Proviso Township.
+        </p>
+        <p class="paragraph-text">
+          Cargo capacity favors the Kona with more generous rear volume and
+          folding seat flexibility. Its higher payload and towing capacity
+          (though modest) give it an edge over the Niro, which suffers from rear
+          cargo limitations due to hybrid battery placement.
+        </p>
+        <p class="paragraph-text">
+          Practical features such as automatic high beams, LED lighting, and a
+          hands-free smart liftgate in top trims underscore Kona's thoughtful
+          design focus that improves daily driving ease.
+        </p>
+      </div>
+
+      <div class="feature-highlights">
+        <div class="feature-box">
+          <span class="feature-box-icon">🔌</span>
+          <h4 class="feature-box-title">Connectivity</h4>
+          <p class="feature-box-text">
+            Dual-row USB ports and wireless charging keep all passengers
+            connected
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <span class="feature-box-icon">📦</span>
+          <h4 class="feature-box-title">Cargo Space</h4>
+          <p class="feature-box-text">
+            Generous rear volume with flexible folding seat configurations
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <span class="feature-box-icon">🚪</span>
+          <h4 class="feature-box-title">Smart Liftgate</h4>
+          <p class="feature-box-text">
+            Hands-free smart liftgate on top trims for convenient access
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <span class="feature-box-icon">💡</span>
+          <h4 class="feature-box-title">LED Lighting</h4>
+          <p class="feature-box-text">
+            Automatic high beams and LED lighting enhance visibility
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <span class="feature-box-icon">🎒</span>
+          <h4 class="feature-box-title">Payload Capacity</h4>
+          <p class="feature-box-text">
+            Higher payload and modest towing capacity for everyday needs
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <span class="feature-box-icon">🔧</span>
+          <h4 class="feature-box-title">Versatility</h4>
+          <p class="feature-box-text">
+            Thoughtful design features improve daily driving ease
+          </p>
+        </div>
+      </div>
+
+      <hr class="hr-1" id="value-ownership" />
+    </div>
+  </body>
+</html>

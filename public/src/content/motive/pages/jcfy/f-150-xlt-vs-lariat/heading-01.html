@@ -1,0 +1,126 @@
+<html lang="en">
+  <head>
+    <style>
+      .outer-wrapper {
+        width: 100%;
+        background-color: #ebf4ff;
+      }
+      /* Motive Container Default Styles */
+      .headingContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .headingContainer h1 {
+        width: fit-content !important;
+      }
+
+      .headingContainer h3,
+      .headingContainer h1,
+      .headingContainer h2,
+      .headingContainer p,
+      .headingContainer ol,
+      .headingContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading with Image */
+      .heading-with-image {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        padding: 80px 0px;
+        margin: 0;
+        text-align: center;
+      }
+
+      .first-image {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://i.ibb.co/jkgYBqFt/25-BFN-T3-Toolbox-Slider-1505x435-F15-10930-10.jpg")
+            center/cover;
+      }
+
+      .heading-with-image h2 {
+        font-size: 42px;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .heading-with-image span {
+        font-weight: 300;
+        margin: 0;
+      }
+
+      .subsection-intro {
+        margin: 30px 0 !important;
+        padding: 0 20px;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .table-intro {
+        font-size: 18px;
+        font-weight: 400;
+        color: gray !important;
+        padding: 0 !important;
+        padding-top: 50px !important;
+        margin: 0;
+      }
+
+      .subsection-intro br {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .subsection-intro {
+          margin: 30px 0px !important;
+          font-size: 16px;
+          padding: 0 40px;
+        }
+
+        .subsection-intro br {
+          display: block;
+        }
+
+        .table-intro {
+          font-size: 16px;
+          padding: 0px 40px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .heading-with-image h2 {
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="heading-with-image first-image"
+      id="family-of-predators-section"
+    >
+      <h2>
+        Distinct Personalities: <br /><span
+          >Meet the F-150 XLT, Lariat, and STX</span
+        >
+      </h2>
+    </div>
+    <div class="outer-wrapper">
+      <div class="headingContainer">
+        <p class="table-intro">
+          The 2025 lineup showcases the trusted F-150 platform with nuanced trim
+          differentiators:
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

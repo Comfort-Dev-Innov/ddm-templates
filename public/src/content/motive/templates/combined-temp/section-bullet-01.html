@@ -1,0 +1,183 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-right {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-left {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        border-radius: 12px;
+        list-style: none;
+        margin: 0;
+      }
+
+      .bullet-list {
+        margin-top: 10px;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: "•";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="bullet-section" id="bullet-section">
+        <div class="content-layout">
+          <div class="image-left">
+            <img
+              src="https://images.app.ridemotive.com/s75ubxnllcm6im4p6aydlys80h2r"
+              alt="Calendar and truck representing the best time to buy a truck"
+            />
+          </div>
+          <div class="content-right">
+            <h2 class="section-title">
+              <span style="color: #0f3079">When Is the Best Time</span> to Buy a
+              Truck in 2025?
+            </h2>
+            <p>
+              Timing your purchase can unlock significant savings on both new
+              and used trucks.
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <p>
+                  <strong>End of the Year (October - December):</strong> This is
+                  often the best time for new trucks. Dealerships are motivated
+                  to clear out current-year inventory to make room for next
+                  year's models and to meet annual sales goals.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>End of the Month/Quarter:</strong> Sales targets can
+                  create opportunities for buyers at the end of any month or
+                  financial quarter.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Model Year Changeover:</strong> When the 2026 models
+                  are announced and begin arriving, dealers will be eager to
+                  move the remaining 2025 models. This is a prime time to get a
+                  great deal on a new, outgoing-model-year truck.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Holiday Sales Events:</strong> Look for promotions
+                  around Memorial Day, Labor Day, and Black Friday for both new
+                  and used vehicles.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,543 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .ram-1500-blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    .ram-1500-blog-section * { max-width: 100% !important; box-sizing: border-box; }
+    
+    /* Typography */
+    .ram-1500-blog-section p { margin: 1em 0; }
+    .ram-1500-blog-section h2,
+    .ram-1500-blog-section h3,
+    .ram-1500-blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .ram-1500-blog-section h2 { font-size: 1.6em; }
+    .ram-1500-blog-section h3 { font-size: 1.35em; }
+    
+    /* Tables */
+    .ram-1500-blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+    .ram-1500-blog-section table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .ram-1500-blog-section table.e-rte-table th, 
+    .ram-1500-blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .ram-1500-blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .ram-1500-blog-section table.e-rte-table td { color: #374151; }
+    .ram-1500-blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .ram-1500-blog-section table.e-rte-table tbody tr:hover { 
+      background: #eef2ff; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .ram-1500-blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .ram-1500-blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .ram-1500-blog-section table.e-rte-table th,
+      .ram-1500-blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    
+    /* Links */
+    .ram-1500-blog-section a { 
+      color: #1e3a8a !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .ram-1500-blog-section a:hover { color: #15306e !important; }
+    
+    /* TOC */
+    .ram-1500-blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .ram-1500-blog-section h2 + ul li { margin: 6px 0; }
+    .ram-1500-blog-section h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .ram-1500-blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .ram-1500-blog-section h2[id], 
+    .ram-1500-blog-section h3[id], 
+    .ram-1500-blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .ram-1500-blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* Image Wrapper Styles */
+    .ram-1500-blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .ram-1500-blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #1e3a8a;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .ram-1500-blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .ram-1500-blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+    .ram-1500-blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .ram-1500-blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .ram-1500-blog-section .image-float-left, 
+    .ram-1500-blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .ram-1500-blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .ram-1500-blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .ram-1500-blog-section .image-float-left img, 
+    .ram-1500-blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .ram-1500-blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+    .ram-1500-blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .ram-1500-blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .ram-1500-blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .ram-1500-blog-section .image-grid img {
+        border: none;
+      }
+  
+      .ram-1500-blog-section .image-float-left img,
+      .ram-1500-blog-section .image-float-right img {
+        border: none;
+      }
+      
+      .ram-1500-blog-section .image-float-left,
+      .ram-1500-blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  
+    /* Images */
+    .ram-1500-blog-section .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .ram-1500-blog-section .article-image img { max-width:100%; border-radius:8px; display:block; }
+    
+    /* floating */
+    .ram-1500-blog-section .article-image.float-right { 
+      float: right; 
+      margin-left: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    .ram-1500-blog-section .article-image.float-left { 
+      float: left; 
+      margin-right: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    
+    /* clear fix after floats */
+    .ram-1500-blog-section .clearfix::after { content:""; display:table; clear:both; }
+  </style>
+  
+  <section class="ram-1500-blog-section">
+    <p>At <strong>Joe Cooper Chrysler Dodge Jeep RAM of Yukon</strong>, we take pride in offering the all-new <strong>2026 RAM 1500 Pickup Base</strong> to drivers across <strong>Valley Brook, OK</strong>, <strong>Tuttle, OK</strong>, and <strong>Newcastle, OK</strong>. This pickup embraces a tradition of strength and versatility while integrating cutting-edge technology and premium craftsmanship, designed to meet the needs of families and professionals throughout <strong>Piedmont</strong>, <strong>Bethany</strong>, and the greater <strong>Oklahoma City</strong> area. Call us today at <strong><a href="tel:+14052651400">(405) 265-1400</a></strong> to explore how the 2026 RAM 1500 elevates everyday driving and work demands with unmatched confidence and comfort.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/DfNDnZp1/RM026-001-FN.jpg" alt="2026 RAM 1500 Exterior Front View">
+      </div>
+    </div>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#introducing-the-2026-ram-1500-pickup">Introducing the 2026 RAM 1500 Pickup</a></li>
+      <li><a href="#bold-exterior-styling-that-commands-attention">Bold Exterior Styling That Commands Attention</a></li>
+      <li><a href="#performance-and-driving-dynamics-worth-relying-on">Performance and Driving Dynamics Worth Relying On</a></li>
+      <li><a href="#interior-comforts-crafted-for-every-journey">Interior Comforts Crafted for Every Journey</a></li>
+      <li><a href="#state-of-the-art-technology-and-connectivity-features">State-of-the-Art Technology and Connectivity Features</a></li>
+      <li><a href="#advanced-safety-and-driver-assistance-systems">Advanced Safety and Driver Assistance Systems</a></li>
+      <li><a href="#trim-levels-and-available-packages-explained">Trim Levels and Available Packages Explained</a></li>
+      <li><a href="#warranty-and-maintenance-benefits-for-peace-of-mind">Warranty and Maintenance Benefits for Peace of Mind</a></li>
+      <li><a href="#why-the-ram-1500-base-is-the-right-pickup-for-you">Why the RAM 1500 Base Is the Right Pickup for You</a></li>
+    </ul>
+  
+    <h2 id="introducing-the-2026-ram-1500-pickup">Introducing the 2026 RAM 1500 Pickup</h2>
+    <p>The 2026 RAM 1500 Pickup carries forward a legacy of toughness and reliability that resonates deeply with drivers from <strong>Moore, OK,</strong> to <strong>Norman, OK</strong>. At its core, this robust pickup provides a seamless blend of bold capability and refined everyday functionality. Whether you're hauling heavy loads on rugged job sites or cruising through city streets on your way to <strong>Mustang</strong>, the RAM 1500 Base ensures you do so with confidence. Its foundation springs from decades of craftsmanship, renowned for both its durability and driver-centric comforts.</p>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/JWsQ6T77/RM026-002-FN.jpg" alt="RAM 1500 Side Profile">
+      <img src="https://i.ibb.co/hRsgzjmT/RM026-003-FN.jpg" alt="RAM 1500 Front Angle">
+      <img src="https://i.ibb.co/4gC63LfQ/RM026-007-FN.jpg" alt="RAM 1500 Rear Detail">
+    </div>
+  
+    <p>This new model excels as a versatile partner capable of handling demanding tasks without sacrificing modern comforts or sophisticated design. It's tailored for owners who value an honest and hardworking vehicle backed by outstanding service — characteristics embodied in every interaction at Joe Cooper Chrysler Dodge Jeep RAM of Yukon.</p>
+    <p>The RAM 1500 upholds American truck heritage while delivering the durability Oklahoma families rely on for work and play. Whether you're a lifelong truck owner from <strong>Edmond</strong> or seeking your first pickup in <strong>Blanchard</strong>, the 2026 RAM 1500 is a candidate that stands ready to impress.</p>
+  
+    <h3 id="comprehensive-overview-of-key-specifications">Comprehensive Overview of Key Specifications</h3>
+    <p>2026 RAM 1500 Pickup Base Technical Specifications</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Specification</strong></th>
+          <th align="right"><strong>Value</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Starting Manufacturer's Suggested Retail Price</td>
+          <td align="right">~$41,025</td>
+        </tr>
+        <tr>
+          <td align="left">Available Engines</td>
+          <td align="right">3.6L Pentastar® V6, 3-liter Hurricane Inline-6 Turbo, 5.7-liter HEMI V8</td>
+        </tr>
+        <tr>
+          <td align="left">Maximum Horsepower</td>
+          <td align="right">540 hp</td>
+        </tr>
+        <tr>
+          <td align="left">Peak Torque</td>
+          <td align="right">521 lb-ft</td>
+        </tr>
+        <tr>
+          <td align="left">Towing Capacity (Maximum)</td>
+          <td align="right">11,610 lbs</td>
+        </tr>
+        <tr>
+          <td align="left">Payload Capacity (Maximum)</td>
+          <td align="right">2,360 lbs</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="bold-exterior-styling-that-commands-attention">Bold Exterior Styling That Commands Attention</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/Y4bdNP44/RM026-010-FN.jpg" alt="RAM 1500 Bold Front Grille">
+      </div>
+    </div>
+  
+    <p>The RAM 1500's redesigned outer shell delivers an assertive presence intended to turn heads in communities from <strong>Yukon</strong> to <strong>El Reno</strong>. Its sweeping updates encompass a restyled grille, sharper body lines, and refreshed rear lighting that amplify its muscular stance. Such careful attention to styling marries form and function, providing improved aerodynamics alongside rugged durability — essential for varied Oklahoma terrains.</p>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://i.ibb.co/G4XMJQH2/RM026-011-FN.jpg" alt="RAM 1500 Wheel Detail">
+    </div>
+  
+    <h3 id="signature-elements-that-define-its-road-presence">Signature Elements That Define Its Road Presence</h3>
+    <ul>
+      <li><strong>Enhanced front fascia:</strong> Aggressively sculpted grille with durable body-color finishes suited for both city and worksite appearances.</li>
+      <li><strong>Wheel Options:</strong> The Base model traditionally features robust alloy wheels, with 20-inch sizes that balance style and practicality.</li>
+      <li><strong>Lighting Technology:</strong> Redesigned LED headlights and taillights improve both visibility and aesthetic appeal, adding to night-time safety across rural roads near <strong>Bethany</strong>.</li>
+      <li><strong>Tailgate and Bed:</strong> Engineered for utility and accessibility, the composite bed combines long-lasting materials with smart features for loading ease.</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/5pwtQrx/RM026-015-FN.jpg" alt="RAM 1500 Rear Quarter View">
+      <img src="https://i.ibb.co/SXLTP2nW/RM026-016-FN.jpg" alt="RAM 1500 Cargo Bed">
+      <img src="https://i.ibb.co/yntgGg0v/RM026-017-FN.jpg" alt="RAM 1500 Side Profile">
+    </div>
+  
+    <p>These design improvements not only build on RAM's renowned toughness but also ensure that you arrive everywhere with a look that echoes your dedication to quality and strength.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/hFw7r4wR/RM026-018-FN.jpg" alt="RAM 1500 Full Exterior View">
+      </div>
+    </div>
+  
+    <h2 id="performance-and-driving-dynamics-worth-relying-on">Performance and Driving Dynamics Worth Relying On</h2>
+    <p>Across the diverse landscapes serving drivers from <strong>Piedmont</strong> to <strong>Valley Brook</strong>, the 2026 RAM 1500 Base exhibits exceptional powertrain flexibility. Offering three robust engine variants, this pickup ensures that work needs and leisure pursuits alike are handled with precision and power.</p>
+  
+    <h3 id="engine-options-tailored-for-varied-demands">Engine Options Tailored for Varied Demands</h3>
+    <ul>
+      <li><strong>3.6L Pentastar® V6:</strong> A well-balanced gasoline engine suited for everyday driving duties comes standard on the Base trim.</li>
+      <li><strong>3.0L Hurricane Inline-6 Turbocharged:</strong> Available in two performance specifications, this engine excels in fuel efficiency and torque delivery, ideal for customers who value responsive power without sacrificing economy.</li>
+      <li><strong>5.7L HEMI® V8:</strong> The iconic muscle truck heart, delivering up to 540 horsepower and 521 lb-ft of torque for commanding acceleration and towing capacity.</li>
+    </ul>
+  
+    <h3 id="impressive-towing-and-payload-capacities">Impressive Towing and Payload Capacities</h3>
+    <p>When hauling trailers or heavy equipment integral to jobsites in <strong>Norman</strong> or family recreational gear for trips beyond <strong>Moore</strong>, RAM's best-in-class towing capabilities reassure. With a peak towing limit of 11,610 pounds and a payload capacity topping out at 2,360 pounds, the RAM 1500 Base offers reliable strength that matches serious demands.</p>
+    <p>The suspension system provides firm yet compliant handling to maintain control on highways or rugged service roads. This balance supports confident driving around the expansive Oklahoma City metro area and surrounding towns.</p>
+  
+    <h3 id="performance-specifications-at-a-glance">Performance Specifications at a Glance</h3>
+    <p>Driving Performance Data for 2026 RAM 1500 Pickup</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Feature</strong></th>
+          <th align="right"><strong>Specification</strong></th>
+          <th align="left"><strong>Notes</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Maximum Horsepower</td>
+          <td align="right">540 hp</td>
+          <td align="left">With 5.7L HEMI® V8</td>
+        </tr>
+        <tr>
+          <td align="left">Peak Torque</td>
+          <td align="right">521 lb-ft</td>
+          <td align="left">With 5.7L HEMI® V8</td>
+        </tr>
+        <tr>
+          <td align="left">Towing Capacity</td>
+          <td align="right">11,610 lbs</td>
+          <td align="left">Max rating across available options</td>
+        </tr>
+        <tr>
+          <td align="left">Payload Capacity</td>
+          <td align="right">2,360 lbs</td>
+          <td align="left">Maximum load for Base trim</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="interior-comforts-crafted-for-every-journey">Interior Comforts Crafted for Every Journey</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/QjmQQspN/RM026-020-FN.jpg" alt="2026 RAM 1500 Interior Dashboard">
+      </div>
+    </div>
+  
+    <p>Stepping inside the RAM 1500 Base reveals thoughtful design choices built around comfort and usability, evident to families and professionals from <strong>Mustang</strong> to <strong>El Reno</strong>. The cabin melds durable materials with tasteful finishes, supporting all-day comfort during long drives or labor-intensive days.</p>
+  
+    <div class="image-float-left" style="max-width: 400px !important;">
+      <img src="https://i.ibb.co/qFkjPX5w/RM026-021-FN.jpg" alt="RAM 1500 Front Seating">
+    </div>
+  
+    <h3 id="driver-centric-seating-and-space">Driver-Centric Seating and Space</h3>
+    <ul>
+      <li><strong>Spacious Seating:</strong> Optimized headroom and legroom accommodate passengers and driver alike across all Oklahoma commutes and excursions.</li>
+      <li><strong>Quality Materials:</strong> Sturdy yet refined surfaces ensure the cabin lasts while exuding confidence through craftsmanship.</li>
+      <li><strong>Customizable Adjustments:</strong> The more advanced trims offer up to 24-way power seat adjustments but the Base trim still provides ergonomic support suitable for daily driving ease.</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/FqL2pK08/RM026-022-FN.jpg" alt="RAM 1500 Center Console">
+      <img src="https://i.ibb.co/YB7zsQtt/RM026-023-FN.jpg" alt="RAM 1500 Rear Seating">
+      <img src="https://i.ibb.co/VWX2kwSG/RM026-029-FN.jpg" alt="RAM 1500 Interior Detail">
+    </div>
+  
+    <h3 id="practical-storage-and-cabin-layout">Practical Storage and Cabin Layout</h3>
+    <p>Storage compartments and well-positioned cup holders empower you to organize essentials, whether hauling tools around <strong>Piedmont</strong> or family items on weekend adventures near <strong>Blanchard</strong>. Clear sightlines and comfortable ingress/egress further enhance the usability of the interior.</p>
+  
+    <div class="image-float-right" style="max-width: 400px !important;">
+      <img src="https://i.ibb.co/whhF8LcT/RM026-030-FN.jpg" alt="RAM 1500 Storage Features">
+    </div>
+  
+    <div style="clear: both;"></div>
+  
+    <h2 id="state-of-the-art-technology-and-connectivity-features">State-of-the-Art Technology and Connectivity Features</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/YzLdBm9/RM026-034-FN.jpg" alt="RAM 1500 Infotainment System">
+      </div>
+    </div>
+  
+    <p>The 2026 RAM 1500's technology showcases a commitment to seamless integration that supports drivers from <strong>Yukon</strong> to <strong>Oklahoma City</strong>. Even in the Base trim, you benefit from user-friendly systems designed to enhance both functionality and enjoyment while on the road.</p>
+  
+    <div class="image-float-left" style="max-width: 400px !important;">
+      <img src="https://i.ibb.co/8DXy5kVZ/RM026-035-FN.jpg" alt="RAM 1500 Digital Display">
+    </div>
+  
+    <h3 id="digital-displays-and-user-interfaces">Digital Displays and User Interfaces</h3>
+    <ul>
+      <li><strong>Large Digital Screens:</strong> Select trims offer over 50 inches of combined display area, a benchmark in the truck industry. While the Base model offers capable digital instrument clusters and infotainment options, advanced setups are reserved for premium trims.</li>
+      <li><strong>Touchscreen Interface:</strong> The Base option supports essential connectivity via intuitive displays, allowing straightforward access to media, navigation, and vehicle settings.</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/kgwcF2Zt/RM026-037-FN.jpg" alt="RAM 1500 Control Panel">
+      <img src="https://i.ibb.co/8LMZFfDb/RM026-040-FN.jpg" alt="RAM 1500 Tech Features">
+    </div>
+  
+    <h3 id="smartphone-and-connectivity-features">Smartphone and Connectivity Features</h3>
+    <ul>
+      <li><strong>Apple CarPlay and Android Auto:</strong> Seamlessly connect your smartphone for hands-free calls, music, and messaging.</li>
+      <li><strong>Bluetooth Connectivity:</strong> Enables effortless pairing for in-cab calls and audio streaming, ideal for busy commutes across <strong>Edmond</strong> or <strong>Tuttle</strong>.</li>
+    </ul>
+  
+    <h2 id="advanced-safety-and-driver-assistance-systems">Advanced Safety and Driver Assistance Systems</h2>
+    <p>Ram prioritizes protection that adapts to modern driving challenges that residents of <strong>Norman</strong> and <strong>Mustang</strong> encounter daily. The 2026 RAM 1500 includes robust safety features, blending traditional reliability with contemporary electronic aids.</p>
+  
+    <h3 id="core-safety-technologies">Core Safety Technologies</h3>
+    <ul>
+      <li><strong>Multiple Airbags:</strong> Comprehensive airbags protect occupants in the event of a collision.</li>
+      <li><strong>Stability and Traction Control:</strong> Systems designed to maintain vehicle control in adverse conditions common around Oklahoma's varied landscapes.</li>
+      <li><strong>Advanced Braking Assistance:</strong> Enhances driver confidence by optimizing stopping power.</li>
+    </ul>
+  
+    <h3 id="driver-assistance-features">Driver Assistance Features</h3>
+    <ul>
+      <li><strong>Available Forward Collision Warning:</strong> Alerts to impending front-end collisions for increased reaction time.</li>
+      <li><strong>Blind Spot Monitoring:</strong> Supports situational awareness, especially useful in heavy traffic within <strong>Bethany</strong> or surrounding areas.</li>
+      <li><strong>Adaptive Cruise Control:</strong> Adjusts speed to maintain a safe following distance on highways connecting to <strong>Moore</strong>.</li>
+    </ul>
+  
+    <h2 id="trim-levels-and-available-packages-explained">Trim Levels and Available Packages Explained</h2>
+    <p>The 2026 RAM 1500 lineup offers a variety of trims tailored to diverse lifestyles and work requirements throughout <strong>El Reno</strong> and nearby communities. While this page focuses on the <strong>Base</strong> trim, understanding other trims provides insight into available upgrades you can explore.</p>
+  
+    <h3 id="base-trim-highlights">Base Trim Highlights</h3>
+    <ul>
+      <li>Standard entry-level engine options with a focus on durability</li>
+      <li>Functional styling and essential comfort features</li>
+      <li>Technology integration that balances value and ease of use</li>
+    </ul>
+  
+    <h3 id="express-trim-features">Express Trim Features</h3>
+    <ul>
+      <li>Includes 20-inch wheels with body-color accent details</li>
+      <li>Available Black Express Edition package for enhanced style</li>
+      <li>Optional 12-inch touchscreens enhance digital experience</li>
+    </ul>
+  
+    <h3 id="rebel-and-tungsten-trims">Rebel® and Tungsten Trims</h3>
+    <ul>
+      <li><strong>Rebel®:</strong> Off-road ready with Bilstein® suspension and added ground clearance</li>
+      <li><strong>Tungsten:</strong> Industry-leading horsepower and luxury seating amenities</li>
+    </ul>
+  
+    <p>For drivers interested in exploring the full RAM 1500 family or viewing other models in inventory, visit our selection of <strong><a href="https://joecooperdodgeyukon.com/cars/new-inventory">All New Vehicles</a></strong> or browse <strong><a href="https://joecooperdodgeyukon.com/cars/used-suvs">All Used SUVs</a></strong> today.</p>
+  
+    <h2 id="warranty-and-maintenance-benefits-for-peace-of-mind">Warranty and Maintenance Benefits for Peace of Mind</h2>
+    <p>Backing every 2026 RAM 1500 is a warranty program designed to foster long-term confidence in your investment. Service-minded customers from <strong>Piedmont</strong> to <strong>Valley Brook</strong> benefit from:</p>
+    <ul>
+      <li><strong>Powertrain Limited Warranty:</strong> Coverage for 10 years or 100,000 miles on select Ram trucks, representing one of the longest in the full-size pickup segment.</li>
+      <li>Schedule maintenance at our <strong><a href="https://joecooperdodgeyukon.com/service">Service Department</a></strong> to maintain your RAM with genuine parts accessible through our <strong><a href="https://joecooperdodgeyukon.com/parts">Parts Department</a></strong>.</li>
+      <li>Dodge, Chrysler, Jeep, RAM Roadside Assistance: 800-273-2727.</li>
+    </ul>
+  
+    <p>Scheduling routine maintenance is straightforward at Joe Cooper Chrysler Dodge Jeep RAM of Yukon, where our welcoming team supports your truck's longevity. Discover how we champion lasting relationships with every vehicle we service.</p>
+  
+    <h2 id="why-the-ram-1500-base-is-the-right-pickup-for-you">Why the RAM 1500 Base Is the Right Pickup for You</h2>
+    <p>Choosing your next pickup is a meaningful decision. The 2026 RAM 1500 Base stands as a testament to enduring strength, smart technology, and genuine comfort designed with Oklahoma drivers in mind. Whether your days are rooted in hard work from <strong>Bethany</strong> to <strong>Mustang</strong> or balancing family life in <strong>Edmond</strong>, this vehicle adapts effortlessly.</p>
+    <p>Our team at Joe Cooper Chrysler Dodge Jeep RAM of Yukon is honored to guide you through the features and benefits of this pickup. Experience firsthand the trust built from our heritage and our commitment to personalized care. Visit us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ3x_-vcMIsocR8AcBogVIBNU">12800 Nw 10th St, Yukon, OK 73099</a></strong>. Browse our full inventory of <strong><a href="https://joecooperdodgeyukon.com/cars/new-inventory?filters=%7B%22appliedFilters%22%3A%7B%22model%22%3A%7B%22value%22%3A%7B%22Ram%201500%22%3Atrue%7D%7D%7D%7D">New Ram Trucks</a></strong> or explore trusted options in our <strong><a href="https://joecooperdodgeyukon.com/cars/used-trucks">Used Trucks</a></strong> collection.</p>
+    <p><strong>We invite you to schedule a test drive</strong> and see how the RAM 1500 Base can fit your lifestyle and work requirements with distinction. For any maintenance needs, our expert technicians in the <strong><a href="https://joecooperdodgeyukon.com/service">Service Department</a></strong> stand ready to assist you. Plus, find out how much your current vehicle is worth using our <strong><a href="https://joecooperdodgeyukon.com/trade">Trade Valuation</a></strong> tool today.</p>
+    <p>At Joe Cooper Chrysler Dodge Jeep RAM of Yukon, we pride ourselves on being more than just a dealership — we're trusted partners in your journey, committed to high-quality service and genuine relationships across Oklahoma. Reach out or stop by to discover a pickup experience deeply rooted in family values and expert care.</p>
+  
+    <p>© 2025 Joe Cooper Chrysler Dodge Jeep RAM of Yukon</p>
+  </section>

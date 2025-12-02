@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Required Motive styling overrides */
+      .htrac-awd-section-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        background: white;
+      }
+
+      .htrac-awd-section-container h1 {
+        width: fit-content !important;
+      }
+
+      .htrac-awd-section-container h3,
+      .htrac-awd-section-container h1,
+      .htrac-awd-section-container h2,
+      .htrac-awd-section-container p,
+      .htrac-awd-section-container ol,
+      .htrac-awd-section-container ul {
+        max-width: 1300px !important;
+      }
+
+      .htrac-main-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 2rem;
+        text-align: left;
+        opacity: 0;
+        animation: htracFadeInLeft 0.8s ease-out 0.2s forwards;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .htrac-main-title:hover {
+        color: #002c5f;
+      }
+
+      .htrac-main-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        transition: width 0.5s ease;
+        animation: htracExpandLine 1s ease-out 0.8s forwards;
+      }
+
+      .htrac-content-wrapper {
+        opacity: 0;
+        animation: htracFadeInUp 0.8s ease-out 0.4s forwards;
+      }
+
+      .htrac-paragraph {
+        font-size: 1.05rem;
+        color: #333;
+        margin: 2rem 0 !important;
+        line-height: 1.7;
+        transition: transform 0.2s ease;
+      }
+
+      .htrac-paragraph:hover {
+        transform: translateX(5px);
+      }
+
+      .htrac-paragraph:last-child {
+        margin-bottom: 0;
+      }
+
+      .htrac-highlight-text {
+        background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #012b5d;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin: 0.2rem 0;
+      }
+
+      .htrac-highlight-text:hover {
+        background: linear-gradient(135deg, #e6f3ff, #dae9ff);
+        transform: scale(1.02);
+        box-shadow: 0 2px 8px rgba(1, 43, 93, 0.1);
+      }
+
+      .htrac-brand-highlight {
+        color: #012b5d;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .htrac-brand-highlight:hover {
+        color: #002c5f;
+      }
+
+      .htrac-blue-section {
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+        box-shadow: 0 8px 25px rgba(1, 43, 93, 0.2);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: htracFadeInUp 0.8s ease-out 0.8s forwards;
+      }
+
+      .htrac-blue-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(1, 43, 93, 0.3);
+      }
+
+      .htrac-blue-section .htrac-brand-highlight {
+        color: #ffffff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .htrac-blue-section .htrac-brand-highlight:hover {
+        color: #e6f3ff;
+      }
+
+      .htrac-feature-section {
+        position: relative;
+        padding-left: 2rem;
+        margin: 1.5rem 0;
+      }
+
+      .htrac-feature-section::before {
+        content: "⚙️";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.3rem;
+        opacity: 0;
+        animation: htracFadeInUp 0.6s ease-out 1.6s forwards;
+      }
+
+      /* Animations */
+      @keyframes htracFadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes htracFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes htracExpandLine {
+        from {
+          width: 0;
+        }
+        to {
+          width: 120px;
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .htrac-awd-section-container {
+          padding: 20px 15px !important;
+        }
+
+        .htrac-main-title {
+          font-size: 1.6rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .htrac-paragraph {
+          font-size: 1rem;
+        }
+
+        .htrac-paragraph:hover {
+          transform: none;
+        }
+      }
+
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .htrac-main-title,
+        .htrac-content-wrapper {
+          animation: none;
+          opacity: 1;
+        }
+
+        .htrac-main-title::after {
+          animation: none;
+          width: 120px;
+        }
+
+        .htrac-paragraph:hover,
+        .htrac-highlight-text:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="htrac-awd-section-container">
+      <h2 class="htrac-main-title">
+        <span class="htrac-brand-highlight">HTRAC®</span> All-Wheel Drive: Confidence in All Four Oklahoma Seasons
+      </h2>
+
+      <div class="htrac-content-wrapper">
+        <p class="htrac-paragraph">
+          Oklahoma's weather is famously unpredictable. While we are blessed with a lot of sunshine, we also know that conditions can change in an instant, bringing sudden downpours, slick roads, and even the occasional dusting of ice or snow. <br/><br/>This is where <span class="htrac-highlight-text">Hyundai's available HTRAC® All-Wheel Drive system provides invaluable peace of mind.</span>
+        </p>
+
+        <p class="htrac-paragraph htrac-blue-section">
+          <span class="htrac-brand-highlight">HTRAC®</span> is an intelligent, active on-demand AWD system that constantly monitors driving conditions. It can variably distribute power between the front and rear wheels to ensure you have maximum traction and stability precisely when you need it. Whether you're navigating a rain-soaked Kilpatrick Turnpike, encountering a patch of black ice on a frosty morning in your Yukon neighborhood, or simply want more confident handling on a gravel road, <span class="htrac-brand-highlight">HTRAC®</span> enhances your control.
+        </p>
+
+        <div class="htrac-feature-section">
+          <p class="htrac-paragraph">
+            The system works in conjunction with the Drive Mode Select feature, which includes a dedicated "Snow" mode that optimizes power delivery for slippery conditions, <span class="htrac-highlight-text">ensuring you can get where you need to go safely, no matter what the Oklahoma sky has in store.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

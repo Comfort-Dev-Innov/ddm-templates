@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Explorer vs Honda Pilot – Vehicle Profiles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .vi-comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .vi-comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .vi-comparison-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .vi-comparison-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .vi-comparison-subtitle {
+            font-size: 20px;
+            color: #4b5563;
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        .vi-vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .vi-vehicle-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vi-vehicle-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-pill.vi-ford {
+            background: rgba(37, 99, 235, 0.08);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.35);
+        }
+
+        .vi-vehicle-pill.vi-honda {
+            background: rgba(220, 38, 38, 0.06);
+            color: #991b1b;
+            border: 1px solid rgba(220, 38, 38, 0.35);
+        }
+
+        .vi-vehicle-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-tagline {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin-bottom: 1.25rem;
+        }
+
+        .vi-image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #cbd5f5);
+            padding: 3px; /* gradient border thickness */
+            position: relative;
+        }
+
+        .vi-image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .vi-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .vi-image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .vi-image-wrapper:hover .vi-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .vi-vehicle-body {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+        }
+
+        .vi-comparison-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .vi-comparison-label-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .vi-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+        }
+
+        .vi-dot.vi-ford {
+            background: #2563eb;
+        }
+
+        .vi-dot.vi-honda {
+            background: #dc2626;
+        }
+
+        @media (max-width: 900px) {
+            .vi-vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vi-comparison-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .vi-comparison-header {
+                margin-bottom: 2rem;
+            }
+
+            .vi-comparison-title {
+                font-size: 20px;
+            }
+
+            .vi-comparison-subtitle {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vi-comparison-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .vi-vehicle-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vi-comparison-section" id="vehicle-profiles">
+        <div class="vi-comparison-container">
+            <header class="vi-comparison-header">
+                <h2 class="vi-comparison-title">SUV Profiles and Positioning Insights</h2>
+                <p class="vi-comparison-subtitle">Side-by-side overview of how each three-row SUV is positioned in the market.</p>
+            </header>
+
+            <div class="vi-comparison-label-row">
+                <span><span class="vi-dot vi-ford"></span> 2025 Ford Explorer</span>
+                <span><span class="vi-dot vi-honda"></span> 2025 Honda Pilot</span>
+            </div>
+
+            <div class="vi-vehicle-grid">
+                <!-- Ford Explorer Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-ford">
+                        Ford Innovation
+                    </div>
+                    <h3 class="vi-vehicle-title">2025 Ford Explorer</h3>
+                    <p class="vi-vehicle-tagline">Modern Tradition Meets Innovation</p>
+
+                    <div class="vi-image-wrapper">
+                        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/explorer/2025/jellybeans/Jellies_resize_modelWalk_SpaceSilver.png" alt="2025 Ford Explorer" class="vi-image">
+                    </div>
+
+                    <p class="vi-vehicle-body">
+                        The sixth-generation Explorer, refined notably for 2025, balances rugged capability with premium refinement. It offers seating for six or seven, depending on trim, across four distinct versions from the capable Active to the performance-oriented ST model. Rear-wheel drive is standard, with intelligent all-wheel-drive options enhancing traction. <br/><br/>Key to its appeal are the sophisticated powertrains: a highly efficient <strong>2.3-liter turbocharged four-cylinder producing a robust 300 hp</strong>, and an aggressive <strong>3.0-liter twin-turbo V6 pushing 400 hp</strong> for thrill-seekers. This SUV thrives on suburban commutes, adventurous getaways near Snoqualmie, and family cargo hauling with ease.
+                    </p>
+                </article>
+
+                <!-- Honda Pilot Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-honda">
+                        Honda Reliability
+                    </div>
+                    <h3 class="vi-vehicle-title">2025 Honda Pilot</h3>
+                    <p class="vi-vehicle-tagline">Dependable Practicality</p>
+
+                    <div class="vi-image-wrapper">
+                        <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2025/Pilot/Trim-and-specs/Jellies/Trailsport/MY25-Pilot-trim-jelly-TRAILSPORT-1x-A.png" alt="2025 Honda Pilot TrailSport" class="vi-image">
+                    </div>
+
+                    <p class="vi-vehicle-body">
+                        The Pilot, in its fourth generation since 2023, continues as a reliable family SUV with straightforward utility. Up to eight occupants can be accommodated, and the naturally aspirated <strong>3.5-liter V6 delivers a modest 285 hp</strong>. Front-wheel drive is standard, with all-wheel drive available on upper trims like the TrailSport and Black Edition. <br/><br/>The Pilot emphasizes usability, with flexible seating and practical cargo space. While it offers solid safety accommodations and off-road touches on TrailSport, it primarily targets buyers prioritizing function and refinement over performance edge.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Thoughts</title>
+    <style>
+      /* Container Styles */
+      .final-thoughts-container {
+        padding: 60px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        border-radius: 16px;
+      }
+
+      .final-thoughts-container h1,
+      .final-thoughts-container h2,
+      .final-thoughts-container h3,
+      .final-thoughts-container p {
+        max-width: 1300px !important;
+      }
+
+      /* Section Title */
+      .final-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #003478;
+        margin-bottom: 35px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 20px;
+      }
+
+      .final-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #003478 0%, #0052a3 100%);
+        border-radius: 2px;
+      }
+
+      /* Content Section */
+      .final-content {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .final-content p {
+        font-size: 17px;
+        line-height: 1.9;
+        color: #4a5568;
+        margin-bottom: 25px;
+        text-align: justify;
+      }
+
+      .final-content p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      /* Highlight Paragraph */
+      .highlight-paragraph {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border-left: 5px solid #003478;
+        box-shadow: 0 4px 12px rgba(0, 52, 120, 0.08);
+        margin: 30px 0;
+      }
+
+      .highlight-paragraph p {
+        margin-bottom: 0;
+        font-weight: 500;
+        color: #2d3748;
+      }
+
+      /* Call to Action Section */
+      .cta-section {
+        background: linear-gradient(135deg, #003478 0%, #0052a3 100%);
+        padding: 35px;
+        border-radius: 12px;
+        text-align: center;
+        margin-top: 40px;
+        box-shadow: 0 8px 20px rgba(0, 52, 120, 0.2);
+      }
+
+      .cta-section p {
+        color: white;
+        font-size: 18px;
+        line-height: 1.8;
+        margin: 0;
+        text-align: center;
+      }
+
+      /* Link Styles */
+      a {
+        color: #0052a3;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid transparent;
+      }
+
+      a:hover {
+        color: #003478;
+        border-bottom: 2px solid #003478;
+      }
+
+      /* Links in CTA Section */
+      .cta-section a {
+        color: #ffffff;
+        font-weight: 700;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+        padding-bottom: 2px;
+      }
+
+      .cta-section a:hover {
+        color: #ffd700;
+        border-bottom: 2px solid #ffd700;
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+      }
+
+      /* Phone Link Special Styling */
+      a[href^="tel:"] {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      a[href^="tel:"]::before {
+        content: "📞";
+        font-size: 16px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .final-thoughts-container {
+          padding: 40px 20px !important;
+          border-radius: 12px;
+        }
+
+        .final-title {
+          font-size: 28px;
+          margin-bottom: 25px;
+        }
+
+        .final-content p {
+          font-size: 16px;
+          line-height: 1.8;
+          text-align: left;
+        }
+
+        .highlight-paragraph {
+          padding: 25px 20px;
+        }
+
+        .cta-section {
+          padding: 25px 20px;
+        }
+
+        .cta-section p {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .final-thoughts-container {
+          padding: 30px 15px !important;
+        }
+
+        .final-title {
+          font-size: 24px;
+          padding-bottom: 15px;
+        }
+
+        .final-title::after {
+          width: 60px;
+          height: 3px;
+        }
+
+        .final-content p {
+          font-size: 15px;
+          margin-bottom: 20px;
+        }
+
+        .highlight-paragraph {
+          padding: 20px 15px;
+          margin: 20px 0;
+        }
+
+        .cta-section {
+          padding: 20px 15px;
+          margin-top: 30px;
+        }
+
+        .cta-section p {
+          font-size: 15px;
+        }
+
+        a[href^="tel:"]::before {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="final-thoughts-container">
+      <h2 class="final-title">Final Thoughts</h2>
+
+      <div class="final-content">
+        <p>
+          The 2026 Hyundai Sonata remains an excellent midsize sedan, comfortable,
+          spacious, and equipped with available All-Wheel Drive for confident,
+          all-weather driving. For buyers whose top priorities are maximum
+          rear-seat legroom and a large trunk, the Sonata continues to be a strong
+          contender.
+        </p>
+
+        <div class="highlight-paragraph">
+          <p>
+            However, for most Oklahoma drivers, the 2026 Hyundai Elantra emerges
+            as the smarter, more versatile, and higher-value choice. Its
+            advantages are clear and compelling: a lower starting MSRP for both
+            gasoline and hybrid models, superior fuel efficiency, up to 58 MPG on
+            the highway in the hybrid Blue trim, and a performance-oriented Elantra
+            N that delivers exhilarating driving where it matters most,
+            outperforming the Sonata N Line in real-world conditions.
+          </p>
+        </div>
+
+        <p>
+          The Elantra achieves all this without compromise. Its compact size makes
+          city driving and parking effortless, while its tech-forward cabin rivals
+          that of its larger sibling. Most importantly, it delivers the same
+          award-winning IIHS TOP SAFETY PICK+ protection, ensuring you and your
+          passengers are safeguarded by top-tier safety technology.
+        </p>
+
+        <p>
+          Far from being simply a smaller version of the Sonata, the 2026 Elantra
+          is a thoughtfully engineered sedan that strikes the perfect balance of
+          efficiency, performance, technology, safety, and value, making it a
+          tailored solution for nearly every Oklahoman's driving needs and budget.
+        </p>
+
+        <div class="cta-section">
+          <p>
+            Experience the 2026 Hyundai Elantra for yourself. Visit
+            <a href="https://joecooperhyundai.com/">Joe Cooper Hyundai</a> in Midwest City or call
+            <a href="tel:4054507791">(405) 450-7791</a> to schedule your test
+            drive today.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

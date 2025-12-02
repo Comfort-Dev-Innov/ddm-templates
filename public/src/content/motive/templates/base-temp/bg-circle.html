@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .santafe-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .santafe-container h1 {
+            width: fit-content !important;
+        }
+        
+        .santafe-container h3,
+        .santafe-container h1,
+        .santafe-container h2,
+        .santafe-container p,
+        .santafe-container ol,
+        .santafe-container ul {
+            max-width: 1300px !important;
+        }
+        
+        .hyundai-santafe-summary-card {
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            border-radius: 16px;
+            padding: 48px 40px;
+            margin: 0 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(1, 43, 93, 0.15);
+        }
+        
+        .hyundai-santafe-summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .hyundai-santafe-summary-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(1, 43, 93, 0.25);
+        }
+        
+        .hyundai-santafe-summary-card:hover::before {
+            opacity: 1;
+        }
+        
+        .santafe-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+        
+        .santafe-bg-circle-top-right {
+            width: 120px;
+            height: 120px;
+            top: -30px;
+            right: -30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .santafe-bg-circle-bottom-left {
+            width: 200px;
+            height: 200px;
+            bottom: -80px;
+            left: -60px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .santafe-bg-circle-middle-right {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            right: -20px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .hyundai-santafe-summary-card:hover .santafe-bg-circle-top-right {
+            transform: scale(1.1) translate(-10px, 10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hyundai-santafe-summary-card:hover .santafe-bg-circle-bottom-left {
+            transform: scale(1.05) translate(15px, -15px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        
+        .hyundai-santafe-summary-card:hover .santafe-bg-circle-middle-right {
+            transform: scale(1.2) translate(-5px, -5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .santafe-intro-description {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        
+        .santafe-trim-highlight {
+            padding-top: 15px;
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+        
+        .santafe-trim-list {
+            display: inline;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .santafe-trim-name {
+            position: relative;
+            display: inline;
+            transition: all 0.2s ease;
+        }
+        
+        .santafe-trim-name:hover {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+            @media (max-width: 768px) {
+            .hyundai-santafe-summary-card {
+                margin: 0 15px;
+                padding: 36px 28px;
+            }
+            
+            .santafe-bg-circle-top-right {
+                width: 80px;
+                height: 80px;
+                top: -20px;
+                right: -20px;
+            }
+            
+            .santafe-bg-circle-bottom-left {
+                width: 120px;
+                height: 120px;
+                bottom: -40px;
+                left: -40px;
+            }
+            
+            .santafe-bg-circle-middle-right {
+                width: 50px;
+                height: 50px;
+                top: 40%;
+                right: -10px;
+            }
+            
+            .santafe-intro-description {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+            
+            .santafe-trim-highlight {
+                font-size: 15px;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hyundai-santafe-summary-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="santafe-container">
+        <div class="hyundai-santafe-summary-card">
+            <div class="santafe-bg-circle santafe-bg-circle-top-right"></div>
+            <div class="santafe-bg-circle santafe-bg-circle-bottom-left"></div>
+            <div class="santafe-bg-circle santafe-bg-circle-middle-right"></div>
+            
+            <p class="santafe-intro-description">
+                The 2025 Hyundai Santa Fe represents a compelling combination of bold design, practical functionality, and advanced technology. With its choice of efficient hybrid or powerful turbocharged engines, comprehensive safety features, and thoughtfully designed interior, it's built to handle whatever your daily life demands.
+            </p>
+            
+            <p class="santafe-trim-highlight">
+                Whether you're drawn to the value-packed <span class="santafe-trim-name">SE</span>, the well-balanced <span class="santafe-trim-name">SEL</span>, the adventure-ready <span class="santafe-trim-name">XRT</span>, the luxurious <span class="santafe-trim-name">Limited</span>, or the flagship <span class="santafe-trim-name">Calligraphy</span>, there's a Santa Fe configuration that aligns with your needs and budget.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

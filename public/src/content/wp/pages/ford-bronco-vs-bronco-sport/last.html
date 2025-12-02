@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronco vs. Bronco Sport — Final Section</title>
+    <style>
+        .cta2-section {
+            max-width: 1140px;
+            background: #ebf4ff;
+            padding: 4rem 0;
+            border-radius: 0;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cta2-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, #0066cc 0%, #00142E 50%, #0066cc 100%);
+            clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+        }
+
+        .cta2-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .cta2-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .cta2-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 900 !important;
+            color: #00142E !important;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cta2-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta2-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta2-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta2-card-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .cta2-card-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta2-card-text {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+            margin-bottom: 1rem;
+        }
+
+        .media-placeholder {
+            background: linear-gradient(135deg, #f4f7fb, #e6eef8);
+            border: 1px solid #dbe4ef;
+            border-radius: 12px;
+            height: 500px;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-caption {
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            font-size: 12px;
+            color: #6b7280;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .icon-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 9999px;
+            display: inline-grid;
+            place-items: center;
+            background: linear-gradient(135deg, #0066cc, #004999);
+        }
+
+        .icon-badge svg { display: block; }
+
+        .heading-with-icon { display: inline-flex; align-items: center; gap: 10px; }
+
+        .cta2-action-box {
+            background: linear-gradient(135deg, #0066cc, #004999);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .cta2-action-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 900px) {
+            .cta2-card-with-image { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .cta2-title { font-size: 20px; }
+            .cta2-card-heading { font-size: 1.4rem; }
+            .cta2-card { padding: 1.5rem; }
+        }
+    </style>
+    <!-- Decorative inline SVG defs to reuse -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0066cc"/>
+                <stop offset="100%" stop-color="#004999"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <style>
+        .decor-svg { width: 140px; height: 140px; opacity: 0.9; }
+    </style>
+    
+</head>
+<body>
+    <section class="cta2-section">
+        <div class="cta2-container">
+            <header class="cta2-header">
+                <h2 class="cta2-title">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z" fill="#fff"/>
+                        </svg>
+                    </span>
+                    <span>Designed for the Pacific Northwest Lifestyle</span>
+                </h2>
+            </header>
+
+            <div class="cta2-card cta2-card-with-image">
+                <div>
+                    <p class="cta2-card-text">Choosing between the Bronco and Bronco Sport ultimately comes down to your lifestyle in and around Kent.</p>
+                </div>
+                <div class="media-placeholder" aria-hidden="true">
+                    <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:4f4c0754-a2c4-4234-91de-b611904e8616/as/26_Bronco_Billboard_Desktop_v2.webp?max-quality=75&crop-names=1_16x9&width=3840"/>
+                </div>
+            </div>
+
+            <div class="cta2-card cta2-card-with-image">
+                <div>
+                    <h3 class="cta2-card-heading">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2l7 19-7-4-7 4 7-19z" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span>2025 Ford Bronco</span>
+                    </h3>
+                    <p class="cta2-card-text">The 2025 Ford Bronco is the ideal choice for the serious adventurer who frequently tackles challenging off-road trails and desires maximum capability, along with a bold, iconic design. Its commanding presence is sure to turn heads, whether you're at the Kent Station or heading for the mountains.</p>
+                </div>
+                <div class="media-placeholder" aria-hidden="true">
+                    <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/bronco/2026/jellybeans/26_frd_bro_base_2d_ps34_sblk_v2.png"/>
+                </div>
+            </div>
+
+            <div class="cta2-card cta2-card-with-image">
+                <div>
+                    <h3 class="cta2-card-heading">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 3h18v4H3zM5 7h14v10H5z" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span>2025 Ford Bronco Sport</span>
+                    </h3>
+                    <p class="cta2-card-text">The 2025 Ford Bronco Sport is the perfect all-around SUV for many Kent residents. Its comfortable ride, impressive fuel efficiency, and versatile interior make it an excellent daily driver. Yet, its standard 4x4 and off-road capabilities mean you're always ready for a spontaneous weekend adventure. The easy-to-clean interior is perfect for trips to Lake Fenwick Park with the kids or pets.</p>
+                </div>
+                <div class="media-placeholder" aria-hidden="true">
+                    <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/bronco-sport/2025/jellybeans/Ford_Bronco-Sport_2025_200A_PE7_88Q_89W_64T_T7Q_99N_BBD_DEFAULT_EXT_4_002.png"/>
+                </div>
+            </div>
+
+            <div class="cta2-card">
+                <h3 class="cta2-card-heading">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" fill="#fff"/>
+                        </svg>
+                    </span>
+                    <span>Your Local Guide to the Bronco Family: Bowen Scarff Ford</span>
+                </h3>
+                <p class="cta2-card-text">For drivers in Kent, WA, the best place to explore the 2025 Ford Bronco and Bronco Sport is at Bowen Scarff Ford, conveniently located at 1157 Central Ave N. As a cornerstone of the Kent community, Bowen Scarff Ford is committed to providing a transparent and customer-focused experience. Their knowledgeable and non-commissioned sales staff are passionate about helping you find the perfect vehicle to fit your needs and budget.</p>
+            </div>
+
+            <div class="cta2-card cta2-card-with-image">
+                <div>
+                    <h3 class="cta2-card-heading">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3l9 7-9 11L3 10l9-7z" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span>Your Adventure Awaits</span>
+                    </h3>
+                    <div class="cta2-action-box">
+                        <p class="cta2-action-text">The 2025 Ford Bronco and Bronco Sport offer two incredible paths to adventure. The only question is, which one will you choose? The team at Bowen Scarff Ford invites you to experience the capability and excitement of the Bronco family firsthand. Please browse our extensive online inventory, and when you're ready, book your test drive to discover which 2025 Bronco is the perfect fit for your lifestyle in Kent, WA. Visit us today and let your next adventure begin!</p>
+                    </div>
+                </div>
+                <div class="media-placeholder" aria-hidden="true">
+                    <img src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/suvs-crossovers/bronco/mobile/23_FRD_BRO_B0I4462_43.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"/>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
+

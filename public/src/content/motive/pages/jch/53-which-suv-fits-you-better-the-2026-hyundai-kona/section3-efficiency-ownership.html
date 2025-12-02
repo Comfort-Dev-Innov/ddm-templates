@@ -1,0 +1,430 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Bullet List */
+      .bullet-list {
+        margin: 15px 0 20px 20px;
+        padding-left: 20px;
+      }
+
+      .bullet-list li {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 12px;
+      }
+
+      /* Highlight Box */
+      .highlight-box {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #0f3079;
+        border-radius: 10px;
+        padding: 25px 30px;
+        margin: 30px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .highlight-box h4 {
+        color: #0f3079;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .highlight-box p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        margin-bottom: 10px;
+      }
+
+      .highlight-box ul {
+        margin: 10px 0 10px 20px;
+        padding-left: 20px;
+      }
+
+      .highlight-box li {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Table Styling */
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        margin: 30px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .highlight-box {
+          padding: 20px;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Efficiency and Ownership of The 2026 Kona and 2026 Crosstrek
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The initial purchase price is only the beginning of a vehicle's story.
+        True value is revealed over years of ownership, measured in fuel costs
+        and the peace of mind that comes from long-term reliability. In these
+        crucial areas, the 2026 Hyundai Kona builds an insurmountable lead.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Fuel Economy Breakdown</h3>
+
+      <p class="paragraph-text">
+        For drivers looking to maximize their fuel budget, the Kona's flexible
+        drivetrain options pay significant dividends. The standard 2.0L engine
+        with FWD achieves an excellent EPA-estimated 29 MPG in the city and 34
+        MPG on the highway. Even the powerful 1.6L Turbo with FWD remains
+        efficient at 26 MPG city and 31 MPG highway.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The 2026 Crosstrek, with its mandatory AWD system, offers respectable
+        but lower figures for its gasoline model, estimated at around 27 MPG
+        city and 33 MPG highway. The new Crosstrek Hybrid makes a significant
+        leap, with an EPA-estimated 36 MPG combined. While impressive, this
+        efficiency comes with a starting MSRP that is thousands of dollars
+        higher than even the top-tier gasoline-powered Kona Limited, requiring
+        many years of driving to recoup the initial investment through fuel
+        savings.
+      </p>
+
+      <!-- Fuel Economy Comparison Table -->
+      <br />
+      <h3 class="table-heading">Fuel Economy Comparison</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Configuration</th>
+            <th>City MPG</th>
+            <th>Highway MPG</th>
+            <th>Combined MPG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kona 2.0L FWD</td>
+            <td class="winner-cell">29</td>
+            <td class="winner-cell">34</td>
+            <td class="winner-cell">31</td>
+          </tr>
+          <tr>
+            <td>Kona 1.6L Turbo FWD</td>
+            <td>26</td>
+            <td>31</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>Crosstrek (Gas)</td>
+            <td>27</td>
+            <td>33</td>
+            <td>29</td>
+          </tr>
+          <tr>
+            <td>Crosstrek (Hybrid)</td>
+            <td>36</td>
+            <td>36</td>
+            <td>36</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsection-heading">
+        The Ultimate Peace of Mind: America's Best Warranty
+      </h3>
+
+      <p class="paragraph-text">
+        The single most compelling aspect of long-term ownership is Hyundai's
+        industry-leading warranty, a testament to the company's confidence in
+        its engineering and build quality. Every 2026 Hyundai Kona is protected
+        by:
+      </p>
+
+      <ul class="bullet-list">
+        <li>
+          A <strong>5-year/60,000-mile</strong> New Vehicle Limited Warranty.
+        </li>
+        <li>
+          A <strong>10-year/100,000-mile</strong> Powertrain Limited Warranty.
+        </li>
+      </ul>
+
+      <p class="paragraph-text">
+        This stands in stark contrast to the coverage offered on the 2026 Subaru
+        Crosstrek:
+      </p>
+
+      <ul class="bullet-list">
+        <li>
+          A <strong>3-year/36,000-mile</strong> New Vehicle Limited Warranty.
+        </li>
+        <li>
+          A <strong>5-year/60,000-mile</strong> Powertrain Limited Warranty.
+        </li>
+      </ul>
+
+      <p class="paragraph-text">
+        The difference is not trivial. The Kona's basic warranty provides
+        <strong>two additional years</strong> and
+        <strong>24,000 additional miles</strong> of comprehensive protection.
+        This means that in the fourth and fifth years of ownership, a
+        potentially costly repair to the infotainment system, climate control,
+        or other advanced electronics would be fully covered for the Kona owner,
+        while the Crosstrek owner would face an out-of-pocket expense. This
+        extended coverage represents thousands of dollars in potential savings
+        and provides an unparalleled level of financial security.
+      </p>
+
+      <div class="highlight-box">
+        <h4>Complimentary Maintenance Advantage</h4>
+        <p>
+          Furthermore, Hyundai includes
+          <strong>Complimentary Maintenance for 3 years or 36,000 miles</strong
+          >, covering normal, factory-scheduled services like oil changes and
+          tire rotations. This further reduces the total cost of ownership and
+          ensures your vehicle is maintained to the highest standards from day
+          one.
+        </p>
+
+        <p class="paragraph-text">
+          When considering the complete ownership experience, the Kona's
+          warranty and maintenance package creates a value proposition that is
+          simply unmatched in the segment.
+        </p>
+      </div>
+
+      <!-- Warranty Comparison Table -->
+
+      <hr class="hr-1" id="design-space-practicality" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!-- 
+  Instructions for WordPress:
+  1. Create a new Page or Post in your WordPress admin dashboard.
+  2. Switch the editor from 'Visual' to 'Text' or 'Code' mode.
+  3. Copy all the code below and paste it into the editor.
+  4. Save or Publish the page. The interactive content will appear on your site.
+-->
+
+<!-- Main container for the blog post content -->
+<div class="f150-lightning-2026-guide-container">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Styles for the post -->
+    <style>
+        /* Apply a modern, readable font */
+        .f150-lightning-2026-guide-container {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #F9FAFB;
+            color: #111827;
+        }
+        /* Styles for the interactive chart container */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        /* Styles for the accordion (Q&A, Features) functionality */
+        .accordion-content {
+            max-height: 0; /* Changed from display: none to allow for animation */
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .accordion-button.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+        /* Styles for the interactive color swatches */
+        .color-swatch {
+            transition: transform 0.2s ease-in-out;
+        }
+        .color-swatch:hover, .color-swatch.selected {
+            transform: scale(1.1);
+            outline: 2px solid #3B82F6;
+        }
+    </style>
+
+    <!-- Post Content Start -->
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Discover the 2026 Ford F-150 Lightning</h1>
+            <p class="text-lg text-gray-600">Your guide to the latest updates, pricing, and how to factory order the future of trucks.</p>
+        </header>
+
+        <main>
+            <!-- What's New Section -->
+            <section id="whats-new" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b pb-2">What's New for 2026?</h2>
+                <p class="text-gray-700 mb-6">The 2026 Ford F-150 Lightning builds on its legendary foundation with significant upgrades focused on performance, range, and style. The biggest news is the standardization of the larger battery across more trims, offering enhanced capability for everyone. Plus, get ready to turn heads with a refreshed color palette introducing bold new options.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-xl text-blue-800 mb-2">Enhanced Standard Performance</h3>
+                        <p class="text-blue-700">The <strong>123 kWh Usable Capacity Extended Range Battery</strong> is now standard on the Pro, STX®, and Flash™ trims, a major upgrade from the previous 98 kWh battery. This means more range and power right from the start for the most popular models.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-xl text-green-800 mb-2">Fresh & Exciting Color Palette</h3>
+                        <p class="text-green-700">Express yourself with three stunning new colors: <strong>Argon Blue Metallic</strong>, <strong>Marsh Gray</strong>, and the vibrant <strong>Ruby Red Metallic Tinted Clearcoat</strong>. These new additions give the F-150 Lightning a fresh, modern look for 2026.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Trim & Pricing Explorer -->
+            <section id="pricing" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Interactive Trim & Pricing Explorer</h2>
+                <p class="text-center text-gray-600 mb-8">Use the dropdown to highlight a trim on the chart and see its key details.</p>
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="w-full lg:w-2/3">
+                        <div class="chart-container">
+                            <canvas id="trimPriceChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3">
+                        <div class="mb-4">
+                             <label for="trimSelector" class="block text-sm font-medium text-gray-700 mb-1">Select a Trim to Highlight:</label>
+                             <select id="trimSelector" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <option value="-1">None</option>
+                                <option value="0">Pro (Fleet Only)</option>
+                                <option value="1">STX</option>
+                                <option value="2">Flash</option>
+                                <option value="3">Lariat</option>
+                                <option value="4">Platinum</option>
+                            </select>
+                        </div>
+                        <div id="trimDetails" class="bg-gray-100 p-6 rounded-lg transition-all duration-300 min-h-[200px]">
+                             <h3 id="trimName" class="text-2xl font-bold text-gray-800">Select a Trim</h3>
+                             <p id="trimPrice" class="text-xl text-blue-600 font-semibold my-2"></p>
+                             <p id="trimDescription" class="text-gray-700"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Color Showcase -->
+            <section id="colors" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">2026 Color Showcase</h2>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div id="colorDisplay" class="w-full md:w-1/2 h-64 rounded-lg bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+                        <span id="colorName" class="text-2xl font-bold text-white" style="text-shadow: 1px 1px 2px black;">Select a Color</span>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-xl font-semibold mb-3">New for 2026</h3>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #D50000;" data-color-name="Ruby Red Metallic Tinted Clearcoat" data-color-hex="#D50000"></div>
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #42A5F5;" data-color-name="Argon Blue Metallic" data-color-hex="#42A5F5"></div>
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #9E9E9E;" data-color-name="Marsh Gray" data-color-hex="#9E9E9E"></div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Returning Favorites</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #212121;" data-color-name="Agate Black" data-color-hex="#212121"></div>
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #EEEEEE;" data-color-name="Oxford White" data-color-hex="#EEEEEE"></div>
+                            <div class="color-swatch w-16 h-16 rounded-full cursor-pointer border-4 border-white shadow" style="background-color: #CFD8DC;" data-color-name="Iconic Silver Metallic (Pro Only)" data-color-hex="#CFD8DC"></div>
+                        </div>
+                         <p class="text-sm text-gray-500 mt-4">Note: Rapid Red, Space White, and non-Pro Iconic Silver have been discontinued for 2026.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features & Changes -->
+            <section id="features" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Key Features & Changes</h2>
+                <div id="accordion-container">
+                    <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-semibold text-gray-700">Standard Equipment Upgrades</span>
+                                <span class="accordion-arrow text-2xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50">
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li><strong>Pro Trim:</strong> Now comes standard with Carbon Black Fixed Extended Running Boards for easier access and a rugged look.</li>
+                                    <li><strong>Pro, STX®, Flash™:</strong> All three trims now feature the powerful 123 kWh Extended Range Battery as standard.</li>
+                                    <li><strong>Connectivity:</strong> A 1-Year subscription to the Ford Connectivity Package is included on all models, featuring services like unlimited Wi-Fi, Connected Navigation, and EV Trip Planner.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-semibold text-gray-700">Important Package Changes</span>
+                                <span class="accordion-arrow text-2xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50">
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li><strong>Max Trailer Tow Package (53D):</strong> Now standard on the Platinum trim and optional on Pro, STX®, Flash, and Lariat. This package increases tow capability from 7,700 lbs to an impressive 10,000 lbs.</li>
+                                    <li><strong>Deleted Battery Option:</strong> The 98 kWh Standard Range Battery has been discontinued and is no longer available.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Q&A Section -->
+            <section id="faq" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+                <div id="faq-accordion-container">
+                    <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-medium text-gray-700">1. What is the main difference between the 2025 and 2026 F-150 Lightning?</span>
+                                <span class="accordion-arrow text-xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50 text-gray-700">The most significant change is the standardization of the 123 kWh Extended Range Battery on the Pro, STX®, and Flash™ models. Previously, these trims came with a smaller 98 kWh battery. Additionally, there are three new exterior color options for 2026.</div>
+                        </div>
+                    </div>
+                     <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-medium text-gray-700">2. Can I still get the smaller, standard range battery?</span>
+                                <span class="accordion-arrow text-xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50 text-gray-700">No, for the 2026 model year, the 98 kWh usable capacity Standard Range Battery has been discontinued across all trim levels. The 123 kWh battery is now the minimum option.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-medium text-gray-700">3. What are the new colors for the 2026 model?</span>
+                                <span class="accordion-arrow text-xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50 text-gray-700">The three new colors are Argon Blue Metallic, Marsh Gray, and Ruby Red Metallic Tinted Clearcoat. These replace Rapid Red, Iconic Silver (except on Pro), and Space White.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-medium text-gray-700">4. Is the Pro model available for retail purchase?</span>
+                                <span class="accordion-arrow text-xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50 text-gray-700">No, the 2026 F-150 Lightning Pro model is designated for Fleet Only orders. Retail customers can choose from the STX, Flash, Lariat, and Platinum trims.</div>
+                        </div>
+                    </div>
+                     <div class="accordion-item border-b">
+                        <button class="accordion-button w-full text-left py-4 px-2 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-medium text-gray-700">5. What is the starting price for the 2026 F-150 Lightning?</span>
+                                <span class="accordion-arrow text-xl transition-transform duration-300">▼</span>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 bg-gray-50 text-gray-700">The starting MSRP for the retail lineup is the STX trim at $63,345. This does not include the destination and delivery fee of $2,195. Please see our interactive chart for a full price breakdown.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section id="order" class="text-center bg-blue-600 text-white p-10 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Ready to Build Your 2026 F-150 Lightning?</h2>
+                <p class="text-blue-100 mb-6 max-w-2xl mx-auto">A factory order is the best way to get the exact color, trim, and features you want. Don't wait for dealer stock to arrive—customize your perfect electric truck today.</p>
+                <!-- NOTE: You should change the '#' to your actual order page URL -->
+                <a href="#" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg hover:bg-blue-50 transition-colors text-lg shadow-md">Start Your Factory Order</a>
+            </section>
+        </main>
+    </div>
+    <!-- Post Content End -->
+    
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Use a self-executing function to avoid conflicts with other WordPress scripts
+        (function() {
+            // Function to run after the DOM is fully loaded
+            function initializeF150Guide() {
+                // Trim & Pricing Data
+                const trimData = [
+                    { name: 'Pro (Fleet Only)', price: 54780, description: 'The essential work truck, now with standard extended range. Built for durability and performance on the job site. (Available for Fleet orders only)' },
+                    { name: 'STX', price: 63345, description: 'The stylish and accessible entry to the Lightning lineup for retail customers. Features monochromatic styling and the new standard extended range battery.' },
+                    { name: 'Flash', price: 65995, description: 'The tech-forward choice. Includes a 15.5-inch touchscreen and the latest Ford connectivity features, plus the extended range battery.' },
+                    { name: 'Lariat', price: 74995, description: 'A touch of luxury with premium materials and advanced features. Combines comfort and capability for a refined driving experience.' },
+                    { name: 'Platinum', price: 84995, description: 'The ultimate F-150 Lightning experience. Comes fully loaded with exclusive materials, top-tier technology, and the Max Trailer Tow Package as standard.' }
+                ];
+
+                // Chart.js Implementation
+                const chartCanvas = document.getElementById('trimPriceChart');
+                // Check if the chart canvas element exists before creating the chart
+                if (chartCanvas) {
+                    const ctx = chartCanvas.getContext('2d');
+                    const trimPriceChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: trimData.map(t => t.name),
+                            datasets: [{
+                                label: 'MSRP ($)',
+                                data: trimData.map(t => t.price),
+                                backgroundColor: [
+                                    'rgba(156, 163, 175, 0.6)', 'rgba(59, 130, 246, 0.6)',
+                                    'rgba(34, 197, 94, 0.6)', 'rgba(234, 179, 8, 0.6)',
+                                    'rgba(168, 85, 247, 0.6)'
+                                ],
+                                borderColor: [
+                                    'rgba(156, 163, 175, 1)', 'rgba(59, 130, 246, 1)',
+                                    'rgba(34, 197, 94, 1)', 'rgba(234, 179, 8, 1)',
+                                    'rgba(168, 85, 247, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) { label += ': '; }
+                                            if (context.parsed.x !== null) {
+                                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(context.parsed.x);
+                                            }
+                                            return label;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) { return '$' + (value / 1000) + 'k'; }
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    // Interactive Trim Details
+                    const trimSelector = document.getElementById('trimSelector');
+                    const trimNameEl = document.getElementById('trimName');
+                    const trimPriceEl = document.getElementById('trimPrice');
+                    const trimDescriptionEl = document.getElementById('trimDescription');
+
+                    function updateTrimDetails(index) {
+                        const defaultBgColors = trimPriceChart.data.datasets[0].backgroundColor;
+                        const defaultBorderColors = trimPriceChart.data.datasets[0].borderColor;
+                        
+                        trimPriceChart.data.datasets[0].backgroundColor = defaultBgColors.map(c => c.replace(/, (0\.8|1)\)/, ', 0.6)'));
+                        trimPriceChart.data.datasets[0].borderColor = defaultBorderColors.map(c => c.replace(/, (0\.8|1)\)/, ', 1)'));
+
+                        if (index >= 0 && index < trimData.length) {
+                            const selectedTrim = trimData[index];
+                            trimNameEl.textContent = selectedTrim.name;
+                            trimPriceEl.textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(selectedTrim.price);
+                            trimDescriptionEl.textContent = selectedTrim.description;
+                            
+                            trimPriceChart.data.datasets[0].backgroundColor[index] = trimPriceChart.data.datasets[0].backgroundColor[index].replace(', 0.6)', ', 0.8)');
+                        } else {
+                            trimNameEl.textContent = 'Select a Trim';
+                            trimPriceEl.textContent = '';
+                            trimDescriptionEl.textContent = 'Choose a trim level from the dropdown to see its price and a brief description here.';
+                        }
+                        trimPriceChart.update();
+                    }
+
+                    if (trimSelector) {
+                        trimSelector.addEventListener('change', (e) => {
+                            updateTrimDetails(parseInt(e.target.value));
+                        });
+                    }
+                    updateTrimDetails(-1); // Initialize with no selection
+                }
+                
+                // Color Showcase Logic
+                const colorSwatches = document.querySelectorAll('.color-swatch');
+                const colorDisplay = document.getElementById('colorDisplay');
+                const colorName = document.getElementById('colorName');
+
+                if (colorSwatches.length > 0 && colorDisplay && colorName) {
+                    colorSwatches.forEach(swatch => {
+                        swatch.addEventListener('click', () => {
+                            const name = swatch.dataset.colorName;
+                            const hex = swatch.dataset.colorHex;
+
+                            colorDisplay.style.backgroundColor = hex;
+                            colorName.textContent = name;
+                            
+                            const isLight = parseInt(hex.substring(1, 3), 16) * 0.299 + parseInt(hex.substring(3, 5), 16) * 0.587 + parseInt(hex.substring(5, 7), 16) * 0.114 > 186;
+                            colorName.style.color = isLight ? '#111827' : '#FFFFFF';
+
+                            colorSwatches.forEach(s => s.classList.remove('selected'));
+                            swatch.classList.add('selected');
+                        });
+                    });
+                    // Set initial color display
+                    document.querySelector('.color-swatch[data-color-name="Argon Blue Metallic"]')?.click();
+                }
+
+                // Accordion Logic
+                const accordionContainers = ['#accordion-container', '#faq-accordion-container'];
+                accordionContainers.forEach(containerSelector => {
+                     const container = document.querySelector(containerSelector);
+                     if(container) {
+                        const buttons = container.querySelectorAll('.accordion-button');
+                        buttons.forEach(button => {
+                            button.addEventListener('click', () => {
+                                const content = button.nextElementSibling;
+                                const isActive = button.classList.contains('active');
+                                
+                                // First, close all buttons in the same container
+                                buttons.forEach(b => {
+                                    b.classList.remove('active');
+                                    b.nextElementSibling.style.maxHeight = null;
+                                });
+
+                                // If the clicked button was not already active, open it
+                                if (!isActive) {
+                                    button.classList.add('active');
+                                    content.style.maxHeight = content.scrollHeight + "px";
+                                }
+                            });
+                        });
+                     }
+                });
+            }
+
+            // Ensure the script runs after the page has loaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeF150Guide);
+            } else {
+                initializeF150Guide();
+            }
+        })();
+    </script>
+</div>

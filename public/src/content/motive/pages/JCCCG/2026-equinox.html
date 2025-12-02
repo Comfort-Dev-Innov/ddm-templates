@@ -1,0 +1,596 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+  
+    .blog-section * { max-width: 100% !important; box-sizing: border-box; }
+  
+    /* Typography */
+    .blog-section p { margin: 1em 0; }
+    
+    .blog-section h2,
+    .blog-section h3,
+    .blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+  
+    .blog-section h2 { font-size: 1.6em; }
+    .blog-section h3 { font-size: 1.35em; }
+  
+    /* Tables */
+    .blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+  
+    .blog-section table.e-rte-table thead { background: #1e3a8a; color: #fff; }
+    .blog-section table.e-rte-table th, .blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .blog-section table.e-rte-table td { color: #374151; }
+    .blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .blog-section table.e-rte-table tbody tr:hover { 
+      background: #eef2ff; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+  
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .blog-section table.e-rte-table th,
+      .blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+  
+    /* Links */
+    .blog-section a { 
+      color: #1e3a8a !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .blog-section a:hover { color: #15306e !important; }
+  
+    /* TOC */
+    .blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .blog-section h2 + ul li { margin: 6px 0; }
+    .blog-section h2 + ul li a { text-decoration: none; color: #1e3a8a; }
+    .blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .blog-section h2[id], .blog-section h3[id], .blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* ===== Image Styles ===== */
+    .blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+  
+    .blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1e3a8a;
+      outline: 3px dashed #3b82f6;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+  
+    .blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+      outline-offset: 12px;
+      border-color: #2563eb;
+    }
+  
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 12px;
+    }
+  
+    .blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+  
+    .blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      border-color: #1e40af;
+    }
+  
+    /* Floating Images */
+    .blog-section .image-float-left, .blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+  
+    .blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+  
+    .blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+  
+    .blog-section .image-float-left img, .blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #60a5fa;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+  
+    .blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    .blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(96, 165, 250, 0.35);
+      border-color: #2563eb;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .blog-section .image-grid img {
+        border: none;
+      }
+  
+      .blog-section .image-float-left img,
+      .blog-section .image-float-right img {
+        border: none;
+      }
+  
+      .blog-section .image-float-left,
+      .blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  </style>
+  
+  <section class="blog-section">
+    <p>Experience the blend of thoughtful design, versatile comfort, and dependable performance in the <strong>2026 Chevrolet Equinox Base</strong>, now available at Joe Cooper Chevrolet Cadillac GMC. Serving Shawnee, Edmond, Mustang, Oklahoma City, and neighboring communities, our dealership invites you to explore this well-rounded compact SUV that harmonizes everyday practicality with modern technology. Designed for families and professionals who appreciate a dependable and feature-rich ride, the Equinox Base continues Chevrolet's tradition of balancing quality and value within the competitive compact SUV landscape.</p>
+  
+    <div class="image-grid">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/vdc-collections/2025/suvs/equinox/trims/v2/2025-equinox-1pt26-1lt-gxd-trimselector.png?imwidth=1920" alt="2026 Chevrolet Equinox LT">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/vdc-collections/2026/suvs/equinox/trims/2025-equinox-1ps26-1rs-gnt-trimselector.png?imwidth=1920" alt="2026 Chevrolet Equinox RS">
+    </div>
+  
+    <p>Our experienced team at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong> is ready to provide a welcoming, transparent, and educational buying experience. Call us at <strong><a href="tel:4057772603">(405) 777-2603</a></strong> to learn more or schedule a personalized visit. Discover why drivers from Bethel Acres, Yukon, Moore, and other nearby cities trust Joe Cooper Chevrolet Cadillac GMC for their vehicle needs.</p>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#equilibrium-of-style-and-function-exterior-excellence">Equilibrium of Style and Function: Exterior Excellence</a></li>
+      <li><a href="#engineered-for-everyday-performance-and-driving-comfort">Engineered for Everyday Performance and Driving Comfort</a></li>
+      <li><a href="#crafted-interior-comfort-and-practicality">Crafted Interior Comfort and Practicality</a></li>
+      <li><a href="#intuitive-technology-and-seamless-connectivity">Intuitive Technology and Seamless Connectivity</a></li>
+      <li><a href="#comprehensive-safety-and-trusted-driver-assistance">Comprehensive Safety and Trusted Driver Assistance</a></li>
+      <li><a href="#trim-exploration-and-package-details">Trim Exploration and Package Details</a></li>
+      <li><a href="#confidence-backed-by-warranty-and-maintenance">Confidence Backed by Warranty and Maintenance</a></li>
+      <li><a href="#joe-cooper-experience-and-enduring-value-proposition">Joe Cooper Experience and Enduring Value Proposition</a></li>
+    </ul>
+  
+    <h2 id="equilibrium-of-style-and-function-exterior-excellence">Equilibrium of Style and Function: Exterior Excellence</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-design-01.jpg?imwidth=1920" alt="2026 Chevrolet Equinox Exterior Design">
+      </div>
+    </div>
+  
+    <p>The 2026 Chevrolet Equinox Base presents a refined and purposeful silhouette that reflects Chevrolet's SUV family legacy, providing both visual appeal and functional advantages for drivers in Okemah, Harrah, and Norman. Its design showcases a new <strong>Polar White</strong> color option, complementing the Equinox's balanced presence on the road with understated sophistication.</p>
+  
+    <h3 id="exterior-design-language">Exterior Design Language</h3>
+  
+    <div class="image-grid">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-design-02.jpg?imwidth=1920" alt="Equinox Front Design">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-design-03.jpg?imwidth=1920" alt="Equinox Side Profile">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-activ-02.jpg?imwidth=1920" alt="Equinox Activ Trim">
+    </div>
+  
+    <p>Its design nods to rugged practicality without sacrifice of modern aesthetics. The compact SUV's dimensions and sculpted lines evoke a strong road presence among vehicles in its class, while preserving aerodynamic efficiency to support fuel economy. The available roof rails, selectively offered on higher trims, emphasize versatility for outdoor enthusiasts in Moose and Seminole seeking added storage options but have been purposefully removed from the Convenience Package II on the LT model to preserve clean styling.</p>
+  
+    <h3 id="size-and-proportions">Size and Proportions</h3>
+  
+    <p>The Equinox Base's proportions carefully align with its compact classification, providing maneuverability in urban environments like Chandler and Yukon while maintaining sufficient ground clearance for occasional light off-pavement excursions near Bethel Acres. The SUV's overall length and width comfortably accommodate families, aiding everyday usability without bulk.</p>
+  
+    <h3 id="notable-design-enhancements-for-2026">Notable Design Enhancements for 2026</h3>
+  
+    <ul>
+      <li>Introduction of the <strong>standard drive mode selector dial</strong> on every trim enables personalized driving preferences, a feature that enhances adaptability across diverse Oklahoma terrains.</li>
+      <li>Removal and redistribution of roof rails streamline aesthetic appeal, focusing utility where it matters most.</li>
+    </ul>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+        <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/gallery/01-images/2026-equinox-performance-01.jpg?imwidth=1920" alt="Equinox Performance">
+      </div>
+    
+    <h2 id="engineered-for-everyday-performance-and-driving-comfort">Engineered for Everyday Performance and Driving Comfort</h2>
+    <p>Under the hood, the 2026 Chevrolet Equinox Base is equipped with a smooth and efficient <strong>1.5-liter turbocharged inline-4 engine</strong> delivering approximately <strong>175 horsepower</strong>. This powertrain balances responsive acceleration with economy, making it suitable for daily commutes and family outings in cities like Edmond, Mustang, and Tuttle.</p>
+  
+    <div style="clear: both;"></div>
+
+    <h3 id="powertrain-and-drivetrain-details">Powertrain and Drivetrain Details</h3>
+  
+    <p><strong>Equinox Base Engine and Performance Specifications</strong></p>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Specification</strong></th>
+          <th align="right"><strong>Details</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Engine Type</td>
+          <td align="right">1.5L Turbocharged Inline-4</td>
+        </tr>
+        <tr>
+          <td align="left">Horsepower</td>
+          <td align="right">~175 hp</td>
+        </tr>
+        <tr>
+          <td align="left">Torque (FWD)</td>
+          <td align="right">Up to 184 lb-ft</td>
+        </tr>
+        <tr>
+          <td align="left">Torque (AWD)</td>
+          <td align="right">Up to 203 lb-ft</td>
+        </tr>
+        <tr>
+          <td align="left">Transmission (FWD)</td>
+          <td align="right">Continuously Variable Transmission (CVT)</td>
+        </tr>
+        <tr>
+          <td align="left">Transmission (AWD)</td>
+          <td align="right">8-Speed Automatic</td>
+        </tr>
+        <tr>
+          <td align="left">0-60 mph Acceleration (RS AWD)</td>
+          <td align="right">Approx. 8.5 seconds</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3 id="driving-experience-and-handling">Driving Experience and Handling</h3>
+  
+    <p>The Equinox Base focuses on an accommodating ride tailored for comfort rather than sporty handling. In communities like Moore and Yukon, drivers appreciate the vehicle's composed suspension and steady steering that balances confident highway cruising with predictable city navigation. Its performance profile aligns with the needs of families and busy professionals in Oklahoma City who prioritize a stable, comfortable SUV over aggressive dynamics.</p>
+  
+    <h3 id="fuel-economy-and-range">Fuel Economy and Range</h3>
+  
+    <p>Fuel efficiency figures reflect a carefully engineered balance between power and economy, with front-wheel-drive models achieving up to <strong>26 mpg city</strong> and <strong>28 mpg highway</strong>. All-wheel-drive variants provide a slight trade-off in urban mileage but extend highway range thanks to a larger fuel tank. This balance is particularly practical for drivers commuting from Shawnee or traveling between nearby towns such as Choctaw and Pink.</p>
+  
+    <p><strong>Fuel Economy and Fuel Tank Information</strong></p>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Specification</strong></th>
+          <th align="right"><strong>FWD</strong></th>
+          <th align="right"><strong>AWD</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">City Fuel Economy</td>
+          <td align="right">26 mpg</td>
+          <td align="right">24 mpg</td>
+        </tr>
+        <tr>
+          <td align="left">Highway Fuel Economy</td>
+          <td align="right">28 mpg</td>
+          <td align="right">29 mpg</td>
+        </tr>
+        <tr>
+          <td align="left">Fuel Tank Capacity</td>
+          <td align="right">14.8 gallons</td>
+          <td align="right">15.6 gallons</td>
+        </tr>
+        <tr>
+          <td align="left">Estimated Highway Range</td>
+          <td align="right">Approximately 400 miles</td>
+          <td align="right">Approximately 406 miles</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="crafted-interior-comfort-and-practicality">Crafted Interior Comfort and Practicality</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-design-04.jpg?imwidth=1920" alt="2026 Equinox Interior">
+      </div>
+    </div>
+  
+    <p>Step inside the 2026 Equinox Base and discover a cabin enriched with thoughtful measurements and smart amenities designed for families and individuals from communities like Moore, Harrah, and Norman, who value comfort in daily travel.</p>
+  
+    <h3 id="spaciousness-and-seating">Spaciousness and Seating</h3>
+  
+    <div class="image-float-left" style="max-width: 450px !important;">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-activ-04.jpg?imwidth=1920" alt="Equinox Interior Seating">
+    </div>
+  
+    <p>The Equinox offers generous legroom with <strong>40.9 inches of front passenger space</strong> and <strong>39.9 inches in the rear</strong>, positioning it competitively alongside peers like the Toyota RAV4 and Nissan Rogue. The five-passenger seating arrangement provides ample headroom and shoulder space, ensuring a comfortable experience over longer drives.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <h3 id="storage-and-cargo-flexibility">Storage and Cargo Flexibility</h3>
+  
+    <div class="image-grid">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-activ-03.jpg?imwidth=1920" alt="Equinox Cargo Space">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-cargo-01.jpg?imwidth=1920" alt="Equinox Cargo Loading">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-cargo-02.jpg?imwidth=1920" alt="Equinox Cargo Versatility">
+    </div>
+  
+    <p>Cargo management benefits from a practical volume that reaches <strong>29.8 cubic feet with seats upright</strong> and expands to <strong>63.5 cubic feet when folded down</strong>. This versatility enables efficient packing of luggage or groceries from local markets in Okemah or trips to family gatherings in Bethel Acres.</p>
+  
+    <h3 id="interior-amenities">Interior Amenities</h3>
+  
+    <p>While the base trim includes durable cloth upholstery ideal for active Oklahoma lifestyles, it supports optional upgrades such as:</p>
+  
+    <ul>
+      <li>Wireless charging pad for effortless smartphone power management</li>
+      <li>Ventilated front seats enhancing comfort during warmer months</li>
+      <li>Power-adjustable driver seat for personalized ergonomics</li>
+      <li>Heated rear seats improving warmth for passengers during colder Oklahoma winters.</li>
+    </ul>
+  
+    <h2 id="intuitive-technology-and-seamless-connectivity">Intuitive Technology and Seamless Connectivity</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="image-wrapper" style="max-width: 1000px !important;">
+          <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-activ-05.jpg?imwidth=1920" alt="Equinox Advanced Technology Features">
+        </div>
+      </div>
+    
+    <p>The Chevrolet Equinox Base integrates modern technology curated to keep drivers connected, informed, and safe across urban and rural roads spanning Edmond, Chandler, and Seminole.</p>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+        <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-tech-01.jpg?imwidth=1920" alt="Equinox Technology Display">
+      </div>
+
+    <h3 id="infotainment-system">Infotainment System</h3>
+
+    <ul>
+      <li>Features a Google-based infotainment platform combining simplicity with robust functionality.</li>
+      <li>Apple CarPlay compatibility ensures seamless smartphone integration for communication, navigation, and media.</li>
+      <li>The user-friendly interface balances touchscreen responsiveness with physical controls, including a rotary knob, catering to diverse preferences.</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-float-left" style="max-width: 450px !important;">
+      <img src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2026/suvs/equinox/mov/01-images/2026-equinox-design-05.jpeg?imwidth=1920" alt="Equinox Dashboard Technology">
+    </div>
+  
+    <h3 id="connectivity-and-convenience">Connectivity and Convenience</h3>
+  
+    <ul>
+      <li>Embedded Wi-Fi hotspot capabilities offer continuous internet access for passengers.</li>
+      <li>Additional USB ports and charging points accommodate multiple devices, keeping the entire family connected during drives from Harrah to Yukon.</li>
+    </ul>
+  
+    <div style="clear: both;"></div>
+    <h2 id="comprehensive-safety-and-trusted-driver-assistance">Comprehensive Safety and Trusted Driver Assistance</h2>
+  
+    <p>Safety remains a cornerstone of the Equinox's design philosophy, reflecting Joe Cooper Chevrolet Cadillac GMC's commitment to family and community well-being in locations such as Shawnee, Norman, and Oklahoma City.</p>
+  
+    <h3 id="standard-chevrolet-safety-assist-features">Standard Chevrolet Safety Assist Features</h3>
+  
+    <p><strong>Standard Safety and Assistance Technologies</strong></p>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Feature</strong></th>
+          <th align="left"><strong>Description</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Automatic Emergency Braking (AEB)</td>
+          <td align="left">Detects imminent collisions and applies brakes to mitigate impact</td>
+        </tr>
+        <tr>
+          <td align="left">Lane Keeping Assist</td>
+          <td align="left">Helps maintain lane positioning by subtle steering corrections</td>
+        </tr>
+        <tr>
+          <td align="left">Automatic High Beams</td>
+          <td align="left">Adjusts headlight intensity for optimal nighttime visibility</td>
+        </tr>
+        <tr>
+          <td align="left">Blind-Spot Monitoring</td>
+          <td align="left">Alerts drivers to vehicles in adjacent lanes</td>
+        </tr>
+        <tr>
+          <td align="left">Rear Parking Sensors</td>
+          <td align="left">Provides distance warnings during reverse maneuvers</td>
+        </tr>
+        <tr>
+          <td align="left">Rear Emergency Braking</td>
+          <td align="left">Mitigates rear collisions during backing up maneuvers</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3 id="available-advanced-safety-options">Available Advanced Safety Options</h3>
+  
+    <ul>
+      <li>360-degree camera system enhancing situational awareness in tight parking spaces around Bethel Acres and Pink</li>
+      <li>Rear pedestrian alert to detect crossing individuals behind the vehicle</li>
+      <li>Traffic sign recognition helping maintain speed and compliance</li>
+    </ul>
+  
+    <h3 id="trusted-roadside-assistance-program">Trusted Roadside Assistance Program</h3>
+  
+    <p>Peace of mind extends beyond active safety with Chevrolet, Cadillac, GMC roadside assistance tailored to serve our Oklahoma customers, reachable at <strong><a href="tel:+1-800-222-1020">1-800-222-1020</a></strong>. This manufacturer-backed program offers reliable support with genuine parts, authorized service centers, and warranty protections for emergencies throughout the Edmond and Norman areas.</p>
+  
+    <h2 id="trim-exploration-and-package-details">Trim Exploration and Package Details</h2>
+  
+    <p>Although this overview focuses on the Equinox Base (LT) edition, prospective buyers from Harrah, Choctaw, and Seminole often explore additional trims featuring diverse aesthetics and equipment tailored for a range of preferences.</p>
+  
+    <h3 id="available-considerations">Available Considerations</h3>
+  
+    <ul>
+      <li>The LT base trim offers essential features with a starting MSRP near $28,600, delivering core value without unnecessary complexity.</li>
+      <li>Upgrades to RS or Activ trims introduce appearance enhancements, performance tweaks, and additional comfort options tailored for more adventurous or style-conscious drivers.</li>
+      <li>Drive mode selection, now standard, provides adaptability across all trims and terrains encountered throughout Oklahoma.</li>
+    </ul>
+  
+    <h3 id="packages-and-options">Packages and Options</h3>
+  
+    <ul>
+      <li>Convenience packages offer technology and comfort upgrades while streamlining the driver experience.</li>
+      <li>Midnight Edition packages, exclusive to certain trims, enrich both aesthetics and capabilities for customers near Tuttle or Okemah who desire distinct styling.</li>
+    </ul>
+  
+    <h2 id="confidence-backed-by-warranty-and-maintenance">Confidence Backed by Warranty and Maintenance</h2>
+  
+    <p>At Joe Cooper Chevrolet Cadillac GMC, we understand the importance of a comprehensive ownership experience that extends beyond the showroom. The 2026 Equinox's warranty offerings and maintenance programs reflect Chevrolet's commitment to long-term customer satisfaction across communities, including Bethel Acres, Yukon, and Pink.</p>
+  
+    <p><strong>New Vehicle Warranty Coverage</strong></p>
+  
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Coverage Type</strong></th>
+          <th align="right"><strong>Duration</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Basic Limited Warranty</td>
+          <td align="right">3 years / 36,000 miles</td>
+        </tr>
+        <tr>
+          <td align="left">Powertrain Warranty</td>
+          <td align="right">5 years / 60,000 miles</td>
+        </tr>
+        <tr>
+          <td align="left">Complimentary Scheduled Maintenance</td>
+          <td align="right">One visit within first year</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3 id="service-and-replacement-parts">Service and Replacement Parts</h3>
+  
+    <p>Our dedicated service team at <strong><a href="https://joecooperchevroletcadillacgmc.com/service">Schedule Service</a></strong> in Shawnee ensures expert care using genuine Chevrolet parts available through our <strong><a href="https://joecooperchevroletcadillacgmc.com/parts">Parts Department</a></strong>. Our service philosophy underscores employee expertise and customer trust, guaranteeing consistent quality for all maintenance needs throughout Oklahoma City, Mustang, and surrounding areas.</p>
+  
+    <h2 id="joe-cooper-experience-and-enduring-value-proposition">Joe Cooper Experience and Enduring Value Proposition</h2>
+  
+    <p>Choosing the 2026 Chevrolet Equinox Base from Joe Cooper Chevrolet Cadillac GMC reflects a wise decision rooted in family values, community trust, and professional integrity. Our dealership's heritage highlights a steadfast commitment to vehicle owners across communities such as Edmond, Moore, and Chandler, emphasizing transparent communication and attentive, stable service.</p>
+  
+    <h3 id="why-shop-the-2026-equinox-at-joe-cooper-chevrolet-cadillac-gmc">Why Shop the 2026 Equinox at Joe Cooper Chevrolet Cadillac GMC?</h3>
+  
+    <ul>
+      <li>Browse our comprehensive inventory via <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/new-inventory">All New Vehicles</a></strong>, ensuring your perfect match.</li>
+      <li>Explore quality pre-owned options through <strong><a href="https://joecooperchevroletcadillacgmc.com/cars/used-inventory">All Used Vehicles</a></strong>, providing quality pre-owned options with confidence.</li>
+      <li>Maximize your trade-in value using our <strong><a href="https://joecooperchevroletcadillacgmc.com/trade">Trade Valuation</a></strong> tool, helping maximize your trade-in's worth.</li>
+      <li>Family-oriented dealership culture focused on employee well-being translates directly into superior customer care.</li>
+      <li>Professional, respectful atmosphere where knowledgeable staff support your informed decision-making every step of the way.</li>
+    </ul>
+  
+    <h3 id="plan-your-visit-and-test-drive">Plan Your Visit and Test Drive</h3>
+  
+    <p>We warmly invite customers from the greater Shawnee, OK region, including Harrah, Norman, and Seminole, to explore the 2026 Chevrolet Equinox in person. Our team stands ready to guide you through its features and benefits, ensuring a smooth and comfortable experience. Visit us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_____w-3s4cRYJ1jUVKLLo4">4920 Automall Dr, Shawnee, OK 74804</a></strong> or call <strong><a href="tel:4057772603">(405) 777-2603</a></strong> to schedule your personalized appointment today.</p>
+  
+    <hr>
+  
+    <p>© 2025 Joe Cooper Chevrolet Cadillac GMC</p>
+  </section>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .bluelink-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            color: #012b5d;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .bluelink-container h1 {
+            width: fit-content !important;
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #002c5f;
+            transition: color 0.3s ease;
+        }
+        
+        .bluelink-container h1:hover {
+            color: #012b5d;
+        }
+        
+        .bluelink-container h3,
+        .bluelink-container h1,
+        .bluelink-container h2,
+        .bluelink-container p,
+        .bluelink-container ol,
+        .bluelink-container ul {
+            max-width: 1300px !important;
+        }
+        
+        .bluelink-container p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+        
+        .bluelink-container p:hover {
+            color: #012b5d;
+        }
+        
+        .bluelink-parental-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+        
+        .bluelink-parental-features-list li {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-bottom: 15px;
+            padding: 18px 25px;
+            border-radius: 8px;
+            border-left: 4px solid #002c5f;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bluelink-parental-features-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.15);
+            border-left-color: #012b5d;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
+        }
+        
+        .bluelink-parental-features-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(1, 43, 93, 0.05) 0%, transparent 100%);
+            transition: width 0.4s ease;
+            z-index: 0;
+        }
+        
+        .bluelink-parental-features-list li:hover::before {
+            width: 100%;
+        }
+        
+        .bluelink-parental-features-list li > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bluelink-parental-feature-title {
+            font-weight: 700;
+            color: #002c5f;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        
+        .bluelink-parental-features-list li:hover .bluelink-parental-feature-title {
+            color: #012b5d;
+        }
+        
+        .bluelink-parental-feature-description {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        
+        .bluelink-parental-features-list li:hover .bluelink-parental-feature-description {
+            color: #444;
+        }
+        
+        .bluelink-parental-intro-text {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .bluelink-parental-intro-text:hover {
+            box-shadow: 0 5px 15px rgba(1, 43, 93, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .bluelink-parental-closing-text {
+            background: linear-gradient(135deg, #002c5f 0%, #012b5d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .bluelink-parental-closing-text:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(1, 43, 93, 0.3);
+        }
+        
+        .bluelink-parental-closing-text p {
+            color: white !important;
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+        
+        @media (max-width: 768px) {
+            .bluelink-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .bluelink-container h1 {
+                font-size: 1.5rem;
+            }
+            
+            .features-list li:hover {
+                transform: translateX(4px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bluelink-container">
+        <h1>Bluelink+ for Parental Peace of Mind</h1>
+        
+        <div class="bluelink-parental-intro-text">
+            <p>For parents, the Hyundai advantage extends even when they aren't in the car. The Bluelink+ Connected Car System, available on many models, is the ultimate tool for staying connected and helping guide a teen's driving habits. Through a simple smartphone app, parents can set up:</p>
+        </div>
+        
+        <ul class="bluelink-parental-features-list">
+            <li>
+                <div class="bluelink-parental-feature-title">Geo-Fencing:</div>
+                <div class="bluelink-parental-feature-description">Create virtual boundaries around areas like school or work and receive an alert if the vehicle enters or leaves them.</div>
+            </li>
+            <li>
+                <div class="bluelink-parental-feature-title">Speed Alerts:</div>
+                <div class="bluelink-parental-feature-description">Set a maximum speed limit and get a notification if it's exceeded.</div>
+            </li>
+            <li>
+                <div class="bluelink-parental-feature-title">Curfew Alerts:</div>
+                <div class="bluelink-parental-feature-description">Establish a time by which the car should be parked for the night.</div>
+            </li>
+        </ul>
+        
+        <p>These features are not about surveillance; they are about coaching. They provide parents with the information needed to have constructive conversations about responsible driving, directly addressing the key risk factors like speeding and late-night driving that are statistically linked to teen accidents.</p>
+        
+        <div class="bluelink-parental-closing-text">
+            <p>It's peace of mind, delivered through technology.</p>
+        </div>
+    </div>
+</body>
+</html>

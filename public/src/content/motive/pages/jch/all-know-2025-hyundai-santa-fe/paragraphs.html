@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .santafe-safety-wrapper {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .santafe-safety-wrapper h1 {
+        width: fit-content !important;
+      }
+
+      .santafe-safety-wrapper h3,
+      .santafe-safety-wrapper h1,
+      .santafe-safety-wrapper h2,
+      .santafe-safety-wrapper p,
+      .santafe-safety-wrapper ol,
+      .santafe-safety-wrapper ul {
+        max-width: 1300px !important;
+      }
+
+      .santafe-intro-section {
+        padding: 0 20px;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      /* .santafe-intro-section::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        opacity: 0.8;
+      } */
+
+      .santafe-hero-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 15px 50px rgba(1, 43, 93, 0.15),
+          0 5px 15px rgba(0, 0, 0, 0.08);
+        margin: 30px auto 40px;
+        display: block;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .santafe-hero-image:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 70px rgba(1, 43, 93, 0.2),
+          0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .santafe-intro-text {
+        font-size: 17px;
+        color: #374151;
+        max-width: 900px;
+        animation: santafeFadeInUp 0.8s ease-out;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(1, 43, 93, 0.08),
+          0 2px 8px rgba(0, 0, 0, 0.04);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .santafe-intro-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #012b5d, #0066cc, #012b5d);
+        background-size: 200% 100%;
+        animation: santafeGradientShift 3s ease-in-out infinite;
+      }
+
+      .santafe-features-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+        gap: 35px;
+        padding: 0 20px;
+      }
+
+      .santafe-feature-item {
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(1, 43, 93, 0.12),
+          0 4px 12px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(1, 43, 93, 0.08);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: santafeSlideInLeft 0.8s ease-out;
+        animation-fill-mode: both;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(15px);
+      }
+
+      .santafe-feature-item:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .santafe-feature-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(1, 43, 93, 0.08),
+          rgba(0, 102, 204, 0.08),
+          transparent
+        );
+        transition: left 0.8s ease;
+      }
+
+      .santafe-feature-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #012b5d, #0066cc, #012b5d);
+        background-size: 200% 100%;
+        animation: santafeGradientShift 4s ease-in-out infinite;
+        opacity: 0.7;
+      }
+
+      .santafe-feature-item:hover::before {
+        left: 100%;
+      }
+
+      .santafe-feature-item:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(1, 43, 93, 0.18),
+          0 8px 20px rgba(0, 0, 0, 0.08);
+        border-color: rgba(1, 43, 93, 0.15);
+      }
+
+      .santafe-feature-heading {
+        font-size: 24px;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 25px;
+        text-align: left;
+        position: relative;
+        transition: all 0.3s ease;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .santafe-feature-item:hover .santafe-feature-heading {
+        color: #002c5f;
+        transform: translateX(5px);
+      }
+
+      .santafe-feature-item:hover .santafe-feature-heading::before {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+      }
+
+      .santafe-feature-description {
+        font-size: 16px;
+        color: #4b5563;
+        line-height: 1.8;
+        position: relative;
+        z-index: 2;
+      }
+
+      .santafe-feature-description p {
+        margin-bottom: 16px;
+      }
+
+      .santafe-feature-description p:last-child {
+        margin-bottom: 0;
+      }
+
+      .santafe-feature-description strong {
+        color: #012b5d;
+        font-weight: 600;
+      }
+
+      .santafe-tech-highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(1, 43, 93, 0.12) 0%,
+          rgba(0, 102, 204, 0.12) 50%,
+          rgba(1, 43, 93, 0.12) 100%
+        );
+        padding: 2px 8px;
+        border-radius: 30px;
+        color: #002c5f;
+        font-weight: 600;
+        border: 1px solid rgba(1, 43, 93, 0.15);
+        position: relative;
+        display: inline-block;
+        box-shadow: 0 2px 4px rgba(1, 43, 93, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .santafe-tech-highlight:hover {
+        background: linear-gradient(
+          120deg,
+          rgba(1, 43, 93, 0.18) 0%,
+          rgba(0, 102, 204, 0.18) 50%,
+          rgba(1, 43, 93, 0.18) 100%
+        );
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(1, 43, 93, 0.15);
+      }
+
+      @keyframes santafeFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes santafeSlideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes santafeGradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .santafe-features-layout {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        .santafe-feature-item {
+          padding: 30px;
+        }
+
+        .santafe-feature-heading {
+          font-size: 22px;
+          margin-left: 35px;
+        }
+
+        .santafe-feature-description {
+          font-size: 15px;
+        }
+
+        .santafe-intro-text {
+          padding: 25px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .santafe-features-layout {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 0 15px;
+        }
+
+        .santafe-intro-section {
+          padding: 0 15px;
+        }
+
+        .santafe-hero-image {
+          height: 200px;
+          margin: 20px auto 30px;
+          border-radius: 16px;
+        }
+
+        .santafe-feature-item {
+          padding: 25px;
+          border-radius: 16px;
+        }
+
+        .santafe-feature-heading {
+          font-size: 20px;
+        }
+
+        .santafe-feature-description {
+          font-size: 14px;
+          line-height: 1.7;
+        }
+      }
+
+      .santafe-feature-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .santafe-feature-label svg {
+        width: 35px;
+        height: 35px;
+      }
+
+      .santafe-feature-label h3 {
+        margin: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="santafe-safety-wrapper">
+      <div class="santafe-intro-section">
+        <p class="santafe-intro-text">
+          Hyundai has equipped the <a style="color: #012b5d; text-decoration: underline;" target="_blank" href="https://joecooperhyundai.com/cars/new-santa-fe">2025 Santa Fe</a> with an extensive suite of
+          SmartSense safety and driver-assistance technologies designed to act
+          as your vigilant co-pilot. These systems use a network of cameras and
+          sensors to monitor your surroundings, providing alerts and even
+          intervening to help you avoid potential hazards. This commitment to
+          safety provides invaluable peace of mind for you and your family on
+          every Oklahoma road.
+        </p>
+        <img
+          src="https://di-uploads-pod32.dealerinspire.com/wolfchasehyundai/uploads/2024/12/2025_Hyundai_Santa_Fe_-_H4_Touchscreen_Image_.jpg"
+          alt="Modern SUV dashboard with advanced safety technology display"
+          class="santafe-hero-image"
+        />
+      </div>
+
+      <div class="santafe-features-layout">
+        <div class="santafe-feature-item">
+          <div class="santafe-feature-label">
+            <svg
+              height="200px"
+              width="200px"
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st0 {
+                    fill: #000000;
+                  }
+                </style>
+                <g>
+                  <polygon
+                    class="st0"
+                    points="412.061,152.986 373.039,152.986 447.993,359.014 512,359.014 "
+                  ></polygon>
+                  <polygon
+                    class="st0"
+                    points="99.939,152.986 0,359.014 64.006,359.014 138.961,152.986 "
+                  ></polygon>
+                  <path
+                    class="st0"
+                    d="M265.767,152.986l0.367,12.226H245.86l0.373-12.226h-77.996l-56.201,206.027h127.943l0.911-29.861h30.222 l0.906,29.861h128.019l-56.231-206.027H265.767z M245.15,188.742h21.7l0.823,27.121h-23.346L245.15,188.742z M242.238,284.627 l1.13-37.223h25.263l1.13,37.223H242.238z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <h3 class="santafe-feature-heading">
+              An Extra Set of Eyes on the Highway
+            </h3>
+          </div>
+
+          <div class="santafe-feature-description">
+            <p>
+              Long drives on Oklahoma's turnpikes and interstates can be
+              fatiguing. The Santa Fe's available
+              <span class="santafe-tech-highlight"
+                >Highway Driving Assist (HDA)</span
+              >
+              systems are designed to reduce that strain. HDA, standard on the
+              XRT and Limited trims, uses adaptive cruise control and
+              lane-keeping functions to help you maintain a set speed and
+              distance from the vehicle ahead, while also keeping you centered
+              in your lane. This makes a long trip down the H.E. Bailey Turnpike
+              or I-44 to Tulsa feel significantly more relaxed.
+            </p>
+
+            <p style="margin-top: 15px">
+              The Calligraphy trim upgrades to
+              <span class="santafe-tech-highlight"
+                >Highway Driving Assist 2 (HDA2)</span
+              >, which adds the ability to assist with lane changes when you
+              activate the turn signal. Furthermore, on trims with built-in
+              navigation, the Smart Cruise Control system is enhanced with Curve
+              Control, which can anticipate an upcoming curve in the highway and
+              proactively adjust your speed for a smoother, safer transit.
+            </p>
+          </div>
+        </div>
+
+        <div class="santafe-feature-item">
+          <div class="santafe-feature-label">
+            <svg
+              height="200px"
+              width="200px"
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st0 {
+                    fill: #000000;
+                  }
+                </style>
+                <g>
+                  <path
+                    class="st0"
+                    d="M485.75,475.54V252.367H358.838V134.2h-43.29V95.887h-13.124V62.716h-34.472V10.202h-15.307v52.514h-34.291 v33.171h-13.14V134.2h-43.291v61.737H26.264V475.54H0v26.258h32.826h135.658h13.124h157.542h13.124h126.913H512V475.54H485.75z M90.797,428.491H71.124v-19.68h19.673V428.491z M90.797,386.844H71.124v-19.68h19.673V386.844z M90.797,345.197H71.124v-19.679 h19.673V345.197z M90.797,303.544H71.124v-19.68h19.673V303.544z M90.797,261.89H71.124v-19.68h19.673V261.89z M118.003,477.932 H92.501v-25.517h25.502V477.932z M140.038,428.491h-19.673v-19.68h19.673V428.491z M140.038,386.844h-19.673v-19.68h19.673V386.844 z M140.038,345.197h-19.673v-19.679h19.673V345.197z M140.038,303.544h-19.673v-19.68h19.673V303.544z M140.038,261.89h-19.673 v-19.68h19.673V261.89z M250.536,180.876h19.687v19.672h-19.687V180.876z M250.536,222.515h19.687v19.687h-19.687V222.515z M250.536,264.177h19.687v19.672h-19.687V264.177z M250.536,305.815h19.687v19.687h-19.687V305.815z M250.536,347.469h19.687v19.68 h-19.687V347.469z M250.536,389.123h19.687v19.68h-19.687V389.123z M227.545,408.803h-19.672v-19.68h19.672V408.803z M227.545,367.149h-19.672v-19.68h19.672V367.149z M227.545,325.503h-19.672v-19.687h19.672V325.503z M227.545,283.849h-19.672 v-19.672h19.672V283.849z M227.545,242.202h-19.672v-19.687h19.672V242.202z M227.545,200.548h-19.672v-19.672h19.672V200.548z M273.631,477.932h-25.517v-43.373h25.517V477.932z M312.901,408.803h-19.688v-19.68h19.688V408.803z M312.901,367.149h-19.688 v-19.68h19.688V367.149z M312.901,325.503h-19.688v-19.687h19.688V325.503z M312.901,283.849h-19.688v-19.672h19.688V283.849z M312.901,242.202h-19.688v-19.687h19.688V242.202z M312.901,200.548h-19.688v-19.672h19.688V200.548z M420.575,475.54h-25.517 v-33.484h25.517V475.54z M439.799,413.43H374.16v-11.451h65.639V413.43z M439.799,379.908H374.16v-11.451h65.639V379.908z M439.799,346.386H374.16v-11.443h65.639V346.386z M439.799,312.857H374.16v-11.45h65.639V312.857z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <h3 class="santafe-feature-heading">
+              Confidence for Navigating the City
+            </h3>
+          </div>
+          <div class="santafe-feature-description">
+            <p>
+              Navigating busy urban environments is made easier and safer with
+              the Santa Fe's city-focused safety features.
+              <span class="santafe-tech-highlight"
+                >Forward Collision-Avoidance Assist (FCA)</span
+              >
+              is standard on all trims and is designed to detect potential
+              collisions with vehicles, pedestrians, or cyclists ahead. It can
+              provide a warning and automatically apply the brakes if necessary,
+              a crucial feature for unpredictable traffic.
+            </p>
+
+            <p style="margin-top: 15px">
+              Parking and maneuvering in tight spaces are simplified with the
+              available
+              <span class="santafe-tech-highlight"
+                >Surround View Monitor (SVM)</span
+              >
+              and
+              <span class="santafe-tech-highlight"
+                >Blind-Spot View Monitor (BVM)</span
+              >. The SVM provides a 360-degree, top-down view of your
+              surroundings, while the BVM displays a live video feed of your
+              blind spot directly in the digital instrument cluster. These
+              systems give you unparalleled awareness, taking the stress out of
+              navigating a crowded parking garage or changing lanes on I-235
+              during peak traffic.
+            </p>
+
+            <p style="margin-top: 15px">
+              For the ultimate in parking convenience, the available
+              <span class="santafe-tech-highlight"
+                >Remote Smart Parking Assist (RSPA)</span
+              >
+              allows you to use your smart key to guide the Santa Fe into or out
+              of a tight parking space while you stand safely outside the
+              vehicle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

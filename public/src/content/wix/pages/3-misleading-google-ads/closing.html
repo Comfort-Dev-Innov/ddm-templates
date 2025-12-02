@@ -1,0 +1,201 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Container */
+      .closing-section-wrapper {
+        width: 100%;
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 60px 0 !important;
+        font-family: Verdana, Geneva, sans-serif;
+        box-sizing: border-box;
+      }
+
+      /* Closing Impact Section */
+      .closing-section {
+        margin: 0;
+        padding: 50px 0 0 0;
+        border-top: 3px solid #e8eef7;
+        position: relative;
+      }
+
+      .closing-section::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: 0;
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, #26488D 0%, transparent 100%);
+      }
+
+      .closing-heading {
+        font-size: 32px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 0 0 30px 0;
+        padding-left: 24px;
+        font-family: Verdana, Geneva, sans-serif;
+        letter-spacing: -0.5px;
+        position: relative;
+        line-height: 1.3;
+      }
+
+      .closing-heading::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: linear-gradient(180deg, #26488D 0%, #1a3566 100%);
+        border-radius: 3px;
+      }
+
+      .impact-text {
+        font-size: 19px;
+        line-height: 1.7;
+        color: #3d3d3d;
+        margin: 0 0 24px 0;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .impact-text.lead {
+        font-size: 20px;
+        font-weight: 600;
+        color: #26488D;
+        margin-bottom: 28px;
+      }
+
+      .impact-text strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      .impact-highlight {
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+        border-left: 5px solid #26488D;
+        border-radius: 4px;
+        padding: 28px 32px;
+        margin: 32px 0;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #1a3566;
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(38, 72, 141, 0.08);
+      }
+
+      .final-message {
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 32px 36px;
+        margin: 40px 0 0 0;
+        font-size: 20px;
+        line-height: 1.7;
+        font-family: Verdana, Geneva, sans-serif;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(38, 72, 141, 0.25);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-message::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      }
+
+      .final-message p {
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .closing-section-wrapper {
+          padding: 40px 20px !important;
+        }
+
+        .closing-section {
+          padding-top: 40px;
+        }
+
+        .closing-heading {
+          font-size: 24px;
+          padding-left: 20px;
+        }
+
+        .closing-heading::before {
+          width: 5px;
+        }
+
+        .impact-text {
+          font-size: 17px;
+        }
+
+        .impact-text.lead {
+          font-size: 18px;
+        }
+
+        .impact-highlight {
+          padding: 20px 24px;
+          font-size: 17px;
+        }
+
+        .final-message {
+          padding: 24px 28px;
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background:#ffffff;">
+    <div class="closing-section-wrapper" id="strategy">
+      
+      <!-- Closing Impact Section -->
+      <div class="closing-section">
+        <h2 class="closing-heading">What This Means for Your Google Ads Strategy</h2>
+        
+        <p class="impact-text lead">
+          These misleading metrics are real problems that affect real business decisions.
+        </p>
+
+        <p class="impact-text">
+          When Store Visits drop 75% but your business is fine, you might cut a working campaign. When GA4 hides 40% of your conversions, you might think your website changes failed when they actually succeeded. When Google says you got 19 calls but you got 2, you might keep spending on the wrong keywords and flying blind.
+        </p>
+
+        <div class="impact-highlight">
+          Google Ads isn't lying, exactly. But their metrics are so misleading, so prone to inflation, and so disconnected from business reality that they might as well be.
+        </div>
+
+        <p class="impact-text">
+          These advertising platforms aren't set in stone. They'll change and adapt. So you need to stay skeptical and vigilant.
+        </p>
+
+        <p class="impact-text">
+          We created this breakdown because we keep hearing the same questions. "Are my phone call metrics actually accurate?" "Why are my conversions dropping in Google Ads but not in real life?" "Is it just me, or is this data weird?"
+        </p>
+
+        <p class="impact-text">
+          <strong>It's not just you. The data is weird. And now you know why and what to do about it.</strong>
+        </p>
+
+        <p class="impact-text">
+          If you think your metrics might be off, don't just assume everything is fine. Verify independently. Make decisions based on reality, not on what a platform dashboard tells you.
+        </p>
+
+        <div class="final-message">
+          <p>Because at the end of the day, the only metric that actually matters is whether you're making more money.</p>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,590 @@
+<html>
+  <head>
+    <style>
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container-12 h1 {
+        width: fit-content !important;
+      }
+
+      .container-12 h3,
+      .container-12 h1,
+      .container-12 h2,
+      .container-12 p,
+      .container-12 ol,
+      .container-12 ul {
+        max-width: 1300px !important;
+      }
+      /* Motive Container Default Styles */
+
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Paragraph Text Start */
+      .paragraph-text {
+        font-size: 17px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        width: 100% !important;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-02 {
+        display: flex;
+        width: 100% !important;
+        flex-direction: column;
+        margin-top: 2rem;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #0f3079;
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); */
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: underline;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 16px;
+          text-align: justify;
+          min-width: 640px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .paragraph-text {
+          min-width: 800px;
+        }
+      }
+      .aligncenter-heading {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #0f3079;
+      }
+
+      /* Table Styles */
+      .comparison-container-12 {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .comparison-container-12 h2 {
+        color: #012b5d;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        text-align: center;
+        width: 100% !important;
+        font-weight: 600;
+      }
+
+      .comparison-table-12 {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 1300px !important;
+        background: white;
+        position: relative;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison-table-12 thead {
+        background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+        color: white;
+      }
+
+      .comparison-table-12 th {
+        padding: 20px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table-12 th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table-12 th:first-child {
+        border-top-left-radius: 12px;
+        width: 25%;
+      }
+
+      .comparison-table-12 th:last-child {
+        border-top-right-radius: 12px;
+      }
+
+      .comparison-table-12 tbody tr {
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .comparison-table-12 tbody tr:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(1, 43, 93, 0.05) 0%,
+          rgba(0, 44, 95, 0.03) 100%
+        );
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(1, 43, 93, 0.1);
+      }
+
+      .comparison-table-12 tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table-12 td {
+        padding: 18px 16px;
+        vertical-align: top;
+        border-right: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .comparison-table-12 td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table-12 td:first-child {
+        background: linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%);
+        font-weight: 600;
+        color: #012b5d;
+        font-size: 1rem;
+      }
+
+      .comparison-table-12 tbody tr:hover td:first-child {
+        background: linear-gradient(
+          90deg,
+          rgba(1, 43, 93, 0.08) 0%,
+          rgba(1, 43, 93, 0.02) 100%
+        );
+      }
+
+      .comparison-table-12 td:not(:first-child) {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .feature-highlight-12 {
+        position: relative;
+        padding-left: 12px;
+      }
+
+      .feature-highlight-12::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, #012b5d 0%, #002c5f 100%);
+        border-radius: 2px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .comparison-table-12 tbody tr:hover .feature-highlight-12::before {
+        opacity: 1;
+      }
+
+      @keyframes slideIn-12 {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .comparison-table-12 tbody tr {
+        animation: slideIn-12 0.5s ease forwards;
+      }
+
+      .comparison-table-12 tbody tr:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .comparison-table-12 tbody tr:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .comparison-table-12 tbody tr:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .comparison-table-12 tbody tr:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .comparison-table-12 tbody tr:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .comparison-table-12 tbody tr:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+      .comparison-table-12 tbody tr:nth-child(7) {
+        animation-delay: 0.7s;
+      }
+      .comparison-table-12 tbody tr:nth-child(8) {
+        animation-delay: 0.8s;
+      }
+      .comparison-table-12 tbody tr:nth-child(9) {
+        animation-delay: 0.9s;
+      }
+      .comparison-table-12 tbody tr:nth-child(10) {
+        animation-delay: 1s;
+      }
+
+      .comparison-table-12 tbody tr:hover td {
+        color: #012b5d;
+      }
+
+      @media (max-width: 768px) {
+        .comparison-container-12 {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .comparison-container-12 h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+        }
+
+        .comparison-table-12 th,
+        .comparison-table-12 td {
+          padding: 14px 12px;
+          font-size: 0.9rem;
+        }
+
+        .comparison-table-12 th {
+          font-size: 1rem;
+        }
+
+        .comparison-table-12 td:first-child {
+          font-size: 0.95rem;
+        }
+
+        .comparison-table-12 th:first-child,
+        .comparison-table-12 th:last-child {
+          border-radius: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .comparison-table-12 th,
+        .comparison-table-12 td {
+          padding: 12px 10px;
+          font-size: 0.85rem;
+        }
+
+        .comparison-table-12 th {
+          font-size: 0.95rem;
+        }
+      }
+      /* Paragraph Style End */
+    </style>
+  </head>
+  <body>
+    <div class="container-12 paragraph-container-02">
+      <br />
+      <h2 class="aligncenter-heading" id="technology-connectivity-section">
+        Technology, Connectivity, and Safety
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        Hyundai has built its reputation on offering a high level of standard
+        safety and technology, and both the IONIQ 9 and Santa Cruz benefit from
+        this philosophy. While both vehicles receive a comprehensive suite of
+        features, the IONIQ 9 serves as the showcase for Hyundai's next-
+        generation systems, giving buyers a clear choice based on how much they
+        value being on the absolute cutting edge.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Both models offer large, user-friendly touchscreens with wireless Apple
+        CarPlay® and Android Auto™ integration. The IONIQ 9, however,
+        standardizes a stunning panoramic curved display that seamlessly
+        integrates a 12.3-inch digital instrument cluster and a 12.3-inch
+        infotainment screen. The Santa Cruz features a standard 12.3-inch
+        touchscreen, with the dual-screen setup reserved for higher trims. The
+        IONIQ 9 also boasts more advanced convenience technologies, including
+        the available Digital Key 2 (allowing your smartphone to act as a key),
+        Remote Smart Parking Assist 2, and a full-color Head-Up Display.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        On the safety front, both vehicles come standard with the robust Hyundai
+        SmartSense suite, which includes essentials like Forward Collision-
+        Avoidance Assist (FCA), Lane Keeping Assist (LKA), and Blind-Spot
+        Collision-Avoidance Assist (BCA). This establishes a high safety floor
+        across the board. The IONIQ 9, as the flagship, receives the most
+        advanced versions of these systems, such as FCA 2, which offers more
+        precision and capability. For Oklahoma drivers, features like Highway
+        Driving Assist—available on both models—make the I-35 commute between
+        Oklahoma City and Norman significantly safer and less stressful.
+      </p>
+      <br />
+    </div>
+
+    <div class="comparison-container-12">
+      <h2>Tech and Safety Feature Comparison</h2>
+
+      <table class="comparison-table-12">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>2026 Hyundai IONIQ 9</th>
+            <th>2026 Hyundai Santa Cruz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-highlight-12">Dashboard Display</td>
+            <td>Dual 12.3-inch Curved Display (Standard)</td>
+            <td>12.3-inch Touchscreen (Std) / Dual 12.3-inch (Opt)</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Wireless CarPlay/Android Auto</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Wireless Device Charging</td>
+            <td>Standard</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Digital Key 2</td>
+            <td>Optional</td>
+            <td>Optional (Digital Key 2 Touch)</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Head-Up Display (HUD)</td>
+            <td>Optional</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Remote Smart Parking Assist</td>
+            <td>Optional (RSPA 2)</td>
+            <td>Not Available</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Adaptive Cruise Control</td>
+            <td>Standard</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Blind-Spot View Monitor</td>
+            <td>Optional</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Surround View Monitor</td>
+            <td>Optional</td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      class="container-12 paragraph-container-02"
+      id="everyday-practicality-section"
+    >
+      <br />
+      <h2 class="aligncenter-heading">
+        Practicality and Utility for Oklahoma Life
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        This is where the core missions of the IONIQ 9 and Santa Cruz diverge
+        most clearly, revealing their unique strengths. The IONIQ 9's utility is
+        about providing immense, versatile, and secure interior space. Santa
+        Cruz's utility is about offering the ultimate flexibility for messy,
+        bulky, or tall items that have no place inside a cabin.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The IONIQ 9 functions as a massive, configurable container. With its
+        third- and second-row seats folded, it opens up a cavernous 86.9 cubic
+        feet of enclosed cargo space, perfect for securely hauling everything
+        from luggage for a family vacation to valuable equipment for a small
+        business. It also features a small front trunk, or "frunk," for
+        additional storage. A groundbreaking feature is its bidirectional
+        charging capability, known as Vehicle-to-Load (V2L). This allows the
+        IONIQ 9 to function as a mobile power source, a feature that could be
+        invaluable for powering essential appliances during one of Oklahoma's
+        notorious power outages.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The Santa Cruz, meanwhile, is an open platform for adventure and work.
+        Its 4-foot composite bed offers 27 cubic feet of volume, ideal for items
+        that are too dirty or bulky for an SUV's interior. It is perfectly
+        suited for hauling bags of mulch for a garden in Bethany, tossing muddy
+        sports gear in the back after a game at a local park, or carrying tools
+        for a DIY project. The bed's utility is enhanced by a lockable
+        under-floor storage compartment and an available integrated tonneau
+        cover that provides weather-resistant, secure storage. Critically, with
+        the available turbocharged engine and AWD, the Santa Cruz matches the
+        IONIQ 9's maximum towing capacity of 5,000 pounds, forcing a decision
+        based on the type of utility needed most often, not just raw numbers.
+      </p>
+      <br />
+    </div>
+
+    <div class="comparison-container-12">
+      <h2>Utility and Practicality</h2>
+
+      <table class="comparison-table-12">
+        <thead>
+          <tr>
+            <th>Utility Feature</th>
+            <th>2026 Hyundai IONIQ 9</th>
+            <th>2026 Hyundai Santa Cruz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-highlight-12">Primary Cargo Area</td>
+            <td>Enclosed Cabin</td>
+            <td>Open Pickup Bed</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Max Cargo Volume</td>
+            <td>86.9 cu. ft. (seats folded)</td>
+            <td>27.0 cu. ft. (bed volume)</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Maximum Towing</td>
+            <td>Up to 5,000 lbs</td>
+            <td>Up to 5,000 lbs</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Maximum Payload</td>
+            <td>N/A</td>
+            <td>~1,411 lbs</td>
+          </tr>
+          <tr>
+            <td class="feature-highlight-12">Special Utility Feature</td>
+            <td>Bidirectional Charging (V2L)</td>
+            <td>Lockable Bed & Under-Bed Storage</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container-12 paragraph-container-02">
+      <br />
+      <h2 class="aligncenter-heading" id="value-warranty-long-term-ownership">
+        Value, Warranty, and Long-Term Ownership
+      </h2>
+      <br />
+      <p class="paragraph-text">
+        The financial aspect of purchasing a new vehicle extends far beyond the
+        initial sticker price. It involves considering the total cost of
+        ownership, including fuel, maintenance, and the peace of mind that comes
+        with a great warranty. The IONIQ 9 commands a premium starting MSRP,
+        from approximately $58,955 to $76,490, reflecting its status as a large,
+        high-tech electric vehicle. However, this higher upfront investment is
+        offset by significantly lower long-term operating costs. Electricity is
+        substantially cheaper than gasoline, and with no engine oil, spark
+        plugs, or complex transmission fluid to change, routine maintenance is
+        simpler and less expensive.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The Santa Cruz offers a more accessible entry point, with MSRPs ranging
+        from approximately $29,500 to $43,450. This makes it an excellent value
+        proposition for buyers seeking utility and style. While its long-term
+        costs will include gasoline and traditional engine maintenance, it
+        remains a cost-effective choice in the compact truck segment.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Regardless of the model chosen, every new Hyundai is backed by America's
+        Best Warranty. This includes a 10-year/100,000-mile powertrain limited
+        warranty and a 5-year/60,000-mile new vehicle limited warranty,
+        providing unparalleled peace of mind for owners across the Oklahoma City
+        metro region.
+      </p>
+      <br />
+    </div>
+
+    <div class="container-12 paragraph-container-02" id="right-hyundai-section">
+      <br />
+      <h2 class="aligncenter-heading">The Right Hyundai for You</h2>
+      <br />
+      <p class="paragraph-text">
+        The <strong>2026 Hyundai IONIQ 9</strong> stands out as the superior
+        choice for those pursuing the future of automotive technology. It is
+        perfectly suited for the growing family in Edmond or Norman who
+        prioritizes premium space, cutting-edge safety, and the quiet, powerful
+        performance of an electric powertrain. If your daily life involves
+        carpooling, family road trips, and a desire to eliminate trips to the
+        gas station without compromising on luxury or capability, the IONIQ 9 is
+        the vehicle for you.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The
+        <a
+          href="https://joecooperhyundai.com/cars/new-santa-cruz?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Age%22%2C%22value%22%3A%22age%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          ><strong>2026 Hyundai Santa Cruz</strong></a
+        >
+        is the best solution for those who live an active, hands-on lifestyle.
+        It is the ideal partner for the resident of Yukon or Moore who
+        frequently tackles DIY projects, needs the flexibility of an open bed
+        for sports or outdoor gear, and wants a comfortable, capable vehicle
+        that is easy to drive and park anywhere in the OKC metro. If your
+        weekends are spent exploring, creating, and doing, Santa Cruz offers a
+        unique blend of utility and comfort that no traditional SUV or truck can
+        match.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The ultimate decision, however, is best made from behind the wheel. We
+        invite you to visit Joe Cooper Hyundai of Midwest City to experience the
+        IONIQ 9 and the Santa Cruz firsthand.
+        <a
+          href="https://joecooperhyundai.com/contact"
+          class="paragraph-hyperlink"
+          ><strong>Our team</strong></a
+        >
+        is ready to help you find the perfect Hyundai for your Oklahoma journey.
+      </p>
+      <br />
+    </div>
+
+    <hr class="hr-1" />
+  </body>
+</html>

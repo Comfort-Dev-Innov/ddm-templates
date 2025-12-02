@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hnl2025ug-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .hnl2025ug-container h1 {
+            width: fit-content !important;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #012b5d;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .hnl2025ug-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .hnl2025ug-container h1:hover::after {
+            width: 120px;
+        }
+
+        .hnl2025ug-container h3,
+        .hnl2025ug-container h1,
+        .hnl2025ug-container h2,
+        .hnl2025ug-container p,
+        .hnl2025ug-container ol,
+        .hnl2025ug-container ul {
+            max-width: 1300px !important;
+        }
+
+        .hnl2025ug-intro-section {
+            margin-bottom: 40px;
+        }
+
+        .hnl2025ug-intro-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #333;
+            letter-spacing: 0.3px;
+        }
+
+        .hnl2025ug-intro-content p:first-child {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #012b5d;
+            border-left: 4px solid #002c5f;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hnl2025ug-visual-elements {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .hnl2025ug-design-card {
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border: 2px solid #f0f2ff;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .hnl2025ug-design-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hnl2025ug-design-card:hover::before {
+            left: 100%;
+        }
+
+        .hnl2025ug-design-card:hover {
+            transform: translateY(-5px);
+            border-color: #012b5d;
+            box-shadow: 0 10px 30px rgba(1, 43, 93, 0.15);
+        }
+
+        .hnl2025ug-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .hnl2025ug-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #012b5d;
+            margin-bottom: 8px;
+        }
+
+        .hnl2025ug-card-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .hnl2025ug-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .hnl2025ug-content-block {
+            background: #fafbff;
+            border-radius: 15px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            border: 1px solid #eef1ff;
+        }
+
+        .hnl2025ug-content-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.1);
+            border-color: #dde2ff;
+        }
+
+        .hnl2025ug-closing-statement {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border-radius: 20px;
+            border: 2px solid #eef1ff;
+        }
+
+        .hnl2025ug-closing-statement p {
+            font-size: 1.2rem;
+            color: #012b5d;
+            font-weight: 500;
+        }
+
+        .hnl2025ug-accent-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            margin: 20px auto;
+            border-radius: 2px;
+            background-size: 200% 100%;
+            animation: hnl2025ug-accent 3s linear infinite;
+        }
+
+        /* subtle background flare */
+        .hnl2025ug-container::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle at center, rgba(1, 43, 93, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        @keyframes hnl2025ug-accent {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            .hnl2025ug-content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hnl2025ug-container h1 {
+                font-size: 2.5rem;
+            }
+
+            .hnl2025ug-visual-elements {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hnl2025ug-design-card {
+                flex: 1;
+                margin: 8px 0;
+                padding: 20px 16px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hnl2025ug-container">
+        <h1>2025 Hyundai N-Line Series</h1>
+        
+        <div class="hnl2025ug-intro-section">
+        <div class="hnl2025ug-intro-content">
+            <p>The 2025 Hyundai N-Line series occupies a unique position today. While many manufacturers force drivers to choose between practical daily transportation and engaging performance, Hyundai's N-Line models deliver both in a single package.</p>
+            
+            <p>These vehicles represent Hyundai's motorsport DNA filtered through the lens of real-world usability. They're designed for drivers who appreciate responsive handling and sporty styling but need a car that's equally at home in Oklahoma City traffic as it is on weekend drives through the state's scenic countryside. The N-Line badge signals enhanced performance, distinctive design cues, and premium features while maintaining the reliability and value that have made Hyundai a trusted choice for drivers nationwide.</p>
+        </div>
+        
+        <div class="hnl2025ug-visual-elements">
+            <div class="hnl2025ug-design-card">
+                <div class="hnl2025ug-card-icon">⚡</div>
+                <div class="hnl2025ug-card-title">Performance</div>
+                <div class="hnl2025ug-card-desc">Sport-tuned suspension & enhanced handling</div>
+            </div>
+            
+            <div class="hnl2025ug-design-card">
+                <div class="hnl2025ug-card-icon">🎨</div>
+                <div class="hnl2025ug-card-title">Design</div>
+                <div class="hnl2025ug-card-desc">Aggressive styling with distinctive cues</div>
+            </div>
+            
+            <div class="hnl2025ug-design-card">
+                <div class="hnl2025ug-card-icon">🔧</div>
+                <div class="hnl2025ug-card-title">Reliability</div>
+                <div class="hnl2025ug-card-desc">Trusted quality with comprehensive warranty</div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="hnl2025ug-content-grid">
+            <div class="hnl2025ug-content-block">
+                <p>What sets the N-Line apart from standard Hyundai models? You'll find sport-tuned suspension systems that improve handling without sacrificing ride comfort, more aggressive exterior styling that stands out without being ostentatious, and interior appointments that emphasize the driver-focused experience. These aren't track cars, they're thoughtfully enhanced vehicles that make every drive more engaging.</p>
+            </div>
+            
+            <div class="hnl2025ug-content-block">
+                <p>The N-Line family spans multiple vehicle categories, from compact cars to SUVs, ensuring there's an option that fits different lifestyles and needs. Each model maintains Hyundai's commitment to advanced safety technology, comprehensive warranty coverage, and competitive pricing, while adding the performance-oriented features that make driving genuinely enjoyable.</p>
+            </div>
+        </div>
+        
+        <div class="hnl2025ug-closing-statement">
+            <p>This guide provides an in-depth look at what makes each N-Line model distinctive, helping you understand which might be the right fit for your driving style and daily requirements.</p>
+            <div class="hnl2025ug-accent-line"></div>
+            <p>Whether you're seeking your first performance-oriented vehicle or considering an upgrade that doesn't compromise on practicality, the N-Line series offers compelling options worth serious consideration.</p>
+        </div>
+    </div>
+</body>
+</html>

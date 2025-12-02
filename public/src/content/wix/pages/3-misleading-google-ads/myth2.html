@@ -1,0 +1,1019 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Container */
+      .myth-section-wrapper {
+        width: 100%;
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 60px 0 !important;
+        font-family: Verdana, Geneva, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      /* Decorative background elements */
+      .myth-section-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(38, 72, 141, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      /* Main Heading with diamond decorator */
+      .myth-main-heading {
+        font-size: 32px;
+        font-weight: 700;
+        color: #26488D;
+        text-align: center;
+        margin: 0 0 50px 0;
+        position: relative;
+        padding: 0 20px;
+        font-family: Verdana, Geneva, sans-serif;
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      /* Modern badge pill for main heading */
+      .myth-heading-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #1a3566 0%, #26488D 100%);
+        color: #ffffff;
+        padding: 6px 18px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        box-shadow: 
+          0 4px 12px rgba(38, 72, 141, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .myth-heading-divider {
+        font-size: 18px;
+        color: #26488D;
+        text-shadow: 0 2px 6px rgba(38, 72, 141, 0.3);
+        margin-top: 4px;
+      }
+
+      /* Paragraph styling */
+      .myth-paragraph {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .myth-paragraph strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Story card with enhanced gradient and depth */
+      .myth-story-card {
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 50%, #f5f7fb 100%);
+        border-left: 6px solid #26488D;
+        border-radius: 12px;
+        padding: 28px 32px;
+        margin: 30px 0;
+        box-shadow: 
+          0 4px 20px rgba(38, 72, 141, 0.08),
+          0 0 0 1px rgba(38, 72, 141, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-story-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(38, 72, 141, 0.02) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .myth-story-card:hover::before {
+        opacity: 1;
+      }
+
+      .myth-story-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 
+          0 12px 32px rgba(38, 72, 141, 0.15),
+          0 0 0 1px rgba(38, 72, 141, 0.08);
+        border-left-width: 8px;
+      }
+
+      /* Highlight box with premium gradient */
+      .myth-highlight-box {
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        color: #ffffff;
+        padding: 24px 28px;
+        border-radius: 12px;
+        margin: 30px 0;
+        font-size: 17px;
+        font-weight: 600;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.3),
+          0 2px 8px rgba(38, 72, 141, 0.2);
+        font-family: Verdana, Geneva, sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-highlight-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        transition: transform 0.6s ease;
+      }
+
+      .myth-highlight-box:hover::before {
+        transform: translate(-10%, -10%);
+      }
+
+      /* Subheading with enhanced accent */
+      .myth-subheading {
+        font-size: 24px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 80px 0 20px 0;
+        padding-bottom: 14px;
+        border-bottom: 4px solid transparent;
+        background: linear-gradient(#ffffff, #ffffff) padding-box,
+                    linear-gradient(90deg, #26488D 0%, #4a6bb5 50%, transparent 100%) border-box;
+        border-image-slice: 0 0 1 0;
+        font-family: Verdana, Geneva, sans-serif;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .myth-subheading::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #26488D 0%, #1a3566 100%);
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(38, 72, 141, 0.3);
+      }
+
+      /* Icon for subheading */
+      .myth-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 20px;
+        flex-shrink: 0;
+        box-shadow: 
+          0 4px 12px rgba(38, 72, 141, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        position: relative;
+      }
+
+      .myth-icon::before {
+        content: '⚠';
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      /* Pill-style callout with shimmer effect */
+      .myth-pill-callout {
+        display: inline-block;
+        background: linear-gradient(135deg, #151f32 0%, #1a3566 100%);
+        color: #ffffff;
+        padding: 10px 24px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        box-shadow: 
+          0 4px 16px rgba(38, 72, 141, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        font-family: Verdana, Geneva, sans-serif;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-pill-callout::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .myth-pill-callout:hover::before {
+        left: 100%;
+      }
+
+      .myth-pill-callout:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      /* Property label badge - flat design */
+      .property-label {
+        color: #26488D;
+        padding: 8px 0;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      /* Custom bullet list with bordered design */
+      .myth-stats-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-top: 20px;
+      }
+
+      .myth-stats-list li {
+        padding: 16px 0 16px 50px;
+        position: relative;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        font-family: Verdana, Geneva, sans-serif;
+        border-bottom: 2px solid #e8eef7;
+        transition: all 0.3s ease;
+      }
+
+      .myth-stats-list li:last-child {
+        border-bottom: none;
+      }
+
+      .myth-stats-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+        border: 1px solid #26488D;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(38, 72, 141, 0.15);
+      }
+
+      .myth-stats-list li::after {
+        content: '✓';
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #26488D;
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .myth-stats-list li:hover {
+        padding-left: 55px;
+        border-bottom-color: #26488D;
+      }
+
+      .myth-stats-list li:hover::before {
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        border-color: #1a3566;
+        transform: translateY(-50%) rotate(5deg);
+      }
+
+      .myth-stats-list li:hover::after {
+        color: #ffffff;
+      }
+
+      .myth-stats-list li strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Special status item styling */
+      .myth-stats-list li.status-item {
+        padding-top: 20px;
+        border-top: 2px solid #e8eef7;
+        margin-top: 10px;
+      }
+
+      .myth-stats-list li.status-item::before {
+        border-radius: 50%;
+      }
+
+      .myth-stats-list li.status-item.warning::before {
+        border-color: #d97706;
+      }
+
+      .myth-stats-list li.status-item.warning::after {
+        content: '⚠';
+        color: #d97706;
+        font-size: 18px;
+        left: 7px;
+      }
+
+      .myth-stats-list li.status-item.warning:hover::before {
+        background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+        border-color: #b45309;
+      }
+
+      .myth-stats-list li.status-item.warning:hover::after {
+        color: #ffffff;
+      }
+
+      .myth-stats-list li.status-item.success::before {
+        border-color: #059669;
+      }
+
+      .myth-stats-list li.status-item.success::after {
+        content: '✓';
+        color: #059669;
+        font-size: 18px;
+      }
+
+      .myth-stats-list li.status-item.success:hover::before {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        border-color: #047857;
+      }
+
+      .myth-stats-list li.status-item.success:hover::after {
+        color: #ffffff;
+      }
+
+      /* Image container with enhanced animation */
+      .myth-image-container {
+        width: 100%;
+        margin: 30px 0;
+      }
+
+      .myth-image-wrapper {
+        position: relative;
+        width: 100%;
+        border: 5px solid #26488D;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.15),
+          0 0 0 1px rgba(38, 72, 141, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-sizing: border-box;
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+      }
+
+      .myth-image-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(38, 72, 141, 0.1) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .myth-image-wrapper:hover::before {
+        opacity: 1;
+      }
+
+      .myth-image-wrapper:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 
+          0 16px 48px rgba(38, 72, 141, 0.25),
+          0 0 0 1px rgba(38, 72, 141, 0.15);
+        border-color: #1a3566;
+        border-width: 6px;
+      }
+
+      .myth-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .myth-image-wrapper:hover .myth-image {
+        transform: scale(1.02);
+      }
+
+      /* Modern stats grid - card-based approach */
+      .myth-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 24px 0;
+      }
+
+      .myth-stat-item {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+        border: 2px solid #e8eef7;
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-stat-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, #26488D 0%, #4a6bb5 100%);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+      }
+
+      .myth-stat-item:hover {
+        border-color: #26488D;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(38, 72, 141, 0.15);
+      }
+
+      .myth-stat-item:hover::before {
+        transform: scaleY(1);
+      }
+
+      .myth-stat-number {
+        display: block;
+        font-size: 36px;
+        font-weight: 700;
+        color: #26488D;
+        font-family: Verdana, Geneva, sans-serif;
+        margin-bottom: 8px;
+        line-height: 1;
+      }
+
+      .myth-stat-label {
+        display: block;
+        font-size: 14px;
+        color: #5a5a5a;
+        font-family: Verdana, Geneva, sans-serif;
+        line-height: 1.4;
+      }
+
+      /* Special status indicator */
+      .myth-status-indicator {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 20px;
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        border-left: 4px solid #26488D;
+        font-size: 15px;
+        font-family: Verdana, Geneva, sans-serif;
+        grid-column: 1 / -1;
+      }
+
+      .myth-status-indicator.warning {
+        border-left-color: #d97706;
+        background: linear-gradient(135deg, #fef3c7 0%, rgba(254, 243, 199, 0.3) 100%);
+      }
+
+      .myth-status-indicator.success {
+        border-left-color: #059669;
+        background: linear-gradient(135deg, #d1fae5 0%, rgba(209, 250, 229, 0.3) 100%);
+      }
+
+      .myth-status-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+        line-height: 1.4;
+      }
+
+      .myth-status-text {
+        color: #3d3d3d;
+        line-height: 1.4;
+        flex: 1;
+      }
+
+      .myth-status-text .myth-emphasis {
+        font-style: normal;
+      }
+
+      /* Data point card with layered shadow */
+      .myth-data-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+        border: 1px dashed #26488D;
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 50px 0 25px 0 !important;
+        box-shadow: 
+          0 4px 16px rgba(38, 72, 141, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .myth-data-card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, #26488D, #4a6bb5);
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+      }
+
+      .myth-data-card:hover::before {
+        opacity: 1;
+      }
+
+      .myth-data-card:hover {
+        box-shadow: 
+          0 12px 32px rgba(38, 72, 141, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border-color: transparent;
+        transform: translateY(-4px);
+      }
+
+      .myth-data-card:hover .myth-paragraph {
+        color: white !important;
+      }
+
+      .myth-data-card:hover .myth-emphasis {
+        color: white !important;
+      }
+
+      .myth-data-card:hover strong {
+        color: white !important;
+      }
+
+      .myth-data-card:hover .property-label {
+        color: white !important;
+      }
+
+      .myth-data-card:hover .myth-stats-list li {
+        color: #ffffff;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .myth-data-card:hover .myth-stats-list li::before {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .myth-data-card:hover .myth-stats-list li::after {
+        color: #ffffff;
+      }
+
+      .myth-data-card:hover .myth-stats-list li strong {
+        color: #ffffff;
+      }
+
+      /* Solution box with premium styling */
+      .myth-solution-box {
+        background: linear-gradient(135deg, #e8eef7 0%, #f5f8fc 50%, #ffffff 100%);
+        border-radius: 16px;
+        padding: 32px 36px;
+        margin: 0 0 30px 0;
+        border: 3px solid #26488D;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .myth-solution-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 100%;
+        background: linear-gradient(180deg, #26488D 0%, #1a3566 100%);
+        box-shadow: 2px 0 12px rgba(38, 72, 141, 0.3);
+      }
+
+      .myth-solution-box::after {
+        content: '✓';
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-size: 48px;
+        color: #26488D;
+        opacity: 0.08;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .myth-solution-box p,
+      .myth-solution-box ol {
+        padding-left: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .myth-solution-box ol {
+        list-style: none;
+        margin: 20px 0;
+        counter-reset: solution-counter;
+      }
+
+      .myth-solution-box ol li {
+        padding: 10px 0 10px 40px;
+        position: relative;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        font-family: Verdana, Geneva, sans-serif;
+        counter-increment: solution-counter;
+      }
+
+      .myth-solution-box ol li::before {
+        content: counter(solution-counter);
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(38, 72, 141, 0.3);
+      }
+
+      /* Emphasis text */
+      .myth-emphasis {
+        color: #26488D;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      /* Step-by-step section */
+      .myth-steps-container {
+        margin: 40px 0;
+      }
+
+      .myth-step-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+        border: 2px solid #e8eef7;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 20px;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .myth-step-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #26488D 0%, #1a3566 100%);
+        border-radius: 12px 0 0 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .myth-step-card:hover::before {
+        opacity: 1;
+      }
+
+      .myth-step-card:hover {
+        border-color: #26488D;
+        transform: translateX(5px);
+        box-shadow: 0 8px 20px rgba(38, 72, 141, 0.15);
+      }
+
+      .myth-step-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 24px;
+        flex-shrink: 0;
+        box-shadow: 
+          0 4px 12px rgba(38, 72, 141, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .myth-step-card:hover .myth-step-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .myth-step-content {
+        flex: 1;
+      }
+
+      .myth-step-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 0 0 10px 0;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .myth-step-description {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        margin: 0;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .myth-section-wrapper {
+          padding: 40px 0 !important;
+        }
+
+        .myth-section-wrapper::before {
+          display: none;
+        }
+
+        .myth-main-heading {
+          font-size: 26px;
+          padding: 0 20px;
+          gap: 12px;
+        }
+
+        .myth-heading-badge {
+          font-size: 10px;
+          padding: 5px 14px;
+        }
+
+        .myth-subheading {
+          font-size: 20px;
+          gap: 10px;
+        }
+
+        .myth-icon {
+          width: 32px;
+          height: 32px;
+          font-size: 18px;
+        }
+
+        .myth-stats-list li {
+          padding: 14px 0 14px 45px;
+        }
+
+        .myth-stats-list li::before {
+          width: 28px;
+          height: 28px;
+        }
+
+        .myth-stats-list li::after {
+          left: 7px;
+          font-size: 14px;
+        }
+
+        .myth-story-card,
+        .myth-highlight-box,
+        .myth-data-card,
+        .myth-solution-box {
+          padding: 20px;
+        }
+
+        .myth-solution-box p,
+        .myth-solution-box ol {
+          padding-left: 16px;
+        }
+
+        .myth-step-card {
+          flex-direction: column;
+          gap: 16px;
+          padding: 20px;
+        }
+
+        .myth-step-icon {
+          width: 42px;
+          height: 42px;
+          font-size: 20px;
+        }
+
+        .myth-step-title {
+          font-size: 16px;
+        }
+
+        .myth-step-description {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background:#ffffff;">
+    <div class="myth-section-wrapper" id="myth-2">
+      
+      <!-- Main Heading -->
+      <h1 class="myth-main-heading">
+        <span class="myth-heading-badge">Myth 2</span>
+        <span>Your GA4 Dashboard Shows All Your Conversions</span>
+        <span class="myth-heading-divider">◆</span>
+      </h1>
+
+      <!-- Opening Story -->
+      <div class="myth-story-card">
+        <p class="myth-paragraph">
+          <strong>Google strongly recommends you turn on Data Signals.</strong>
+        </p>
+        <p class="myth-paragraph" style="margin-bottom: 0;">
+          Sounds smart, in theory, right? More data is better. Google's recommendation must be the way to go. Except turning on Data Signals might be hiding up to <strong>40% of your actual conversions</strong>.
+        </p>
+      </div>
+
+      <p class="myth-paragraph">
+        I'm going to show you data from a car dealer running lead generation campaigns. Same time period (last 28 days). However, we set up two separate GA4 properties with different settings.
+      </p>
+
+      <!-- Property 1 -->
+      <div class="myth-data-card">
+        <span class="property-label">Property 1 - Data signals turned ON (Google's recommendation):</span>
+        
+        <ul class="myth-stats-list">
+          <li><strong>778</strong> total conversions</li>
+          <li><strong>6</strong> visible conversion events</li>
+          <li><strong>412</strong> total users</li>
+          <li class="status-item warning">Orange warning icon: <span class="myth-emphasis">"Thresholding applied"</span></li>
+        </ul>
+      </div>
+
+      <!-- Image 1: Property 1 Dashboard -->
+      <div class="myth-image-container">
+        <div class="myth-image-wrapper">
+          <img 
+            src="https://static.wixstatic.com/media/a1f442_d0cdfeb4c55b44c8aa16581bb3a352ea~mv2.png" 
+            alt="GA4 Property 1 with Data Signals ON showing thresholding" 
+            class="myth-image"
+          />
+        </div>
+      </div>
+
+      <!-- Property 2 -->
+      <div class="myth-data-card">
+        <span class="property-label">Property 2 - Data signals turned OFF:</span>
+        
+        <ul class="myth-stats-list">
+          <li><strong>1,095</strong> total conversions</li>
+          <li><strong>12</strong> visible conversion events</li>
+          <li><strong>579</strong> total users</li>
+          <li class="status-item success">Green checkmark: <span class="myth-emphasis">"Unsampled report - based on 100% of available data"</span></li>
+        </ul>
+      </div>
+
+      <!-- Image 2: Property 2 Dashboard -->
+      <div class="myth-image-container">
+        <div class="myth-image-wrapper">
+          <img 
+            src="https://static.wixstatic.com/media/a1f442_4275e9c4cc5c4471a8d3d95d4c11cfa2~mv2.png" 
+            alt="GA4 Property 2 with Data Signals OFF showing full data" 
+            class="myth-image"
+          />
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div class="myth-highlight-box">
+        That's <strong>317 more conversions (a 40% difference!)</strong> just from changing one setting. Same website, same traffic, and the same time period.
+      </div>
+
+      <p class="myth-paragraph">
+        To make matters worse, the first property showed only 6 conversion events, while the second showed 12. Half of the conversion types weren't even visible when Data Signals was on.
+      </p>
+
+      <!-- Subheading -->
+      <h2 class="myth-subheading">
+        <span class="myth-icon"></span>
+        <span>Understanding the Problem</span>
+      </h2>
+
+      <p class="myth-paragraph">
+        <strong>So what's going on here?</strong>
+      </p>
+
+      <p class="myth-paragraph">
+        When you turn on Data Signals (which Google recommends during setup), you're allowing Google to blend your actual website data with modeled data from their broader user signals.
+      </p>
+
+      <p class="myth-paragraph">
+        This triggers something called "thresholding." You'll see a little orange caution cone at the top of your reports with a message: "Google Analytics has applied thresholding to one or more cards in this report."
+      </p>
+
+      <p class="myth-paragraph">
+        According to Google, thresholding is applied "to prevent anyone viewing a report from inferring the identity or sensitive information of individual users." When you have lower user counts in your date range and Data Signals is enabled, Google starts hiding data.
+      </p>
+
+      <p class="myth-paragraph">
+        <strong>The data isn't gone; it happened.</strong> Real people converted on your website. However, Google won't show it to you.
+      </p>
+
+      <!-- Solution Section -->
+      <div class="myth-pill-callout">So what do you do to fix it?</div>
+
+      <p class="myth-paragraph">
+        Here's what I recommend:
+      </p>
+
+      <div class="myth-solution-box">
+        <p class="myth-paragraph">
+          <strong>Create two GA4 properties under the same account:</strong>
+        </p>
+        <ol>
+          <li><strong>Property with Data Signals ON</strong> - Use this for building remarketing audiences (Google requires Data Signals for audience creation in Google Ads)</li>
+          <li><strong>Property with Data Signals OFF</strong> - Use this for actual reporting and analysis</li>
+        </ol>
+      </div>
+
+      <!-- Step-by-Step Implementation -->
+      <div class="myth-steps-container">
+        
+        <div class="myth-step-card">
+          <div class="myth-step-icon">🏷️</div>
+          <div class="myth-step-content">
+            <h3 class="myth-step-title">Step 1: Label Your Properties</h3>
+            <p class="myth-step-description">
+              Label them clearly: <strong>"Business Name - Data Signals"</strong> and <strong>"Business Name - Clean Data"</strong> so you always know which property you're looking at.
+            </p>
+          </div>
+        </div>
+
+        <div class="myth-step-card">
+          <div class="myth-step-icon">⚙️</div>
+          <div class="myth-step-content">
+            <h3 class="myth-step-title">Step 2: Configure Data Signals</h3>
+            <p class="myth-step-description">
+              To change this setting, click the admin gear icon, go to <strong>Setup Assistant</strong>, then <strong>"Customize data collection and display."</strong> You'll see the Data Signals toggle.
+            </p>
+          </div>
+        </div>
+
+        <div class="myth-step-card">
+          <div class="myth-step-icon">📊</div>
+          <div class="myth-step-content">
+            <h3 class="myth-step-title">Step 3: Use the Right Property</h3>
+            <p class="myth-step-description">
+              When you want <strong>accurate conversion data</strong>, look at the clean property. When you need to <strong>build audiences for remarketing</strong>, use the Data Signals property. It's extra setup work, but it's the only way to see what's actually happening on your website.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>

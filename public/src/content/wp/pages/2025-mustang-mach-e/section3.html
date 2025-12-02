@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance & Handling: Power Meets Precision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .performance-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .performance-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .performance-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .performance-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .performance-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .performance-content {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .performance-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .performance-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .performance-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .performance-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .performance-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .performance-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .performance-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .performance-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .performance-section {
+                padding: 2rem 1rem;
+            }
+
+            .performance-header {
+                margin-bottom: 2rem;
+            }
+
+            .performance-title {
+                font-size: 20px;
+            }
+
+            .performance-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .performance-table-container {
+                padding: 1rem;
+            }
+
+            .performance-table {
+                font-size: 0.8rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .performance-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .performance-section {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .performance-title {
+                font-size: 18px;
+            }
+
+            .performance-subtitle {
+                font-size: 1rem;
+            }
+
+            .performance-table {
+                font-size: 0.75rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .performance-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .performance-table {
+                font-size: 0.7rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .performance-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="performance-section" id="performance-dynamics">
+        <div class="performance-container">
+            <header class="performance-header">
+                <h2 class="performance-title">Performance & Handling: Power Meets Precision</h2>
+                <h3 class="performance-subtitle">Acceleration and Powertrain Versatility</h3>
+            </header>
+
+            <div class="performance-content">
+                <p>The Mustang Mach-E offers a compelling range of powertrains calibrated for diverse driver needs. The high-performance Rally trim accelerates from 0 to 60 mph in approximately 3.5 seconds, matching Tesla Model Y's Performance trim in sprint times while carrying distinct Mustang DNA in handling feel. Meanwhile, the GT trims provide a similarly quick acceleration of around 3.8 seconds, and standard-range options provide efficient everyday driving at around 6 seconds.</p>
+            </div>
+
+            <div class="performance-table-container">
+                <h3 class="table-title">Performance Comparison</h3>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Performance Metric</th>
+                            <th>Ford Mustang Mach-E (Rally GT AWD)</th>
+                            <th>Tesla Model Y (Performance AWD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Combined Power (hp)</td>
+                            <td class="ford-value">480</td>
+                            <td class="tesla-value">456</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Torque (lb-ft)</td>
+                            <td class="ford-value">634–700</td>
+                            <td class="tesla-value">497</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">0-60 mph Acceleration (seconds)</td>
+                            <td class="ford-value">~3.5</td>
+                            <td class="tesla-value">~3.5</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Top Speed (mph)</td>
+                            <td class="ford-value">128</td>
+                            <td class="tesla-value">155</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Drivetrain Options</td>
+                            <td class="ford-value">RWD, AWD</td>
+                            <td class="tesla-value">RWD, AWD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="performance-content" style="margin-top: 3rem;">
+                <h3 class="performance-subtitle">Handling and Ride Experience</h3>
+                <p>The Mustang Mach-E leans into dynamic precision with its well-tuned suspension—MacPherson front struts paired with a multilink rear arrangement—that ensures responsive handling and an engaging drive. AWD variants showcase excellent cornering stability and confidence, while rear-wheel-drive options offer subtle oversteer for spirited driving.</p>
+                <p>In contrast, the Model Y's ride quality has been widely noted as firm and occasionally uneven, resulting in a less composed experience over rough surfaces. Cabin noise due to resonant frequencies is another area where the Mach-E maintains an advantage, with enhanced sound insulation and a quieter environment, particularly during long drives in the greater Bellevue or Renton areas.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

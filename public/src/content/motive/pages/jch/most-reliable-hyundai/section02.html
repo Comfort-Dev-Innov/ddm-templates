@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .elantra-showcase-container {
+            padding: 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            color: #012b5d;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .elantra-showcase-container h1 {
+            width: fit-content !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #012b5d, #002c5f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .elantra-showcase-container h1:hover {
+            transform: scale(1.02);
+        }
+
+        .elantra-showcase-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #002c5f;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #012b5d;
+            padding-bottom: 0.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .elantra-showcase-container h2:hover {
+            border-color: #002c5f;
+        }
+
+        .elantra-showcase-container h3,
+        .elantra-showcase-container h1,
+        .elantra-showcase-container h2,
+        .elantra-showcase-container p,
+        .elantra-showcase-container ol,
+        .elantra-showcase-container ul {
+            max-width: 1300px !important;
+        }
+
+        .elantra-showcase-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            transition: color 0.3s ease;
+        }
+
+        .elantra-showcase-container p:hover {
+            color: #002c5f;
+        }
+
+        .elantra-showcase-container ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .elantra-showcase-container li {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.05), rgba(0, 44, 95, 0.05));
+            border-radius: 12px;
+            border-left: 4px solid #012b5d;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elantra-showcase-container li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 43, 93, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .elantra-showcase-container li:hover::before {
+            left: 100%;
+        }
+
+        .elantra-showcase-container li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(1, 43, 93, 0.15);
+            border-left-color: #002c5f;
+        }
+
+        .elantra-showcase-container strong {
+            color: #002c5f;
+            font-weight: 600;
+        }
+
+        .elantra-showcase-container a {
+            color: #012b5d;
+            text-decoration: underline;
+            font-weight: 700;
+            position: relative;
+            transition: color 0.3s ease;
+            text-underline-offset: 2px;
+        }
+
+        .elantra-showcase-container a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            transition: width 0.3s ease;
+        }
+
+        .elantra-showcase-container a:hover {
+            color: #002c5f;
+            text-decoration-color: #002c5f;
+        }
+
+        .elantra-showcase-container a:hover::after {
+            width: 100%;
+        }
+
+        .elantra-image-wrapper {
+            text-align: center;
+            margin: 3rem 0;
+            animation: slideInFromBottom 0.8s ease-out 0.4s both;
+            width: 100%;
+        }
+
+        .elantra-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(1, 43, 93, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .elantra-image-wrapper img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 45px rgba(1, 43, 93, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .powertrain-highlight {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.08), rgba(0, 44, 95, 0.08));
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            transition: background 0.3s ease;
+        }
+
+        .powertrain-highlight:hover {
+            background: linear-gradient(135deg, rgba(1, 43, 93, 0.12), rgba(0, 44, 95, 0.12));
+        }
+
+        @media (max-width: 768px) {
+            .elantra-showcase-container {
+                padding: 20px 15px !important;
+            }
+            
+            .elantra-showcase-container h1 {
+                font-size: 2rem;
+            }
+            
+            .elantra-showcase-container h2 {
+                font-size: 1.5rem;
+            }
+            
+            .elantra-showcase-container p {
+                font-size: 1rem;
+                text-align: left;
+            }
+            
+            .elantra-showcase-container li {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="elantra-showcase-container">
+        <p><a href="https://joecooperhyundai.com/cars/elantra">The 2025 Hyundai Elantra</a> is the quintessential modern compact sedan, perfectly suited for the "Smart Achiever." This is the ideal vehicle for the dedicated high school student in Bethany, the ambitious college student navigating campus at the University of Oklahoma in Norman or Oklahoma City University, or the young professional embarking on their career in downtown Oklahoma City. The Elantra delivers a winning combination of sharp, futuristic styling, a tech-laden interior, and exceptional fuel efficiency that appeals to both the driver's sense of style and the family's budget.</p>
+
+        <h2>Powertrain and Performance Analysis</h2>
+        
+        <p>The Elantra offers a choice of powertrains, allowing families to select the perfect balance of efficiency and performance for their needs.</p>
+        
+        <ul>
+            <li>
+                <strong>The Efficiency Champion (SE, <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Elantra-SEL_Sport-KMHLM4DG2SU978815">SEL</a>, <a href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Elantra-Limited-KMHLP4DG0SU959316">Limited</a>):</strong> 
+                <div class="powertrain-highlight">
+                    The standard engine is a highly reliable 2.0-liter 4-cylinder that produces 147 horsepower and 132 lb-ft of torque. It is paired with Hyundai's Smartstream® Intelligent Variable Transmission (IVT). This advanced transmission is engineered to feel responsive and smooth like a traditional automatic, eliminating the "droning" feel of older CVTs. Its primary mission is to maximize fuel economy, and it succeeds brilliantly, achieving an EPA-estimated 32 City/41 Hwy/36 Combined MPG in the SE trim. For a student on a tight budget or a commuter traveling long distances, this level of efficiency translates into significant savings at the gas pump.
+                </div>
+            </li>
+            
+            <li>
+                <strong>The Confident Performer (N Line):</strong> 
+                <div class="powertrain-highlight">
+                    For those seeking a more engaging driving experience, the Elantra N Line features a potent 1.6-liter Turbo GDI (Gasoline Direct Injection) engine. This powertrain delivers a robust 201 horsepower and 195 lb-ft of torque, available across a broad RPM range. It's matched with a quick-shifting 7-speed Dual Clutch Transmission (DCT) with paddle shifters, offering a more dynamic feel. It provides confidence and power for safe, decisive merging or passing slower traffic on a two-lane highway. The N Line also upgrades to a sophisticated multi-link rear suspension, which provides a more composed and comfortable ride over varied road surfaces compared to the standard torsion beam axle.
+                </div>
+            </li>
+        </ul>
+
+        <div class="elantra-image-wrapper">
+            <img src="https://i.ibb.co/gbB2tKC3/image4.png" alt="image4" border="0">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Container */
+      .myth-section-wrapper {
+        width: 100%;
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 60px 0 !important;
+        font-family: Verdana, Geneva, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      /* Decorative background elements */
+      .myth-section-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(38, 72, 141, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      /* Main Heading with diamond decorator */
+      .myth-main-heading {
+        font-size: 32px;
+        font-weight: 700;
+        color: #26488D;
+        text-align: center;
+        margin: 0 0 50px 0;
+        position: relative;
+        padding: 0 20px;
+        font-family: Verdana, Geneva, sans-serif;
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      /* Modern badge pill for main heading */
+      .myth-heading-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #1a3566 0%, #26488D 100%);
+        color: #ffffff;
+        padding: 6px 18px;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        box-shadow: 
+          0 4px 12px rgba(38, 72, 141, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .myth-heading-divider {
+        font-size: 18px;
+        color: #26488D;
+        text-shadow: 0 2px 6px rgba(38, 72, 141, 0.3);
+        margin-top: 4px;
+      }
+
+      /* Paragraph styling */
+      .myth-paragraph {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3d3d3d;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .myth-paragraph strong {
+        color: #26488D;
+        font-weight: 700;
+      }
+
+      /* Story card with enhanced gradient and depth */
+      .myth-story-card {
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 50%, #f5f7fb 100%);
+        border-left: 6px solid #26488D;
+        border-radius: 12px;
+        padding: 28px 32px;
+        margin: 30px 0;
+        box-shadow: 
+          0 4px 20px rgba(38, 72, 141, 0.08),
+          0 0 0 1px rgba(38, 72, 141, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-story-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(38, 72, 141, 0.02) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .myth-story-card:hover::before {
+        opacity: 1;
+      }
+
+      .myth-story-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 
+          0 12px 32px rgba(38, 72, 141, 0.15),
+          0 0 0 1px rgba(38, 72, 141, 0.08);
+        border-left-width: 8px;
+      }
+
+      /* Highlight box with premium gradient */
+      .myth-highlight-box {
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        color: #ffffff;
+        padding: 24px 28px;
+        border-radius: 12px;
+        margin: 30px 0;
+        font-size: 17px;
+        font-weight: 600;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.3),
+          0 2px 8px rgba(38, 72, 141, 0.2);
+        font-family: Verdana, Geneva, sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-highlight-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        transition: transform 0.6s ease;
+      }
+
+      .myth-highlight-box:hover::before {
+        transform: translate(-10%, -10%);
+      }
+
+      /* Subheading with enhanced accent */
+      .myth-subheading {
+        font-size: 24px;
+        font-weight: 700;
+        color: #26488D;
+        margin: 80px 0 20px 0;
+        padding-bottom: 14px;
+        border-bottom: 4px solid transparent;
+        background: linear-gradient(#ffffff, #ffffff) padding-box,
+                    linear-gradient(90deg, #26488D 0%, #4a6bb5 50%, transparent 100%) border-box;
+        border-image-slice: 0 0 1 0;
+        font-family: Verdana, Geneva, sans-serif;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .myth-subheading::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #26488D 0%, #1a3566 100%);
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(38, 72, 141, 0.3);
+      }
+
+      /* Icon for subheading */
+      .myth-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #26488D 0%, #1a3566 100%);
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 20px;
+        flex-shrink: 0;
+        box-shadow: 
+          0 4px 12px rgba(38, 72, 141, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        position: relative;
+      }
+
+      .myth-icon::before {
+        content: '✕';
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      /* Pill-style callout with shimmer effect */
+      .myth-pill-callout {
+        display: inline-block;
+        background: linear-gradient(135deg, #151f32 0%, #1a3566 100%);
+        color: #ffffff;
+        padding: 10px 24px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        box-shadow: 
+          0 4px 16px rgba(38, 72, 141, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        font-family: Verdana, Geneva, sans-serif;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .myth-pill-callout::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .myth-pill-callout:hover::before {
+        left: 100%;
+      }
+
+      .myth-pill-callout:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      /* Image container with enhanced animation */
+      .myth-image-container {
+        width: 100%;
+        margin: 40px 0;
+      }
+
+      .myth-image-wrapper {
+        position: relative;
+        width: 100%;
+        border: 5px solid #26488D;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.15),
+          0 0 0 1px rgba(38, 72, 141, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-sizing: border-box;
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+      }
+
+      .myth-image-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(38, 72, 141, 0.1) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .myth-image-wrapper:hover::before {
+        opacity: 1;
+      }
+
+      .myth-image-wrapper:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 
+          0 16px 48px rgba(38, 72, 141, 0.25),
+          0 0 0 1px rgba(38, 72, 141, 0.15);
+        border-color: #1a3566;
+        border-width: 6px;
+      }
+
+      .myth-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .myth-image-wrapper:hover .myth-image {
+        transform: scale(1.02);
+      }
+
+      /* Data point card with layered shadow */
+      .myth-data-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+        border: 3px solid #26488D;
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 25px 0;
+        box-shadow: 
+          0 4px 16px rgba(38, 72, 141, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .myth-data-card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, #26488D, #4a6bb5);
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+      }
+
+      .myth-data-card:hover::before {
+        opacity: 1;
+        color: white !important;
+      }
+
+      .myth-data-card:hover {
+        box-shadow: 
+          0 12px 32px rgba(38, 72, 141, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border-color: transparent;
+        transform: translateY(-4px);
+        color: white !important;
+      }
+
+      .myth-data-card:hover .myth-paragraph {
+        color: white !important;
+      }
+
+      .myth-data-card:hover .myth-emphasis {
+        color: white !important;
+      }
+
+      .myth-data-card:hover strong {
+        color: white !important;
+      }
+
+      /* Solution box with premium styling */
+      .myth-solution-box {
+        background: linear-gradient(135deg, #e8eef7 0%, #f5f8fc 50%, #ffffff 100%);
+        border-radius: 16px;
+        padding: 32px 36px;
+        margin: 0 0 30px 0;
+        border: 3px solid #26488D;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 8px 24px rgba(38, 72, 141, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .myth-solution-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 100%;
+        background: linear-gradient(180deg, #26488D 0%, #1a3566 100%);
+        box-shadow: 2px 0 12px rgba(38, 72, 141, 0.3);
+      }
+
+      .myth-solution-box::after {
+        content: '✓';
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-size: 48px;
+        color: #26488D;
+        opacity: 0.08;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .myth-solution-box p {
+        padding-left: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Emphasis text with subtle animation */
+      .myth-emphasis {
+        color: #26488D;
+        font-weight: 700;
+        font-style: italic;
+        position: relative;
+        display: inline-block;
+      }
+
+      .myth-emphasis::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #26488D, transparent);
+        opacity: 0.3;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .myth-section-wrapper {
+          padding: 40px 0 !important;
+        }
+
+        .myth-section-wrapper::before {
+          display: none;
+        }
+
+        .myth-main-heading {
+          font-size: 26px;
+          padding: 0 20px;
+          gap: 12px;
+        }
+
+        .myth-heading-badge {
+          font-size: 17px;
+          padding: 5px 14px;
+        }
+
+        .myth-main-heading::before,
+        .myth-main-heading::after {
+          display: none;
+        }
+
+        .myth-subheading {
+          font-size: 20px;
+          gap: 10px;
+        }
+
+        .myth-icon {
+          width: 32px;
+          height: 32px;
+          font-size: 18px;
+        }
+
+        .myth-story-card,
+        .myth-highlight-box,
+        .myth-data-card,
+        .myth-solution-box {
+          padding: 20px;
+        }
+
+        .myth-solution-box p {
+          padding-left: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background:#ffffff;">
+    <div class="myth-section-wrapper" id="myth-1">
+      
+      <!-- Main Heading -->
+      <h1 class="myth-main-heading">
+        <span class="myth-heading-badge">Myth 1</span>
+        <span>"Store Visits" Mean Real Traffic</span>
+        <span class="myth-heading-divider">◆</span>
+      </h1>
+
+      <!-- Opening Story -->
+      <div class="myth-story-card">
+        <p class="myth-paragraph">
+          <strong>Picture this:</strong> You're reviewing your December performance. You log into Google Ads, filter to your local campaigns, and your stomach drops.
+        </p>
+        <p class="myth-paragraph" style="margin-bottom: 0;">
+          Store visits are down 75%. From 144 visits to just 36. Your cost per conversion jumped almost 20%. Total conversions dropped 18%.
+        </p>
+      </div>
+
+      <p class="myth-paragraph">
+        Time to panic, right? Time to completely overhaul your strategy? <strong>Not so fast.</strong>
+      </p>
+
+      <!-- What Actually Happened -->
+      <div class="myth-pill-callout">Here's what actually happened:</div>
+      
+      <p class="myth-paragraph">
+        We pulled up a dealership account spending about <strong>$13,500</strong> on their filtered local campaigns. When we looked at the overall conversion numbers, it showed that we were down 120 conversions compared to the previous period (from 678 to 557). Cost per conversion increased nearly 20%. Any marketing manager would be sweating.
+      </p>
+
+      <!-- Image 1: Google Ads Dashboard -->
+      <div class="myth-image-container">
+        <div class="myth-image-wrapper">
+          <img 
+            src="https://static.wixstatic.com/media/a1f442_92df7e9790194712bb8c6c98c0776d01~mv2.png" 
+            alt="Google Ads conversion data showing decline" 
+            class="myth-image"
+          />
+        </div>
+      </div>
+
+      <div class="myth-data-card">
+        <p class="myth-paragraph">
+          When we segmented by conversion action and looked at the individual conversion types, most were roughly on par with the previous period. Some were even up. This big drop was almost entirely from one conversion type: <span class="myth-emphasis">Store Visits</span>.
+        </p>
+        <p class="myth-paragraph" style="margin-bottom: 0;">
+          Store visits had plummeted from <strong>144 to 36</strong>—a 75% decrease.
+        </p>
+      </div>
+
+      <p class="myth-paragraph">
+        Now, if that were real, this dealership's showroom would be a ghost town. Their sales would be tanking, and foot traffic would have evaporated.
+      </p>
+
+      <p class="myth-paragraph">
+        <strong>But it didn't.</strong> The business is doing fine, and actual foot traffic is stable.
+      </p>
+
+      <!-- Subheading -->
+      <h2 class="myth-subheading">
+        <span class="myth-icon"></span>
+        <span>Why Store Visits data is worthless</span>
+      </h2>
+
+      <p class="myth-paragraph">
+        This isn't an isolated incident. I see this pattern across accounts constantly. For one month, store visits are really good, but for the next month, they're completely off. The fluctuations never match business reality.
+      </p>
+
+      <div class="myth-highlight-box">
+        The problem is that Store Visits is a modeled conversion action that Google automatically populates in local business accounts. It uses location data and machine learning to estimate when someone who clicked your ad later visited your physical location.
+      </div>
+
+      <p class="myth-paragraph">
+        It sounds like a great metric in theory, but in practice, it's unreliable and muddies up your conversion data.
+      </p>
+
+      <div class="myth-data-card">
+        <p class="myth-paragraph" style="margin-bottom: 0;">
+          Now, when we see accounts where Store Visits are creating panic or false confidence, we write them off. They're not good. They're not reliable. And they shouldn't drive your decision-making.
+        </p>
+      </div>
+
+      <!-- Solution Section -->
+      <div class="myth-pill-callout">So how do you fix this?</div>
+
+      <div class="myth-solution-box">
+        <p class="myth-paragraph" style="margin-bottom: 0;">
+          <strong>Segment your conversions by conversion action in Google Ads.</strong> Look at what's actually happening with your verifiable conversion types, e.g., form fills, trackable calls, chat initiations. If store visits fluctuate wildly but everything else is stable, you know the problem isn't your marketing. It's Google's modeling.
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>

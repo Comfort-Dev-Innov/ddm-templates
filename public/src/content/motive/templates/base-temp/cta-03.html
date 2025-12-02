@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTA Section</title>
+    <style>
+        .cta-section {
+            padding: 40px 20px !important;
+            line-height: 1.6 !important;
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .cta-section h1 {
+            width: fit-content !important;
+        }
+
+        .cta-section h3,
+        .cta-section h1,
+        .cta-section h2,
+        .cta-section p,
+        .cta-section ol,
+        .cta-section ul {
+            max-width: 1200px !important;
+        }
+
+        .cta-section-heading {
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 50px !important;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .cta-section-heading::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            bottom: -12px;
+            left: 0;
+            background: linear-gradient(90deg, #012b5d, #002c5f);
+            border-radius: 2px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 60px;
+                opacity: 1;
+            }
+        }
+
+        .section-content {
+            color: #374151;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .section-content p {
+            margin-bottom: 24px;
+        }
+
+        .action-link {
+            color: #002c5f;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 4px;
+            padding: 2px 6px;
+            margin: 0 -6px;
+        }
+
+        .action-link:hover {
+            color: #012b5d;
+            background-color: rgba(1, 43, 93, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+            margin: 40px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            align-items: center;
+            font-size: 1rem;
+            color: #4b5563;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(1, 43, 93, 0.05);
+            border-radius: 12px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(1, 43, 93, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: scale(1.02);
+            background: rgba(1, 43, 93, 0.1);
+            border-color: rgba(1, 43, 93, 0.2);
+        }
+
+        .contact-item span:first-child {
+            font-size: 1.2rem;
+            filter: grayscale(0.3);
+        }
+
+        .phone-link {
+            color: #002c5f;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .phone-link:hover {
+            color: #012b5d;
+        }
+
+        .primary-button {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px;
+            outline: 1px dashed #002c5f;
+            outline-offset: 10px;
+            background: linear-gradient(135deg, #012b5d 0%, #002c5f 100%);
+            color: white;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 30px rgba(1, 43, 93, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .primary-button:hover::before {
+            left: 100%;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(1, 43, 93, 0.4);
+        }
+
+        .primary-button p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .primary-button .action-link {
+            color: white;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .primary-button .action-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section-heading {
+                font-size: 2.2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+
+            .primary-button {
+                padding: 24px;
+                margin-top: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-section-heading {
+                font-size: 1.9rem;
+            }
+
+            .cta-section {
+                padding: 32px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="cta-section">
+        <h2 class="cta-section-heading">Ready to Take the Next Step?</h2>
+        
+        <div class="section-content">
+            <p>The best way to understand what makes the Santa Fe special is to experience it yourself. At Joe Cooper Hyundai of Midwest City, our team is ready to help you explore the full lineup, answer your questions, and arrange a test drive that lets you feel the difference firsthand.</p>
+            
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>6601 Se 29th St, Midwest City</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <a href="tel:(405)733-1611" class="phone-link">(405) 733-1611</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Visit our showroom, call us, or browse our <a href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D" class="action-link">new</a> and <a href="https://joecooperhyundai.com/cars/certified-pre-owned?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22dealer_id%22%3A%7B%22value%22%3A%7B%22472%22%3Atrue%7D%7D%7D%7D" class="action-link">used</a> inventory online. We're here to make your Santa Fe buying experience as straightforward and informative as possible, helping you find the trim and features that best serve your family's needs.</p>
+        </div>
+        
+        <div class="primary-button">
+            <p>Experience the 2025 Santa Fe for yourself—<a href="https://joecooperhyundai.com/contact" class="action-link" style="color: white; border-bottom-color: white;">reach out</a> to us today.</p>
+        </div>
+    </section>
+</body>
+</html>

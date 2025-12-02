@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <style>
+      .tucson-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tucson-container h1 {
+        width: fit-content !important;
+      }
+
+      .tucson-container h3,
+      .tucson-container h1,
+      .tucson-container h2,
+      .tucson-container p,
+      .tucson-container ol,
+      .tucson-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 38px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-left {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-right {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        margin: 16px 0 !important;
+        border-radius: 12px;
+        list-style: none;
+        margin: 0;
+      }
+
+      .bullet-list {
+        margin-top: 10px;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: "•";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      .bullet-list a {
+        color: #0f3079;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+      }
+
+      .bullet-list a:hover {
+        color: #083d7b;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .image-right {
+          min-height: 250px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tucson-container">
+      <section class="bullet-section" id="bullet-section">
+        <div class="content-layout">
+          <div class="content-left">
+            <h2 class="section-title">
+              What's the Best Value <span style="color: #0f3079;">Hyundai Tucson Trim Level?</span>
+            </h2>
+            <p>
+              For most buyers, the value sweet spot in the 2025 Tucson lineup is:
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <p>
+                  the <strong><a target="_blank" href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson-SEL_Convenience-5NMJCCDEXSH574823">SEL trim</a> with the optional Convenience Package</strong> (on the gas model) or
+                </p>
+              </li>
+              <li>
+                <p>
+                  the <strong><a target="_blank" href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Tucson_Hybrid-SEL_Convenience-KM8JCDD13SU274841">SEL Convenience</a></strong> trim (on the Hybrid model)
+                </p>
+              </li>
+            </ul>
+            <p>
+              This combination unlocks the most sought-after technology and comfort upgrades without the full price jump to the Limited trim. It provides the stunning 12.3-inch digital instrument cluster, premium H-Tex seating surfaces, a power sunroof, and the advanced Highway Driving Assist (HDA) system.
+            </p>
+          </div>
+          <div class="image-right">
+            <img
+              src="https://brendanfoot.co.nz/wp-content/uploads/2025/04/BFS-Web-Mobile-1000x1000-Tucson.webp"
+              alt="Hyundai Tucson representing the best value trim level"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

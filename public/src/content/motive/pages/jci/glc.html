@@ -1,0 +1,522 @@
+<style>
+  /* ===== Base Blog Section Layout ===== */
+  :is([class*="Section-module__"][class*="__section--blog"]) {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e7eb; /* light gray instead of near-black */
+    line-height: 1.7;
+    font-size: 17px;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) * {
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* ===== Typography Spacing ===== */
+  :is([class*="Section-module__"][class*="__section--blog"]) p {
+    margin: 1em 0;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) h2,
+  :is([class*="Section-module__"][class*="__section--blog"]) h3 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #ffffff; /* pure white headings */
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) h2 {
+    font-size: 1.6em;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) h3 {
+    font-size: 1.35em;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) ul,
+  :is([class*="Section-module__"][class*="__section--blog"]) ol {
+    margin: 1em 0 1.5em 1.5em;
+    padding-left: 1em;
+    line-height: 1.6;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) li {
+    margin-bottom: 0.5em;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) strong {
+    font-weight: 600;
+    color: #f3f4f6; /* light gray instead of #111 */
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) hr {
+    margin: 2.5em 0;
+    border: none;
+    border-top: 1px solid #374151; /* dark gray divider */
+  }
+
+  /* ===== Table Styling ===== */
+  table.e-rte-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    background: #1f2937; /* dark background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: 32px 0;
+  }
+
+  table.e-rte-table thead {
+    background: #1e40af; /* richer indigo */
+    color: #fff;
+  }
+
+  table.e-rte-table th,
+  table.e-rte-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #374151; /* darker border */
+  }
+
+  table.e-rte-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+  }
+
+  table.e-rte-table td {
+    color: #d1d5db; /* light gray text */
+  }
+
+  table.e-rte-table tbody tr:nth-child(even) {
+    background: #111827; /* dark zebra stripe */
+  }
+
+  table.e-rte-table tbody tr:hover {
+    background: #1e3a8a; /* dark hover indigo */
+    transition: background 0.2s ease-in-out;
+  }
+
+  table.e-rte-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* ===== Responsive Table ===== */
+  @media (max-width: 700px) {
+    table.e-rte-table {
+      font-size: 14px;
+      overflow-x: auto;
+      display: block;
+    }
+
+    table.e-rte-table th,
+    table.e-rte-table td {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+  }
+
+  /* ===== Links ===== */
+  :is([class*="Section-module__"][class*="__section--blog"]) a {
+    color: #60a5fa !important; /* bright blue for dark bg */
+    font-weight: 600 !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+  }
+
+  :is([class*="Section-module__"][class*="__section--blog"]) a:hover {
+    color: #3b82f6 !important;
+  }
+
+  /* ===== Image Styling ===== */
+  .image-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 800px !important;
+    margin: 2em 0 !important;
+    text-align: center !important;
+  }
+
+  .image-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border: 3px solid #ffffff !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .image-wrapper img:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+    border-color: #60a5fa !important;
+  }
+
+  .image-wrapper-left {
+    max-width: 400px !important;
+    float: left !important;
+    margin: 0 2em 1.5em 0 !important;
+  }
+
+  .image-wrapper-left img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border: 3px solid #ffffff !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .image-wrapper-left img:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+    border-color: #60a5fa !important;
+  }
+
+  .image-wrapper-right {
+    max-width: 400px !important;
+    float: right !important;
+    margin: 0 0 1.5em 2em !important;
+  }
+
+  .image-wrapper-right img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border: 3px solid #ffffff !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .image-wrapper-right img:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+    border-color: #60a5fa !important;
+  }
+
+  .clear-float {
+    clear: both !important;
+  }
+
+  /* ===== Image Grid Styling ===== */
+  .image-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    margin: 2em 0 !important;
+    padding: 30px !important;
+    background: linear-gradient(135deg, #000000 0%, #1e3a8a 50%, #3b82f6 100%) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 80px rgba(59, 130, 246, 0.4) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .image-grid::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%) !important;
+    animation: glow-pulse 3s ease-in-out infinite !important;
+    pointer-events: none !important;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  .image-grid-item {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .image-grid-item img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border: 3px solid #ffffff !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .image-grid-item img:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+    border-color: #60a5fa !important;
+  }
+
+  @media (max-width: 1024px) {
+    .image-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .image-wrapper-left,
+    .image-wrapper-right {
+      float: none !important;
+      max-width: 100% !important;
+      margin: 1.5em 0 !important;
+    }
+
+    .image-grid {
+      grid-template-columns: 1fr !important;
+      padding: 20px !important;
+    }
+  }
+</style>
+
+
+
+
+
+<p>Discover the sophisticated blend of electrification, performance, and timeless luxury packed into the <strong>2026 Mercedes-Benz GLC</strong>. At <strong>Jackie Cooper Mercedes-Benz (Jackie Cooper Imports)</strong>, located at <a href="https://www.google.com/maps/place/?q=place_id:ChIJz_yQLwmOtocRMs3LAefeKnw">9393 S Memorial Dr, Tulsa, OK 74133</a>, we invite you to explore a vehicle that redefines compact luxury SUVs. The GLC continues to set new standards by integrating advanced plug-in hybrid technology alongside AMG-enhanced performance, making it as versatile as it is dynamic.</p>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+<div class="image-wrapper">
+<img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/926b8763ffc882c2191ce4954cb6ac9284fb4cf6/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Exterior">
+</div>
+<div class="image-wrapper">
+<img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/e07ec01152615a06ad0c1eb6803266199c1d1dee/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC in Motion">
+</div>
+</div>
+
+<p>Whether you're navigating the vibrant streets of Tulsa or venturing beyond, the 2026 GLC offers a refined driving experience supported by innovative engineering and meticulous craftsmanship. Contact us at <a href="tel:9183171514">(918) 317-1514</a> to learn more about this exceptional model or to schedule a personalized visit.</p><h2>Table of Contents</h2><ul>
+<li><a href="#vehicle-essence">Embarking on the 2026 Mercedes-Benz GLC Journey</a></li>
+<li><a href="#design-impact">Dynamic Exterior Styling and Presence</a></li>
+<li><a href="#performance-drive">Performance Unleashed: Driving the GLC</a><ul>
+<li><a href="#powertrain-details">Electrified Powertrain and 4MATIC All-Wheel Drive</a></li>
+<li><a href="#handling-braking">Chassis, Handling, and Braking Excellence</a></li>
+</ul>
+</li>
+<li><a href="#interior-comfort">Interior Tranquility and Premium Comfort</a></li>
+<li><a href="#tech-connectivity">Advanced Technology and Seamless Connectivity</a></li>
+<li><a href="#safety-innovation">Confidence in Every Mile: Safety and Driver Assistance</a></li>
+<li><a href="#trims-packages">Trim Options and Available Equipment</a></li>
+<li><a href="#warranty-service">Comprehensive Coverage and Service Excellence</a></li>
+<li><a href="#value-advantage">Why Choose Jackie Cooper Mercedes-Benz for Your GLC</a></li>
+</ul>
+
+<div class="image-wrapper-right" style="max-width: 600px !important;">
+<img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/e8e44b46914564196cd8550765b7fd1bd0654bd9/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Side Profile">
+</div>
+
+<h3>Embarking on the 2026 Mercedes-Benz GLC Journey</h3>
+
+<p>The <strong>2026 Mercedes-Benz GLC</strong> carries forward the brand's heritage of elegance, innovation, and driving pleasure within the luxury compact SUV segment. This model year is particularly distinguished by its thoughtful integration of electrification, showcased most notably in the plug-in hybrid <strong>GLC 350e 4MATIC</strong> as well as the exhilarating <strong>AMG GLC 63 S E Performance</strong> variant.</p><p>Mercedes-Benz combines modern engineering with tradition, resulting in a vehicle that appeals to discerning drivers who value both performance and environmental responsibility. With a price positioning that reflects premium craftsmanship starting at approximately $60,300, the base GLC model offers effortless sophistication and versatility. Prospective buyers from neighborhoods around <a href="https://www.google.com/maps/place/?q=place_id:ChIJrS7-pEeOtocRsFmYG8NSQUU">Broken Arrow</a> and <a href="https://www.google.com/maps/place/?q=place_id:ChIJX2JfTPO5tocRnkDRvTqd4rQ">Bixby</a> can experience firsthand how this vehicle complements an active, upscale lifestyle.</p>
+
+<div class="clear-float"></div><h3>Dynamic Exterior Styling and Presence</h3>
+
+<p>The 2026 GLC presents an exterior that exudes confident sophistication. Its athletic stance is anchored by refined lines and aerodynamic sculpting that not only arrest attention but also enhance efficiency and stability during high-speed travel.</p>
+
+<div class="image-wrapper-left">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/b570bd08c064c183abff74fd3fec46808caf4d3a/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Front Grille Detail">
+</div>
+
+<h2>Signature Styling Touches</h2>
+
+<p>From the distinctive grille embossed with the iconic Mercedes-Benz star to LED headlamps designed for clarity and longevity, every exterior element serves a dual purpose of aesthetic appeal and function. The side profile is elegantly proportional, yielding a poised silhouette that complements urban settings such as the sophisticated corridors near downtown <a href="https://www.google.com/maps/place/?q=place_id:ChIJ50z-8syQtocRBW9bpgF1DEI">Tulsa</a>.</p><h2>Wheels and Illumination</h2><p>The base model features alloy wheels sized to strike a balance between grip and comfort, paired with precision LED daytime running lights that enhance visibility and safety. Optional packages offer upgrades, including AMG-style wheels and dynamic lighting systems that respond intuitively to driving conditions.</p>
+
+<div class="clear-float"></div>
+
+<h3>Performance Unleashed: Driving the GLC</h3>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+<div class="image-wrapper">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/e1e22a51aabccc41b1b84ea98896f33a5436d76d/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Wheel Design">
+</div>
+<div class="image-wrapper">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/dfff2fd1f47c3d810b01855e1d5c415b9cf1fe7a/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Powertrain">
+</div>
+</div>
+
+
+<h2>Electrified Powertrain and 4MATIC All-Wheel Drive</h2>
+
+
+<p>At its heart, the <strong>2026 GLC 350e 4MATIC</strong> melds a potent internal combustion engine with an advanced electric motor to generate smooth, responsive acceleration while prioritizing fuel efficiency and reduced emissions. This plug-in hybrid system leverages the brand's celebrated 4MATIC all-wheel drive technology, ensuring exceptional traction and composure across varying terrains and weather conditions, such as the occasional heavy rains near <a href="https://www.google.com/maps/place/?q=place_id:ChIJa94GGNq9tocRqZIlGDyugYI">Jenks</a>.</p><p><strong>Performance Specifications for 2026 Mercedes-Benz GLC 350e 4MATIC</strong></p><table class="e-rte-table">
+<thead>
+<tr>
+<th align="left"><strong>Specification</strong></th>
+<th align="right"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Engine Type</td>
+<td align="right">Plug-In Hybrid Inline-4</td>
+</tr>
+<tr>
+<td align="left">Combined Power Output</td>
+<td align="right">Up to 315 horsepower</td>
+</tr>
+<tr>
+<td align="left">Drivetrain</td>
+<td align="right">4MATIC All-Wheel Drive</td>
+</tr>
+<tr>
+<td align="left">Transmission</td>
+<td align="right">9-speed automatic</td>
+</tr>
+<tr>
+<td align="left">Electric Range</td>
+<td align="right">Approximately 25 miles (electric only)</td>
+</tr>
+</tbody></table>
+
+<div class="clear-float"></div>
+
+<div class="image-wrapper-left">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/da682d1c5b9a96dc9097cea5d298ee62f9addbf3/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Handling">
+</div>
+<h2>Chassis, Handling, and Braking Excellence</h2>
+
+<p>The GLC's chassis is engineered with precision, emphasizing a balance between agile handling and smooth ride quality. The integration of adaptive suspension options further personalizes ride characteristics, enhancing driver confidence whether gliding through the streets of <a href="https://www.google.com/maps/place/?q=place_id:ChIJVbphReaQtocRV2AOOauSzlQ">Owasso</a> or tackling winding country roads.</p><p>Stopping power is ensured by a sophisticated braking system designed for swift, secure deceleration under all driving scenarios. This combination creates a driving experience that is simultaneously engaging, safe, and refined.</p>
+
+<div class="clear-float"></div>
+
+<div class="image-wrapper-right">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/84d1453e259425cdddabadf12413540835aeb1f3/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Interior Dashboard">
+</div>
+
+
+<h3>Interior Tranquility and Premium Comfort</h3>
+
+
+<p>Upon entering the 2026 GLC, occupants are welcomed by an inviting space crafted from fine materials complemented by meticulous attention to detail. The cabin has been designed to maximize both utility and luxury, appealing to drivers seeking a sanctuary within their vehicle.</p>
+
+<div class="clear-float"></div>
+
+<h2>Comfortable Seating and Spacious Cabin</h2>
+
+
+
+<p>The cabin comfortably accommodates five passengers with ergonomically designed seats that provide ample support for longer journeys. Thoughtful enhancements in sound insulation create a serene environment, contributing to a rewarding driving atmosphere in communities such as <a href="https://www.google.com/maps/place/?q=place_id:ChIJzzzoM6yTtocR6cwM0if_dks">Jenks</a> and nearby suburbs.</p><p><strong>Interior Space and Cargo Capacities of the 2026 Mercedes-Benz GLC</strong></p><table class="e-rte-table">
+<thead>
+<tr>
+<th align="left"><strong>Dimension</strong></th>
+<th align="right"><strong>Measurement</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Passenger Volume</td>
+<td align="right">Approximately 102 cubic feet</td>
+</tr>
+<tr>
+<td align="left">Cargo Capacity (Rear Seats Up)</td>
+<td align="right">19.4 cubic feet</td>
+</tr>
+<tr>
+<td align="left">Cargo Capacity (Rear Seats Folded)</td>
+<td align="right">Over 56 cubic feet</td>
+</tr>
+</tbody></table>
+
+<div class="clear-float"></div>
+
+<h2>Material Quality and Finishing Touches</h2>
+
+<div class="image-grid">
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/53284814b90fbf25787da58295a91bee60b4e458/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Front Seats">
+</div>
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/0a52a0a4c95075c2adc9255663deb9847fad0d28/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Interior Cargo Space">
+</div>
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/5433487acba8a360875664cc8bcabefcf23c626d/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Interior Details">
+</div>
+</div>
+
+
+
+<p>High-grade materials are evident throughout the interior, from plush upholstery to tasteful trim accents that underscore craftsmanship. This attention to detail enhances the overall impression of quality that sophisticated customers expect when visiting design-conscious locales, such as&nbsp;<a href="https://www.google.com/maps/place/?q=place_id:ChIJKxNlx5iTtocRKvTEtbt0Yp0">Bixby</a> and beyond.</p>
+
+<div class="clear-float"></div><h3>Advanced Technology and Seamless Connectivity</h3>
+
+
+<p>Leading-edge technology features in the GLC promise to keep drivers and passengers both connected and entertained. An intuitive infotainment system anchors the dashboard, offering smartphone integration, navigation, and multimedia capabilities.</p><h2>User-Friendly Infotainment Platform</h2><ul>
+<li>High-definition touchscreen display with crisp graphics</li>
+<li>Integration for Apple CarPlay and Android Auto</li>
+<li>Voice control featuring natural language recognition</li>
+<li>Multiple USB ports for charging and data connectivity</li>
+</ul>
+
+<div class="image-grid">
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/5e6d1663a5872c4e6600d826cbf607998d2e94ef/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Infotainment Display">
+</div>
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/2822044b791a0d91c22ba89bb4ac2b162a72278c/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Safety Features">
+</div>
+<div class="image-grid-item">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/f16f2aa4d49c9c3dfeb85fd515b12e1711f47a81/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Interior Technology">
+</div>
+</div>
+
+<h2>Climate Control and Audio Experience</h2><p>Multi-zone automatic climate controls ensure each occupant's comfort, tailoring the environment to suit the prevailing weather conditions common in the Tulsa metropolitan area. The audio system delivers rich sound quality, providing a concert-like ambiance for every journey.</p>
+
+<div class="clear-float"></div>
+
+<h3>Confidence in Every Mile: Safety and Driver Assistance</h3>
+
+
+
+<p>Mercedes-Benz equips the GLC with a comprehensive suite of safety technologies that work proactively to mitigate risks on the road. The system reflects the brand's dedication to safeguarding occupants and others, a commitment highly valued by both families and professionals throughout Mounds and the greater Tulsa area.</p><h2>Cutting-Edge Driver Assistance Systems</h2><ul>
+<li>Active emergency braking with pedestrian detection</li>
+<li>Lane keeping assistance and blind-spot monitoring</li>
+<li>Adaptive cruise control with stop-and-go capability</li>
+<li>Rearview camera with parking guidance</li>
+</ul><h2>Robust Passive Safety Design</h2><p>Strategically placed airbags, reinforced body structures, and advanced restraint systems form the backbone of occupant protection. Combined with the precision engineering of the vehicle's frame and crumple zones, these features provide an elevated peace of mind.</p>
+
+<div class="clear-float"></div>
+<div class="clear-float"></div>
+<div class="image-wrapper-right" style="max-width: 600px !important;">
+  <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/ec84b9729a03ccf3e6e38d62a672e8b52445713a/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Trim Options">
+</div>
+<h3>Trim Options and Available Equipment</h3>
+
+
+
+<p>The base 2026 GLC model available at Jackie Cooper Mercedes-Benz starts with well-rounded standard equipment designed to satisfy everyday luxury SUV expectations. While the <strong>GLC 350e 4MATIC</strong> offers an eco-friendly electrified powertrain, the model range extends upward to the exhilarating <strong>AMG GLC 63 S E Performance</strong>, catering to enthusiasts who seek high-performance hybrid engineering.</p>
+<p>Package upgrades enhance styling, technology, and driver assistance capabilities, allowing you to tailor your GLC to the specific driving desires and aesthetic preferences. Our knowledgeable team invites you to explore our full selection of trims and options in person by visiting us in <a href="https://www.google.com/maps/place/?q=place_id:ChIJS5GSQO6TtocRQWQzGorlFoQ">Tulsa</a>.</p>
+
+<div class="clear-float"></div>
+
+<h3>Comprehensive Coverage and Service Excellence</h3>
+
+<p>With every GLC purchased at Jackie Cooper Mercedes-Benz, drivers receive robust warranty protection and maintenance support that sustains vehicle performance over time. Our service experts are dedicated to upholding the integrity of your GLC with genuine parts available through our <strong><a href="https://jackiecoopermercedes.com/parts">Parts Department</a></strong>.</p><p>For routine needs or unexpected issues, our <strong><a href="https://jackiecoopermercedes.com/service">Service Department</a></strong> offers expert care, prioritizing quality and convenience in every visit. We also encourage customers to explore current <strong><a href="https://jackiecoopermercedes.com/service-specials">Service Specials</a></strong> to maintain value across the ownership experience.</p><p>Additionally, should you require immediate roadside assistance, Mercedes-Benz Roadside Assistance provides manufacturer-backed support with trained technicians and authentic service solutions. Reach out to Mercedes-Benz Roadside Assistance at&nbsp;<a href="tel:+1-800-367-6372">800-367-6372</a> anytime you need help, ensuring peace of mind on every journey.</p>
+
+<h3>Why Choose Jackie Cooper Mercedes-Benz for Your GLC</h3>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 30px;">
+  <div class="image-wrapper" style="max-width: 600px !important;">
+    <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/25386e939d2b2d6b0ff83a7af6d6b99751d9b630/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Front View">
+  </div>
+  <div class="image-wrapper" style="max-width: 600px !important;">
+      <img src="https://wieck-mbusa-production.s3.amazonaws.com/photos/1397978b8d3886159be695461b4e34eddd235c9e/preview-928x522.jpg" alt="2026 Mercedes-Benz GLC Front View">
+    </div>
+  </div>
+<p>Our dealership’s deep-rooted history in the Tulsa area reflects a family commitment to transparency, trust, and personalized attention. We cater to buyers who expect both vehicle excellence and an effortless purchasing journey. Visiting us at <a href="https://www.google.com/maps/place/?q=place_id:ChIJz_yQLwmOtocRMs3LAefeKnw">9393 S Memorial Dr, Tulsa, OK 74133</a> means engaging with an expert team focused on delivering integrity and value at every step.</p><ul>
+<li>Extensive new and used inventory, including <strong><a href="https://jackiecoopermercedes.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Image%20Count%22%2C%22value%22%3A%22image_count%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%7D%7D">All New Vehicles</a></strong> and <strong><a href="https://jackiecoopermercedes.com/cars/pre-owned-inventory">All Used Vehicles</a></strong></li>
+<li>Certified pre-owned options, including <strong><a href="https://jackiecoopermercedes.com/cars/certified-pre-owned">All Certified Pre-Owned Vehicles</a></strong> and <strong><a href="https://jackiecoopermercedes.com/cars/mercedes-certified-pre-owned">All Mercedes Certified Pre-Owned Vehicles</a></strong></li>
+<li>Exclusive Executive Demos and Sprinter Vans selections tailored to diverse needs</li>
+<li>Convenient service scheduling with online booking and transparent maintenance at our <strong><a href="https://jackiecoopermercedes.com/service">Service Department</a></strong></li>
+<li>Trade options facilitated through our easy-to-use <strong><a href="https://jackiecoopermercedes.com/trade">Trade Valuation</a></strong> tool</li>
+</ul><p>Engage with Jackie Cooper Mercedes-Benz for a seamless, dignified process to acquire your 2026 Mercedes-Benz GLC. We'd like to invite you to request a test drive or consult with one of our specialists to find the luxury SUV that perfectly matches your lifestyle.</p><p>© 2025 Jackie Cooper Mercedes-Benz (Jackie Cooper Imports). All rights reserved.</p>

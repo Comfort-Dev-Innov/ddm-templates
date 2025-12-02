@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Technology That Works for You - Ford Trucks</title>
+    <style>
+      /* Motive Container Default Styles */
+      .featuresContainer {
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer h1 {
+        width: fit-content !important;
+      }
+
+      .featuresContainer h3,
+      .featuresContainer h1,
+      .featuresContainer h2,
+      .featuresContainer p,
+      .featuresContainer ol,
+      .featuresContainer ul,
+      .featuresContainer table {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .main-title {
+        font-size: 42px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        color: #0f3079;
+        text-align: center;
+      }
+
+      .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 32px;
+        }
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        border: 2px solid #e2e8f0;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-color: #0f3079;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 260px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 2px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .card:hover .card-image img {
+        transform: scale(1.1);
+      }
+
+      .card-content {
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 0.8rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+        color: #0f3079;
+        font-weight: 600;
+        margin-bottom: 1.5rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .card-description {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .card-description strong {
+        color: #0f3079;
+        font-weight: 700;
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Feature Lists */
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+      }
+
+      .feature-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .feature-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #0f3079;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      /* Individual card themes */
+      .copilot-card .card-title {
+        color: #2d5aa0;
+      }
+
+      .copilot-card .card-image {
+        background: linear-gradient(135deg, #ebf4ff 0%, #4299e1 100%);
+        color: #3182ce;
+      }
+
+      .sync-card .card-title {
+        color: #0f3079;
+      }
+
+      .sync-card .card-image {
+        background: linear-gradient(135deg, #e6fffa 0%, #319795 100%);
+        color: #2d3748;
+      }
+
+      .fordpass-card .card-title {
+        color: #c53030;
+      }
+
+      .fordpass-card .card-image {
+        background: linear-gradient(135deg, #fed7d7 0%, #e53e3e 100%);
+        color: #e53e3e;
+      }
+
+      /* Technology showcase section */
+      .tech-showcase {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+      }
+
+      .tech-showcase h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .tech-showcase p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        opacity: 0.95;
+      }
+
+      /* Safety badge */
+      .safety-badge {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .main-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+
+        .card-image {
+          height: 220px;
+        }
+
+        .tech-showcase {
+          padding: 30px 20px;
+        }
+
+        .tech-showcase h3 {
+          font-size: 1.5rem;
+        }
+
+        .tech-showcase p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card-content {
+          padding: 1.25rem;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-description {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Tech icon animations */
+      .card-title::before {
+        content: '📱';
+        font-size: 1.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      .copilot-card .card-title::before {
+        content: '🛡️';
+      }
+
+      .sync-card .card-title::before {
+        content: '📱';
+      }
+
+      .fordpass-card .card-title::before {
+        content: '🔗';
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer">
+      <h2 class="main-title">4. Smart Technology That Works for You</h2>
+
+      <!-- Technology Showcase -->
+      <div class="tech-showcase">
+        <p>
+          Ford seamlessly integrates cutting-edge technology to make driving
+          safer, easier, and more connected. Key systems include:
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card copilot-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/5gJk4gXm/25-frd-f15l-xlt-oxwh-ps34.jpg"
+              alt="Ford Co-Pilot360 Safety System"
+            />
+          </div>
+          <div class="card-content">
+            <div class="safety-badge">Safety First</div>
+            <h2 class="card-title">Ford Co-Pilot360™</h2>
+            <p class="card-subtitle">Your Extra Set of Eyes on the Road</p>
+            <p class="card-description">
+              This comprehensive suite of
+              <strong>advanced driver-assist features</strong> acts as an extra
+              set of eyes on the road, enhancing your safety on busy Oklahoma
+              highways.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <strong>Pre-Collision Assist</strong> with Automatic Emergency
+                Braking
+              </li>
+              <li>
+                <strong>Blind Spot Information System (BLIS®)</strong> with
+                Cross-Traffic Alert
+              </li>
+              <li>
+                <strong>Lane-Keeping System</strong>
+              </li>
+
+              <p>
+                <span class="highlight">and more to enhance your safety</span>
+                on busy Oklahoma highways.
+              </p>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card sync-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/zhGmmjxn/25-frd-f15-xlt-ssc5-agbl-ps34.jpg"
+              alt="Ford SYNC 4 Infotainment System"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">SYNC® 4 Infotainment</h2>
+            <p class="card-subtitle">Connected Control at Your Fingertips</p>
+            <p class="card-description">
+              With a <strong>user-friendly touchscreen</strong> and enhanced
+              voice recognition, SYNC® 4 keeps you connected and in control
+              without distractions.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <strong>Wireless Apple CarPlay®</strong> and Android Auto™
+                compatibility
+              </li>
+              <li>
+                <strong>Enhanced voice recognition</strong> for hands-free
+                control
+              </li>
+            </ul>
+            <span class="highlight">Stay connected to what matters most</span>
+            while navigating from Yukon to Oklahoma City and beyond.
+          </div>
+        </div>
+
+        <div class="card fordpass-card">
+          <div class="card-image">
+            <img
+              src="https://i.ibb.co/LzbPsWS9/25-frd-f15l-xlt-rprd-ps34.jpg"
+              alt="FordPass Mobile App"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">FordPass™ App</h2>
+            <p class="card-subtitle">Remote Control of Your Ford Truck</p>
+            <p class="card-description">
+              This powerful app
+              <strong>connects you to your truck remotely</strong>.
+            </p>
+            <ul class="feature-list">
+              <li><strong>Remote start/stop</strong> engine from anywhere</li>
+              <li><strong>Lock/unlock doors</strong> remotely for security</li>
+              <li><strong>Check fuel level</strong> and vehicle status</li>
+              <li>
+                <strong>Schedule service appointments</strong> with Joe Cooper
+                Ford
+              </li>
+              <li><strong>Find your vehicle</strong> in large parking areas</li>
+            </ul>
+
+            Perfect for
+            <span class="highlight" id="unrivaled-versatility-and-customization"
+              >pre-cooling your truck on hot Oklahoma summers</span
+            >
+            or warming it up during cold winter mornings.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

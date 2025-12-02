@@ -1,0 +1,579 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        text-decoration: underline !important;
+        font-weight: 800;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Bullet List */
+      .bullet-list {
+        margin: 15px 0 20px 20px;
+        padding-left: 20px;
+      }
+
+      .bullet-list li {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 12px;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .comparison-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .comparison-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .comparison-table th:last-child {
+        border-right: none;
+      }
+
+      .comparison-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .comparison-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .comparison-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comparison-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .comparison-table {
+          min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        Performance and Driving Experience of the 2026 Kona and 2026 Niro
+      </h2>
+
+      <h3 class="subsection-heading">Powertrain Options and Engine Output</h3>
+
+      <p class="paragraph-text">
+        The 2026 Hyundai Kona impresses with two gasoline engine options tuned
+        for both capability and refinement:
+      </p>
+
+      <ul class="bullet-list">
+        <li>
+          A 2.0-liter naturally aspirated inline-4 producing 147 horsepower and
+          132 lb-ft torque paired with a smooth Continuously Variable
+          Transmission (CVT).
+        </li>
+        <li>
+          An invigorating 1.6-liter turbocharged inline-4 delivering 190
+          horsepower and 195 lb-ft torque, combined with an eight-speed
+          automatic transmission.
+        </li>
+      </ul>
+
+      <p class="paragraph-text">
+        Both powertrains offer optional all-wheel drive (AWD), ensuring better
+        handling and traction for Oklahoma's varied road conditions, from
+        snowfalls near Norman to rainy days in Edmond.
+      </p>
+
+      <p class="paragraph-text">
+        The Kia Niro, while primarily hybrid-oriented, offers:
+      </p>
+
+      <ul class="bullet-list">
+        <li>
+          A hybrid and plug-in hybrid drivetrain powered by a 1.6-liter
+          four-cylinder paired with electric motors, producing 139 horsepower
+          for the hybrid and 180 horsepower for the PHEV model.
+        </li>
+      </ul>
+
+      <p class="paragraph-text">
+        Notably, no AWD option is available for the Niro, restricting its
+        adaptability on slippery or rugged terrain.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Acceleration and Handling</h3>
+
+      <p class="paragraph-text">
+        The Kona's turbo 1.6L AWD earns credible respect with a brisk 0-60 mph
+        time of approximately 7.5 seconds, faster than the Niro PHEV's roughly
+        7.2 seconds, delivering sporty responsiveness that complements everyday
+        commuting with confident handling.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The Niro's hybrid and plug-in variants, while excellent for fuel
+        savings, lack the Kona's all-wheel-drive option and spirited driving
+        feel. The Kona's suspension system upgrades, independent front
+        MacPherson struts coupled with an available multi-link rear on AWD
+        models, offer precision steering and composed cornering unmatched by the
+        Niro's more economy-focused tuning.
+      </p>
+      <br />
+      <h3 class="subsection-heading">Braking and Maneuverability</h3>
+
+      <p class="paragraph-text">
+        Braking systems are robust in both models; however, Kona benefits from
+        its electronically assisted parking brake and motor-driven power
+        steering that contribute to a tighter turning radius (curb-to-curb: 34.8
+        feet), which improves agility in urban traffic, a plus for drivers in
+        Oklahoma City and nearby communities.
+      </p>
+
+      <!-- Performance Comparison Table -->
+      <br />
+      <h3 class="table-heading">Engine and Performance Specifications</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>2026 Hyundai Kona</th>
+            <th>2026 Kia Niro (PHEV)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Engine Type</td>
+            <td>2.0L I4 NA / 1.6L Turbo I4</td>
+            <td>1.6L I4 + Electric Motors</td>
+          </tr>
+          <tr>
+            <td>Horsepower</td>
+            <td>147 / 190 hp</td>
+            <td>180 hp (PHEV)</td>
+          </tr>
+          <tr>
+            <td>Torque</td>
+            <td>132 / 195 lb-ft</td>
+            <td>195 lb-ft</td>
+          </tr>
+          <tr>
+            <td>Transmission</td>
+            <td>CVT / 8-Speed Automatic</td>
+            <td>6-Speed Automatic</td>
+          </tr>
+          <tr>
+            <td>Drivetrain</td>
+            <td>FWD Standard, AWD Available</td>
+            <td>FWD Only</td>
+          </tr>
+          <tr>
+            <td>0-60 mph (Turbo / PHEV)</td>
+            <td>7.5 seconds</td>
+            <td>~7.2 seconds</td>
+          </tr>
+          <tr>
+            <td>Curb-to-Curb Turning Radius</td>
+            <td>34.8 feet</td>
+            <td>Not specified</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" />
+
+      <!-- Trim-by-Trim Overview Section -->
+      <h2 class="section-heading">
+        Trim-by-Trim Overview of the 2026 Hyundai Kona and 2026 Kia Niro
+      </h2>
+
+      <p class="paragraph-text">
+        The 2026 Hyundai Kona lineup offers four distinct trims (SE, SEL Sport,
+        SEL Premium, and Limited), giving drivers a clear progression from
+        practicality to premium comfort.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <a
+          href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Kona%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SE%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          >Kona SE</a
+        >: The entry-level SE provides excellent value with a 12.3-inch
+        touchscreen display, wireless Apple CarPlay and Android Auto, and
+        Hyundai SmartSense safety features, including forward collision
+        avoidance and lane-keeping assist.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <a
+          href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make_year%22%3A%7B%22value%22%3A%5B2026%2C2026%5D%2C%22defaultValue%22%3A%5B2008%2C2026%5D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SEL%22%3Atrue%7D%7D%2C%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Kona%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          >Kona SEL Premium:</a
+        >
+        Designed for drivers who prioritize comfort and technology, the SEL
+        Premium introduces a power driver's seat, heated front seats, dual-zone
+        automatic climate control, and a Bose premium audio system. It also
+        comes in the SEL Sport, which adds sportier styling, upgraded alloy
+        wheels, and additional comfort features, giving the Kona a more dynamic
+        personality without a major price jump.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <a
+          href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make_year%22%3A%7B%22value%22%3A%5B2026%2C2026%5D%2C%22defaultValue%22%3A%5B2008%2C2026%5D%7D%2C%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Kona%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22Limited%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          >Kona Limited:</a
+        >
+        Sitting at the top of the lineup, the Limited includes upscale details
+        like leather-trimmed seats, a surround-view monitor, blind-spot view
+        camera, Hyundai Digital Key 2 Touch, and a hands-free smart liftgate.
+        Its refined cabin and advanced tech make it feel a class above its size.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        Every trim offers confident performance, with the 2.0L engine standard
+        and the turbocharged 1.6L available for those seeking extra power.
+        All-wheel drive can also be added for better control on Oklahoma's
+        unpredictable roads.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        The <strong>2026 Kia Niro</strong>, meanwhile, organizes its lineup
+        around efficiency-focused options rather than performance or drivetrain
+        flexibility. The Hybrid is expected in
+        <strong>LX, EX, EX Touring, SX, and SX Touring</strong> trims, while the
+        Plug-In Hybrid will likely offer
+        <strong>EX and SX Touring</strong> models.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <strong>Niro LX:</strong> Covers the basics, focusing on efficiency with
+        hybrid power and essential driver assistance.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <strong>Niro EX / EX Touring:</strong> Adds tech and comfort features,
+        including a larger infotainment system and more refined interior
+        materials.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        <strong>Niro SX / SX Touring:</strong> Brings premium touches such as
+        ventilated front seats, upgraded audio, and a digital instrument
+        display.
+      </p>
+      <br />
+      <p class="paragraph-text">
+        While the Niro's higher trims improve comfort and connectivity, all
+        versions remain front-wheel drive only, emphasizing fuel savings over
+        versatility.
+      </p>
+
+      <!-- Trim Comparison Table -->
+      <br />
+      <h3 class="table-heading">Trim-by-Trim Overview</h3>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature / Trim Level</th>
+            <th>Hyundai Kona<br />SEL Premium</th>
+            <th>Hyundai Kona<br />Limited</th>
+            <th>Kia Niro<br />EX Touring</th>
+            <th>Kia Niro<br />SX Touring</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Powertrain</td>
+            <td>2.0L or 1.6L<br />Turbo Gasoline</td>
+            <td>1.6L Turbo<br />Gasoline</td>
+            <td>1.6L Hybrid</td>
+            <td>1.6L Plug-In<br />Hybrid</td>
+          </tr>
+          <tr>
+            <td>Drivetrain Options</td>
+            <td>FWD / AWD</td>
+            <td>FWD / AWD</td>
+            <td>FWD Only</td>
+            <td>FWD Only</td>
+          </tr>
+          <tr>
+            <td>Horsepower</td>
+            <td>147 / 190 hp</td>
+            <td>190 hp</td>
+            <td>139 hp</td>
+            <td>180 hp</td>
+          </tr>
+          <tr>
+            <td>Transmission</td>
+            <td>CVT or<br />8-Speed Auto</td>
+            <td>8-Speed Auto</td>
+            <td>6-Speed Auto</td>
+            <td>6-Speed Auto</td>
+          </tr>
+          <tr>
+            <td>Touchscreen Display</td>
+            <td>12.3-inch</td>
+            <td>12.3-inch</td>
+            <td>10.25-inch</td>
+            <td>10.25-inch</td>
+          </tr>
+          <tr>
+            <td>Premium Audio</td>
+            <td>Bose® 8-Speaker<br />System</td>
+            <td>Bose® 8-Speaker<br />System</td>
+            <td>Harman Kardon®<br />7-Speaker</td>
+            <td>Harman Kardon®<br />7-Speaker</td>
+          </tr>
+          <tr>
+            <td>Heated Front Seats</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Ventilated Front Seats</td>
+            <td>Not Available</td>
+            <td>Available</td>
+            <td>Available</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Digital Instrument Cluster</td>
+            <td>Available</td>
+            <td>Standard<br />(12.3-inch)</td>
+            <td>Available</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Surround-View Monitor</td>
+            <td>Not Available</td>
+            <td>Standard</td>
+            <td>Not Available</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Blind-Spot View Camera</td>
+            <td>Not Available</td>
+            <td>Standard</td>
+            <td>Not Offered</td>
+            <td>Not Offered</td>
+          </tr>
+          <tr>
+            <td>Smart Liftgate</td>
+            <td>Not Available</td>
+            <td>Hands-Free<br />Smart Liftgate</td>
+            <td>Power Tailgate</td>
+            <td>Power Tailgate</td>
+          </tr>
+          <tr>
+            <td>All-Wheel Drive</td>
+            <td>Available</td>
+            <td>Available</td>
+            <td>Not Offered</td>
+            <td>Not Offered</td>
+          </tr>
+          <tr>
+            <td>Warranty</td>
+            <td>5 yrs / 60k mi<br />(10 yrs / 100k<br />powertrain)</td>
+            <td>Same</td>
+            <td>5 yrs / 60k mi<br />(10 yrs / 100k<br />powertrain)</td>
+            <td>Same</td>
+          </tr>
+          <tr>
+            <td>Complimentary Maintenance</td>
+            <td>3 yrs / 36k mi</td>
+            <td>3 yrs / 36k mi</td>
+            <td>Not Included</td>
+            <td>Not Included</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr-1" id="exterior-design" />
+    </div>
+  </body>
+</html>

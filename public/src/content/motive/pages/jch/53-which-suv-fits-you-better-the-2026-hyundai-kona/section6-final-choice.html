@@ -1,0 +1,344 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .paragraph-hyperlink {
+        color: #0f3079;
+        font-weight: 800;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        animation-duration: 0.5s;
+      }
+
+      .paragraph-hyperlink:hover {
+        transition: all 0.5s ease-in-out;
+        text-decoration: underline;
+        animation-duration: 0.5s;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 30px 0 20px 0;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Key Points List */
+      .key-points-list {
+        margin: 30px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .key-points-list li {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #0f3079;
+        border-radius: 10px;
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .key-points-list li:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(15, 48, 121, 0.15);
+      }
+
+      .key-points-list strong {
+        color: #0f3079;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        border-radius: 15px;
+        padding: 40px;
+        margin: 40px 0;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(15, 48, 121, 0.3);
+      }
+
+      .cta-section h3 {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 35px;
+        background: white;
+        color: #0f3079;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        background: #ff6b35;
+        color: white;
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .cta-button.secondary:hover {
+        background: white;
+        color: #0f3079;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.2rem;
+        }
+
+        .cta-section {
+          padding: 30px 20px;
+        }
+
+        .cta-section h3 {
+          font-size: 1.5rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .cta-button {
+          width: 100%;
+          padding: 12px 25px;
+        }
+
+        .key-points-list li {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">Why the 2026 Kona is the Smarter Choice</h2>
+      <br />
+      <p class="paragraph-text">
+        While the 2026 Subaru Crosstrek is a capable and well-built vehicle for
+        a specific lifestyle focused on rugged, off-road adventure, a
+        comprehensive analysis reveals that the
+        <a
+          href="https://joecooperhyundai.com/cars/new-kona"
+          class="paragraph-hyperlink"
+          >2026 Hyundai Kona</a
+        >
+        is the more intelligent, versatile, and valuable choice for the vast
+        majority of Oklahoma drivers.
+      </p>
+
+      <p class="paragraph-text">
+        The Kona's superiority is clear and decisive across the categories that
+        matter most in daily life:
+      </p>
+
+      <ul class="key-points-list">
+        <li>
+          <strong>More Flexible Performance:</strong> It offers the power of
+          choice. Whether you prioritize the exceptional fuel efficiency of the
+          standard 2.0L engine for your daily commute or the exhilarating power
+          of the 1.6L turbo for spirited drives on the open highway, there is a
+          Kona that perfectly fits your needs.
+        </li>
+        <li>
+          <strong>Superior Standard Technology:</strong> The Kona provides a
+          premium digital experience for everyone, not just those who purchase
+          the top-tier model. Its standard 12.3-inch touchscreen is a
+          class-leading feature that makes the entire lineup feel more modern
+          and valuable.
+        </li>
+        <li>
+          <strong>More Practical Space:</strong> For the real-world needs of
+          families and individuals in Oklahoma, the Kona's significantly larger
+          maximum cargo capacity is a game-changer, offering greater utility for
+          everything from weekend getaways to routine errands.
+        </li>
+        <li>
+          <strong>Unbeatable Long-Term Value:</strong> This is the Kona's
+          ultimate advantage. With a basic warranty that offers two extra years
+          and 24,000 more miles of coverage than the Crosstrek, plus
+          complimentary maintenance, the Kona delivers unparalleled peace of
+          mind and a lower total cost of ownership.
+        </li>
+      </ul>
+
+      <p class="paragraph-text">
+        The
+        <a
+          href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make_year%22%3A%7B%22value%22%3A%5B2026%2C2026%5D%2C%22defaultValue%22%3A%5B2008%2C2026%5D%7D%2C%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Kona%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          >2026 Hyundai Kona</a
+        >
+        is not just a vehicle. For Oklahoma drivers seeking a compact SUV that
+        balances performance, comfort, technology, and peace of mind, the 2026
+        Hyundai Kona is the clear choice.
+      </p>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h3>Your Journey Starts at Joe Cooper Hyundai</h3>
+        <p>
+          Why wonder when you can experience it? You are welcome to stop by Joe
+          Cooper Hyundai of Midwest City> and get behind the wheel of the 2026
+          Hyundai Kona. Explore its advanced technology, flexible performance,
+          and spacious interior firsthand. If you have further questions or
+          inquiries, feel free to
+          <a
+            href="https://joecooperhyundai.com/contact"
+            class="paragraph-hyperlink"
+            style="color: white"
+            >contact us</a
+          >
+          today.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make_year%22%3A%7B%22value%22%3A%5B2026%2C2026%5D%2C%22defaultValue%22%3A%5B2008%2C2026%5D%7D%2C%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Kona%22%3Atrue%7D%7D%7D%7D"
+            class="cta-button paragraph-hyperlink"
+            >View 2026 Kona Inventory</a
+          >
+          <a
+            href="https://joecooperhyundai.com/contact"
+            class="cta-button secondary"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

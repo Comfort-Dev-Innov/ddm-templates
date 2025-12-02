@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Heading Section */
+      .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      /* Content Layout */
+      .content-layout {
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .content-left {
+        flex: 2;
+        min-width: 0;
+      }
+
+      .image-right {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .image-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Bullet List Section */
+      .bullet-section ul {
+        border-radius: 12px;
+        list-style: none;
+        margin: 0;
+      }
+
+      .bullet-list {
+        margin-top: 10px;
+        padding: 20px 20px 0 20px;
+        border: 2px dashed #ddd;
+      }
+
+      .bullet-section li {
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .bullet-section li::before {
+        content: "•";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      .bullet-section li p {
+        margin: 0;
+      }
+
+      .bullet-section li ul {
+        margin-top: 12px;
+        padding-left: 20px;
+      }
+
+      .bullet-section li ul li {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .image-right {
+          min-height: 250px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .bullet-section {
+          padding: 20px 0;
+        }
+
+        .content-layout {
+          gap: 20px;
+        }
+
+        .bullet-list li {
+          padding-left: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="bullet-section" id="bullet-section">
+        <div class="content-layout">
+          <div class="content-left">
+            <h2 class="section-title">
+              <span style="color: #0f3079">The "Sweet Spot":</span> Finding the
+              Best Age &amp; Mileage for a Used Ford
+            </h2>
+            <p>
+              The ideal used truck balances modern features and reliability with
+              post-depreciation value.
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <p>
+                  <strong>The 2-4 Year Old Rule:</strong> Experts often point to
+                  trucks between two and four years old as the "sweet spot."
+                  These vehicles have already undergone their most significant
+                  depreciation but are new enough to include modern safety
+                  features, more efficient engines, and contemporary technology.
+                </p>
+              </li>
+              <li>
+                <p><strong>Mileage Milestones:</strong></p>
+                <ul>
+                  <li>
+                    <p>
+                      <strong
+                        >Gas Engines (e.g., 3.5L EcoBoost, 5.0L V8):</strong
+                      >
+                      A well-maintained gas engine is in its prime under 60,000
+                      miles. Between 60,000 and 100,000 miles is still an
+                      excellent range, but be prepared for potential maintenance
+                      on items like spark plugs, belts, and brakes.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>Diesel Engines (e.g., Power Stroke®):</strong>
+                      Built for heavy-duty work, Ford's diesel engines are just
+                      getting started at 100,000 miles. It's not uncommon to see
+                      these trucks run well past 200,000 miles with proper,
+                      documented maintenance.
+                    </p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p>
+                  <strong>The CPO Advantage:</strong> For maximum confidence,
+                  consider a
+                  <strong>Ford Blue Advantage Certified Pre-Owned (CPO)</strong>
+                  truck. These vehicles undergo a rigorous multi-point
+                  inspection and come with a comprehensive limited warranty and
+                  powertrain warranty directly from Ford. It's the closest you
+                  can get to a new-truck experience at a used-truck price.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="image-right">
+            <img
+              src="https://images.app.ridemotive.com/rjtnv2myexwf6h2g85wndlo23ipa"
+              alt="Ford truck in perfect condition representing the sweet spot for used vehicle purchases"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

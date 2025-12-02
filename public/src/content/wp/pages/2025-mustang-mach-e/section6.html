@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Suite and Connectivity Highlights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .vi-comparison-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .vi-comparison-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .vi-comparison-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .vi-comparison-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .vi-comparison-subtitle {
+            font-size: 20px;
+            color: #4b5563;
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        .vi-vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+        }
+
+        .vi-vehicle-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vi-vehicle-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-pill.vi-ford {
+            background: rgba(37, 99, 235, 0.08);
+            color: #1d4ed8;
+            border: 1px solid rgba(37, 99, 235, 0.35);
+        }
+
+        .vi-vehicle-pill.vi-tesla {
+            background: rgba(15, 23, 42, 0.06);
+            color: #111827;
+            border: 1px solid rgba(55, 65, 81, 0.35);
+        }
+
+        .vi-vehicle-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .vi-vehicle-body {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+        }
+
+        .vi-comparison-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .vi-comparison-label-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .vi-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+        }
+
+        .vi-dot.vi-ford {
+            background: #2563eb;
+        }
+
+        .vi-dot.vi-tesla {
+            background: #111827;
+        }
+
+        .comparison-table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow-x: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        .table-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .ford-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .tesla-value {
+            font-weight: 500;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            .vi-vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vi-comparison-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .vi-comparison-header {
+                margin-bottom: 2rem;
+            }
+
+            .vi-comparison-title {
+                font-size: 20px;
+            }
+
+            .vi-comparison-subtitle {
+                font-size: 18px;
+            }
+
+            .comparison-table-container {
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .comparison-table-container {
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+
+            .table-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vi-comparison-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .vi-vehicle-card {
+                padding: 1.25rem;
+            }
+
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .comparison-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vi-comparison-section" id="technology-connectivity">
+        <div class="vi-comparison-container">
+            <header class="vi-comparison-header">
+                <h2 class="vi-comparison-title">Technology Suite and Connectivity Highlights</h2>
+                <p class="vi-comparison-subtitle">Compare the latest infotainment, connectivity, and driver assistance technologies between the Mustang Mach-E and Tesla Model Y.</p>
+            </header>
+
+            <div class="vi-comparison-label-row">
+                <span><span class="vi-dot vi-ford"></span> Ford Mustang Mach-E</span>
+                <span><span class="vi-dot vi-tesla"></span> Tesla Model Y</span>
+            </div>
+
+            <div class="vi-vehicle-grid">
+                <!-- Ford Mustang Mach-E Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-ford">
+                        Ford Innovation
+                    </div>
+                    <h3 class="vi-vehicle-title">Ford Mustang Mach-E</h3>
+
+                    <p class="vi-vehicle-body">
+                        The Mustang Mach-E takes advantage of Ford's latest Sync infotainment technology updated for 2025, featuring intuitive machine-learning capabilities that tailor profiles to individual drivers, seamless wireless phone integration, and an industry-leading Ford Connectivity package that includes Wi-Fi hotspot, navigation with real-time updates, and popular apps such as YouTube.
+                    </p>
+                    <p class="vi-vehicle-body" style="margin-top: 1rem;">
+                        In addition, the BlueCruise 1.5 advanced driver assistance system introduces fully hands-free driving on compatible highways, with automatic lane changes enhancing convenience. The system is well-regarded for its balanced responsiveness and safety, making it ideal for daily commutes around Kent and adjacent communities.
+                    </p>
+                </article>
+
+                <!-- Tesla Model Y Card -->
+                <article class="vi-vehicle-card">
+                    <div class="vi-vehicle-pill vi-tesla">
+                        Tesla Technology
+                    </div>
+                    <h3 class="vi-vehicle-title">Tesla Model Y</h3>
+
+                    <p class="vi-vehicle-body">
+                        Tesla Model Y offers an oversized touchscreen interface with multiple built-in entertainment options, including streaming services and in-car gaming. Tesla's Autopilot and optional Full Self-Driving suite deliver industry-leading autonomous features, though it demands constant attention and has been criticized for inconsistent performance. Tesla's absence of Apple CarPlay and Android Auto is often seen as a drawback for users wanting native smartphone integration.
+                    </p>
+                </article>
+            </div>
+
+            <div class="comparison-table-container">
+                <h3 class="table-title">Technology & Connectivity Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature / System</th>
+                            <th>Ford Mustang Mach-E</th>
+                            <th>Tesla Model Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-name">Infotainment Screen</td>
+                            <td class="ford-value">15.5-inch portrait touchscreen + 10.2-inch digital cluster</td>
+                            <td class="tesla-value">15.4-inch (16-inch in Performance) large center touchscreen</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Smartphone Integration</td>
+                            <td class="ford-value">Wireless Apple CarPlay & Android Auto</td>
+                            <td class="tesla-value">No Apple CarPlay or Android Auto</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Connectivity Package</td>
+                            <td class="ford-value">Available 5G Wi-Fi hotspot, navigation, streaming apps</td>
+                            <td class="tesla-value">Cellular data, Tesla streaming services</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">Driver Assistance</td>
+                            <td class="ford-value">BlueCruise 1.5 with Automatic Lane Change</td>
+                            <td class="tesla-value">Autopilot standard, Full Self-Driving optional</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-name">OTA Software Updates</td>
+                            <td class="ford-value">Yes</td>
+                            <td class="tesla-value">Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

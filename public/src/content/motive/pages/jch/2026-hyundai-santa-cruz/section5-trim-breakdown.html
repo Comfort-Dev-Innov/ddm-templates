@@ -1,0 +1,586 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Heading */
+      .section-heading {
+        color: #0f3079;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #0f3079, #2d5aa0);
+        border-radius: 2px;
+      }
+
+      /* Subsection Heading */
+      .subsection-heading {
+        color: #0f3079;
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      /* Paragraph Text */
+      .paragraph-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      /* Trim Item */
+      .trim-item {
+        margin-bottom: 25px;
+      }
+
+      .trim-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f3079;
+        margin-bottom: 8px;
+      }
+
+      .trim-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: black;
+        text-align: justify;
+      }
+
+      .hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+        margin: 50px 0;
+      }
+
+      .paragraph-container-01 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      /* Table Heading */
+      .table-heading {
+        color: #0f3079;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+
+      .trim-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .trim-table thead {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+      }
+
+      .paragraph-hyperlink { 
+        text-decoration: underline !important;
+      }
+
+      .trim-table th {
+        padding: 1rem 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.3;
+      }
+
+      .trim-table th:last-child {
+        border-right: none;
+      }
+
+      .trim-table th:first-child {
+        border-top-left-radius: 16px;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .trim-table th:last-child {
+        border-top-right-radius: 16px;
+      }
+
+      .trim-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .trim-table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .trim-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .trim-table td {
+        padding: 0.9rem 0.75rem;
+        vertical-align: top;
+        border-right: 1px solid #e9ecef;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .trim-table td:last-child {
+        border-right: none;
+      }
+
+      .trim-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        background: #f8fafc;
+      }
+
+      .highlight-value {
+        font-weight: 600;
+        color: #0f3079;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 5rem 8rem;
+        }
+
+        .paragraph-text,
+        .trim-description {
+          font-size: 15px;
+          text-align: justify;
+        }
+
+        .section-heading {
+          font-size: 2.2rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-heading {
+          font-size: 1.6rem;
+        }
+
+        .subsection-heading {
+          font-size: 1.3rem;
+        }
+
+        .table-heading {
+          font-size: 1.3rem;
+        }
+
+        .trim-table {
+          min-width: 1200px;
+        }
+
+        .trim-table th,
+        .trim-table td {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .trim-table th:first-child,
+        .trim-table td:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+          background: #0f3079;
+          color: white;
+        }
+
+        .trim-table td:first-child {
+          background: #f8fafc;
+          color: #374151;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .trim-table th,
+        .trim-table td {
+          padding: 0.5rem 0.4rem;
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="section-heading">
+        The Definitive Trim-by-Trim Breakdown
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          Choosing the right vehicle often comes down to finding the perfect
+          combination of features and value. Here's a detailed look at what each
+          trim level of the Santa Cruz and Frontier offers.
+        </p>
+      </div>
+
+      <!-- Santa Cruz Trim Walk -->
+       <br/>
+      <h3 class="subsection-heading">2026 Hyundai Santa Cruz Trim Walk</h3>
+
+      <div class="trim-item">
+        <div class="trim-name"><a href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Santa%20Cruz%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SE%22%3Atrue%7D%7D%7D%7D" class="paragraph-hyperlink">SE:</a> The smart starting point.</div>  <p class="trim-description">The SE trim is impressively equipped, featuring standard 18-inch alloy wheels, Bi-LED projector headlights, wireless Apple CarPlay® and Android Auto™, and a robust suite of Hyundai SmartSense safety features, including Blind-Spot Collision Warning and Rear Cross-Traffic Collision-Avoidance Assist. It's the perfect choice for the value-conscious buyer who wants modern SUV features with the added utility of an open bed.
+</p>
+
+
+      <div class="trim-item">
+        <a
+          href="https://joecooperhyundai.com/cars/new-santa-cruz?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Savings%22%2C%22value%22%3A%22savings%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22car_condition%22%3A%7B%22value%22%3A%7B%22New%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22SEL%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          ><div class="trim-name">SEL:</a
+        > The popular upgrade.</div>
+        <p class="trim-description">
+          The SEL builds on the SE by adding key convenience features like an
+          8-way power driver seat with lumbar support, heated front seats, and
+          Proximity Key with push-button start. This trim represents a sweet
+          spot of comfort and technology for the average consumer.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <div class="trim-name">SEL Activity: The lifestyle package.</div>
+        <p class="trim-description">
+          This trim is a fantastic value, bundling desirable features that
+          enhance the Santa Cruz's adventure-ready nature. It adds a power
+          sunroof, the highly practical integrated tonneau cover, roof side
+          rails, and wireless device charging. It's aimed at the active
+          individual who will frequently use the bed for gear and wants a more
+          premium, open-air experience.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <a
+          href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Santa%20Cruz%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22XRT%22%3Atrue%7D%7D%7D%7D"
+          class="paragraph-hyperlink"
+          ><div class="trim-name">XRT:</a
+        > The rugged adventurer.</div>
+        <p class="trim-description">
+          The XRT marks a significant step up in performance and style. It makes
+          the powerful 281-hp turbocharged engine and HTRAC AWD standard. It
+          also gains a more aggressive look with unique 18-inch XRT alloy
+          wheels, wider fender flares, and a dark-finish XRT grille and exterior
+          accents. This trim is for the buyer who demands maximum power and a
+          vehicle that looks ready for any adventure.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <a href="https://joecooperhyundai.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22make%22%3A%7B%22value%22%3A%7B%22Hyundai%22%3Atrue%7D%7D%2C%22model%22%3A%7B%22value%22%3A%7B%22Santa%20Cruz%22%3Atrue%7D%7D%2C%22car_trim%22%3A%7B%22value%22%3A%7B%22Limited%22%3Atrue%7D%7D%7D%7D" class="paragraph-hyperlink"
+          ><div class="trim-name">Limited:</a
+        > The fully-loaded tech showcase.</div>
+        <p class="trim-description">
+          The Limited is the pinnacle of the Santa Cruz lineup, transforming it
+          into a premium vehicle that rivals luxury SUVs. It adds genuine
+          leather seating surfaces, ventilated front seats, a Bose premium audio
+          system, a large 12.3-inch touchscreen with navigation, and the full
+          suite of advanced safety technology, including the Surround View
+          Monitor and Blind-Spot View Monitor. It's designed for the consumer
+          who wants a top-tier SUV experience with the unique utility of a
+          pickup, with no compromises.
+        </p>
+      </div>
+
+      <!-- Frontier Trim Walk -->
+      <h3 class="subsection-heading">2026 Nissan Frontier Trim Walk</h3>
+
+      <div class="trim-item">
+        <div class="trim-name">S: The essential workhorse.</div>
+        <p class="trim-description">
+          Available in both the extended King Cab and four-door Crew Cab
+          configurations, the S trim provides the fundamentals of a great truck.
+          It comes standard with the powerful 3.8L V6 engine, an 8-inch
+          touchscreen with Apple CarPlay® and Android Auto™, and the
+          comprehensive Nissan Safety Shield® 360 suite of driver aids. It's an
+          excellent choice for fleet use or for individuals needing a no-frills,
+          powerful, and reliable work truck.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <div class="trim-name">SV: The well-equipped middle ground.</div>
+        <p class="trim-description">
+          The SV is the mainstream choice, upgrading to 17-inch alloy wheels, a
+          power driver's seat, and premium cloth upholstery. For 2026, it can be
+          customized with several new packages, including the stylish Dark Armor
+          Package, which adds 17-inch black wheels, a blacked-out grille, and
+          other dark accents for a stealthy look. An All-Weather Package is also
+          available, adding heated seats and a heated steering wheel.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <div class="trim-name">PRO-X: The desert-running specialist.</div>
+        <p class="trim-description">
+          A unique offering in the truck market, the PRO-X provides the
+          aggressive off-road appearance and hardware—including Bilstein®
+          performance shocks and all-terrain tires—of the top-tier off-road
+          model but in a lighter and more affordable Rear-Wheel Drive
+          configuration. It's designed for the enthusiast who loves the rugged
+          aesthetic and improved suspension performance but doesn't require 4WD
+          capability.
+        </p>
+      </div>
+
+      <div class="trim-item">
+        <div class="trim-name">PRO-4X: The ultimate off-roader.</div>
+        <p class="trim-description">
+          This is the most capable Frontier, equipped with standard part-time
+          4WD, three steel skid plates, all-terrain tires, Bilstein® shocks, and
+          the all-important electronic locking rear differential for maximum
+          traction on difficult trails. For the ultimate enthusiast, the PRO-4X
+          is the foundation for the new PRO-4X R by Roush, a factory-endorsed
+          package that adds a 2-inch lift with a specialized Roush x Öhlins 2.0
+          Off-Road Suspension system, unique 17-inch titanium-finish wheels, and
+          exclusive Roush styling, creating the most capable Frontier ever
+          offered.
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <br />
+      <h3 class="table-heading">Trim-Level Feature Comparison</h3>
+
+        <table class="trim-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Santa Cruz<br />SE</th>
+              <th>Santa Cruz<br />SEL</th>
+              <th>Santa Cruz<br />SEL Activity</th>
+              <th>Santa Cruz<br />XRT</th>
+              <th>Santa Cruz<br />Limited</th>
+              <th>Frontier<br />S</th>
+              <th>Frontier<br />SV</th>
+              <th>Frontier<br />PRO-X</th>
+              <th>Frontier<br />PRO-4X</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Engine</td>
+              <td>2.5L I-4<br />(191 hp)</td>
+              <td>2.5L I-4<br />(191 hp)</td>
+              <td>2.5L I-4<br />(191 hp)</td>
+              <td>2.5L Turbo I-4<br />(281 hp)</td>
+              <td>2.5L Turbo I-4<br />(281 hp)</td>
+              <td>3.8L V6<br />(310 hp)</td>
+              <td>3.8L V6<br />(310 hp)</td>
+              <td>3.8L V6<br />(310 hp)</td>
+              <td>3.8L V6<br />(310 hp)</td>
+            </tr>
+            <tr>
+              <td>Drivetrain</td>
+              <td>FWD<br />(AWD Avail.)</td>
+              <td>FWD<br />(AWD Avail.)</td>
+              <td>FWD<br />(AWD Avail.)</td>
+              <td>AWD</td>
+              <td>AWD</td>
+              <td>RWD<br />(4WD Avail.)</td>
+              <td>RWD<br />(4WD Avail.)</td>
+              <td>RWD</td>
+              <td>4WD</td>
+            </tr>
+            <tr>
+              <td>Infotainment</td>
+              <td>12.3"<br />Touchscreen</td>
+              <td>12.3"<br />Touchscreen</td>
+              <td>12.3"<br />Touchscreen</td>
+              <td>12.3"<br />w/ Nav</td>
+              <td>12.3"<br />w/ Nav</td>
+              <td>8"<br />Touchscreen</td>
+              <td>12.3"<br />Touchscreen</td>
+              <td>12.3"<br />Touchscreen</td>
+              <td>12.3"<br />Touchscreen</td>
+            </tr>
+            <tr>
+              <td>Wireless CarPlay®</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Wired Only</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Seating</td>
+              <td>Stain-Resist<br />Cloth</td>
+              <td>Stain-Resist<br />Cloth</td>
+              <td>Stain-Resist<br />Cloth</td>
+              <td>H-Tex®<br />Leatherette</td>
+              <td>Leather</td>
+              <td>Cloth</td>
+              <td>Premium<br />Cloth</td>
+              <td>PRO<br />Embroidered</td>
+              <td>PRO<br />Embroidered</td>
+            </tr>
+            <tr>
+              <td>Heated Seats</td>
+              <td>No</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Heated &<br />Ventilated</td>
+              <td>No</td>
+              <td>Available</td>
+              <td>Standard</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Sunroof</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Standard</td>
+              <td>No</td>
+              <td>Standard</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Available</td>
+              <td>Available</td>
+            </tr>
+            <tr>
+              <td>Bed Cover</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Integrated</td>
+              <td>Integrated</td>
+              <td>No</td>
+              <td>Accessory</td>
+              <td>Accessory</td>
+              <td>Accessory</td>
+              <td>Accessory</td>
+            </tr>
+            <tr>
+              <td>Blind Spot Warning</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>w/ BVM</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Smart Cruise</td>
+              <td>No</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Nav-based</td>
+              <td>Nav-based</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Off-Road Shocks</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Bilstein®</td>
+              <td>Bilstein®</td>
+            </tr>
+            <tr>
+              <td>Locking Diff.</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Electronic<br />Rear</td>
+            </tr>
+            <tr>
+              <td>Wheel Size</td>
+              <td>18-inch</td>
+              <td>18-inch</td>
+              <td>18-inch</td>
+              <td>18-inch<br />XRT</td>
+              <td>20-inch</td>
+              <td>16-inch</td>
+              <td>17-inch</td>
+              <td>17-inch</td>
+              <td>17-inch</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <hr class="hr-1" id="exterior-interior-design" />
+    </div>
+  </body>
+</html>

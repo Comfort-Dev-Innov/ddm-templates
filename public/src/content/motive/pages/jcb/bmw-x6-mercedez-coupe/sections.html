@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMW X6 Technology, Safety, and Ownership</title>
+    <style>
+      /* Override Container Styles */
+      .bmw-sections-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      .bmw-sections-container h1 {
+        width: fit-content !important;
+      }
+
+      .bmw-sections-container h3,
+      .bmw-sections-container h1,
+      .bmw-sections-container h2,
+      .bmw-sections-container p,
+      .bmw-sections-container ol,
+      .bmw-sections-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Section Wrapper */
+      .bmw-x6-section-wrapper {
+        margin: 4rem 0 !important;
+        transition: opacity 0.3s ease !important;
+      }
+
+      .bmw-x6-section-wrapper:hover {
+        opacity: 0.98 !important;
+      }
+
+      /* Heading Styles */
+      .bmw-x6-main-title {
+        font-size: 40px !important;
+        font-weight: 700 !important;
+        position: relative !important;
+        margin-bottom: 3rem !important;
+        color: #000000 !important;
+      }
+
+      .bmw-x6-main-title::after {
+        content: "" !important;
+        position: absolute !important;
+        bottom: -20px !important;
+        left: 0 !important;
+        width: 200px !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, #4e84e1, #0366b0) !important;
+        border-radius: 2px !important;
+        transition: width 0.3s ease !important;
+      }
+
+      .bmw-x6-main-title:hover::after {
+        width: 250px !important;
+      }
+
+      .bmw-x6-main-title span {
+        color: #0366b0 !important;
+      }
+
+      /* Content Grid - Image Left */
+      .bmw-x6-content-grid-left {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 3rem !important;
+        align-items: stretch !important;
+      }
+
+      /* Content Grid - Image Right */
+      .bmw-x6-content-grid-right {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 3rem !important;
+        align-items: stretch !important;
+      }
+
+      /* Image Wrapper */
+      .bmw-x6-image-section {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+        flex: 1 !important;
+        display: flex !important;
+        align-self: stretch !important;
+        box-shadow: 0 4px 16px rgba(3, 102, 176, 0.12) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      }
+
+      .bmw-x6-image-section:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 8px 24px rgba(3, 102, 176, 0.18) !important;
+      }
+
+      .bmw-x6-image-section img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+        transition: transform 0.3s ease !important;
+      }
+
+      .bmw-x6-image-section:hover img {
+        transform: scale(1.03) !important;
+      }
+
+      /* Text Content */
+      .bmw-x6-text-content {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      .bmw-x6-text-content p {
+        font-size: 16px !important;
+        color: #000000 !important;
+        margin-bottom: 1.5rem !important;
+        text-align: justify !important;
+        line-height: 1.7 !important;
+        transition: opacity 0.2s ease !important;
+      }
+
+      .bmw-x6-text-content p:hover {
+        opacity: 0.9 !important;
+      }
+
+      /* Bulleted List with Dashed Outline */
+      .bmw-x6-feature-list {
+        list-style: none !important;
+        padding: 2rem !important;
+        margin: 0 !important;
+        border: 2px dashed #0366b0 !important;
+        border-radius: 8px !important;
+        background-color: #ffffff !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .bmw-x6-feature-list:hover {
+        border-color: #024a80 !important;
+        box-shadow: 0 4px 12px rgba(3, 102, 176, 0.08) !important;
+      }
+
+      .bmw-x6-feature-list li {
+        margin-bottom: 1.5rem !important;
+        padding-left: 1.5rem !important;
+        position: relative !important;
+        color: #000000 !important;
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        transition: transform 0.2s ease !important;
+      }
+
+      .bmw-x6-feature-list li:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .bmw-x6-feature-list li:hover {
+        transform: translateX(5px) !important;
+      }
+
+      .bmw-x6-feature-list li::before {
+        content: "▸" !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: #0366b0 !important;
+        font-size: 1.2rem !important;
+        font-weight: bold !important;
+        transition: color 0.2s ease !important;
+      }
+
+      .bmw-x6-feature-list li:hover::before {
+        color: #024a80 !important;
+      }
+
+      .bmw-x6-feature-list li strong {
+        color: #0366b0 !important;
+        font-weight: 600 !important;
+        font-size: 17px !important;
+      }
+
+      /* Comparison Paragraph */
+      .bmw-x6-comparison-text {
+        font-size: 16px !important;
+        color: #000000 !important;
+        margin: 2rem 0 !important;
+        padding: 1.5rem !important;
+        background-color: #f8f9fa !important;
+        border-left: 4px solid #0366b0 !important;
+        border-radius: 4px !important;
+        line-height: 1.7 !important;
+        text-align: justify !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .bmw-x6-comparison-text:hover {
+        background-color: #e8edf2 !important;
+        border-left-width: 6px !important;
+      }
+
+      /* Links */
+      .bmw-sections-container a {
+        color: #0366b0 !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        position: relative !important;
+        display: inline-block !important;
+        transition: color 0.3s ease !important;
+      }
+
+     .bmw-sections-container a::after {
+        content: "" !important;
+        position: absolute !important;
+        bottom: -2px !important;
+        left: 0 !important;
+        width: 0 !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, #0366b0, #024a80) !important;
+        transition: width 0.4s ease !important;
+      }
+
+      .bmw-sections-container a:hover {
+        color: #024a80 !important;
+      }
+
+      .bmw-sections-container a:hover::after {
+        width: 100% !important;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .bmw-x6-content-grid-left,
+        .bmw-x6-content-grid-right {
+          grid-template-columns: 1fr !important;
+          gap: 2rem !important;
+        }
+
+        .bmw-x6-main-title {
+          font-size: 36px !important;
+        }
+
+        .bmw-x6-feature-list {
+          padding: 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .bmw-sections-container {
+          padding: 30px 15px !important;
+        }
+
+        .bmw-x6-main-title {
+          font-size: 32px !important;
+        }
+
+        .bmw-x6-main-title::after {
+          width: 150px !important;
+        }
+
+        .bmw-x6-text-content p,
+        .bmw-x6-feature-list li,
+        .bmw-x6-comparison-text {
+          text-align: left !important;
+          font-size: 15px !important;
+        }
+
+        .bmw-x6-feature-list {
+          padding: 1.25rem !important;
+        }
+
+        .bmw-x6-feature-list li {
+          padding-left: 1.25rem !important;
+        }
+
+        .bmw-x6-section-wrapper {
+          margin-bottom: 3rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .bmw-sections-container {
+          padding: 20px 10px !important;
+        }
+
+        .bmw-x6-main-title {
+          font-size: 28px !important;
+        }
+      }
+
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth !important;
+      }
+
+      /* Selection Styling */
+      ::selection {
+        background-color: #0366b0 !important;
+        color: #ffffff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- Section 1: Innovation on Board (Image Left) -->
+      <div class="bmw-sections-container" id="innovation-tech">
+        <h2 class="bmw-x6-main-title">
+          <span>Innovation on Board:</span> A Tech Ecosystem According to Your
+          Lifestyle
+        </h2>
+
+        <div class="bmw-x6-content-grid-left">
+          <div class="bmw-x6-image-section">
+            <img
+              src="https://www.bmwusa.com/content/dam/bmw/marketUS/common/vehicles/2025/my26/x-models/x6/bmw-m/desktop/BMW-MY26-X6-MDP-M60i-Features-02-Desktop.jpg"
+              alt="BMW X6 Technology and Infotainment"
+            />
+          </div>
+
+          <div class="bmw-x6-text-content">
+            <p>
+              The BMW's 2026 X6 elevates in-cabin technology as a pillar of the
+              driving experience. The system's seamless integration supports the
+              tech-savvy commuter or family driver balancing work and weekend
+              family life around Mustang and Choctaw.
+            </p>
+
+            <ul class="bmw-x6-feature-list">
+              <li>
+                <strong>Curved Display and BMW OS 8.5:</strong> The prominently
+                placed 14.9-inch center touchscreen and 12.3-inch digital
+                instrument panel support crisp visuals and swift access to
+                navigation, vehicle settings, and media.
+              </li>
+              <li>
+                <strong>Connectivity:</strong> Wireless Apple CarPlay and
+                Android Auto come standard, enhanced by Wi-Fi hotspot
+                capability, wireless charging, and Bluetooth pairing — ensuring
+                comfort and connectivity for all occupants.
+              </li>
+              <li>
+                <strong>Advanced Features:</strong> Gesture control, BMW
+                Intelligent Personal Assistant voice activation, remote vehicle
+                operation via the My BMW app, and over-the-air software updates
+                maintain system freshness and personalized control.
+              </li>
+              <li>
+                <strong>Premium Audio:</strong> Harman Kardon surround sound
+                technology is standard on higher trims, delivering immersive
+                fidelity for casual drives around Guthrie or spirited
+                excursions.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="bmw-x6-comparison-text">
+          The 2026 Mercedes-Benz GLE Coupe features a digital cockpit centered
+          on dual 12.3-inch displays powered by the AI-driven MBUX system with
+          natural voice commands. Connectivity comes easy with wireless Apple
+          CarPlay and Android Auto. A premium Burmester Surround Sound System is
+          available, and advanced features include available augmented reality
+          navigation and wireless charging.
+        </p>
+      </div>
+
+      <!-- Section 2: Safety Reinvented (Image Right) -->
+      <div class="bmw-sections-container" id="safety-features">
+        <h2 class="bmw-x6-main-title">
+          <span>Safety Reinvented:</span> Confidence at Every Mile
+        </h2>
+
+        <div class="bmw-x6-content-grid-right">
+          <div class="bmw-x6-text-content">
+            <p>
+              Ensuring protection for Edmond families and daily commuters, the
+              BMW X6 comes standard equipped with an advanced safety platform,
+              continuously augmented by optional driver assistance packages
+              designed for peace of mind in varying traffic conditions.
+            </p>
+
+            <ul class="bmw-x6-feature-list">
+              <li>
+                <strong>Standard Safety Suite:</strong> Includes forward
+                collision warning with automatic emergency braking, blind-spot
+                detection, lane departure alert, adaptive cruise control, and
+                speed limit assist.
+              </li>
+              <li>
+                <strong>Driver Assistance Professional:</strong> Elevates
+                capability with hands-free highway driving, automated lane
+                changes, cross-traffic alerts, and extended traffic jam
+                assistance, providing best-in-class support on busy Moore
+                freeways.
+              </li>
+              <li>
+                <strong>Parking Assistance:</strong> Available packages deliver
+                360-degree camera views, automated parking maneuvers, and
+                smartphone-enabled remote parking controls, perfect for tight
+                parking scenarios near local Edmond shopping centers.
+              </li>
+              <li>
+                <strong>Crashworthiness:</strong> The vehicle rates highly in
+                available partial crash tests and earns top marks in
+                pre-collision prevention systems; headlight performance is rated
+                acceptable, maintaining illumination quality in darkness or
+                inclement weather.
+              </li>
+            </ul>
+          </div>
+
+          <div class="bmw-x6-image-section">
+            <img
+              src="https://www.bmwusa.com/content/dam/bmw/marketUS/common/vehicles/2025/my26/x-models/x6/bmw-m/desktop/BMW-MY26-X6-MDP-M60i-Features-05-Desktop.jpg"
+              alt="BMW X6 Ownership Benefits"
+            />
+          </div>
+        </div>
+
+        <p class="bmw-x6-comparison-text">
+          The GLE Coupe prioritizes safety with standard Active Brake Assist,
+          Blind Spot Assist, and a Surround View System. It also includes the
+          PRE-SAFE system, which prepares occupants for an impending collision.
+          Optional advanced features, such as Active Distance Assist DISTRONIC
+          and Active Steering Assist, provide a comprehensive suite of
+          driver-assistance technologies. Still, the X6 proves to be more
+          trustworthy.
+        </p>
+      </div>
+
+      <!-- Section 3: Efficiency Balanced (Image Left) -->
+      <div class="bmw-sections-container" id="efficiency-practicality">
+        <h2 class="bmw-x6-main-title">
+          <span>Efficiency Balanced</span> with Everyday Practicality
+        </h2>
+
+        <div class="bmw-x6-content-grid-left">
+          <div class="bmw-x6-image-section">
+            <img
+              src="https://www.bmwusa.com/content/dam/bmw/marketUS/common/vehicles/2024/my25/m-models/x6-m/overview/desktop/BMW-MY25-X6M-Overview-Design-02-Desktop.jpg"
+              alt="BMW X6 Efficiency and Performance"
+            />
+          </div>
+
+          <div class="bmw-x6-text-content">
+            <p>
+              The X6's fuel efficiency merges BMW's mild hybrid advancements
+              with sporty output:
+            </p>
+
+            <ul class="bmw-x6-feature-list">
+              <li>
+                <strong>Fuel Economy:</strong> The xDrive40i model provides an
+                EPA-estimated 23 mpg city and 26 mpg highway, an impressive
+                figure given the vehicle's robust engine and all-wheel drive.
+              </li>
+              <li>
+                <strong>Drive Range:</strong> Fuel tank capacity allows for
+                highway ranges approaching 630 miles, reducing the frequency of
+                stops during excursions between Bethany and Piedmont.
+              </li>
+              <li>
+                <strong>Towing Capability:</strong> Up to 7,200 lbs when
+                equipped with a factory tow hitch, supporting recreational
+                trailers or boats common in Oklahoma outdoor lifestyles.
+              </li>
+              <li>
+                <strong>Practicality:</strong> Daily usability is augmented by
+                configurable interiors and cargo flexibility, accommodating
+                active family demands without sacrificing a luxury feel.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="bmw-x6-comparison-text">
+          The 2026 Mercedes-Benz GLE 450 Coupe achieves an EPA-estimated 19 city
+          / 25 highway MPG, with a combined 21 MPG. Its fuel tank capacity of
+          22.5 gallons provides a total driving range of approximately 427 city
+          or 562 highway miles. When properly equipped with the optional Class
+          III trailer hitch, all GLE Coupe models boast an impressive maximum
+          towing capacity of 7,700 pounds.
+        </p>
+      </div>
+
+      <!-- Section 4: Ownership Experience (Image Right) -->
+      <div class="bmw-sections-container" id="ownership-experience">
+        <h2 class="bmw-x6-main-title">
+          <span>Ownership Experience:</span> Long-Term Peace of Mind
+        </h2>
+
+        <div class="bmw-x6-content-grid-right">
+          <div class="bmw-x6-text-content">
+            <p>
+              Jackie Cooper BMW enhances the ownership journey with clear
+              assurances and comprehensive coverage, a crucial consideration for
+              Edmond-area clientele, placing long-term value above all.
+            </p>
+
+            <ul class="bmw-x6-feature-list">
+              <li>
+                <strong>Warranty:</strong> The BMW X6 is backed by a 4-year or
+                50,000-mile limited warranty plus complimentary scheduled
+                maintenance for 3 years or 36,000 miles, ensuring reliability
+                and cost predictability.
+              </li>
+              <li>
+                <strong>Service Excellence:</strong> Our certified technicians
+                at the
+                <a href="https://cooperbmw.com/service"
+                  ><strong>Service Department</strong></a
+                >
+                deliver expert care with transparent pricing and expedited
+                turnaround—minimizing downtime for Mustang and Choctaw drivers.
+              </li>
+              <li>
+                <strong>Parts Availability:</strong> Genuine BMW components
+                accessible through our
+                <a href="https://cooperbmw.com/parts"
+                  ><strong>Parts Department</strong></a
+                >
+                preserve vehicle integrity and performance standards.
+              </li>
+              <li>
+                <strong>Resale Confidence:</strong> Robust brand reputation and
+                steady demand in the Edmond market solidify the X6's retained
+                value, supported further by programs like our
+                <a href="https://cooperbmw.com/trade-or-sell"
+                  ><strong>Value Your Trade</strong></a
+                >
+                tool for transparent transactions.
+              </li>
+            </ul>
+          </div>
+
+          <div class="bmw-x6-image-section">
+            <img
+              src="https://www.bmwusa.com/content/dam/bmw/marketUS/common/vehicles/2024/my25/m-models/x6-m/overview/desktop/BMW-MY25-X6M-Overview-Performance-01-Desktop.jpg"
+              alt="BMW X6 Safety Technology"
+            />
+          </div>
+        </div>
+
+        <p class="bmw-x6-comparison-text">
+          The 2026 GLE Coupe includes a 4-year/50,000-mile warranty. While
+          resale values for luxury vehicles vary, Mercedes-Benz models generally
+          maintain strong residual values, especially the popular GLE line.
+          However, the BMW X6 holds its value better than the Mercedes-Benz GLE
+          Coupe. This is attributed to factors like BMW's historically sportier
+          performance and buyer demand in the used market, and better fuel
+          economy, which translates into a lower overall cost of ownership.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

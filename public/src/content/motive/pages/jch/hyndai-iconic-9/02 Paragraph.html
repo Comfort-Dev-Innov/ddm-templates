@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .section3 {
+        .santafe-safety-wrapper {
+          padding: 0 0 40px 0 !important;
+          line-height: 1.6 !important;
+          max-width: 1300px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        .santafe-safety-wrapper h1 {
+          width: fit-content !important;
+        }
+
+        .santafe-safety-wrapper h3,
+        .santafe-safety-wrapper h1,
+        .santafe-safety-wrapper h2,
+        .santafe-safety-wrapper p,
+        .santafe-safety-wrapper ol,
+        .santafe-safety-wrapper ul {
+          max-width: 1300px !important;
+        }
+
+        .santafe-intro-section {
+          padding: 0 20px;
+          margin-bottom: 50px;
+          position: relative;
+        }
+
+        /* .santafe-intro-section::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        opacity: 0.8;
+      } */
+
+        .santafe-hero-image {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 20px;
+          box-shadow: 0 15px 50px rgba(1, 43, 93, 0.15),
+            0 5px 15px rgba(0, 0, 0, 0.08);
+          margin: 30px auto 40px;
+          display: block;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .santafe-hero-image:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 25px 70px rgba(1, 43, 93, 0.2),
+            0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .santafe-intro-text {
+          font-size: 17px;
+          color: #374151;
+          max-width: 900px;
+          animation: santafeFadeInUp 0.8s ease-out;
+          background: rgba(255, 255, 255, 0.7);
+          padding: 30px;
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(1, 43, 93, 0.08),
+            0 2px 8px rgba(0, 0, 0, 0.04);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .santafe-intro-text::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, #012b5d, #0066cc, #012b5d);
+          background-size: 200% 100%;
+          animation: santafeGradientShift 3s ease-in-out infinite;
+        }
+
+        .santafe-features-layout {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+          gap: 35px;
+          padding: 0 20px;
+        }
+
+        .santafe-feature-item {
+          background: rgba(255, 255, 255, 0.85);
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 10px 40px rgba(1, 43, 93, 0.12),
+            0 4px 12px rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(1, 43, 93, 0.08);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: santafeSlideInLeft 0.8s ease-out;
+          animation-fill-mode: both;
+          position: relative;
+          overflow: hidden;
+          backdrop-filter: blur(15px);
+        }
+
+        .santafe-feature-item:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        .santafe-feature-item::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(1, 43, 93, 0.08),
+            rgba(0, 102, 204, 0.08),
+            transparent
+          );
+          transition: left 0.8s ease;
+        }
+
+        .santafe-feature-item::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, #012b5d, #0066cc, #012b5d);
+          background-size: 200% 100%;
+          animation: santafeGradientShift 4s ease-in-out infinite;
+          opacity: 0.7;
+        }
+
+        .santafe-feature-item:hover::before {
+          left: 100%;
+        }
+
+        .santafe-feature-item:hover {
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 20px 60px rgba(1, 43, 93, 0.18),
+            0 8px 20px rgba(0, 0, 0, 0.08);
+          border-color: rgba(1, 43, 93, 0.15);
+        }
+
+        .santafe-feature-heading {
+          font-size: 24px;
+          font-weight: 700;
+          color: #012b5d;
+          margin-bottom: 25px;
+          text-align: left;
+          position: relative;
+          transition: all 0.3s ease;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .santafe-feature-item:hover .santafe-feature-heading {
+          color: #002c5f;
+          transform: translateX(5px);
+        }
+
+        .santafe-feature-item:hover .santafe-feature-heading::before {
+          opacity: 1;
+          transform: translateY(-50%) scale(1.2);
+        }
+
+        .santafe-feature-description {
+          font-size: 16px;
+          color: #4b5563;
+          line-height: 1.8;
+          text-align: justify;
+          position: relative;
+          z-index: 2;
+        }
+
+        .santafe-feature-description p {
+          margin-bottom: 16px;
+        }
+
+        .santafe-feature-description p:last-child {
+          margin-bottom: 0;
+        }
+
+        .santafe-feature-description strong {
+          color: #012b5d;
+          font-weight: 600;
+        }
+
+        .santafe-tech-highlight {
+          background: linear-gradient(
+            120deg,
+            rgba(1, 43, 93, 0.12) 0%,
+            rgba(0, 102, 204, 0.12) 50%,
+            rgba(1, 43, 93, 0.12) 100%
+          );
+          padding: 2px 8px;
+          border-radius: 30px;
+          color: #002c5f;
+          font-weight: 600;
+          border: 1px solid rgba(1, 43, 93, 0.15);
+          position: relative;
+          display: inline-block;
+          box-shadow: 0 2px 4px rgba(1, 43, 93, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .santafe-tech-highlight:hover {
+          background: linear-gradient(
+            120deg,
+            rgba(1, 43, 93, 0.18) 0%,
+            rgba(0, 102, 204, 0.18) 50%,
+            rgba(1, 43, 93, 0.18) 100%
+          );
+          transform: translateY(-1px);
+          box-shadow: 0 4px 8px rgba(1, 43, 93, 0.15);
+        }
+
+        @keyframes santafeFadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes santafeSlideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes santafeGradientShift {
+          0%,
+          100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .santafe-features-layout {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
+
+          .santafe-feature-item {
+            padding: 30px;
+          }
+
+          .santafe-feature-heading {
+            font-size: 22px;
+            margin-left: 35px;
+          }
+
+          .santafe-feature-description {
+            font-size: 15px;
+          }
+
+          .santafe-intro-text {
+            padding: 25px;
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .santafe-features-layout {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+          }
+
+          .santafe-intro-section {
+            padding: 0 15px;
+          }
+
+          .santafe-hero-image {
+            height: 200px;
+            margin: 20px auto 30px;
+            border-radius: 16px;
+          }
+
+          .santafe-feature-item {
+            padding: 25px;
+            border-radius: 16px;
+          }
+
+          .santafe-feature-heading {
+            font-size: 20px;
+          }
+
+          .santafe-feature-description {
+            font-size: 14px;
+            line-height: 1.7;
+          }
+        }
+
+        .santafe-feature-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .santafe-feature-label svg {
+          width: 35px;
+          height: 35px;
+        }
+
+        .santafe-feature-label h3 {
+          margin: 0 !important;
+        }
+        .paragrapghheader-section3 {
+          font-size: 48px !important;
+          font-weight: 700;
+          color: #012b5d;
+          margin-bottom: 25px;
+          text-align: center;
+          position: relative;
+          transition: all 0.3s ease;
+          width: 100% !important;
+          text-align: center !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section3 santafe-safety-wrapper">
+      <div class="santafe-intro-section">
+        <h2 class="paragrapghheader-section3">
+          Overview of the 2026 Hyundai IONIQ 9 and the 2026 Hyundai Santa Cruz
+        </h2>
+
+        <p class="santafe-intro-text">
+          <span id="santa-cruz-section">Hyundai's</span> 2026 lineup showcases a
+          brilliant strategy, offering two innovative but fundamentally
+          different solutions to the modern driver's needs. One looks to the
+          horizon, defining the future of family transport, while the other
+          masterfully redefines the utility and comfort available today. This
+          approach ensures that whether a customer is ready to lead the charge
+          into an electric future or is seeking a more versatile version of the
+          present, there is a forward-thinking Hyundai that fits perfectly.
+        </p>
+      </div>
+
+      <div class="santafe-features-layout">
+        <div class="santafe-feature-item">
+          <div class="santafe-feature-label">
+            <h3 class="santafe-feature-heading">
+              The 2026 IONIQ 9 - The Family SUV, Built in America
+            </h3>
+          </div>
+
+          <div class="santafe-feature-description">
+            <p>
+              The 2026 Hyundai IONIQ 9 arrives as the brand's flagship three-row
+              electric SUV, a statement vehicle designed to compete in the
+              premium segment against formidable rivals like the Kia EV9 and
+              Rivian R1S. It embodies the pinnacle of Hyundai's advanced
+              electrification strategy, promising an unparalleled combination of
+              exceptional range, a luxuriously spacious interior for six or
+              seven passengers, and an array of cutting-edge technology. For the
+              modern Oklahoma family, the IONIQ 9 presents an ideal solution. It
+              caters to those who value sustainability, forward-thinking
+              technology, and the space to grow, all without sacrificing
+              performance or sophisticated style. Assembled in the United States
+              at Hyundai's state-of-the-art facility in Georgia, it also carries
+              the distinction of being a domestically produced vision of the
+              future.
+            </p>
+          </div>
+        </div>
+
+        <div class="santafe-feature-item">
+          <div class="santafe-feature-label">
+            <h3 class="santafe-feature-heading">
+              The 2026 Santa Cruz - The Ultimate Sport Adventure Vehicle
+            </h3>
+          </div>
+          <div class="santafe-feature-description">
+            <p>
+              In contrast, the 2026 Hyundai Santa Cruz carves its own unique
+              path. It is not a traditional pickup truck but rather a "Sport
+              Adventure Vehicle," ingeniously merging the refined comfort and
+              agile drivability of an SUV—built upon the proven Tucson
+              platform—with the undeniable utility of a compact, open truck bed.
+              This vehicle is a market-segment creator, solving a common dilemma
+              for buyers who find traditional SUVs lack utility and full-size
+              trucks are too cumbersome for daily life.
+            </p>
+
+            <p style="margin-top: 15px">
+              Its design focuses on urban-friendly dimensions, a versatile
+              four-foot bed perfect for lifestyle gear like bicycles or camping
+              equipment, and a comfortable, well-appointed cabin for up to five
+              passengers. The Santa Cruz is the perfect automotive tool for
+              Oklahomans with active lifestyles. It is equally at home with a
+              homeowner in Yukon tackling weekend projects, an adventurer
+              heading to explore the Wichita Mountains, or a city dweller who
+              needs more flexibility than an SUV can offer without the
+              compromises of a larger truck.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

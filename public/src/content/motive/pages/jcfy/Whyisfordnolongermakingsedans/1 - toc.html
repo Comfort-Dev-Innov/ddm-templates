@@ -1,0 +1,454 @@
+<html lang="en">
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* Motive Container Default Styles */
+      .tocContainer {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .tocContainer h1 {
+        width: fit-content !important;
+      }
+
+      .tocContainer h3,
+      .tocContainer h1,
+      .tocContainer h2,
+      .tocContainer p,
+      .tocContainer ol,
+      .tocContainer ul {
+        max-width: 1300px !important;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          #0f3079 0%,
+          #2d5aa0 50%,
+          #4a7bc8 100%
+        );
+        color: white;
+        padding: 80px 0;
+        margin-bottom: 40px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(15, 48, 121, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        width: 400px;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+      }
+
+      /* Table of Contents */
+      .toc-title {
+        padding-bottom: 15px;
+        margin: 0 auto;
+        width: 100% !important;
+        /* margin-bottom: 35px; */
+        border-bottom: 3px solid #0f3079;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 28px !important;
+        letter-spacing: 0.1em !important;
+        color: #0f3079;
+        position: relative;
+      }
+
+      .toc-title::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .toc-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #0f3079;
+        border-radius: 15px;
+        padding: 50px;
+        margin: 40px 0;
+        box-shadow: 0 8px 25px rgba(15, 48, 121, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .toc-list-desktop {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .introduction-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .introduction-image {
+        display: flex;
+        align-content: start;
+        justify-items: center;
+      }
+
+      .introduction-image img {
+        width: 380px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      .toc-list-mobile {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+        display: none;
+      }
+
+      .toc-list-desktop li,
+      .toc-list-mobile li {
+        position: relative;
+        padding: 20px 25px;
+        background: white;
+        border-radius: 10px;
+        border-left: 5px solid #0f3079;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .toc-list-desktop li:hover,
+      .toc-list-mobile li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-left-color: #ff6b35;
+      }
+
+      .toc-list-desktop li::before,
+      .toc-list-mobile li::before {
+        content: '🚛';
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .toc-list-desktop li:hover::before,
+      .toc-list-mobile li:hover::before {
+        transform: scale(1.2);
+      }
+
+      .toc-list-desktop a,
+      .toc-list-mobile a {
+        color: #0f3079;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .toc-list-desktop a:hover,
+      .toc-list-mobile a:hover {
+        color: #ff6b35;
+      }
+
+      .toc-list-desktop-description,
+      .toc-list-mobile-description {
+        font-size: 14px;
+        color: #666;
+        text-align: justify;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 1024px) {
+        .toc-list-desktop {
+          display: none;
+        }
+        .toc-list-mobile {
+          display: grid;
+        }
+        .toc-section {
+          padding: 40px 30px;
+        }
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .cta-button {
+          width: 200px;
+        }
+        .introduction-container {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .introduction-image {
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        .introduction-image img {
+          width: 80%;
+          height: 400px;
+          object-fit: cover;
+          border-radius: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.2rem;
+        }
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+        .toc-section {
+          padding: 30px 20px;
+        }
+        .toc-list-desktop li,
+        .toc-list-mobile li {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tocContainer">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1 class="hero-title" custom-input="text">
+          Why Is Ford No Longer Making Sedans? Exploring the Shift to SUVs, EVs,
+          and Innovation at Joe Cooper Ford of Yukon
+        </h1>
+        <a href="tel:+4053541111" class="cta-button" custom-input="text"
+          >Call (405) 354-1111</a
+        >
+      </div>
+
+      <!-- Introduction -->
+      <div class="introduction-container">
+        <section
+          style="margin-bottom: 40px; text-align: center; padding: 0 20px"
+        >
+          <p
+            style="
+              font-size: 18px;
+              color: #4a5568;
+              line-height: 1.7;
+              max-width: 900px;
+              margin: 0 auto;
+              text-align: justify;
+              text-indent: 1rem;
+            "
+            custom-input="text"
+          >
+            At Joe Cooper Ford of Yukon, located at
+            <a
+              href="https://www.google.com/maps/place/?q=place_id:ChIJVdqZrhIIsocRnnOFkTb6b88"
+              >1780 Garth Brooks Blvd, Yukon, OK 73099 </a
+            >, we often get asked why the iconic Ford brand has stepped back
+            from producing sedans. If you’re calling from Oklahoma City,
+            Mustang, or Bethany, and wondering about this strategic shift or
+            want to explore the latest Ford SUVs and trucks, give us a ring at
+            (405) 354-1111. This article dives deeply into the reasons behind
+            Ford’s decision to discontinue sedans, the future of Ford cars, and
+            how our dealership supports Ford’s evolving lineup with a focus on
+            innovation and toughness.
+          </p>
+        </section>
+        <div class="introduction-image">
+          <img
+            style="object-fit: cover; border-radius: 15px"
+            src="https://i.ibb.co/bj7xGVrs/26-frd-esp-stln-stwh-ps34.jpg"
+            custom-input="image"
+          />
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <section class="toc-section">
+        <h3 class="toc-title" custom-input="text">Table of Contents</h3>
+
+        <!-- TOC on Desktop -->
+        <ul class="toc-list-desktop">
+          <li custom-input="text">
+            <a href="#why-ford-discontinued-sedans" custom-input="text"
+              >Why Ford Discontinued Sedans</a
+            >
+            <p class="toc-list-desktop-description" custom-input="text">
+              Understand the market trends and strategic investments behind
+              Ford’s move away from traditional sedans toward SUVs, trucks, and
+              electric vehicles.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#will-ford-ever-make-cars-again" custom-input="text"
+              >Will Ford Ever Make Cars Again?</a
+            >
+            <p class="toc-list-desktop-description" custom-input="text">
+              Explore Ford’s current and future vehicle plans, including hybrid
+              and electric options, and how these choices fit evolving customer
+              demands.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#the-future-of-the-ford-fusion" custom-input="text"
+              >The Future of the Ford Fusion</a
+            >
+            <p class="toc-list-desktop-description" custom-input="text">
+              Learn about the fate of the Ford Fusion, possible new vehicle
+              concepts, and how Ford may reinvent this nameplate for modern
+              drivers.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#is-ford-built-to-last" custom-input="text"
+              >Is Ford Built to Last?</a
+            >
+            <p class="toc-list-desktop-description" custom-input="text">
+              Discover the durability and innovation behind Ford’s “Built Ford
+              Tough” philosophy, especially important for customers in areas
+              like Edmond and Moore.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#explore-ford-inventory" custom-input="text"
+              >Explore Ford Inventory at Joe Cooper Ford of Yukon</a
+            >
+            <p
+              class="toc-list-desktop-description"
+              id="why-ford-discontinued-sedans"
+              custom-input="text"
+            >
+              Find out how to browse our extensive new and used vehicle
+              selections tailored for your lifestyle and needs.
+            </p>
+          </li>
+        </ul>
+
+        <!-- TOC on Mobile -->
+        <ul class="toc-list-mobile">
+          <li custom-input="text">
+            <a href="#why-ford-discontinued-sedans" custom-input="text"
+              >Why Ford Discontinued Sedans</a
+            >
+            <p class="toc-list-mobile-description" custom-input="text">
+              Understand the market trends and strategic investments behind
+              Ford's move away from traditional sedans toward SUVs, trucks, and
+              electric vehicles.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#will-ford-ever-make-cars-again" custom-input="text"
+              >Will Ford Ever Make Cars Again?</a
+            >
+            <p class="toc-list-mobile-description" custom-input="text">
+              Explore Ford's current and future vehicle plans, including hybrid
+              and electric options, and how these choices fit evolving customer
+              demands.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#the-future-of-the-ford-fusion" custom-input="text"
+              >The Future of the Ford Fusion</a
+            >
+            <p class="toc-list-mobile-description" custom-input="text">
+              Learn about the fate of the Ford Fusion, possible new vehicle
+              concepts, and how Ford may reinvent this nameplate for modern
+              drivers.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#is-ford-built-to-last" custom-input="text"
+              >Is Ford Built to Last?</a
+            >
+            <p class="toc-list-mobile-description" custom-input="text">
+              Discover the durability and innovation behind Ford's "Built Ford
+              Tough" philosophy, especially important for customers in areas
+              like Edmond and Moore.
+            </p>
+          </li>
+          <li custom-input="text">
+            <a href="#explore-ford-inventory" custom-input="text"
+              >Explore Ford Inventory at Joe Cooper Ford of Yukon</a
+            >
+            <p
+              class="toc-list-mobile-description"
+              custom-input="text"
+              id="why-ford-discontinued-sedans"
+            >
+              Find out how to browse our extensive new and used vehicle
+              selections tailored for your lifestyle and needs.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

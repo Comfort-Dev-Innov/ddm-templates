@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Built Ford Tough - Legendary Durability</title>
+    <style>
+      /* Motive Container Default Styles */
+      .stn-rounded-img-container {
+        padding: 0 0 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .stn-rounded-img-container h1 {
+        width: fit-content !important;
+      }
+
+      .stn-rounded-img-container h3,
+      .stn-rounded-img-container h1,
+      .stn-rounded-img-container h2,
+      .stn-rounded-img-container p,
+      .stn-rounded-img-container ol,
+      .stn-rounded-img-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Article Styles */
+      .article-2-title {
+        color: #0f3079;
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 1.8em;
+        border-bottom: 4px solid #0f3079;
+        padding-bottom: 15px;
+        width: 100%;
+        position: relative;
+      }
+
+      .article-2-title::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        border-radius: 2px;
+      }
+
+      .article-2-title h1 {
+        margin: 0;
+        width: 100% !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .circle-para-container {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        gap: 30px;
+        padding: 35px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-left: 6px solid #0f3079;
+      }
+
+      .circle-para-container.left-image {
+        flex-direction: row;
+      }
+
+      .circle-para-container.right-image {
+        flex-direction: row-reverse;
+      }
+
+      .image-wrapper {
+        flex-shrink: 0;
+        width: 220px;
+      }
+
+      .circle-img {
+        width: 190px;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 200px;
+        border: 6px solid #0f3079;
+        outline: 4px solid white;
+        outline-offset: -2px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .circle-img:hover {
+        transform: scale(1.08);
+        animation-play-state: paused;
+        border-color: #ff6b35;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .circle-img.delay-1 {
+        animation-delay: 0s;
+      }
+
+      .circle-img.delay-2 {
+        animation-delay: 2s;
+      }
+
+      .circle-img.delay-3 {
+        animation-delay: 4s;
+      }
+
+      .circle-text-content {
+        flex: 1;
+        font-size: 17px;
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      .circle-text-content strong {
+        color: #0f3079;
+        font-weight: bold;
+      }
+
+      .circle-text-content .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 107, 53, 0.2) 0%,
+          rgba(247, 147, 30, 0.2) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Hero Quote Section */
+      .hero-quote {
+        background: linear-gradient(135deg, #0f3079 0%, #2d5aa0 100%);
+        color: white;
+        padding: 50px;
+        border-radius: 15px;
+        margin: 50px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-quote::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 30px;
+        font-size: 8rem;
+        opacity: 0.1;
+        font-family: Georgia, serif;
+      }
+
+      .hero-quote h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-weight: 800;
+      }
+
+      .hero-quote p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        opacity: 0.95;
+        font-style: italic;
+      }
+
+      /* Engineering Features Grid */
+      .engineering-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      .engineering-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border-top: 5px solid #0f3079;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .engineering-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-top-color: #ff6b35;
+      }
+
+      .engineering-card h4 {
+        color: #0f3079;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .engineering-card p {
+        color: #4a5568;
+        line-height: 1.7;
+        font-size: 15px;
+      }
+
+      /* Mileage Achievement Section */
+      .mileage-section {
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        padding: 40px;
+        border-radius: 15px;
+        border: 2px solid #e2e8f0;
+        margin: 40px 0;
+        text-align: center;
+      }
+
+      .mileage-numbers {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+
+      .mileage-stat {
+        text-align: center;
+      }
+
+      .mileage-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #0f3079;
+        display: block;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .mileage-label {
+        font-size: 14px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .stn-rounded-img-container br {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
+        .stn-rounded-img-container br {
+          display: block;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .article-2-title h1 {
+          font-size: 28px;
+        }
+        .circle-para-container {
+          flex-direction: column !important;
+          padding: 25px;
+        }
+
+        .image-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+
+        .engineering-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .hero-quote {
+          padding: 30px 20px;
+        }
+
+        .hero-quote h3 {
+          font-size: 2rem;
+        }
+
+        .hero-quote p {
+          font-size: 1.1rem;
+        }
+
+        .mileage-numbers {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .mileage-number {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="stn-rounded-img-container">
+      <div class="article-2-title">
+        <h1>3. Legendary "Built Ford Tough" Durability</h1>
+      </div>
+
+      <!-- Hero Quote -->
+      <div class="hero-quote">
+        <h3>Built Ford Tough</h3>
+        <p>
+          More than just marketing — it's a promise backed by superior
+          engineering.
+        </p>
+      </div>
+
+      <div class="circle-para-container left-image">
+        <div class="image-wrapper">
+          <img
+            src="https://i.ibb.co/5gJk4gXm/25-frd-f15l-xlt-oxwh-ps34.jpg"
+            alt="Ford High-Strength Steel Frame"
+            class="circle-img delay-1"
+          />
+        </div>
+        <div class="circle-text-content">
+          <p>
+            The
+            <span class="highlight"
+              >"Built Ford Tough" slogan is more than just marketing; it's a
+              promise backed by superior engineering.</span
+            >
+            Ford trucks are constructed with a high-strength, fully boxed steel
+            frame as their foundation. On top of that sits a military-grade,
+            high-strength aluminum alloy body. This innovative combination
+            maximizes strength and dent resistance while reducing overall
+            weight, which contributes to better fuel efficiency, handling, and
+            payload capacity.
+          </p>
+          <br /><br />
+          <p>
+            It&apos;s this robust construction that allows Ford trucks to
+            reliably serve their owners for hundreds of thousands of miles. With
+            proper care from a certified service center like Joe Cooper Ford of
+            Yukon, it's common to see these trucks exceed 200,000 or even
+            300,000 miles, making them a smart, long-term investment.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mileage Achievement Section -->
+      <div class="mileage-section">
+        <h3 style="color: #0f3079; margin-bottom: 20px; font-size: 1.8rem">
+          Proven Longevity You Can Count On
+        </h3>
+        <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 30px">
+          It's this robust construction that allows Ford trucks to reliably
+          serve their owners for hundreds of thousands of miles.
+        </p>
+
+        <div class="mileage-numbers">
+          <div class="mileage-stat">
+            <span class="mileage-number">200K+</span>
+            <span class="mileage-label">Common Mileage</span>
+          </div>
+          <div class="mileage-stat">
+            <span class="mileage-number">300K+</span>
+            <span class="mileage-label">Achievable Miles</span>
+          </div>
+          <div class="mileage-stat">
+            <span class="mileage-number">45+</span>
+            <span class="mileage-label">Years Proven</span>
+          </div>
+        </div>
+
+        <p
+          style="font-size: 16px; color: #4a5568; line-height: 1.7"
+          id="smart-technology"
+        >
+          With proper care from a certified service center like
+          <strong>Joe Cooper Ford of Yukon</strong>, it's common to see these
+          trucks exceed 200,000 or even 300,000 miles, making them a smart,
+          long-term investment for families and businesses throughout Oklahoma.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

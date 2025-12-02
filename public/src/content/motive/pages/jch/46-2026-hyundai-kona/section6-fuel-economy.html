@@ -1,0 +1,238 @@
+<html>
+  <head>
+    <style>
+      /* TODO: Remove this every pasting */
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 3rem 5rem;
+      }
+
+      /* Motive Container Default Styles */
+      .container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        width: fit-content !important;
+      }
+
+      .container h3,
+      .container h1,
+      .container h2,
+      .container p,
+      .container ol,
+      .container ul {
+        max-width: 1300px !important;
+      }
+
+      .section6 {
+        /* Section Heading */
+        .section-heading {
+          color: #0f3079;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .section-heading::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(90deg, #0f3079, #2d5aa0);
+          border-radius: 2px;
+        }
+
+        /* Paragraph Text */
+        .paragraph-text {
+          font-size: 15px;
+          line-height: 1.6;
+          color: black;
+          text-align: justify;
+          margin-bottom: 20px;
+        }
+
+        .paragraph-container-01 {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          gap: 1rem;
+        }
+
+        /* Simple Bullet List */
+        .fuel-list {
+          list-style: none;
+          padding: 0;
+          margin: 25px 0;
+        }
+
+        .fuel-list li {
+          padding: 12px 0 12px 30px;
+          position: relative;
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+        }
+
+        .fuel-list li::before {
+          content: "⛽";
+          position: absolute;
+          left: 0;
+          font-size: 1.2rem;
+        }
+
+        /* Simple Comparison Box */
+        .comparison-box {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 25px;
+          margin: 30px 0;
+        }
+
+        .vehicle-box {
+          padding: 25px;
+          border-radius: 12px;
+          background: white;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .vehicle-box.kona {
+          border-left: 5px solid #0f3079;
+        }
+
+        .vehicle-box.niro {
+          border-left: 5px solid #6c757d;
+        }
+
+        .vehicle-box h4 {
+          color: #0f3079;
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin: 0 0 15px 0;
+        }
+
+        .vehicle-box.niro h4 {
+          color: #6c757d;
+        }
+
+        .vehicle-box p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+          margin: 0;
+        }
+
+        /* Simple Highlight */
+        .simple-highlight {
+          background: #f8f9fa;
+          border-left: 5px solid #0f3079;
+          padding: 20px 25px;
+          border-radius: 8px;
+          margin: 30px 0;
+        }
+
+        .simple-highlight p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+          margin: 0;
+          font-weight: 500;
+        }
+
+        .hr-1 {
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+          );
+          margin: 50px 0;
+        }
+
+        @media (min-width: 768px) {
+          body {
+            padding: 5rem 8rem;
+          }
+
+          .paragraph-text {
+            font-size: 15px;
+            text-align: justify;
+          }
+
+          .section-heading {
+            font-size: 2.2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-heading {
+            font-size: 1.6rem;
+          }
+
+          .comparison-box {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container section6">
+      <h2 class="section-heading">
+        Fuel Economy and Efficiency in The 2026 Kona and 2026 Niro
+      </h2>
+
+      <div class="paragraph-container-01">
+        <p class="paragraph-text">
+          Fuel economy considerations vary notably by drivetrain preference. The
+          Kona, running solely on gasoline engines for 2026, balances economy
+          and performance effectively for urban and highway driving in cities
+          like Norman and Moore:
+        </p>
+      </div>
+
+      <ul class="fuel-list">
+        <li>
+          Base 2.0L FWD achieves EPA ratings of up to 29 mpg city and 35 mpg
+          highway.
+        </li>
+        <li>
+          Turbo 1.6L FWD SUVs target up to 26 mpg city and 32 mpg highway.
+        </li>
+        <li>
+          The AWD versions weigh in slightly lower in mpg but compensate with
+          enhanced traction capabilities.
+        </li>
+      </ul>
+
+      <div class="simple-highlight">
+        <p class="paragraph-text">
+          Though the Niro&apos;s hybrid and plug-in hybrid variants boast
+          exceptional EPA ratings, including city mileage that can exceed 50 mpg
+          and plug-in electric ranges near 33 miles, these come with trade-offs
+          such as a lack of AWD, higher curb weight, and significant compromises
+          in cargo space. For most Oklahoma metro drivers seeking an all-around
+          daily driver, the Kona&apos;s efficient gasoline engines combined with
+          the AWD option and respectable fuel economy represent a compelling
+          balance between performance and economy.
+        </p>
+      </div>
+
+      <hr class="hr-1" id="cargo-capacity" />
+    </div>
+  </body>
+</html>

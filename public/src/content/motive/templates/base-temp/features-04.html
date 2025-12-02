@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Types of Cars Does Ford Offer</title>
+    <style>
+      /* Container Default Styles */
+      .featuresContainer2 {
+        padding: 40px 20px !important;
+        line-height: 1.6 !important;
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      .featuresContainer2 h1,
+      .featuresContainer2 h2,
+      .featuresContainer2 h3,
+      .featuresContainer2 p {
+        max-width: 1300px !important;
+      }
+
+      /* Main Title Section */
+      .main-title2 {
+        font-size: 40px;
+        font-weight: 700;
+        position: relative !important;
+        margin-bottom: 60px !important;
+        text-align: center;
+      }
+
+      .main-title2::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(90deg, #4a5568, #2d3748);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title2 {
+          font-size: 32px;
+        }
+      }
+
+      /* Description */
+      .feat-desc {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 50px !important;
+        color: #4a5568;
+      }
+
+      /* Types Grid */
+      .types-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 20px;
+      }
+
+      /* Type Card */
+      .type-card {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #e2e8f0;
+        position: relative;
+      }
+
+      .type-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(15, 48, 121, 0.12);
+      }
+
+      /* Image Container */
+      .type-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+      }
+
+      .type-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .type-card:hover .type-image img {
+        transform: scale(1.08);
+      }
+
+      /* Category Badge */
+      .category-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #0f3079;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Content Area */
+      .type-content {
+        padding: 25px;
+      }
+
+      .type-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f3079;
+        margin-bottom: 12px !important;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .type-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: #0f3079;
+        transition: width 0.3s ease;
+      }
+
+      .type-card:hover .type-title::after {
+        width: 70px;
+      }
+
+      .type-description {
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* Animated corner accent */
+      .type-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 50px 50px 0;
+        border-color: transparent #0f3079 transparent transparent;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .type-card:hover::before {
+        opacity: 0.05;
+      }
+
+      /* Stagger animation on load */
+      .type-card {
+        animation: fadeSlideIn 0.6s ease-out backwards;
+      }
+
+      .type-card:nth-child(1) { animation-delay: 0.1s; }
+      .type-card:nth-child(2) { animation-delay: 0.15s; }
+      .type-card:nth-child(3) { animation-delay: 0.2s; }
+      .type-card:nth-child(4) { animation-delay: 0.25s; }
+      .type-card:nth-child(5) { animation-delay: 0.3s; }
+
+      @keyframes fadeSlideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .types-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .types-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .feat-desc {
+          font-size: 16px;
+          margin-bottom: 35px !important;
+        }
+
+        .type-image {
+          height: 200px;
+        }
+
+        .type-content {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .featuresContainer2 {
+          padding: 20px 15px !important;
+        }
+
+        .type-image {
+          height: 180px;
+        }
+
+        .type-content {
+          padding: 18px;
+        }
+
+        .type-title {
+          font-size: 20px;
+        }
+
+        .type-description {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="featuresContainer2">
+      <h2 class="main-title2">
+        What Types of Cars Does <span style="color: #0f3079">Ford Offer</span>?
+      </h2>
+      
+      <p class="feat-desc">
+        Ford's car lineup spans multiple categories, designed to cater to a variety of preferences and needs in Oklahoma communities.
+      </p>
+
+      <div class="types-grid">
+        <!-- Electric Vehicles -->
+        <div class="type-card">
+          <div class="type-image">
+            <img src="https://canadaoneprod-com.cdn-convertus.com/uploads/sites/71/2024/08/2023_F-150_Lightning_GPM_960x1200_08.jpg" alt="Electric Vehicles" />
+            <div class="category-badge">⚡ Electric</div>
+          </div>
+          <div class="type-content">
+            <h3 class="type-title">Electric Vehicles</h3>
+            <p class="type-description">
+              The Mustang Mach-E and F-150 Lightning showcase Ford's commitment to electric powertrains, blending performance with eco-friendly technology.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pickup Trucks -->
+        <div class="type-card">
+          <div class="type-image">
+            <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:cfa5a04b-e404-4d2d-b270-bab7444b1f18/as/26_FRD_SD_F350_Lariat_MarshGray_01_v4_v1.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="Pickup Trucks" />
+            <div class="category-badge">🚛 Trucks</div>
+          </div>
+          <div class="type-content">
+            <h3 class="type-title">Pickup Trucks</h3>
+            <p class="type-description">
+              From the compact Maverick to the full-size F-350 Super Duty, Ford pickups offer a range of capabilities for work and play.
+            </p>
+          </div>
+        </div>
+
+        <!-- SUVs and Crossovers -->
+        <div class="type-card">
+          <div class="type-image">
+            <img src="https://www.ford.com/is/image/content/dam/brand_ford/en_us/brand/segment_landing/suvs/dm/25_FRD_EPR_0933_billboard.tif?croppathe=1_4x3&wid=900" alt="SUVs and Crossovers" />
+            <div class="category-badge">🏔️ SUVs</div>
+          </div>
+          <div class="type-content">
+            <h3 class="type-title">SUVs and Crossovers</h3>
+            <p class="type-description">
+              The Escape, Explorer, Bronco, and Expedition provide options for urban driving, family trips, and off-road escapades.
+            </p>
+          </div>
+        </div>
+
+        <!-- Vans and Commercial -->
+        <div class="type-card">
+          <div class="type-image">
+            <img src="https://www.ford.com/is/image/content/dam/na/ford/en_us/images/e-transit/2025/dm/24_FRD_ETRN_58380_PRO_wk.tif?croppathe=1_16x7&wid=1440&fmt=webp" alt="Vans and Commercial" />
+            <div class="category-badge">📦 Commercial</div>
+          </div>
+          <div class="type-content">
+            <h3 class="type-title">Vans and Commercial Vehicles</h3>
+            <p class="type-description">
+              The Transit series, including the fully electric E-Transit, supports commercial and personal use with flexible configurations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Coupes and Sports Cars -->
+        <div class="type-card">
+          <div class="type-image">
+            <img src="https://www.vdm.ford.com/content/dam/brand_ford/en_us/brand/performance/mustang-gt3/2024/billboards/3_2/WD240118_00379_desktop.jpg/jcr:content/renditions/cq5dam.web.1440.1440.jpeg" alt="Coupes and Sports Cars" />
+            <div class="category-badge">🏁 Performance</div>
+          </div>
+          <div class="type-content">
+            <h3 class="type-title">Coupes and Sports Cars</h3>
+            <p class="type-description">
+              The Mustang remains the quintessential American muscle car, with powerful engine options and modern tech integrations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

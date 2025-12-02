@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <style>
+      .section06-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .section06-container h1 {
+        width: fit-content !important;
+      }
+
+      .section06-container h3,
+      .section06-container h1,
+      .section06-container h2,
+      .section06-container p,
+      .section06-container ol,
+      .section06-container ul {
+        max-width: 1300px !important;
+      }
+
+      /* Numbered Section */
+      .pre-purchase-checklist {
+        padding-left: 15px;
+        counter-reset: checklist;
+        list-style: none;
+      }
+
+      .checklist-item {
+        counter-increment: checklist;
+        position: relative;
+        padding-left: 60px;
+        margin-bottom: 40px;
+      }
+
+      .checklist-item::before {
+        content: counter(checklist);
+        position: absolute;
+        left: 0;
+        color: #0f3079;
+        font-weight: bolder;
+        background: #f0f4ff;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 1.3em;
+      }
+
+      .checklist-item p strong {
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section06-container">
+      <section
+        class="pre-purchase-checklist-section"
+        id="pre-purchase-checklist-section"
+      >
+        <p>
+          Let's break down exactly where that CPO price premium comes from. It's a transparent cost structure built on four pillars of quality:
+        </p>
+        <ol class="pre-purchase-checklist">
+          <li class="checklist-item">
+            <p>
+              <strong>The Inspection and Labor Cost:</strong> <br />A highly skilled, Hyundai-trained technician doesn't work for free. The 173-point inspection is a labor-intensive process that can take several hours to complete correctly. This diagnostic and inspection labor is the first layer of cost built into the CPO price.
+            </p>
+          </li>
+          <li class="checklist-item">
+            <p>
+              <strong>The Reconditioning Investment:</strong> <br />This is often the largest component of the cost. If the inspection reveals that the tires are at 50% tread, they are replaced. If the brake pads are worn, they are replaced with new ones. Any scratches are professionally touched up, the interior is detailed to the highest standard, and all required maintenance (like oil changes and filter replacements) is performed. These costs, especially when using high-quality Genuine Hyundai Parts, add up quickly but are essential to bringing the vehicle to "like-new" CPO standards.
+            </p>
+          </li>
+          <li class="checklist-item">
+            <p>
+              <strong>The Built-In Warranty Value:</strong> <br />Extended warranties are valuable financial products. The cost of providing the 10-Year/100,000-Mile Powertrain Limited Warranty is factored into the vehicle's price. You are essentially purchasing a comprehensive insurance policy against future mechanical failures, giving you a predictable cost of ownership.
+            </p>
+          </li>
+          <li class="checklist-item">
+            <p>
+              <strong>Program and Administrative Fees:</strong> <br />Running a national program of this caliber involves administrative costs. This includes the complimentary CARFAX® report, the 24/7 roadside assistance network, and the cost of managing the program to ensure consistent quality at every Hyundai dealership.
+            </p>
+          </li>
+        </ol>
+        <p>
+          When you see the higher price on a CPO vehicle, you now know it's not arbitrary. It is a direct reflection of the labor, parts, and protection invested in the car before you even see it.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

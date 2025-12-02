@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 F-150 Lightning - Electrifying Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .performance-section {
+            background: #ebf4ff;
+            padding: 4rem 2rem;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .performance-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .performance-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .performance-title {
+            text-transform: uppercase !important;
+            font-size: 24px;
+            font-weight: 800 !important;
+            color: #00142E !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .performance-subtitle {
+            font-size: 20px;
+            color: #4b5563;
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .performance-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 5px solid #2563eb;
+            line-height: 1.4;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
+            padding: 4px;
+            position: relative;
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .image-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(209, 213, 219, 0.55), transparent 60%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.4), transparent 60%);
+            mix-blend-mode: soft-light;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .image-wrapper:hover {
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+            border-color: rgba(37, 99, 235, 0.6);
+        }
+
+        .image-wrapper:hover::before {
+            opacity: 0.9;
+        }
+
+        .image-wrapper:hover .card-image {
+            transform: scale(1.05);
+            filter: brightness(1.07) saturate(1.05);
+        }
+
+        .card-content {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+        }
+
+        .card-content p {
+            margin-bottom: 1rem;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .table-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .table-intro {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #374151;
+            font-family: 'Georgia', serif;
+            margin-bottom: 1rem;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Arial', sans-serif;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .performance-table thead {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+
+        .performance-table th {
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .performance-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .performance-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .performance-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .performance-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .performance-table tbody tr:hover {
+            background: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .performance-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        @media (max-width: 768px) {
+            .performance-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .performance-header {
+                margin-bottom: 2rem;
+            }
+
+            .performance-title {
+                font-size: 20px;
+            }
+
+            .performance-subtitle {
+                font-size: 18px;
+            }
+
+            .cards-grid {
+                gap: 2rem;
+            }
+
+            .performance-card {
+                padding: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+                padding-left: 0.75rem;
+                border-left-width: 4px;
+            }
+
+            .card-content {
+                font-size: 0.95rem;
+            }
+
+            .performance-table {
+                font-size: 0.8rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .performance-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .performance-title {
+                font-size: 18px;
+            }
+
+            .performance-subtitle {
+                font-size: 16px;
+            }
+
+            .performance-card {
+                padding: 1.25rem;
+            }
+
+            .card-title {
+                font-size: 1.15rem;
+                padding-left: 0.625rem;
+                border-left-width: 3px;
+            }
+
+            .performance-table {
+                font-size: 0.75rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.5rem 0.4rem;
+            }
+
+            .table-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .performance-table {
+                font-size: 0.7rem;
+            }
+
+            .performance-table th,
+            .performance-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .performance-table th {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="performance-section" id="performance-dynamics">
+        <div class="performance-container">
+            <header class="performance-header">
+                <h2 class="performance-title">Electrifying Performance and Driving Dynamics</h2>
+                <p class="performance-subtitle">With its state-of-the-art electric powertrain, the 2025 Ford F-150 Lightning Base ushers in a new era of performance without compromise.</p>
+            </header>
+
+            <div class="cards-grid">
+                <!-- Powertrain and Acceleration Card -->
+                <article class="performance-card" id="powertrain-acceleration">
+                    <div class="card-header">
+                        <h3 class="card-title">Powertrain and Acceleration</h3>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <img src="https://www.ford.com/acslibs/content/dam/na/ford/en_us/images/f150-lightning/2025/jellybeans/2025-f150-lightning-vhp-model-walk-xlt.png" alt="2025 Ford F-150 Lightning XLT" class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        <p>All Base models come equipped with a dual-motor all-wheel-drive system delivering <strong>452 horsepower</strong> and a robust <strong>775 lb-ft of torque</strong>. This torque figure remains consistent across all battery options, ensuring powerful and instant acceleration.</p>
+                        <p>The electric motor configuration enables the Base variant to complete the 0 to 60 mph sprint in roughly <strong>4.2 seconds</strong>, showcasing acceleration that surpasses many traditional gas-powered trucks. Drivers in areas such as Kent and Auburn will appreciate the smooth yet assertive power delivery offered in urban settings and highway merges along SR-167.</p>
+                    </div>
+                </article>
+
+                <!-- Range and Charging Capabilities Card -->
+                <article class="performance-card" id="range-charging">
+                    <div class="card-header">
+                        <h3 class="card-title">Range and Charging Capabilities</h3>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:b1ce78f3-c66b-4607-af13-5b5822c2579f/as/2025-f150-lightning-vhp-electric-media-accord-02.webp?max-quality=75&crop-names=1_8x9&width=1440" alt="2025 Ford F-150 Lightning Charging" class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        <p>The 2025 F-150 Lightning Base utilizes a <strong>98 kWh battery</strong>, rated for an EPA-estimated range of approximately <strong>240 miles</strong> on a full charge. This is adequate for daily commuting and moderate hauling needs common in suburban areas like Maple Valley.</p>
+                        <p>Charging is supported by a maximum DC fast charge rate of <strong>150 kW</strong>, allowing the battery to recharge from 15% to 80% in as little as <strong>32 to 39 minutes</strong>, depending on charger availability. Additionally, the included Mobile Power Cord features an adapter compatible with Tesla's NACS chargers—expanding charging options across the Puget Sound region.</p>
+                        <p>The F-150 Lightning also incorporates real-time charging feedback, universal charge limit setting, and location-based schedule planning, optimizing energy management for unpredictable West Coast traffic patterns.</p>
+                    </div>
+                </article>
+
+                <!-- Towing and Payload Capacity Card -->
+                <article class="performance-card" id="towing-payload">
+                    <div class="card-header">
+                        <h3 class="card-title">Towing and Payload Capacity</h3>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:77383424-4b39-49c0-a265-44ab5c21db75/as/2025-f150-lightning-vhp-performance-2up-right.webp?max-quality=75&crop-names=1_3x2&width=3840" alt="2025 Ford F-150 Lightning Towing" class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        <p>Strength remains a cornerstone, as the Base model can tow up to <strong>7,700 pounds</strong> when equipped with the Standard Range battery. While this is below the top-tier configuration limits, it still supports the hauling needs for landscaping or recreational trailers typical around Kent's commercial districts.</p>
+                        <p>Payload capabilities approach <strong>2,000 pounds</strong>, albeit slightly constrained by battery mass, particularly compared to gas-powered counterparts. The Max Trailer Tow package, available on select trims, enhances towing with features such as an e-locking rear axle, trailer brake controller, and hill descent control—though not standard on the Base trim, these are potential upgrades at Bowen Scarff Ford.</p>
+
+                        <div class="table-container">
+                            <p class="table-intro">A comparison of key power and towing specs is shown below:</p>
+                            <table class="performance-table">
+                                <thead>
+                                    <tr>
+                                        <th>Specification</th>
+                                        <th>Base Model (98 kWh)</th>
+                                        <th>Higher Trim (131 kWh)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="spec-name">Horsepower</td>
+                                        <td class="spec-value">452 hp</td>
+                                        <td class="spec-value">580 hp</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-name">Torque</td>
+                                        <td class="spec-value">775 lb-ft</td>
+                                        <td class="spec-value">775 lb-ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-name">Estimated Range</td>
+                                        <td class="spec-value">240 miles</td>
+                                        <td class="spec-value">Up to 320 miles</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-name">Maximum Towing Capacity</td>
+                                        <td class="spec-value">7,700 lbs</td>
+                                        <td class="spec-value">10,000 lbs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-name">Payload Capacity</td>
+                                        <td class="spec-value">~2,000 lbs</td>
+                                        <td class="spec-value">~1,800 lbs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-name">0-60 mph Time</td>
+                                        <td class="spec-value">4.2 seconds</td>
+                                        <td class="spec-value">3.8 seconds</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

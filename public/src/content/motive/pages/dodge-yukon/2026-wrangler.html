@@ -1,0 +1,534 @@
+<style>
+    /* ===== Base Blog Section Layout ===== */
+    .jeep-wrangler-blog-section { 
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #111827;
+      line-height: 1.7;
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+    .jeep-wrangler-blog-section * { max-width: 100% !important; box-sizing: border-box; }
+    
+    /* Typography */
+    .jeep-wrangler-blog-section p { margin: 1em 0; }
+    .jeep-wrangler-blog-section h2,
+    .jeep-wrangler-blog-section h3,
+    .jeep-wrangler-blog-section h4 {
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #000000;
+    }
+    .jeep-wrangler-blog-section h2 { font-size: 1.6em; }
+    .jeep-wrangler-blog-section h3 { font-size: 1.35em; }
+    
+    /* Tables */
+    .jeep-wrangler-blog-section table.e-rte-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 16px; 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      margin: 32px 0; 
+    }
+    .jeep-wrangler-blog-section table.e-rte-table thead { background: #1a4d2e; color: #fff; }
+    .jeep-wrangler-blog-section table.e-rte-table th, 
+    .jeep-wrangler-blog-section table.e-rte-table td { 
+      padding: 16px 20px; 
+      text-align: left; 
+      border-bottom: 1px solid #e5e7eb; 
+    }
+    .jeep-wrangler-blog-section table.e-rte-table th { 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      font-size: 14px; 
+    }
+    .jeep-wrangler-blog-section table.e-rte-table td { color: #374151; }
+    .jeep-wrangler-blog-section table.e-rte-table tbody tr:nth-child(even) { background: #f9fafb; }
+    .jeep-wrangler-blog-section table.e-rte-table tbody tr:hover { 
+      background: #f0fdf4; 
+      transition: background 0.2s ease-in-out; 
+    }
+    .jeep-wrangler-blog-section table.e-rte-table tbody tr:last-child td { border-bottom: none; }
+    
+    /* Responsive Table */
+    @media (max-width: 700px) {
+      .jeep-wrangler-blog-section table.e-rte-table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+      .jeep-wrangler-blog-section table.e-rte-table th,
+      .jeep-wrangler-blog-section table.e-rte-table td {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+    }
+    
+    /* Links */
+    .jeep-wrangler-blog-section a { 
+      color: #1a4d2e !important; 
+      font-weight: 600 !important; 
+      text-decoration: underline; 
+      text-decoration-thickness: 1.5px; 
+    }
+    .jeep-wrangler-blog-section a:hover { color: #134021 !important; }
+    
+    /* TOC */
+    .jeep-wrangler-blog-section h2 + ul { 
+      border: 1px solid #e5e7eb; 
+      padding: 16px; 
+      margin: 24px 0; 
+      background: #f9fafb; 
+      border-radius: 8px; 
+      list-style: none; 
+    }
+    .jeep-wrangler-blog-section h2 + ul li { margin: 6px 0; }
+    .jeep-wrangler-blog-section h2 + ul li a { text-decoration: none; color: #1a4d2e; }
+    .jeep-wrangler-blog-section h2 + ul li a:hover { text-decoration: underline; }
+  
+    /* Smooth scrolling globally */
+    html { scroll-behavior: smooth; }
+    
+    /* offset for fixed navbars */
+    .jeep-wrangler-blog-section h2[id], 
+    .jeep-wrangler-blog-section h3[id], 
+    .jeep-wrangler-blog-section h4[id] { scroll-margin-top: 90px; }
+  
+    /* highlight on jump */
+    .jeep-wrangler-blog-section :target { animation: highlightFlash 1.2s ease-out; }
+    @keyframes highlightFlash { 
+      0% { background-color: #fff3cd; } 
+      100% { background-color: transparent; } 
+    }
+  
+    /* Image Wrapper Styles */
+    .jeep-wrangler-blog-section .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 32px 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .jeep-wrangler-blog-section .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 4px solid #1a4d2e;
+      outline: 3px dashed #1a4d2e;
+      outline-offset: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .jeep-wrangler-blog-section .image-wrapper img:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(26, 77, 46, 0.25);
+      outline-offset: 12px;
+      border-color: #25663d;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Image Grid Layouts */
+    .jeep-wrangler-blog-section .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-radius: 12px;
+    }
+    .jeep-wrangler-blog-section .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #22c55e;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .jeep-wrangler-blog-section .image-grid img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 32px rgba(34, 197, 94, 0.3);
+      border-color: #1a4d2e;
+    }
+  
+    /* Floating Images */
+    .jeep-wrangler-blog-section .image-float-left, 
+    .jeep-wrangler-blog-section .image-float-right {
+      max-width: 48%;
+      margin: 16px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .jeep-wrangler-blog-section .image-float-left {
+      float: left;
+      margin-right: 24px;
+    }
+    .jeep-wrangler-blog-section .image-float-right {
+      float: right;
+      margin-left: 24px;
+    }
+    .jeep-wrangler-blog-section .image-float-left img, 
+    .jeep-wrangler-blog-section .image-float-right img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #4ade80;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.35s ease-out;
+      cursor: pointer;
+    }
+    .jeep-wrangler-blog-section .image-float-left img:hover {
+      transform: translateX(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(74, 222, 128, 0.35);
+      border-color: #1a4d2e;
+    }
+    .jeep-wrangler-blog-section .image-float-right img:hover {
+      transform: translateX(8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(74, 222, 128, 0.35);
+      border-color: #1a4d2e;
+    }
+  
+    /* Mobile: Remove decorative borders and outlines */
+    @media (max-width: 768px) {
+      .jeep-wrangler-blog-section .image-wrapper img {
+        border: none;
+        outline: none;
+        outline-offset: 0;
+        border-radius: 8px;
+      }
+  
+      .jeep-wrangler-blog-section .image-grid {
+        background: transparent;
+        padding: 0;
+        gap: 16px;
+      }
+  
+      .jeep-wrangler-blog-section .image-grid img {
+        border: none;
+      }
+  
+      .jeep-wrangler-blog-section .image-float-left img,
+      .jeep-wrangler-blog-section .image-float-right img {
+        border: none;
+      }
+      
+      .jeep-wrangler-blog-section .image-float-left,
+      .jeep-wrangler-blog-section .image-float-right {
+        float: none;
+        max-width: 100%;
+        margin: 16px 0;
+      }
+    }
+  
+    /* Images */
+    .jeep-wrangler-blog-section .article-image { margin: 24px 0; text-align: center; max-width: 100%; }
+    .jeep-wrangler-blog-section .article-image img { max-width:100%; border-radius:8px; display:block; }
+    
+    /* floating */
+    .jeep-wrangler-blog-section .article-image.float-right { 
+      float: right; 
+      margin-left: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    .jeep-wrangler-blog-section .article-image.float-left { 
+      float: left; 
+      margin-right: 16px; 
+      margin-bottom: 12px; 
+      max-width: 45%; 
+    }
+    
+    /* clear fix after floats */
+    .jeep-wrangler-blog-section .clearfix::after { content:""; display:table; clear:both; }
+  </style>
+  
+  <section class="jeep-wrangler-blog-section">
+    <p>Embark on your next adventure with the iconic 2026 Jeep Wrangler 4-Door Base—a vehicle that seamlessly blends rugged capability with everyday usability. Whether you're navigating the vibrant streets of Oklahoma City or venturing off-road near Piedmont, OK, the Wrangler 4-Door Base delivers the balanced performance and confidence drivers expect from Jeep's storied legacy. At Joe Cooper Chrysler Dodge Jeep RAM of Yukon, located at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ3x_-vcMIsocR8AcBogVIBNU">12800 Nw 10th St, Yukon, OK 73099</a></strong>, we are proud to offer this trusted SUV to drivers throughout Yukon, Norman, Tuttle, and surrounding communities.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/D21pQVX/JP026-003-WR.jpg" alt="2026 Jeep Wrangler 4-Door Exterior">
+      </div>
+    </div>
+  
+    <p>Reach out today at <strong><a href="tel:+14052651400">(405) 265-1400</a></strong> for expert guidance or visit us to experience the Wrangler firsthand. Confidently explore our selection of <strong><a href="https://joecooperdodgeyukon.com/cars/new-inventory">new vehicles</a></strong> and find the ideal Jeep that fits your lifestyle.</p>
+  
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ul>
+      <li><a href="#the-jeep-wrangler-4-door-base-unveiled">The Jeep Wrangler 4-Door Base Unveiled</a></li>
+      <li><a href="#distinctive-exterior-styling-and-dimensions">Distinctive Exterior Styling and Dimensions</a></li>
+      <li><a href="#capability-and-on-road-dynamics">Capability and On-Road Dynamics</a></li>
+      <li><a href="#comfortable-interior-and-passenger-space">Comfortable Interior and Passenger Space</a></li>
+      <li><a href="#connectivity-and-in-car-technology">Connectivity and In-Car Technology</a></li>
+      <li><a href="#robust-safety-and-driver-assistance">Robust Safety and Driver Assistance</a></li>
+      <li><a href="#understanding-trim-levels-and-available-options">Understanding Trim Levels and Available Options</a></li>
+      <li><a href="#warranty-and-ownership-assurance">Warranty and Ownership Assurance</a></li>
+      <li><a href="#why-choose-joe-cooper-chrysler-dodge-jeep-ram-of-yukon">Why Choose Joe Cooper Chrysler Dodge Jeep RAM of Yukon?</a></li>
+    </ul>
+  
+    <h2 id="the-jeep-wrangler-4-door-base-unveiled">The Jeep Wrangler 4-Door Base Unveiled</h2>
+    <p>The 2026 Jeep Wrangler 4-Door Base stands as a pillar in Jeep's long heritage of creating vehicles that embrace adventure without compromising day-to-day practicality. Designed with a focus on both rugged use and refined driving, this model offers a spacious cabin accessible for families in communities like Mustang, OK, and Edmond, OK, who require versatile transport for both city life and weekend excursions.</p>
+    <p>Built on a sturdy frame that honors Jeep's legendary off-road DNA, the Wrangler 4-Door Base prioritizes durability and reliable performance. This SUV embodies the brand's heritage through a blend of advanced technology and authentic design that sets it apart from competitors. Drivers in Valley Brook and Bethany will appreciate the combination of classic style and modern functionality.</p>
+    <p>At Joe Cooper Chrysler Dodge Jeep RAM of Yukon, our team brings a deep understanding of Jeep's values, ensuring that every customer receives personalized attention and expert advice suited to their driving needs. From learning about the Wrangler's core strengths to exploring financing options on our inventory, clients benefit from our warm, community-oriented approach.</p>
+  
+    <h2 id="distinctive-exterior-styling-and-dimensions">Distinctive Exterior Styling and Dimensions</h2>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://i.ibb.co/PZc9VLPL/JP026-029-WR.jpg" alt="Jeep Wrangler Front Angle">
+    </div>
+  
+    <p>The Wrangler 4-Door Base features an exterior that captures Jeep's unmistakable road presence, resonating with drivers from Blanchard to Newcastle who demand a vehicle built for exploration. Its carefully considered proportions provide an assertive stance, signaling the SUV's readiness for diverse terrains.</p>
+    <p>Functional design choices, such as its signature seven-slot grille and round LED headlamps, reflect both style and practicality, enhancing visibility during evening drives across Moore, OK. Further, the vehicle's design offers noteworthy ground clearance, enabling confident off-road capability while maintaining on-road maneuverability.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/JRzc6jh9/JP026-030-WR.jpg" alt="Jeep Wrangler Side Profile">
+      <img src="https://i.ibb.co/VWgRQddj/JP026-035-WR.jpg" alt="Jeep Wrangler Rear View">
+      <img src="https://i.ibb.co/XrwJcV1X/JP026-046-WR.jpg" alt="Jeep Wrangler Off-Road">
+    </div>
+  
+    <p>Wheel options tailored for ruggedness not only enhance the vehicle's tough aesthetic but also optimize traction and handling across a variety of conditions, critical for drivers navigating Oklahoma's diverse landscape. Appropriately sized doors and strategic body contours improve ingress and egress, important for families commuting in El Reno and Piedmont.</p>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/nqVrgBJq/JP026-047-WR.jpg" alt="Jeep Wrangler Full Exterior View">
+      </div>
+    </div>
+  
+    <p>Key Exterior Dimensions of the 2026 Jeep Wrangler 4-Door Base</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Measurement</strong></th>
+          <th align="right"><strong>Value</strong></th>
+          <th align="left"><strong>Unit</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Overall Length</td>
+          <td align="right">4,785</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Overall Width (excl. mirrors)</td>
+          <td align="right">1,875</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Overall Height</td>
+          <td align="right">1,870</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Wheelbase</td>
+          <td align="right">3,000</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Ground Clearance</td>
+          <td align="right">270</td>
+          <td align="left">mm</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="capability-and-on-road-dynamics">Capability and On-Road Dynamics</h2>
+    <p>Powering the Wrangler 4-Door Base is a robust engine system that delivers dependable performance tailored to a broad range of driving scenarios common in places like Norman and Yukon. While specific horsepower and torque figures vary by configuration, the powertrain focuses on offering a balance of strength and efficiency.</p>
+    <p>The four-wheel-drive setup empowers drivers tackling variable Oklahoma terrain, from urban streets in Bethany to the rugged trails near Mustang. This drivetrain enhances traction and stability, fostering confidence in weather and road conditions throughout the region.</p>
+    <p>The suspension is engineered to absorb shocks effectively, minimizing the impact from rough surfaces and providing a smooth driving experience both on highways and dirt roads. Steering responsiveness and braking control contribute to safe and confident handling vital for everyday commuting and weekend adventures in El Reno and Piedmont.</p>
+  
+    <p>Performance Highlights of the 2026 Jeep Wrangler 4-Door Base</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Specification</strong></th>
+          <th align="right"><strong>Detail</strong></th>
+          <th align="left"><strong>Unit</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Drivetrain</td>
+          <td align="right">4x4 (Four-wheel drive)</td>
+          <td align="left">-</td>
+        </tr>
+        <tr>
+          <td align="left">Ground Clearance</td>
+          <td align="right">270</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Towing Capacity</td>
+          <td align="right">1,587</td>
+          <td align="left">kg</td>
+        </tr>
+        <tr>
+          <td align="left">Fuel Type</td>
+          <td align="right">Gasoline</td>
+          <td align="left">-</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="comfortable-interior-and-passenger-space">Comfortable Interior and Passenger Space</h2>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="image-wrapper" style="max-width: 1000px !important;">
+        <img src="https://i.ibb.co/XkC4rF70/JP026-015-WR.jpg" alt="2026 Jeep Wrangler Interior Dashboard">
+      </div>
+    </div>
+  
+    <p>The cabin of the 2026 Jeep Wrangler 4-Door Base is thoughtfully designed to support families and adventurers from Oklahoma City to Valley Brook, providing enough room for five passengers with a focus on comfort and utility.</p>
+  
+    <div class="image-float-left" style="max-width: 400px !important;">
+      <img src="https://i.ibb.co/mrY8GTR3/JP026-059-WR.jpg" alt="Jeep Wrangler Seating">
+    </div>
+  
+    <p>Blending Jeep's rugged heritage with modern durability, the interior materials are built to withstand active lifestyles. Inside, ergonomically designed seats ensure comfort on long hauls, while generous headroom and legroom easily accommodate adult passengers.</p>
+    <p>Cargo space is versatile, allowing for the accommodation of gear and everyday items. This is especially beneficial for residents in Yukon and Mustang, balancing daily commutes with outdoor pursuits. Storage compartments and thoughtfully placed cup holders enhance convenience for all occupants.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <div class="image-grid">
+      <img src="https://i.ibb.co/jP1znZkr/JP026-061-WR.jpg" alt="Jeep Wrangler Interior Controls">
+      <img src="https://i.ibb.co/358D4syY/JP026-064-WR.jpg" alt="Jeep Wrangler Rear Seating">
+      <img src="https://i.ibb.co/G4SRVycr/JP026-066-WR.jpg" alt="Jeep Wrangler Cargo Area">
+    </div>
+  
+    <p>Interior Space and Cargo Capacity of the 2026 Jeep Wrangler 4-Door Base</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Dimension</strong></th>
+          <th align="right"><strong>Measurement</strong></th>
+          <th align="left"><strong>Unit</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Passenger Capacity</td>
+          <td align="right">5</td>
+          <td align="left">persons</td>
+        </tr>
+        <tr>
+          <td align="left">Headroom (front/rear)</td>
+          <td align="right">1,041 / 1,016</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Legroom (front/rear)</td>
+          <td align="right">1,067 / 918</td>
+          <td align="left">mm</td>
+        </tr>
+        <tr>
+          <td align="left">Cargo Volume (behind rear seats)</td>
+          <td align="right">727</td>
+          <td align="left">liters</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="connectivity-and-in-car-technology">Connectivity and In-Car Technology</h2>
+  
+    <div class="image-float-right" style="max-width: 450px !important;">
+      <img src="https://i.ibb.co/chFxJSL5/JP026-071-WR.jpg" alt="Jeep Wrangler Infotainment System">
+    </div>
+  
+    <p>Upfitting your journeys across Tuttle, Blanchard, and Edmond, the Wrangler Base arrives with intuitive technology designed to keep you connected without distraction. The user-friendly infotainment system supports compatible smartphone integration, allowing drivers to seamlessly access navigation, music, and communication apps.</p>
+    <p>Bluetooth connectivity ensures hands-free calls and streaming audio, while integrated USB ports provide convenient device charging spots. The straightforward interface keeps controls accessible, supporting driver focus and safety on all your drives, from daily commutes to weekend adventures.</p>
+    <p>Tech-forward additions like personalized settings and intuitive voice commands make every drive easier to manage. Available updates and feature packages can enhance these technologies, allowing drivers in communities like Bethany and Moore to tailor their Wrangler experience.</p>
+  
+    <div style="clear: both;"></div>
+  
+    <p>Technology Highlights in the 2026 Jeep Wrangler 4-Door Base</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Feature</strong></th>
+          <th align="left"><strong>Description</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Infotainment Display</td>
+          <td align="left">7-inch touchscreen</td>
+        </tr>
+        <tr>
+          <td align="left">Connectivity</td>
+          <td align="left">Bluetooth, USB ports, Apple CarPlay, Android Auto</td>
+        </tr>
+        <tr>
+          <td align="left">Sound System</td>
+          <td align="left">Standard audio system with six speakers</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="image-float-left" style="max-width: 400px !important;">
+        <img src="https://i.ibb.co/Q3Ds6qGJ/JP026-068-WR.jpg" alt="Jeep Wrangler Interior Detail">
+      </div>
+    
+    <div style="clear: both;"></div>
+  
+    <h2 id="robust-safety-and-driver-assistance">Robust Safety and Driver Assistance</h2>
+    <p>Safety remains a top priority for Jeep and for drivers throughout Oklahoma's communities, such as Piedmont, Newcastle, and Valley Brook. The 2026 Wrangler 4-Door Base integrates key safety features that promote secure driving and peace of mind every mile.</p>
+    <p>Structural reinforcements combined with airbags and advanced braking systems help protect passengers in various scenarios. Driver assistance technologies, including electronic stability control and blind-spot monitoring (available as options), aid in accident prevention.</p>
+    <p>The Jeep Wave® program, included at no additional cost with every new Jeep purchase at Joe Cooper Chrysler Dodge Jeep RAM of Yukon, complements vehicle safety with dedicated support and maintenance resources. This program ensures drivers in Norman and Oklahoma City receive priority maintenance, which contributes directly to vehicle reliability and safety longevity.</p>
+  
+    <p>Highlight Safety Features of the 2026 Jeep Wrangler 4-Door Base</p>
+    <table class="e-rte-table">
+      <thead>
+        <tr>
+          <th align="left"><strong>Safety Feature</strong></th>
+          <th align="left"><strong>Purpose</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Airbags</td>
+          <td align="left">Front and side impact protection</td>
+        </tr>
+        <tr>
+          <td align="left">Electronic Stability Control</td>
+          <td align="left">Maintains vehicle stability on slippery surfaces</td>
+        </tr>
+        <tr>
+          <td align="left">Anti-lock Braking System (ABS)</td>
+          <td align="left">Prevents wheel lockup during braking</td>
+        </tr>
+        <tr>
+          <td align="left">Available Blind Spot Monitoring</td>
+          <td align="left">Alerts driver to vehicles in blind spots</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2 id="understanding-trim-levels-and-available-options">Understanding Trim Levels and Available Options</h2>
+    <p>While this overview focuses on the Base trim of the 2026 Wrangler 4-Door, it's worth noting that Jeep offers a variety of trims and packages tailored to diverse needs and preferences. At Joe Cooper Chrysler Dodge Jeep RAM of Yukon, we guide customers from Newcastle, Bethany, and Moore to discover trim options suited to their desired balance of features, performance, and luxury.</p>
+    <p>Each progressive trim level enhances equipment, upholstery, technology, and off-road capability. Prospective buyers can explore <strong><a href="https://joecooperdodgeyukon.com/cars/new-inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22asc%22%7D%2C%22appliedFilters%22%3A%7B%22model%22%3A%7B%22Wrangler%22%3Atrue%7D%7D%7D">New Wranglers</a></strong> through our online showroom, complete with detailed feature listings and availability.</p>
+  
+    <h2 id="warranty-and-ownership-assurance">Warranty and Ownership Assurance</h2>
+    <p>Owning a 2026 Jeep Wrangler 4-Door Base arrives with foundational confidence backed by manufacturer warranty protections and the renowned Jeep Wave® program. This program includes routine maintenance, extended vehicle support, and exclusive owner perks designed to simplify vehicle ownership across Yukon and surrounding areas, including Blanchard and Tuttle.</p>
+    <p>For ongoing upkeep, Joe Cooper Chrysler Dodge Jeep RAM of Yukon offers convenient scheduling through our <strong><a href="https://joecooperdodgeyukon.com/service">Service Department</a></strong>, staffed by technicians dedicated to preserving your Jeep's performance. Our parts specialists also provide genuine components via the <strong><a href="https://joecooperdodgeyukon.com/parts">Parts Department</a></strong>, ensuring durable and reliable repairs using factory-authorized materials.</p>
+    <p>Regular maintenance and repairs through our service center help uphold safety and enhance resale value, important considerations for families and professionals throughout Edmond, El Reno, and Valley Brook.</p>
+  
+    <h2 id="why-choose-joe-cooper-chrysler-dodge-jeep-ram-of-yukon">Why Choose Joe Cooper Chrysler Dodge Jeep RAM of Yukon?</h2>
+    <p>Our dealership represents more than a place to acquire vehicles—we are a community pillar rooted in trust, family values, and personalized service. We serve clients across Oklahoma City, Yukon, Norman, and other neighboring communities with a commitment to honesty and long-term relationships.</p>
+    <p>Choosing Joe Cooper Chrysler Dodge Jeep RAM of Yukon ensures access to expert knowledge about the 2026 Jeep Wrangler 4-Door Base, a clean and comfortable showroom environment, and a team dedicated to supporting you throughout ownership. Whether coordinating maintenance, advising on vehicle selection, or helping with trade-in evaluations through our <strong><a href="https://joecooperdodgeyukon.com/trade">Trade Valuation</a></strong> tool, you receive the care and transparency that form the foundation of our legacy.</p>
+    <p>Explore our extensive inventory of <strong><a href="https://joecooperdodgeyukon.com/cars/used-inventory">All Used Vehicles</a></strong> and new Jeep selections today. We invite you to schedule a personalized visit or test drive by contacting us at <strong><a href="tel:+14052651400">(405) 265-1400</a></strong> or visiting us at <strong><a href="https://www.google.com/maps/place/?q=place_id:ChIJ3x_-vcMIsocR8AcBogVIBNU">12800 Nw 10th St, Yukon, OK 73099</a></strong>.</p>
+    <p>Experience firsthand why so many drivers throughout the Yukon area trust us to help find their ideal Jeep Wrangler. Your next journey awaits, and with the 2026 Jeep Wrangler 4-Door Base, every path is open.</p>
+  
+    <p>© 2025 Joe Cooper Chrysler Dodge Jeep RAM of Yukon</p>
+  </section>

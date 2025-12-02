@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ford Co-Pilot360 Assist+ - Subsections</title>
+    <style>
+      .cp-wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: "Inter", Arial, sans-serif;
+        line-height: 1.7;
+        color: #1f2937;
+      }
+
+      .cp-banner {
+        height: 12px;
+        background: linear-gradient(90deg, #0b4ea2, #1f7ae0 60%, #0b4ea2);
+        border-radius: 10px;
+        margin-bottom: 1.75rem;
+      }
+
+      .cp-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .cp-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        position: relative;
+      }
+
+      .cp-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: linear-gradient(180deg, #1f7ae0, #0b4ea2);
+        border-radius: 14px 0 0 14px;
+      }
+
+      .cp-heading {
+        font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+        font-weight: 800;
+        color: #0b3b7a;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .cp-icon {
+        width: 28px;
+        height: 28px;
+        color: #1f7ae0;
+        flex-shrink: 0;
+      }
+
+      .cp-text {
+        font-size: 1rem;
+        color: #374151;
+        margin: 0 0 0.9rem;
+      }
+
+      .cp-text:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
+        .cp-wrap {
+          padding: 1.25rem;
+        }
+
+        .cp-card {
+          padding: 1.25rem;
+        }
+
+        .cp-icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cp-wrap">
+      <div class="cp-banner"></div>
+      <div class="cp-grid">
+        <article class="cp-card">
+          <h2 class="cp-heading">
+            <svg class="cp-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M3.6 12h16.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M7.5 18.5l2.2-4.2M16.5 18.5l-2.2-4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <span>Evasive Steering Assist</span>
+          </h2>
+          <p class="cp-text">Unexpected obstacles are an unfortunate reality of driving. Evasive Steering Assist is designed to help you avoid a potential collision when braking alone isn't enough.</p>
+          <p class="cp-text">This feature does not steer for you, but it provides additional steering support if it detects a slow-moving or stationary vehicle ahead and determines a collision is imminent. If you initiate an evasive steering maneuver, the system amplifies your input, enabling you to steer around the obstacle with greater control and stability than you might have on your own. It acts as an instant reflex booster, providing critical support when seconds matter most.</p>
+        </article>
+
+        <article class="cp-card">
+          <h2 class="cp-heading">
+            <svg class="cp-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 4.5 6.25 12.75 6.25 12.75S18.25 13.5 18.25 9A6.25 6.25 0 0 0 12 2.75z" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+            <span>Voice-Activated Touchscreen Navigation System</span>
+          </h2>
+          <p class="cp-text">The final key component of Ford Co-Pilot360 Assist+ is the integrated Voice-Activated Touchscreen Navigation System. This isn't just a map; it's a comprehensive travel companion.</p>
+          <p class="cp-text">The system features pinch-to-zoom capability for easy map viewing and provides real-time traffic updates through SiriusXM Traffic and Travel Link. This enables the system to provide intelligent routing, helping you avoid traffic congestion and find the most efficient route to your destination. The voice activation allows you to find points of interest, input a destination, or find the nearest gas station without ever taking your hands off the wheel. This seamless integration ensures you stay connected and on track while keeping your focus firmly on the road ahead.</p>
+        </article>
+      </div>
+    </section>
+  </body>
+  </html>
+
+

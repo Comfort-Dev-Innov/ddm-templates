@@ -1,0 +1,109 @@
+	<style>
+		.x6-gle-intro {
+			position: relative !important;
+			background: #ffffff !important;
+			isolation: isolate !important;
+		}
+		.x6-gle-intro::before {
+			content: '' !important;
+			position: absolute !important;
+			top: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			height: 15px !important;
+			background: linear-gradient(135deg, #0366b0 0%, #000000 50%, #0366b0 100%) !important;
+			clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%) !important;
+			z-index: 0 !important;
+		}
+
+		.x6-gle-intro-container {
+			padding: 0 0 40px 0 !important;
+			line-height: 1.6 !important;
+			max-width: 1300px !important;
+			margin: 0 auto !important;
+		}
+		.x6-gle-intro-container h1 {
+			width: fit-content !important;
+		}
+		.x6-gle-intro-container h3,
+		.x6-gle-intro-container h1,
+		.x6-gle-intro-container h2,
+		.x6-gle-intro-container p,
+		.x6-gle-intro-container ol,
+		.x6-gle-intro-container ul {
+			max-width: 1300px !important;
+			color: #000000 !important;
+		}
+
+	/* Header + big title (inspired by intro-01 article-title) */
+	.x6-gle-header {
+		text-align: center !important;
+		margin: 0 0 2.5rem !important;
+		padding: 2rem 0 !important;
+		border-bottom: 2px solid #f0f0f0 !important;
+	}
+	.x6-gle-title {
+		font-size: clamp(2rem, 5vw, 3.5rem) !important;
+		font-weight: 700 !important;
+		color: #1a1a1a !important;
+		line-height: 1.2 !important;
+		margin: 0 !important;
+		text-wrap: balance !important;
+		animation: fadeUp 600ms ease-out both !important;
+	}
+	.x6-gle-title strong {
+		font-weight: 900 !important;
+		color: #0366b0 !important;
+	}
+
+		/* Article-like text polish */
+		.x6-gle-lede {
+			margin: 0 0 14px !important;
+			text-wrap: pretty !important;
+		}
+		.x6-gle-intro-container a {
+			color: #0366b0 !important;
+			text-decoration: none !important;
+			text-underline-offset: 2px !important;
+			text-decoration-thickness: 1px !important;
+			text-decoration-color: transparent !important;
+			transition: color 200ms ease, text-decoration-color 200ms ease, transform 200ms ease !important;
+		}
+		.x6-gle-intro-container a:hover {
+			color: #000000 !important;
+			text-decoration-color: currentColor !important;
+			transform: translateY(-1px) !important;
+		}
+
+		/* Distinct callout for the "Explore our..." line */
+		.x6-gle-cta {
+			background: #f7fbff !important;
+			border: 1px solid rgba(3, 102, 176, 0.3) !important;
+			border-left: 4px solid #0366b0 !important;
+			border-radius: 10px !important;
+			padding: 14px 16px !important;
+			margin: 18px 0 0 !important;
+			box-shadow: 0 1px 0 rgba(0,0,0,0.03) !important;
+			transition: box-shadow 200ms ease, transform 200ms ease !important;
+		}
+		.x6-gle-cta:hover {
+			box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+			transform: translateY(-1px) !important;
+		}
+
+		@keyframes fadeUp {
+			from { opacity: 0 !important; transform: translateY(6px) !important; }
+			to   { opacity: 1 !important; transform: translateY(0) !important; }
+		}
+	</style>
+
+	<div class="x6-gle-intro-container">
+		<section class="x6-gle-intro" aria-labelledby="x6-gle-title">
+		<header class="x6-gle-header">
+			<h1 id="x6-gle-title" class="x6-gle-title"><strong>2026 BMW X6 vs. Mercedes-Benz GLE Coupe</strong>: A Definitive Luxury SUV Showdown for Edmond Drivers</h1>
+		</header>
+			<p class="x6-gle-lede">Experience a refined blend of sport-performance and luxurious utility as we compare the acclaimed 2026 BMW X6 against the equally stylish but less substantiated 2026 Mercedes-Benz GLE Coupe. For drivers in Edmond, Moore, and Choctaw, this in-depth review highlights why the <strong>BMW X6</strong> from Jackie Cooper BMW — located at <a href="https://www.google.com/maps/place/?q=place_id:ChIJaSuP28IesocRIvRN-5tbg-E">14145 N Broadway Ext, Edmond, OK 73013</a> — represents the premium choice. Contact us anytime at <a href="tel:4057553600">(405) 755-3600</a> to schedule a personalized test drive or gain expert advice.</p>
+			<p class="x6-gle-cta">Explore our <a href="https://cooperbmw.com/inventory?filters=%7B%22sortBy%22%3A%7B%22option%22%3A%7B%22label%22%3A%22Price%22%2C%22value%22%3A%22price%22%2C%22type%22%3A%22value%22%7D%2C%22direction%22%3A%22desc%22%7D%2C%22appliedFilters%22%3A%7B%22category%22%3A%7B%22value%22%3A%7B%22SUV%22%3Atrue%7D%7D%7D%7D">All New SUVs</a> inventory today for model availability.</p>
+		</section>
+	</div>
+	</div>

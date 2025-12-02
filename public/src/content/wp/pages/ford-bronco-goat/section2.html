@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bronco G.O.A.T. Modes - Section 2</title>
+  <style>
+    /* Unique styling for this page */
+    .bronco-modes-wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.75;
+      color: #1f2937;
+      font-family: 'Georgia', serif;
+    }
+
+    .modes-block {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      overflow: visible; /* allow decorative bar to sit above card */
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      position: relative;
+      z-index: 0;
+    }
+
+    .modes-block::before {
+      content: '';
+      position: absolute;
+      top: -12px; /* lift above the block */
+      left: 24px;
+      right: 24px;
+      height: 12px;
+      background: linear-gradient(135deg, #0b5ab8, #03234a);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .modes-head {
+      padding: 1.5rem 1.5rem 0.5rem;
+    }
+
+    .modes-title {
+      font-size: clamp(1.8rem, 5vw, 2.3rem);
+      font-weight: 900 !important;
+      color: #0f2a4a;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .modes-hero {
+      width: 100%;
+      overflow: hidden;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .modes-hero img { width: 100%; height: 420px; object-fit: cover; display: block; }
+
+    .modes-desc { padding: 1rem 1.5rem 0.5rem; color: #374151; }
+
+    .mode-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem 1.75rem;
+    }
+
+    .mode-card {
+      background: linear-gradient(180deg,#f8fbff,#eff6ff);
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(2,6,23,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mode-card .mode-icon {
+      width: 56px;
+      height: 56px;
+      margin: 1rem 1rem 0.25rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b3b6e10;
+      border: 1px solid #cfe2ff;
+    }
+
+    .mode-card .mode-icon svg { width: 32px; height: 32px; }
+    .mode-card .mode-content { padding: 0.5rem 1rem 1.1rem; }
+    .mode-card .mode-title { font-weight: 800; color:#0b3b6e; margin: 0 0 0.4rem; }
+    .mode-card p { margin: 0; text-align: justify; color:#2f3b47; font-size: 0.98rem; }
+
+    @media (max-width: 768px) {
+      .bronco-modes-wrap { padding: 1rem; }
+      .modes-hero img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="bronco-modes-wrap">
+    <!-- Standard Modes -->
+    <section class="modes-block">
+      <header class="modes-head">
+        <h2 class="modes-title">Standard Modes for Your Everyday Washington Drive</h2>
+      </header>
+      <div class="modes-hero">
+        <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:a092a2e8-dbe7-4a82-9025-fb839635a365/as/26_bronco_roofcolors_backup.webp?max-quality=75&crop-names=1_3x4&width=1920" alt="Ford Bronco on Washington roads">
+      </div>
+      <div class="modes-desc">
+        <p>Most 2025 Ford Bronco models come equipped with a set of five standard G.O.A.T. Modes designed to handle the day-to-day scenarios every Kent driver encounters.</p>
+      </div>
+      <div class="mode-cards">
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="#0b3b6e" stroke-width="2"/>
+              <circle cx="12" cy="12" r="2" fill="#0b3b6e"/>
+              <path d="M3 12h18" stroke="#0b3b6e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Normal:</h3>
+            <p>This is your go-to setting for everyday driving. Perfect for running errands on Kent-Kangley Road or cruising down Central Avenue, Normal mode provides a balanced blend of performance, comfort, and fuel efficiency.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 19c7 0 9-6 9-12-6 0-12 2-12 9 0 2 1 3 3 3z" fill="#0b3b6e"/>
+              <path d="M13 7c2-3 4-4 6-4-1 2-2 4-6 4z" fill="#0b3b6e"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Eco:</h3>
+            <p>Stuck in traffic on I-5? Switch to Eco mode. This setting is designed to maximize fuel economy by softening the throttle response and optimizing transmission shifts for efficiency, helping you save at the pump during your commute.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="#0b3b6e"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Sport:</h3>
+            <p>When the road opens up, Sport mode injects a dose of excitement into your drive. It sharpens throttle response, adjusts shift patterns for a more aggressive feel, and tightens steering for enhanced feedback. It's the perfect way to enjoy a spirited drive on a scenic route like Green Valley Road.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3C9 7 7 9 7 12a5 5 0 1010 0c0-3-2-5-5-9z" fill="#0b3b6e"/>
+              <path d="M5 20c3-1 6-1 9 0" stroke="#0b3b6e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Slippery:</h3>
+            <p>A non-negotiable for anyone living in the Puget Sound region. During our infamous rainy seasons, Slippery mode provides extra confidence on wet or icy pavement. It lowers throttle response and adjusts the traction and stability control systems to help prevent wheelspin and maintain grip.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 16c3-2 7-2 10 0s7 2 10 0" stroke="#0b3b6e" stroke-width="2" fill="none"/>
+              <path d="M2 20c3-2 7-2 10 0s7 2 10 0" stroke="#0b3b6e" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Sand:</h3>
+            <p>While you might not find dunes in downtown Kent, this mode is perfect for adventures to the Washington coast or navigating loose gravel access roads. It optimizes power delivery and transmission shifts to maintain momentum and prevent the Bronco from getting bogged down in soft terrain.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Advanced Off-Road Modes -->
+    <section class="modes-block">
+      <header class="modes-head">
+        <h2 class="modes-title">Advanced Off-Road Modes: Unleash Your Wild Side</h2>
+      </header>
+      <div class="modes-hero">
+        <img src="https://genericagiledealer.blob.core.windows.net/images/content/blogimages/62577d42-6af2-4c36-99b9-4afe3e16605f.jpg" alt="Bronco advanced off-road modes">
+      </div>
+      <div class="modes-desc">
+        <p>For those who hear the call of the mountains, higher-level Bronco trims, such as the Badlands, Wildtrak, and Raptor, offer specialized modes to conquer the most demanding trails. These are the modes that truly let you explore the backcountry around areas like Mount Rainier National Park or the Evans Creek ORV Park.</p>
+      </div>
+
+      <div class="mode-cards">
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 17c2-1 4-1 6 0s4 1 6 0 4-1 6 0" stroke="#0b3b6e" stroke-width="2"/>
+              <path d="M4 13h4M10 13h4M16 13h4" stroke="#0b3b6e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Mud/Ruts:</h3>
+            <p>After a classic Washington downpour, local trails can become a muddy challenge. Available on trims like the Black Diamond and Badlands, this mode engages the 4x4 High system and fine-tunes the traction control to allow for some wheelspin, which helps clear mud from the tire treads and pull you through the muck.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20l7-10 5 6 3-4 5 8H2z" fill="#0b3b6e"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Rock Crawl:</h3>
+            <p>Found on the most capable off-road trims, Rock Crawl is for serious, low-speed technical challenges. It engages 4x4 Low, locks the rear differential (if equipped), and provides maximum throttle control for precisely navigating large obstacles on trails in the Mount Baker-Snoqualmie National Forest.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h8a4 4 0 010 8H4z" fill="#0b3b6e"/>
+              <path d="M14 6l6 4-6 4V6z" fill="#0b3b6e"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Baja (Raptor):</h3>
+            <p>This mode is engineered for high-speed, off-road performance. While named for desert racing, it’s perfectly suited for flying down gravel forest service roads in the Cascades. Baja mode optimizes suspension, reduces turbo lag, and holds gears longer for maximum power and control when the trail opens up.</p>
+          </div>
+        </article>
+
+        <article class="mode-card">
+          <div class="mode-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="10" width="8" height="6" rx="1" fill="#0b3b6e"/>
+              <circle cx="8" cy="18" r="2" fill="#0b3b6e"/>
+              <circle cx="17" cy="18" r="2" fill="#0b3b6e"/>
+              <path d="M11 13h6l2 3" stroke="#0b3b6e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Tow-Haul (Raptor):</h3>
+            <p>Need to pull your boat to Lake Tapps or haul a trailer for a camping trip? The Bronco Raptor’s Tow-Haul mode adjusts transmission shift points to keep the engine in its powerband, making towing heavy loads feel effortless and secure.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+

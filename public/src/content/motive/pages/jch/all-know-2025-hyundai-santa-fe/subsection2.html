@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Required Motive styling overrides */
+      .towing-capacity-main-container {
+        padding: 40px 0 !important;
+        line-height: 1.6 !important;
+        max-width: 1300px;
+        margin: 0 auto;
+        background: white;
+      }
+
+      .towing-capacity-main-container h1 {
+        width: fit-content !important;
+      }
+
+      .towing-capacity-main-container h3,
+      .towing-capacity-main-container h1,
+      .towing-capacity-main-container h2,
+      .towing-capacity-main-container p,
+      .towing-capacity-main-container ol,
+      .towing-capacity-main-container ul {
+        max-width: 1300px !important;
+      }
+
+      .towing-section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #012b5d;
+        margin-bottom: 2rem;
+        text-align: left;
+        opacity: 0;
+        animation: towingFadeInLeft 0.8s ease-out 0.2s forwards;
+        position: relative;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .towing-section-title:hover {
+        color: #002c5f;
+      }
+
+      .towing-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #012b5d, #002c5f);
+        border-radius: 2px;
+        transition: width 0.5s ease;
+        animation: towingExpandLine 1s ease-out 0.8s forwards;
+      }
+
+      .towing-icon-wrapper {
+        display: flex;
+        opacity: 0;
+        animation: towingIconFloat 0.8s ease-out 0.4s forwards;
+      }
+
+      .towing-svg-icon {
+        width: 40px;
+        height: 40px;
+        transition: all 0.3s ease;
+      }
+
+      .towing-svg-icon:hover {
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      .towing-main-content-wrapper {
+        opacity: 0;
+        animation: towingFadeInUp 0.8s ease-out 0.4s forwards;
+      }
+
+      .towing-text-paragraph {
+        font-size: 1.05rem;
+        color: #333;
+        margin: 2rem 0 !important;
+        line-height: 1.7;
+        transition: transform 0.2s ease;
+      }
+
+      .towing-text-paragraph:hover {
+        transform: translateX(5px);
+      }
+
+      .towing-text-paragraph:last-child {
+        margin-bottom: 0;
+      }
+
+      .towing-highlight-span {
+        background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+        padding: 0.2rem 0.6rem;
+        border-radius: 30px;
+        font-weight: 600;
+        color: #012b5d;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin: 0.2rem 0;
+      }
+
+      .towing-highlight-span:hover {
+        background: linear-gradient(135deg, #e6f3ff, #dae9ff);
+        transform: scale(1.02);
+        box-shadow: 0 2px 8px rgba(1, 43, 93, 0.1);
+      }
+
+      .towing-brand-text {
+        color: #012b5d;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .towing-brand-text:hover {
+        color: #002c5f;
+      }
+
+      .towing-featured-section {
+        background: linear-gradient(135deg, #012b5d, #002c5f);
+        color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+        box-shadow: 0 8px 25px rgba(1, 43, 93, 0.2);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: towingFadeInUp 0.8s ease-out 0.8s forwards;
+      }
+
+      .towing-featured-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(1, 43, 93, 0.3);
+      }
+
+      .towing-featured-section .towing-brand-text {
+        color: #ffffff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .towing-featured-section .towing-brand-text:hover {
+        color: #e6f3ff;
+      }
+
+      .towing-bordered-section {
+        border: 2px solid #012b5d;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+        background: linear-gradient(135deg, #fafbff, #f8faff);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(15px);
+        animation: towingFadeInUp 0.8s ease-out 1s forwards;
+      }
+
+      .towing-bordered-section:hover {
+        border-color: #002c5f;
+        background: linear-gradient(135deg, #f8faff, #f0f6ff);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(1, 43, 93, 0.1);
+      }
+
+      .towing-capacity-main-container a {
+        color: #012b5d;
+        text-decoration: none;
+        font-weight: 700;
+        position: relative;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid transparent;
+      }
+
+      .towing-capacity-main-container a:hover {
+        color: #002c5f;
+        border-bottom-color: #002c5f;
+        transform: translateY(-1px);
+      }
+
+      .towing-capacity-main-container a::after {
+        content: " ↗";
+        font-size: 0.8em;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .towing-capacity-main-container a:hover::after {
+        opacity: 0.7;
+      }
+
+      /* Animations */
+      @keyframes towingFadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes towingFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes towingExpandLine {
+        from {
+          width: 0;
+        }
+        to {
+          width: 120px;
+        }
+      }
+
+      @keyframes towingIconFloat {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .towing-capacity-main-container {
+          padding: 20px 15px !important;
+        }
+
+        .towing-section-title {
+          font-size: 1.6rem;
+          margin-bottom: 1.5rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+
+        .towing-text-paragraph {
+          font-size: 1rem;
+        }
+
+        .towing-text-paragraph:hover {
+          transform: none;
+        }
+      }
+
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .towing-section-title,
+        .towing-main-content-wrapper,
+        .towing-icon-wrapper {
+          animation: none;
+          opacity: 1;
+        }
+
+        .towing-section-title::after {
+          animation: none;
+          width: 120px;
+        }
+
+        .towing-text-paragraph:hover,
+        .towing-highlight-span:hover,
+        .towing-svg-icon:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="towing-capacity-main-container">
+      <h2 class="towing-section-title">
+        Towing Capacity
+        <div class="towing-icon-wrapper">
+          <svg
+            fill="#012b5d"
+            height="40px"
+            width="40px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 256 191"
+            enable-background="new 0 0 256 191"
+            xml:space="preserve"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M215.477,148.488c-11.196,0-20.256,9.06-20.256,20.256c0,11.196,9.06,20.256,20.256,20.256 c11.196,0,20.256-9.06,20.256-20.256C235.733,157.548,226.673,148.488,215.477,148.488z M215.477,176.503 c-4.253,0-7.759-3.506-7.759-7.759c0-4.253,3.506-7.759,7.759-7.759c4.253,0,7.759,3.506,7.759,7.759 C223.236,172.997,219.73,176.503,215.477,176.503z M252.247,149.646h-4.382v-18.404c0-6.482-4.837-12.269-11.393-12.269h-21.033 c-0.442,0-0.963-0.056-1.258-0.35l-32.778-31.905c-1.473-1.473-3.265-2.726-5.401-2.8H152.34v80.627h35.055 c0.81,0,1.344-0.801,1.491-1.538c2.21-12.669,13.258-22.318,26.59-22.318s24.381,9.649,26.59,22.318 c0.147,0.81,0.606,1.538,1.416,1.538h2.629c4.199,0,7.887-3.6,7.887-7.725v-5.451C254,150.558,253.131,149.646,252.247,149.646z M198.788,118.972h-35.931c-0.884,0-1.753-0.869-1.753-1.753V94.434c0-0.884,0.869-1.753,1.753-1.753h11.393 c0.442,0,1.335,0.665,1.703,0.96l23.718,22.698C200.555,117.444,200.188,118.972,198.788,118.972z M87.96,148.475 c-11.196,0-20.256,9.06-20.256,20.256c0,11.196,9.06,20.256,20.256,20.256c11.196,0,20.256-9.06,20.256-20.256 C108.216,157.535,99.156,148.475,87.96,148.475z M87.96,176.489c-4.253,0-7.759-3.506-7.759-7.759s3.506-7.759,7.759-7.759 c4.253,0,7.759,3.506,7.759,7.759S92.213,176.489,87.96,176.489z M146.206,110.829v53.715h-27.234h-2.8 c-0.81-0.212-1.473-0.727-1.62-1.538c-2.21-12.669-13.258-21.456-26.59-21.456s-24.381,8.786-26.59,21.456 c-0.147,0.736-0.81,1.325-1.62,1.538H40.164c-3.927-0.212-7.011-3.396-7.011-7.323v-24.227h66.821 c-3.224-3.775-5.174-8.669-5.174-14.022c0-4.969,1.681-9.543,4.5-13.193C76.976,77.835,45.414,39.293,36.393,26.226l-5.289,33.791 l5.416,0.706l-3.305,25.36l-3.966-0.517c-0.094,0.598-0.185,1.178-0.271,1.723c7.237,3.125,12.086,10.231,12.086,18.247 c0,1.03-0.084,2.069-0.246,3.12c-1.557,9.85-10.022,16.873-19.705,16.873c-1.029,0-2.069-0.084-3.109-0.24H18 c-7.791-1.233-13.826-6.814-16-13.873l9.494-2.91c1.103,3.564,4.123,6.375,8.057,6.991h-0.005c0.533,0.084,1.055,0.12,1.578,0.12 c4.844,0,9.144-3.543,9.907-8.496c0.089-0.538,0.12-1.061,0.12-1.578c0-4.844-3.543-9.139-8.491-9.907 c-1.312-0.204-2.466-0.904-3.245-1.975c-0.773-1.071-1.092-2.383-0.888-3.689c0-0.005,0.408-2.578,0.89-5.685l-3.052-0.398 l3.305-25.36l5.531,0.721l6.295-40.186c-0.528-0.789-0.93-1.405-1.123-1.735c2.78-0.435,21.983-14.516,21.983-14.516 C71.016,25.228,126.506,88.491,146.206,110.829z"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </h2>
+
+      <div class="towing-main-content-wrapper">
+        <p class="towing-text-paragraph">
+          The 2025 Santa Fe is built to haul. For models equipped with the 2.5T
+          engine, you get a robust standard towing capacity of 3,500 pounds,
+          which is more than enough for many small trailers and weekend toys.
+        </p>
+
+        <p class="towing-text-paragraph towing-featured-section">
+          However, for the serious adventurer, the
+          <a
+            href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Santa_Fe-XRT-5NMP3DGL0SH073837"
+            target="_blank"
+            class="towing-brand-text"
+            >XRT trim</a
+          >
+          stands apart. It elevates the Santa Fe's capability with an increased
+          towing capacity of up to 4,500 pounds.
+          <span
+            class="towing-highlight-span"
+            style="background: rgba(255, 255, 255, 0.2); color: white"
+            >This significant upgrade opens up a world of possibilities for
+            Oklahoma families.</span
+          >
+          It's enough to confidently tow a fishing boat for a day on the water,
+          or to haul a trailer loaded with ATVs for an exciting weekend.
+        </p>
+
+        <div class="towing-bordered-section">
+          <p class="towing-text-paragraph">
+            The efficient
+            <a
+              href="https://joecooperhyundai.com/inventory/New-2025-Hyundai-Santa_Fe_Hybrid-Limited-5NMP34G15SH041464"
+              target="_blank"
+              >Hybrid</a
+            >
+            models are also impressively capable, offering a towing capacity of
+            2,000 pounds—perfect for personal watercraft, pop-up campers, or
+            small utility trailers. To make every towing experience safer and
+            more convenient, all 2025 Santa Fe models come standard with Trailer
+            Sway Control and a trailer pre-wire connection, so you're ready to
+            go from day one.
+          </p>
+          <p class="towing-text-paragraph">
+            If your weeks are filled with highway travel and your weekends are
+            dedicated to adventure—towing the boat, heading to the deer lease,
+            or taking a road trip to the Ozarks—the powerful and capable 2.5T
+            engine is your ideal partner. Conversely, if your primary focus is
+            navigating the daily commute with maximum efficiency, enjoying a
+            quiet and smooth ride in city traffic, and reducing your fuel
+            budget, the smart and sophisticated 1.6T Hybrid is tailor-made for
+            you. <br/><br/>
+            <span class="towing-highlight-span"
+              >By considering what your typical week looks like, you can easily
+              identify the powertrain that will best serve your needs.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

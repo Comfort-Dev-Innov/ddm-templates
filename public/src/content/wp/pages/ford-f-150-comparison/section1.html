@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-150 Comparison - Section 1</title>
+    <style>
+        /* Unique styling for this section */
+        .f150s1-wrap {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.75;
+            color: #1f2937;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #f6fbff 0%, #eef5ff 100%);
+            border: 1px solid #e2ecff;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+        }
+
+        .f150s1-wrap::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            right: 24px;
+            height: 12px;
+            background: linear-gradient(135deg, #0b5ab8, #03234a);
+            border-radius: 12px 12px 0 0;
+            pointer-events: none;
+        }
+
+        .f150s1-head {
+            margin-bottom: 1rem;
+        }
+
+        .f150s1-title {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-weight: 900 !important;
+            color: #0f2a4a;
+            letter-spacing: 0.2px;
+            margin: 0 0 1rem 0;
+        }
+
+        .f150s1-hero {
+            margin: 0 0 1.5rem 0;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #dbeafe;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .f150s1-hero img {
+            display: block;
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .f150s1-body {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+
+        .f150s1-body p { margin: 0; text-align: justify; font-size: 1.05rem; }
+
+        @media (max-width: 768px) {
+            .f150s1-wrap { padding: 1rem; }
+            .f150s1-hero img { height: 260px; }
+            .f150s1-title { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <section class="f150s1-wrap">
+        <header class="f150s1-head">
+            <h2 class="f150s1-title">Built Ford Tough: A Legacy of Excellence for Kent's Demands</h2>
+        </header>
+
+        <figure class="f150s1-hero">
+            <img src="https://www.assets.ford.com/adobe/assets/urn:aaid:aem:b4503762-ab6a-415a-ba6f-f420e6663811/as/25_FRD_F15_64400_FRDNTRKK0042.webp?max-quality=75&crop-names=1_21x9&width=1920" alt="2025 Ford F-150 hero image">
+        </figure>
+
+        <div class="f150s1-body">
+            <p>Ford's "Built Ford Tough" slogan isn't just a marketing catchphrase; it's a promise backed by decades of delivering America's best-selling truck. For 2025, the F-150 continues to refine this legacy, offering advancements that directly benefit Kent residents.</p>
+        </div>
+    </section>
+</body>
+</html>
+
+
