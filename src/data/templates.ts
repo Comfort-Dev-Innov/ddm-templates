@@ -1,7 +1,7 @@
 export interface Template {
   name: string;
   fileName: string;
-  category: 'base-temp' | 'combined-temp';
+  category: string;
   path: string;
   brand?: string;  // For motive templates
   project?: string | null;  // For motive templates - null if file is directly in brand folder
