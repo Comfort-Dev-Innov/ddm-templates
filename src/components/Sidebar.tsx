@@ -35,8 +35,10 @@ import {
   baseTemplates,
   combinedTemplates,
   wixBaseTemplates,
-  wpTemplates,
-  motiveTemplates,
+  wpBaseTemplates,
+  motivePages,
+  wixPages,
+  wpPages,
 } from "@/data/templates";
 import { TemplatePreview } from "./TemplatePreview";
 import {
@@ -60,14 +62,35 @@ export function AppSidebar() {
 
   // Load template type from localStorage on mount, default to "motive-templates"
   const [templateType, setTemplateType] = useState<
-    "motive-templates" | "motive" | "wix" | "wp"
+    | "motive-templates"
+    | "motive"
+    | "wix"
+    | "wp"
+    | "wix-pages"
+    | "wp-pages"
   >(() => {
     const saved = localStorage.getItem("templateType");
-    return (saved as "motive-templates" | "motive" | "wix" | "wp") || "motive-templates";
+    return (
+      (saved as
+        | "motive-templates"
+        | "motive"
+        | "wix"
+        | "wp"
+        | "wix-pages"
+        | "wp-pages") || "motive-templates"
+    );
   });
 
   // Save template type to localStorage whenever it changes
-  const handleTemplateTypeChange = (value: "motive-templates" | "motive" | "wix" | "wp") => {
+  const handleTemplateTypeChange = (
+    value:
+      | "motive-templates"
+      | "motive"
+      | "wix"
+      | "wp"
+      | "wix-pages"
+      | "wp-pages"
+  ) => {
     setTemplateType(value);
     localStorage.setItem("templateType", value);
   };
@@ -80,10 +103,19 @@ export function AppSidebar() {
     return hoveredTemplate === templateFileName;
   };
 
+  // Derive a human-readable name from the file name
+  // Example: "2026-hyundai-santa-cruz.html" -> "2026 hyundai santa cruz"
+  const getDisplayName = (template: { fileName: string }) => {
+    const baseName = template.fileName.replace(/\.(html|txt)$/i, "");
+    return baseName.replace(/-/g, " ");
+  };
+
   const currentBaseTemplates = useMemo(() => {
     if (templateType === "motive-templates") return baseTemplates;
     if (templateType === "wix") return wixBaseTemplates;
-    if (templateType === "wp") return wpTemplates;
+    if (templateType === "wp") return wpBaseTemplates;
+    if (templateType === "wix-pages") return wixPages;
+    if (templateType === "wp-pages") return wpPages;
     return []; // For "motive" we'll use special grouping
   }, [templateType]);
 
@@ -94,26 +126,39 @@ export function AppSidebar() {
   const filteredBaseTemplates = useMemo(() => {
     if (!searchQuery) return currentBaseTemplates;
     return currentBaseTemplates.filter((template) =>
-      template.name.toLowerCase().includes(searchQuery.toLowerCase())
+      getDisplayName(template)
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
     );
   }, [searchQuery, currentBaseTemplates]);
 
   const filteredCombinedTemplates = useMemo(() => {
     if (!searchQuery) return currentCombinedTemplates;
     return currentCombinedTemplates.filter((template) =>
-      template.name.toLowerCase().includes(searchQuery.toLowerCase())
+      getDisplayName(template)
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
     );
   }, [searchQuery, currentCombinedTemplates]);
 
   // Group WP templates by project folder
   const wpProjectGroups = useMemo(() => {
-    if (templateType !== "wp") return {};
+    if (templateType !== "wp-pages") return {};
 
-    const groups: Record<string, typeof wpTemplates> = {};
-    const templatesToGroup = searchQuery ? filteredBaseTemplates : wpTemplates;
+    const groups: Record<string, typeof wpPages> = {};
+    const templatesToGroup = searchQuery
+      ? wpPages.filter((template) =>
+          getDisplayName(template)
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          (template.project || "")
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        )
+      : wpPages;
 
     templatesToGroup.forEach((template) => {
-      const projectName = template.name.split(" / ")[0];
+      const projectName = template.project || "misc";
       if (!groups[projectName]) {
         groups[projectName] = [];
       }
@@ -121,19 +166,53 @@ export function AppSidebar() {
     });
 
     return groups;
-  }, [templateType, searchQuery, filteredBaseTemplates]);
+  }, [templateType, searchQuery]);
+
+  // Group Wix pages by folder (e.g. "3-misleading-google-ads" vs root files)
+  const wixPageGroups = useMemo(() => {
+    if (templateType !== "wix-pages") return {};
+
+    const groups: Record<string, typeof wixPages> = {};
+    const templatesToGroup = searchQuery
+      ? wixPages.filter((template) =>
+          getDisplayName(template)
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        )
+      : wixPages;
+
+    templatesToGroup.forEach((template) => {
+      const afterPages = template.path.split("/src/content/wix/pages/")[1] || "";
+      const parts = afterPages.split("/").filter(Boolean);
+      const folder = parts.length > 1 ? parts[0] : "_root_";
+      if (!groups[folder]) {
+        groups[folder] = [];
+      }
+      groups[folder].push(template);
+    });
+
+    return groups;
+  }, [templateType, searchQuery]);
 
   // Group Motive templates by brand, then by project (two-level grouping)
   const motiveBrandGroups = useMemo(() => {
     if (templateType !== "motive") return {};
 
     const templatesToGroup = searchQuery
-      ? motiveTemplates.filter((template) =>
-          template.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ? motivePages.filter((template) =>
+          getDisplayName(template)
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          (template.brand || "")
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          (template.project || "")
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
         )
-      : motiveTemplates;
+      : motivePages;
 
-    const brands: Record<string, Record<string, typeof motiveTemplates>> = {};
+    const brands: Record<string, Record<string, typeof motivePages>> = {};
 
     templatesToGroup.forEach((template) => {
       if (!template.brand) return;
@@ -184,14 +263,20 @@ export function AppSidebar() {
                     >
                       Motive Templates
                     </SelectItem>
-                    <SelectItem style={{ padding: "4px 0" }} value="motive">
-                      Motive
-                    </SelectItem>
                     <SelectItem style={{ padding: "4px 0" }} value="wix">
                       Wix Templates
                     </SelectItem>
                     <SelectItem style={{ padding: "4px 0" }} value="wp">
                       WP Templates
+                    </SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="motive">
+                      Motive Pages
+                    </SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="wix-pages">
+                      Wix Pages
+                    </SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="wp-pages">
+                      WP Pages
                     </SelectItem>
                   </SelectContent>
                 </Select>
@@ -270,9 +355,7 @@ export function AppSidebar() {
                                             to={`/template/${template.category}/${template.fileName}`}
                                           >
                                             <FileCode2 className="mr-2 size-4" />
-                                            <span>
-                                              {template.name.split(" / ")[1]}
-                                            </span>
+                                            <span>{getDisplayName(template)}</span>
                                           </Link>
                                         </SidebarMenuButton>
                                       </HoverCardTrigger>
@@ -302,9 +385,17 @@ export function AppSidebar() {
                                 >
                                   <Layers className="mr-2 size-4" />
                                   <span className="text-sm font-medium">
-                                    {projectName.length > 20
-                                      ? projectName.substring(0, 18) + "..."
-                                      : projectName}
+                                    {(projectName === "_root_"
+                                      ? "root"
+                                      : projectName.replace(/-/g, " ")
+                                    ).length > 20
+                                      ? (projectName === "_root_"
+                                          ? "root"
+                                          : projectName.replace(/-/g, " ")
+                                        ).substring(0, 18) + "..."
+                                      : projectName === "_root_"
+                                        ? "root"
+                                        : projectName.replace(/-/g, " ")}
                                   </span>
                                 </CollapsibleTrigger>
                                 <CollapsibleContent>
@@ -338,11 +429,7 @@ export function AppSidebar() {
                                               >
                                                 <FileCode2 className="mr-2 size-4" />
                                                 <span>
-                                                  {
-                                                    template.name.split(
-                                                      " / "
-                                                    )[2]
-                                                  }
+                                                  {getDisplayName(template)}
                                                 </span>
                                               </Link>
                                             </SidebarMenuButton>
@@ -372,8 +459,82 @@ export function AppSidebar() {
               </Collapsible>
             ))}
           </>
-        ) : templateType === "wp" ? (
-          /* WP Templates - Grouped by Project */
+        ) : templateType === "wix-pages" ? (
+          /* Wix Pages - Grouped by folder (project) */
+          <>
+            {Object.entries(wixPageGroups).map(([folderName, templates]) => (
+              <Collapsible key={folderName} className="group/collapsible">
+                <SidebarGroup>
+                  <SidebarGroupLabel asChild>
+                    <CollapsibleTrigger className="w-full flex justify-between items-center hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                      {/* Left group */}
+                      <div className="flex items-center gap-2">
+                        <Layers className="size-4" />
+                        <span className="text-base font-extrabold">
+                          {folderName === "_root_"
+                            ? "root"
+                            : folderName.replace(/-/g, " ")}
+                        </span>
+                      </div>
+
+                      {/* Chevron stays at the end */}
+                      <ChevronDown className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                    </CollapsibleTrigger>
+                  </SidebarGroupLabel>
+                  <CollapsibleContent>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        {templates.map((template) => (
+                          <SidebarMenuItem key={template.path}>
+                            <HoverCard
+                              openDelay={300}
+                              onOpenChange={(open) => {
+                                setHoveredTemplate(
+                                  open ? template.fileName : null
+                                );
+                              }}
+                            >
+                              <HoverCardTrigger asChild>
+                                <SidebarMenuButton
+                                  asChild
+                                  isActive={isActive(
+                                    template.category,
+                                    template.fileName
+                                  )}
+                                  tooltip={template.name}
+                                  className={cn(
+                                    isHovered(template.fileName) &&
+                                      "bg-accent text-accent-foreground ring-2 ring-primary/20"
+                                  )}
+                                  style={{ paddingLeft: "20px" }}
+                                >
+                                  <Link
+                                    to={`/template/${template.category}/${template.fileName}`}
+                                  >
+                                    <FileCode2 className="mr-2 size-4" />
+                                    <span>{getDisplayName(template)}</span>
+                                  </Link>
+                                </SidebarMenuButton>
+                              </HoverCardTrigger>
+                              <HoverCardContent
+                                side="right"
+                                align="start"
+                                className="w-auto p-0"
+                              >
+                                <TemplatePreview template={template} />
+                              </HoverCardContent>
+                            </HoverCard>
+                          </SidebarMenuItem>
+                        ))}
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </CollapsibleContent>
+                </SidebarGroup>
+              </Collapsible>
+            ))}
+          </>
+        ) : templateType === "wp-pages" ? (
+          /* WP Pages - Grouped by Project */
           <>
             {Object.entries(wpProjectGroups).map(([projectName, templates]) => (
               <Collapsible key={projectName} className="group/collapsible">
@@ -425,7 +586,7 @@ export function AppSidebar() {
                                     to={`/template/${template.category}/${template.fileName}`}
                                   >
                                     <FileCode2 className="mr-2 size-4" />
-                                    <span>{template.name.split(" / ")[1]}</span>
+                                    <span>{getDisplayName(template)}</span>
                                   </Link>
                                 </SidebarMenuButton>
                               </HoverCardTrigger>
@@ -493,7 +654,7 @@ export function AppSidebar() {
                                 to={`/template/${template.category}/${template.fileName}`}
                               >
                                 <FileCode2 className="mr-2 size-4" />
-                                <span>{template.name}</span>
+                                <span>{getDisplayName(template)}</span>
                               </Link>
                             </SidebarMenuButton>
                           </HoverCardTrigger>
@@ -521,7 +682,7 @@ export function AppSidebar() {
               <SidebarGroupLabel asChild>
                 <CollapsibleTrigger className="w-full gap-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                   <Layers className="mr-2 size-4" />
-                  <span className="text-base font-extrabold">
+                  <span className="text-base font-extrabold text-left">
                     Combined Templates
                   </span>
                   <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
@@ -556,7 +717,7 @@ export function AppSidebar() {
                                 to={`/template/${template.category}/${template.fileName}`}
                               >
                                 <FileCode2 className="mr-2 size-4" />
-                                <span>{template.name}</span>
+                            <span>{getDisplayName(template)}</span>
                               </Link>
                             </SidebarMenuButton>
                           </HoverCardTrigger>

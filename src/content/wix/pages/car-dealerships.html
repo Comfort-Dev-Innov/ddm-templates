@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comprehensive guide to Google Ads for car dealerships. Learn about campaign types, budgeting, setup, and best practices.">
+  <title>Google Ads for Car Dealerships: Complete Guide</title>
+  <style>
+    /* CSS Variables for Theme */
+    :root {
+      --primary-blue: #26488D;
+      --primary-dark: #1a3566;
+      --text-dark: #3d3d3d;
+      --text-light: #ffffff;
+      --bg-light: #f8f9fc;
+      --border-light: #e8eef7;
+      --shadow-light: rgba(38, 72, 141, 0.1);
+      --shadow-medium: rgba(38, 72, 141, 0.2);
+      --shadow-heavy: rgba(38, 72, 141, 0.3);
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+      max-width: 940px;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Geneva, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Scroll offset for TOC anchor targets */
+    #how-does-google-ads-work,
+    #five-types,
+    #classic-search,
+    #vehicle-ads,
+    #performance-max,
+    #display-campaigns,
+    #video-campaigns,
+    #how-much-spend,
+    #setup-account,
+    #setup-checklist,
+    #conclusion {
+      scroll-margin-top: 100px !important;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      color: var(--text-light);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 16px var(--shadow-heavy);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px var(--shadow-heavy);
+    }
+
+    .back-to-top:active {
+      transform: translateY(-2px);
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+      box-shadow: 0 2px 8px var(--shadow-medium);
+    }
+    
+    /* Introduction Styles */
+    .gads-intro-wrapper {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 60px 0 !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gads-intro-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(38, 72, 141, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .gads-intro-content-container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 20px !important;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .gads-intro-paragraph {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 18px;
+      animation: fadeInUp 0.8s ease-out backwards;
+    }
+
+    .gads-intro-paragraph:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .gads-intro-paragraph:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .gads-intro-paragraph:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .intro-highlight-box {
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      border: 2px solid var(--primary-blue);
+      border-radius: 12px;
+      padding: 24px 28px;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-highlight-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(38, 72, 141, 0.05), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .intro-highlight-box:hover::before {
+      left: 100%;
+    }
+
+    .intro-highlight-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px var(--shadow-medium);
+      border-width: 3px;
+    }
+
+    .intro-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      margin-right: 8px;
+      vertical-align: middle;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    .intro-underline {
+      text-decoration: none;
+      background: linear-gradient(to right, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      background-size: 100% 2px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: var(--transition-smooth);
+    }
+
+    .intro-underline:hover {
+      background-size: 100% 100%;
+      color: var(--text-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    
+    /* Image Container Styles */
+    .gads-image-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 10px auto 40px;
+      padding: 0 20px !important;
+      font-family: Verdana, Geneva, sans-serif;
+      box-sizing: border-box;
+    }
+
+    .gads-image-wrapper {
+      position: relative;
+      width: 100%;
+      border: 1px solid var(--primary-blue);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px var(--shadow-light);
+      transition: var(--transition-smooth);
+      box-sizing: border-box;
+      overflow: hidden;
+      outline: 1px dashed var(--primary-blue);
+      outline-offset: 8px;
+    }
+
+    .gads-image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--primary-blue), var(--primary-dark), var(--primary-blue));
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .gads-image-wrapper:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 16px 32px var(--shadow-heavy);
+      border-color: var(--primary-dark);
+    }
+
+    .gads-image-wrapper:hover::before {
+      opacity: 0.3;
+    }
+
+    .gads-full-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-image-wrapper:hover .gads-full-image {
+      filter: brightness(1.05) contrast(1.05);
+    }
+
+    /* Image Caption */
+    .image-caption {
+      text-align: center;
+      font-size: 14px;
+      color: var(--primary-blue);
+      margin-top: 12px;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    /* Image Placeholder */
+    .image-placeholder {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      border: 2px dashed var(--primary-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-blue);
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    /* TOC Styles */
+    .gads-toc-container {
+      padding: 80px 20px !important;
+      line-height: 1.6 !important;
+      max-width: 1300px;
+      margin: 0 auto;
+      font-family: Verdana, Geneva, sans-serif;
+      position: relative;
+    }
+
+    .gads-toc-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+      opacity: 0.3;
+    }
+
+    .gads-toc-section {
+      width: 100% !important;
+      margin-bottom: 40px !important;
+      padding: 0 !important;
+      color: var(--primary-blue);
+      font-weight: 400 !important;
+      background: #ffffff !important;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow-light);
+      padding: 40px !important;
+    }
+
+    .gads-toc-title {
+      font-size: 28px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 3px !important;
+      margin: 0 0 40px 0 !important;
+      color: var(--primary-blue) !important;
+      font-family: Verdana, Geneva, sans-serif;
+      text-align: center;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .gads-toc-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
+      border-radius: 2px;
+      animation: expandWidth 1s ease-out;
+    }
+
+    @keyframes expandWidth {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100px;
+      }
+    }
+
+    .gads-toc-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none !important;
+    }
+
+    .gads-toc-item {
+      list-style: none !important;
+      animation: fadeInLeft 0.6s ease-out backwards;
+    }
+
+    .gads-toc-item:nth-child(1) { animation-delay: 0.1s; }
+    .gads-toc-item:nth-child(2) { animation-delay: 0.15s; }
+    .gads-toc-item:nth-child(3) { animation-delay: 0.2s; }
+    .gads-toc-item:nth-child(4) { animation-delay: 0.25s; }
+    .gads-toc-item:nth-child(5) { animation-delay: 0.3s; }
+    .gads-toc-item:nth-child(6) { animation-delay: 0.35s; }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .gads-toc-link {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      padding: 20px 24px !important;
+      margin: 0 !important;
+      border: 2px solid transparent !important;
+      border-radius: 12px;
+      text-decoration: none !important;
+      transition: var(--transition-smooth);
+      cursor: pointer !important;
+      background: var(--bg-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gads-toc-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(38, 72, 141, 0.08), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .gads-toc-link:hover::before,
+    .gads-toc-link:focus::before {
+      left: 100%;
+    }
+
+    .gads-toc-link:hover,
+    .gads-toc-link:focus {
+      transform: translateX(8px);
+      border-color: var(--primary-blue) !important;
+      background: #ffffff;
+      box-shadow: 0 4px 16px var(--shadow-light);
+    }
+
+    .gads-toc-number {
+      font-size: 36px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      color: var(--primary-blue) !important;
+      margin: 0 !important;
+      transition: var(--transition-bounce);
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .gads-toc-link:hover .gads-toc-number,
+    .gads-toc-link:focus .gads-toc-number {
+      color: var(--primary-dark) !important;
+      transform: scale(1) rotate(-1deg);
+    }
+
+    .gads-toc-text {
+      color: var(--primary-blue) !important;
+      font-size: 17px !important;
+      line-height: 1.5 !important;
+      font-weight: 500 !important;
+      transition: var(--transition-smooth);
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .gads-toc-link:hover .gads-toc-text,
+    .gads-toc-link:focus .gads-toc-text {
+      color: var(--primary-dark) !important;
+    }
+    
+    /* Section Styles */
+    .gads-section-wrapper {
+      width: 100%;
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 80px 20px 10px 20px !important;
+      font-family: Verdana, Geneva, sans-serif;
+      box-sizing: border-box;
+      position: relative;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .gads-main-heading {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 0 0 30px 0;
+      padding-left: 28px;
+      font-family: Verdana, Geneva, sans-serif;
+      letter-spacing: -0.5px;
+      position: relative;
+      line-height: 1.3;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-main-heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      border-radius: 3px;
+      box-shadow: 0 2px 8px var(--shadow-medium);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        height: 0;
+      }
+      to {
+        height: 100%;
+      }
+    }
+
+    .gads-main-heading:hover {
+      color: var(--primary-dark);
+      padding-left: 32px;
+    }
+
+    .gads-subheading {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 40px 0 20px 0;
+      padding-bottom: 16px;
+      border-bottom: 3px solid var(--border-light);
+      font-family: Verdana, Geneva, sans-serif;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-subheading::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      border-radius: 2px;
+      box-shadow: 0 2px 8px var(--shadow-heavy);
+      transition: width 0.4s ease;
+    }
+
+    .gads-subheading:hover::after {
+      width: 180px;
+    }
+
+    .gads-paragraph {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-dark);
+      margin: 0 0 20px 0;
+      font-family: Verdana, Geneva, sans-serif;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-paragraph:hover {
+      color: #2a2a2a;
+    }
+
+    .gads-paragraph strong {
+      color: var(--primary-blue);
+      font-weight: 700;
+      position: relative;
+      padding: 0 2px;
+    }
+
+    .gads-paragraph a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      border-bottom: 2px solid var(--primary-blue);
+      padding-bottom: 2px;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .gads-paragraph a::after {
+      content: '→';
+      opacity: 1;
+      margin-left: 2px;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-paragraph a:hover {
+      color: var(--primary-dark);
+      border-bottom-color: var(--primary-dark);
+      padding-bottom: 4px;
+      padding-right: 4px;
+    }
+
+    .gads-paragraph a:hover::after {
+      opacity: 1;
+      margin-left: 8px;
+    }
+
+    .gads-highlight-box {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      color: var(--text-light);
+      padding: 28px 32px;
+      border-radius: 16px;
+      margin: 40px 0;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.7;
+      box-shadow: 
+        0 10px 30px var(--shadow-heavy),
+        0 4px 12px var(--shadow-medium);
+      font-family: Verdana, Geneva, sans-serif;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-highlight-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotateGradient 10s linear infinite;
+    }
+
+    @keyframes rotateGradient {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .gads-highlight-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 16px 40px var(--shadow-heavy),
+        0 6px 16px var(--shadow-medium);
+    }
+
+    .gads-info-box {
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      border-left: 6px solid var(--primary-blue);
+      border-radius: 8px;
+      padding: 32px 36px;
+      margin: 36px 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-dark);
+      font-family: Verdana, Geneva, sans-serif;
+      box-shadow: 0 6px 20px var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-info-box::before {
+      content: 'ℹ';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 40px;
+      color: var(--primary-blue);
+      opacity: 0.1;
+      font-weight: bold;
+    }
+
+    .gads-info-box:hover {
+      border-left-width: 8px;
+      padding-left: 38px;
+      box-shadow: 0 8px 28px var(--shadow-medium);
+    }
+
+    .gads-info-box p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gads-info-box a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      border-bottom: 2px solid var(--primary-blue);
+      padding-bottom: 2px;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .gads-info-box a:hover {
+      color: var(--primary-dark);
+      border-bottom-color: var(--primary-dark);
+      padding-bottom: 4px;
+      padding-right: 4px;
+    }
+
+    .gads-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    .gads-list li {
+      padding: 12px 0 12px 36px;
+      position: relative;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      font-family: Verdana, Geneva, sans-serif;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-list li::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 20px;
+      width: 10px;
+      height: 10px;
+      background: transparent;
+      border: 2px solid var(--primary-blue);
+      border-radius: 50%;
+      transition: var(--transition-bounce);
+    }
+
+    .gads-list li::after {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 24px;
+      width: 0;
+      height: 0;
+      background: var(--primary-blue);
+      border-radius: 50%;
+      transition: var(--transition-bounce);
+    }
+
+    .gads-list li:hover {
+      padding-left: 42px;
+      color: #2a2a2a;
+    }
+
+    .gads-list li:hover::before {
+      border-color: var(--primary-dark);
+      transform: scale(1.3) rotate(180deg);
+    }
+
+    .gads-list li:hover::after {
+      width: 6px;
+      height: 6px;
+    }
+
+    .gads-list li strong {
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    .gads-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+      counter-reset: gads-counter;
+    }
+
+    .gads-numbered-list li {
+      padding: 14px 0 14px 48px;
+      position: relative;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      font-family: Verdana, Geneva, sans-serif;
+      counter-increment: gads-counter;
+      margin-bottom: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .gads-numbered-list li::before {
+      content: counter(gads-counter);
+      position: absolute;
+      left: 0;
+      top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      color: var(--text-light);
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px var(--shadow-heavy);
+      transition: var(--transition-bounce);
+    }
+
+    .gads-numbered-list li:hover {
+      padding-left: 54px;
+    }
+
+    .gads-numbered-list li:hover::before {
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 5px 15px var(--shadow-heavy);
+    }
+
+    .gads-numbered-list li strong {
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    /* Table Styles */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px var(--shadow-light);
+    }
+
+    .gads-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .gads-table thead {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+      color: white;
+    }
+
+    .gads-table th {
+      padding: 18px 20px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .gads-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .gads-table tbody tr {
+      transition: var(--transition-smooth);
+    }
+
+    .gads-table tbody tr:hover {
+      background: var(--bg-light);
+      transform: scale(1.01);
+    }
+
+    .gads-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* HR Separator Styles */
+    .section-divider {
+      width: 100%;
+      max-width: 940px;
+      margin: 80px auto;
+      border: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--primary-blue) 50%, transparent 100%);
+      opacity: 0.4;
+      position: relative;
+    }
+
+    .section-divider::after {
+      content: '◆';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--primary-blue);
+      background: white;
+      padding: 0 10px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    /* Key Takeaway Box */
+    .key-takeaway {
+      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+      border-left: 6px solid #ffa726;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      box-shadow: 0 4px 16px rgba(255, 167, 38, 0.15);
+    }
+
+    .key-takeaway::before {
+      content: '💡';
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    /* Checklist Styles */
+    .checklist-section {
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 40px 0;
+      box-shadow: 0 6px 20px var(--shadow-light);
+    }
+
+    .checklist-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 0 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .checklist-heading::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+      color: white;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .checklist-heading.dont::before {
+      content: '✗';
+      background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .gads-intro-wrapper {
+        padding: 30px 0 !important;
+      }
+
+      .gads-section-wrapper {
+        padding: 50px 20px !important;
+      }
+
+      .gads-main-heading {
+        font-size: 26px;
+        padding-left: 20px;
+      }
+
+      .gads-main-heading::before {
+        width: 5px;
+      }
+
+      .gads-subheading {
+        font-size: 21px;
+      }
+
+      .gads-paragraph {
+        font-size: 16px;
+      }
+
+      .gads-highlight-box,
+      .gads-info-box {
+        padding: 22px 24px;
+        font-size: 16px;
+      }
+
+      .gads-image-container {
+        margin: 20px auto;
+        padding: 0 15px;
+      }
+
+      .gads-image-wrapper {
+        border-width: 3px;
+      }
+
+      .section-divider {
+        margin: 60px auto;
+      }
+
+      .gads-toc-section {
+        padding: 24px !important;
+      }
+
+      .gads-toc-title {
+        font-size: 24px !important;
+      }
+
+      .gads-toc-number {
+        font-size: 28px !important;
+      }
+
+      .gads-toc-text {
+        font-size: 16px !important;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+
+      .table-container {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .gads-table {
+        min-width: 600px;
+      }
+
+      .gads-table th,
+      .gads-table td {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .back-to-top,
+      .progress-bar {
+        display: none !important;
+      }
+
+      .gads-section-wrapper {
+        page-break-inside: avoid;
+      }
+
+      body {
+        background: white;
+      }
+    }
+
+    /* Accessibility Improvements */
+    .gads-toc-link:focus,
+    .gads-paragraph a:focus {
+      outline: 3px solid var(--primary-blue);
+      outline-offset: 4px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- Introduction Section -->
+  <section class="gads-intro-wrapper">
+    <div class="gads-intro-content-container">
+      <p class="gads-intro-paragraph">
+        Before most car buyers step into a showroom, they've already done their research. They compare models, check prices, and read reviews online. This is why Google Ads is one of the most powerful tools for dealerships. But it's also one of the most misunderstood.
+      </p>
+      
+      <p class="gads-intro-paragraph">
+        In 2025, Google Ads looks very different from what it used to be.
+      </p>
+      
+      <p class="gads-intro-paragraph">
+        Automation now drives campaign decisions, Vehicle Ads tie directly to inventory feeds, and privacy changes have reshaped how results are tracked. Dealers who rely on default settings often end up paying more for clicks that don't convert.
+      </p>
+      
+      <p class="gads-intro-paragraph intro-highlight-box">
+        Here, we explain how to make Google Ads work for your car dealership today. We'll cover campaign types, budgeting, data feeds, targeting, and how to interpret the numbers that show progress.
+      </p>
+    </div>
+  </section>
+
+  <!-- TOC Section -->
+  <div class="gads-toc-container">
+    <section class="gads-toc-section">
+      <h2 class="gads-toc-title">Table of Contents</h2>
+
+      <ol class="gads-toc-grid">
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#how-does-google-ads-work">
+            <span class="gads-toc-number" aria-hidden="true">01</span>
+            <span class="gads-toc-text">How Does Google Ads Actually Work for Dealerships?</span>
+          </a>
+        </li>
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#five-types">
+            <span class="gads-toc-number" aria-hidden="true">02</span>
+            <span class="gads-toc-text">5 Types of Google Ads Campaigns for Dealerships</span>
+          </a>
+        </li>
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#how-much-spend">
+            <span class="gads-toc-number" aria-hidden="true">03</span>
+            <span class="gads-toc-text">How Much Should a Car Dealership Spend on Google Ads?</span>
+          </a>
+        </li>
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#setup-account">
+            <span class="gads-toc-number" aria-hidden="true">04</span>
+            <span class="gads-toc-text">How to Set Up a Google Ads Account for Your Dealership</span>
+          </a>
+        </li>
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#setup-checklist">
+            <span class="gads-toc-number" aria-hidden="true">05</span>
+            <span class="gads-toc-text">Google Ads Setup Checklist: Do's and Don'ts for Dealerships</span>
+          </a>
+        </li>
+        <li class="gads-toc-item">
+          <a class="gads-toc-link" href="#conclusion">
+            <span class="gads-toc-number" aria-hidden="true">06</span>
+            <span class="gads-toc-text">Google Ads That Work as Hard as Your Inventory</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- Section 1: How Does Google Ads Work -->
+  <div class="gads-section-wrapper" id="how-does-google-ads-work">
+    <h2 class="gads-main-heading">How Does Google Ads Actually Work for Dealerships?</h2>
+    
+    <p class="gads-paragraph">
+      At its core, Google Ads connects what buyers are searching for with the inventory your dealership wants to promote. For example, when someone types "Mazda dealer near me", Google instantly runs an auction to decide which ads to display and decides which ads to show based on how closely every campaign created matches that search. These could be based on keywords, budget, ad relevance, and landing page experience.
+    </p>
+  <!-- Image Placeholder -->
+  <div class="gads-image-container">
+    <div class="gads-image-wrapper">
+        <img src="https://static.wixstatic.com/media/a1f442_3cfa60a86e9c451999004ba164024917~mv2.png"/>
+    </div>
+    <p class="image-caption">Google Ads auction showing how dealership campaigns compete</p>
+  </div>
+    <p class="gads-paragraph">
+      For dealerships, this happens in three main steps:
+    </p>
+
+    <ol class="gads-numbered-list">
+      <li>
+        <strong>Inventory + Setup</strong><br>
+        Your vehicles and offers feed into Google Merchant Center. From there, Google automatically generates ads that show make, model, price, and mileage directly in search results. This makes your inventory discoverable by high-intent shoppers the moment they search.
+      </li>
+      <li>
+        <strong>Auction + Placement</strong><br>
+        Every search triggers a lightning-fast auction. Google weighs factors like your bid, ad quality, and relevance to decide if — and where — your ad appears. A well-structured campaign with relevant keywords and strong copy can outperform higher-spending competitors.
+      </li>
+      <li>
+        <strong>Click + Conversion</strong><br>
+        Once a potential buyer clicks, they're taken to your website or a specific vehicle detail page. From there, the goal is to turn that visit into a test drive, call, or lead form. Tracking those actions with conversion tags and GA4 is what separates "clicks" from real sales opportunities.
+      </li>
+    </ol>
+
+    <div class="gads-info-box">
+      <p>
+        We have a 5-minute video on Google Ads for dealerships <a href="https://www.youtube.com/watch?v=hS0w1OUJX4g&list=PLRcCwtbj9u4QfFrP74PodCa2B6GDKSISy&index=29" target="_blank">here</a>. Feel free to check it out if you're on the go or if you just want to see what all this looks like in real life.
+      </p>
+      <p style="margin-top: 16px; margin-bottom: 0;">
+        <strong>Disclaimer:</strong> There have been a couple of updates since that video was made — because, well, it's Google. The good news is you can find them all on <a href="https://www.youtube.com/@david-feldman-makrias" target="_blank">YouTube</a>.
+      </p>
+    </div>
+
+    <p class="gads-paragraph">
+      That said, let's break down the main types of Google Ads campaigns every dealership should know.
+    </p>
+  </div>
+
+
+
+  <hr class="section-divider">
+
+  <!-- Section 2: 5 Types of Campaigns -->
+  <div class="gads-section-wrapper" id="five-types">
+    <h2 class="gads-main-heading">5 Types of Google Ads Campaigns for Dealerships</h2>
+
+    <!-- Classic Search Campaigns -->
+    <h3 class="gads-subheading" id="classic-search">1. Classic Search Campaigns</h3>
+    
+    <p class="gads-paragraph">
+      You'll typically find most dealerships launching this campaign type as part of their advertising, which is why we call them the "classic" search ads.
+    </p>
+
+    <p class="gads-paragraph">
+      They're text-based ads that appear when buyers look for specific vehicles, dealerships, or offers.
+    </p>
+
+      <!-- Image Placeholder -->
+  <div class="gads-image-container">
+    <div class="gads-image-wrapper">
+      <img src="https://static.wixstatic.com/media/a1f442_183bd7a38ed64eafbdcdc2cded46f0fc~mv2.jpg"/>
+    </div>
+    <p class="image-caption">Example of a classic search ad for car dealerships</p>
+  </div>
+
+    <p class="gads-paragraph">
+      Search ads are ideal for reaching people already in the market for a car or service (high-intent buyers) and are best for generating leads from active shoppers ready to buy or schedule a test drive. You also have more control over the keywords you target, meaning you can focus spend on the terms that matter most to your dealership.
+    </p>
+
+    <p class="gads-paragraph">
+      Just ensure you always use clear calls to action and align your ad copy with your landing pages (e.g., "Book a Test Drive," "Check Availability.")
+    </p>
+  </div>
+
+
+
+  <!-- Vehicle Ads Section -->
+  <div class="gads-section-wrapper" style="padding-top: 20px !important;" id="vehicle-ads">
+    <h3 class="gads-subheading">2. Vehicle Ads (VFAs)</h3>
+    
+    <p class="gads-paragraph">
+      If there's one ad type made for dealerships, it's this one.
+    </p>
+
+    <p class="gads-paragraph">
+      Vehicle Ads pull real-time inventory from your Google Merchant Center feed (make, model, price, mileage, and images) and show it directly in Google Search results. So when someone searches "new Honda CRV,"  for example, they see what's actually sitting on the lot before they even click on the dealership website.
+    </p>
+
+    <p class="gads-paragraph">
+      They're designed for people who are ready to buy, not just browse.
+    </p>
+
+    <p class="gads-paragraph">
+      Vehicle Ads now run inside Performance Max. That means your inventory connects automatically, and Google's AI decides when and where your listings should appear. Whether that's in Search, Maps, or Discover. It's all powered by your feed.
+    </p>
+
+    <p class="gads-paragraph">
+      But automation doesn't mean "hands off."
+    </p>
+
+    <p class="gads-paragraph">
+      Sometimes, these ads can appear outside Shopping placements, even when set to run there. You might notice odd results like phone call conversions, which Vehicle Ads don't technically support. When that happens, check your Listing Groups and Insights tab to see where those clicks are really coming from.
+    </p>
+  </div>
+
+  <!-- Image Placeholder -->
+  <div class="gads-image-container">
+    <div class="gads-image-wrapper">
+      <img src="https://static.wixstatic.com/media/a1f442_d2cf402336d74d069449a5dd2edca97a~mv2.jpg"/>
+    </div>
+    <p class="image-caption">Vehicle Ads display your live inventory right in Google Search results when shoppers look for nearby vehicles</p>
+  </div>
+
+  <div class="gads-section-wrapper" style="padding-top: 20px !important;">
+    <p class="gads-paragraph">
+      To keep your Vehicle Ads running smoothly:
+    </p>
+
+    <ul class="gads-list">
+      <li>Make sure your Merchant Center feed is verified and complete. Google requires details like make, model, year, VIN, price, and mileage.</li>
+      <li>Update it every day. Missing images or old prices can stop your listings from showing.</li>
+      <li>Add extras like financing options or special offers. Complete feeds tend to perform better.</li>
+      <li>Keep an eye on data quality. Dealers who update daily see stronger results than those who don't.</li>
+    </ul>
+
+    <p class="gads-paragraph">
+      You can also preview your ads.
+    </p>
+
+    <p class="gads-paragraph">
+      To do so, open your Performance Max campaign, go to an Asset Group, click the three dots (•••), and choose Share Preview. The link (it's active for two weeks) shows how your inventory appears across Google — Search, Maps, Display, and even YouTube.
+    </p>
+
+    <p class="gads-paragraph">
+      Vehicle Ads make it easy for buyers to find what you have in stock. Keep your feed clean, check your placements, and let Google do the heavy lifting from there.
+    </p>
+
+    <!-- Performance Max Section -->
+    <h3 class="gads-subheading" id="performance-max">3. Performance Max Campaigns (PMax)</h3>
+    
+    <p class="gads-paragraph">
+      Performance Max is Google's most advanced campaign type and helps dealerships reach customers everywhere they browse or search.
+    </p>
+
+    <p class="gads-paragraph">
+      So how does it work?
+    </p>
+
+    <p class="gads-paragraph">
+      Instead of running separate campaigns for Search, Display, YouTube, Maps, Gmail, and Discover, PMax combines them into one campaign. It uses Google's AI to decide where each ad should appear and which shoppers are most likely to convert — all while optimizing toward your set goals.
+    </p>
+
+    <p class="gads-paragraph">
+      It gets even smarter when connected to your vehicle feed. That's when Google can automatically match your live inventory to shopper intent, showing the right car to the right buyer at the right time.
+    </p>
+
+    <p class="gads-paragraph">
+      But it's important to know that not all PMax campaigns are the same.
+    </p>
+
+    <ul class="gads-list">
+      <li>A Vehicle Ads (VFA) campaign is a simplified version built only around your inventory feed.</li>
+      <li>A full-build PMax campaign includes creative assets (images, videos, headlines, and descriptions) which allow your ads to appear across all six Google networks: Search, YouTube, Gmail, Maps, Display, and Discover.</li>
+    </ul>
+
+    <p class="gads-paragraph">
+      Because of that reach, many dealership teams find PMax difficult to visualize. One campaign can generate dozens of ad variations across multiple channels, and each format looks slightly different depending on where it appears.
+    </p>
+
+    <p class="gads-paragraph">
+      The good news is Google has a preview tool to make things clearer.
+    </p>
+
+    <p class="gads-paragraph">
+      If you've ever wondered "what do my PMax ads actually look like?", Google now lets you see every version in one place:
+    </p>
+
+    <p class="gads-paragraph">
+      Simply go to your PMax campaign → open an Asset Group → click the three dots (•••) → Share preview.
+    </p>
+
+    <p class="gads-paragraph">
+      You'll get a custom link (active for 14 days) that shows each placement your campaign is serving: Search, YouTube, Gmail, Display, Maps, and others.
+    </p>
+  </div>
+
+  <!-- Image Placeholder -->
+  <div class="gads-image-container">
+    <div class="gads-image-wrapper">
+      <img src="https://static.wixstatic.com/media/a1f442_b5a17143eec04161b0cc8eacce50fe3a~mv2.jpg"/>
+    </div>
+    <p class="image-caption">Example: The Share Preview feature shows how a single Performance Max campaign distributes ads across multiple Google surfaces</p>
+  </div>
+
+  <div class="gads-section-wrapper" style="padding-top: 20px !important;">
+    <p class="gads-paragraph">
+      To make PMax work well, focus on what the AI needs most: fresh data and clear signals. Keep your creative assets current, upload short videos and new vehicle images, and refresh ad copy often. Ensure you also use brand exclusions and negative keywords to avoid irrelevant clicks, then let the algorithm learn and optimize.
+    </p>
+
+    <!-- Display Campaigns -->
+    <h3 class="gads-subheading" id="display-campaigns">4. Display Campaigns</h3>
+    
+    <p class="gads-paragraph">
+      Display campaigns help your dealership stay visible even when shoppers aren't actively searching.
+    </p>
+
+    <p class="gads-paragraph">
+      These ads appear across Google's network of websites, apps, and YouTube, reaching people while they read the news, watch videos, or browse other sites.
+    </p>
+
+    <p class="gads-paragraph">
+      They're perfect for building awareness and retargeting visitors who've already been to your website but haven't converted yet. Think of them as gentle reminders that keep your dealership top of mind.
+    </p>
+
+    <p class="gads-paragraph">
+      To get the most out of Display campaigns, use strong visuals: high-quality vehicle images, service photos, or limited-time offers. You can also pair them with simple, direct messages like "View Current Specials" or "Get Pre-Approved Today."
+    </p>
+
+    <p class="gads-paragraph">
+      And as always, let performance data guide your next move. Test different visuals, headlines, and placements to see what actually drives clicks and form fills.
+    </p>
+
+    <!-- Video Campaigns -->
+    <h3 class="gads-subheading" id="video-campaigns">5. Video Campaigns</h3>
+    
+    <p class="gads-paragraph">
+      Video campaigns are one of the best ways for dealerships to build brand recognition and connect with buyers on a personal level.
+    </p>
+
+    <p class="gads-paragraph">
+      These ads typically run on YouTube and are perfect for vehicle walkarounds, service promos, or seasonal offers. They're great for storytelling and showing the personality behind your dealership and the value of your vehicles.
+    </p>
+
+    <p class="gads-paragraph">
+      They work best when tied to model launches, limited-time specials, or community events, helping you stay top-of-mind even before buyers start searching.
+    </p>
+
+    <p class="gads-paragraph">
+      We recommend keeping videos short (6–15 seconds), mobile-friendly, and ending with a clear CTA like "Visit Us Today" or "Explore Inventory."
+    </p>
+  </div>
+
+  <!-- Image Placeholder -->
+  <div class="gads-image-container">
+    <div class="gads-image-wrapper">
+      <img src="https://static.wixstatic.com/media/a1f442_2628524d373641fa8e01e313d1dfd6d9~mv2.png"/>
+    </div>
+    <p class="image-caption">How to create a video campaign for your dealership</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 3: Budget -->
+  <div class="gads-section-wrapper" id="how-much-spend">
+    <h2 class="gads-main-heading">How much should a car dealership spend on Google Ads?</h2>
+    
+    <p class="gads-paragraph">
+      The short answer is: enough to hit your sales and service goals without paying for noise.
+    </p>
+
+    <p class="gads-paragraph">
+      Most dealers fall somewhere between $1,500–$8,000/month for smaller stores and $20,000–$50,000+/month for large groups. However, the right number depends on your market, inventory, and priorities (new vs. used, sales vs. service).
+    </p>
+
+    <p class="gads-paragraph">
+      Let's make it practical.
+    </p>
+
+    <h3 class="gads-subheading">1. Start with your goal (not a guess)</h3>
+
+    <ul class="gads-list">
+      <li>"We need X more vehicle leads per month."</li>
+      <li>"We want Y more service bookings."</li>
+      <li>"We need to move Z-aged units (e.g., TRD Pro trims) in the first quarter of 2026."</li>
+    </ul>
+
+    <p class="gads-paragraph">
+      Work backwards from the goal: typical paid search cost per lead in automotive varies by market, but you can model with your own data (or a conservative estimate) to size the daily budget.
+    </p>
+
+    <div class="gads-highlight-box">
+      Quick model:<br>
+      Needed incremental leads × Target cost per lead = Monthly Google Ads budget for that objective.
+    </div>
+
+    <h3 class="gads-subheading">A simple split that works (then you tailor it)</h3>
+
+    <ul class="gads-list">
+      <li>60–70% to Sales (Search + Performance Max with Vehicle Ads)</li>
+      <li>15–20% to Service (Local/Display, some Search)</li>
+      <li>10–15% to Brand/Retargeting (Video + Display)</li>
+    </ul>
+
+    <p class="gads-paragraph">
+      If you only sell, push more into Search + PMax. If service is a profit center, ring-fence budget for it so Sales doesn't eat it.
+    </p>
+
+    <p class="gads-paragraph">
+      National "averages" break once you step into competitive metros. If your market is Chicago-level competitive, expect to spend above the national mean.
+    </p>
+
+    <h3 class="gads-subheading">2. Don't bundle everything. Budget by what matters</h3>
+    
+    <p class="gads-paragraph">
+      One catch-all campaign lets the algorithm chase the heaviest demand (Camry/Corolla) and starve lower-demand, high-priority units (e.g., TRD Pro). Fix it by splitting campaigns so you can put money exactly where you need movement.
+    </p>
+
+    <ul class="gads-list">
+      <li>Create separate Vehicle Ads campaigns by priority: Aged or high-margin models, certified vs. non-certified, used Toyota vs. used Honda, etc.</li>
+      <li>Give each its own daily budget and its own radius (12–15 miles for city stores, wider for suburbs or new-car pushes).</li>
+      <li>Search demand isn't equal. Breaking campaigns lets you protect budget for vehicles that won't win the auction on their own.</li>
+    </ul>
+
+    <h3 class="gads-subheading">3. Keep an eye on where money actually goes</h3>
+    
+    <p class="gads-paragraph">
+      Even when you intend "Shopping-only," PMax can extend into Search/Display and report odd conversions (like phone calls) that VAs don't natively support. So budget isn't just "how much," It's where it's landing.
+    </p>
+
+    <p class="gads-paragraph">
+      To stay on top of this,
+    </p>
+
+    <ul class="gads-list">
+      <li>Check Listing Groups vs. total clicks to see how many actually came from product listings.</li>
+      <li>Review the Insights tab weekly to spot branded or off-target categories.</li>
+      <li>Use brand exclusions and negative keywords to curb waste.</li>
+    </ul>
+
+    <h3 class="gads-subheading">4. Make location part of the budget conversation</h3>
+    
+    <p class="gads-paragraph">
+      Most sales come from within ~25 miles. Use Presence (in or regularly in your location) rather than "presence or interest" when choosing your location, and widen the radius only for the models where buyers travel farther (new, hard-to-find trims).
+    </p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 4: Setup Account -->
+  <div class="gads-section-wrapper" id="setup-account">
+    <h2 class="gads-main-heading">How to Set Up a Google Ads Account for Your Dealership</h2>
+    
+    <p class="gads-paragraph">
+      Before running your first campaign, make sure your Google Ads account is properly configured. A clean setup makes tracking easier, improves data accuracy, and helps every dollar work harder.
+    </p>
+
+    <h3 class="gads-subheading">1) Create or access your Google Ads account</h3>
+    
+    <p class="gads-paragraph">
+      Visit <a href="http://ads.google.com" target="_blank">ads.google.com</a> and sign in.
+    </p>
+
+    <p class="gads-paragraph">
+      If your store already uses Google Business Profile, Google Analytics, or Merchant Center, sign in with the same account. It keeps everything connected under one profile.
+    </p>
+
+    <p class="gads-paragraph">
+      Once inside, click "New Google Ads Account."
+    </p>
+
+    <p class="gads-paragraph">
+      At the setup prompt, choose "Switch to Expert Mode" at the bottom of the page. This gives full control instead of Google's default "Smart" setup, which limits access to key settings.
+    </p>
+
+    <h3 class="gads-subheading">2) Link your core platforms</h3>
+    
+    <p class="gads-paragraph">
+      Go to Tools → Linked Accounts and connect these right away:
+    </p>
+
+    <div class="table-container">
+      <table class="gads-table">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Analytics 4 (GA4)</td>
+            <td>Tracks calls, chats, and form submissions from your website.</td>
+          </tr>
+          <tr>
+            <td>Google Merchant Center</td>
+            <td>Syncs your live inventory (make, model, price, VIN, mileage, photos) for Vehicle Ads.</td>
+          </tr>
+          <tr>
+            <td>Google Business Profile</td>
+            <td>Enables location extensions and, when eligible, store-visit tracking.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="gads-paragraph">
+      If you operate multiple rooftops, give each its own Merchant Center sub-account so budgets, feeds, and reporting stay separate.
+    </p>
+
+    <h3 class="gads-subheading">3) Verify billing and access</h3>
+    
+    <p class="gads-paragraph">
+      Under Settings → Billing, enter your payment method, time zone, and currency.
+    </p>
+
+    <p class="gads-paragraph">
+      Then open Tools → Access and Security to invite your marketing team or agency. Use company emails only so account ownership always stays with the dealership.
+    </p>
+
+    <h3 class="gads-subheading">4) Set up conversion tracking</h3>
+    
+    <p class="gads-paragraph">
+      Go to Tools → Conversions and define what success looks like for your store. Some typical dealership conversions are:
+    </p>
+
+    <ul class="gads-list">
+      <li>Click-to-call from ad extensions or mobile site</li>
+      <li>Lead form submissions</li>
+      <li>Chat messages sent</li>
+      <li>Store visits (when eligible through your Business Profile)</li>
+    </ul>
+
+    <p class="gads-paragraph">
+      Avoid counting page views or auto-opened chat boxes as conversions. They inflate numbers without reflecting intent.
+    </p>
+
+    <p class="gads-paragraph">
+      For website actions, Google will generate a code snippet. Ask your web provider to install it sitewide or through Google Tag Manager.
+    </p>
+
+    <h3 class="gads-subheading">5) Create your first campaign</h3>
+    
+    <p class="gads-paragraph">
+      From the main dashboard, click the blue "+ New Campaign" button.
+    </p>
+
+    <p class="gads-paragraph">
+      When asked for an objective, you can start with Leads or select "Create a campaign without goals guidance."
+    </p>
+
+    <p class="gads-paragraph">
+      Then:
+    </p>
+
+    <ul class="gads-list">
+      <li>Choose Search as the campaign type.</li>
+      <li>Select Maximize Clicks if you have no conversion history yet.</li>
+      <li>Set a bid cap that fits your market.</li>
+      <li>Turn off Search Partners and Display Network to avoid wasted reach.</li>
+      <li>Set location to Presence only within your dealership radius.</li>
+      <li>Add focused keywords and ad groups for each model, service, or offer.</li>
+    </ul>
+
+    <h3 class="gads-subheading">6) Connect your inventory feed (for Vehicle Ads)</h3>
+    
+    <p class="gads-paragraph">
+      If you plan to run Vehicle Ads or Performance Max campaigns, link your Google Merchant Center feed.
+    </p>
+
+    <p class="gads-paragraph">
+      Make sure every listing includes: Make, Model, Year, VIN, Price, Mileage, Image, and Landing Page URL, and refresh your feed daily to keep ads live and compliant.
+    </p>
+
+    <h3 class="gads-subheading">7) Organize your account before launch</h3>
+    
+    <p class="gads-paragraph">
+      Keep your structure simple and scalable:
+    </p>
+
+    <div class="table-container">
+      <table class="gads-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Example Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Account</td>
+            <td>The single store or rooftop</td>
+          </tr>
+          <tr>
+            <td>Campaigns</td>
+            <td>Sales, Used, Service, Brand</td>
+          </tr>
+          <tr>
+            <td>Ad Groups</td>
+            <td>Model or offer focus (e.g., Rogue, Pathfinder, Oil Change)</td>
+          </tr>
+          <tr>
+            <td>Ads + Assets</td>
+            <td>Final messages and CTAs shoppers see</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="gads-paragraph">
+      Consistent naming conventions make future optimization and reporting much easier.
+    </p>
+
+    <h3 class="gads-subheading">8) Launch and verify tracking</h3>
+    
+    <p class="gads-paragraph">
+      Start small. Set a token daily budget while confirming impressions, clicks, and conversions are recording correctly. Once verified, scale to your real budget and let the campaign run for a week before making adjustments.
+    </p>
+
+    <div class="gads-info-box">
+      <p style="margin: 0;">
+        If you'd like a step-by-step visual of how this setup looks inside Google Ads, we've put together a detailed walkthrough that breaks down each setting and shows exactly what to click and what to avoid when creating your first campaign. Check it out <a href="https://www.youtube.com/watch?v=pK-FSB7Ecd0&t=2s" target="_blank">here</a>.
+      </p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 5: Checklist -->
+  <div class="gads-section-wrapper" id="setup-checklist">
+    <h2 class="gads-main-heading">Google Ads Setup Checklist: Do's and Don'ts for Dealerships</h2>
+    
+    <p class="gads-paragraph">
+      A well-built campaign structure is only half the job. The other half is knowing what not to check, skip, or assume.
+    </p>
+
+    <p class="gads-paragraph">
+      Here's a quick list of what to do (and what to avoid) when setting up your first Google Ads campaign for your dealership.
+    </p>
+
+    <div class="checklist-section">
+      <h3 class="checklist-heading">Do</h3>
+      
+      <ul class="gads-list">
+        <li>Choose "Leads" or "Without Goals Guidance," but review each setting manually.</li>
+        <li>Track real intent actions: chat submits (after phone entry), click-to-call, and lead form completions.</li>
+        <li>Start with Search campaigns before expanding into Performance Max.</li>
+        <li>Use Maximize Clicks if you don't have conversion history yet, then shift to conversion-based bidding once data builds.</li>
+        <li>Keep networks separate. Run Search, Display, and Video individually.</li>
+        <li>Target by Presence only to reach real local shoppers.</li>
+        <li>Use Exact and Phrase match types before testing Broad.</li>
+        <li>Group keywords by intent: New, Used, Certified, or Service.</li>
+        <li>Fill all ad assets (15 headlines, 4 descriptions, sitelinks, callouts, business name, and logo).</li>
+        <li>Start with a low daily budget while confirming tracking accuracy.</li>
+      </ul>
+    </div>
+
+    <div class="checklist-section">
+      <h3 class="checklist-heading dont">Don't</h3>
+      
+      <ul class="gads-list">
+        <li>Launch with Performance Max.</li>
+        <li>Count page views or auto-opened chats as conversions.</li>
+        <li>Enable "Bid for new customers only" in a new account.</li>
+        <li>Check Search Partners or Display Network inside a Search campaign.</li>
+        <li>Turn on Display Expansion for Search.</li>
+        <li>Select "Presence or interest" in your location settings.</li>
+        <li>Mix unrelated goals (Service, Used, New) into one campaign.</li>
+        <li>Accept Google's auto-generated keywords or ads without reviewing them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 6: Conclusion -->
+  <div class="gads-section-wrapper" id="conclusion">
+    <h2 class="gads-main-heading">Google Ads That Work as Hard as Your Inventory</h2>
+    
+    <p class="gads-paragraph">
+      Dealership marketing used to be about showing up. Now, it's about showing up intelligently. Know what you're selling, who you're reaching, and what signals you're sending to Google. Because when your data and intent align, the platform works for you, not against you.
+    </p>
+  </div>
+
+  <script>
+    // Smooth scroll for all internal links (TOC navigation)
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      });
+    });
+
+    // Progress Bar
+    const progressBar = document.getElementById('progressBar');
+    
+    window.addEventListener('scroll', () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+      
+      progressBar.style.width = scrollPercent + '%';
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections for animation
+    document.querySelectorAll('.gads-section-wrapper').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Add keyboard navigation for TOC
+    document.querySelectorAll('.gads-toc-link').forEach(link => {
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

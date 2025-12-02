@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford F-150 Fuel Efficiency</title>
+    <style>
+        .fuel-efficiency-section {
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+            background: white;
+        }
+
+        .fuel-efficiency-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .fuel-efficiency-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .fuel-efficiency-text {
+            font-family: 'Georgia', serif;
+        }
+
+        .fuel-efficiency-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .fuel-efficiency-text p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .fuel-efficiency-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+
+        .fuel-efficiency-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .fuel-efficiency-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .stats-highlight {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .stats-highlight h4 {
+            color: #0066cc;
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .stats-highlight p {
+            color: #1a5490;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .fuel-efficiency-section {
+                padding: 2rem 1rem;
+            }
+
+            .fuel-efficiency-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .fuel-efficiency-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="fuel-efficiency-section">
+        <div class="fuel-efficiency-container">
+            <div class="fuel-efficiency-content">
+                <div class="fuel-efficiency-image">
+                    <img src="https://di-uploads-pod41.dealerinspire.com/bowenscarfffordlincoln/uploads/2025/07/fuel-photo.jpeg" alt="Ford F-150 Fuel Efficiency">
+                </div>
+
+                <div class="fuel-efficiency-text">
+                    <h2 class="fuel-efficiency-title">Fuel Efficiency: Balancing Power and Economy</h2>
+                    
+                    <p>For many truck purchasers, fuel efficiency remains a pivotal consideration. The Ford F-150 lineup, including the anticipated 2026 models, continues to offer competitive fuel economy figures across its diverse powertrain options. While official 2026 EPA estimates are still being finalized, the 2025 model year provides reliable benchmarks for the impressive efficiency you can expect.</p>
+
+                    <p>The significant variations in MPG across the F-150 engine lineup, particularly the PowerBoost Hybrid's leading efficiency despite its high power output, highlight Ford's strategic engineering to provide fuel economy solutions for different buyer priorities. This approach effectively broadens the F-150's appeal beyond traditional truck buyers.</p>
+
+                    <p>Detailed EPA-estimated MPG figures for the 2025 Ford F-150 engines, where available from official Ford sources, are as follows:</p>
+
+                    <div class="stats-highlight">
+                        <h4>2.7L EcoBoost V6</h4>
+                        <p>This engine stands out as one of the most efficient options in the lineup. For 2025, it achieves an EPA-estimated 19 mpg in the city and 25 mpg on the highway in 2WD configurations.</p>
+                    </div>
+
+                    <p>Ford's investment in hybrid technology directly translates to superior fuel efficiency for a full-size truck, which traditionally consumes more fuel. This technology allows them to offer competitive efficiency without sacrificing the power and utility expected from an F-150. This demonstrates Ford's adaptability to market demands for more environmentally conscious, yet still capable, vehicles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

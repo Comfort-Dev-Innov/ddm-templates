@@ -1,6 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
+// Function to clean up display names
+function cleanDisplayName(name) {
+  return name
+    .replace(/\.(html|txt)$/, '')  // Remove file extensions
+    .replace(/-/g, ' ')            // Replace hyphens with spaces
+    .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize first letter of each word
+}
+
 const motiveDir = 'public/motive';
 const brands = fs.readdirSync(motiveDir, { withFileTypes: true })
   .filter(dirent => dirent.isDirectory() && dirent.name !== '.DS_Store')
@@ -15,9 +23,9 @@ brands.forEach(brand => {
   items.forEach(item => {
     if (item.isFile() && (item.name.endsWith('.html') || item.name.endsWith('.txt'))) {
       // File directly in brand folder
-      const baseName = item.name.replace(/\.(html|txt)$/, '');
-      const displayName = `${brand} / ${baseName}`;
-      templates.push(`  { name: '${displayName}', fileName: '${item.name}', category: 'base-temp', path: '/motive/${brand}/${item.name}', brand: '${brand}', project: null },`);
+      const baseName = cleanDisplayName(item.name);
+      const displayName = `${brand.toUpperCase()} / ${baseName}`;
+      templates.push(`  { name: '${displayName}', fileName: '${item.name}', category: 'base-temp', path: '/src/content/motive/pages/${brand}/${item.name}', brand: '${brand}', project: null },`);
     } else if (item.isDirectory()) {
       // Project folder
       const projectPath = path.join(brandPath, item.name);
@@ -25,9 +33,10 @@ brands.forEach(brand => {
         .filter(file => file.endsWith('.html') || file.endsWith('.txt'));
 
       files.forEach(file => {
-        const baseName = file.replace(/\.(html|txt)$/, '');
-        const displayName = `${brand} / ${item.name} / ${baseName}`;
-        templates.push(`  { name: '${displayName}', fileName: '${file}', category: 'base-temp', path: '/motive/${brand}/${item.name}/${file}', brand: '${brand}', project: '${item.name}' },`);
+        const baseName = cleanDisplayName(file);
+        const cleanProjectName = cleanDisplayName(item.name);
+        const displayName = `${brand.toUpperCase()} / ${cleanProjectName} / ${baseName}`;
+        templates.push(`  { name: '${displayName}', fileName: '${file}', category: 'base-temp', path: '/src/content/motive/pages/${brand}/${item.name}/${file}', brand: '${brand}', project: '${item.name}' },`);
       });
     }
   });
