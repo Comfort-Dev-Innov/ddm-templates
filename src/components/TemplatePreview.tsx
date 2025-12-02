@@ -8,12 +8,18 @@ interface TemplatePreviewProps {
 export function TemplatePreview({ template }: TemplatePreviewProps) {
   const [htmlContent, setHtmlContent] = useState<string>('');
   const [loading, setLoading] = useState(true);
+  const resolveTemplateUrl = (path: string) => {
+    if (path.startsWith("/src/content")) {
+      return path.replace("/src/content", "/content");
+    }
+    return path;
+  };
 
   useEffect(() => {
     const loadTemplate = async () => {
       setLoading(true);
       try {
-        const response = await fetch(template.path);
+        const response = await fetch(resolveTemplateUrl(template.path));
         if (response.ok) {
           const html = await response.text();
           setHtmlContent(html);
