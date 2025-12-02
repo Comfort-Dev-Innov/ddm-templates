@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Template } from '@/data/templates';
+import type { Template } from '@/data/templates';
 
 interface TemplatePreviewProps {
   template: Template;

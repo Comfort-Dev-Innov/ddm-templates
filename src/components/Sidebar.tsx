@@ -80,16 +80,16 @@ export function AppSidebar() {
     return hoveredTemplate === templateFileName;
   };
 
-  const currentBaseTemplates =
-    templateType === "motive-templates"
-      ? baseTemplates
-      : templateType === "wix"
-      ? wixBaseTemplates
-      : templateType === "wp"
-      ? wpTemplates
-      : []; // For "motive" we'll use special grouping
-  const currentCombinedTemplates =
-    templateType === "motive-templates" ? combinedTemplates : [];
+  const currentBaseTemplates = useMemo(() => {
+    if (templateType === "motive-templates") return baseTemplates;
+    if (templateType === "wix") return wixBaseTemplates;
+    if (templateType === "wp") return wpTemplates;
+    return []; // For "motive" we'll use special grouping
+  }, [templateType]);
+
+  const currentCombinedTemplates = useMemo(() => {
+    return templateType === "motive-templates" ? combinedTemplates : [];
+  }, [templateType]);
 
   const filteredBaseTemplates = useMemo(() => {
     if (!searchQuery) return currentBaseTemplates;
