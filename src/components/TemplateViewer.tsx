@@ -91,26 +91,17 @@ export function TemplateViewer() {
     );
   }
 
-  const currentTemplate = allAvailableTemplates.find(
-    (t) => t.category === category && t.fileName === fileName
-  );
-
   return (
     <Tabs defaultValue="preview" className="h-full flex flex-col relative">
-      <TabsList className="w-full justify-between rounded-none border-b bg-background px-4 h-12">
-        <div className="flex gap-2">
-          <TabsTrigger value="preview" className="gap-2 cursor-pointer">
-            <Eye className="size-4" />
-            <span>Preview</span>
-          </TabsTrigger>
-          <TabsTrigger value="code" className="gap-2 cursor-pointer">
-            <Code2 className="size-4" />
-            <span>Code</span>
-          </TabsTrigger>
-        </div>
-        <span className="text-sm font-medium text-muted-foreground">
-          {currentTemplate?.name || fileName}
-        </span>
+      <TabsList className="w-full justify-start rounded-none border-b bg-background px-4 h-12">
+        <TabsTrigger value="preview" className="gap-2 cursor-pointer">
+          <Eye className="size-4" />
+          <span>Preview</span>
+        </TabsTrigger>
+        <TabsTrigger value="code" className="gap-2 cursor-pointer">
+          <Code2 className="size-4" />
+          <span>Code</span>
+        </TabsTrigger>
       </TabsList>
       <TabsContent
         value="preview"
