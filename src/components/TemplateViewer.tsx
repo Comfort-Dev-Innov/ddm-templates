@@ -93,11 +93,11 @@ export function TemplateViewer() {
   return (
     <Tabs defaultValue="preview" className="h-full flex flex-col">
       <TabsList className="w-full justify-start rounded-none border-b bg-background px-4 h-12">
-        <TabsTrigger value="preview" className="gap-2">
+        <TabsTrigger value="preview" className="gap-2 cursor-pointer">
           <Eye className="size-4" />
           <span>Preview</span>
         </TabsTrigger>
-        <TabsTrigger value="code" className="gap-2">
+        <TabsTrigger value="code" className="gap-2 cursor-pointer">
           <Code2 className="size-4" />
           <span>Code</span>
         </TabsTrigger>
@@ -120,7 +120,7 @@ export function TemplateViewer() {
           onClick={handleCopy}
           size="sm"
           variant="secondary"
-          className="absolute top-4 right-4 z-10 gap-2 "
+          className="absolute top-4 right-4 z-10 gap-2 cursor-pointer"
           style={{ marginRight: "20px" }}
         >
           {copied ? (

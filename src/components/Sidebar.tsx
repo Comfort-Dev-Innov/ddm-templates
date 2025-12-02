@@ -57,9 +57,20 @@ export function AppSidebar() {
   const { state, toggleSidebar } = useSidebar();
   const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Load template type from localStorage on mount, default to "motive-templates"
   const [templateType, setTemplateType] = useState<
     "motive-templates" | "motive" | "wix" | "wp"
-  >("motive-templates");
+  >(() => {
+    const saved = localStorage.getItem("templateType");
+    return (saved as "motive-templates" | "motive" | "wix" | "wp") || "motive-templates";
+  });
+
+  // Save template type to localStorage whenever it changes
+  const handleTemplateTypeChange = (value: "motive-templates" | "motive" | "wix" | "wp") => {
+    setTemplateType(value);
+    localStorage.setItem("templateType", value);
+  };
 
   const isActive = (templateCategory: string, templateFileName: string) => {
     return category === templateCategory && fileName === templateFileName;
@@ -161,20 +172,27 @@ export function AppSidebar() {
               <div className="flex-1">
                 <Select
                   value={templateType}
-                  onValueChange={(
-                    value: "motive-templates" | "motive" | "wix" | "wp"
-                  ) => setTemplateType(value)}
+                  onValueChange={handleTemplateTypeChange}
                 >
-                  <SelectTrigger className="w-[180px] h-auto py-1 border-0 shadow-none focus:ring-0">
-                    <SelectValue />
+                  <SelectTrigger className="h-auto! p-0! border-0! shadow-none! bg-transparent! focus:ring-0! hover:bg-transparent! font-semibold! text-left! w-auto!">
+                    <SelectValue placeholder="Select template type" />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="motive-templates">
+                  <SelectContent className="p-4" style={{ padding: "10px" }}>
+                    <SelectItem
+                      style={{ padding: "4px 0" }}
+                      value="motive-templates"
+                    >
                       Motive Templates
                     </SelectItem>
-                    <SelectItem value="motive">Motive</SelectItem>
-                    <SelectItem value="wix">Wix Templates</SelectItem>
-                    <SelectItem value="wp">WP Templates</SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="motive">
+                      Motive
+                    </SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="wix">
+                      Wix Templates
+                    </SelectItem>
+                    <SelectItem style={{ padding: "4px 0" }} value="wp">
+                      WP Templates
+                    </SelectItem>
                   </SelectContent>
                 </Select>
                 <span className="text-xs text-muted-foreground">
