@@ -80,15 +80,15 @@ export const wixBaseTemplates: Template[] = [
 
 // Wix Pages
 export const wixPages: Template[] = [
-  { name: '3-misleading-google-ads / all-code', fileName: 'all-code.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/all-code.html' },
-  { name: '3-misleading-google-ads / closing', fileName: 'closing.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/closing.html' },
-  { name: '3-misleading-google-ads / myth1', fileName: 'myth1.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/myth1.html' },
-  { name: '3-misleading-google-ads / myth2', fileName: 'myth2.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/myth2.html' },
-  { name: '3-misleading-google-ads / myth3', fileName: 'myth3.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/myth3.html' },
-  { name: '3-misleading-google-ads / section1', fileName: 'section1.html', category: 'base-temp', path: '/src/content/wix/pages/3-misleading-google-ads/section1.html' },
-  { name: 'car-dealers', fileName: 'car-dealers.html', category: 'base-temp', path: '/src/content/wix/pages/car-dealers.html' },
-  { name: 'car-dealerships', fileName: 'car-dealerships.html', category: 'base-temp', path: '/src/content/wix/pages/car-dealerships.html' },
-  { name: 'geo', fileName: 'geo.html', category: 'base-temp', path: '/src/content/wix/pages/geo.html' },
+  { name: '3-misleading-google-ads / all-code', fileName: 'all-code.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/all-code.html' },
+  { name: '3-misleading-google-ads / closing', fileName: 'closing.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/closing.html' },
+  { name: '3-misleading-google-ads / myth1', fileName: 'myth1.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/myth1.html' },
+  { name: '3-misleading-google-ads / myth2', fileName: 'myth2.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/myth2.html' },
+  { name: '3-misleading-google-ads / myth3', fileName: 'myth3.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/myth3.html' },
+  { name: '3-misleading-google-ads / section1', fileName: 'section1.html', category: 'wix-pages-3-misleading-google-ads', path: '/src/content/wix/pages/3-misleading-google-ads/section1.html' },
+  { name: 'car-dealers', fileName: 'car-dealers.html', category: 'wix-pages-root', path: '/src/content/wix/pages/car-dealers.html' },
+  { name: 'car-dealerships', fileName: 'car-dealerships.html', category: 'wix-pages-root', path: '/src/content/wix/pages/car-dealerships.html' },
+  { name: 'geo', fileName: 'geo.html', category: 'wix-pages-root', path: '/src/content/wix/pages/geo.html' },
 ];
 
 // WP Templates (blocks)
